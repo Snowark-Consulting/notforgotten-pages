@@ -1,0 +1,73 @@
+{
+  "client": {
+    "name": "James Hardstaff",
+    "business": "Not Forgotten Systems",
+    "agent": "Atlas"
+  },
+  "onboarding": {
+    "stages": [
+      {
+        "name": "Agent Deployed",
+        "status": "complete",
+        "detail": "Atlas live on orgo.ai \u2014 DeepSeek v4 Pro"
+      },
+      {
+        "name": "Telegram Group",
+        "status": "complete",
+        "detail": "Group active with James, Josh, Winston, Atlas"
+      },
+      {
+        "name": "GitHub Pages",
+        "status": "complete",
+        "detail": "notforgotten-pages repo \u2014 case studies and dash live"
+      },
+      {
+        "name": "Knowledge Base",
+        "status": "complete",
+        "detail": "Business profile, pricing, services, case studies loaded"
+      },
+      {
+        "name": "Email Channel",
+        "status": "pending",
+        "detail": "Awaiting James's email provider details"
+      },
+      {
+        "name": "Profile Picture",
+        "status": "in_progress",
+        "detail": "Yearbook-style avatar \u2014 final touches needed"
+      }
+    ]
+  },
+  "activity": {
+    "tasks_completed": 1,
+    "recent": [
+      {
+        "date": "2026-06-21 10:04",
+        "task": "Dashboard deployed \u2014 Atlas can now self-report tasks",
+        "category": "task"
+      }
+    ]
+  },
+  "health": {
+    "agent": "online",
+    "model": "deepseek-v4-pro (DeepSeek)",
+    "crons": [
+      {
+        "name": "Nightly backup",
+        "status": "ok",
+        "next": "21:30 ACST"
+      },
+      {
+        "name": "Memory consolidation",
+        "status": "ok",
+        "next": "21:00 ACST"
+      },
+      {
+        "name": "Weekly self-lint",
+        "status": "ok",
+        "next": "Sun 17:00 ACST"
+      }
+    ]
+  },
+  "last_updated": "2026-06-21T10:04:44.205215"
+}
