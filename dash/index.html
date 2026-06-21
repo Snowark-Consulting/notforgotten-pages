@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas — Agent Dashboard</title>
+<style>
+  :root {
+    --navy: #0b2c4d; --navy-rgb: 11,44,77;
+    --royal: #1f5891; --royal-rgb: 31,88,145;
+    --gold: #e0a62a; --gold-rgb: 224,166,42;
+    --light: #f7fbff;
+    --white: #FFFFFF; --black: #111;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font); background: var(--light); color: var(--black); line-height: 1.6; }
+  .header { background: var(--navy); padding: 28px 24px 24px; text-align: center; }
+  .header h1 { font-size: 1.5rem; color: var(--white); letter-spacing: 0.02em; }
+  .header .sub { font-size: 0.85rem; color: rgba(255,255,255,0.65); margin-top: 4px; }
+  .header .updated { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; font-size: 0.75rem; color: rgba(255,255,255,0.45); }
+  .pulse { width: 8px; height: 8px; border-radius: 50%; background: #2ecc71; display: inline-block; }
+  .pulse.offline { background: #e74c3c; }
+  .container { max-width: 700px; margin: 0 auto; padding: 24px 16px 60px; }
+  .panel { background: var(--white); border-radius: 10px; margin-bottom: 16px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .panel h2 { padding: 16px 20px 0; font-size: 0.95rem; color: var(--navy); text-transform: uppercase; letter-spacing: 0.05em; }
+  .panel .body { padding: 12px 20px 16px; }
+  .stage { display: flex; align-items: center; gap: 10px; padding: 6px 0; font-size: 0.85rem; border-bottom: 1px solid #f0f0f0; }
+  .stage:last-child { border-bottom: none; }
+  .stage .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .dot.complete { background: #2ecc71; } .dot.in_progress { background: var(--gold); } .dot.pending { background: #ccc; }
+  .feed-item { padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.83rem; }
+  .feed-item:last-child { border-bottom: none; }
+  .feed-item .date { color: #999; font-size: 0.72rem; }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 8px 0; }
+  .stat { text-align: center; }
+  .stat .num { font-size: 1.8rem; font-weight: 700; color: var(--royal); }
+  .stat .label { font-size: 0.72rem; color: #777; text-transform: uppercase; letter-spacing: 0.04em; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.7rem; font-weight: 600; }
+  .badge.ok { background: #e8f8f0; color: #2ecc71; } .badge.warn { background: #fef9e7; color: #c4a42a; }
+  .loading { text-align: center; padding: 40px; color: #999; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Atlas — Agent OS</h1>
+  <div class="sub">Not Forgotten Systems · James Hardstaff</div>
+  <div class="updated"><span class="pulse" id="pulse"></span> <span id="updatedAt">Loading...</span></div>
+</div>
+<div class="container" id="app"><div class="loading">Loading dashboard...</div></div>
+
+<script>
+const DASH_URL = './dash.json';
+let data = null;
+
+async function load() {
+  try {
+    const r = await fetch(DASH_URL + '?t=' + Date.now());
+    data = await r.json();
+    render();
+  } catch(e) {
+    document.getElementById('app').innerHTML = '<div class="loading">Dashboard data not available yet. Atlas is setting things up.</div>';
+  }
+}
+
+function statusDot(s) {
+  if (s === 'complete' || s === 'ok' || s === 'online') return 'complete';
+  if (s === 'in_progress') return 'in_progress';
+  return 'pending';
+}
+
+function ago(iso) {
+  if (!iso) return '';
+  const diff = (Date.now() - new Date(iso).getTime()) / 1000;
+  if (diff < 60) return 'just now';
+  if (diff < 3600) return Math.floor(diff/60) + 'm ago';
+  return Math.floor(diff/3600) + 'h ago';
+}
+
+function render() {
+  const d = data;
+  const p = document.getElementById('pulse');
+  const agentOnline = d.health?.agent === 'online';
+  p.className = 'pulse' + (agentOnline ? '' : ' offline');
+  document.getElementById('updatedAt').textContent = 'Last updated ' + ago(d.last_updated);
+
+  let html = '';
+
+  // Stats
+  html += '<div class="panel"><h2>Overview</h2><div class="body"><div class="stats">';
+  html += '<div class="stat"><div class="num">' + (d.activity?.tasks_completed || 0) + '</div><div class="label">Tasks Completed</div></div>';
+  html += '<div class="stat"><div class="num">' + (agentOnline ? 'Live' : 'Off') + '</div><div class="label">Agent Status</div></div>';
+  html += '</div></div></div>';
+
+  // Onboarding
+  if (d.onboarding?.stages) {
+    html += '<div class="panel"><h2>Setup Progress</h2><div class="body">';
+    d.onboarding.stages.forEach(s => {
+      html += '<div class="stage"><span class="dot ' + statusDot(s.status) + '"></span>' + s.name;
+      html += '<span style="margin-left:auto;font-size:0.72rem;color:#999">' + (s.detail || '') + '</span></div>';
+    });
+    html += '</div></div>';
+  }
+
+  // Activity feed
+  if (d.activity?.recent?.length) {
+    html += '<div class="panel"><h2>Recent Activity</h2><div class="body">';
+    d.activity.recent.forEach(a => {
+      html += '<div class="feed-item"><span class="date">' + (a.date || '') + '</span><br>' + (a.task || '') + '</div>';
+    });
+    html += '</div></div>';
+  }
+
+  // Health
+  html += '<div class="panel"><h2>System Health</h2><div class="body">';
+  html += '<div style="font-size:0.83rem;margin-bottom:8px">Model: ' + (d.health?.model || '—') + '</div>';
+  if (d.health?.crons) {
+    d.health.crons.forEach(c => {
+      html += '<div class="stage"><span class="dot ' + statusDot(c.status) + '"></span>' + c.name;
+      html += '<span style="margin-left:auto;font-size:0.72rem">' + (c.next || '') + '</span></div>';
+    });
+  }
+  html += '</div></div>';
+
+  document.getElementById('app').innerHTML = html;
+}
+
+load();
+setInterval(load, 30000);
+</script>
+</body>
+</html>
