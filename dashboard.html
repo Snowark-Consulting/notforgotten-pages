@@ -5,384 +5,87 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Not Forgotten — Business Health</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root {
-  --primary: #0b2c4d;
-  --primary-light: #1f5891;
-  --secondary: #0a0a0a;
-  --tertiary: #e0a62a;
-  --neutral: #ffffff;
-  --surface: #f5f5f5;
-  --surface-alt: #f7fbff;
-  --muted: #737373;
-  --link: #006aff;
-  --border: #e5e5e5;
-  --success: #16a34a;
-  --danger: #dc2626;
-  --warning: #f59e0b;
-  --info: #006aff;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --space-xs: 8px;
-  --space-sm: 16px;
-  --space-md: 24px;
-  --space-lg: 48px;
-  --space-xl: 80px;
-  --font-xs: 12px;
-  --font-sm: 14px;
-  --font-md: 16px;
-  --font-lg: 18px;
-  --font-xl: 24px;
-  --font-2xl: 32px;
-  --font-3xl: 40px;
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'Inter', -apple-system, sans-serif;
-  background: var(--neutral);
-  color: var(--secondary);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-.container { max-width: 1280px; margin: 0 auto; padding: 0 var(--space-md); }
-
-/* Header */
-.header {
-  background: var(--primary);
-  padding: var(--space-md) 0;
-  position: sticky; top: 0; z-index: 100;
-}
-.header .container {
-  display: flex; align-items: center; justify-content: space-between;
-}
-.header-logo {
-  display: flex; align-items: center; gap: var(--space-sm); text-decoration: none;
-}
-.header-logo img { height: 32px; width: auto; }
-.header-logo span {
-  color: var(--neutral); font-size: var(--font-lg); font-weight: 600;
-}
-.header-meta { color: rgba(255,255,255,0.7); font-size: var(--font-sm); }
-.header-meta strong { color: var(--neutral); }
-
-/* KPI Row */
-.kpi-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-md);
-  margin: var(--space-lg) 0 var(--space-md);
-}
-.kpi-card {
-  background: var(--neutral);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: var(--space-md);
-}
-.kpi-label { font-size: var(--font-sm); color: var(--muted); font-weight: 500; margin-bottom: var(--space-xs); }
-.kpi-value { font-size: var(--font-3xl); font-weight: 700; color: var(--primary); line-height: 1.1; }
-.kpi-sub { font-size: var(--font-xs); color: var(--muted); margin-top: var(--space-xs); }
-.kpi-sub.good { color: var(--success); }
-.kpi-sub.warn { color: var(--warning); }
-
-/* Sections */
-.section { margin: var(--space-lg) 0; }
-.section-title {
-  font-size: var(--font-xl); font-weight: 700; color: var(--secondary);
-  margin-bottom: var(--space-sm);
-}
-.section-desc { font-size: var(--font-sm); color: var(--muted); margin-bottom: var(--space-md); }
-
-/* Grids */
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
-.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-md); }
-
-/* Cards */
-.card {
-  background: var(--neutral);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: var(--space-md);
-}
-.card-header {
-  display: flex; justify-content: space-between; align-items: center;
-  margin-bottom: var(--space-sm);
-}
-.card-title { font-weight: 600; font-size: var(--font-md); }
-.card-badge {
-  font-size: var(--font-xs); font-weight: 600; padding: 2px var(--space-xs);
-  border-radius: 4px;
-}
-.badge-active { background: #dcfce7; color: #166534; }
-.badge-review { background: #fef9c3; color: #854d0e; }
-.badge-hot { background: #fee2e2; color: #991b1b; }
-.badge-warm { background: #fef3c7; color: #92400e; }
-.badge-cold { background: #f3f4f6; color: #4b5563; }
-
-/* Pipeline */
-.pipeline-bar {
-  display: flex; gap: 4px; height: 8px; border-radius: 4px;
-  overflow: hidden; margin-bottom: var(--space-sm);
-}
-.pipeline-bar .seg { height: 100%; }
-.pipeline-labels {
-  display: flex; justify-content: space-between; font-size: var(--font-xs);
-  color: var(--muted);
-}
-.pipeline-stages {
-  display: flex; gap: var(--space-xs); margin-top: var(--space-sm);
-}
-.pipeline-stage {
-  flex: 1; text-align: center; padding: var(--space-xs);
-  border-radius: var(--radius-sm);
-  font-size: var(--font-xs); font-weight: 500;
-  background: var(--surface);
-}
-.pipeline-stage.active { background: var(--primary); color: var(--neutral); font-weight: 600; }
-
-/* Activity Feed */
-.activity-item {
-  display: flex; gap: var(--space-sm); padding: var(--space-sm) 0;
-  border-bottom: 1px solid var(--border);
-}
-.activity-item:last-child { border-bottom: none; }
-.activity-icon {
-  width: 32px; height: 32px; border-radius: 50%; display: flex;
-  align-items: center; justify-content: center; flex-shrink: 0;
-  font-size: var(--font-xs); font-weight: 700; color: var(--neutral);
-}
-.icon-outbound { background: var(--primary-light); }
-.icon-inbound { background: var(--success); }
-.activity-body { flex: 1; }
-.activity-meta { font-size: var(--font-xs); color: var(--muted); }
-.activity-text { font-size: var(--font-sm); color: var(--secondary); margin-top: 2px; }
-
-/* Tradie Row */
-.tradie-card {
-  display: flex; align-items: center; gap: var(--space-sm);
-  padding: var(--space-sm); border-radius: var(--radius-sm);
-  background: var(--surface);
-}
-.tradie-avatar {
-  width: 40px; height: 40px; border-radius: 50%; display: flex;
-  align-items: center; justify-content: center; font-weight: 700;
-  font-size: var(--font-lg); color: var(--neutral);
-  background: var(--primary);
-}
-.tradie-info { flex: 1; }
-.tradie-name { font-weight: 600; font-size: var(--font-md); }
-.tradie-trade { font-size: var(--font-xs); color: var(--muted); }
-.tradie-stat { text-align: right; }
-.tradie-stat-val { font-weight: 700; font-size: var(--font-lg); color: var(--primary); }
-.tradie-stat-label { font-size: var(--font-xs); color: var(--muted); }
-
-/* Status breakdown */
-.status-row {
-  display: flex; gap: var(--space-xs); align-items: center; margin: var(--space-xs) 0;
-}
-.status-dot {
-  width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
-}
-.status-label { font-size: var(--font-sm); flex: 1; }
-.status-count { font-weight: 600; font-size: var(--font-sm); }
-
-/* Table */
-.mini-table { width: 100%; font-size: var(--font-sm); }
-.mini-table th {
-  text-align: left; font-weight: 600; color: var(--muted); font-size: var(--font-xs);
-  padding: var(--space-xs) 0; border-bottom: 1px solid var(--border);
-  text-transform: uppercase; letter-spacing: 0.05em;
-}
-.mini-table td { padding: var(--space-sm) 0; border-bottom: 1px solid var(--border); }
-.mini-table tr:last-child td { border-bottom: none; }
-
-/* Donut SVG */
-.donut-wrap { position: relative; width: 120px; height: 120px; margin: 0 auto; }
-.donut-center {
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-  text-align: center;
-}
-.donut-center .val { font-size: var(--font-xl); font-weight: 700; color: var(--primary); }
-.donut-center .lbl { font-size: var(--font-xs); color: var(--muted); }
-
-/* Empty state */
-.empty-state {
-  text-align: center; padding: var(--space-lg); color: var(--muted);
-  font-size: var(--font-sm);
-}
-
-/* Footer */
-.footer {
-  text-align: center; padding: var(--space-md); color: var(--muted);
-  font-size: var(--font-xs); border-top: 1px solid var(--border);
-  margin-top: var(--space-lg);
-}
-.footer a { color: var(--link); }
-
-/* Responsive */
-@media (max-width: 900px) {
-  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
-  .grid-2, .grid-3 { grid-template-columns: 1fr; }
-  .kpi-value { font-size: var(--font-2xl); }
-}
-@media (max-width: 500px) {
-  .kpi-grid { grid-template-columns: 1fr; }
-  .header-logo span { display: none; }
-}
-</style>
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',-apple-system,sans-serif;background:#fff;color:#0a0a0a;line-height:1.6;-webkit-font-smoothing:antialiased}
+.container{max-width:1280px;margin:0 auto;padding:0 24px}
+.header{background:#0b2c4d;padding:24px 0;position:sticky;top:0;z-index:100}
+.header .container{display:flex;align-items:center;justify-content:space-between}
+.header-logo{display:flex;align-items:center;gap:16px;text-decoration:none}
+.header-logo img{height:32px;width:auto}
+.header-logo span{color:#fff;font-size:18px;font-weight:600}
+.header-meta{color:rgba(255,255,255,.7);font-size:14px}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:48px 0 24px}
+.kpi-card{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:24px}
+.kpi-label{font-size:14px;color:#737373;font-weight:500;margin-bottom:8px}
+.kpi-value{font-size:40px;font-weight:700;color:#0b2c4d;line-height:1.1}
+.kpi-sub{font-size:12px;color:#737373;margin-top:8px}
+.good{color:#16a34a}.warn{color:#f59e0b}
+.section{margin:48px 0}
+.section-title{font-size:24px;font-weight:700;margin-bottom:16px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.card{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:24px}
+.card-title{font-weight:600;font-size:16px;margin-bottom:16px}
+.card-badge{font-size:12px;font-weight:600;padding:2px 8px;border-radius:4px}
+.badge-review{background:#fef9c3;color:#854d0e}
+.pipeline-bar{display:flex;gap:4px;height:8px;border-radius:4px;overflow:hidden;margin-bottom:16px}
+.pipeline-stages{display:flex;gap:8px}
+.pipeline-stage{flex:1;text-align:center;padding:8px;border-radius:8px;font-size:12px;font-weight:500;background:#f5f5f5}
+.pipeline-stage.active{background:#0b2c4d;color:#fff;font-weight:600}
+.activity-item{display:flex;gap:16px;padding:12px 0;border-bottom:1px solid #e5e5e5}
+.activity-item:last-child{border-bottom:none}
+.activity-icon{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;font-weight:700;color:#fff}
+.icon-outbound{background:#1f5891}.icon-inbound{background:#16a34a}
+.activity-body{flex:1}.activity-meta{font-size:12px;color:#737373}
+.activity-text{font-size:14px;margin-top:2px}
+.tradie-card{display:flex;align-items:center;gap:12px;padding:12px;border-radius:8px;background:#f5f5f5;margin-bottom:8px}
+.tradie-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;color:#fff;background:#0b2c4d}
+.tradie-info{flex:1}.tradie-name{font-weight:600;font-size:16px}
+.tradie-trade{font-size:12px;color:#737373}
+.tradie-stat{text-align:right}.tradie-stat-val{font-weight:700;font-size:18px;color:#0b2c4d}
+.tradie-stat-label{font-size:12px;color:#737373}
+.status-row{display:flex;gap:8px;align-items:center;margin:8px 0}
+.status-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.status-label{font-size:14px;flex:1}.status-count{font-weight:600;font-size:14px}
+.empty-state{text-align:center;padding:48px;color:#737373;font-size:14px}
+.footer{text-align:center;padding:24px;color:#737373;font-size:12px;border-top:1px solid #e5e5e5;margin-top:48px}
+.footer a{color:#006aff}
+@media(max-width:900px){.kpi-grid{grid-template-columns:repeat(2,1fr)}.grid-2{grid-template-columns:1fr}.kpi-value{font-size:32px}}
+@media(max-width:500px){.kpi-grid{grid-template-columns:1fr}.header-logo span{display:none}}</style>
 </head>
 <body>
-
-<header class="header">
-  <div class="container">
-    <a class="header-logo" href="https://notforgotten.com.au">
-      <img src="assets/logo.png" alt="Not Forgotten">
-      <span>Business Health</span>
-    </a>
-    <div class="header-meta">
-      Updated <strong id="last-updated">just now</strong> · <span id="data-source">Airtable</span>
-    </div>
-  </div>
-</header>
-
+<header class="header"><div class="container">
+<a class="header-logo" href="https://notforgotten.com.au"><img src="assets/logo.png" alt="Not Forgotten"><span>Business Health</span></a>
+<div class="header-meta">Updated <strong>Jun 21, 2026 at 09:35 PM ACST</strong> · Airtable</div>
+</div></header>
 <main class="container">
-
-  <!-- KPI Row -->
-  <section class="kpi-grid">
-    <div class="kpi-card">
-      <div class="kpi-label">Active Customers</div>
-      <div class="kpi-value" id="kpi-customers">1</div>
-      <div class="kpi-sub" id="kpi-customers-sub">All on paid plans</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Pipeline Value</div>
-      <div class="kpi-value" id="kpi-pipeline">$14,650</div>
-      <div class="kpi-sub">1 active quote</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Response Rate</div>
-      <div class="kpi-value" id="kpi-response">100%</div>
-      <div class="kpi-sub good">1 of 1 quotes replied</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Messages This Week</div>
-      <div class="kpi-value" id="kpi-messages">4</div>
-      <div class="kpi-sub">3 inbound · 1 outbound</div>
-    </div>
-  </section>
-
-  <!-- Main Grid -->
-  <div class="grid-2">
-
-    <!-- Quote Pipeline -->
-    <section class="card">
-      <div class="card-header">
-        <div class="card-title">Quote Pipeline</div>
-        <span class="card-badge badge-review">1 needs review</span>
-      </div>
-      <div class="pipeline-bar">
-        <div class="seg" style="background:var(--muted);width:20%"></div>
-        <div class="seg" style="background:var(--tertiary);width:20%"></div>
-        <div class="seg" style="background:var(--surface);width:20%"></div>
-        <div class="seg" style="background:var(--surface);width:20%"></div>
-        <div class="seg" style="background:var(--surface);width:20%"></div>
-      </div>
-      <div class="pipeline-stages">
-        <div class="pipeline-stage">New</div>
-        <div class="pipeline-stage active">In Sequence</div>
-        <div class="pipeline-stage">Replied</div>
-        <div class="pipeline-stage">Awaiting</div>
-        <div class="pipeline-stage">Won / Lost</div>
-      </div>
-    </section>
-
-    <!-- Urgency Breakdown -->
-    <section class="card">
-      <div class="card-title" style="margin-bottom:var(--space-sm)">Quote Health</div>
-      <div class="grid-2">
-        <div style="text-align:center; padding: var(--space-sm); background:var(--surface-alt); border-radius:var(--radius-sm);">
-          <div style="font-size:var(--font-2xl);font-weight:700;color:var(--primary);">$14.7k</div>
-          <div style="font-size:var(--font-xs);color:var(--muted);">Pipeline Value</div>
-        </div>
-        <div style="text-align:center; padding: var(--space-sm); background:var(--surface-alt); border-radius:var(--radius-sm);">
-          <div style="font-size:var(--font-2xl);font-weight:700;color:var(--tertiary);">Day 0</div>
-          <div style="font-size:var(--font-xs);color:var(--muted);">Current Stage</div>
-        </div>
-      </div>
-      <table class="mini-table" style="margin-top:var(--space-md)">
-        <tr><td>Quote #35</td><td style="text-align:right">Alice · Mount Barker</td><td style="text-align:right;font-weight:600;color:var(--primary)">$14,650</td></tr>
-        <tr><td colspan="2" style="font-size:var(--font-xs);color:var(--muted)">Sent Jun 15 · Replied Jun 15 · Awaiting review</td><td style="text-align:right"><span class="card-badge badge-active">Replied</span></td></tr>
-      </table>
-    </section>
-  </div>
-
-  <!-- Recent Activity -->
-  <section class="section">
-    <div class="section-title">Recent Activity</div>
-    <div class="card" id="activity-feed">
-      <div class="activity-item">
-        <div class="activity-icon icon-inbound">IN</div>
-        <div class="activity-body">
-          <div class="activity-meta">Jun 15 · Alice — Quote #35</div>
-          <div class="activity-text">Replied with questions about prep process, warranty, materials included, and booking timeline. Comparing against competitor quote.</div>
-        </div>
-      </div>
-      <div class="activity-item">
-        <div class="activity-icon icon-outbound">OUT</div>
-        <div class="activity-body">
-          <div class="activity-meta">Jun 15 · 6:02 AM · Auto-sent</div>
-          <div class="activity-text">Day 0 intro: James introduced himself on behalf of Travis Krieg Painting, offered to answer questions about the Mount Barker proposal.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Customers + Industry -->
-  <div class="grid-2">
-    <section class="card">
-      <div class="card-title" style="margin-bottom:var(--space-sm)">Customers</div>
-      <div class="tradie-card">
-        <div class="tradie-avatar">TK</div>
-        <div class="tradie-info">
-          <div class="tradie-name">Travis Krieg Painting</div>
-          <div class="tradie-trade">Painter · admin@traviskreigpainting.com</div>
-        </div>
-        <div class="tradie-stat">
-          <div class="tradie-stat-val">$14,650</div>
-          <div class="tradie-stat-label">pipeline</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="card">
-      <div class="card-title" style="margin-bottom:var(--space-sm)">By Industry</div>
-      <div class="status-row">
-        <div class="status-dot" style="background:var(--primary)"></div>
-        <span class="status-label">Painter</span>
-        <span class="status-count">1</span>
-      </div>
-      <div style="margin-top:var(--space-sm); font-size:var(--font-xs); color:var(--muted);">
-        Electrician · Plumber · Builder · Landscaper — no active customers yet
-      </div>
-    </section>
-  </div>
-
+<section class="kpi-grid">
+<div class="kpi-card"><div class="kpi-label">Active Customers</div><div class="kpi-value">1</div><div class="kpi-sub">All on paid plans</div></div>
+<div class="kpi-card"><div class="kpi-label">Pipeline Value</div><div class="kpi-value">$14,650</div><div class="kpi-sub">1 active quote</div></div>
+<div class="kpi-card"><div class="kpi-label">Response Rate</div><div class="kpi-value">100%</div><div class="kpi-sub good">1 of 1 quote replied</div></div>
+<div class="kpi-card"><div class="kpi-label">Messages This Week</div><div class="kpi-value">4</div><div class="kpi-sub">3 inbound · 1 outbound</div></div>
+</section>
+<div class="grid-2">
+<section class="card"><div class="card-title">Quote Pipeline</div><span class="card-badge badge-review">1 needs review</span>
+<div class="pipeline-bar"><div class="seg" style="background:#737373;width:20%"></div><div class="seg" style="background:#e0a62a;width:20%"></div><div class="seg" style="background:#f5f5f5;width:20%"></div><div class="seg" style="background:#f5f5f5;width:20%"></div><div class="seg" style="background:#f5f5f5;width:20%"></div></div>
+<div class="pipeline-stages"><div class="pipeline-stage">New</div><div class="pipeline-stage active">In Sequence</div><div class="pipeline-stage">Replied</div><div class="pipeline-stage">Awaiting</div><div class="pipeline-stage">Won / Lost</div></div>
+</section>
+<section class="card"><div class="card-title">Quote Health</div>
+<div class="grid-2" style="grid-template-columns:1fr 1fr">
+<div style="text-align:center;padding:16px;background:#f7fbff;border-radius:8px"><div style="font-size:32px;font-weight:700;color:#0b2c4d">$14,650</div><div style="font-size:12px;color:#737373">Pipeline Value</div></div>
+<div style="text-align:center;padding:16px;background:#f7fbff;border-radius:8px"><div style="font-size:32px;font-weight:700;color:#e0a62a">1</div><div style="font-size:12px;color:#737373">Active Quotes</div></div>
+</div></section>
+</div>
+<section class="section"><div class="section-title">Recent Activity</div><div class="card"><div class="activity-item"><div class="activity-icon icon-outbound">OUT</div><div class="activity-body"><div class="activity-meta">Jun 15 · 03:32 PM · Auto-sent · Quote #IDr</div><div class="activity-text">Hi Alice,...</div></div></div>
+<div class="activity-item"><div class="activity-icon icon-inbound">IN</div><div class="activity-body"><div class="activity-meta">Unknown · Quote #IDr</div><div class="activity-text">Hi James,...</div></div></div>
+<div class="activity-item"><div class="activity-icon icon-inbound">IN</div><div class="activity-body"><div class="activity-meta">Unknown · Quote #IDr</div><div class="activity-text">Hi James,...</div></div></div>
+<div class="activity-item"><div class="activity-icon icon-inbound">IN</div><div class="activity-body"><div class="activity-meta">Unknown · Quote #IDr</div><div class="activity-text">Hi James,...</div></div></div>
+</div></section>
+<div class="grid-2">
+<section class="card"><div class="card-title">Customers</div><div class="tradie-card"><div class="tradie-avatar">TK</div><div class="tradie-info"><div class="tradie-name">Travis Krieg Painting</div><div class="tradie-trade">Painter · admin@traviskreigpainting.com</div></div><div class="tradie-stat"><div class="tradie-stat-val">$14,650</div><div class="tradie-stat-label">pipeline</div></div></div>
+</section>
+<section class="card"><div class="card-title">By Industry</div><div class="status-row"><div class="status-dot" style="background:#0b2c4d"></div><span class="status-label">Painter</span><span class="status-count">1</span></div>
+</section>
+</div>
 </main>
-
-<footer class="footer">
-  Not Forgotten Systems · Business Health Dashboard · 
-  <a href="https://notforgotten.com.au">notforgotten.com.au</a>
-</footer>
-
-<script>
-// Set timestamp
-document.getElementById('last-updated').textContent = new Date().toLocaleString('en-AU', { 
-  timeZone: 'Australia/Adelaide', dateStyle: 'medium', timeStyle: 'short' 
-});
-</script>
-
-</body>
-</html>
+<footer class="footer">Not Forgotten Systems · Business Health Dashboard · Auto-refreshed hourly · <a href="https://notforgotten.com.au">notforgotten.com.au</a></footer>
+</body></html>
