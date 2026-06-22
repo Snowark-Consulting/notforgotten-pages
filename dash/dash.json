@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 5,
+    "tasks_completed": 6,
     "recent": [
+      {
+        "date": "2026-06-22 20:51",
+        "task": "Rebuilt inbox watchdog as two-phase pulse: 60s unread scan + full-identity agent boot when mail found, auto-mark-read",
+        "category": "task"
+      },
       {
         "date": "2026-06-22 20:35",
         "task": "Full-graph wikilink pass + vault lint: 22 files connected (~70 links), 2 orphan cards fixed (git, supabase), 0 broken links",
@@ -89,5 +94,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-22T20:35:33.448720"
+  "last_updated": "2026-06-22T20:51:32.543142"
 }
