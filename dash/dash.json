@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 6,
+    "tasks_completed": 7,
     "recent": [
+      {
+        "date": "2026-06-23 07:11",
+        "task": "Fixed inbox pulse double-post bug \u2014 mark-as-read now happens before summarising, closing race condition between Phase 1 (60s poll) and Phase 2 (slow agent boot)",
+        "category": "task"
+      },
       {
         "date": "2026-06-22 20:51",
         "task": "Rebuilt inbox watchdog as two-phase pulse: 60s unread scan + full-identity agent boot when mail found, auto-mark-read",
@@ -94,5 +99,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-22T20:51:32.543142"
+  "last_updated": "2026-06-23T07:11:23.869543"
 }
