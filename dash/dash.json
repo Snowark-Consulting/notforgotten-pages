@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 7,
+    "tasks_completed": 8,
     "recent": [
+      {
+        "date": "2026-06-23 13:10",
+        "task": "Ingested and adapted 12 marketing skills from coreyhaines31/marketingskills for Not Forgotten: copywriting, emails, cro, marketing-psychology, cold-email, offers, copy-editing, pricing, popups, signup, churn-prevention, ad-creative. All tradie-adapted with NFS voice/product context.",
+        "category": "task"
+      },
       {
         "date": "2026-06-23 07:11",
         "task": "Fixed inbox pulse double-post bug \u2014 mark-as-read now happens before summarising, closing race condition between Phase 1 (60s poll) and Phase 2 (slow agent boot)",
@@ -99,5 +104,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-23T07:11:23.869543"
+  "last_updated": "2026-06-23T13:10:56.302886"
 }
