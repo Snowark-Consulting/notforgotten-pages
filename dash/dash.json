@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 9,
+    "tasks_completed": 10,
     "recent": [
+      {
+        "date": "2026-06-24 11:16",
+        "task": "Accepted Gmail delegation from james@notforgotten.com.au \u2014 verification propagating (up to 30min). Chrome persistent profile active on CDP :9222.",
+        "category": "task"
+      },
       {
         "date": "2026-06-24 11:02",
         "task": "Inbox pulse cron upgraded to 24/7 coverage \u2014 closed the 8-hour blind spot that caused a delegation verification email to be silently missed today",
@@ -109,5 +114,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-24T11:02:05.806490"
+  "last_updated": "2026-06-24T11:16:35.393957"
 }
