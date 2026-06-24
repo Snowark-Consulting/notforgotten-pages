@@ -1,0 +1,820 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Completed Pipeline Analysis</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"><style>/* Not Forgotten Systems Design */
+:root { --nfs-navy: #0b2c4d; --nfs-near-black: #0a0a0a; --nfs-gold: #e0a62a; --nfs-white: #FFFFFF; --nfs-light: #f7fbff; --nfs-muted: #666666; --nfs-royal: #1f5891; --nfs-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--nfs-font); color: var(--nfs-near-black); background: var(--nfs-white); line-height: 1.7; }
+.container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+.hero { background: var(--nfs-navy); color: var(--nfs-white); padding: 60px 0 50px; }
+.hero h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 8px; }
+.hero .meta { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+.content { padding: 50px 0 80px; }
+h2 { color: var(--nfs-navy); font-size: 1.5rem; font-weight: 700; margin: 40px 0 16px; border-bottom: 2px solid var(--nfs-gold); padding-bottom: 8px; }
+h3 { font-size: 1.15rem; font-weight: 700; margin: 28px 0 10px; color: var(--nfs-near-black); }
+h4 { font-size: 1rem; font-weight: 700; margin: 20px 0 8px; }
+p { margin: 12px 0; }
+strong { color: var(--nfs-navy); }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem; }
+th { background: var(--nfs-navy); color: var(--nfs-white); padding: 10px 12px; text-align: left; font-weight: 700; }
+td { padding: 10px 12px; border-bottom: 1px solid rgba(0,0,0,0.08); }
+tr:nth-child(even) td { background: var(--nfs-light); }
+code { background: rgba(0,0,0,0.05); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+pre { background: #1e293b; color: #e2e8f0; padding: 16px; border-radius: 8px; overflow-x: auto; margin: 16px 0; font-size: 0.85rem; line-height: 1.5; }
+pre code { background: none; padding: 0; color: inherit; }
+blockquote { border-left: 4px solid var(--nfs-gold); margin: 16px 0; padding: 12px 20px; background: var(--nfs-light); font-style: italic; }
+blockquote strong { color: var(--nfs-near-black); }
+hr { border: none; border-top: 1px solid rgba(0,0,0,0.08); margin: 40px 0; }
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 6px 0; }
+.footer { background: var(--nfs-light); padding: 30px 0; text-align: center; color: var(--nfs-muted); font-size: 0.85rem; }
+.footer a { color: var(--nfs-royal); text-decoration: none; }
+.back-link { display: inline-block; margin-bottom: 20px; color: var(--nfs-royal); text-decoration: none; font-weight: 700; }
+.back-link:hover { text-decoration: underline; }
+.highlight { background: linear-gradient(180deg, transparent 60%, rgba(224,166,42,0.25) 60%); }
+</style></head><body><div class="hero"><div class="container"><h1>Completed Pipeline Analysis</h1><p class="meta">Date of Analysis: June 24, 2026...</p></div></div><div class="content"><div class="container"><a href="./" class="back-link">&larr; All Reports</a><h2>Deep Analysis for Not Forgotten Systems Pipeline Intelligence</h2>
+
+<strong>Date of Analysis:</strong> June 24, 2026  
+<strong>Data Source:</strong> 148 "Compelted" (Completed) labeled messages from James Hardstaff's Gmail  
+<strong>Method:</strong> Full-body pull of 30 representative messages via Gmail API + snippet analysis of all 148  
+<strong>Date Range:</strong> August 20, 2025 – May 27, 2026 (~9 months)
+
+<hr>
+
+<h2>Executive Summary</h2>
+
+<p>James Hardstaff's "Completed" label is an <strong>operational pipeline status</strong>, not a sales outcome. When James marks a thread "Completed," it means he has finished his follow-up work on that lead — the lead may have been won, lost, handed back to the painter, or gone quiet. This is a <em>workflow completion</em> marker, not a <em>deal outcome</em> marker.</p>
+
+<p>The 148 completed messages span 67 threads across ~9 months and reveal three distinct workflows:</p>
+<p>1. <strong>TKP Client Follow-Up</strong> (~40%): James following up with end-homeowner clients on behalf of Travis Krieg Painting</p>
+<p>2. <strong>TKP Internal Coordination</strong> (~30%): Status updates, process alignment, and handoffs with Travis and Sherie (Office Manager)</p>
+<p>3. <strong>NF Prospect Outreach</strong> (~25%): James selling Not Forgotten Systems to other painting/trade businesses</p>
+
+<hr>
+
+<h2>1. What Characterizes a "Completed" Thread</h2>
+
+<h3>The Completion Trigger</h3>
+<p>James marks a thread "Completed" when ONE of the following occurs:</p>
+
+<table>
+<tr>
+<th>Trigger</th>
+<th>Signal</th>
+<th>~% of Threads</th>
+</tr>
+<tr>
+<td><strong>Client responded with a decision</strong> (yes or no)</td>
+<td>"happy to proceed" / "going with another"</td>
+<td>~15%</td>
+</tr>
+<tr>
+<td><strong>James handed off to painter/office</strong></td>
+<td>"I've emailed Sherie to chase this up" / "I'll have Travis reach out"</td>
+<td>~20%</td>
+</tr>
+<tr>
+<td><strong>James exhausted follow-up attempts</strong></td>
+<td>"I'll close the file on my end" / "just a quick note to close the loop"</td>
+<td>~25%</td>
+</tr>
+<tr>
+<td><strong>Lead went dead (no response)</strong></td>
+<td>Final check-in with no reply after multiple attempts</td>
+<td>~30%</td>
+</tr>
+<tr>
+<td><strong>Administrative resolution</strong></td>
+<td>Refund processed, account issue resolved</td>
+<td>~5%</td>
+</tr>
+<tr>
+<td><strong>Purely informational</strong></td>
+<td>Status update sent, no further action needed</td>
+<td>~5%</td>
+</tr>
+</table>
+
+<h3>Key Pattern: The "Close the Loop" Email</h3>
+<p>James uses a distinctive pattern for leads he's giving up on — a final email that:</p>
+<li>Explicitly states he's closing the file</li>
+<li>Gives the prospect an easy out</li>
+<li>Leaves the door open for future contact</li>
+<li>Example: <em>"I've reached out a couple of times and I don't want to keep filling up your inbox, so I'll make this my last note."</em></li>
+
+<h3>Key Pattern: The Structured 3-Option Ask</h3>
+<p>James consistently uses a structured framework when following up with end-clients:</p>
+<p>> <em>"Are you: (1) happy to move ahead, (2) still considering timing, or (3) planning to go in a different direction?"</em></p>
+
+<p>This is effective because it:</p>
+<li>Makes responding easy (pick an option)</li>
+<li>Normalizes "no" as a valid answer</li>
+<li>Surfaces objections/delays explicitly</li>
+<li>Allows James to close the loop cleanly</li>
+
+<hr>
+
+<h2>2. Contact Distribution in the Completed Set</h2>
+
+<h3>By Contact Category (148 messages, 56 unique contacts)</h3>
+
+<table>
+<tr>
+<th>Category</th>
+<th>Messages</th>
+<th>%</th>
+<th>Key Contacts</th>
+</tr>
+<tr>
+<td><strong>Client/Homeowner</strong></td>
+<td>57</td>
+<td>38.5%</td>
+<td>TKP end-clients (Tracey, Linda, Steve Holt, Geoff, Andrea, etc.) and NF prospects (Shannon@BellaCarpentry, Alex@StollPlumbing)</td>
+</tr>
+<tr>
+<td><strong>Travis Krieg Office</strong></td>
+<td>47</td>
+<td>31.8%</td>
+<td>Office Manager/Sherie (36), Travis Krieg (8), admin@andyshanley (1), Admin@customminds (1), admin (1)</td>
+</tr>
+<tr>
+<td><strong>Painter (Marlene Newton)</strong></td>
+<td>9</td>
+<td>6.1%</td>
+<td>Marlene Newton — an active TKP client AND potential NF partner</td>
+</tr>
+<tr>
+<td><strong>Painter (Campbell Smith)</strong></td>
+<td>8</td>
+<td>5.4%</td>
+<td>Campbell Smith — another TKP client being followed up</td>
+</tr>
+<tr>
+<td><strong>Painter (MJ/Master of Paint)</strong></td>
+<td>8</td>
+<td>5.4%</td>
+<td>MJ Painting, Master of Paint — NF prospects</td>
+</tr>
+<tr>
+<td><strong>Painter (Stefan Neale)</strong></td>
+<td>6</td>
+<td>4.1%</td>
+<td>Stefan Neale — NF prospect (6-touch thread!)</td>
+</tr>
+<tr>
+<td><strong>Finance/Partner</strong></td>
+<td>4</td>
+<td>2.7%</td>
+<td>Leah Busby (Blackfish Finance) — both a TKP client and a potential referral partner</td>
+</tr>
+<tr>
+<td><strong>Painter (Other)</strong></td>
+<td>1</td>
+<td>0.7%</td>
+<td>Painters Adelaide (info@paintersadelaide.com.au)</td>
+</tr>
+<tr>
+<td><strong>Other</strong></td>
+<td>8</td>
+<td>5.4%</td>
+<td>Framer support, TradieMate Pro, Matthew Ferber, etc.</td>
+</tr>
+</table>
+
+<h3>Which Painters Did James "Finish" With?</h3>
+
+<strong>Confirmed Active Relationships (pipeline progressing → completed):</strong>
+<li><strong>Travis Krieg Painting</strong>: The anchor client. 47 internal emails. James is actively following up TKP's end-clients. Sherie (Office Manager) is the primary operational contact. Shared spreadsheet, cc workflow, weekly updates.</li>
+<li><strong>Marlene Newton</strong>: 9 messages. She said "I certainly am still with you — please don't drop me!" James handed her back to Sherie for requoting. Active client retained.</li>
+<li><strong>Campbell Smith</strong>: 8 messages. Active follow-up on finance approval for 58 Kingborn Avenue. Multiple touches over weeks.</li>
+
+<strong>NF Prospects James Pursued (didn't convert, thread completed):</strong>
+<li><strong>Stefan Neale</strong> (Top Painters Adelaide): 6 touches — James's most persistent prospect outreach. Ended with "Quick yes or no?" ultimatum. Likely no conversion.</li>
+<li><strong>MJ Painting</strong>: 5 touches — "Quick Question" cold outreach pattern. Likely no conversion.</li>
+<li><strong>Master of Paint</strong>: 3 touches — Similar cold outreach.</li>
+<li><strong>Painters Adelaide</strong>: 1 touch — "Checking In" follow-up. Likely no response.</li>
+
+<strong>Referral Introductions (warm leads via Travis):</strong>
+<li><strong>Tas Moulis</strong> (TradieMate Pro): Travis suggested the intro. 2 touches.</li>
+<li><strong>Andy Shanley</strong>: 1 touch.</li>
+
+<hr>
+
+<h2>3. Touch Count Analysis — How Many Touches to Completion?</h2>
+
+<h3>Thread-Level Distribution</h3>
+
+<table>
+<tr>
+<th>Touches</th>
+<th>Threads</th>
+<th>%</th>
+<th>Typical Pattern</th>
+</tr>
+<tr>
+<td><strong>1</strong></td>
+<td>26</td>
+<td>38.8%</td>
+<td>Single check-in, no response, file closed. Or: single intro/dead-end outreach.</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>24</td>
+<td>35.8%</td>
+<td>Initial outreach + one follow-up. Most common for NF prospecting AND quick TKP client checks.</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>2</td>
+<td>3.0%</td>
+<td>Rare middle ground.</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>9</td>
+<td>13.4%</td>
+<td>Sustained follow-up with engagement. TKP client follow-ups with responses, or NF prospect nurturing.</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>4</td>
+<td>6.0%</td>
+<td>High-engagement threads. Mostly painter prospects James really wanted (MJ Painting, Marlene Newton).</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td>2</td>
+<td>3.0%</td>
+<td>Maximum persistence. Stefan Neale (NF prospect) and Campbell Smith (TKP client with finance delay).</td>
+</tr>
+</table>
+
+<strong>Key Stats:</strong>
+<li><strong>Mean:</strong> 2.2 touches per thread</li>
+<li><strong>Median:</strong> 2 touches</li>
+<li><strong>Mode:</strong> 1 touch (39% of threads)</li>
+<li><strong>Range:</strong> 1-6 touches</li>
+
+<h3>What This Means for Pipeline Management</h3>
+
+<p>James has a <strong>light-touch pipeline</strong>. The median of 2 touches means most leads are either:</p>
+<p>1. Resolved quickly (client says yes/no on first check-in), OR</p>
+<p>2. Abandoned quickly (no response after 1-2 attempts)</p>
+
+<p>Only 25% of threads get 4+ touches — these are the high-value opportunities (active TKP clients, promising NF prospects).</p>
+
+<strong>Implication for Not Forgotten Systems:</strong> If the service promises "we follow up until resolution," the data shows that in practice, resolution often means "we stop following up." This isn't necessarily bad — it's efficient — but the distinction between "completed follow-up" and "won deal" matters.
+
+<hr>
+
+<h2>4. Win/Loss Assessment — Did "Completed" Mean Won, Lost, or Just Done?</h2>
+
+<h3>Overall Signal Analysis</h3>
+
+<p>Across all 148 snippets and 30 full bodies, <strong>explicit win/loss signals are rare</strong>. Most threads end without a clear outcome declaration.</p>
+
+<table>
+<tr>
+<th>Signal Type</th>
+<th>Snippet Matches</th>
+<th>Body Evidence</th>
+</tr>
+<tr>
+<td><strong>Clear WIN</strong></td>
+<td>5 messages</td>
+<td>~3-4 threads: Sam Franze (~$11K), Sharon Heathfield (~$24K), Jo Potter, Kate Whitelock (likely)</td>
+</tr>
+<tr>
+<td><strong>Clear LOSS</strong></td>
+<td>2 messages</td>
+<td>1 confirmed: Geoff Waston ("going with another — written quote wasn't up to others")</td>
+</tr>
+<tr>
+<td><strong>HANDOFF to painter</strong></td>
+<td>13 messages</td>
+<td>6-8 threads where James passed the baton to Travis/Sherie</td>
+</tr>
+<tr>
+<td><strong>CLOSE (gave up)</strong></td>
+<td>4 messages</td>
+<td>4+ threads with explicit "closing the file" language</td>
+</tr>
+<tr>
+<td><strong>INFO/UPDATE only</strong></td>
+<td>51 messages</td>
+<td>Bulk of the data — updates with no outcome</td>
+</tr>
+</table>
+
+<h3>The "Completed ≠ Won" Finding</h3>
+
+<p>This is the most important finding for Not Forgotten Systems:</p>
+
+<strong>James labels a thread "Completed" when his work on it is done — regardless of whether the job was won or lost.</strong>
+
+<p>Evidence:</p>
+<li>The thread where Geoff Waston explicitly said "I'm going with another" (a clear LOSS) is labeled "Completed"</li>
+<li>The threads where James says "I'll close the file" (gave up on the prospect) are labeled "Completed"</li>
+<li>The internal coordination threads where James hands off to Sherie are labeled "Completed"</li>
+<li>The Framer refund request is labeled "Completed"</li>
+
+<strong>"Completed" is a task-management label, not a CRM outcome label.</strong>
+
+<h3>Actual Win/Loss by Value (Best Estimates from Bodies)</h3>
+
+<table>
+<tr>
+<th>Client</th>
+<th>Quote #</th>
+<th>Estimated Value</th>
+<th>Status</th>
+</tr>
+<tr>
+<td>Sam Franze (Grange)</td>
+<td>#1631</td>
+<td>$11,134</td>
+<td><strong>WON</strong> — "happy to proceed"</td>
+</tr>
+<tr>
+<td>Sharon Heathfield (Semaphore)</td>
+<td>#1205</td>
+<td>$24,122</td>
+<td><strong>WON</strong> — James "spoke with Sharon," she emailed Travis</td>
+</tr>
+<tr>
+<td>Kate Whitelock (Everard Park)</td>
+<td>#1644</td>
+<td>$14,850</td>
+<td><strong>LIKELY WON</strong> — active follow-up progressing</td>
+</tr>
+<tr>
+<td>Jo Potter</td>
+<td>?</td>
+<td>?</td>
+<td><strong>LIKELY WON</strong> — "happy to proceed, waiting on husband"</td>
+</tr>
+<tr>
+<td>Marlene Newton (Fulham Gardens)</td>
+<td>#1619</td>
+<td>?</td>
+<td><strong>RETAINED</strong> — "still with you, please don't drop me"</td>
+</tr>
+<tr>
+<td>Geoff Waston</td>
+<td>?</td>
+<td>?</td>
+<td><strong>LOST</strong> — "going with another, written quote wasn't up to others"</td>
+</tr>
+<tr>
+<td>Dom Barbaro (Lockleys)</td>
+<td>#1318</td>
+<td>$18,483</td>
+<td><strong>LONG-TERM</strong> — "3 months away"</td>
+</tr>
+<tr>
+<td>Leah Busby (South Brighton)</td>
+<td>#1579</td>
+<td>?</td>
+<td><strong>ACTIVE</strong> — "getting close, waiting on carpenter quote"</td>
+</tr>
+<tr>
+<td>Campbell Smith (Seaton)</td>
+<td>?</td>
+<td>?</td>
+<td><strong>ACTIVE</strong> — "waiting on finance approval"</td>
+</tr>
+</table>
+
+<strong>Key Insight:</strong> The ONE explicit loss (Geoff Waston) contains valuable intelligence — he liked Travis and the price was right, but the <em>written quote quality</em> lost the job. This is exactly the kind of feedback NF's service should be capturing and surfacing to painters.
+
+<hr>
+
+<h2>5. What Not Forgotten Systems Can Learn About James's Pipeline Management</h2>
+
+<h3>5.1 James's Operational Workflow (Reverse-Engineered)</h3>
+
+<pre><code>QUOTE SENT (by painter, James cc'd)
+<p>    │</p>
+<p>    ▼</p>
+<p>TOUCH 1: Introduction (~Day 1-3)</p>
+<p>  "Hi [Name], my name is James and I work alongside [Painter]</p>
+<p>   to assist with follow-ups once quotes are issued..."</p>
+<p>    │</p>
+<p>    ▼</p>
+<p>TOUCH 2: Check-in (~Day 7-14)</p>
+<p>  "Just touching base... are you: (a) moving ahead,</p>
+<p>   (b) still considering, or (c) different direction?"</p>
+<p>    │</p>
+<p>    ├── CLIENT SAYS YES ──► HANDOFF TO PAINTER ──► [Completed ✓]</p>
+<p>    │</p>
+<p>    ├── CLIENT SAYS NO ───► NOTE LOSS, CLOSE ───► [Completed ✓]</p>
+<p>    │</p>
+<p>    ├── CLIENT ENGAGES ───► TOUCH 3-6: Nurture ──► eventual outcome</p>
+<p>    │</p>
+<p>    └── NO RESPONSE ──────► 1-2 more attempts ──► "Close file" ──► [Completed ✓]</p>
+</code></pre>
+
+<h3>5.2 Strengths of James's Approach</h3>
+
+<p>1. <strong>Structured, professional follow-up templates.</strong> Every email follows a consistent pattern — warm greeting, clear context, easy-response framework, no pressure close.</p>
+
+<p>2. <strong>The 3-option framework.</strong> "Move ahead / still considering / different direction" is psychologically smart. It makes responding frictionless and normalizes "no."</p>
+
+<p>3. <strong>Weekly update cadence with painters.</strong> James sends structured updates to Travis/Sherie summarizing the status of every active lead. This builds trust and visibility.</p>
+
+<p>4. <strong>Shared spreadsheet + cc workflow with Sherie.</strong> James integrated into TKP's existing processes rather than imposing new ones. He uses their spreadsheet, their quote templates, and coordinates through their office manager.</p>
+
+<p>5. <strong>Referral-based prospecting for NF.</strong> "Travis Krieg suggested I reach out" — warm intros from an existing client to other painters in his network. Smart.</p>
+
+<p>6. <strong>The "close the loop" discipline.</strong> James doesn't let leads linger indefinitely. He has a clear endpoint for every thread and moves on.</p>
+
+<h3>5.3 Gaps and Opportunities for NF</h3>
+
+<p>1. <strong>No clear outcome tracking.</strong> "Completed" conflates won, lost, and abandoned. NF needs a system where:</p>
+<li>WON = deal closed, revenue captured</li>
+<li>LOST = deal lost, reason captured</li>
+<li>CLOSED = follow-up exhausted, no response</li>
+<li>HANDED OFF = returned to painter for closing</li>
+
+<p>2. <strong>Loss intelligence is being lost.</strong> Geoff Waston's feedback ("written quote wasn't up to others") is gold for the painter. Does this get fed back structurally? The data suggests not — it's buried in a "Completed" email update.</p>
+
+<p>3. <strong>The 1-touch thread rate is high (39%).</strong> Nearly 40% of threads get only one message from James. Either these are single-attempt cold outreaches (low conversion), or James is closing files quickly. NF should track <em>why</em> threads end at 1 touch.</p>
+
+<p>4. <strong>NF prospecting vs. TKP service delivery is tangled.</strong> James uses the same Gmail label for both activities. If NF wants to scale, these need separate pipelines with separate metrics.</p>
+
+<p>5. <strong>Value isn't being tracked.</strong> We can see quote numbers and dollar amounts in the email bodies, but they're not structured. James manually types them into updates. NF should capture quote value at intake to report ROI.</p>
+
+<p>6. <strong>The "reach out" handoff gap.</strong> James frequently tells Travis/Sherie to "reach out" to a client. But there's no confirmation loop — did they actually reach out? Did the client convert? The "Completed" label doesn't tell us.</p>
+
+<h3>5.4 Strategic Recommendations for Not Forgotten Systems</h3>
+
+<table>
+<tr>
+<th>#</th>
+<th>Recommendation</th>
+<th>Why</th>
+</tr>
+<tr>
+<td>1</td>
+<td><strong>Separate "Completed" into outcome types</strong> (Won/Lost/Closed/HandedOff)</td>
+<td>Current label is operationally useful but analytically blind. NF needs outcome data to prove ROI to painters.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Implement a structured weekly report format</strong></td>
+<td>James already does this manually. NF should productize it: a dashboard or automated email showing active leads, status, and YTD win rate per painter.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Capture loss reasons systematically</strong></td>
+<td>Geoff Waston's feedback is one of only 2 clear loss signals in 148 messages. NF should prompt for loss reason when marking a lead lost.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Track dollar value per lead</strong></td>
+<td>James manually references quote numbers and amounts. NF should make this a required field so painters see $X in pipeline, $Y won, $Z lost.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Add a handoff confirmation loop</strong></td>
+<td>When James tells a painter "reach out to this client," NF should follow up to confirm the handoff was actioned and the outcome.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Separate NF prospecting from service delivery</strong></td>
+<td>Two different activities, two different success metrics. Don't mix them in the same label/pipeline.</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Consider a "silence timeout" rule</strong></td>
+<td>After N touches with no response, auto-suggest "close file." James already does this intuitively — NF can make it systematic.</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Productize the 3-option framework</strong></td>
+<td>This is James's most effective pattern. NF should make it a one-click template in the product.</td>
+</tr>
+</table>
+
+<hr>
+
+<h2>6. Data Appendix</h2>
+
+<h3>Sample Coverage (30 messages analyzed in full)</h3>
+
+<table>
+<tr>
+<th>#</th>
+<th>Contact</th>
+<th>Category</th>
+<th>Outcome</th>
+<th>Touches</th>
+<th>Date</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Shannon@BellaCarpentry</td>
+<td>NF Prospect</td>
+<td>INFO_UPDATE</td>
+<td>1</td>
+<td>Aug 2025</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Shannon@BellaCarpentry</td>
+<td>NF Prospect</td>
+<td>HANDOFF</td>
+<td>2</td>
+<td>Sep 2025</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Alex@StollPlumbing</td>
+<td>NF Prospect</td>
+<td>HANDOFF</td>
+<td>1</td>
+<td>Sep 2025</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Stefan Neale</td>
+<td>NF Prospect (Painter)</td>
+<td>UNCLEAR</td>
+<td>6</td>
+<td>Jan 2026</td>
+</tr>
+<tr>
+<td>5</td>
+<td>MJ Painting</td>
+<td>NF Prospect (Painter)</td>
+<td>UNCLEAR</td>
+<td>5</td>
+<td>Jan 2026</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Travis Krieg</td>
+<td>TKP Internal</td>
+<td>UNCLEAR</td>
+<td>4</td>
+<td>Jan 2026</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Leah Busby</td>
+<td>TKP Client</td>
+<td>HANDOFF</td>
+<td>4</td>
+<td>Jan 2026</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Andy Shanley</td>
+<td>NF Prospect</td>
+<td>INFO_UPDATE</td>
+<td>1</td>
+<td>Jan 2026</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Painters Adelaide</td>
+<td>NF Prospect</td>
+<td>INFO_UPDATE</td>
+<td>1</td>
+<td>Jan 2026</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Travis Krieg</td>
+<td>TKP Internal</td>
+<td>WIN</td>
+<td>1</td>
+<td>Jan 2026</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Marlene Newton</td>
+<td>TKP Client</td>
+<td>INFO_UPDATE</td>
+<td>4</td>
+<td>Feb 2026</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Campbell Smith</td>
+<td>TKP Client</td>
+<td>WIN</td>
+<td>2</td>
+<td>Feb 2026</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Marlene Newton</td>
+<td>TKP Client</td>
+<td>HANDOFF</td>
+<td>5</td>
+<td>Feb 2026</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Campbell Smith</td>
+<td>TKP Client</td>
+<td>WIN</td>
+<td>6</td>
+<td>Feb 2026</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Framer Support</td>
+<td>Admin</td>
+<td>ADMIN_COMPLETE</td>
+<td>2</td>
+<td>Dec 2025</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Tas Moulis</td>
+<td>NF Prospect (referral)</td>
+<td>WIN</td>
+<td>2</td>
+<td>Jan 2026</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Kate Whitelock</td>
+<td>TKP Client</td>
+<td>WIN</td>
+<td>2</td>
+<td>Jan 2026</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Monique Hawkins</td>
+<td>TKP Client</td>
+<td>INFO_UPDATE</td>
+<td>2</td>
+<td>Jan 2026</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Moira</td>
+<td>TKP Client</td>
+<td>INFO_UPDATE</td>
+<td>1</td>
+<td>Jan 2026</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Vicki Power</td>
+<td>TKP Client</td>
+<td>INFO_UPDATE</td>
+<td>2</td>
+<td>Jan 2026</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Travis Krieg</td>
+<td>TKP Internal</td>
+<td>UNCLEAR</td>
+<td>1</td>
+<td>Jan 2026</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Travis Krieg</td>
+<td>TKP Internal</td>
+<td>HANDOFF</td>
+<td>2</td>
+<td>Feb 2026</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Sherie (Office Manager)</td>
+<td>TKP Internal</td>
+<td>HANDOFF</td>
+<td>1</td>
+<td>Feb 2026</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Tracey</td>
+<td>TKP Client</td>
+<td>UNCLEAR</td>
+<td>1</td>
+<td>Feb 2026</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Steve Holt</td>
+<td>TKP Client</td>
+<td>UNCLEAR</td>
+<td>4</td>
+<td>Feb 2026</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Andrea Brown</td>
+<td>TKP Client</td>
+<td>UNCLEAR</td>
+<td>1</td>
+<td>Feb 2026</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Geoff</td>
+<td>TKP Client</td>
+<td>INFO_UPDATE</td>
+<td>1</td>
+<td>Feb 2026</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Craig Shrubsole</td>
+<td>TKP Client</td>
+<td>INFO_UPDATE</td>
+<td>1</td>
+<td>Feb 2026</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Sherie (Office Manager)</td>
+<td>TKP Internal</td>
+<td>WIN</td>
+<td>4</td>
+<td>Feb 2026</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Sherie (Office Manager)</td>
+<td>TKP Internal</td>
+<td>WIN</td>
+<td>1</td>
+<td>Feb 2026</td>
+</tr>
+</table>
+
+<h3>Thread Touch Distribution (All 67 Threads)</h3>
+
+<pre><code>1 touch:  ██████████████████████████ 26 (38.8%)
+<p>2 touches: ████████████████████████  24 (35.8%)</p>
+<p>3 touches: ██                         2  (3.0%)</p>
+<p>4 touches: █████████                  9 (13.4%)</p>
+<p>5 touches: ████                       4  (6.0%)</p>
+<p>6 touches: ██                         2  (3.0%)</p>
+</code></pre>
+
+<h3>Subject Pattern Distribution (All 148 Messages)</h3>
+
+<table>
+<tr>
+<th>Pattern</th>
+<th>Count</th>
+<th>%</th>
+</tr>
+<tr>
+<td>Quote/Proposal follow-up</td>
+<td>65</td>
+<td>43.9%</td>
+</tr>
+<tr>
+<td>Other/Unclassified</td>
+<td>33</td>
+<td>22.3%</td>
+</tr>
+<tr>
+<td>Follow-up/Check-in</td>
+<td>18</td>
+<td>12.2%</td>
+</tr>
+<tr>
+<td>Status Update</td>
+<td>12</td>
+<td>8.1%</td>
+</tr>
+<tr>
+<td>Quick Question/Yes-or-No</td>
+<td>11</td>
+<td>7.4%</td>
+</tr>
+<tr>
+<td>Scheduling</td>
+<td>5</td>
+<td>3.4%</td>
+</tr>
+<tr>
+<td>Summary</td>
+<td>4</td>
+<td>2.7%</td>
+</tr>
+</table>
+
+<hr>
+
+<h2>7. Key Files Generated</h2>
+
+<li><code>/root/.hermes/data/james-mining/report-completed.md</code> — This report</li>
+<li><code>/root/.hermes/data/james-mining/completed_analysis_raw.json</code> — Raw analysis data</li>
+<li><code>/root/.hermes/data/james-mining/completed_sample_bodies.json</code> — Full bodies for 30 sampled emails</li>
+<li><code>/root/.hermes/data/james-mining/analyze_completed.py</code> — Analysis script</li>
+
+<hr>
+
+<em>Analysis performed by Hermes Agent on behalf of Not Forgotten Systems pipeline intelligence project.</em>
+</div></div><div class="footer"><div class="container"><p>Not Forgotten Systems &mdash; <a href="./">Email Intelligence Reports</a></p><p>Generated by Atlas, June 2026. Source: James Hardstaff&rsquo;s Gmail (read-only analysis).</p></div></div></body></html>
