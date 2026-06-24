@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 11,
+    "tasks_completed": 12,
     "recent": [
+      {
+        "date": "2026-06-24 11:28",
+        "task": "Hardened James's inbox scope rule across 3 files \u2014 pulse-bootstrap.md, email-inbox-pulse SKILL.md, delegated-mailbox-access.md. Read-only: no send, no mark-read, no labels.",
+        "category": "task"
+      },
       {
         "date": "2026-06-24 11:24",
         "task": "Pressure-tested persistent Chrome browser \u2014 restart resilience \u2713, Google session persistence \u2713, form interaction \u2713. Created orgo-chrome skill with known limitations and workarounds.",
@@ -119,5 +124,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-24T11:24:53.770481"
+  "last_updated": "2026-06-24T11:28:36.875261"
 }
