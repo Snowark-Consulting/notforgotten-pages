@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 8,
+    "tasks_completed": 9,
     "recent": [
+      {
+        "date": "2026-06-24 11:02",
+        "task": "Inbox pulse cron upgraded to 24/7 coverage \u2014 closed the 8-hour blind spot that caused a delegation verification email to be silently missed today",
+        "category": "task"
+      },
       {
         "date": "2026-06-23 13:10",
         "task": "Ingested and adapted 12 marketing skills from coreyhaines31/marketingskills for Not Forgotten: copywriting, emails, cro, marketing-psychology, cold-email, offers, copy-editing, pricing, popups, signup, churn-prevention, ad-creative. All tradie-adapted with NFS voice/product context.",
@@ -104,5 +109,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-23T13:10:56.302886"
+  "last_updated": "2026-06-24T11:02:05.806490"
 }
