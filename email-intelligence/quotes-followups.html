@@ -1,38 +1,37 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Quotes & Follow-Up Patterns</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"><style>/* Not Forgotten Systems Design */
-:root { --nfs-navy: #0b2c4d; --nfs-near-black: #0a0a0a; --nfs-gold: #e0a62a; --nfs-white: #FFFFFF; --nfs-light: #f7fbff; --nfs-muted: #666666; --nfs-royal: #1f5891; --nfs-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Quotes & Follow-Up Patterns</title><link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&amp;display=swap" rel="stylesheet"><style>/* Not Forgotten Systems Design v2.0.0 — Power Design principles */
+:root { --nfs-navy: #0b2c4d; --nfs-gold: #e0a62a; --nfs-white: #ffffff; --nfs-light: #f7fbff; --nfs-muted: #666666; --nfs-royal: #1f5891; --text-xs: 12px; --text-sm: 14px; --text-base: 16px; --text-lg: 20px; --text-xl: 24px; --text-2xl: 32px; --text-3xl: 40px; --space-sm: 8px; --space-md: 16px; --space-lg: 24px; --space-xl: 32px; --space-2xl: 48px; --space-3xl: 64px; --space-4xl: 96px; --radius-sm: 4px; --radius-lg: 8px; --radius-xl: 12px; --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: var(--nfs-font); color: var(--nfs-near-black); background: var(--nfs-white); line-height: 1.7; }
-.container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
-.hero { background: var(--nfs-navy); color: var(--nfs-white); padding: 60px 0 50px; }
-.hero h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 8px; }
-.hero .meta { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
-.content { padding: 50px 0 80px; }
-h2 { color: var(--nfs-navy); font-size: 1.5rem; font-weight: 700; margin: 40px 0 16px; border-bottom: 2px solid var(--nfs-gold); padding-bottom: 8px; }
-h3 { font-size: 1.15rem; font-weight: 700; margin: 28px 0 10px; color: var(--nfs-near-black); }
-h4 { font-size: 1rem; font-weight: 700; margin: 20px 0 8px; }
-p { margin: 12px 0; }
-strong { color: var(--nfs-navy); }
-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem; }
-th { background: var(--nfs-navy); color: var(--nfs-white); padding: 10px 12px; text-align: left; font-weight: 700; }
-td { padding: 10px 12px; border-bottom: 1px solid rgba(0,0,0,0.08); }
+body { font-family: var(--font); color: var(--nfs-navy); background: var(--nfs-white); line-height: 1.5; font-weight: 400; -webkit-font-smoothing: antialiased; }
+.container { max-width: 720px; margin: 0 auto; padding: 0 var(--space-xl); }
+.hero { background: var(--nfs-navy); color: var(--nfs-white); padding: var(--space-4xl) 0 var(--space-3xl); }
+.hero h1 { font-size: var(--text-3xl); font-weight: 400; letter-spacing: -0.04em; margin-bottom: var(--space-md); line-height: 1.1; }
+.hero .meta { color: rgba(255,255,255,0.7); font-size: var(--text-base); font-weight: 400; max-width: 48ch; line-height: 1.4; }
+.content { padding: var(--space-3xl) 0 var(--space-4xl); }
+h2 { color: var(--nfs-navy); font-size: var(--text-xl); font-weight: 500; margin: var(--space-2xl) 0 var(--space-md); border-bottom: 2px solid var(--nfs-gold); padding-bottom: var(--space-sm); letter-spacing: -0.02em; line-height: 1.2; }
+h3 { font-size: var(--text-lg); font-weight: 500; margin: var(--space-xl) 0 var(--space-sm); color: var(--nfs-navy); letter-spacing: -0.02em; line-height: 1.3; }
+h4 { font-size: var(--text-base); font-weight: 500; margin: var(--space-lg) 0 var(--space-sm); }
+p { margin: var(--space-md) 0; }
+strong { color: var(--nfs-navy); font-weight: 500; }
+table { width: 100%; border-collapse: collapse; margin: var(--space-md) 0; font-size: var(--text-sm); }
+th { background: var(--nfs-navy); color: var(--nfs-white); padding: var(--space-sm) var(--space-md); text-align: left; font-weight: 500; }
+td { padding: var(--space-sm) var(--space-md); border-bottom: 1px solid rgba(0,0,0,0.06); }
 tr:nth-child(even) td { background: var(--nfs-light); }
-code { background: rgba(0,0,0,0.05); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
-pre { background: #1e293b; color: #e2e8f0; padding: 16px; border-radius: 8px; overflow-x: auto; margin: 16px 0; font-size: 0.85rem; line-height: 1.5; }
+code { background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: var(--radius-sm); font-size: 0.9em; }
+pre { background: #1e293b; color: #e2e8f0; padding: var(--space-md); border-radius: var(--radius-lg); overflow-x: auto; margin: var(--space-md) 0; font-size: var(--text-xs); line-height: 1.5; }
 pre code { background: none; padding: 0; color: inherit; }
-blockquote { border-left: 4px solid var(--nfs-gold); margin: 16px 0; padding: 12px 20px; background: var(--nfs-light); font-style: italic; }
-blockquote strong { color: var(--nfs-near-black); }
-hr { border: none; border-top: 1px solid rgba(0,0,0,0.08); margin: 40px 0; }
-ul, ol { margin: 12px 0; padding-left: 24px; }
-li { margin: 6px 0; }
-.footer { background: var(--nfs-light); padding: 30px 0; text-align: center; color: var(--nfs-muted); font-size: 0.85rem; }
-.footer a { color: var(--nfs-royal); text-decoration: none; }
-.back-link { display: inline-block; margin-bottom: 20px; color: var(--nfs-royal); text-decoration: none; font-weight: 700; }
+blockquote { border-left: 3px solid var(--nfs-gold); margin: var(--space-md) 0; padding: var(--space-md) var(--space-lg); background: var(--nfs-light); font-style: italic; }
+blockquote strong { color: var(--nfs-navy); }
+hr { border: none; border-top: 1px solid rgba(0,0,0,0.06); margin: var(--space-2xl) 0; }
+ul, ol { margin: var(--space-md) 0; padding-left: var(--space-lg); }
+li { margin: 4px 0; }
+.footer { border-top: 1px solid rgba(0,0,0,0.06); padding: var(--space-xl) 0; text-align: center; }
+.footer p { font-size: var(--text-xs); color: var(--nfs-muted); margin: 4px 0; }
+.footer a { color: var(--nfs-royal); text-decoration: none; font-weight: 500; }
+.footer a:hover { text-decoration: underline; }
+.back-link { display: inline-flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-lg); color: var(--nfs-royal); text-decoration: none; font-size: var(--text-sm); font-weight: 500; }
 .back-link:hover { text-decoration: underline; }
 .highlight { background: linear-gradient(180deg, transparent 60%, rgba(224,166,42,0.25) 60%); }
-
-.hero a, .insight-box a { color: var(--nfs-gold); text-decoration: underline; }
-.hero a:hover, .insight-box a:hover { color: #fff; }
-</style></head><body><div class="hero"><div class="container"><h1>Quotes & Follow-Up Patterns</h1><p class="meta">Date: June 24, 2026...</p></div></div><div class="content"><div class="container"><a href="./" class="back-link">&larr; All Reports</a><strong>Date:</strong> June 24, 2026  
+@media (max-width: 640px) { .container { padding: 0 var(--space-md); } .hero { padding: var(--space-3xl) 0 var(--space-2xl); } .hero h1 { font-size: var(--text-2xl); } .content { padding: var(--space-2xl) 0 var(--space-3xl); } }</style></head><body><div class="hero"><div class="container"><h1>Quotes & Follow-Up Patterns</h1><p class="meta">Date: June 24, 2026...</p></div></div><div class="content"><div class="container"><a href="./" class="back-link">&larr; All Reports</a><strong>Date:</strong> June 24, 2026  
 <strong>Data Source:</strong> 269 Gmail messages (Aug 2025 – Jun 2026), 205 full bodies pulled via Gmail API  
 <strong>Scope:</strong> James Hardstaff's sent emails for Not Forgotten Systems + Travis Krieg Painting follow-ups
 

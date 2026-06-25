@@ -1,46 +1,313 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Email Intelligence — Not Forgotten</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"><style>/* Not Forgotten Systems Design */
-:root { --nfs-navy: #0b2c4d; --nfs-near-black: #0a0a0a; --nfs-gold: #e0a62a; --nfs-white: #FFFFFF; --nfs-light: #f7fbff; --nfs-muted: #666666; --nfs-royal: #1f5891; --nfs-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: var(--nfs-font); color: var(--nfs-near-black); background: var(--nfs-white); line-height: 1.7; }
-.container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
-.hero { background: var(--nfs-navy); color: var(--nfs-white); padding: 60px 0 50px; }
-.hero h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 8px; }
-.hero .meta { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
-.content { padding: 50px 0 80px; }
-h2 { color: var(--nfs-navy); font-size: 1.5rem; font-weight: 700; margin: 40px 0 16px; border-bottom: 2px solid var(--nfs-gold); padding-bottom: 8px; }
-h3 { font-size: 1.15rem; font-weight: 700; margin: 28px 0 10px; color: var(--nfs-near-black); }
-h4 { font-size: 1rem; font-weight: 700; margin: 20px 0 8px; }
-p { margin: 12px 0; }
-strong { color: var(--nfs-navy); }
-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem; }
-th { background: var(--nfs-navy); color: var(--nfs-white); padding: 10px 12px; text-align: left; font-weight: 700; }
-td { padding: 10px 12px; border-bottom: 1px solid rgba(0,0,0,0.08); }
-tr:nth-child(even) td { background: var(--nfs-light); }
-code { background: rgba(0,0,0,0.05); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
-pre { background: #1e293b; color: #e2e8f0; padding: 16px; border-radius: 8px; overflow-x: auto; margin: 16px 0; font-size: 0.85rem; line-height: 1.5; }
-pre code { background: none; padding: 0; color: inherit; }
-blockquote { border-left: 4px solid var(--nfs-gold); margin: 16px 0; padding: 12px 20px; background: var(--nfs-light); font-style: italic; }
-blockquote strong { color: var(--nfs-near-black); }
-hr { border: none; border-top: 1px solid rgba(0,0,0,0.08); margin: 40px 0; }
-ul, ol { margin: 12px 0; padding-left: 24px; }
-li { margin: 6px 0; }
-.footer { background: var(--nfs-light); padding: 30px 0; text-align: center; color: var(--nfs-muted); font-size: 0.85rem; }
-.footer a { color: var(--nfs-royal); text-decoration: none; }
-.back-link { display: inline-block; margin-bottom: 20px; color: var(--nfs-royal); text-decoration: none; font-weight: 700; }
-.back-link:hover { text-decoration: underline; }
-.highlight { background: linear-gradient(180deg, transparent 60%, rgba(224,166,42,0.25) 60%); }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Intelligence — Not Forgotten</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+<style>
+  /* Not Forgotten Systems Design v2.0.0 — Power Design principles */
+  :root {
+    --nfs-navy: #0b2c4d;
+    --nfs-gold: #e0a62a;
+    --nfs-white: #ffffff;
+    --nfs-light: #f7fbff;
+    --nfs-muted: #666666;
+    --nfs-royal: #1f5891;
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-base: 16px;
+    --text-lg: 20px;
+    --text-xl: 24px;
+    --text-2xl: 32px;
+    --text-3xl: 40px;
+    --text-4xl: 48px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
+    --space-4xl: 96px;
+    --radius-sm: 4px;
+    --radius-lg: 8px;
+    --radius-xl: 12px;
+    --ease-default: cubic-bezier(.4, 0, .2, 1);
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
 
-.card { display: block; background: var(--nfs-light); border-radius: 10px; padding: 28px; text-decoration: none; color: var(--nfs-near-black); margin: 20px 0; transition: box-shadow 0.2s; border: 1px solid rgba(0,0,0,0.06); }
-.card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
-.card h3 { color: var(--nfs-navy); margin: 0 0 8px; font-size: 1.3rem; }
-.card p { color: var(--nfs-muted); margin: 0 0 12px; font-size: 0.95rem; }
-.card .size { font-size: 0.8rem; color: var(--nfs-royal); font-weight: 700; }
-.intro { font-size: 1.1rem; color: var(--nfs-muted); max-width: 600px; margin-bottom: 30px; }
-.insight-box { background: var(--nfs-navy); color: var(--nfs-white); border-radius: 10px; padding: 24px; margin: 30px 0; }
-.insight-box h3 { color: var(--nfs-gold); margin: 0 0 12px; }
-.insight-box ul { margin: 0; }
-.insight-box li { margin: 8px 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-.hero a, .insight-box a { color: var(--nfs-gold); text-decoration: underline; }
-.hero a:hover, .insight-box a:hover { color: #fff; }
-</style></head><body><div class="hero"><div class="container"><h1>Email Intelligence</h1><p class="meta">Deep analysis of James Hardstaff's Gmail inbox and sent mail — 494 messages, August 2025 to June 2026</p></div></div><div class="content"><div class="container"><p class="intro">Three deep-dive reports extracted from James's email corpus, covering his anchor client relationship, proven outreach playbook, and pipeline management patterns.</p><div class="insight-box"><h3>Key Numbers</h3><ul><li><strong>494</strong> total messages analysed (17 inbox, 477 sent)</li><li><strong>184</strong> unique painters and trade businesses contacted</li><li><strong>8</strong> distinct outreach templates identified and documented</li><li><strong>$300/month</strong> service pricing after 30-day free trial</li><li><strong>56</strong> unique contacts in James's active pipeline</li><li><strong>7.7 days</strong> average follow-up cadence</li></ul></div><a href="travis-krieg.html" class="card"><h3>Travis Krieg Painting</h3><p>Generated: 2026-06-24 23:10...</p><span class="size">45 KB</span></a><a href="quotes-followups.html" class="card"><h3>Quotes & Follow-Up Patterns</h3><p>Date: June 24, 2026...</p><span class="size">28 KB</span></a><a href="completed.html" class="card"><h3>Completed Pipeline Analysis</h3><p>Date of Analysis: June 24, 2026...</p><span class="size">26 KB</span></a></div></div><div class="footer"><div class="container"><p>Not Forgotten Systems &mdash; <a href="./">Email Intelligence Reports</a></p><p>Generated by Atlas, June 2026. Source: James Hardstaff&rsquo;s Gmail (read-only analysis).</p></div></div></body></html>
+  body {
+    font-family: var(--font);
+    color: var(--nfs-navy);
+    background: var(--nfs-white);
+    line-height: 1.5;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Container — max 50ch for reading comfort on report pages */
+  .container { max-width: 720px; margin: 0 auto; padding: 0 var(--space-xl); }
+
+  /* Hero — navy band, weight-400 restraint */
+  .hero {
+    background: var(--nfs-navy);
+    color: var(--nfs-white);
+    padding: var(--space-4xl) 0 var(--space-3xl);
+  }
+  .hero h1 {
+    font-size: var(--text-3xl);
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    margin-bottom: var(--space-md);
+    line-height: 1.1;
+  }
+  .hero .meta {
+    color: rgba(255,255,255,0.7);
+    font-size: var(--text-base);
+    font-weight: 400;
+    max-width: 48ch;
+    line-height: 1.4;
+  }
+
+  /* Content */
+  .content { padding: var(--space-3xl) 0 var(--space-4xl); }
+
+  .intro {
+    font-size: var(--text-lg);
+    color: var(--nfs-muted);
+    max-width: 48ch;
+    margin-bottom: var(--space-2xl);
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
+
+  /* Insight box — dark panel */
+  .insight-box {
+    background: var(--nfs-navy);
+    color: var(--nfs-white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    margin-bottom: var(--space-2xl);
+  }
+  .insight-box h2 {
+    font-size: var(--text-lg);
+    font-weight: 500;
+    color: var(--nfs-gold);
+    margin-bottom: var(--space-md);
+    letter-spacing: -0.02em;
+  }
+  .insight-box ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    line-height: 1.4;
+  }
+  .insight-box li {
+    font-size: var(--text-sm);
+    color: rgba(255,255,255,0.85);
+  }
+  .insight-box strong {
+    color: var(--nfs-white);
+    font-weight: 500;
+  }
+
+  /* Cards — report links */
+  .card-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    background: var(--nfs-light);
+    border-radius: var(--radius-xl);
+    padding: var(--space-lg) var(--space-xl);
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.2s var(--ease-default);
+  }
+  .card:hover {
+    box-shadow: 0 2px 16px rgba(11,44,77,0.08);
+    border-color: rgba(224,166,42,0.2);
+    transform: translateY(-1px);
+  }
+
+  .card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-lg);
+    background: rgba(224,166,42,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-lg);
+    color: var(--nfs-gold);
+    flex-shrink: 0;
+  }
+
+  .card-body { flex: 1; min-width: 0; }
+  .card-body h3 {
+    font-size: var(--text-lg);
+    font-weight: 500;
+    color: var(--nfs-navy);
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+  .card-body p {
+    font-size: var(--text-sm);
+    color: var(--nfs-muted);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .card-meta {
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .card-meta .size {
+    font-size: var(--text-xs);
+    color: var(--nfs-royal);
+    font-weight: 500;
+    display: block;
+  }
+  .card-meta .arrow {
+    font-size: var(--text-sm);
+    color: var(--nfs-muted);
+    margin-top: 4px;
+  }
+
+  /* Divider */
+  .divider {
+    border: none;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    margin: var(--space-2xl) 0;
+  }
+
+  /* Back link */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--nfs-royal);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    margin-bottom: var(--space-lg);
+    transition: color 0.15s;
+  }
+  .back-link:hover { color: var(--nfs-navy); }
+
+  /* Footer */
+  .footer {
+    border-top: 1px solid rgba(0,0,0,0.06);
+    padding: var(--space-xl) 0;
+    text-align: center;
+  }
+  .footer p {
+    font-size: var(--text-xs);
+    color: var(--nfs-muted);
+  }
+  .footer a {
+    color: var(--nfs-royal);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    .container { padding: 0 var(--space-md); }
+    .hero { padding: var(--space-3xl) 0 var(--space-2xl); }
+    .hero h1 { font-size: var(--text-2xl); }
+    .content { padding: var(--space-2xl) 0 var(--space-3xl); }
+    .insight-box ul { grid-template-columns: 1fr; }
+    .card { flex-direction: column; align-items: flex-start; }
+    .card-meta { text-align: left; }
+    .intro { font-size: var(--text-base); }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <h1>Email Intelligence</h1>
+    <p class="meta">Deep analysis of James Hardstaff's Gmail inbox and sent mail — 494 messages, August 2025 to June 2026</p>
+  </div>
+</header>
+
+<main class="content">
+  <div class="container">
+
+    <p class="intro">Three deep-dive reports extracted from James's email corpus, covering his anchor client relationship, proven outreach playbook, and pipeline management patterns.</p>
+
+    <div class="insight-box">
+      <h2>Key Numbers</h2>
+      <ul>
+        <li><strong>494</strong> total messages analysed</li>
+        <li><strong>184</strong> unique painters and trade businesses contacted</li>
+        <li><strong>8</strong> distinct outreach templates documented</li>
+        <li><strong>$300/month</strong> service pricing after 30-day free trial</li>
+        <li><strong>56</strong> unique contacts in James's active pipeline</li>
+        <li><strong>7.7 days</strong> average follow-up cadence</li>
+      </ul>
+    </div>
+
+    <div class="card-grid">
+      <a href="travis-krieg.html" class="card">
+        <div class="card-icon">📋</div>
+        <div class="card-body">
+          <h3>Travis Krieg Painting</h3>
+          <p>Generated: 2026-06-24 23:10 — Anchor client deep-dive with full relationship timeline and outreach history</p>
+        </div>
+        <div class="card-meta">
+          <span class="size">45 KB</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+
+      <a href="quotes-followups.html" class="card">
+        <div class="card-icon">📊</div>
+        <div class="card-body">
+          <h3>Quotes &amp; Follow-Up Patterns</h3>
+          <p>Date: June 24, 2026 — Analysis of outbound quote cadence, response rates, and template effectiveness</p>
+        </div>
+        <div class="card-meta">
+          <span class="size">28 KB</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+
+      <a href="completed.html" class="card">
+        <div class="card-icon">✅</div>
+        <div class="card-body">
+          <h3>Completed Pipeline Analysis</h3>
+          <p>Date of Analysis: June 24, 2026 — Closed deals, conversion rates, and pipeline velocity metrics</p>
+        </div>
+        <div class="card-meta">
+          <span class="size">26 KB</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>Not Forgotten Systems — <a href="./">Email Intelligence Reports</a></p>
+    <p style="margin-top: 4px;">Generated by Atlas, June 2026. Source: James Hardstaff's Gmail (read-only analysis).</p>
+  </div>
+</footer>
+
+</body>
+</html>
