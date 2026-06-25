@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 15,
+    "tasks_completed": 16,
     "recent": [
+      {
+        "date": "2026-06-25 11:35",
+        "task": "Nightly consolidation: wrote Jun 25 notes (2 sessions, inbox mining + design skills), added frontmatter to testimonials.md, Registry +4 entries, Infrastructure 7/7 verified, 0 broken wikilinks",
+        "category": "task"
+      },
       {
         "date": "2026-06-25 04:44",
         "task": "Rebuilt NFS Editions page: mouse-interactive Three.js ring (tilt/particles follow cursor), power-design 20 principles (8-pt grid, 1.333 type scale, 60-30-10 color split)",
@@ -139,5 +144,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-25T04:44:19.051805"
+  "last_updated": "2026-06-25T11:35:51.803898"
 }
