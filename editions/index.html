@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Not Forgotten — Automated Quote Follow-Up for Tradies</title>
+<meta name="description" content="Not Forgotten automatically follows up your quotes so no job falls through the cracks. Built for Australian tradies.">
+<meta property="og:title" content="Not Forgotten — Never Lose a Quote Again">
+<meta property="og:description" content="Automated quote follow-up for Australian tradies. CC or BCC your quotes and we handle the rest.">
+<meta property="og:image" content="https://snowark-consulting.github.io/notforgotten-pages/assets/nfs-logo.png">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/nfs-favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b2c4d;
+    --text: rgba(255,255,255,0.85);
+    --heading: #ffffff;
+    --link: #e0a62a;
+    --link-underline: rgba(224,166,42,0.6);
+    --cta-bg: #e0a62a;
+    --cta-text: #0b2c4d;
+    --cta-bg-hover: #f0b840;
+    --cta-bg-pressed: #c89220;
+    --focus-ring: #e0a62a;
+    --accent: #e0a62a;
+    --accent-dim: rgba(224,166,42,0.15);
+    --card-bg: rgba(255,255,255,0.03);
+    --card-border: rgba(255,255,255,0.06);
+    --card-border-hover: rgba(224,166,42,0.15);
+    --card-bg-hover: rgba(255,255,255,0.05);
+    --divider: rgba(255,255,255,0.06);
+    --radius-full: 9999px;
+    --radius-xl: 0.75rem;
+    --radius-lg: 0.5rem;
+    --radius-sm: 0.25rem;
+    --ease-snappy: cubic-bezier(.16, 1, .3, 1);
+    --ease-default: cubic-bezier(.4, 0, .2, 1);
+    --ease-out: cubic-bezier(0, 0, .2, 1);
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-weight: 400;
+    font-feature-settings: "liga" 1, "kern" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body { min-height: 100vh; line-height: 1.5; overflow-x: hidden; }
+
+  /* NAV */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    height: 50px; display: flex; align-items: center; justify-content: space-between;
+    padding: 0 max(32px, 5vw); z-index: 100;
+    background: transparent;
+  }
+  .nav-brand {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 500; color: var(--heading);
+    text-decoration: none; letter-spacing: -0.02em;
+  }
+  .nav-brand img { height: 22px; width: auto; }
+  .nav-links { display: flex; align-items: center; gap: 24px; }
+  .nav-links a {
+    font-size: 13px; font-weight: 400; color: var(--text);
+    text-decoration: none; transition: color 0.15s;
+    letter-spacing: -0.01em;
+  }
+  .nav-links a:hover { color: var(--heading); }
+  .nav-cta {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 7px 16px; font-size: 13px; font-weight: 500; line-height: 1.3;
+    color: var(--cta-text); background: var(--cta-bg);
+    border-radius: var(--radius-full); text-decoration: none;
+    transition: background 0.15s var(--ease-default);
+    letter-spacing: -0.01em;
+  }
+  .nav-cta:hover { background: var(--cta-bg-hover); }
+  .nav-cta:active { background: var(--cta-bg-pressed); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    padding: 80px 16px 40px; position: relative;
+  }
+
+  #hero-canvas {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    pointer-events: none; z-index: 0;
+  }
+
+  .hero-content {
+    position: relative; z-index: 1;
+    display: flex; flex-direction: column; align-items: center;
+  }
+
+  .hero-t1 {
+    font-family: var(--font);
+    font-size: clamp(3.5rem, 24px + 4.5vw, 5.5rem);
+    font-weight: 400; line-height: 1.0;
+    letter-spacing: -0.07em; color: var(--heading);
+    text-wrap: pretty; margin-top: -30px;
+  }
+
+  .hero-t2 {
+    font-family: var(--font);
+    font-size: clamp(1rem, 9px + 0.85vw, 1.3rem);
+    font-weight: 400; line-height: 1.3;
+    letter-spacing: -0.03em; color: var(--text);
+    max-width: 48ch; margin-top: 16px; text-wrap: pretty;
+  }
+
+  .hero-stats {
+    display: flex; gap: 32px; margin-top: 24px;
+  }
+
+  .hero-stat {
+    text-align: center;
+  }
+
+  .hero-stat-value {
+    font-family: var(--font);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 400; color: var(--accent);
+    letter-spacing: -0.03em;
+  }
+
+  .hero-stat-label {
+    font-size: 12px; font-weight: 400; color: var(--text);
+    letter-spacing: 0.02em; margin-top: 2px;
+  }
+
+  .hero-nav {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 8px; margin-top: 40px;
+  }
+  .hero-nav a {
+    display: inline-flex; align-items: center;
+    padding: 8px 16px; font-size: 14px; font-weight: 400;
+    color: var(--text); text-decoration: none;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: all 0.15s var(--ease-default);
+    letter-spacing: -0.02em;
+  }
+  .hero-nav a:hover {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(224,166,42,0.25);
+    color: var(--heading);
+  }
+
+  .hero-cta {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 12px 28px; margin-top: 32px;
+    font-size: 15px; font-weight: 500; line-height: 1.3;
+    color: var(--cta-text); background: var(--cta-bg);
+    border-radius: var(--radius-full); text-decoration: none;
+    transition: all 0.15s var(--ease-default);
+    letter-spacing: -0.01em;
+  }
+  .hero-cta:hover { background: var(--cta-bg-hover); transform: translateY(-1px); }
+  .hero-cta:active { background: var(--cta-bg-pressed); transform: translateY(0); }
+
+  /* SECTIONS */
+  .section {
+    padding: 120px max(32px, 8vw);
+    max-width: 1440px; margin: 0 auto;
+    position: relative;
+  }
+
+  .section-eyebrow {
+    font-size: 12px; font-weight: 400; color: var(--accent);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .section-heading {
+    font-family: var(--font);
+    font-size: clamp(2.5rem, 4vw, 4.5rem);
+    font-weight: 400; line-height: 0.95;
+    letter-spacing: -0.05em; color: var(--heading);
+    margin-bottom: 16px; text-wrap: pretty;
+  }
+
+  .section-subhead {
+    font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+    font-weight: 400; line-height: 1.3;
+    letter-spacing: -0.02em; color: var(--text);
+    max-width: 50ch; text-wrap: pretty;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px; margin-top: 64px;
+  }
+
+  .card-grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+  .card {
+    display: flex; flex-direction: column; gap: 12px;
+    padding: 28px; border-radius: var(--radius-xl);
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    transition: all 0.2s var(--ease-default);
+    text-decoration: none; color: inherit;
+    position: relative; overflow: hidden;
+  }
+  .card::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--accent-dim), transparent 40%);
+    opacity: 0; transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  .card:hover { background: var(--card-bg-hover); border-color: var(--card-border-hover); }
+  .card:hover::before { opacity: 1; }
+
+  .card-icon {
+    width: 40px; height: 40px; border-radius: var(--radius-lg);
+    background: var(--accent-dim); display: flex;
+    align-items: center; justify-content: center;
+    font-size: 18px; color: var(--accent);
+  }
+
+  .card-title {
+    font-family: var(--font);
+    font-size: clamp(1.3rem, 1.8vw, 1.8rem);
+    font-weight: 400; line-height: 1.1;
+    letter-spacing: -0.03em; color: var(--heading);
+  }
+
+  .card-body {
+    font-size: 14px; font-weight: 400; line-height: 1.5;
+    color: var(--text); max-width: 42ch; flex: 1;
+  }
+
+  .card-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 14px; font-weight: 400; color: var(--link);
+    text-decoration: none; position: relative; padding-bottom: 2px;
+    width: fit-content;
+  }
+  .card-link::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 1px; background: var(--link-underline);
+    transform-origin: 0; transform: scaleX(0);
+    transition: transform 0.18s linear;
+  }
+  .card-link:hover::after {
+    transform: scaleX(1);
+    background: repeating-linear-gradient(90deg, var(--link-underline) 0, var(--link-underline) 0.05em, transparent 1px, transparent 3px);
+    background-size: 3px 1px;
+    animation: link-march 0.6s linear infinite;
+  }
+  @keyframes link-march { to { background-position: 3px 0; } }
+
+  /* CTA BAND */
+  .cta-band {
+    padding: 120px max(32px, 8vw);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-band::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(224,166,42,0.06), transparent 70%);
+    pointer-events: none;
+  }
+
+  /* PRICING */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 0; margin-top: 64px;
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    background: var(--card-bg);
+  }
+  .pricing-col {
+    padding: 40px 32px; display: flex; flex-direction: column;
+  }
+  .pricing-divider { background: var(--divider); }
+  .pricing-name {
+    font-size: 14px; font-weight: 400; color: var(--accent);
+    letter-spacing: 0.04em; text-transform: uppercase;
+  }
+  .pricing-amount {
+    font-family: var(--font);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 400; line-height: 1.0;
+    letter-spacing: -0.04em; color: var(--heading);
+    margin: 12px 0 4px;
+  }
+  .pricing-period {
+    font-size: 13px; color: var(--text); margin-bottom: 16px;
+  }
+  .pricing-features {
+    list-style: none; display: flex; flex-direction: column; gap: 8px;
+    font-size: 14px; color: var(--text); flex: 1;
+  }
+  .pricing-features li::before { content: '✓ '; color: var(--accent); }
+  .pricing-cta {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 10px 24px; margin-top: 24px;
+    font-size: 14px; font-weight: 500;
+    color: var(--cta-text); background: var(--cta-bg);
+    border-radius: var(--radius-full); text-decoration: none;
+    transition: all 0.15s var(--ease-default);
+    letter-spacing: -0.01em; align-self: flex-start;
+  }
+  .pricing-cta:hover { background: var(--cta-bg-hover); }
+
+  /* STATS ROW */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--divider);
+    border-radius: var(--radius-xl); overflow: hidden;
+    margin-top: 64px;
+  }
+  .stat-card {
+    padding: 32px 24px; text-align: center;
+    background: var(--bg);
+  }
+  .stat-value {
+    font-family: var(--font);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 400; color: var(--accent);
+    letter-spacing: -0.03em;
+  }
+  .stat-label {
+    font-size: 13px; font-weight: 400; color: var(--text);
+    margin-top: 4px;
+  }
+
+  /* TESTIMONIAL */
+  .testimonial {
+    border-left: 2px solid var(--accent);
+    padding: 0 0 0 24px; margin-top: 48px;
+    max-width: 600px;
+  }
+  .testimonial-text {
+    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+    font-weight: 400; line-height: 1.5;
+    color: var(--heading); font-style: italic;
+    letter-spacing: -0.01em;
+  }
+  .testimonial-author {
+    font-size: 14px; color: var(--text); margin-top: 12px;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 80px max(32px, 8vw) 40px;
+    border-top: 1px solid var(--divider);
+    max-width: 1440px; margin: 0 auto;
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 32px; margin-bottom: 60px;
+  }
+  .footer-brand {
+    font-size: 14px; font-weight: 500; color: var(--heading);
+    letter-spacing: -0.02em; margin-bottom: 8px;
+  }
+  .footer-tagline {
+    font-size: 13px; color: var(--text); max-width: 28ch;
+  }
+  .footer-col h4 {
+    font-size: 11px; font-weight: 400;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase; letter-spacing: 0.06em;
+    margin-bottom: 12px;
+  }
+  .footer-col a {
+    display: block; font-size: 13px; font-weight: 400;
+    color: var(--text); text-decoration: none;
+    padding: 3px 0; transition: color 0.15s;
+  }
+  .footer-col a:hover { color: var(--heading); }
+  .footer-wordmark {
+    font-family: var(--font);
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 400; line-height: 0.85;
+    letter-spacing: -0.06em; text-align: center;
+    color: rgba(255,255,255,0.03);
+    margin-bottom: 40px; user-select: none;
+  }
+  .footer-bottom {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 24px; border-top: 1px solid var(--divider);
+    font-size: 12px; color: rgba(255,255,255,0.25);
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .section { padding: 80px 16px 40px; }
+    .footer { padding: 60px 16px 30px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .card-grid, .card-grid-2 { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-divider { display: none; }
+    .hero-t1 { font-size: clamp(2.5rem, 11vw, 3.5rem); }
+    .hero-stats { flex-direction: column; gap: 16px; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="/" class="nav-brand">
+    <img src="../assets/nfs-logo.png" alt="NFS" onerror="this.style.display='none'" style="display:none">
+    Not Forgotten
+  </a>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#how-it-works">How it works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#results">Results</a>
+  </div>
+  <a href="https://notforgotten.com.au" class="nav-cta">Start free</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content">
+    <h1 class="hero-t1">Never Forgotten</h1>
+    <p class="hero-t2">Your quotes follow up automatically. CC or BCC notforgotten@ and we handle every follow-up, so you close more jobs without lifting a finger.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-value">3 days</div>
+        <div class="hero-stat-label">Average time to close</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">68%</div>
+        <div class="hero-stat-label">Quotes followed up</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">$0</div>
+        <div class="hero-stat-label">Setup cost</div>
+      </div>
+    </div>
+    <nav class="hero-nav">
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#follow-ups">Follow-ups</a>
+      <a href="#integration">Integration</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <a href="https://notforgotten.com.au" class="hero-cta">Try it free →</a>
+  </div>
+</header>
+
+<!-- FEATURES -->
+<section class="section" id="features">
+  <div class="section-eyebrow">Platform</div>
+  <h2 class="section-heading">Every quote, followed up</h2>
+  <p class="section-subhead">Not Forgotten watches your outbound quotes and sends timed, personalised follow-ups. You stay focused on the tools while we handle the admin.</p>
+
+  <div class="card-grid">
+    <article class="card">
+      <div class="card-icon">📧</div>
+      <h3 class="card-title">Smart CC/BCC</h3>
+      <p class="card-body">CC or BCC notforgotten@ on any quote you send. We detect it, track it, and begin the follow-up sequence automatically. No extra steps, no new tools.</p>
+      <span class="card-link">Learn more →</span>
+    </article>
+    <article class="card">
+      <div class="card-icon">🔄</div>
+      <h3 class="card-title">Automated sequences</h3>
+      <p class="card-body">Three timed follow-ups: a gentle reminder, a value-add check-in, and a final nudge. Every message sounds like you wrote it, not a robot.</p>
+      <span class="card-link">See templates →</span>
+    </article>
+    <article class="card">
+      <div class="card-icon">📊</div>
+      <h3 class="card-title">Quote tracking</h3>
+      <p class="card-body">See every quote's status at a glance: sent, opened, followed up, closed. Know which jobs need attention without digging through your inbox.</p>
+      <span class="card-link">View dashboard →</span>
+    </article>
+    <article class="card">
+      <div class="card-icon">⏱️</div>
+      <h3 class="card-title">Time-saving analytics</h3>
+      <p class="card-body">Track your quote-to-close time, follow-up response rates, and revenue recovered. The numbers show you exactly what automated follow-up is worth.</p>
+      <span class="card-link">See metrics →</span>
+    </article>
+    <article class="card">
+      <div class="card-icon">🔗</div>
+      <h3 class="card-title">Works with your tools</h3>
+      <p class="card-body">No new software to learn. Not Forgotten plugs into the email you already use. Gmail, Outlook, whatever — if you can CC it, it works.</p>
+      <span class="card-link">Check compatibility →</span>
+    </article>
+    <article class="card">
+      <div class="card-icon">🤝</div>
+      <h3 class="card-title">Built for tradies</h3>
+      <p class="card-body">Painters, sparkies, chippies, plumbers — if you quote jobs by email, Not Forgotten is built for you. Simple language, simple setup, real results.</p>
+      <span class="card-link">Read stories →</span>
+    </article>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how-it-works">
+  <div class="section-eyebrow">How it works</div>
+  <h2 class="section-heading">Three steps, zero friction</h2>
+  <p class="section-subhead">You already send quotes. We just make sure they don't get forgotten.</p>
+
+  <div class="stats-row" style="margin-top: 48px;">
+    <div class="stat-card">
+      <div class="stat-value">1</div>
+      <div class="stat-label">Send your quote as usual, CC notforgotten@</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">2</div>
+      <div class="stat-label">We track it and send timed follow-ups</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">3</div>
+      <div class="stat-label">Customer replies, you close the job</div>
+    </div>
+  </div>
+
+  <div class="testimonial">
+    <p class="testimonial-text">"I used to lose track of quotes all the time. Now Not Forgotten handles the follow-ups, and I'm closing jobs I would've missed. It's like having an office manager for $49 a month."</p>
+    <p class="testimonial-author">Travis Krieg, Krieg Painting</p>
+  </div>
+</section>
+
+<!-- FOLLOW-UPS -->
+<section class="section" id="follow-ups">
+  <div class="section-eyebrow">Follow-ups</div>
+  <h2 class="section-heading">Messages that sound human</h2>
+  <p class="section-subhead">Every follow-up is written to sound like a tradie, not a marketing department. Short, direct, and effective.</p>
+
+  <div class="card-grid card-grid-2">
+    <article class="card">
+      <div class="card-icon">1</div>
+      <h3 class="card-title">The gentle nudge</h3>
+      <p class="card-body">Sent 3 days after the quote. A simple check-in that keeps the conversation alive without being pushy.</p>
+    </article>
+    <article class="card">
+      <div class="card-icon">2</div>
+      <h3 class="card-title">The value reminder</h3>
+      <p class="card-body">Sent 7 days in. Highlights what's included, answers common questions, and reinforces why you're the right choice.</p>
+    </article>
+    <article class="card">
+      <div class="card-icon">3</div>
+      <h3 class="card-title">The final check</h3>
+      <p class="card-body">Sent at 14 days. A respectful last touch that gives them an easy way to say yes, no, or not yet.</p>
+    </article>
+    <article class="card">
+      <div class="card-icon">✨</div>
+      <h3 class="card-title">You stay in control</h3>
+      <p class="card-body">If they reply, the sequence stops. If they say no, we stop. You can pause, skip, or customise any message before it sends.</p>
+    </article>
+  </div>
+</section>
+
+<!-- INTEGRATION -->
+<section class="section" id="integration">
+  <div class="section-eyebrow">Integration</div>
+  <h2 class="section-heading">No new software</h2>
+  <p class="section-subhead">Not Forgotten works through your existing email. If you can send a quote, you can use Not Forgotten.</p>
+
+  <div class="card-grid">
+    <article class="card">
+      <div class="card-icon">📨</div>
+      <h3 class="card-title">Gmail</h3>
+      <p class="card-body">CC notforgotten@ from Gmail and we pick it up instantly. Works on desktop and mobile.</p>
+    </article>
+    <article class="card">
+      <div class="card-icon">📬</div>
+      <h3 class="card-title">Outlook</h3>
+      <p class="card-body">Same flow — CC us and you're done. Works with Outlook 365, desktop, and web.</p>
+    </article>
+    <article class="card">
+      <div class="card-icon">📱</div>
+      <h3 class="card-title">Any email client</h3>
+      <p class="card-body">Apple Mail, Thunderbird, your phone — if it has a CC field, Not Forgotten works with it.</p>
+    </article>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <div class="section-eyebrow">Pricing</div>
+  <h2 class="section-heading">Simple, predictable</h2>
+  <p class="section-subhead">One plan. Everything included. No per-quote fees, no surprises.</p>
+
+  <div class="pricing-grid">
+    <div class="pricing-col">
+      <div class="pricing-name">Not Forgotten</div>
+      <div class="pricing-amount">$49<span style="font-size: 1.2rem; color: var(--text);">/mo</span></div>
+      <div class="pricing-period">AUD, billed monthly. Cancel anytime.</div>
+      <ul class="pricing-features">
+        <li>Unlimited quote tracking</li>
+        <li>3-step follow-up sequence</li>
+        <li>Quote status dashboard</li>
+        <li>Reply detection & auto-pause</li>
+        <li>Email support</li>
+      </ul>
+      <a href="https://notforgotten.com.au" class="pricing-cta">Start free trial</a>
+    </div>
+    <div class="pricing-divider"></div>
+    <div class="pricing-col">
+      <div class="pricing-name">Setup</div>
+      <div class="pricing-amount">$99<span style="font-size: 1.2rem; color: var(--text);"> once</span></div>
+      <div class="pricing-period">One-time. We get you running in a day.</div>
+      <ul class="pricing-features">
+        <li>Personalised follow-up messages</li>
+        <li>Email configuration check</li>
+        <li>Quote template review</li>
+        <li>30-minute onboarding call</li>
+        <li>Priority support first month</li>
+      </ul>
+      <a href="https://notforgotten.com.au" class="pricing-cta">Get set up</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <h2 class="section-heading">Your quotes deserve a second chance</h2>
+  <p class="section-subhead" style="margin: 0 auto 32px;">Most tradies lose 30% of quotes to silence. Not Forgotten turns silence into signed jobs.</p>
+  <a href="https://notforgotten.com.au" class="hero-cta">Start your free trial →</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-wordmark" aria-hidden="true">NOT FORGOTTEN</div>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Not Forgotten Systems</div>
+      <p class="footer-tagline">Automated quote follow-up for Australian tradies. Never lose a job to silence again.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#integration">Integration</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="https://notforgotten.com.au">Homepage</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Blog</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Cookie Policy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Not Forgotten Systems</span>
+    <span>Built in Adelaide, Australia</span>
+  </div>
+</footer>
+
+<!-- THREE.JS HERO RING -->
+<script type="importmap">
+{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+</script>
+<script type="module">
+import * as THREE from 'three';
+
+const canvas = document.getElementById('hero-canvas');
+const hero = document.querySelector('.hero');
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(45, 2, 0.1, 100);
+camera.position.set(0, 0, 8);
+
+// Ring of text
+const ringRadius = 2.5;
+const ringTilt = 18 * (Math.PI / 180);
+const word = 'NOTFORGOTTENNOTFORGOTTENNOTFORGOTTEN';
+const totalChars = word.length;
+
+const ringGroup = new THREE.Group();
+ringGroup.rotation.x = ringTilt;
+
+const charGeom = new THREE.PlaneGeometry(0.22, 0.32);
+for (let i = 0; i < totalChars; i++) {
+  const angle = (i / totalChars) * Math.PI * 2;
+  const x = Math.cos(angle) * ringRadius;
+  const y = Math.sin(angle) * ringRadius;
+
+  const charCanvas = document.createElement('canvas');
+  charCanvas.width = 64; charCanvas.height = 80;
+  const ctx = charCanvas.getContext('2d');
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 48px Inter, sans-serif';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.globalAlpha = 0.9;
+  ctx.fillText(word[i], 32, 40);
+
+  const texture = new THREE.CanvasTexture(charCanvas);
+  texture.minFilter = THREE.LinearFilter;
+  const mat = new THREE.MeshBasicMaterial({ map: texture, transparent: true, depthWrite: false, side: THREE.DoubleSide });
+  const sprite = new THREE.Mesh(charGeom, mat);
+  sprite.position.set(x, y, 0);
+  sprite.lookAt(new THREE.Vector3(x * 2, y * 2, -1));
+  sprite.userData = { angle, delay: i * 0.04, baseX: x, baseY: y };
+  sprite.material.opacity = 0;
+  ringGroup.add(sprite);
+}
+scene.add(ringGroup);
+
+// Gold accent particles
+const particlesGeom = new THREE.BufferGeometry();
+const particleCount = 150;
+const positions = new Float32Array(particleCount * 3);
+const colors = new Float32Array(particleCount * 3);
+for (let i = 0; i < particleCount; i++) {
+  positions[i * 3] = (Math.random() - 0.5) * 8;
+  positions[i * 3 + 1] = (Math.random() - 0.5) * 6;
+  positions[i * 3 + 2] = (Math.random() - 0.5) * 4 - 1;
+  // Gold-ish color
+  colors[i * 3] = 0.88;
+  colors[i * 3 + 1] = 0.65;
+  colors[i * 3 + 2] = 0.16;
+}
+particlesGeom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+particlesGeom.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+const particlesMat = new THREE.PointsMaterial({ size: 0.025, transparent: true, opacity: 0.4, depthWrite: false, vertexColors: true });
+const particles = new THREE.Points(particlesGeom, particlesMat);
+scene.add(particles);
+
+function resize() {
+  const rect = hero.getBoundingClientRect();
+  renderer.setSize(rect.width, rect.height);
+  camera.aspect = rect.width / Math.max(rect.height, 1);
+  camera.updateProjectionMatrix();
+}
+window.addEventListener('resize', resize);
+resize();
+
+const startTime = performance.now();
+const introDuration = 4500;
+const ambientRevolution = 150000;
+
+function animate(time) {
+  requestAnimationFrame(animate);
+  const elapsed = time - startTime;
+  const introProgress = Math.min(elapsed / introDuration, 1.0);
+
+  const ease = (t) => {
+    const p0 = 0.2, p1 = 0.9, p2 = 0.3, p3 = 0.986;
+    const cx = 3 * p0, bx = 3 * (p2 - p0) - cx, ax = 1 - cx - bx;
+    const cy = 3 * p1, by = 3 * (p3 - p1) - cy, ay = 1 - cy - by;
+    const sampleX = (t) => ((ax * t + bx) * t + cx) * t;
+    const sampleY = (t) => ((ay * t + by) * t + cy) * t;
+    let t2 = t;
+    for (let i = 0; i < 4; i++) {
+      const x = sampleX(t2) - t;
+      if (Math.abs(x) < 0.001) break;
+      const dx = (3 * ax * t2 + 2 * bx) * t2 + cx;
+      t2 -= x / dx;
+    }
+    return sampleY(t2);
+  };
+
+  const easedProgress = ease(introProgress);
+  const introY = 60 * (Math.PI / 180) * (1 - easedProgress);
+  const ambientY = introProgress >= 0.99 ? ((elapsed - introDuration) / ambientRevolution) * Math.PI * 2 : 0;
+  ringGroup.rotation.y = introY + ambientY;
+
+  ringGroup.children.forEach(char => {
+    const cs = char.userData.delay;
+    const ce = cs + 0.65;
+    if (easedProgress >= cs) {
+      char.material.opacity = Math.min((easedProgress - cs) / (ce - cs), 1) * 0.9;
+    }
+  });
+
+  particles.rotation.y += 0.0003;
+  particles.rotation.x += 0.0001;
+
+  renderer.render(scene, camera);
+}
+requestAnimationFrame(animate);
+</script>
+
+<!-- Mouse tracking for card glow -->
+<script>
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--mouse-x', ((e.clientX - rect.left) / rect.width * 100) + '%');
+    card.style.setProperty('--mouse-y', ((e.clientY - rect.top) / rect.height * 100) + '%');
+  });
+});
+</script>
+
+</body>
+</html>
