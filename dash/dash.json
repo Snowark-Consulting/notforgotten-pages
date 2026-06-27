@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 16,
+    "tasks_completed": 17,
     "recent": [
+      {
+        "date": "2026-06-27 01:35",
+        "task": "Uploaded 121 outreach records from Google Sheet to Airtable Prospects table (upsert by email)",
+        "category": "task"
+      },
       {
         "date": "2026-06-25 11:35",
         "task": "Nightly consolidation: wrote Jun 25 notes (2 sessions, inbox mining + design skills), added frontmatter to testimonials.md, Registry +4 entries, Infrastructure 7/7 verified, 0 broken wikilinks",
@@ -144,5 +149,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-25T11:35:51.803898"
+  "last_updated": "2026-06-27T01:35:01.696936"
 }
