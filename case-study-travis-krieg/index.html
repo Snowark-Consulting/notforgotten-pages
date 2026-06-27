@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travis Krieg Painting — Case Study | Not Forgotten Systems</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --nfs-navy: #0b2c4d;
+    --nfs-gold: #e0a62a;
+    --nfs-white: #FFFFFF;
+    --nfs-text: rgba(255,255,255,0.85);
+    --nfs-heading: #FFFFFF;
+    --nfs-link: #e0a62a;
+    --nfs-card-bg: rgba(255,255,255,0.03);
+    --nfs-card-border: rgba(255,255,255,0.06);
+    --nfs-card-border-hover: rgba(224,166,42,0.15);
+    --nfs-divider: rgba(255,255,255,0.06);
+    --nfs-muted: rgba(255,255,255,0.25);
+    --nfs-cta-bg: #e0a62a;
+    --nfs-cta-text: #0b2c4d;
+    --nfs-cta-bg-hover: #f0b840;
+    --nfs-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    --text-sm: 14px;
+    --text-base: 16px;
+    --text-lg: 20px;
+    --text-xl: 24px;
+    --text-2xl: 32px;
+    --text-3xl: 40px;
+    --text-4xl: 48px;
+    --text-5xl: 64px;
+
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
+    --space-4xl: 96px;
+    --space-5xl: 128px;
+    --radius-lg: 8px;
+    --radius-xl: 12px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--nfs-font);
+    background: var(--nfs-navy);
+    color: var(--nfs-text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+  }
+
+  /* Hero */
+  .hero {
+    padding: var(--space-5xl) 0 var(--space-4xl);
+    text-align: center;
+  }
+  .hero-label {
+    font-size: var(--text-sm);
+    color: var(--nfs-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    margin-bottom: var(--space-lg);
+  }
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, var(--text-5xl));
+    font-weight: 400;
+    color: var(--nfs-heading);
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    max-width: 800px;
+    margin: 0 auto var(--space-xl);
+  }
+  .hero h1 span {
+    color: var(--nfs-gold);
+  }
+  .hero-sub {
+    font-size: var(--text-lg);
+    color: var(--nfs-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* Big number banner */
+  .big-number {
+    text-align: center;
+    padding: var(--space-3xl) 0;
+    border-top: 1px solid var(--nfs-divider);
+    border-bottom: 1px solid var(--nfs-divider);
+  }
+  .big-number-value {
+    font-size: clamp(4rem, 10vw, 96px);
+    font-weight: 400;
+    color: var(--nfs-gold);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .big-number-label {
+    font-size: var(--text-lg);
+    color: var(--nfs-muted);
+    margin-top: var(--space-sm);
+  }
+  .big-number-row {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-5xl);
+    margin-top: var(--space-2xl);
+    flex-wrap: wrap;
+  }
+  .stat-item {
+    text-align: center;
+  }
+  .stat-value {
+    font-size: var(--text-3xl);
+    font-weight: 400;
+    color: var(--nfs-heading);
+    letter-spacing: -0.03em;
+  }
+  .stat-label {
+    font-size: var(--text-sm);
+    color: var(--nfs-muted);
+    margin-top: var(--space-sm);
+  }
+
+  /* Section */
+  .section {
+    padding: var(--space-4xl) 0;
+  }
+  .section h2 {
+    font-size: var(--text-3xl);
+    font-weight: 400;
+    color: var(--nfs-heading);
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-lg);
+  }
+  .section h3 {
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--nfs-heading);
+    margin-bottom: var(--space-md);
+  }
+  .section p {
+    font-size: var(--text-base);
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+    max-width: 680px;
+  }
+  .section p.lead {
+    font-size: var(--text-lg);
+    line-height: 1.6;
+  }
+
+  /* Table */
+  .table-wrap {
+    overflow-x: auto;
+    margin: var(--space-xl) 0;
+    border: 1px solid var(--nfs-card-border);
+    border-radius: var(--radius-lg);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+  }
+  th {
+    text-align: left;
+    padding: var(--space-md) var(--space-md);
+    color: var(--nfs-muted);
+    font-weight: 500;
+    border-bottom: 1px solid var(--nfs-divider);
+    white-space: nowrap;
+  }
+  td {
+    padding: var(--space-sm) var(--space-md);
+    border-bottom: 1px solid var(--nfs-divider);
+    white-space: nowrap;
+  }
+  td:first-child, th:first-child { padding-left: var(--space-xl); }
+  td:last-child, th:last-child { padding-right: var(--space-xl); }
+  tr:last-child td { border-bottom: none; }
+  .num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .gold { color: var(--nfs-gold); }
+
+  /* Lesson box */
+  .lesson {
+    background: var(--nfs-card-bg);
+    border: 1px solid var(--nfs-card-border);
+    border-left: 2px solid var(--nfs-gold);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    margin: var(--space-2xl) 0;
+  }
+  .lesson h3 {
+    color: var(--nfs-gold);
+    margin-bottom: var(--space-sm);
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: var(--space-4xl) 0 var(--space-5xl);
+    text-align: center;
+  }
+  .cta-section h2 {
+    font-size: var(--text-2xl);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-md);
+    color: var(--nfs-heading);
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--nfs-cta-bg);
+    color: var(--nfs-cta-text);
+    font-weight: 500;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    font-size: var(--text-base);
+    transition: background 0.2s;
+  }
+  .cta-btn:hover { background: var(--nfs-cta-bg-hover); }
+
+  /* Footer */
+  .footer {
+    padding: var(--space-xl) 0 var(--space-3xl);
+    text-align: center;
+    font-size: var(--text-sm);
+    color: var(--nfs-muted);
+    border-top: 1px solid var(--nfs-divider);
+  }
+
+  @media (max-width: 640px) {
+    .container { padding: 0 var(--space-md); }
+    .big-number-row { gap: var(--space-xl); }
+    .hero { padding: var(--space-3xl) 0 var(--space-2xl); }
+    .section { padding: var(--space-2xl) 0; }
+    th, td { padding: var(--space-sm) var(--space-sm); }
+    th:first-child, td:first-child { padding-left: var(--space-md); }
+    th:last-child, td:last-child { padding-right: var(--space-md); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-label">Case Study</div>
+    <h1>How a painter in Adelaide recovered <span>$177,555</span> from quotes he'd already sent</h1>
+    <p class="hero-sub">Travis Krieg Painting used Not Forgotten Systems to automatically follow up on quotes. In 3 months, 14 jobs came back from clients who'd gone completely silent.</p>
+  </div>
+</section>
+
+<!-- Big Numbers -->
+<section class="big-number">
+  <div class="container">
+    <div class="big-number-value">$177,555</div>
+    <div class="big-number-label">Total revenue recovered from silent quotes</div>
+    <div class="big-number-row">
+      <div class="stat-item">
+        <div class="stat-value">14</div>
+        <div class="stat-label">Jobs won</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">3</div>
+        <div class="stat-label">Months active</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">$12,683</div>
+        <div class="stat-label">Average job value</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">5</div>
+        <div class="stat-label">Person crew</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The Story -->
+<section class="section">
+  <div class="container">
+    <h2>The situation</h2>
+    <p class="lead">Travis Krieg runs a 5-person painting crew in South Australia. Like most tradies, he was sending quotes and hoping clients would reply. Some did. Many didn't. The ones that went quiet just... stayed quiet.</p>
+    <p>Travis had quotes sitting in inboxes for months. Some were worth $20,000 or more. He'd done the hard work — the site visit, the estimate, the quote itself. But following up? That fell through the cracks. Between managing the crew, being on the tools, and running the business, there was never time to chase.</p>
+    <p>That changed when Travis started using Not Forgotten Systems. He CC'd notforgotten.com.au on his quotes, and the system handled everything after that. Three follow-ups, spaced over two weeks, automatically. No manual chasing. No forgotten threads.</p>
+  </div>
+</section>
+
+<!-- The Numbers -->
+<section class="section">
+  <div class="container">
+    <h2>The results</h2>
+    <p>Over three months, Travis won 14 jobs through automated follow-up. These weren't new leads — they were quotes he'd already sent that would have died in silence without the system.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Client</th>
+            <th class="num">Quote value</th>
+            <th>Won</th>
+            <th class="num">Days to close</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Jo & Craig Potter</td><td class="num gold">$35,097</td><td>25 Mar 2026</td><td class="num">63</td><td>Old quote</td></tr>
+          <tr><td>Sharon Heathfield</td><td class="num">$24,112</td><td>30 Jan 2026</td><td class="num">9</td><td>Old quote</td></tr>
+          <tr><td>Kate Whitelock</td><td class="num">$14,850</td><td>4 Feb 2026</td><td class="num">7</td><td>New</td></tr>
+          <tr><td>Richard Saunders</td><td class="num">$12,031</td><td>16 Mar 2026</td><td class="num">26</td><td>New</td></tr>
+          <tr><td>Sam Franze</td><td class="num">$11,134</td><td>30 Jan 2026</td><td class="num">9</td><td>New</td></tr>
+          <tr><td>Joshua Scigala</td><td class="num">$10,000</td><td>6 Feb 2026</td><td class="num">9</td><td>Old quote</td></tr>
+          <tr><td>Anisha Chaudhary</td><td class="num">$9,036</td><td>18 Apr 2026</td><td class="num">—</td><td>New</td></tr>
+          <tr><td>Marlene Newton</td><td class="num">$8,916</td><td>4 Mar 2026</td><td class="num">15</td><td>Old quote</td></tr>
+          <tr><td>Campbell Smith</td><td class="num">$7,986</td><td>5 Mar 2026</td><td class="num">—</td><td>New</td></tr>
+          <tr><td>Matthew Villetri</td><td class="num">$7,920</td><td>25 Feb 2026</td><td class="num">7</td><td>New</td></tr>
+          <tr><td>Morgana Bassell</td><td class="num">$5,740</td><td>25 Mar 2026</td><td class="num">9</td><td>New</td></tr>
+          <tr><td>Illona Weir</td><td class="num">$5,323</td><td>27 Apr 2026</td><td class="num">13</td><td>New</td></tr>
+          <tr><td>Monique Hawkins</td><td class="num">$2,560</td><td>30 Jan 2026</td><td class="num">1</td><td>Old quote</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="color:var(--nfs-muted); font-size:var(--text-sm);">7 new quotes and 6 old quotes recovered. The oldest quote — Sharon Heathfield at $24,112 — had been sitting for 300 days before follow-up brought it back.</p>
+  </div>
+</section>
+
+<!-- The Lesson -->
+<section class="section">
+  <div class="container">
+    <h2>What happened next</h2>
+    <p>Travis saw the results — $177,555 in revenue, 14 jobs won, zero effort on follow-up — and made a decision. Rather than keep paying for the service, he hired someone in-house to do the follow-up manually.</p>
+    <p>That person is one person. They get sick. They take holidays. They forget. And if they leave? All that follow-up knowledge walks out the door with them.</p>
+    <div class="lesson">
+      <h3>Why Not Forgotten built Atlas</h3>
+      <p style="margin-bottom:0;">A system doesn't call in sick. A system doesn't forget to follow up. A system doesn't get hired away by your competitor. Travis proved the model works — $177,555 proves it. The lesson isn't that clients leave. It's that when they do, the system stays. That's the difference between hiring a person and building infrastructure.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Your quotes are worth recovering too</h2>
+    <p style="margin-bottom:var(--space-xl); color:var(--nfs-muted); max-width:500px; margin-left:auto; margin-right:auto;">CC notforgotten.com.au on your next quote. The system handles the rest.</p>
+    <a href="mailto:james@notforgotten.com.au" class="cta-btn">Start recovering your quotes</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p>Not Forgotten Systems &middot; Automated quote follow-up for trades businesses</p>
+    <p style="margin-top:var(--space-sm);"><a href="https://notforgotten.com.au" style="color:var(--nfs-link); text-decoration:none;">notforgotten.com.au</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
