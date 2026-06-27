@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 27,
+    "tasks_completed": 28,
     "recent": [
+      {
+        "date": "2026-06-27 12:12",
+        "task": "Contact name research: 3 browser subagents researching 45 trade businesses. 19 names found so far via email parsing",
+        "category": "task"
+      },
       {
         "date": "2026-06-27 12:01",
         "task": "Researching contact names for 180 Airtable prospects \u2014 scraping websites and parsing email addresses",
@@ -135,11 +140,6 @@
         "date": "2026-06-24 11:02",
         "task": "Inbox pulse cron upgraded to 24/7 coverage \u2014 closed the 8-hour blind spot that caused a delegation verification email to be silently missed today",
         "category": "task"
-      },
-      {
-        "date": "2026-06-23 13:10",
-        "task": "Ingested and adapted 12 marketing skills from coreyhaines31/marketingskills for Not Forgotten: copywriting, emails, cro, marketing-psychology, cold-email, offers, copy-editing, pricing, popups, signup, churn-prevention, ad-creative. All tradie-adapted with NFS voice/product context.",
-        "category": "task"
       }
     ]
   },
@@ -164,5 +164,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-27T12:01:24.807251"
+  "last_updated": "2026-06-27T12:12:06.538423"
 }
