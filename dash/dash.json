@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 30,
+    "tasks_completed": 31,
     "recent": [
+      {
+        "date": "2026-06-27 12:47",
+        "task": "V4: Gemini Pro redesign \u2014 constellation tracking Three.js hero + editorial testimonial + timeline How It Works + differentiated industry cards + pull-quote About section",
+        "category": "task"
+      },
       {
         "date": "2026-06-27 12:33",
         "task": "V3: Redesigned with Three.js particle hero + GSAP scroll animations + glass nav + card hover effects \u2014 deployed to notforgotten-replica.vercel.app",
@@ -135,11 +140,6 @@
         "date": "2026-06-24 11:28",
         "task": "Hardened James's inbox scope rule across 3 files \u2014 pulse-bootstrap.md, email-inbox-pulse SKILL.md, delegated-mailbox-access.md. Read-only: no send, no mark-read, no labels.",
         "category": "task"
-      },
-      {
-        "date": "2026-06-24 11:24",
-        "task": "Pressure-tested persistent Chrome browser \u2014 restart resilience \u2713, Google session persistence \u2713, form interaction \u2713. Created orgo-chrome skill with known limitations and workarounds.",
-        "category": "task"
       }
     ]
   },
@@ -164,5 +164,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-27T12:33:33.163282"
+  "last_updated": "2026-06-27T12:47:24.577797"
 }
