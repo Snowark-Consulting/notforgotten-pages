@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 36,
+    "tasks_completed": 37,
     "recent": [
+      {
+        "date": "2026-06-27 23:19",
+        "task": "v4 deploy: hero split-layout w stat cards, timeline how-it-works, testimonial card grid, pricing badge, CTA gradient overlay",
+        "category": "task"
+      },
       {
         "date": "2026-06-27 22:56",
         "task": "v3 deployed: snapped to 1.333 type scale (64/40/24/16), 8-pt grid, gold-on-dark CTA inverted, mobile hamburger, WCAG fixes",
@@ -135,11 +140,6 @@
         "date": "2026-06-27 01:40",
         "task": "Reset all 122 Prospects to Pipeline: New \u2014 clean slate for re-outreach",
         "category": "task"
-      },
-      {
-        "date": "2026-06-27 01:35",
-        "task": "Uploaded 121 outreach records from Google Sheet to Airtable Prospects table (upsert by email)",
-        "category": "task"
       }
     ]
   },
@@ -164,5 +164,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-27T22:56:24.694191"
+  "last_updated": "2026-06-27T23:19:04.936225"
 }
