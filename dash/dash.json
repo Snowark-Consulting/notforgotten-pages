@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 24,
+    "tasks_completed": 25,
     "recent": [
+      {
+        "date": "2026-06-27 10:07",
+        "task": "Cross-referenced Phase 2 data with Airtable: 50 updated, 60 new prospects created (30 commercial cleaning + 30 marketing agencies). Airtable now at 181 prospects.",
+        "category": "task"
+      },
       {
         "date": "2026-06-27 09:16",
         "task": "Replicated notforgotten.com.au on Vercel using extracted design tokens \u2014 deployed to notforgotten-replica.vercel.app",
@@ -135,11 +140,6 @@
         "date": "2026-06-22 20:51",
         "task": "Rebuilt inbox watchdog as two-phase pulse: 60s unread scan + full-identity agent boot when mail found, auto-mark-read",
         "category": "task"
-      },
-      {
-        "date": "2026-06-22 20:35",
-        "task": "Full-graph wikilink pass + vault lint: 22 files connected (~70 links), 2 orphan cards fixed (git, supabase), 0 broken links",
-        "category": "task"
       }
     ]
   },
@@ -164,5 +164,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-27T09:16:27.108642"
+  "last_updated": "2026-06-27T10:07:11.684847"
 }
