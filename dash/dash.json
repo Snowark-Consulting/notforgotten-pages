@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 23,
+    "tasks_completed": 24,
     "recent": [
+      {
+        "date": "2026-06-27 09:16",
+        "task": "Replicated notforgotten.com.au on Vercel using extracted design tokens \u2014 deployed to notforgotten-replica.vercel.app",
+        "category": "task"
+      },
       {
         "date": "2026-06-27 06:52",
         "task": "Phase 2 master prospect list (110 prospects across 3 verticals) published to Google Docs",
@@ -135,11 +140,6 @@
         "date": "2026-06-22 20:35",
         "task": "Full-graph wikilink pass + vault lint: 22 files connected (~70 links), 2 orphan cards fixed (git, supabase), 0 broken links",
         "category": "task"
-      },
-      {
-        "date": "2026-06-21 12:14",
-        "task": "Delivered readiness overview for James \u2014 what's live, what's waiting, next steps for the week",
-        "category": "task"
       }
     ]
   },
@@ -164,5 +164,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-27T06:52:54.616091"
+  "last_updated": "2026-06-27T09:16:27.108642"
 }
