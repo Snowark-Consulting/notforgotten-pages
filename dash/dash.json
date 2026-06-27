@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 28,
+    "tasks_completed": 29,
     "recent": [
+      {
+        "date": "2026-06-27 12:22",
+        "task": "V2: Exact copy match + Power Design audit \u2014 redeployed notforgotten-replica.vercel.app with 8-pt grid, modular type scale, corrected About section, missing features restored",
+        "category": "task"
+      },
       {
         "date": "2026-06-27 12:12",
         "task": "Contact name research: 3 browser subagents researching 45 trade businesses. 19 names found so far via email parsing",
@@ -135,11 +140,6 @@
         "date": "2026-06-24 11:16",
         "task": "Accepted Gmail delegation from james@notforgotten.com.au \u2014 verification propagating (up to 30min). Chrome persistent profile active on CDP :9222.",
         "category": "task"
-      },
-      {
-        "date": "2026-06-24 11:02",
-        "task": "Inbox pulse cron upgraded to 24/7 coverage \u2014 closed the 8-hour blind spot that caused a delegation verification email to be silently missed today",
-        "category": "task"
       }
     ]
   },
@@ -164,5 +164,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-27T12:12:06.538423"
+  "last_updated": "2026-06-27T12:22:51.764201"
 }
