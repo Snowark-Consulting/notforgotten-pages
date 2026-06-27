@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 26,
+    "tasks_completed": 27,
     "recent": [
+      {
+        "date": "2026-06-27 12:01",
+        "task": "Researching contact names for 180 Airtable prospects \u2014 scraping websites and parsing email addresses",
+        "category": "task"
+      },
       {
         "date": "2026-06-27 10:34",
         "task": "Built quote intake pipeline: auto-detects quote emails in atlas@ inbox, extracts data from PDFs (pymupdf + Gemini vision), cross-references with Airtable, auto-moves Prospects\u2192Clients and creates Quotes. Wired into inbox pulse",
@@ -135,11 +140,6 @@
         "date": "2026-06-23 13:10",
         "task": "Ingested and adapted 12 marketing skills from coreyhaines31/marketingskills for Not Forgotten: copywriting, emails, cro, marketing-psychology, cold-email, offers, copy-editing, pricing, popups, signup, churn-prevention, ad-creative. All tradie-adapted with NFS voice/product context.",
         "category": "task"
-      },
-      {
-        "date": "2026-06-23 07:11",
-        "task": "Fixed inbox pulse double-post bug \u2014 mark-as-read now happens before summarising, closing race condition between Phase 1 (60s poll) and Phase 2 (slow agent boot)",
-        "category": "task"
       }
     ]
   },
@@ -164,5 +164,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-27T10:34:36.998904"
+  "last_updated": "2026-06-27T12:01:24.807251"
 }
