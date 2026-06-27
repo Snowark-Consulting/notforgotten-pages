@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 25,
+    "tasks_completed": 26,
     "recent": [
+      {
+        "date": "2026-06-27 10:34",
+        "task": "Built quote intake pipeline: auto-detects quote emails in atlas@ inbox, extracts data from PDFs (pymupdf + Gemini vision), cross-references with Airtable, auto-moves Prospects\u2192Clients and creates Quotes. Wired into inbox pulse",
+        "category": "task"
+      },
       {
         "date": "2026-06-27 10:07",
         "task": "Cross-referenced Phase 2 data with Airtable: 50 updated, 60 new prospects created (30 commercial cleaning + 30 marketing agencies). Airtable now at 181 prospects.",
@@ -135,11 +140,6 @@
         "date": "2026-06-23 07:11",
         "task": "Fixed inbox pulse double-post bug \u2014 mark-as-read now happens before summarising, closing race condition between Phase 1 (60s poll) and Phase 2 (slow agent boot)",
         "category": "task"
-      },
-      {
-        "date": "2026-06-22 20:51",
-        "task": "Rebuilt inbox watchdog as two-phase pulse: 60s unread scan + full-identity agent boot when mail found, auto-mark-read",
-        "category": "task"
       }
     ]
   },
@@ -164,5 +164,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-27T10:07:11.684847"
+  "last_updated": "2026-06-27T10:34:36.998904"
 }
