@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 31,
+    "tasks_completed": 32,
     "recent": [
+      {
+        "date": "2026-06-27 12:58",
+        "task": "Contact name research complete: 49/181 Airtable prospects now have verified owner first names. Researched via email parsing + 7 browser subagents across all 3 verticals.",
+        "category": "task"
+      },
       {
         "date": "2026-06-27 12:47",
         "task": "V4: Gemini Pro redesign \u2014 constellation tracking Three.js hero + editorial testimonial + timeline How It Works + differentiated industry cards + pull-quote About section",
@@ -135,11 +140,6 @@
         "date": "2026-06-24 23:28",
         "task": "Published email intelligence reports (Travis Krieg, quotes/follow-ups, completed pipeline) to GitHub Pages",
         "category": "task"
-      },
-      {
-        "date": "2026-06-24 11:28",
-        "task": "Hardened James's inbox scope rule across 3 files \u2014 pulse-bootstrap.md, email-inbox-pulse SKILL.md, delegated-mailbox-access.md. Read-only: no send, no mark-read, no labels.",
-        "category": "task"
       }
     ]
   },
@@ -164,5 +164,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-27T12:47:24.577797"
+  "last_updated": "2026-06-27T12:58:29.899091"
 }
