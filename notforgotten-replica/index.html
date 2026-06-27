@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Not Forgotten Systems | Professional Quote Follow-Up for Trades</title>
+<meta name="description" content="Not Forgotten Systems follows up your quotes by SMS or phone, in your tone, so no opportunity is lost to silence. Built for trades and small service businesses.">
+<link rel="icon" href="../assets/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* === RESET & BASE === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--nfs-near-black);
+  background: var(--nfs-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === DESIGN TOKENS === */
+:root {
+  --nfs-navy: #0b2c4d;
+  --nfs-near-black: #0a0a0a;
+  --nfs-gold: #e0a62a;
+  --nfs-white: #FFFFFF;
+  --nfs-light: #f7fbff;
+  --nfs-muted: #666666;
+  --nfs-royal: #1f5891;
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+  --space-5xl: 128px;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 20px;
+  --text-xl: 24px;
+  --text-2xl: 32px;
+  --text-3xl: 40px;
+  --text-4xl: 48px;
+  --text-5xl: 64px;
+}
+
+/* === NAVIGATION === */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--nfs-white);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding: 0 var(--space-xl);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--nfs-near-black);
+  font-weight: 700;
+  font-size: var(--text-lg);
+}
+.nav-logo img {
+  height: 48px;
+  width: auto;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  list-style: none;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--nfs-near-black);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--nfs-royal); }
+.nav-cta {
+  background: var(--nfs-gold);
+  color: var(--nfs-white) !important;
+  padding: 10px 20px;
+  border-radius: var(--radius-lg);
+  font-weight: 600 !important;
+  transition: background 0.2s, transform 0.15s;
+}
+.nav-cta:hover {
+  background: #c89220;
+  transform: translateY(-1px);
+}
+
+/* === SECTION BASE === */
+.section {
+  padding: var(--space-4xl) var(--space-xl);
+}
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.section-label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--nfs-muted);
+  margin-bottom: var(--space-md);
+}
+.section-heading {
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  color: var(--nfs-near-black);
+  line-height: 1.15;
+  margin-bottom: var(--space-lg);
+}
+.section-subtext {
+  font-size: var(--text-lg);
+  color: var(--nfs-muted);
+  max-width: 650px;
+  line-height: 1.6;
+}
+
+/* === HERO === */
+.hero {
+  padding: var(--space-4xl) var(--space-xl) var(--space-5xl);
+  text-align: center;
+}
+.hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.hero h1 {
+  font-size: var(--text-5xl);
+  font-weight: 700;
+  color: var(--nfs-near-black);
+  line-height: 1.1;
+  margin-bottom: var(--space-lg);
+  letter-spacing: -0.02em;
+}
+.hero-text p {
+  font-size: var(--text-lg);
+  color: var(--nfs-muted);
+  margin-bottom: var(--space-sm);
+  line-height: 1.6;
+}
+.hero-text .highlight {
+  font-weight: 600;
+  color: var(--nfs-near-black);
+}
+.hero-cta-wrap {
+  margin-top: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--nfs-gold);
+  color: var(--nfs-white);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  padding: 16px 36px;
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  border: none;
+  cursor: pointer;
+}
+.cta-button:hover {
+  background: #c89220;
+  transform: translateY(-2px);
+}
+.cta-sub {
+  font-size: var(--text-sm);
+  color: var(--nfs-muted);
+  font-style: italic;
+}
+
+/* Hero feature cards */
+.hero-features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-3xl);
+}
+.hero-feature {
+  text-align: center;
+  padding: var(--space-lg);
+}
+.hero-feature .icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto var(--space-md);
+  background: var(--nfs-light);
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+.hero-feature h6 {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--nfs-near-black);
+  line-height: 1.4;
+}
+
+/* === RESULTS / TESTIMONIAL === */
+.results {
+  background: var(--nfs-navy);
+  color: var(--nfs-white);
+  padding: var(--space-4xl) var(--space-xl);
+}
+.results-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4xl);
+  align-items: center;
+}
+.testimonial blockquote {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: var(--space-md);
+  font-style: italic;
+}
+.testimonial .attribution {
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,0.7);
+}
+.results-stats h2 {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--nfs-gold);
+  margin-bottom: var(--space-md);
+  line-height: 1.2;
+}
+.results-stats p {
+  font-size: var(--text-lg);
+  color: rgba(255,255,255,0.85);
+  line-height: 1.6;
+}
+
+/* === HOW IT WORKS === */
+.how-it-works {
+  background: var(--nfs-light);
+}
+.how-header {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+}
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+.step {
+  background: var(--nfs-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: box-shadow 0.2s;
+}
+.step:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+.step-num {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--nfs-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-sm);
+}
+.step h3 {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--nfs-near-black);
+  margin-bottom: var(--space-md);
+}
+.step p {
+  font-size: var(--text-base);
+  color: var(--nfs-muted);
+  line-height: 1.6;
+  margin-bottom: var(--space-sm);
+}
+.step ul {
+  list-style: none;
+  padding: 0;
+}
+.step ul li {
+  font-size: var(--text-base);
+  color: var(--nfs-muted);
+  padding: 2px 0;
+}
+
+/* === PRICING === */
+.pricing {
+  text-align: center;
+}
+.pricing-header {
+  margin-bottom: var(--space-3xl);
+}
+.pricing-card {
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--nfs-white);
+  border: 2px solid var(--nfs-gold);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl) var(--space-xl);
+  text-align: left;
+}
+.pricing-card .plan-label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--nfs-muted);
+  margin-bottom: var(--space-md);
+}
+.pricing-card .price {
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  color: var(--nfs-near-black);
+  margin-bottom: var(--space-xs);
+}
+.pricing-card .setup-fee {
+  font-size: var(--text-base);
+  color: var(--nfs-muted);
+  margin-bottom: var(--space-xl);
+}
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: var(--space-xl);
+}
+.feature-list li {
+  padding: var(--space-sm) 0;
+  font-size: var(--text-base);
+  color: var(--nfs-near-black);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+.feature-list li::before {
+  content: "✓";
+  color: var(--nfs-gold);
+  font-weight: 700;
+}
+.pricing-card .cta-button {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+.setup-breakdown {
+  max-width: 700px;
+  margin: var(--space-3xl) auto 0;
+  text-align: left;
+}
+.setup-breakdown h2 {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  color: var(--nfs-near-black);
+}
+.setup-breakdown ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+.setup-breakdown ul li {
+  font-size: var(--text-base);
+  color: var(--nfs-muted);
+  font-weight: 500;
+  padding: var(--space-sm) 0;
+}
+.setup-breakdown .note {
+  margin-top: var(--space-lg);
+  font-size: var(--text-base);
+  color: var(--nfs-muted);
+  font-style: italic;
+}
+
+/* === INDUSTRIES === */
+.industries {
+  background: var(--nfs-light);
+  text-align: center;
+}
+.industry-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+}
+.industry-card {
+  background: var(--nfs-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: box-shadow 0.2s;
+}
+.industry-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+.industry-card .icon {
+  font-size: 32px;
+  margin-bottom: var(--space-md);
+}
+.industry-card h6 {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--nfs-near-black);
+}
+
+/* === ABOUT === */
+.about {
+  text-align: center;
+}
+.about-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.about-meta {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--nfs-muted);
+  margin-bottom: var(--space-sm);
+}
+.about h2 {
+  margin-bottom: var(--space-xl);
+}
+.about-body {
+  text-align: left;
+  font-size: var(--text-lg);
+  color: var(--nfs-muted);
+  line-height: 1.7;
+}
+.about-body p {
+  margin-bottom: var(--space-md);
+}
+.about-body strong {
+  color: var(--nfs-near-black);
+}
+
+/* === CTA BANNER === */
+.cta-banner {
+  background: var(--nfs-navy);
+  text-align: center;
+  padding: var(--space-4xl) var(--space-xl);
+}
+.cta-banner h3 {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--nfs-white);
+  margin-bottom: var(--space-xl);
+}
+.cta-banner .cta-button {
+  font-size: var(--text-lg);
+}
+
+/* === FOOTER === */
+.footer {
+  background: var(--nfs-navy);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: var(--space-xl);
+  text-align: center;
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-logo img {
+  height: 36px;
+  width: auto;
+}
+.footer-text {
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,0.5);
+}
+.footer-pricing {
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,0.5);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  :root {
+    --text-5xl: 40px;
+    --text-4xl: 32px;
+    --text-3xl: 28px;
+    --text-xl: 20px;
+    --text-lg: 18px;
+  }
+  .nav-links { display: none; }
+  .hero-features { grid-template-columns: repeat(2, 1fr); }
+  .results-inner { grid-template-columns: 1fr; gap: var(--space-xl); }
+  .steps { grid-template-columns: 1fr; }
+  .industry-grid { grid-template-columns: repeat(2, 1fr); }
+  .setup-breakdown ul { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; gap: var(--space-md); }
+  .section { padding: var(--space-3xl) var(--space-md); }
+}
+
+@media (max-width: 480px) {
+  .hero-features { grid-template-columns: 1fr; }
+  .industry-grid { grid-template-columns: 1fr; }
+}
+
+/* === ANCHOR OFFSET === */
+section[id] { scroll-margin-top: 80px; }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="../assets/logo.png" alt="Not Forgotten Systems">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#industries">Industries</a></li>
+      <li><a href="#cta" class="nav-cta">Book Free Demo</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <h1>Never Let A Quote Go Unfollowed Again</h1>
+    <div class="hero-text">
+      <p>Every quote gets followed up automatically until your customer makes a decision.</p>
+      <p>Simply CC or BCC Not Forgotten into your quote email and our system takes care of the rest.</p>
+      <p>More follow-up. More conversions. More revenue.</p>
+      <p class="highlight">&#11088; Proven to generate over $150,000 in additional revenue through consistent quote follow-up.</p>
+    </div>
+    <div class="hero-cta-wrap">
+      <a href="#cta" class="cta-button">
+        Book a Free Demo
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <span class="cta-sub">Cancel anytime</span>
+    </div>
+    <div class="hero-features">
+      <div class="hero-feature">
+        <div class="icon">&#128200;</div>
+        <h6>Turn more quotes into booked work</h6>
+      </div>
+      <div class="hero-feature">
+        <div class="icon">&#129302;</div>
+        <h6>Every quote gets followed up automatically</h6>
+      </div>
+      <div class="hero-feature">
+        <div class="icon">&#9993;&#65039;</div>
+        <h6>Professional communication that gets responses</h6>
+      </div>
+      <div class="hero-feature">
+        <div class="icon">&#127959;&#65039;</div>
+        <h6>Stay focused on your business while Not Forgotten does the chasing</h6>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS / TESTIMONIAL -->
+<section class="results" id="results">
+  <div class="results-inner">
+    <div class="testimonial">
+      <blockquote>
+        "James' service has been a complete game changer for my business. We had a lot of money left on the table from old quotes, and within three weeks James helped recover jobs worth $59,000 including work from months earlier. The process was professional, simple, and required next to no effort from me. I couldn't recommend the service enough."
+      </blockquote>
+      <p class="attribution">Owner, Travis Krieg Painting &#11088;&#11088;&#11088;&#11088;&#11088;</p>
+    </div>
+    <div class="results-stats">
+      <h2>Proven Results:</h2>
+      <h2>$150,000+ In Recovered Revenue</h2>
+      <p>Not Forgotten was originally developed by manually following up quotes for a service business, generating over $150,000 in additional revenue that would otherwise have been lost.</p>
+      <p>Today, Not Forgotten is being built to automate that same process at scale.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how-it-works" id="how-it-works">
+  <div class="section-inner">
+    <div class="how-header">
+      <p class="section-label">How It Works</p>
+      <h2 class="section-heading">Never Wonder What Happened To A Quote Again</h2>
+      <p class="section-subtext" style="margin: 0 auto;">Simply CC or BCC Not Forgotten into your quote email and our system takes care of the follow-up from there.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <p class="step-num">Step 1</p>
+        <h3>Send Your Quote</h3>
+        <p>Send your quote exactly as you do today.</p>
+        <p>Simply CC or BCC Not Forgotten into the email and our system automatically tracks the opportunity.</p>
+      </div>
+      <div class="step">
+        <p class="step-num">Step 2</p>
+        <h3>Automated Follow-Up Begins</h3>
+        <p>Not Forgotten follows up by email and SMS at the right time to keep the conversation moving and ensure your quote doesn't go cold.</p>
+        <p>No manual chasing.</p>
+        <p>No additional admin.</p>
+        <p>No extra work for your team.</p>
+      </div>
+      <div class="step">
+        <p class="step-num">Step 3</p>
+        <h3>Customer Responds &amp; You Get Notified</h3>
+        <p>When your customer responds, Not Forgotten tracks the outcome and keeps you informed.</p>
+        <p>Whether they:</p>
+        <ul>
+          <li>&#10003; Accept the quote</li>
+          <li>&#10003; Ask a question</li>
+          <li>&#10003; Request changes</li>
+          <li>&#10003; Put the project on hold</li>
+        </ul>
+        <p>You'll always know where every opportunity stands and when it's time to take action.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing" id="pricing">
+  <div class="section-inner">
+    <div class="pricing-header">
+      <p class="section-label">Simple Pricing</p>
+      <h2 class="section-heading">One plan. Everything you need to ensure every quote gets followed up automatically.</h2>
+    </div>
+    <div class="pricing-card">
+      <p class="plan-label">NOT FORGOTTEN</p>
+      <p class="price">$199/month</p>
+      <p class="setup-fee">$99 One-Time Setup Fee</p>
+      <ul class="feature-list">
+        <li>Automated quote follow-up</li>
+        <li>Email follow-up sequences</li>
+        <li>Customer response tracking</li>
+        <li>Opportunity notifications</li>
+        <li>Unlimited quote submissions</li>
+        <li>Cancel anytime</li>
+      </ul>
+      <a href="#how-it-works" class="cta-button">See How It Works</a>
+    </div>
+    <div class="setup-breakdown">
+      <p class="section-label" style="text-align: center;">How The Setup Fee Works</p>
+      <h2 style="text-align: center;">Your one-time setup fee covers:</h2>
+      <ul>
+        <li>Account setup</li>
+        <li>Workflow configuration</li>
+        <li>Email connection</li>
+        <li>SMS configuration</li>
+        <li>Initial onboarding</li>
+      </ul>
+      <p class="note">Once set up, Not Forgotten runs in the background while you focus on your business.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="section industries" id="industries">
+  <div class="section-inner">
+    <p class="section-label">Who It's For</p>
+    <h2 class="section-heading">Built For Businesses That Quote</h2>
+    <div class="industry-grid">
+      <div class="industry-card">
+        <div class="icon">&#128295;</div>
+        <h6>Trades &amp; Contractors</h6>
+      </div>
+      <div class="industry-card">
+        <div class="icon">&#127968;</div>
+        <h6>Home Services</h6>
+      </div>
+      <div class="industry-card">
+        <div class="icon">&#128188;</div>
+        <h6>Professional Services</h6>
+      </div>
+      <div class="industry-card">
+        <div class="icon">&#128640;</div>
+        <h6>Growing Businesses</h6>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="about-inner">
+    <p class="section-label">James Hardstaff</p>
+    <p class="about-meta">Founder, Not Forgotten</p>
+    <p class="about-meta" style="margin-bottom: var(--space-xl);">12+ Years Sales &amp; Business Development Experience</p>
+    <h2 class="section-heading">Built By Someone Who Understands Sales</h2>
+    <div class="about-body">
+      <p><strong>Why Not Forgotten Exists</strong></p>
+      <p>Hi, I'm James Hardstaff, founder of Not Forgotten.</p>
+      <p>After more than a decade in sales and business development, I noticed the same problem across almost every industry.</p>
+      <p>Businesses spend time creating quotes, estimates and proposals, only to lose opportunities because follow-up stops after the quote is sent.</p>
+      <p>Business owners are busy. They're meeting clients, managing staff and running their businesses.</p>
+      <p>That's why I created Not Forgotten.</p>
+      <p>A simple system designed to ensure every quote receives consistent follow-up, helping businesses convert more opportunities into booked work without adding more admin to their day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner" id="cta">
+  <div class="section-inner">
+    <h3>Never Let Another Opportunity Slip Through The Cracks</h3>
+    <a href="#" class="cta-button">
+      See How It Works
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="../assets/logo.png" alt="Not Forgotten Systems" style="filter: brightness(0) invert(1);">
+    </div>
+    <p class="footer-pricing">$99 Setup Fee &bull; $199/month &bull; Cancel Anytime</p>
+    <p class="footer-text">&copy; 2026 Not Forgotten, All rights reserved</p>
+  </div>
+</footer>
+
+</body>
+</html>
