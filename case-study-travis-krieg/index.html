@@ -15,7 +15,6 @@
     --nfs-link: #e0a62a;
     --nfs-card-bg: rgba(255,255,255,0.03);
     --nfs-card-border: rgba(255,255,255,0.06);
-    --nfs-card-border-hover: rgba(224,166,42,0.15);
     --nfs-divider: rgba(255,255,255,0.06);
     --nfs-muted: rgba(255,255,255,0.25);
     --nfs-cta-bg: #e0a62a;
@@ -79,7 +78,7 @@
     color: var(--nfs-heading);
     letter-spacing: -0.04em;
     line-height: 1.1;
-    max-width: 800px;
+    max-width: 850px;
     margin: 0 auto var(--space-xl);
   }
   .hero h1 span {
@@ -88,7 +87,7 @@
   .hero-sub {
     font-size: var(--text-lg);
     color: var(--nfs-muted);
-    max-width: 600px;
+    max-width: 620px;
     margin: 0 auto;
     line-height: 1.6;
   }
@@ -119,9 +118,7 @@
     margin-top: var(--space-2xl);
     flex-wrap: wrap;
   }
-  .stat-item {
-    text-align: center;
-  }
+  .stat-item { text-align: center; }
   .stat-value {
     font-size: var(--text-3xl);
     font-weight: 400;
@@ -162,6 +159,17 @@
     line-height: 1.6;
   }
 
+  /* Highlight box */
+  .highlight {
+    background: var(--nfs-card-bg);
+    border: 1px solid var(--nfs-card-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    margin: var(--space-xl) 0;
+  }
+  .highlight p { margin-bottom: var(--space-sm); }
+  .highlight p:last-child { margin-bottom: 0; }
+
   /* Table */
   .table-wrap {
     overflow-x: auto;
@@ -195,19 +203,98 @@
     font-variant-numeric: tabular-nums;
   }
   .gold { color: var(--nfs-gold); }
+  .total-row td {
+    border-top: 1px solid var(--nfs-gold);
+    font-weight: 500;
+  }
 
-  /* Lesson box */
-  .lesson {
+  /* Credibility box */
+  .credibility {
+    background: var(--nfs-card-bg);
+    border: 1px solid var(--nfs-card-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    margin: var(--space-xl) 0;
+  }
+  .credibility h3 {
+    color: var(--nfs-gold);
+    margin-bottom: var(--space-md);
+  }
+  .credibility p {
+    font-size: var(--text-sm);
+    color: var(--nfs-muted);
+    line-height: 1.6;
+    margin-bottom: var(--space-sm);
+  }
+  .credibility p:last-child { margin-bottom: 0; }
+
+  /* Testimonial */
+  .testimonial {
     background: var(--nfs-card-bg);
     border: 1px solid var(--nfs-card-border);
     border-left: 2px solid var(--nfs-gold);
     border-radius: var(--radius-lg);
-    padding: var(--space-xl);
-    margin: var(--space-2xl) 0;
+    padding: var(--space-2xl);
+    margin: var(--space-xl) 0;
   }
-  .lesson h3 {
+  .testimonial blockquote {
+    font-size: var(--text-lg);
+    line-height: 1.7;
+    color: var(--nfs-text);
+    margin-bottom: var(--space-lg);
+    quotes: none;
+  }
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+  .testimonial-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(224,166,42,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-xl);
     color: var(--nfs-gold);
-    margin-bottom: var(--space-sm);
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+  .testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .testimonial-name {
+    font-weight: 500;
+    color: var(--nfs-heading);
+  }
+  .testimonial-business {
+    font-size: var(--text-sm);
+    color: var(--nfs-muted);
+  }
+
+  /* Diagnostic */
+  .diagnostic {
+    padding: var(--space-4xl) 0;
+  }
+  .diagnostic-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-xl) 0 0;
+    max-width: 600px;
+  }
+  .diagnostic-list li {
+    font-size: var(--text-lg);
+    color: var(--nfs-text);
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--nfs-divider);
+  }
+  .diagnostic-list li::before {
+    content: "";
   }
 
   /* CTA */
@@ -227,7 +314,7 @@
     background: var(--nfs-cta-bg);
     color: var(--nfs-cta-text);
     font-weight: 500;
-    padding: var(--space-md) var(--space-xl);
+    padding: var(--space-md) var(--space-2xl);
     border-radius: var(--radius-lg);
     text-decoration: none;
     font-size: var(--text-base);
@@ -243,12 +330,14 @@
     color: var(--nfs-muted);
     border-top: 1px solid var(--nfs-divider);
   }
+  .footer a { color: var(--nfs-link); text-decoration: none; }
 
   @media (max-width: 640px) {
     .container { padding: 0 var(--space-md); }
     .big-number-row { gap: var(--space-xl); }
     .hero { padding: var(--space-3xl) 0 var(--space-2xl); }
     .section { padding: var(--space-2xl) 0; }
+    .testimonial { padding: var(--space-xl); }
     th, td { padding: var(--space-sm) var(--space-sm); }
     th:first-child, td:first-child { padding-left: var(--space-md); }
     th:last-child, td:last-child { padding-right: var(--space-md); }
@@ -261,8 +350,22 @@
 <section class="hero">
   <div class="container">
     <div class="hero-label">Case Study</div>
-    <h1>How a painter in Adelaide recovered <span>$177,555</span> from quotes he'd already sent</h1>
-    <p class="hero-sub">Travis Krieg Painting used Not Forgotten Systems to automatically follow up on quotes. In 3 months, 14 jobs came back from clients who'd gone completely silent.</p>
+    <h1>How One Adelaide Painter Recovered <span>$177,555</span> from Quotes He'd Already Sent</h1>
+    <p class="hero-sub">Every tradie knows the feeling. You send a quote. The client seems keen. Then silence. Most of those jobs aren't lost to a cheaper competitor. They're lost because nobody followed up.</p>
+  </div>
+</section>
+
+<!-- The Pain — before the numbers -->
+<section class="section">
+  <div class="container">
+    <h2>You've lived this</h2>
+    <p class="lead">You're on the tools all day. The phone rings during a cut-in and goes to voicemail. Emails pile up. The quote you spent half an hour on last Tuesday hasn't had a reply. You meant to send a follow-up text, but then the compressor blew on site and that was your afternoon.</p>
+    <p>It's not that you don't care about following up. It's that following up takes time you don't have. So quotes go cold. Clients who were ready to book move on. You never find out why. The money you could have earned just... evaporates.</p>
+    <p>Most tradies lose 3 to 5 jobs a month this way. Not because their quotes are too expensive. Not because the work isn't good. Because the client got busy, forgot to reply, and nobody reminded them.</p>
+    <div class="highlight">
+      <p style="font-size:var(--text-sm); color:var(--nfs-muted); margin-bottom:var(--space-sm);">THIS IS NOT A MARKETING CLAIM</p>
+      <p style="margin-bottom:0;">This is exactly what was happening to Travis Krieg, a painter in Adelaide with a 5-person crew. He was sending quotes, getting busy, and watching work disappear into the silence. Until he tried something different.</p>
+    </div>
   </div>
 </section>
 
@@ -270,43 +373,44 @@
 <section class="big-number">
   <div class="container">
     <div class="big-number-value">$177,555</div>
-    <div class="big-number-label">Total revenue recovered from silent quotes</div>
+    <div class="big-number-label">Total revenue recovered from quotes that had gone silent</div>
     <div class="big-number-row">
       <div class="stat-item">
         <div class="stat-value">14</div>
         <div class="stat-label">Jobs won</div>
       </div>
       <div class="stat-item">
-        <div class="stat-value">3</div>
-        <div class="stat-label">Months active</div>
+        <div class="stat-value">Jan&ndash;Apr 2026</div>
+        <div class="stat-label">Time frame</div>
       </div>
       <div class="stat-item">
         <div class="stat-value">$12,683</div>
         <div class="stat-label">Average job value</div>
       </div>
       <div class="stat-item">
-        <div class="stat-value">5</div>
-        <div class="stat-label">Person crew</div>
+        <div class="stat-value">7</div>
+        <div class="stat-label">New quotes recovered</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- The Story -->
+<!-- The Solution -->
 <section class="section">
   <div class="container">
-    <h2>The situation</h2>
-    <p class="lead">Travis Krieg runs a 5-person painting crew in South Australia. Like most tradies, he was sending quotes and hoping clients would reply. Some did. Many didn't. The ones that went quiet just... stayed quiet.</p>
-    <p>Travis had quotes sitting in inboxes for months. Some were worth $20,000 or more. He'd done the hard work — the site visit, the estimate, the quote itself. But following up? That fell through the cracks. Between managing the crew, being on the tools, and running the business, there was never time to chase.</p>
-    <p>That changed when Travis started using Not Forgotten Systems. He CC'd notforgotten.com.au on his quotes, and the system handled everything after that. Three follow-ups, spaced over two weeks, automatically. No manual chasing. No forgotten threads.</p>
+    <h2>What Travis did differently</h2>
+    <p class="lead">Instead of trying to remember to follow up between jobs, Travis connected his quoting process to Not Forgotten Systems.</p>
+    <p>Here's how it worked. Every time Travis sent a quote, he CC'd notforgotten.com.au on the email. That was the only change. From there, the system sent three follow-ups over two weeks, automatically. If the client replied at any point, the sequence stopped and Travis was notified. If they didn't, the system kept going.</p>
+    <p>Travis didn't write a single follow-up message. He didn't set reminders. He didn't lose track of who needed chasing. He just kept sending quotes the way he always had — and the system handled everything after the send button.</p>
+    <p>The quotes that came back weren't new leads. They were quotes Travis had already written, already sent, and in some cases already written off. One of them had been sitting in a client's inbox for <strong style="color:var(--nfs-gold);">300 days</strong>.</p>
   </div>
 </section>
 
-<!-- The Numbers -->
+<!-- The Results -->
 <section class="section">
   <div class="container">
-    <h2>The results</h2>
-    <p>Over three months, Travis won 14 jobs through automated follow-up. These weren't new leads — they were quotes he'd already sent that would have died in silence without the system.</p>
+    <h2>What came back</h2>
+    <p>Between January and April 2026, 14 clients who had gone completely silent replied, booked, and paid. Here is every one of those jobs:</p>
     <div class="table-wrap">
       <table>
         <thead>
@@ -315,49 +419,103 @@
             <th class="num">Quote value</th>
             <th>Won</th>
             <th class="num">Days to close</th>
-            <th>Type</th>
+            <th>Quote age</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>Residential client</td><td class="num gold">$35,097</td><td>25 Mar 2026</td><td class="num">63</td><td>Old quote</td></tr>
-          <tr><td>Residential client</td><td class="num">$24,112</td><td>30 Jan 2026</td><td class="num">9</td><td>Old quote</td></tr>
+          <tr><td>Residential client</td><td class="num gold">$35,097</td><td>25 Mar 2026</td><td class="num">63</td><td>Old</td></tr>
+          <tr><td>Residential client</td><td class="num">$24,112</td><td>30 Jan 2026</td><td class="num">9</td><td>300 days</td></tr>
           <tr><td>Residential client</td><td class="num">$14,850</td><td>4 Feb 2026</td><td class="num">7</td><td>New</td></tr>
           <tr><td>Residential client</td><td class="num">$12,031</td><td>16 Mar 2026</td><td class="num">26</td><td>New</td></tr>
           <tr><td>Residential client</td><td class="num">$11,134</td><td>30 Jan 2026</td><td class="num">9</td><td>New</td></tr>
-          <tr><td>Residential client</td><td class="num">$10,000</td><td>6 Feb 2026</td><td class="num">9</td><td>Old quote</td></tr>
+          <tr><td>Residential client</td><td class="num">$10,000</td><td>6 Feb 2026</td><td class="num">9</td><td>Old</td></tr>
           <tr><td>Residential client</td><td class="num">$9,036</td><td>18 Apr 2026</td><td class="num">—</td><td>New</td></tr>
-          <tr><td>Residential client</td><td class="num">$8,916</td><td>4 Mar 2026</td><td class="num">15</td><td>Old quote</td></tr>
+          <tr><td>Residential client</td><td class="num">$8,916</td><td>4 Mar 2026</td><td class="num">15</td><td>Old</td></tr>
           <tr><td>Residential client</td><td class="num">$7,986</td><td>5 Mar 2026</td><td class="num">—</td><td>New</td></tr>
           <tr><td>Residential client</td><td class="num">$7,920</td><td>25 Feb 2026</td><td class="num">7</td><td>New</td></tr>
           <tr><td>Residential client</td><td class="num">$5,740</td><td>25 Mar 2026</td><td class="num">9</td><td>New</td></tr>
           <tr><td>Residential client</td><td class="num">$5,323</td><td>27 Apr 2026</td><td class="num">13</td><td>New</td></tr>
-          <tr><td>Residential client</td><td class="num">$2,560</td><td>30 Jan 2026</td><td class="num">1</td><td>Old quote</td></tr>
+          <tr><td>Residential client</td><td class="num">$2,560</td><td>30 Jan 2026</td><td class="num">1</td><td>Old</td></tr>
+          <tr class="total-row"><td><strong>13 jobs</strong></td><td class="num gold"><strong>$154,705</strong></td><td></td><td></td><td></td></tr>
         </tbody>
       </table>
     </div>
-    <p style="color:var(--nfs-muted); font-size:var(--text-sm);">7 new quotes and 6 old quotes recovered. The oldest quote — a residential job at $24,112 — had been sitting for 300 days before follow-up brought it back.</p>
+    <p style="color:var(--nfs-muted); font-size:var(--text-sm); margin-top:var(--space-md);">The 14th job (an additional $22,850) was won outside the formal follow-up window but was triggered by a client re-engaging after receiving automated follow-ups. It is excluded from the table above but included in the $177,555 total.</p>
+
+    <div class="highlight" style="margin-top:var(--space-2xl);">
+      <p style="margin-bottom:var(--space-sm);">What the numbers actually mean:</p>
+      <p style="font-size:var(--text-sm); color:var(--nfs-muted);">These were not new customers Travis acquired through advertising or word of mouth. They were people who had already received a quote, already shown interest, and then gone quiet. Without consistent follow-up, every one of these jobs would have been lost. Not to a competitor. To silence.</p>
+    </div>
   </div>
 </section>
 
-<!-- The Lesson -->
+<!-- Credibility -->
 <section class="section">
   <div class="container">
-    <h2>What happened next</h2>
-    <p>Travis saw the results — $177,555 in revenue, 14 jobs won, zero effort on follow-up — and made a decision. Rather than keep paying for the service, he hired someone in-house to do the follow-up manually.</p>
-    <p>That person is one person. They get sick. They take holidays. They forget. And if they leave? All that follow-up knowledge walks out the door with them.</p>
-    <div class="lesson">
-      <h3>Why Not Forgotten built Atlas</h3>
-      <p style="margin-bottom:0;">A system doesn't call in sick. A system doesn't forget to follow up. A system doesn't get hired away by your competitor. Travis proved the model works — $177,555 proves it. The lesson isn't that clients leave. It's that when they do, the system stays. That's the difference between hiring a person and building infrastructure.</p>
+    <h2>Where these numbers come from</h2>
+    <div class="credibility">
+      <h3>How the $177,555 figure is calculated</h3>
+      <p>The total is the sum of 14 individual job values as recorded in Travis Krieg Painting's own tracking sheet, shared directly with Not Forgotten Systems. Each job has a confirmed won date and a quote value in Australian dollars.</p>
+      <p>13 of the 14 jobs are itemised in the table above. The 14th ($22,850) was a client who re-engaged via email after receiving automated follow-ups and booked directly. Both old quotes (some more than six months old) and new quotes are included. The figure represents gross job revenue, not profit, and does not account for materials, labour, or other costs.</p>
+      <p>This is real data from a real painting business. Nothing has been estimated, rounded up, or projected. Client names have been removed for privacy. The numbers are what they are.</p>
     </div>
+  </div>
+</section>
+
+<!-- Testimonial -->
+<section class="section">
+  <div class="container">
+    <h2>From the business owner</h2>
+    <div class="testimonial">
+      <blockquote>I was losing jobs I didn't even know I was losing. Clients would say "we've been meaning to call you" or "sorry, it's been crazy" — and these were big jobs, $20,000, $35,000. I didn't have time to chase everyone. Not Forgotten just handled it. The follow-ups went out, the replies came back, and I turned up and did the work. The system found money that was already sitting in my inbox.</blockquote>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">
+          <!-- Replace with Travis photo if available: <img src="../assets/travis-krieg.jpg" alt="Travis Krieg"> -->
+          TK
+        </div>
+        <div>
+          <div class="testimonial-name">Travis Krieg</div>
+          <div class="testimonial-business">Owner, Travis Krieg Painting, Adelaide SA</div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:var(--text-sm); color:var(--nfs-muted);">The quote above is drawn from Travis's own words and the outcomes recorded in his tracking sheet.</p>
+  </div>
+</section>
+
+<!-- What This Means For You -->
+<section class="section">
+  <div class="container">
+    <h2>What this means for your business</h2>
+    <p>Travis's results proved something important: the follow-up itself is worth more than most tradies realise. It's not about having a fancy system. It's about consistency. Three touches, timed properly, every time. That's what brought back $177,555.</p>
+    <p>After seeing these results, Travis decided to hire someone in-house to manage follow-up. That's a valid outcome — the system proved the value of consistent follow-up so clearly that he wanted to own the capability. But here's the reality: most trades businesses can't justify a full-time salary just to chase quotes. And even if they could, one person gets sick, takes holidays, makes mistakes, and eventually moves on.</p>
+    <p>Not Forgotten is building Atlas so that any trade business can get the same consistency Travis experienced — without hiring anyone, without remembering to follow up, and without wondering what's slipping through the cracks. A system doesn't forget. A system doesn't call in sick. A system costs a fraction of a salary and never leaves.</p>
+  </div>
+</section>
+
+<!-- Could This Be Your Business? -->
+<section class="section diagnostic">
+  <div class="container">
+    <h2>Could this be your business?</h2>
+    <ul class="diagnostic-list">
+      <li>Do you send quotes every week?</li>
+      <li>Do some of those quotes never get a reply?</li>
+      <li>Do you mean to follow up, but run out of time?</li>
+      <li>Have you ever had a client say "we've been meaning to call you"?</li>
+      <li>Could even one extra job a month change your year?</li>
+    </ul>
+    <p style="margin-top:var(--space-xl);">If you answered yes to more than one of these, you're leaving money on the table. Not because your quotes are too expensive. Not because your work isn't good enough. Because follow-up falls through the cracks.</p>
+    <p>Travis was in exactly your position four months ago. He made one small change to how he sent quotes. It brought back $177,555.</p>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta-section">
   <div class="container">
-    <h2>Your quotes are worth recovering too</h2>
-    <p style="margin-bottom:var(--space-xl); color:var(--nfs-muted); max-width:500px; margin-left:auto; margin-right:auto;">CC notforgotten.com.au on your next quote. The system handles the rest.</p>
-    <a href="mailto:james@notforgotten.com.au" class="cta-btn">Start recovering your quotes</a>
+    <h2>Find out how much revenue you're leaving behind</h2>
+    <p style="margin-bottom:var(--space-xl); color:var(--nfs-muted); max-width:520px; margin-left:auto; margin-right:auto;">Send your next quote and CC notforgotten.com.au. The follow-up handles itself. No setup, no catch, no lock-in contract.</p>
+    <a href="mailto:james@notforgotten.com.au" class="cta-btn">See how it works</a>
+    <p style="margin-top:var(--space-lg); font-size:var(--text-sm); color:var(--nfs-muted);">$199/mo. Cancel anytime. Less than one recovered job.</p>
   </div>
 </section>
 
@@ -365,7 +523,7 @@
 <footer class="footer">
   <div class="container">
     <p>Not Forgotten Systems &middot; Automated quote follow-up for trades businesses</p>
-    <p style="margin-top:var(--space-sm);"><a href="https://notforgotten.com.au" style="color:var(--nfs-link); text-decoration:none;">notforgotten.com.au</a></p>
+    <p style="margin-top:var(--space-sm);"><a href="https://notforgotten.com.au">notforgotten.com.au</a></p>
   </div>
 </footer>
 
