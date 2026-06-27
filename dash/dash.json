@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 35,
+    "tasks_completed": 36,
     "recent": [
+      {
+        "date": "2026-06-27 22:56",
+        "task": "v3 deployed: snapped to 1.333 type scale (64/40/24/16), 8-pt grid, gold-on-dark CTA inverted, mobile hamburger, WCAG fixes",
+        "category": "task"
+      },
       {
         "date": "2026-06-27 22:47",
         "task": "Replica v2 live at notforgotten-replica-v2.vercel.app \u2014 logo from CDN, paper airplane icons, James photo, fixed star ratings",
@@ -135,11 +140,6 @@
         "date": "2026-06-27 01:35",
         "task": "Uploaded 121 outreach records from Google Sheet to Airtable Prospects table (upsert by email)",
         "category": "task"
-      },
-      {
-        "date": "2026-06-25 11:35",
-        "task": "Nightly consolidation: wrote Jun 25 notes (2 sessions, inbox mining + design skills), added frontmatter to testimonials.md, Registry +4 entries, Infrastructure 7/7 verified, 0 broken wikilinks",
-        "category": "task"
       }
     ]
   },
@@ -164,5 +164,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-27T22:47:11.490413"
+  "last_updated": "2026-06-27T22:56:24.694191"
 }
