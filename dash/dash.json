@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 34,
+    "tasks_completed": 35,
     "recent": [
+      {
+        "date": "2026-06-27 22:47",
+        "task": "Replica v2 live at notforgotten-replica-v2.vercel.app \u2014 logo from CDN, paper airplane icons, James photo, fixed star ratings",
+        "category": "task"
+      },
       {
         "date": "2026-06-27 22:42",
         "task": "Deployed exact replica of notforgotten.com.au to Vercel: https://notforgotten-replica-v2.vercel.app",
@@ -135,11 +140,6 @@
         "date": "2026-06-25 11:35",
         "task": "Nightly consolidation: wrote Jun 25 notes (2 sessions, inbox mining + design skills), added frontmatter to testimonials.md, Registry +4 entries, Infrastructure 7/7 verified, 0 broken wikilinks",
         "category": "task"
-      },
-      {
-        "date": "2026-06-25 04:44",
-        "task": "Rebuilt NFS Editions page: mouse-interactive Three.js ring (tilt/particles follow cursor), power-design 20 principles (8-pt grid, 1.333 type scale, 60-30-10 color split)",
-        "category": "task"
       }
     ]
   },
@@ -164,5 +164,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-27T22:42:00.096115"
+  "last_updated": "2026-06-27T22:47:11.490413"
 }
