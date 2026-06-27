@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 29,
+    "tasks_completed": 30,
     "recent": [
+      {
+        "date": "2026-06-27 12:33",
+        "task": "V3: Redesigned with Three.js particle hero + GSAP scroll animations + glass nav + card hover effects \u2014 deployed to notforgotten-replica.vercel.app",
+        "category": "task"
+      },
       {
         "date": "2026-06-27 12:22",
         "task": "V2: Exact copy match + Power Design audit \u2014 redeployed notforgotten-replica.vercel.app with 8-pt grid, modular type scale, corrected About section, missing features restored",
@@ -135,11 +140,6 @@
         "date": "2026-06-24 11:24",
         "task": "Pressure-tested persistent Chrome browser \u2014 restart resilience \u2713, Google session persistence \u2713, form interaction \u2713. Created orgo-chrome skill with known limitations and workarounds.",
         "category": "task"
-      },
-      {
-        "date": "2026-06-24 11:16",
-        "task": "Accepted Gmail delegation from james@notforgotten.com.au \u2014 verification propagating (up to 30min). Chrome persistent profile active on CDP :9222.",
-        "category": "task"
       }
     ]
   },
@@ -164,5 +164,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-27T12:22:51.764201"
+  "last_updated": "2026-06-27T12:33:33.163282"
 }
