@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Not Forgotten Systems | Professional Quote Follow-Up for Trades</title>
+<meta name="description" content="Not Forgotten follows up your quotes automatically so no opportunity is lost to silence. Built for trades and small service businesses.">
+<link rel="icon" href="https://framerusercontent.com/images/k03dAbO8XczGV4bNXuqgUIdpbP8.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px; line-height: 1.5; color: #0a0a0a; background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+:root {
+  --navy: #0b2c4d; --black: #0a0a0a; --gold: #e0a62a;
+  --white: #fff; --light: #f7fbff; --muted: #666;
+  --text-hero: 64px; --text-h2: 40px; --text-h3: 24px; --text-body: 16px; --text-xs: 12px;
+  --radius: 12px;
+}
+img { max-width: 100%; height: auto; display: block; }
+
+/* NAV */
+.nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.06); padding: 0 32px; }
+.nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.nav-logo { display: flex; align-items: center; text-decoration: none; }
+.nav-logo img { height: 40px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--black); font-size: var(--text-body); font-weight: 500; transition: color 0.15s; }
+.nav-links a:hover { color: var(--navy); }
+.nav-cta { background: var(--navy); color: var(--white) !important; padding: 8px 24px; border-radius: var(--radius); font-weight: 600 !important; font-size: var(--text-body) !important; }
+.nav-cta:hover { background: #1a4a6e !important; color: var(--white) !important; }
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--navy); margin: 5px 0; border-radius: 1px; transition: 0.2s; }
+
+/* SECTION */
+.sec { padding: 96px 32px; }
+.sec-alt { padding: 96px 32px; background: var(--light); }
+.sec-inner { max-width: 1100px; margin: 0 auto; }
+.sec-label { font-size: var(--text-body); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 16px; }
+.sec-h2 { font-size: var(--text-h2); font-weight: 700; color: var(--black); line-height: 1.15; margin-bottom: 24px; }
+
+/* HERO — split layout */
+.hero { background: var(--light); padding: 96px 32px 128px; }
+.hero-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.hero-content h1 { font-size: var(--text-hero); font-weight: 600; color: var(--black); line-height: 1.08; margin-bottom: 24px; letter-spacing: -0.02em; }
+.hero-content p { font-size: var(--text-h3); color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.hero-proof { display: inline-flex; align-items: center; gap: 8px; margin-top: 24px; font-size: var(--text-body); font-weight: 500; color: var(--black); }
+.hero-cta-wrap { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.hero-cta-wrap .cta-sub { font-size: var(--text-xs); color: var(--muted); width: 100%; }
+.hero-visual { display: flex; justify-content: center; align-items: center; }
+.hero-stat-stack { display: flex; flex-direction: column; gap: 24px; }
+.hero-stat { background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-radius: var(--radius); padding: 24px; text-align: center; }
+.hero-stat .stat-num { font-size: var(--text-h2); font-weight: 700; color: var(--gold); line-height: 1.1; }
+.hero-stat .stat-label { font-size: var(--text-xs); color: var(--muted); margin-top: 4px; }
+
+/* BUTTONS */
+.btn-navy { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: var(--white); font-size: var(--text-body); font-weight: 600; padding: 16px 32px; border-radius: var(--radius); text-decoration: none; transition: background 0.2s, transform 0.15s; border: none; cursor: pointer; }
+.btn-navy:hover { background: #1a4a6e; transform: translateY(-1px); }
+.btn-gold-light { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--white); font-size: var(--text-body); font-weight: 600; padding: 16px 32px; border-radius: var(--radius); text-decoration: none; transition: background 0.2s, transform 0.15s; border: none; cursor: pointer; }
+.btn-gold-light:hover { background: #c89220; transform: translateY(-1px); }
+.btn-gold-dark { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--navy); font-size: var(--text-body); font-weight: 600; padding: 16px 32px; border-radius: var(--radius); text-decoration: none; transition: background 0.2s, transform 0.15s; border: none; cursor: pointer; }
+.btn-gold-dark:hover { background: #f0b840; transform: translateY(-1px); }
+
+/* TESTIMONIAL — card grid */
+.testimonials { background: var(--white); }
+.testimonial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px; }
+.testimonial-card { background: var(--navy); border-radius: var(--radius); padding: 32px; color: var(--white); border-left: 4px solid var(--gold); }
+.testimonial-card blockquote { font-size: var(--text-body); font-weight: 500; line-height: 1.6; color: rgba(255,255,255,0.9); margin-bottom: 16px; font-style: italic; }
+.testimonial-card .attr { font-size: var(--text-xs); color: rgba(255,255,255,0.6); }
+.testimonial-card.highlight { background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-left: 4px solid var(--gold); color: var(--black); }
+.testimonial-card.highlight blockquote { color: var(--muted); }
+.testimonial-card.highlight .attr { color: var(--muted); }
+
+/* HOW IT WORKS — timeline */
+.how { text-align: center; }
+.how-header { margin-bottom: 64px; }
+.timeline { position: relative; max-width: 900px; margin: 0 auto; }
+.timeline::before { content: ''; position: absolute; left: 40px; top: 0; bottom: 0; width: 2px; background: var(--gold); }
+.timeline-step { display: flex; gap: 32px; margin-bottom: 48px; text-align: left; position: relative; }
+.timeline-step:last-child { margin-bottom: 0; }
+.timeline-dot { flex-shrink: 0; width: 80px; height: 80px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 700; color: var(--gold); position: relative; z-index: 1; border: 3px solid var(--gold); }
+.timeline-body { background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-radius: var(--radius); padding: 32px; flex: 1; }
+.timeline-body h3 { font-size: var(--text-h3); font-weight: 700; color: var(--black); margin-bottom: 12px; }
+.timeline-body p { font-size: var(--text-body); color: var(--muted); line-height: 1.6; margin-bottom: 8px; }
+.timeline-body ul { list-style: none; padding: 0; margin-top: 8px; }
+.timeline-body ul li { font-size: var(--text-body); color: var(--muted); padding: 4px 0; }
+.timeline-body ul li::before { content: "✓ "; color: var(--gold); font-weight: 700; }
+
+/* PRICING — single plan */
+.pricing { text-align: center; }
+.pricing-badge { display: inline-block; background: rgba(224,166,42,0.12); color: var(--gold); font-size: var(--text-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 6px 16px; border-radius: 24px; margin-bottom: 24px; }
+.pricing-card { max-width: 480px; margin: 0 auto; background: var(--white); border: 2px solid var(--gold); border-radius: var(--radius); padding: 40px 32px; text-align: left; }
+.pricing-card .plan-label { font-size: var(--text-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 16px; }
+.pricing-card .price { font-size: 48px; font-weight: 700; color: var(--gold); }
+.pricing-card .setup-fee { font-size: var(--text-body); color: var(--muted); margin-bottom: 32px; }
+.feat-list { list-style: none; padding: 0; margin-bottom: 32px; }
+.feat-list li { padding: 8px 0; font-size: var(--text-body); color: var(--black); display: flex; align-items: center; gap: 8px; }
+.feat-list li::before { content: "✓"; color: var(--gold); font-weight: 700; }
+.setup-breakdown { max-width: 680px; margin: 64px auto 0; text-align: left; }
+.setup-breakdown h3 { font-size: var(--text-h3); font-weight: 700; margin-bottom: 16px; color: var(--black); }
+.setup-breakdown .setup-label { font-size: var(--text-body); color: var(--muted); margin-bottom: 16px; }
+.setup-breakdown ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.setup-breakdown ul li { font-size: var(--text-body); color: var(--muted); font-weight: 500; padding: 8px 0; }
+.setup-breakdown ul li::before { content: "✓ "; color: var(--gold); font-weight: 700; }
+.setup-breakdown .note { margin-top: 24px; font-size: var(--text-body); color: var(--muted); font-style: italic; }
+
+/* INDUSTRIES */
+.industries { text-align: center; }
+.ind-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+.ind-card { background: var(--white); border-radius: var(--radius); padding: 32px 24px; border: 1px solid rgba(0,0,0,0.06); transition: box-shadow 0.2s; }
+.ind-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+.ind-card svg { display: block; margin: 0 auto 16px; color: var(--gold); }
+.ind-card h6 { font-size: var(--text-body); font-weight: 600; color: var(--black); }
+
+/* ABOUT */
+.about { text-align: center; }
+.about-inner { max-width: 680px; margin: 0 auto; }
+.about-meta { font-size: var(--text-body); font-weight: 600; color: var(--muted); margin-bottom: 8px; }
+.about h2 { margin-bottom: 32px; }
+.about-body { text-align: left; font-size: var(--text-body); color: var(--muted); line-height: 1.7; }
+.about-body p { margin-bottom: 16px; }
+.about-body strong { color: var(--black); }
+.about-photo { width: 128px; height: 128px; border-radius: 50%; margin: 0 auto 24px; overflow: hidden; }
+.about-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+/* CTA BANNER — animated bg */
+.cta-banner { background: var(--navy); padding: 96px 32px; text-align: center; position: relative; overflow: hidden; }
+.cta-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(224,166,42,0.08) 0%, transparent 60%), radial-gradient(ellipse at 80% 100%, rgba(224,166,42,0.05) 0%, transparent 50%); pointer-events: none; }
+.cta-banner-inner { position: relative; z-index: 1; }
+.cta-banner h3 { font-size: var(--text-h2); font-weight: 700; color: var(--white); margin-bottom: 32px; }
+.cta-banner .pricing-line { margin-top: 24px; font-size: var(--text-xs); color: rgba(255,255,255,0.45); }
+
+/* FOOTER */
+.footer { background: var(--white); border-top: 1px solid rgba(0,0,0,0.06); padding: 32px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.footer-logo { display: flex; align-items: center; text-decoration: none; }
+.footer-logo img { height: 32px; width: auto; }
+.footer-social { display: flex; gap: 8px; }
+.footer-social a { width: 32px; height: 32px; border-radius: 50%; background: rgba(0,0,0,0.05); display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; font-size: var(--text-xs); font-weight: 600; transition: background 0.15s; }
+.footer-social a:hover { background: rgba(0,0,0,0.1); }
+.footer-copy { font-size: var(--text-xs); color: var(--muted); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .sec, .sec-alt, .testimonials, .cta-banner { padding: 64px 24px; }
+  .hero { padding: 48px 24px 80px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero-stat-stack { flex-direction: row; gap: 12px; }
+  .hero-stat { flex: 1; padding: 16px 12px; }
+  .hero-stat .stat-num { font-size: 24px; }
+  .hero-content h1 { font-size: 36px; }
+  .hero-content p { font-size: 18px; }
+  .nav { padding: 0 24px; }
+  .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 24px; gap: 16px; border-bottom: 1px solid rgba(0,0,0,0.06); }
+  .nav-links.open { display: flex; }
+  .nav-toggle { display: block; }
+  :root { --text-hero: 36px; --text-h2: 32px; --text-h3: 20px; }
+  .testimonial-grid { grid-template-columns: 1fr; }
+  .timeline::before { left: 24px; }
+  .timeline-step { gap: 16px; }
+  .timeline-dot { width: 48px; height: 48px; font-size: 24px; }
+  .ind-grid { grid-template-columns: repeat(2, 1fr); }
+  .setup-breakdown ul { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+  .hero-cta-wrap { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 480px) {
+  .hero-stat-stack { flex-direction: column; }
+  .ind-grid { grid-template-columns: 1fr; }
+  .timeline-dot { width: 40px; height: 40px; font-size: 20px; }
+}
+section[id] { scroll-margin-top: 80px; }
+
+/* === MODAL === */
+.modal-overlay { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.5); align-items: center; justify-content: center; padding: 24px; }
+.modal { background: var(--white); border-radius: var(--radius); padding: 40px 32px; max-width: 560px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; }
+.modal-close { position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--muted); line-height: 1; }
+.modal-close:hover { color: var(--black); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: var(--text-xs); font-weight: 600; color: var(--black); margin-bottom: 6px; }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%; padding: 10px 12px; border: 1px solid rgba(0,0,0,0.12); border-radius: var(--radius);
+  font-family: inherit; font-size: var(--text-body); color: var(--black); background: var(--white);
+  transition: border-color 0.15s; outline: none;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
+.form-group textarea { resize: vertical; }
+.form-success { text-align: center; padding: 32px 0; }
+
+@media (max-width: 480px) {
+  .form-row { grid-template-columns: 1fr; }
+  .modal { padding: 24px 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="https://framerusercontent.com/images/k03dAbO8XczGV4bNXuqgUIdpbP8.png?width=917&height=546" alt="Not Forgotten">
+    </a>
+    <ul class="nav-links" id="navMenu">
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#industries">Industries</a></li>
+      <li><a href="#" class="nav-cta" onclick="openModal();return false;">Book Free Demo</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO — split layout -->
+<section class="hero" id="hero">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <h1>Never Let A Quote Go Unfollowed Again</h1>
+      <p>Every quote gets followed up automatically until your customer makes a decision.</p>
+      <p>Simply CC or BCC Not Forgotten into your quote email and our system takes care of the rest. More follow-up. More conversions. More revenue.</p>
+      <div class="hero-proof">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" stroke="#e0a62a" stroke-width="2"/><path d="M7 12l3 4 7-8" stroke="#e0a62a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Proven to generate over $150,000 in additional revenue through consistent quote follow-up.
+      </div>
+      <div class="hero-cta-wrap">
+        <a href="#" class="btn-navy" onclick="openModal();return false;">
+          Book a Free Demo
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#how-it-works" class="btn-gold-light">
+          See How It Works
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <span class="cta-sub">$99 Setup Fee &bull; $199/month &bull; Cancel Anytime</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-stat-stack">
+        <div class="hero-stat">
+          <div class="stat-num">$150K+</div>
+          <div class="stat-label">Recovered Revenue</div>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-num">$59K</div>
+          <div class="stat-label">Single Client in 3 Weeks</div>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-num">14</div>
+          <div class="stat-label">Jobs Recovered Jan-Apr 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS — timeline -->
+<section class="sec how" id="how-it-works">
+  <div class="sec-inner">
+    <div class="how-header">
+      <p class="sec-label">How It Works</p>
+      <h2 class="sec-h2">Never Wonder What Happened To A Quote Again</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-step">
+        <div class="timeline-dot">1</div>
+        <div class="timeline-body">
+          <h3>Send Your Quote</h3>
+          <p>Send your quote exactly as you do today. Simply CC or BCC Not Forgotten into the email and our system automatically tracks the opportunity. No new tools. No new process. No extra steps.</p>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-dot">2</div>
+        <div class="timeline-body">
+          <h3>Automated Follow-Up Begins</h3>
+          <p>Not Forgotten follows up by email and SMS at the right time to keep the conversation moving and ensure your quote doesn't go cold.</p>
+          <p>No manual chasing. No additional admin. No extra work for your team.</p>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-dot">3</div>
+        <div class="timeline-body">
+          <h3>Customer Responds &amp; You Get Notified</h3>
+          <p>When your customer responds, Not Forgotten tracks the outcome and keeps you informed. Whether they accept the quote, ask a question, or need more time, you will always know where every opportunity stands.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS — card grid -->
+<section class="sec testimonials" id="results">
+  <div class="sec-inner">
+    <p class="sec-label">Proven Results</p>
+    <h2 class="sec-h2">Real Revenue Recovered</h2>
+    <div class="testimonial-grid" style="grid-template-columns:1fr; max-width:720px; margin-left:auto; margin-right:auto;">
+      <div class="testimonial-card">
+        <blockquote>
+          James' service has been a complete game changer for my business. We had a lot of money left on the table from old quotes, and within three weeks James helped recover jobs worth $59,000 including work from months earlier. The process was professional, simple, and required next to no effort from me. I couldn't recommend the service enough.
+        </blockquote>
+        <p class="attr">Travis Krieg, Owner, Travis Krieg Painting &nbsp;⭐⭐⭐⭐⭐</p>
+      </div>
+      <div class="testimonial-card highlight">
+        <blockquote>
+          Not Forgotten was originally developed by manually following up quotes for a service business, generating over $150,000 in additional revenue that would otherwise have been lost. Today it is being built to automate that same process at scale.
+        </blockquote>
+        <p class="attr">James Hardstaff, Founder, Not Forgotten</p>
+      </div>
+      <div class="testimonial-card highlight">
+        <blockquote>
+          Across 14 jobs from January to April 2026, Travis Krieg Painting recovered $177,555 in revenue. Every dollar came from a quote that would have been forgotten without a follow-up system in place.
+        </blockquote>
+        <p class="attr"><a href="/case-study-travis-krieg/" style="color:var(--gold); text-decoration:underline;">View full case study</a> &mdash; real results, real numbers</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="sec pricing" id="pricing">
+  <div class="sec-inner">
+    <div class="pricing-badge">No Tiers. No Upsells. One Plan.</div>
+    <h2 class="sec-h2">Simple, Transparent Pricing</h2>
+    <div class="pricing-card" style="margin-top:48px;">
+      <p class="plan-label">NOT FORGOTTEN</p>
+      <p class="price">$199/month</p>
+      <p class="setup-fee">$99 One-Time Setup Fee</p>
+      <ul class="feat-list">
+        <li>Automated quote follow-up</li>
+        <li>Email follow-up sequences</li>
+        <li>Customer response tracking</li>
+      </ul>
+      <a href="#how-it-works" class="btn-gold-light" style="justify-content:center;display:flex;">
+        See How It Works
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="setup-breakdown">
+      <h3>How The Setup Fee Works</h3>
+      <p class="setup-label">Your one-time setup fee covers:</p>
+      <ul>
+        <li>Account setup</li>
+        <li>Workflow configuration</li>
+        <li>Email connection</li>
+        <li>SMS configuration</li>
+        <li>Initial onboarding</li>
+      </ul>
+      <p class="note">Once set up, Not Forgotten runs in the background while you focus on your business.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="sec-alt industries" id="industries">
+  <div class="sec-inner">
+    <p class="sec-label">Who It's For</p>
+    <h2 class="sec-h2">Built For Businesses That Quote</h2>
+    <div class="ind-grid">
+      <div class="ind-card">
+        <svg width="40" height="40" viewBox="0 0 44 44" fill="none"><rect x="10" y="24" width="24" height="14" rx="3" stroke="currentColor" stroke-width="2.5"/><path d="M16 24v-5a6 6 0 0112 0v5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <h6>Trades &amp; Contractors</h6>
+      </div>
+      <div class="ind-card">
+        <svg width="40" height="40" viewBox="0 0 44 44" fill="none"><path d="M8 38V20l14-12 14 12v18H8z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M16 38V26h12v12" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></svg>
+        <h6>Home Services</h6>
+      </div>
+      <div class="ind-card">
+        <svg width="40" height="40" viewBox="0 0 44 44" fill="none"><circle cx="22" cy="15" r="7" stroke="currentColor" stroke-width="2.5"/><path d="M12 38c0-5.5 4.5-10 10-10s10 4.5 10 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <h6>Professional Services</h6>
+      </div>
+      <div class="ind-card">
+        <svg width="40" height="40" viewBox="0 0 44 44" fill="none"><polyline points="10,34 22,18 28,26 38,12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polygon points="32,8 38,12 34,18" fill="currentColor"/></svg>
+        <h6>Growing Businesses</h6>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec about" id="about">
+  <div class="about-inner">
+    <div class="about-photo">
+      <img src="https://framerusercontent.com/images/dphExp6yUCoXZbMNzkPTZECZs.png?width=1019&height=991" alt="James Hardstaff">
+    </div>
+    <p class="about-meta">James Hardstaff, Founder, Not Forgotten</p>
+    <p class="about-meta" style="margin-bottom:24px;">12+ Years Sales &amp; Business Development Experience</p>
+    <h2 class="sec-h2">Built By Someone Who Understands Sales</h2>
+    <div class="about-body">
+      <p><strong>Why Not Forgotten Exists</strong></p>
+      <p>After 12 years in sales and business development, I saw the same problem everywhere: businesses were losing thousands in revenue simply because quotes weren't being followed up. Not because they didn't care, but because there was no system in place.</p>
+      <p>I started manually following up quotes for a service business and recovered over $150,000 in jobs that would have been lost. That experience showed me how much money is left on the table when follow-up isn't consistent.</p>
+      <p>Not Forgotten was built to solve that problem at scale. A system that works whether you're on the tools or on holiday, making sure no opportunity slips through the cracks.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER — gradient overlay -->
+<section class="cta-banner" id="cta">
+  <div class="cta-banner-inner">
+    <h3>Never Let Another Opportunity Slip Through The Cracks</h3>
+    <a href="#how-it-works" class="btn-gold-dark">
+      See How It Works
+      <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <p class="pricing-line">$99 Setup Fee &bull; $199/month &bull; Cancel Anytime</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <a href="#" class="footer-logo">
+      <img src="https://framerusercontent.com/images/k03dAbO8XczGV4bNXuqgUIdpbP8.png?width=917&height=546" alt="Not Forgotten">
+    </a>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61583365509962" aria-label="Facebook" target="_blank" rel="noopener">fb</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Not Forgotten. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+    <h2 class="sec-h2" style="text-align:center; margin-bottom:8px;">Book a Free Demo</h2>
+    <p style="text-align:center; color:var(--muted); font-size:var(--text-body); margin-bottom:32px;">Fill in your details and we will be in touch within 24 hours.</p>
+    <form id="bookingForm" onsubmit="submitForm(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="businessName">Business Name *</label>
+          <input type="text" id="businessName" name="businessName" required>
+        </div>
+        <div class="form-group">
+          <label for="contactName">Contact Name *</label>
+          <input type="text" id="contactName" name="contactName" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="mobile">Mobile Number *</label>
+          <input type="tel" id="mobile" name="mobile" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="industry">Industry Type *</label>
+        <select id="industry" name="industry" required>
+          <option value="" disabled selected>Select your industry</option>
+          <option value="Painter">Painter</option>
+          <option value="Electrician">Electrician</option>
+          <option value="Plumber">Plumber</option>
+          <option value="Landscaper">Landscaper</option>
+          <option value="Builder">Builder</option>
+          <option value="Mechanic">Mechanic</option>
+          <option value="Real estate">Real Estate</option>
+          <option value="Automotive">Automotive</option>
+          <option value="Professional services">Professional Services</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="quotesPerMonth">How many quotes do you send per month? *</label>
+        <select id="quotesPerMonth" name="quotesPerMonth" required>
+          <option value="" disabled selected>Select range</option>
+          <option value="1-10">1-10</option>
+          <option value="11-30">11-30</option>
+          <option value="31-60">31-60</option>
+          <option value="60+">60+</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="quoteFollowUp">What happens to your quotes after you send them? *</label>
+        <select id="quoteFollowUp" name="quoteFollowUp" required>
+          <option value="" disabled selected>Select option</option>
+          <option value="We follow up manually">We follow up manually</option>
+          <option value="We send one reminder">We send one reminder</option>
+          <option value="We wait for them to reply">We wait for them to reply</option>
+          <option value="No follow-up at all">No follow-up at all</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="quoteMethod">How are quotes currently sent? *</label>
+        <select id="quoteMethod" name="quoteMethod" required>
+          <option value="" disabled selected>Select option</option>
+          <option value="Email">Email</option>
+          <option value="SMS">SMS</option>
+          <option value="Phone call">Phone call</option>
+          <option value="In person">In person</option>
+          <option value="Software / platform">Software / platform</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="notes">Anything else we should know?</label>
+        <textarea id="notes" name="notes" rows="3" placeholder="Optional: tell us about your business or any specific needs"></textarea>
+      </div>
+      <button type="submit" class="btn-navy" style="width:100%; justify-content:center; margin-top:8px;">
+        Submit
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </form>
+    <div class="form-success" id="formSuccess" style="display:none;">
+      <div style="font-size:48px; margin-bottom:16px;">&#9989;</div>
+      <h3 style="font-size:var(--text-h3); color:var(--black); margin-bottom:8px;">Submitted successfully</h3>
+      <p style="color:var(--muted); font-size:var(--text-body);">We will be in touch within 24 hours.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function openModal() { document.getElementById('bookingModal').style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+function closeModal() { document.getElementById('bookingModal').style.display = 'none'; document.body.style.overflow = ''; }
+document.getElementById('bookingModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+
+async function submitForm(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button[type=submit]');
+  btn.textContent = 'Submitting...';
+  btn.disabled = true;
+  try {
+    const res = await fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        businessName: document.getElementById('businessName').value,
+        contactName: document.getElementById('contactName').value,
+        mobile: document.getElementById('mobile').value,
+        email: document.getElementById('email').value,
+        industry: document.getElementById('industry').value,
+        quotesPerMonth: document.getElementById('quotesPerMonth').value,
+        quoteFollowUp: document.getElementById('quoteFollowUp').value,
+        quoteMethod: document.getElementById('quoteMethod').value,
+        notes: document.getElementById('notes').value
+      })
+    });
+    if (res.ok) {
+      document.getElementById('bookingForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    } else {
+      const err = await res.json();
+      alert('Something went wrong: ' + (err.error || 'Please try again.'));
+      btn.textContent = 'Submit';
+      btn.disabled = false;
+    }
+  } catch (e) {
+    alert('Network error. Please try again.');
+    btn.textContent = 'Submit';
+    btn.disabled = false;
+  }
+}
+</script>
+
+</body>
+</html>

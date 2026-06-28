@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travis Krieg Painting — Case Study | Not Forgotten Systems</title>
+<meta name="description" content="How one Adelaide painter recovered $177,555 from quotes he'd already sent. A real case study by Not Forgotten Systems.">
+<link rel="icon" href="https://framerusercontent.com/images/k03dAbO8XczGV4bNXuqgUIdpbP8.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #0b2c4d; --gold: #e0a62a; --white: #fff; --light: #f7fbff;
+  --black: #0a0a0a; --muted-light: #666;
+  --radius: 12px;
+  --text-hero: 64px; --text-h2: 40px; --text-h3: 24px; --text-body: 16px; --text-xs: 12px;
+
+  /* Dark canvas tokens */
+  --dark-text: rgba(255,255,255,0.85); --dark-heading: #fff;
+  --dark-card: rgba(255,255,255,0.03); --dark-border: rgba(255,255,255,0.06);
+  --dark-divider: rgba(255,255,255,0.06); --dark-muted: rgba(255,255,255,0.25);
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--white); color: var(--black); line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+.nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.06); padding: 0 32px; }
+.nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.nav-logo { display: flex; align-items: center; text-decoration: none; }
+.nav-logo img { height: 40px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--black); font-size: var(--text-body); font-weight: 500; transition: color 0.15s; }
+.nav-links a:hover { color: var(--navy); }
+.nav-cta { background: var(--navy); color: var(--white) !important; padding: 8px 24px; border-radius: var(--radius); font-weight: 600 !important; }
+.nav-cta:hover { background: #1a4a6e !important; color: var(--white) !important; }
+
+.container { max-width: 800px; margin: 0 auto; padding: 0 32px; }
+
+/* DARK SECTIONS */
+.sec-dark { background: var(--navy); color: var(--dark-text); padding: 96px 0; }
+.sec-dark h2 { font-size: var(--text-h2); font-weight: 400; color: var(--dark-heading); letter-spacing: -0.03em; margin-bottom: 24px; }
+.sec-dark h3 { font-size: var(--text-h3); font-weight: 400; color: var(--dark-heading); margin-bottom: 16px; }
+.sec-dark p { font-size: var(--text-body); line-height: 1.7; margin-bottom: 16px; max-width: 680px; }
+.sec-dark p.lead { font-size: var(--text-h3); line-height: 1.6; }
+.sec-dark .highlight { background: var(--dark-card); border: 1px solid var(--dark-border); border-radius: var(--radius); padding: 32px; margin: 32px 0; }
+.sec-dark .highlight p { margin-bottom: 8px; }
+.sec-dark .highlight p:last-child { margin-bottom: 0; }
+.sec-dark .credibility { background: var(--dark-card); border: 1px solid var(--dark-border); border-radius: var(--radius); padding: 32px; margin: 32px 0; }
+.sec-dark .credibility h3 { color: var(--gold); margin-bottom: 16px; }
+.sec-dark .credibility p { font-size: var(--text-body); color: var(--dark-muted); line-height: 1.6; margin-bottom: 8px; }
+.sec-dark .credibility p:last-child { margin-bottom: 0; }
+.sec-dark .testimonial { background: var(--dark-card); border: 1px solid var(--dark-border); border-left: 3px solid var(--gold); border-radius: var(--radius); padding: 48px; margin: 32px 0; }
+.sec-dark .testimonial blockquote { font-size: var(--text-h3); line-height: 1.7; color: var(--dark-text); margin-bottom: 24px; }
+.sec-dark .testimonial-author { display: flex; align-items: center; gap: 16px; }
+.sec-dark .testimonial-avatar { width: 56px; height: 56px; border-radius: 50%; background: rgba(224,166,42,0.12); display: flex; align-items: center; justify-content: center; font-size: var(--text-h3); color: var(--gold); font-weight: 500; flex-shrink: 0; }
+.sec-dark .testimonial-name { font-weight: 500; color: var(--dark-heading); }
+.sec-dark .testimonial-business { font-size: var(--text-xs); color: var(--dark-muted); }
+
+/* LIGHT SECTIONS */
+.sec-light { background: var(--white); padding: 96px 0; }
+.sec-light h2 { font-size: var(--text-h2); font-weight: 400; color: var(--black); letter-spacing: -0.03em; margin-bottom: 24px; }
+.sec-light h3 { font-size: var(--text-h3); font-weight: 400; color: var(--black); margin-bottom: 16px; }
+.sec-light p { font-size: var(--text-body); line-height: 1.7; margin-bottom: 16px; max-width: 680px; color: var(--muted-light); }
+.sec-light p.lead { font-size: var(--text-h3); line-height: 1.6; color: var(--muted-light); }
+.sec-light .highlight { background: var(--light); border: 1px solid rgba(0,0,0,0.06); border-radius: var(--radius); padding: 32px; margin: 32px 0; }
+.sec-light .highlight p { margin-bottom: 8px; }
+.sec-light .credibility { background: var(--light); border: 1px solid rgba(0,0,0,0.06); border-radius: var(--radius); padding: 32px; margin: 32px 0; }
+.sec-light .credibility h3 { font-size: var(--text-h3); font-weight: 400; color: var(--gold); margin-bottom: 16px; }
+.sec-light .credibility p { font-size: var(--text-body); color: var(--muted-light); line-height: 1.6; margin-bottom: 8px; }
+.sec-light .credibility p:last-child { margin-bottom: 0; }
+
+/* ALT LIGHT (light blue bg) */
+.sec-alt { background: var(--light); padding: 96px 0; }
+.sec-alt h2 { font-size: var(--text-h2); font-weight: 400; color: var(--black); letter-spacing: -0.03em; margin-bottom: 24px; }
+.sec-alt p { font-size: var(--text-body); line-height: 1.7; margin-bottom: 16px; max-width: 680px; color: var(--muted-light); }
+.sec-alt .credibility { background: var(--white); border: 1px solid rgba(0,0,0,0.06); border-radius: var(--radius); padding: 32px; margin: 32px 0; }
+.sec-alt .credibility h3 { font-size: var(--text-h3); font-weight: 400; color: var(--gold); margin-bottom: 16px; }
+.sec-alt .credibility p { font-size: var(--text-body); color: var(--muted-light); line-height: 1.6; margin-bottom: 8px; }
+.sec-alt .credibility p:last-child { margin-bottom: 0; }
+
+/* HERO — navy */
+.hero { background: var(--navy); padding: 128px 0 96px; text-align: center; }
+.hero-label { font-size: var(--text-body); color: var(--gold); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 500; margin-bottom: 24px; }
+.hero h1 { font-size: clamp(2.5rem, 5vw, var(--text-hero)); font-weight: 400; color: var(--white); letter-spacing: -0.02em; line-height: 1.1; max-width: 850px; margin: 0 auto 32px; }
+.hero h1 span { color: var(--gold); }
+.hero-sub { font-size: var(--text-h3); color: var(--dark-muted); max-width: 620px; margin: 0 auto; line-height: 1.6; }
+
+/* BIG NUMBER — navy */
+.big-number { background: var(--navy); text-align: center; padding: 64px 0; border-top: 1px solid var(--dark-divider); border-bottom: 1px solid var(--dark-divider); }
+.big-number-value { font-size: clamp(4rem, 10vw, 96px); font-weight: 400; color: var(--gold); letter-spacing: -0.03em; line-height: 1; }
+.big-number-label { font-size: var(--text-body); color: var(--dark-muted); margin-top: 8px; }
+.big-number-row { display: flex; justify-content: center; gap: 96px; margin-top: 48px; flex-wrap: wrap; }
+.stat-item { text-align: center; }
+.stat-value { font-size: var(--text-h2); font-weight: 400; color: var(--white); letter-spacing: -0.03em; }
+.stat-label { font-size: var(--text-xs); color: var(--dark-muted); margin-top: 8px; }
+
+/* TABLE */
+.table-wrap { overflow-x: auto; margin: 32px 0; border: 1px solid rgba(0,0,0,0.08); border-radius: var(--radius); }
+table { width: 100%; border-collapse: collapse; font-size: var(--text-xs); }
+th { text-align: left; padding: 16px; color: var(--muted-light); font-weight: 500; border-bottom: 1px solid rgba(0,0,0,0.06); white-space: nowrap; }
+td { padding: 8px 16px; border-bottom: 1px solid rgba(0,0,0,0.06); white-space: nowrap; color: var(--black); }
+td:first-child, th:first-child { padding-left: 32px; }
+td:last-child, th:last-child { padding-right: 32px; }
+tr:last-child td { border-bottom: none; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.gold { color: var(--gold); }
+.total-row td { border-top: 1px solid var(--gold); font-weight: 500; }
+
+/* TESTIMONIAL — light section variant */
+.sec-light .testimonial { background: var(--navy); border-left: 3px solid var(--gold); border-radius: var(--radius); padding: 48px; margin: 32px 0; }
+.sec-light .testimonial blockquote { font-size: var(--text-h3); line-height: 1.7; color: var(--dark-text); margin-bottom: 24px; }
+.sec-light .testimonial-author { display: flex; align-items: center; gap: 16px; }
+.sec-light .testimonial-avatar { width: 56px; height: 56px; border-radius: 50%; background: rgba(224,166,42,0.12); display: flex; align-items: center; justify-content: center; font-size: var(--text-h3); color: var(--gold); font-weight: 500; flex-shrink: 0; }
+.sec-light .testimonial-name { font-weight: 500; color: var(--dark-heading); }
+.sec-light .testimonial-business { font-size: var(--text-xs); color: var(--dark-muted); }
+
+/* DIAGNOSTIC */
+.diagnostic-list { list-style: none; padding: 0; margin: 32px 0 0; max-width: 600px; }
+.sec-dark .diagnostic-list li { font-size: var(--text-h3); color: var(--dark-text); padding: 16px 0; border-bottom: 1px solid var(--dark-divider); }
+
+/* CTA — navy */
+.cta-section { background: var(--navy); padding: 96px 0 128px; text-align: center; }
+.cta-section h2 { font-size: var(--text-h2); font-weight: 400; letter-spacing: -0.03em; margin-bottom: 32px; color: var(--white); }
+.cta-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--navy); font-weight: 600; padding: 16px 32px; border-radius: var(--radius); text-decoration: none; font-size: var(--text-body); transition: background 0.2s, transform 0.15s; }
+.cta-btn:hover { background: #f0b840; transform: translateY(-1px); }
+
+/* FOOTER */
+.footer { background: var(--white); padding: 32px 0 64px; text-align: center; font-size: var(--text-xs); color: var(--muted-light); border-top: 1px solid rgba(0,0,0,0.06); }
+.footer a { color: var(--gold); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+/* BACK LINK */
+.back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--dark-muted); text-decoration: none; font-size: var(--text-xs); margin-bottom: 48px; transition: color 0.15s; }
+.back-link:hover { color: var(--gold); }
+
+@media (max-width: 640px) {
+  .container { padding: 0 24px; }
+  .nav { padding: 0 24px; }
+  .nav-inner { height: 56px; }
+  .nav-logo img { height: 32px; }
+  .nav-links { gap: 12px; }
+  .nav-links a { font-size: 12px; }
+  .nav-cta { padding: 6px 14px; font-size: 12px !important; }
+  .big-number-row { gap: 32px; }
+  .hero { padding: 80px 0 64px; }
+  .sec-light, .sec-alt, .sec-dark { padding: 64px 0; }
+  .sec-dark .testimonial, .sec-light .testimonial { padding: 32px; }
+  .big-number { padding: 48px 0; }
+  th, td { padding: 8px 12px; }
+  th:first-child, td:first-child { padding-left: 24px; }
+  th:last-child, td:last-child { padding-right: 24px; }
+  :root { --text-hero: 40px; --text-h2: 32px; --text-h3: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="https://framerusercontent.com/images/k03dAbO8XczGV4bNXuqgUIdpbP8.png?width=917&height=546" alt="Not Forgotten">
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/" class="nav-cta">Book Free Demo</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-label">Case Study</div>
+    <h1>How One Adelaide Painter Recovered <span>$177,555</span> from Quotes He'd Already Sent</h1>
+    <p class="hero-sub">Every tradie knows the feeling. You send a quote. The client seems keen. Then silence. Most of those jobs aren't lost to a cheaper competitor. They're lost because nobody followed up.</p>
+  </div>
+</section>
+
+<!-- THE PAIN — white (readability) -->
+<section class="sec-light">
+  <div class="container">
+    <h2>You've lived this</h2>
+    <p class="lead">You're on the tools all day. The phone rings during a cut-in and goes to voicemail. Emails pile up. The quote you spent half an hour on last Tuesday hasn't had a reply. You meant to send a follow-up text, but then the compressor blew on site and that was your afternoon.</p>
+    <p>It's not that you don't care about following up. It's that following up takes time you don't have. So quotes go cold. Clients who were ready to book move on. You never find out why. The money you could have earned just evaporates.</p>
+    <p>Most tradies lose 3 to 5 jobs a month this way. Not because their quotes are too expensive. Not because the work isn't good. Because the client got busy, forgot to reply, and nobody reminded them.</p>
+    <div class="highlight">
+      <p style="font-size:var(--text-xs); color:var(--muted-light); margin-bottom:8px;">THIS IS NOT A MARKETING CLAIM</p>
+      <p style="margin-bottom:0;">This is exactly what was happening to Travis Krieg, a painter in Adelaide with a 5-person crew. He was sending quotes, getting busy, and watching work disappear into the silence. Until he tried something different.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BIG NUMBERS — navy (impact) -->
+<section class="big-number">
+  <div class="container">
+    <div class="big-number-value">$177,555</div>
+    <div class="big-number-label">Total revenue recovered from quotes that had gone silent</div>
+    <div class="big-number-row">
+      <div class="stat-item"><div class="stat-value">14</div><div class="stat-label">Jobs won</div></div>
+      <div class="stat-item"><div class="stat-value">Jan&ndash;Apr 2026</div><div class="stat-label">Time frame</div></div>
+      <div class="stat-item"><div class="stat-value">$12,683</div><div class="stat-label">Average job value</div></div>
+      <div class="stat-item"><div class="stat-value">7</div><div class="stat-label">New quotes recovered</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION — white (readability) -->
+<section class="sec-light">
+  <div class="container">
+    <h2>What Travis did differently</h2>
+    <p class="lead">Instead of trying to remember to follow up between jobs, Travis connected his quoting process to Not Forgotten Systems.</p>
+    <p>Here's how it worked. Every time Travis sent a quote, he CC'd notforgotten.com.au on the email. That was the only change. From there, the system sent three follow-ups over two weeks, automatically. If the client replied at any point, the sequence stopped and Travis was notified. If they didn't, the system kept going.</p>
+    <p>Travis didn't write a single follow-up message. He didn't set reminders. He didn't lose track of who needed chasing. He just kept sending quotes the way he always had, and the system handled everything after the send button.</p>
+    <p>The quotes that came back weren't new leads. They were quotes Travis had already written, already sent, and in some cases already written off. One of them had been sitting in a client's inbox for <strong style="color:var(--gold);">300 days</strong>.</p>
+  </div>
+</section>
+
+<!-- RESULTS TABLE — light blue (data) -->
+<section class="sec-alt">
+  <div class="container">
+    <h2>What came back</h2>
+    <p>Between January and April 2026, 14 clients who had gone completely silent replied, booked, and paid. Here is every one of those jobs:</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Job</th><th class="num">Quote value</th><th>Won</th><th class="num">Days to close</th><th>Quote age</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Residential client</td><td class="num gold">$35,097</td><td>25 Mar 2026</td><td class="num">63</td><td>Old</td></tr>
+          <tr><td>Residential client</td><td class="num">$24,112</td><td>30 Jan 2026</td><td class="num">9</td><td>300 days</td></tr>
+          <tr><td>Residential client</td><td class="num">$14,850</td><td>4 Feb 2026</td><td class="num">7</td><td>New</td></tr>
+          <tr><td>Residential client</td><td class="num">$12,031</td><td>16 Mar 2026</td><td class="num">26</td><td>New</td></tr>
+          <tr><td>Residential client</td><td class="num">$11,134</td><td>30 Jan 2026</td><td class="num">9</td><td>New</td></tr>
+          <tr><td>Residential client</td><td class="num">$10,000</td><td>6 Feb 2026</td><td class="num">9</td><td>Old</td></tr>
+          <tr><td>Residential client</td><td class="num">$9,036</td><td>18 Apr 2026</td><td class="num">&mdash;</td><td>New</td></tr>
+          <tr><td>Residential client</td><td class="num">$8,916</td><td>4 Mar 2026</td><td class="num">15</td><td>Old</td></tr>
+          <tr><td>Residential client</td><td class="num">$7,986</td><td>5 Mar 2026</td><td class="num">&mdash;</td><td>New</td></tr>
+          <tr><td>Residential client</td><td class="num">$7,920</td><td>25 Feb 2026</td><td class="num">7</td><td>New</td></tr>
+          <tr><td>Residential client</td><td class="num">$5,740</td><td>25 Mar 2026</td><td class="num">9</td><td>New</td></tr>
+          <tr><td>Residential client</td><td class="num">$5,323</td><td>27 Apr 2026</td><td class="num">13</td><td>New</td></tr>
+          <tr><td>Residential client</td><td class="num">$2,560</td><td>30 Jan 2026</td><td class="num">1</td><td>Old</td></tr>
+          <tr class="total-row"><td><strong>13 jobs</strong></td><td class="num gold"><strong>$154,705</strong></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="color:var(--muted-light); font-size:var(--text-xs); margin-top:16px;">The 14th job (an additional $22,850) was won outside the formal follow-up window but was triggered by a client re-engaging after receiving automated follow-ups. It is excluded from the table above but included in the $177,555 total.</p>
+    <div class="highlight" style="margin-top:48px;">
+      <p style="margin-bottom:8px;">What the numbers actually mean:</p>
+      <p style="font-size:var(--text-xs); color:var(--muted-light);">These were not new customers Travis acquired through advertising or word of mouth. They were people who had already received a quote, already shown interest, and then gone quiet. Without consistent follow-up, every one of these jobs would have been lost. Not to a competitor. To silence.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIBILITY — white -->
+<section class="sec-light">
+  <div class="container">
+    <h2>Where these numbers come from</h2>
+    <div class="credibility">
+      <h3>How the $177,555 figure is calculated</h3>
+      <p>The total is the sum of 14 individual job values as recorded in Travis Krieg Painting's own tracking sheet, shared directly with Not Forgotten Systems. Each job has a confirmed won date and a quote value in Australian dollars.</p>
+      <p>13 of the 14 jobs are itemised in the table above. The 14th ($22,850) was a client who re-engaged via email after receiving automated follow-ups and booked directly. Both old quotes (some more than six months old) and new quotes are included. The figure represents gross job revenue, not profit, and does not account for materials, labour, or other costs.</p>
+      <p>This is real data from a real painting business. Nothing has been estimated, rounded up, or projected. Client names have been removed for privacy. The numbers are what they are.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL — white section, navy card -->
+<section class="sec-light">
+  <div class="container">
+    <h2>From the business owner</h2>
+    <div class="testimonial">
+      <blockquote>I was losing jobs I didn't even know I was losing. Clients would say "we've been meaning to call you" or "sorry, it's been crazy" — and these were big jobs, $20,000, $35,000. I didn't have time to chase everyone. Not Forgotten just handled it. The follow-ups went out, the replies came back, and I turned up and did the work. The system found money that was already sitting in my inbox.</blockquote>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">TK</div>
+        <div>
+          <div class="testimonial-name">Travis Krieg</div>
+          <div class="testimonial-business">Owner, Travis Krieg Painting, Adelaide SA</div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:var(--text-xs); color:var(--muted-light);">The quote above is drawn from Travis's own words and the outcomes recorded in his tracking sheet.</p>
+  </div>
+</section>
+
+<!-- WHAT THIS MEANS — light blue -->
+<section class="sec-alt">
+  <div class="container">
+    <h2>What this means for your business</h2>
+    <p>Travis's results proved something important: the follow-up itself is worth more than most tradies realise. It's not about having a fancy system. It's about consistency. Three touches, timed properly, every time. That's what brought back $177,555.</p>
+    <p>After seeing these results, Travis decided to hire someone in-house to manage follow-up. That's a valid outcome — the system proved the value of consistent follow-up so clearly that he wanted to own the capability. But here's the reality: most trades businesses can't justify a full-time salary just to chase quotes. And even if they could, one person gets sick, takes holidays, makes mistakes, and eventually moves on.</p>
+    <p>Not Forgotten is building Atlas so that any trade business can get the same consistency Travis experienced — without hiring anyone, without remembering to follow up, and without wondering what's slipping through the cracks. A system doesn't forget. A system doesn't call in sick. A system costs a fraction of a salary and never leaves.</p>
+  </div>
+</section>
+
+<!-- DIAGNOSTIC — navy (closing impact) -->
+<section class="sec-dark">
+  <div class="container">
+    <h2>Could this be your business?</h2>
+    <ul class="diagnostic-list">
+      <li>Do you send quotes and then get too busy to follow up?</li>
+      <li>Have you lost track of which quotes are still waiting for a reply?</li>
+      <li>Do you have quotes in your sent folder from months ago that you never chased?</li>
+      <li>Would an extra $10,000 to $30,000 a month change your business?</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CTA — navy -->
+<section class="cta-section">
+  <div class="container">
+    <a href="/" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M13 4l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to Not Forgotten
+    </a>
+    <h2>Find out what's sitting in your inbox</h2>
+    <a class="cta-btn" href="/">
+      See How It Works
+      <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p><a href="/">Not Forgotten Systems</a> &mdash; Automated quote follow-up for trades.</p>
+    <p style="margin-top:8px;">This case study documents a real engagement. Travis Krieg Painting is a real business in Adelaide, South Australia.</p>
+  </div>
+</footer>
+
+</body>
+</html>
