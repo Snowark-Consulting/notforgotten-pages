@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 48,
+    "tasks_completed": 49,
     "recent": [
+      {
+        "date": "2026-06-28 07:44",
+        "task": "Reorganized vault: deleted duplicate Wikilinks.md, rewrote SOUL.md in caveman style (-27% tokens), created research/ directory with 14 files and 6 scripts moved from root",
+        "category": "task"
+      },
       {
         "date": "2026-06-28 06:17",
         "task": "Designed 7-stage prospect lifecycle (first principles). Built New \u2192 Outreach Active automation. Backfilled 7 calibration prospects. CRM now reflects reality.",
@@ -135,11 +140,6 @@
         "date": "2026-06-27 12:33",
         "task": "V3: Redesigned with Three.js particle hero + GSAP scroll animations + glass nav + card hover effects \u2014 deployed to notforgotten-replica.vercel.app",
         "category": "task"
-      },
-      {
-        "date": "2026-06-27 12:22",
-        "task": "V2: Exact copy match + Power Design audit \u2014 redeployed notforgotten-replica.vercel.app with 8-pt grid, modular type scale, corrected About section, missing features restored",
-        "category": "task"
       }
     ]
   },
@@ -164,5 +164,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-28T06:17:19.706403"
+  "last_updated": "2026-06-28T07:44:00.495638"
 }
