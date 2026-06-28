@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 46,
+    "tasks_completed": 47,
     "recent": [
+      {
+        "date": "2026-06-28 06:06",
+        "task": "Added 'Campaign Complete' Pipeline stage to Airtable Prospects \u2014 campaign end \u2260 relationship end now represented in CRM",
+        "category": "task"
+      },
       {
         "date": "2026-06-28 06:02",
         "task": "Recorded strategic decision: Calibration outreach adopted as living system \u2014 campaign end \u2260 relationship end, context-awareness overrides timetables, data trumps assumptions",
@@ -135,11 +140,6 @@
         "date": "2026-06-27 12:12",
         "task": "Contact name research: 3 browser subagents researching 45 trade businesses. 19 names found so far via email parsing",
         "category": "task"
-      },
-      {
-        "date": "2026-06-27 12:01",
-        "task": "Researching contact names for 180 Airtable prospects \u2014 scraping websites and parsing email addresses",
-        "category": "task"
       }
     ]
   },
@@ -164,5 +164,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-28T06:02:08.066787"
+  "last_updated": "2026-06-28T06:06:25.648020"
 }
