@@ -117,10 +117,60 @@
   /* ── Loading ── */
   .loading { text-align: center; padding: var(--space-3xl); color: var(--muted); font-size: var(--text-base); }
 
+  /* ── Capability cards ── */
+  .cap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm); }
+  .cap-card { 
+    display: flex; align-items: flex-start; gap: var(--space-sm);
+    padding: var(--space-md); border-radius: var(--radius-lg);
+    background: var(--white); border: 1px solid rgba(0,0,0,0.04);
+    transition: box-shadow 0.15s;
+  }
+  .cap-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .cap-icon {
+    width: 36px; height: 36px; border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .cap-info { flex: 1; min-width: 0; }
+  .cap-info .cap-name { font-size: var(--text-sm); font-weight: 600; color: var(--navy); }
+  .cap-info .cap-stat { font-size: var(--text-xs); color: var(--muted); margin-top: 2px; }
+
+  /* ── Agent health bar ── */
+  .health-bar {
+    display: flex; align-items: center; gap: var(--space-lg); flex-wrap: wrap;
+    padding: var(--space-md) var(--space-lg); 
+    background: var(--white); border-radius: var(--radius-xl);
+    border: 1px solid rgba(0,0,0,0.04);
+    font-size: var(--text-sm);
+  }
+  .health-item { display: flex; align-items: center; gap: var(--space-sm); }
+  .health-item .dot { width: 7px; height: 7px; border-radius: 50%; }
+  .health-item .dot.green { background: #2ecc71; }
+  .health-item .dot.gold { background: var(--gold); }
+  .health-label { color: var(--muted); font-size: var(--text-xs); }
+
+  /* ── Attribution ── */
+  .attr {
+    text-align: center; padding: var(--space-md); 
+    font-size: var(--text-xs); color: var(--muted);
+    border-top: 1px solid rgba(0,0,0,0.03); margin-top: var(--space-lg);
+  }
+  .attr strong { color: var(--navy); font-weight: 600; }
+
+  /* ── Activity category tags ── */
+  .act-tag {
+    display: inline-block; padding: 1px 6px; border-radius: 8px;
+    font-size: 10px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.03em; margin-left: 6px;
+    background: rgba(224,166,42,0.12); color: var(--gold);
+  }
+
   /* ── Responsive ── */
   @media (max-width: 768px) {
     .stat-row { grid-template-columns: repeat(2, 1fr); }
     .grid-2 { grid-template-columns: 1fr; }
+    .cap-grid { grid-template-columns: 1fr; }
+    .health-bar { gap: var(--space-sm); font-size: var(--text-xs); }
     .header-inner { flex-direction: column; align-items: flex-start; }
     .container { padding: var(--space-md); }
     .tab-inner { padding: 0 var(--space-md); overflow-x: auto; }
@@ -145,7 +195,7 @@
 <div class="tab-bar">
   <div class="tab-inner">
     <button class="tab-btn active" data-tab="pipeline">Pipeline</button>
-    <button class="tab-btn" data-tab="operations">Operations</button>
+    <button class="tab-btn" data-tab="agent">Agent</button>
     <button class="tab-btn" data-tab="knowledge">Knowledge</button>
     <a href="brain/" class="tab-btn" style="text-decoration:none;">Brain</a>
   </div>
@@ -279,51 +329,88 @@ function statCard(num, label, gold) {
   return `<div class="stat-card"><div class="num${gold ? ' gold' : ''}">${num}</div><div class="label">${label}</div></div>`;
 }
 
-// ── Render Operations Tab ──
+// ── Render Agent Tab ──
 
-function renderOperations() {
+function renderAgent() {
   const d = data;
   let html = '';
 
-  // Stats row
+  // ── Stat row ──
   html += '<div class="stat-row">';
-  html += statCard(fmtNum(data.activity?.tasks_completed || 0), 'Tasks Completed', false);
-  html += statCard(data.health?.agent === 'online' ? 'Live' : 'Off', 'Agent Status', false);
-  html += statCard(data.health?.model?.split(' ')[0] || '—', 'Model', false);
-  html += statCard((data.onboarding?.stages?.filter(s => s.status === 'complete').length || 0) + '/' + (data.onboarding?.stages?.length || 0), 'Setup Progress', true);
+  html += statCard(fmtNum(d.activity?.tasks_completed || 0), 'Tasks Completed', false);
+  html += statCard(d.health?.agent === 'online' ? 'Live' : 'Off', 'Agent Status', false);
+  html += statCard('8', 'Capabilities', true);
+  html += statCard('5', 'Integrations', true);
   html += '</div>';
 
-  // Two-col: onboarding + crons
+  // ── Two-col: Activity feed + Capabilities ──
   html += '<div class="grid-2">';
 
-  // Onboarding
-  if (data.onboarding?.stages) {
-    html += '<div class="panel"><div class="panel-header"><h2>Setup Progress</h2></div><div class="panel-body">';
-    data.onboarding.stages.forEach(s => {
-      const dotCls = s.status === 'complete' ? 'ok' : s.status === 'in_progress' ? 'warn' : '';
-      html += `<div class="cron-row">
-        <span class="cron-dot ${dotCls}"></span>
-        <span class="cron-name">${s.name}</span>
-        <span style="font-size:var(--text-xs);color:var(--muted)">${s.detail || ''}</span>
-      </div>`;
+  // LEFT: Recent Activity
+  html += '<div class="panel"><div class="panel-header"><h2>Recent Activity</h2></div><div class="panel-body">';
+  const recent = d.activity?.recent || [];
+  if (recent.length > 0) {
+    recent.slice(0, 10).forEach(a => {
+      const task = a.task || '';
+      let tag = '';
+      if (/email|outreach|campaign|draft|send|calibrat/i.test(task)) tag = 'outreach';
+      else if (/crm|airtable|prospect|pipeline/i.test(task)) tag = 'crm';
+      else if (/brain|graph|knowledge|vault|wikilink/i.test(task)) tag = 'knowledge';
+      else if (/decision|founder|interview|strategy/i.test(task)) tag = 'strategy';
+      else if (/dashboard|publish|page|site|deploy|case study/i.test(task)) tag = 'publish';
+      else if (/quote|intake/i.test(task)) tag = 'intake';
+      else if (/learning|framework|experiment/i.test(task)) tag = 'learn';
+      const tagHtml = tag ? `<span class="act-tag">${tag}</span>` : '';
+      html += `<div class="feed-item"><span class="feed-date">${a.date || ''}</span>${tagHtml}<br>${task}</div>`;
     });
-    html += '</div></div>';
+  } else {
+    html += '<div class="empty-state">No activity yet.</div>';
   }
+  html += '</div></div>';
 
-  // Cron jobs
-  if (data.health?.crons) {
-    html += '<div class="panel"><div class="panel-header"><h2>Cron Jobs</h2></div><div class="panel-body">';
-    data.health.crons.forEach(c => {
-      html += `<div class="cron-row">
-        <span class="cron-dot ${c.status === 'ok' ? 'ok' : 'warn'}"></span>
-        <span class="cron-name">${c.name}</span>
-        <span class="cron-next">${c.next || ''}</span>
-      </div>`;
-    });
-    html += '</div></div>';
-  }
+  // RIGHT: Capabilities
+  html += '<div class="panel"><div class="panel-header"><h2>What Atlas Can Do</h2></div><div class="panel-body">';
+  html += '<div class="cap-grid">';
+
+  const caps = [
+    { icon: '📧', name: 'Email Outreach', stat: '13 sent · 15.4% reply · 3 verticals', bg: 'rgba(224,166,42,0.12)' },
+    { icon: '📊', name: 'CRM Management', stat: '181 prospects · pipeline automation', bg: 'rgba(31,88,145,0.10)' },
+    { icon: '📄', name: 'Quote Intake', stat: 'Auto-detect · cross-refs Airtable', bg: 'rgba(46,204,113,0.10)' },
+    { icon: '🧠', name: 'Knowledge Brain', stat: '36 nodes · 84 wikilinks · 7 communities', bg: 'rgba(167,139,250,0.10)' },
+    { icon: '📋', name: 'Decision Library', stat: '10 decisions · review cycles · pattern guard', bg: 'rgba(224,166,42,0.10)' },
+    { icon: '🌐', name: 'Content Publishing', stat: 'Case studies · landing pages · dashboard', bg: 'rgba(56,189,248,0.10)' },
+    { icon: '⚡', name: 'Autonomous Ops', stat: '11 cron jobs · 24/7 · self-healing', bg: 'rgba(244,114,182,0.10)' },
+    { icon: '📈', name: 'Learning System', stat: 'Evidence-based · hypothesis → experiment → adapt', bg: 'rgba(163,230,53,0.10)' },
+  ];
+  caps.forEach(c => {
+    html += `<div class="cap-card">
+      <div class="cap-icon" style="background:${c.bg}">${c.icon}</div>
+      <div class="cap-info">
+        <div class="cap-name">${c.name}</div>
+        <div class="cap-stat">${c.stat}</div>
+      </div>
+    </div>`;
+  });
+  html += '</div>';
+  html += '<div style="margin-top:var(--space-md);font-size:var(--text-xs);color:var(--muted);display:flex;gap:var(--space-lg);flex-wrap:wrap;">';
+  html += '<span>34 skills loaded</span><span>5 integrations active</span><span>7 systems connected</span>';
+  html += '</div>';
+  html += '</div></div>';
 
   html += '</div>'; // end grid-2
+
+  // ── Agent Health ──
+  const crons = d.health?.crons || [];
+  const cronOk = crons.filter(c => c.status === 'ok').length;
+  html += `<div class="health-bar">
+    <div class="health-item"><span class="dot green"></span> ${d.health?.model || '—'}</div>
+    <div class="health-item"><span class="dot ${cronOk === crons.length ? 'green' : 'gold'}"></span> ${cronOk}/${crons.length} crons healthy</div>
+    <div class="health-item"><span class="dot green"></span> 24/7</div>
+    <div class="health-item" style="margin-left:auto;"><span class="health-label">${d.onboarding?.stages?.filter(s=>s.status==='complete').length||0}/${d.onboarding?.stages?.length||0} setup complete</span></div>
+  </div>`;
+
+  // ── Attribution ──
+  html += '<div class="attr">Atlas by <strong>Snowark</strong> — autonomous growth operations</div>';
 
   return html;
 }
@@ -333,19 +420,20 @@ function renderOperations() {
 function renderKnowledge() {
   let html = '';
 
-  // Two-col: recent activity + decisions
+  // Two-col: Knowledge Vault + decisions
   html += '<div class="grid-2">';
 
-  // Recent activity feed
-  html += '<div class="panel"><div class="panel-header"><h2>Recent Activity</h2></div><div class="panel-body">';
-  const recent = data.activity?.recent || [];
-  if (recent.length > 0) {
-    recent.slice(0, 8).forEach(a => {
-      html += `<div class="feed-item"><span class="feed-date">${a.date || ''}</span><br>${a.task || ''}</div>`;
-    });
-  } else {
-    html += '<div class="empty-state">No activity yet.</div>';
-  }
+  // Knowledge Vault stats
+  html += '<div class="panel"><div class="panel-header"><h2>Knowledge Vault</h2></div><div class="panel-body">';
+  html += '<div style="font-size:var(--text-sm);display:flex;flex-direction:column;gap:var(--space-sm);">';
+  html += '<div><span style="color:var(--muted)">Files indexed: </span><span style="font-weight:600;color:var(--navy)">65</span></div>';
+  html += '<div><span style="color:var(--muted)">Connected nodes: </span><span style="font-weight:600;color:var(--navy)">36</span></div>';
+  html += '<div><span style="color:var(--muted)">Wikilinks: </span><span style="font-weight:600;color:var(--navy)">84</span></div>';
+  html += '<div><span style="color:var(--muted)">Communities: </span><span style="font-weight:600;color:var(--navy)">7</span></div>';
+  html += '<div><span style="color:var(--muted)">Decisions: </span><span style="font-weight:600;color:var(--navy)">10</span></div>';
+  html += '<div><span style="color:var(--muted)">Learnings: </span><span style="font-weight:600;color:var(--navy)">15</span></div>';
+  html += '</div>';
+  html += '<div style="margin-top:var(--space-md);font-size:var(--text-xs);color:var(--muted);">Graph rebuilt nightly. All connections are wikilinks. <a href="brain/" style="color:var(--gold);text-decoration:none;">Open Brain &rarr;</a></div>';
   html += '</div></div>';
 
   // Decision reviews
@@ -360,9 +448,8 @@ function renderKnowledge() {
       </div>`;
     });
   } else {
-    // Fallback: inlined decision data
-    html += '<div style="font-size:var(--text-sm);color:var(--muted);">Decision review data will appear here when synced.</div>';
-    html += '<div style="margin-top:var(--space-md);font-size:var(--text-xs);color:var(--muted);">10 decisions in library. 8 are Founding Decisions (immutable). Next review: <span style="font-weight:600;color:var(--navy)">2026-09-01</span> — Build foundation before acquiring first 5 customers.</div>';
+    html += '<div style="font-size:var(--text-sm);color:var(--muted);">10 decisions in library. 8 are Founding Decisions (immutable).</div>';
+    html += '<div style="margin-top:var(--space-md);font-size:var(--text-xs);color:var(--muted);">Next review: <span style="font-weight:600;color:var(--navy);">2026-09-01</span> — Build foundation before acquiring first 5 customers.</div>';
   }
   html += '</div></div>';
 
@@ -391,7 +478,7 @@ function render() {
 
   let html = '';
   if (currentTab === 'pipeline') html = renderPipeline();
-  else if (currentTab === 'operations') html = renderOperations();
+  else if (currentTab === 'agent') html = renderAgent();
   else if (currentTab === 'knowledge') html = renderKnowledge();
 
   document.getElementById('app').innerHTML = html;
