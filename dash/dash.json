@@ -264,5 +264,152 @@
       }
     },
     "last_refreshed": "2026-06-29T04:17:35.448439+00:00"
+  },
+  "decisions": {
+    "total": 10,
+    "founding": 8,
+    "living": 2,
+    "reviewed": 0,
+    "challenges": 4,
+    "patterns": 6,
+    "next_review": "2026-09-01",
+    "next_review_decision": "Build foundation before acquiring first 5 customers",
+    "upcoming": [
+      {
+        "slug": "founding-build-foundation-before-customers",
+        "title": "Build foundation before acquiring first 5 customers",
+        "status": "Made",
+        "review": "2026-09-01"
+      },
+      {
+        "slug": "2026-06-28-calibration-outreach-living-system",
+        "title": "Calibration outreach strategy as living system",
+        "status": "Made",
+        "review": "2026-09-28"
+      },
+      {
+        "slug": "founding-atlas-as-primary-sender",
+        "title": "atlas@ as primary outreach sender",
+        "status": "Made",
+        "review": "2026-10-01"
+      },
+      {
+        "slug": "founding-no-pitch-in-first-email",
+        "title": "No product pitch in first cold email",
+        "status": "Made",
+        "review": "2026-10-01"
+      },
+      {
+        "slug": "founding-business-name-fallback",
+        "title": "Business-name fallback when contact name unknown",
+        "status": "Made",
+        "review": "2026-10-01"
+      },
+      {
+        "slug": "2026-06-28-prospect-lifecycle-architecture",
+        "title": "Prospect lifecycle architecture (7 stages)",
+        "status": "Made",
+        "review": "2026-10-28"
+      },
+      {
+        "slug": "founding-travis-case-study-as-bridge",
+        "title": "Travis case study as bridge, not opener",
+        "status": "Made",
+        "review": "2026-11-01"
+      },
+      {
+        "slug": "founding-pricing-market-entry",
+        "title": "Pricing: $199/mo + $99 setup",
+        "status": "Made",
+        "review": "2026-12-01"
+      },
+      {
+        "slug": "founding-tiered-trust-automation",
+        "title": "Tier 1 admin, Tier 2 draft-and-ask",
+        "status": "Made",
+        "review": "2026-12-01"
+      },
+      {
+        "slug": "founding-atlas-multiplier-not-replacement",
+        "title": "Atlas as AI multiplier, not human replacement",
+        "status": "Made",
+        "review": "2027-06-01"
+      }
+    ]
+  },
+  "sales_brain": {
+    "frameworks_total": 4,
+    "frameworks_live": 1,
+    "principles": 8,
+    "conversation_layers": 6,
+    "ask_ladder_rungs": 6,
+    "framework_01": {
+      "name": "First Reply",
+      "version": "v0.1",
+      "conversations": 0,
+      "status": "Active, untested",
+      "description": "6 response types classified, discovery moves mapped. Built from principles.",
+      "next_build": "Framework 02 (Meeting to Close) \u2014 builds after 3 real conversations"
+    }
+  },
+  "experiments": {
+    "name": "Calibration Campaign \u2014 Email 1",
+    "email_1_sent": 9,
+    "delivered": 8,
+    "bounced": 1,
+    "replies": 0,
+    "email_2_window": "Jun 30 - Jul 3",
+    "verticals": [
+      {
+        "name": "Painters",
+        "prospects": 4,
+        "sent": 4,
+        "delivered": 4,
+        "bounced": 0,
+        "replies": 0,
+        "hypothesis": "Trade-specific question resonates with owner-operators who do their own admin.",
+        "prediction": "3-5% reply rate. Expect replies from owners.",
+        "actual": "Pending \u2014 Day 2-3",
+        "learnings": []
+      },
+      {
+        "name": "Commercial Cleaning",
+        "prospects": 3,
+        "sent": 2,
+        "delivered": 1,
+        "bounced": 1,
+        "replies": 0,
+        "hypothesis": "Operational complexity angle lands because of recurring multi-site contracts.",
+        "prediction": "Lower reply rate than painters.",
+        "actual": "Pending \u2014 Day 2-3. 1 bounce removed.",
+        "learnings": [
+          "Cinderellas bounced \u2014 address rejected. Vertical now 2 prospects."
+        ]
+      },
+      {
+        "name": "Marketing Agencies",
+        "prospects": 3,
+        "sent": 3,
+        "delivered": 3,
+        "bounced": 0,
+        "replies": 0,
+        "hypothesis": "Agencies understand ROI language. Question reframed around client reporting.",
+        "prediction": "Highest reply quality if not highest volume.",
+        "actual": "Pending \u2014 Day 1",
+        "learnings": []
+      }
+    ]
+  },
+  "learning_velocity": {
+    "skills_patched": 3,
+    "frameworks_updated": 0,
+    "learnings_documented": 18,
+    "decisions_recorded": 10,
+    "challenges_made": 4,
+    "last_week": {
+      "new_files": 65,
+      "skills_built": 8,
+      "integrations_wired": 9
+    }
   }
 }

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decision Review Calendar — Not Forgotten Systems</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0b2c4d;
+    --navy-rgb: 11,44,77;
+    --gold: #e0a62a;
+    --gold-rgb: 224,166,42;
+    --royal: #1f5891;
+    --white: #FFFFFF;
+    --light: #f7fbff;
+    --near-black: #0a0a0a;
+    --muted: #666666;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --space-xs: 4px; --space-sm: 8px; --space-md: 16px; --space-lg: 24px; --space-xl: 32px; --space-2xl: 48px; --space-3xl: 64px;
+    --radius-sm: 4px; --radius-lg: 8px; --radius-xl: 12px;
+    --text-xs: 12px; --text-sm: 14px; --text-base: 16px; --text-lg: 20px; --text-xl: 24px; --text-2xl: 32px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font); background: var(--light); color: var(--near-black); line-height: 1.5; }
+
+  .header { background: var(--navy); padding: var(--space-lg) var(--space-xl); }
+  .header-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-md); }
+  .header-left h1 { font-size: var(--text-xl); font-weight: 700; color: var(--white); letter-spacing: 0.02em; }
+  .header-left .sub { font-size: var(--text-xs); color: rgba(255,255,255,0.55); margin-top: 2px; }
+  .header-right { display: flex; align-items: center; gap: var(--space-md); }
+  .header-right a { color: var(--gold); font-size: var(--text-sm); text-decoration: none; font-weight: 500; }
+  .header-right a:hover { text-decoration: underline; }
+
+  .container { max-width: 1280px; margin: 0 auto; padding: var(--space-xl); }
+
+  .panel { background: var(--white); border-radius: var(--radius-xl); margin-bottom: var(--space-lg); overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.04); }
+  .panel-header { padding: var(--space-lg) var(--space-lg) 0; }
+  .panel-header h2 { font-size: var(--text-base); font-weight: 600; color: var(--navy); }
+  .panel-body { padding: var(--space-lg); }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+
+  /* Stat cards */
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); margin-bottom: var(--space-lg); }
+  .stat-card { background: var(--white); border-radius: var(--radius-xl); padding: var(--space-lg); box-shadow: 0 1px 3px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.04); }
+  .stat-card .num { font-size: var(--text-2xl); font-weight: 700; color: var(--navy); line-height: 1.1; }
+  .stat-card .num.gold { color: var(--gold); }
+  .stat-card .label { font-size: var(--text-xs); color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: var(--space-xs); }
+
+  /* Calendar grid */
+  .cal-nav { display: flex; align-items: center; justify-content: center; gap: var(--space-lg); margin-bottom: var(--space-lg); }
+  .cal-nav button { background: var(--white); border: 1px solid rgba(0,0,0,0.1); padding: var(--space-sm) var(--space-md); border-radius: var(--radius-lg); font-family: var(--font); font-size: var(--text-sm); cursor: pointer; color: var(--navy); }
+  .cal-nav button:hover { border-color: var(--gold); }
+  .cal-nav .month-label { font-size: var(--text-lg); font-weight: 700; color: var(--navy); min-width: 200px; text-align: center; }
+
+  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+  .cal-day-header { text-align: center; font-size: var(--text-xs); font-weight: 600; color: var(--muted); text-transform: uppercase; padding: var(--space-sm); }
+  .cal-day { aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: var(--radius-lg); font-size: var(--text-sm); position: relative; cursor: default; transition: background 0.15s; }
+  .cal-day.empty { background: transparent; }
+  .cal-day.today { background: rgba(224,166,42,0.08); font-weight: 700; color: var(--navy); }
+  .cal-day.has-review { background: var(--navy); color: var(--white); font-weight: 600; cursor: pointer; }
+  .cal-day.has-review:hover { background: var(--royal); }
+  .cal-day.other-month { color: #ccc; }
+  .cal-day .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); position: absolute; bottom: 4px; }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: var(--space-xl); }
+  .timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: rgba(0,0,0,0.08); border-radius: 1px; }
+  .tl-item { position: relative; padding: var(--space-md) 0 var(--space-md) var(--space-lg); border-bottom: 1px solid rgba(0,0,0,0.03); }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-dot { position: absolute; left: -17px; top: var(--space-md); width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--navy); background: var(--white); }
+  .tl-dot.founding { border-color: var(--gold); background: rgba(224,166,42,0.12); }
+  .tl-dot.upcoming { border-color: var(--royal); background: rgba(31,88,145,0.08); }
+  .tl-dot.soon { border-color: var(--gold); background: var(--gold); }
+  .tl-date { font-size: var(--text-xs); color: var(--muted); }
+  .tl-title { font-size: var(--text-sm); font-weight: 600; color: var(--navy); }
+  .tl-meta { font-size: var(--text-xs); color: var(--muted); margin-top: 2px; }
+  .tl-badge { display: inline-block; padding: 1px 6px; border-radius: 6px; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; }
+  .tl-badge.founding { background: rgba(224,166,42,0.12); color: var(--gold); }
+  .tl-badge.living { background: rgba(31,88,145,0.08); color: var(--royal); }
+
+  /* Decision detail card */
+  .dec-detail { background: var(--light); border-radius: var(--radius-xl); padding: var(--space-lg); }
+  .dec-detail h3 { font-size: var(--text-base); font-weight: 700; color: var(--navy); margin-bottom: var(--space-xs); }
+  .dec-detail .dec-status { font-size: var(--text-xs); color: var(--muted); margin-bottom: var(--space-md); }
+
+  /* Empty state */
+  .empty-state { text-align: center; padding: var(--space-2xl); color: var(--muted); font-size: var(--text-sm); }
+
+  @media (max-width: 768px) {
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .grid-2 { grid-template-columns: 1fr; }
+    .container { padding: var(--space-md); }
+    .cal-grid { gap: 1px; }
+    .cal-day { font-size: var(--text-xs); }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-left">
+      <h1>Decision Review Calendar</h1>
+      <div class="sub">Not Forgotten Systems</div>
+    </div>
+    <div class="header-right">
+      <a href="../">← Command Centre</a>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="app">
+  <div style="text-align:center;padding:var(--space-3xl);color:var(--muted);">Loading calendar...</div>
+</div>
+
+<script>
+const DASH_URL = '../dash.json';
+
+let data = null;
+let calYear, calMonth;
+
+function fmtNum(n) { return n === undefined || n === null ? '—' : n.toLocaleString(); }
+
+function statCard(num, label, gold) {
+  return '<div class="stat-card"><div class="num' + (gold ? ' gold' : '') + '">' + num + '</div><div class="label">' + label + '</div></div>';
+}
+
+function daysUntil(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00');
+  const now = new Date(); now.setHours(0,0,0,0);
+  return Math.ceil((d - now) / (1000 * 60 * 60 * 24));
+}
+
+// Build calendar for a given month
+function renderCalGrid(year, month) {
+  const firstDay = new Date(year, month, 1);
+  const lastDay = new Date(year, month + 1, 0);
+  const startDow = firstDay.getDay();
+  const daysInMonth = lastDay.getDate();
+  const today = new Date(); today.setHours(0,0,0,0);
+
+  // Map review dates
+  const reviewMap = {};
+  if (data.decisions && data.decisions.upcoming) {
+    data.decisions.upcoming.forEach(d => {
+      const rd = new Date(d.review + 'T00:00:00');
+      if (rd.getFullYear() === year && rd.getMonth() === month) {
+        const day = rd.getDate();
+        if (!reviewMap[day]) reviewMap[day] = [];
+        reviewMap[day].push(d);
+      }
+    });
+  }
+
+  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  let html = '<div class="cal-grid">';
+
+  // Day headers
+  days.forEach(d => { html += '<div class="cal-day-header">' + d + '</div>'; });
+
+  // Empty cells before month starts
+  for (let i = 0; i < startDow; i++) {
+    html += '<div class="cal-day empty"></div>';
+  }
+
+  // Day cells
+  for (let d = 1; d <= daysInMonth; d++) {
+    const date = new Date(year, month, d);
+    const isToday = date.getTime() === today.getTime();
+    const hasReview = reviewMap[d];
+    let cls = 'cal-day';
+    if (isToday) cls += ' today';
+    if (hasReview) cls += ' has-review';
+
+    html += '<div class="' + cls + '"';
+    if (hasReview) {
+      const titles = hasReview.map(r => r.title).join(' | ');
+      html += ' title="' + titles + '"';
+    }
+    html += '>';
+    html += d;
+    if (hasReview) html += '<span class="dot"></span>';
+    html += '</div>';
+  }
+
+  html += '</div>';
+  return html;
+}
+
+function render() {
+  let html = '';
+
+  const dec = data.decisions;
+  if (!dec) return '<div class="empty-state">No decision data loaded.</div>';
+
+  // Stats
+  html += '<div class="stat-row">';
+  html += statCard(fmtNum(dec.total), 'Total Decisions', false);
+  html += statCard(fmtNum(dec.founding), 'Founding', true);
+  html += statCard(fmtNum(dec.living), 'Living', false);
+  html += statCard(fmtNum(dec.reviewed), 'Reviewed', false);
+  html += '</div>';
+
+  // Two-col: Calendar + Timeline
+  html += '<div class="grid-2">';
+
+  // Calendar
+  html += '<div class="panel"><div class="panel-header"><h2>Review Calendar</h2></div><div class="panel-body">';
+  html += '<div class="cal-nav">';
+  html += '<button onclick="navMonth(-1)">← Prev</button>';
+  const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  html += '<span class="month-label">' + monthNames[calMonth] + ' ' + calYear + '</span>';
+  html += '<button onclick="navMonth(1)">Next →</button>';
+  html += '</div>';
+  html += renderCalGrid(calYear, calMonth);
+  html += '</div></div>';
+
+  // Timeline
+  html += '<div class="panel"><div class="panel-header"><h2>Review Timeline</h2></div><div class="panel-body">';
+  html += '<div class="timeline">';
+  (dec.upcoming || []).forEach(d => {
+    const days = daysUntil(d.review);
+    const isFounding = d.slug.startsWith('founding');
+    let dotCls = 'upcoming';
+    if (days <= 30) dotCls = 'soon';
+    if (isFounding) dotCls += ' founding';
+
+    html += '<div class="tl-item">';
+    html += '<span class="tl-dot ' + dotCls + '"></span>';
+    html += '<div class="tl-date">' + d.review;
+    if (days < 0) html += ' <span style="color:#e74c3c;font-weight:600;">(OVERDUE)</span>';
+    else if (days === 0) html += ' <span style="color:var(--gold);font-weight:600;">(Today)</span>';
+    else if (days <= 30) html += ' <span style="color:var(--gold);font-weight:600;">(' + days + ' days)</span>';
+    else html += ' <span style="color:var(--muted);">(' + days + ' days)</span>';
+    html += '</div>';
+    html += '<div class="tl-title">' + d.title + '</div>';
+    html += '<div class="tl-meta">';
+    html += '<span class="tl-badge ' + (isFounding ? 'founding' : 'living') + '">' + (isFounding ? 'Founding' : 'Living') + '</span>';
+    html += ' · Status: ' + d.status;
+    html += '</div>';
+    html += '</div>';
+  });
+  html += '</div>';
+  html += '</div></div>';
+
+  html += '</div>'; // end grid-2
+
+  // Pattern watch section
+  html += '<div class="panel"><div class="panel-header"><h2>Watch Points</h2></div><div class="panel-body">';
+  const watchPoints = [
+    { label: 'Caution → Avoidance', desc: '"Earn the right" becoming "never feel ready." If acquisition keeps getting delayed past Sep 2026, challenge.' },
+    { label: 'Principles → Dogma', desc: 'No-pitch rule right for cold email, might be wrong for warm referral. Apply contextually.' },
+    { label: 'System-first → Human-last', desc: 'atlas@ is right sender. If every touchpoint becomes automated, business loses humanity.' },
+    { label: 'Pricing anchoring', desc: '$199 is market-entry. If 12 months pass without a price move, the anchor has set.' },
+    { label: 'Building → Hiding', desc: 'Every month without customers needs a clear justification.' },
+    { label: 'Tier 1 scope creep', desc: 'Admin automation expansion must be a conscious decision, not silent drift.' },
+  ];
+  html += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--space-md);">';
+  watchPoints.forEach(w => {
+    html += '<div style="padding:var(--space-md);background:var(--light);border-radius:var(--radius-lg);">';
+    html += '<div style="font-weight:600;font-size:var(--text-sm);color:var(--navy);margin-bottom:var(--space-xs);">' + w.label + '</div>';
+    html += '<div style="font-size:var(--text-xs);color:var(--muted);">' + w.desc + '</div>';
+    html += '</div>';
+  });
+  html += '</div>';
+  html += '</div></div>';
+
+  // Challenge log
+  html += '<div class="panel"><div class="panel-header"><h2>Challenge Log</h2></div><div class="panel-body">';
+  html += '<p style="font-size:var(--text-sm);color:var(--muted);margin-bottom:var(--space-md);">' + dec.challenges + ' challenges made — all accepted. Pattern: James listens when principles are invoked.</p>';
+  const challenges = [
+    { when: 'Jun 2026', what: 'Signature had James\'s personal mobile — contradicted system-over-person principle' },
+    { when: 'Jun 2026', what: 'First ACS draft was overly explanatory — flagged principle violation' },
+    { when: 'Jun 2026', what: 'Travis case study could appear earlier for painting prospects — James agreed nuance' },
+    { when: 'Jun 2026', what: '"Customer-facing" might not be right boundary — "customer consequences" more accurate' },
+  ];
+  challenges.forEach(c => {
+    html += '<div style="padding:var(--space-sm) 0;font-size:var(--text-sm);border-bottom:1px solid rgba(0,0,0,0.03);">';
+    html += '<span style="color:var(--muted);font-size:var(--text-xs);">' + c.when + '</span> — ' + c.what;
+    html += '</div>';
+  });
+  html += '</div></div>';
+
+  document.getElementById('app').innerHTML = html;
+}
+
+function navMonth(dir) {
+  calMonth += dir;
+  if (calMonth > 11) { calMonth = 0; calYear++; }
+  if (calMonth < 0) { calMonth = 11; calYear--; }
+  render();
+}
+
+async function load() {
+  try {
+    const r = await fetch(DASH_URL + '?t=' + Date.now());
+    data = await r.json();
+    // Default to the month of the next review
+    const nextReview = data.decisions?.next_review;
+    if (nextReview) {
+      const d = new Date(nextReview + 'T00:00:00');
+      calYear = d.getFullYear();
+      calMonth = d.getMonth();
+    } else {
+      const now = new Date();
+      calYear = now.getFullYear();
+      calMonth = now.getMonth();
+    }
+    render();
+  } catch(e) {
+    document.getElementById('app').innerHTML = '<div class="empty-state">Unable to load calendar. Check connection.</div>';
+  }
+}
+
+load();
+</script>
+</body>
+</html>
