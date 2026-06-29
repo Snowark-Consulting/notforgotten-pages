@@ -157,6 +157,24 @@
   }
   .attr strong { color: var(--navy); font-weight: 600; }
 
+  /* ── Integration badges ── */
+  .int-row { display: flex; gap: var(--space-sm); flex-wrap: wrap; }
+  .int-badge {
+    display: flex; align-items: center; gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--white); border-radius: var(--radius-lg);
+    border: 1px solid rgba(0,0,0,0.06);
+    font-size: var(--text-sm);
+  }
+  .int-icon {
+    width: 28px; height: 28px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; color: #fff;
+    letter-spacing: -0.02em; flex-shrink: 0;
+  }
+  .int-name { font-weight: 600; color: var(--navy); }
+  .int-role { font-size: var(--text-xs); color: var(--muted); }
+
   /* ── Activity category tags ── */
   .act-tag {
     display: inline-block; padding: 1px 6px; border-radius: 8px;
@@ -195,8 +213,8 @@
 <div class="tab-bar">
   <div class="tab-inner">
     <button class="tab-btn active" data-tab="pipeline">Pipeline</button>
-    <button class="tab-btn" data-tab="agent">Agent</button>
     <button class="tab-btn" data-tab="knowledge">Knowledge</button>
+    <button class="tab-btn" data-tab="agent">Agent</button>
     <a href="brain/" class="tab-btn" style="text-decoration:none;">Brain</a>
   </div>
 </div>
@@ -392,8 +410,25 @@ function renderAgent() {
     </div>`;
   });
   html += '</div>';
-  html += '<div style="margin-top:var(--space-md);font-size:var(--text-xs);color:var(--muted);display:flex;gap:var(--space-lg);flex-wrap:wrap;">';
-  html += '<span>34 skills loaded</span><span>5 integrations active</span><span>7 systems connected</span>';
+  // ── Integrations row ──
+  html += '<div style="margin-top:var(--space-md);">';
+  html += '<div style="font-size:var(--text-xs);color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:var(--space-sm);">Connected Integrations</div>';
+  html += '<div class="int-row">';
+  const ints = [
+    { name: 'Airtable', icon: 'AT', role: 'CRM', color: '#1f5891' },
+    { name: 'Gmail', icon: 'GM', role: 'Email', color: '#e74c3c' },
+    { name: 'Telegram', icon: 'TG', role: 'Messaging', color: '#2ecc71' },
+    { name: 'GitHub', icon: 'GH', role: 'Publishing', color: '#0a0a0a' },
+    { name: 'Supabase', icon: 'SB', role: 'Forms', color: '#38bdf8' },
+  ];
+  ints.forEach(i => {
+    html += `<div class="int-badge">
+      <span class="int-icon" style="background:${i.color}">${i.icon}</span>
+      <span class="int-name">${i.name}</span>
+      <span class="int-role">${i.role}</span>
+    </div>`;
+  });
+  html += '</div>';
   html += '</div>';
   html += '</div></div>';
 
