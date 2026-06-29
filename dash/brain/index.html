@@ -176,6 +176,18 @@
   }
   #panel-body ul, #panel-body ol { padding-left: 20px; margin: 8px 0; }
   #panel-loading { padding: 40px; text-align: center; color: var(--gold); }
+
+  /* ── Mobile ── */
+  @media (max-width: 768px) {
+    #back-link { top: 8px; left: 8px; }
+    #back-link a { font-size: 11px; padding: 6px 10px; }
+    #controls { top: 8px; right: 8px; gap: 4px; }
+    #controls button { padding: 6px 10px; font-size: 11px; }
+    #legend { top: 48px; left: 8px; font-size: 10px; padding: 6px 10px; max-height: 30vh; }
+    #info { bottom: 12px; left: 8px; right: 8px; max-width: none; font-size: 12px; }
+    #content-panel { width: 100vw; right: -100vw; }
+    #content-panel.open { right: 0; }
+  }
 </style>
 </head>
 <body>
@@ -313,10 +325,13 @@ fetch('../data/atlas-graph.json')
       Graph.d3Force("link").distance(l => 25 + l.weight * 15);
       animateRotation();
       addStarfield(Graph.scene());
+      // Zoom to show all nodes after initial layout settles
+      setTimeout(() => { if (Graph) Graph.zoomToFit(600, 80); }, 2000);
+      setTimeout(() => { if (Graph) Graph.zoomToFit(600, 80); }, 4000);
     }
 
     const elapsed = Date.now() - startTime;
-    const remaining = Math.max(0, 8000 - elapsed);
+    const remaining = Math.max(0, 3000 - elapsed);
     setTimeout(() => {
       buildGraph();
       document.getElementById("loading-overlay").classList.add("hidden");
