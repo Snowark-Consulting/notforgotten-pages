@@ -416,15 +416,15 @@ function renderAgent() {
   html += '<div style="font-size:var(--text-xs);color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:var(--space-sm);">Connected Integrations</div>';
   html += '<div class="int-row">';
   const ints = [
-    { name: 'Airtable', icon: 'AT', role: 'CRM', color: '#1f5891' },
-    { name: 'Gmail', icon: 'GM', role: 'Email', color: '#e74c3c' },
-    { name: 'Telegram', icon: 'TG', role: 'Messaging', color: '#2ecc71' },
-    { name: 'GitHub', icon: 'GH', role: 'Publishing', color: '#0a0a0a' },
-    { name: 'Supabase', icon: 'SB', role: 'Forms', color: '#38bdf8' },
+    { name: 'Airtable', logo: 'https://cdn.simpleicons.org/airtable/ffffff', bg: '#1f5891', role: 'CRM' },
+    { name: 'Gmail', logo: 'https://cdn.simpleicons.org/gmail/ffffff', bg: '#ea4335', role: 'Email' },
+    { name: 'Telegram', logo: 'https://cdn.simpleicons.org/telegram/ffffff', bg: '#26a5e4', role: 'Messaging' },
+    { name: 'GitHub', logo: 'https://cdn.simpleicons.org/github/ffffff', bg: '#181717', role: 'Publishing' },
+    { name: 'Supabase', logo: 'https://cdn.simpleicons.org/supabase/ffffff', bg: '#3ecf8e', role: 'Forms' },
   ];
   ints.forEach(i => {
     html += `<div class="int-badge">
-      <span class="int-icon" style="background:${i.color}">${i.icon}</span>
+      <span class="int-icon" style="background:${i.bg}"><img src="${i.logo}" alt="${i.name}" width="16" height="16" style="display:block;"></span>
       <span class="int-name">${i.name}</span>
       <span class="int-role">${i.role}</span>
     </div>`;
