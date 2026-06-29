@@ -214,7 +214,6 @@
 <div class="tab-bar">
   <div class="tab-inner">
     <button class="tab-btn active" data-tab="pipeline">Pipeline</button>
-    <button class="tab-btn" data-tab="knowledge">Knowledge</button>
     <button class="tab-btn" data-tab="agent">Agent</button>
     <a href="brain/" class="tab-btn" style="text-decoration:none;">Brain</a>
   </div>
@@ -359,7 +358,7 @@ function renderAgent() {
   html += statCard(fmtNum(d.activity?.tasks_completed || 0), 'Tasks Completed', false);
   html += statCard(d.health?.agent === 'online' ? 'Live' : 'Off', 'Agent Status', false);
   html += statCard('8', 'Capabilities', true);
-  html += statCard('6', 'Integrations', true);
+  html += statCard('7', 'Integrations', true);
   html += '</div>';
 
   // ── Two-col: Activity feed + Capabilities ──
@@ -422,6 +421,7 @@ function renderAgent() {
     { name: 'GitHub', logo: 'https://cdn.simpleicons.org/github/ffffff', bg: '#181717', role: 'Publishing' },
     { name: 'Supabase', logo: 'https://cdn.simpleicons.org/supabase/ffffff', bg: '#3ecf8e', role: 'Forms' },
     { name: 'Vercel', logo: 'https://cdn.simpleicons.org/vercel/ffffff', bg: '#000000', role: 'Hosting' },
+    { name: 'Google', logo: 'https://cdn.simpleicons.org/google/ffffff', bg: '#4285f4', role: 'Suite' },
   ];
   ints.forEach(i => {
     html += `<div class="int-badge">
@@ -435,6 +435,12 @@ function renderAgent() {
   html += '</div></div>';
 
   html += '</div>'; // end grid-2
+
+  // ── Sales Brain quick stats ──
+  html += '<div style="font-size:var(--text-xs);color:var(--muted);margin-bottom:var(--space-md);display:flex;gap:var(--space-xl);flex-wrap:wrap;">';
+  html += '<span>Sales Brain: <strong style="color:var(--navy);">1 of 4</strong> frameworks live</span>';
+  html += '<span>Knowledge: <strong style="color:var(--navy);">65</strong> files · <strong style="color:var(--navy);">36</strong> nodes · <strong style="color:var(--navy);">10</strong> decisions</span>';
+  html += '</div>';
 
   // ── Agent Health ──
   const crons = d.health?.crons || [];
@@ -452,59 +458,6 @@ function renderAgent() {
   return html;
 }
 
-// ── Render Knowledge Tab ──
-
-function renderKnowledge() {
-  let html = '';
-
-  // Two-col: Knowledge Vault + decisions
-  html += '<div class="grid-2">';
-
-  // Knowledge Vault stats
-  html += '<div class="panel"><div class="panel-header"><h2>Knowledge Vault</h2></div><div class="panel-body">';
-  html += '<div style="font-size:var(--text-sm);display:flex;flex-direction:column;gap:var(--space-sm);">';
-  html += '<div><span style="color:var(--muted)">Files indexed: </span><span style="font-weight:600;color:var(--navy)">65</span></div>';
-  html += '<div><span style="color:var(--muted)">Connected nodes: </span><span style="font-weight:600;color:var(--navy)">36</span></div>';
-  html += '<div><span style="color:var(--muted)">Wikilinks: </span><span style="font-weight:600;color:var(--navy)">84</span></div>';
-  html += '<div><span style="color:var(--muted)">Communities: </span><span style="font-weight:600;color:var(--navy)">7</span></div>';
-  html += '<div><span style="color:var(--muted)">Decisions: </span><span style="font-weight:600;color:var(--navy)">10</span></div>';
-  html += '<div><span style="color:var(--muted)">Learnings: </span><span style="font-weight:600;color:var(--navy)">15</span></div>';
-  html += '</div>';
-  html += '<div style="margin-top:var(--space-md);font-size:var(--text-xs);color:var(--muted);">Graph rebuilt nightly. All connections are wikilinks. <a href="brain/" style="color:var(--gold);text-decoration:none;">Open Brain &rarr;</a></div>';
-  html += '</div></div>';
-
-  // Decision reviews
-  html += '<div class="panel"><div class="panel-header"><h2>Decision Reviews</h2></div><div class="panel-body">';
-  const reviews = data.decisions?.upcoming || [];
-  if (reviews.length > 0) {
-    reviews.forEach(r => {
-      const soon = r.days_until !== undefined && r.days_until <= 30;
-      html += `<div class="review-row">
-        <span>${r.title || r.slug}</span>
-        <span class="review-due${soon ? ' soon' : ''}">${r.due || ''}</span>
-      </div>`;
-    });
-  } else {
-    html += '<div style="font-size:var(--text-sm);color:var(--muted);">10 decisions in library. 8 are Founding Decisions (immutable).</div>';
-    html += '<div style="margin-top:var(--space-md);font-size:var(--text-xs);color:var(--muted);">Next review: <span style="font-weight:600;color:var(--navy);">2026-09-01</span> — Build foundation before acquiring first 5 customers.</div>';
-  }
-  html += '</div></div>';
-
-  html += '</div>'; // end grid-2
-
-  // Sales Brain
-  html += '<div class="panel"><div class="panel-header"><h2>Sales Brain</h2></div><div class="panel-body">';
-  html += '<div style="font-size:var(--text-sm);display:flex;gap:var(--space-2xl);flex-wrap:wrap;">';
-  html += '<div><span style="color:var(--muted)">Frameworks built: </span><span style="font-weight:600;color:var(--navy)">1 of 4</span></div>';
-  html += '<div><span style="color:var(--muted)">Conversations validated: </span><span style="font-weight:600;color:var(--navy)">0</span></div>';
-  html += '<div><span style="color:var(--muted)">Status: </span><span style="font-weight:600;color:var(--royal)">Framework 01 active (v0.1)</span></div>';
-  html += '</div>';
-  html += '<div style="margin-top:var(--space-md);font-size:var(--text-xs);color:var(--muted);">Framework 02 (Meeting → Close) builds after 3 real conversations. Evidence before expansion.</div>';
-  html += '</div></div>';
-
-  return html;
-}
-
 // ── Main Render ──
 
 function render() {
@@ -516,7 +469,6 @@ function render() {
   let html = '';
   if (currentTab === 'pipeline') html = renderPipeline();
   else if (currentTab === 'agent') html = renderAgent();
-  else if (currentTab === 'knowledge') html = renderKnowledge();
 
   document.getElementById('app').innerHTML = html;
 }
