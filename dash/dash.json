@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 58,
+    "tasks_completed": 59,
     "recent": [
+      {
+        "date": "2026-06-29 22:05",
+        "task": "Prepare-ahead: Email 2 follow-up drafts for 6 painter/cleaner prospects saved to vault (window opens today). Gmail token expired \u2014 James re-auth needed before send.",
+        "category": "task"
+      },
       {
         "date": "2026-06-29 10:27",
         "task": "Dashboard v2: added Learnings tab (experiment hypotheses), Agent tab (Sales Brain readiness + learning velocity), Decision Review Calendar page",
@@ -135,11 +140,6 @@
         "date": "2026-06-28 01:41",
         "task": "Created notforgotten-vercel-site skill \u2014 single reference for Vercel replica: file structure, nav patterns, modal, form, Airtable wiring, deployment, pitfalls",
         "category": "task"
-      },
-      {
-        "date": "2026-06-28 01:35",
-        "task": "Built Decision Library: permanent system for recording, challenging, and reviewing every meaningful business decision. Template, index, challenge protocol, and retroactive backlog created.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-06-29T10:27:27.789542",
+  "last_updated": "2026-06-29T22:05:49.245180",
   "pipeline": {
     "prospect_count": 181,
     "stages": {
