@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 57,
+    "tasks_completed": 58,
     "recent": [
+      {
+        "date": "2026-06-29 10:27",
+        "task": "Dashboard v2: added Learnings tab (experiment hypotheses), Agent tab (Sales Brain readiness + learning velocity), Decision Review Calendar page",
+        "category": "task"
+      },
       {
         "date": "2026-06-29 09:19",
         "task": "Improved footer on desktop: gold border accent, official Facebook SVG icon, logo + tagline layout, 8-pt grid spacing",
@@ -135,11 +140,6 @@
         "date": "2026-06-28 01:35",
         "task": "Built Decision Library: permanent system for recording, challenging, and reviewing every meaningful business decision. Template, index, challenge protocol, and retroactive backlog created.",
         "category": "task"
-      },
-      {
-        "date": "2026-06-28 01:24",
-        "task": "Ingested 20-question founder interview: updated SOUL.md (10 philosophical directives), James Hardstaff profile, business.md philosophy, Registry, people.md, and copywriting skill",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-06-29T09:19:25.703413",
+  "last_updated": "2026-06-29T10:27:27.789542",
   "pipeline": {
     "prospect_count": 181,
     "stages": {
