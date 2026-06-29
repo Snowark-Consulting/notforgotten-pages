@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 50,
+    "tasks_completed": 51,
     "recent": [
+      {
+        "date": "2026-06-29 00:03",
+        "task": "Built gmail_auth.py shared auth layer (eliminates recurring token expiry). Replaced Cinderellas (invalid email) with Sydney Office Clean in calibration. 3 agency Email 1 drafts pending research.",
+        "category": "task"
+      },
       {
         "date": "2026-06-28 08:36",
         "task": "Created Atlas Learning Framework \u2014 systematic self-improvement methodology. Added 'Evidence before optimisation' as SOUL directive #11. Email 2 drafts prepared (variable-isolated). CRM now self-updating.",
@@ -135,11 +140,6 @@
         "date": "2026-06-27 12:58",
         "task": "Contact name research complete: 49/181 Airtable prospects now have verified owner first names. Researched via email parsing + 7 browser subagents across all 3 verticals.",
         "category": "task"
-      },
-      {
-        "date": "2026-06-27 12:47",
-        "task": "V4: Gemini Pro redesign \u2014 constellation tracking Three.js hero + editorial testimonial + timeline How It Works + differentiated industry cards + pull-quote About section",
-        "category": "task"
       }
     ]
   },
@@ -164,5 +164,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-28T08:36:52.064562"
+  "last_updated": "2026-06-29T00:03:21.977233"
 }
