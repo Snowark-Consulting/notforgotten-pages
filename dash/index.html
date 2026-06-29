@@ -358,7 +358,7 @@ function renderAgent() {
   html += statCard(fmtNum(d.activity?.tasks_completed || 0), 'Tasks Completed', false);
   html += statCard(d.health?.agent === 'online' ? 'Live' : 'Off', 'Agent Status', false);
   html += statCard('8', 'Capabilities', true);
-  html += statCard('7', 'Integrations', true);
+  html += statCard('9', 'Integrations', true);
   html += '</div>';
 
   // ── Two-col: Activity feed + Capabilities ──
@@ -421,7 +421,9 @@ function renderAgent() {
     { name: 'GitHub', logo: 'https://cdn.simpleicons.org/github/ffffff', bg: '#181717', role: 'Publishing' },
     { name: 'Supabase', logo: 'https://cdn.simpleicons.org/supabase/ffffff', bg: '#3ecf8e', role: 'Forms' },
     { name: 'Vercel', logo: 'https://cdn.simpleicons.org/vercel/ffffff', bg: '#000000', role: 'Hosting' },
-    { name: 'Google', logo: 'https://cdn.simpleicons.org/google/ffffff', bg: '#4285f4', role: 'Suite' },
+    { name: 'Docs', logo: 'https://cdn.simpleicons.org/googledocs/ffffff', bg: '#4285f4', role: 'Documents' },
+    { name: 'Sheets', logo: 'https://cdn.simpleicons.org/googlesheets/ffffff', bg: '#34a853', role: 'Data' },
+    { name: 'Drive', logo: 'https://cdn.simpleicons.org/googledrive/ffffff', bg: '#fbbc04', role: 'Storage' },
   ];
   ints.forEach(i => {
     html += `<div class="int-badge">
