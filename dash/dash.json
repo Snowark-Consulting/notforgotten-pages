@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 55,
+    "tasks_completed": 56,
     "recent": [
+      {
+        "date": "2026-06-29 04:37",
+        "task": "Rebuilt Brain tab: vault-native graph (36 nodes, 84 wikilink edges, 7 communities). Dropped graphify semantic extraction. Orphans removed. Every node = real vault file, every edge = [[wikilink]]. Hubs sized by inbound refs.",
+        "category": "task"
+      },
       {
         "date": "2026-06-29 04:17",
         "task": "Built unified Command Centre dashboard: pipeline (Airtable live), operations (cron health), knowledge (decisions + sales brain). NFS design system. 2-hourly cron refresh (script-only, zero LLM tokens).",
@@ -135,11 +140,6 @@
         "date": "2026-06-27 23:19",
         "task": "v4 deploy: hero split-layout w stat cards, timeline how-it-works, testimonial card grid, pricing badge, CTA gradient overlay",
         "category": "task"
-      },
-      {
-        "date": "2026-06-27 22:56",
-        "task": "v3 deployed: snapped to 1.333 type scale (64/40/24/16), 8-pt grid, gold-on-dark CTA inverted, mobile hamburger, WCAG fixes",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-06-29T04:17:49.505029",
+  "last_updated": "2026-06-29T04:37:02.424984",
   "pipeline": {
     "prospect_count": 181,
     "stages": {
