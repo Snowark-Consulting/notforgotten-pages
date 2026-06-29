@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 53,
+    "tasks_completed": 54,
     "recent": [
+      {
+        "date": "2026-06-29 03:22",
+        "task": "Extended crm-update-send.py: now creates Messages records on every send (Prospect + Messages + Verify = full reconciliation). Cold-email skill updated. Messages table gap closed permanently.",
+        "category": "task"
+      },
       {
         "date": "2026-06-29 03:04",
         "task": "Backfilled 10 missing Messages records for calibration campaign. All sent dates reconciled with Prospects table. Cinderellas bounce confirmed (marked Lost). CRM audit trail now complete.",
@@ -135,11 +140,6 @@
         "date": "2026-06-27 22:47",
         "task": "Replica v2 live at notforgotten-replica-v2.vercel.app \u2014 logo from CDN, paper airplane icons, James photo, fixed star ratings",
         "category": "task"
-      },
-      {
-        "date": "2026-06-27 22:42",
-        "task": "Deployed exact replica of notforgotten.com.au to Vercel: https://notforgotten-replica-v2.vercel.app",
-        "category": "task"
       }
     ]
   },
@@ -164,5 +164,5 @@
       }
     ]
   },
-  "last_updated": "2026-06-29T03:04:04.907877"
+  "last_updated": "2026-06-29T03:22:58.055786"
 }
