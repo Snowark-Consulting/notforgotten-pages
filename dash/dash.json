@@ -164,5 +164,105 @@
       }
     ]
   },
-  "last_updated": "2026-06-29T03:22:58.055786"
+  "last_updated": "2026-06-29T04:14:02.798992+00:00",
+  "pipeline": {
+    "prospect_count": 181,
+    "stages": {
+      "New": 171,
+      "Outreach Active": 9,
+      "Lost": 1
+    },
+    "verticals": {
+      "Marketing agency": 30,
+      "Painter": 121,
+      "Commercial cleaning": 30
+    },
+    "stage_by_vertical": {
+      "New": {
+        "Marketing agency": 27,
+        "Painter": 117,
+        "Commercial cleaning": 27
+      },
+      "Outreach Active": {
+        "Painter": 4,
+        "Commercial cleaning": 2,
+        "Marketing agency": 3
+      },
+      "Lost": {
+        "Commercial cleaning": 1
+      }
+    },
+    "outreach_active": [
+      {
+        "name": "Distinct Painters",
+        "industry": "Painter",
+        "last_contacted": "2026-06-28",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "Kleena Cleaners",
+        "industry": "Commercial cleaning",
+        "last_contacted": "2026-06-29",
+        "suburb": "ADELAIDE"
+      },
+      {
+        "name": "Next&Co",
+        "industry": "Marketing agency",
+        "last_contacted": "2026-06-29",
+        "suburb": "Melbourne"
+      },
+      {
+        "name": "All Melbourne Painting",
+        "industry": "Painter",
+        "last_contacted": "2026-06-28",
+        "suburb": "Victoria"
+      },
+      {
+        "name": "Matte Projects Painting and Decorating",
+        "industry": "Painter",
+        "last_contacted": "2026-06-28",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "Adelaide Designer Painters",
+        "industry": "Painter",
+        "last_contacted": "2026-06-28",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "Performance Cleaning",
+        "industry": "Commercial cleaning",
+        "last_contacted": "2026-06-28",
+        "suburb": "MELBOURNE"
+      },
+      {
+        "name": "Click Click Media",
+        "industry": "Marketing agency",
+        "last_contacted": "2026-06-29",
+        "suburb": "Sydney"
+      },
+      {
+        "name": "Online Marketing Gurus (OMG)",
+        "industry": "Marketing agency",
+        "last_contacted": "2026-06-29",
+        "suburb": "Sydney"
+      }
+    ],
+    "active_by_vertical": {
+      "Painter": 4,
+      "Commercial cleaning": 2,
+      "Marketing agency": 3
+    },
+    "messages": {
+      "outbound_total": 13,
+      "inbound_total": 2,
+      "total": 15,
+      "reply_rate": 15.4,
+      "last_7_days": {
+        "outbound": 11,
+        "inbound": 0
+      }
+    },
+    "last_refreshed": "2026-06-29T04:14:02.798706+00:00"
+  }
 }
