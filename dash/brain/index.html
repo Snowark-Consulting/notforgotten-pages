@@ -356,7 +356,7 @@ function openContentPanel(node) {
   const hash = contentMap[node.id];
   if (hash) {
     body.innerHTML = '<div id="panel-loading">Loading...</div>';
-    const url = `../data/atlas-content/${hash}.md`;
+    const url = `../data/atlas-content/${hash}.txt`;
     fetch(url)
       .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
       .then(md => { body.innerHTML = marked.parse(md); })
