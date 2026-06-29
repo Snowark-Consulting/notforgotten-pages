@@ -242,7 +242,7 @@ fetch('../data/atlas-graph.json')
 
         return {
           id: n.id, name: n.label || n.id,
-          val: 4 + (n.file_type === "doc" ? 3 : 1),
+          val: (n.val !== undefined) ? n.val : (4 + (n.file_type === "doc" ? 3 : 1)),
           color: COMMUNITY_COLORS[cid % COMMUNITY_COLORS.length],
           desc: n.community_name || "",
           type: n.file_type || "unknown",
