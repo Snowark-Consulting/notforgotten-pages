@@ -33,6 +33,7 @@
   .header-logo { height: 32px; width: auto; margin-right: var(--space-md); flex-shrink: 0; }
   .header-brand { display: flex; align-items: center; }
   .header-brand-text { display: flex; flex-direction: column; }
+  .tab-logo { height: 28px; width: auto; margin-right: var(--space-md); flex-shrink: 0; }
   .header-right { display: flex; align-items: center; gap: var(--space-md); }
   .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: #2ecc71; display: inline-block; flex-shrink: 0; }
   .pulse-dot.offline { background: #e74c3c; }
@@ -236,13 +237,8 @@
 <div class="header">
   <div class="header-inner">
     <div class="header-left">
-      <div class="header-brand">
-        <img src="../assets/logo-header.png" alt="Not Forgotten" class="header-logo">
-        <div class="header-brand-text">
-          <h1>Command Centre</h1>
-          <div class="sub">Not Forgotten Systems</div>
-        </div>
-      </div>
+      <h1>Command Centre</h1>
+      <div class="sub">Not Forgotten Systems</div>
     </div>
     <div class="header-right">
       <span class="pulse-dot" id="pulse-dot"></span>
@@ -253,6 +249,7 @@
 
 <div class="tab-bar">
   <div class="tab-inner">
+    <img src="../assets/favicon.png" alt="NF" class="tab-logo">
     <button class="tab-btn active" data-tab="pipeline">Pipeline</button>
     <button class="tab-btn" data-tab="agent">Agent</button>
     <button class="tab-btn" data-tab="learnings">Learnings</button>
