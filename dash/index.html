@@ -30,6 +30,9 @@
   .header-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-md); }
   .header-left h1 { font-size: var(--text-xl); font-weight: 700; color: var(--white); letter-spacing: 0.02em; }
   .header-left .sub { font-size: var(--text-xs); color: rgba(255,255,255,0.55); margin-top: 2px; }
+  .header-logo { height: 32px; width: auto; margin-right: var(--space-md); flex-shrink: 0; }
+  .header-brand { display: flex; align-items: center; }
+  .header-brand-text { display: flex; flex-direction: column; }
   .header-right { display: flex; align-items: center; gap: var(--space-md); }
   .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: #2ecc71; display: inline-block; flex-shrink: 0; }
   .pulse-dot.offline { background: #e74c3c; }
@@ -233,8 +236,13 @@
 <div class="header">
   <div class="header-inner">
     <div class="header-left">
-      <h1>Command Centre</h1>
-      <div class="sub">Not Forgotten Systems</div>
+      <div class="header-brand">
+        <img src="../assets/logo.png" alt="Not Forgotten" class="header-logo">
+        <div class="header-brand-text">
+          <h1>Command Centre</h1>
+          <div class="sub">Not Forgotten Systems</div>
+        </div>
+      </div>
     </div>
     <div class="header-right">
       <span class="pulse-dot" id="pulse-dot"></span>
