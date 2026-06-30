@@ -316,8 +316,7 @@ function renderDrafts() {
 
     f.prospects.forEach(p => {
       html += '<div class="draft-card">';
-      html += '<details>';
-      html += '<summary class="draft-card-header">';
+      html += '<div class="draft-card-header" onclick="this.nextElementSibling.classList.toggle(\'open\');this.querySelector(\'.draft-card-chevron\').classList.toggle(\'open\')">';
       html += '<div class="draft-card-header-inner">';
       html += '<div class="draft-card-left">';
       html += '<span class="draft-card-chevron">▶</span>';
@@ -325,14 +324,13 @@ function renderDrafts() {
       html += '</div>';
       html += '<span class="draft-card-subject">' + (p.subject || 'no subject') + '</span>';
       html += '</div>';
-      html += '</summary>';
+      html += '</div>';
       html += '<div class="draft-body">';
       html += '<pre>' + (p.body || '(no body)') + '</pre>';
       if (p.angles && p.angles.length > 0) {
         html += '<div class="angle-notes">' + p.angles.join(' · ') + '</div>';
       }
       html += '</div>';
-      html += '</details>';
       html += '</div>';
     });
 
