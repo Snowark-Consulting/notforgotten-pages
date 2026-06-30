@@ -187,6 +187,30 @@
   /* Method badge */
   .method-badge { display: inline-flex; align-items: center; gap: var(--space-xs); padding: var(--space-xs) var(--space-sm); background: rgba(31,88,145,0.08); border-radius: var(--radius-sm); font-size: var(--text-xs); color: var(--royal); font-weight: 500; }
 
+  /* Drafts for Review */
+  .drafts-panel { background: var(--white); border-radius: var(--radius-xl); margin-bottom: var(--space-lg); overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.04); border: 2px solid rgba(224,166,42,0.25); }
+  .drafts-panel .panel-header { padding: var(--space-lg) var(--space-lg) 0; display: flex; align-items: center; gap: var(--space-md); }
+  .drafts-panel .panel-header h2 { font-size: var(--text-base); font-weight: 600; color: var(--navy); }
+  .drafts-badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; background: rgba(224,166,42,0.15); color: var(--gold); text-transform: uppercase; letter-spacing: 0.04em; }
+  .draft-file-section { border-top: 1px solid rgba(0,0,0,0.04); padding: var(--space-md) var(--space-lg); }
+  .draft-file-section:first-of-type { border-top: none; }
+  .draft-file-meta { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-md); flex-wrap: wrap; }
+  .draft-file-name { font-weight: 600; color: var(--navy); font-size: var(--text-sm); }
+  .draft-file-window { font-size: var(--text-xs); color: var(--muted); }
+  .draft-file-status { font-size: var(--text-xs); font-weight: 600; color: var(--gold); }
+  .draft-card { background: var(--light); border-radius: var(--radius-lg); margin-bottom: var(--space-sm); overflow: hidden; border: 1px solid rgba(0,0,0,0.03); }
+  .draft-card-header { display: flex; align-items: center; justify-content: space-between; padding: var(--space-md); cursor: pointer; user-select: none; }
+  .draft-card-header:hover { background: rgba(224,166,42,0.04); }
+  .draft-card-left { display: flex; align-items: center; gap: var(--space-md); }
+  .draft-card-chevron { font-size: 10px; color: var(--muted); transition: transform 0.2s; width: 16px; text-align: center; }
+  .draft-card-chevron.open { transform: rotate(90deg); }
+  .draft-card-name { font-weight: 600; font-size: var(--text-sm); color: var(--navy); }
+  .draft-card-subject { font-size: var(--text-xs); color: var(--muted); }
+  .draft-body { display: none; padding: 0 var(--space-md) var(--space-md) var(--space-md); }
+  .draft-body.open { display: block; }
+  .draft-body pre { font-family: var(--font); font-size: var(--text-sm); line-height: 1.7; color: var(--near-black); white-space: pre-wrap; word-wrap: break-word; background: var(--white); padding: var(--space-lg); border-radius: var(--radius-lg); border: 1px solid rgba(0,0,0,0.06); margin: 0; }
+  .draft-body .angle-notes { font-size: var(--text-xs); color: var(--muted); margin-top: var(--space-sm); font-style: italic; }
+
   /* Responsive */
   @media (max-width: 768px) {
     .stat-row { grid-template-columns: repeat(2, 1fr); }
@@ -271,11 +295,57 @@ function statCard(num, label, gold) {
   return '<div class="stat-card"><div class="num' + (gold ? ' gold' : '') + '">' + num + '</div><div class="label">' + label + '</div></div>';
 }
 
+// ── Drafts Panel ──
+function renderDrafts() {
+  const drafts = data.drafts;
+  if (!drafts || !drafts.files || drafts.files.length === 0) return '';
+
+  let html = '<div class="drafts-panel">';
+  html += '<div class="panel-header"><h2>📝 Drafts for Review</h2><span class="drafts-badge">' + drafts.total_prospects + ' drafts</span></div>';
+
+  drafts.files.forEach(f => {
+    html += '<div class="draft-file-section">';
+    html += '<div class="draft-file-meta">';
+    html += '<span class="draft-file-name">' + f.title + '</span>';
+    if (f.window) html += '<span class="draft-file-window">📅 ' + f.window + '</span>';
+    if (f.status) html += '<span class="draft-file-status">' + f.status + '</span>';
+    html += '</div>';
+
+    f.prospects.forEach(p => {
+      html += '<div class="draft-card">';
+      html += '<details>';
+      html += '<summary class="draft-card-header">';
+      html += '<div class="draft-card-left">';
+      html += '<span class="draft-card-chevron">▶</span>';
+      html += '<span class="draft-card-name">' + p.name + '</span>';
+      html += '</div>';
+      html += '<span class="draft-card-subject">' + (p.subject || 'no subject') + '</span>';
+      html += '</summary>';
+      html += '<div class="draft-body">';
+      html += '<pre>' + (p.body || '(no body)') + '</pre>';
+      if (p.angles && p.angles.length > 0) {
+        html += '<div class="angle-notes">' + p.angles.join(' · ') + '</div>';
+      }
+      html += '</div>';
+      html += '</details>';
+      html += '</div>';
+    });
+
+    html += '</div>';
+  });
+
+  html += '</div>';
+  return html;
+}
+
 // ── Pipeline Tab ──
 function renderPipeline() {
   const p = data.pipeline;
   if (!p) return '<div class="empty-state">Pipeline data loading — refresh incoming.</div>';
   let html = '';
+
+  // Drafts for review — highest priority
+  html += renderDrafts();
 
   html += '<div class="stat-row">';
   html += statCard(fmtNum(p.prospect_count), 'Total Prospects', false);
