@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 63,
+    "tasks_completed": 64,
     "recent": [
+      {
+        "date": "2026-07-01 08:57",
+        "task": "Fixed all timestamps to Adelaide timezone (ACST) \u2014 Command Centre dates now show local Adelaide time",
+        "category": "task"
+      },
       {
         "date": "2026-06-30 23:11",
         "task": "Fixed draft accordion toggle: display:flex on summary kills native details toggle (WebKit bug). Moved flex to inner wrapper div, summary now display:block.",
@@ -135,11 +140,6 @@
         "date": "2026-06-28 03:15",
         "task": "Batch 2 sent: Cinderellas, Kleena Cleaners, Performance Cleaning. 7 of 10 calibration emails now live. Researching Batch 3 (agencies).",
         "category": "task"
-      },
-      {
-        "date": "2026-06-28 03:02",
-        "task": "Batch 1 sent: 4 calibration emails \u2014 Distinct Painters, All Melbourne Painting (Kristian), Matte Projects, Adelaide Designer Painters. All following Outreach Philosophy. Awaiting replies.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-06-30T23:11:51.583291",
+  "last_updated": "2026-07-01T08:57:18.518086+09:30",
   "pipeline": {
     "prospect_count": 181,
     "stages": {
