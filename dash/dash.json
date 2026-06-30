@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 59,
+    "tasks_completed": 60,
     "recent": [
+      {
+        "date": "2026-06-30 07:12",
+        "task": "Campaign pulse posted \u2014 9 Outreach Active, 0 replies at Day 1-2, Email 2 window opens tomorrow for painters",
+        "category": "task"
+      },
       {
         "date": "2026-06-29 22:05",
         "task": "Prepare-ahead: Email 2 follow-up drafts for 6 painter/cleaner prospects saved to vault (window opens today). Gmail token expired \u2014 James re-auth needed before send.",
@@ -135,11 +140,6 @@
         "date": "2026-06-28 01:41",
         "task": "Backfilled 8 Founding Decisions into permanent Decision Library. Analysed decision-making patterns: 6 meta-patterns identified, 6 watch points encoded. System now actively protects decision-making integrity.",
         "category": "task"
-      },
-      {
-        "date": "2026-06-28 01:41",
-        "task": "Created notforgotten-vercel-site skill \u2014 single reference for Vercel replica: file structure, nav patterns, modal, form, Airtable wiring, deployment, pitfalls",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-06-29T23:02:27.994282+00:00",
+  "last_updated": "2026-06-30T07:12:31.712538",
   "pipeline": {
     "prospect_count": 181,
     "stages": {
