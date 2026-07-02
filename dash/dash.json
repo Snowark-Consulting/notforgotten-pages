@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 68,
+    "tasks_completed": 69,
     "recent": [
+      {
+        "date": "2026-07-02 11:33",
+        "task": "Growth audit v1: reduced booking form to 4 fields, fixed pricing CTA, added privacy reassurance, standardised revenue to $177K+, made case study link prominent, updated bottom CTA",
+        "category": "task"
+      },
       {
         "date": "2026-07-02 11:02",
         "task": "GitHub token refreshed \u2014 auth restored for hancockjluke with repo + workflow scopes. Dash updates and GitHub Pages push operational.",
@@ -135,11 +140,6 @@
         "date": "2026-06-28 08:36",
         "task": "Created Atlas Learning Framework \u2014 systematic self-improvement methodology. Added 'Evidence before optimisation' as SOUL directive #11. Email 2 drafts prepared (variable-isolated). CRM now self-updating.",
         "category": "task"
-      },
-      {
-        "date": "2026-06-28 07:44",
-        "task": "Reorganized vault: deleted duplicate Wikilinks.md, rewrote SOUL.md in caveman style (-27% tokens), created research/ directory with 14 files and 6 scripts moved from root",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-02T11:02:40.557821+09:30",
+  "last_updated": "2026-07-02T11:33:35.789998+09:30",
   "pipeline": {
     "prospect_count": 181,
     "stages": {
@@ -196,55 +196,55 @@
       {
         "name": "Distinct Painters",
         "industry": "Painter",
-        "last_contacted": "2026-06-28",
+        "last_contacted": "2026-07-02",
         "suburb": "South Australia"
       },
       {
         "name": "Kleena Cleaners",
         "industry": "Commercial cleaning",
-        "last_contacted": "2026-06-29",
+        "last_contacted": "2026-07-02",
         "suburb": "ADELAIDE"
       },
       {
         "name": "Next&Co",
         "industry": "Marketing agency",
-        "last_contacted": "2026-06-29",
+        "last_contacted": "2026-07-02",
         "suburb": "Melbourne"
       },
       {
         "name": "All Melbourne Painting",
         "industry": "Painter",
-        "last_contacted": "2026-06-28",
+        "last_contacted": "2026-07-02",
         "suburb": "Victoria"
       },
       {
         "name": "Matte Projects Painting and Decorating",
         "industry": "Painter",
-        "last_contacted": "2026-06-28",
+        "last_contacted": "2026-07-02",
         "suburb": "South Australia"
       },
       {
         "name": "Adelaide Designer Painters",
         "industry": "Painter",
-        "last_contacted": "2026-06-28",
+        "last_contacted": "2026-07-02",
         "suburb": "South Australia"
       },
       {
         "name": "Performance Cleaning",
         "industry": "Commercial cleaning",
-        "last_contacted": "2026-06-28",
+        "last_contacted": "2026-07-02",
         "suburb": "MELBOURNE"
       },
       {
         "name": "Click Click Media",
         "industry": "Marketing agency",
-        "last_contacted": "2026-06-29",
+        "last_contacted": "2026-07-02",
         "suburb": "Sydney"
       },
       {
         "name": "Online Marketing Gurus (OMG)",
         "industry": "Marketing agency",
-        "last_contacted": "2026-06-29",
+        "last_contacted": "2026-07-02",
         "suburb": "Sydney"
       }
     ],
@@ -254,16 +254,16 @@
       "Marketing agency": 3
     },
     "messages": {
-      "outbound_total": 13,
+      "outbound_total": 22,
       "inbound_total": 2,
-      "total": 15,
-      "reply_rate": 15.4,
+      "total": 24,
+      "reply_rate": 9.1,
       "last_7_days": {
-        "outbound": 11,
+        "outbound": 20,
         "inbound": 0
       }
     },
-    "last_refreshed": "2026-07-02T00:00:17.351377+00:00"
+    "last_refreshed": "2026-07-02T02:00:18.588624+00:00"
   },
   "decisions": {
     "total": 10,
