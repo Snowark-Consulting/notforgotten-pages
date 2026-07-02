@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 72,
+    "tasks_completed": 73,
     "recent": [
+      {
+        "date": "2026-07-02 15:37",
+        "task": "Applied comprehensive SEO audit fixes: OG tags, Twitter cards, canonical URL, structured data (JSON-LD Organization + WebSite), robots.txt, sitemap.xml, polished meta description, fixed H6\u2192H3 heading hierarchy, favicon sizes. Dev site protected with noindex.",
+        "category": "task"
+      },
       {
         "date": "2026-07-02 15:37",
         "task": "Sent Email 2 batch: 6 painters/cleaners (Distinct, AD Painters, Matte Projects, All Melbourne, Performance Cleaning, Kleena Cleaners) \u2014 6/6 sent, 6/6 CRM reconciled",
@@ -135,11 +140,6 @@
         "date": "2026-06-29 03:22",
         "task": "Extended crm-update-send.py: now creates Messages records on every send (Prospect + Messages + Verify = full reconciliation). Cold-email skill updated. Messages table gap closed permanently.",
         "category": "task"
-      },
-      {
-        "date": "2026-06-29 03:04",
-        "task": "Backfilled 10 missing Messages records for calibration campaign. All sent dates reconciled with Prospects table. Cinderellas bounce confirmed (marked Lost). CRM audit trail now complete.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-02T15:37:18.862813+09:30",
+  "last_updated": "2026-07-02T15:37:51.396850+09:30",
   "pipeline": {
     "prospect_count": 181,
     "stages": {
