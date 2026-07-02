@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 71,
+    "tasks_completed": 72,
     "recent": [
+      {
+        "date": "2026-07-02 15:37",
+        "task": "Sent Email 2 batch: 6 painters/cleaners (Distinct, AD Painters, Matte Projects, All Melbourne, Performance Cleaning, Kleena Cleaners) \u2014 6/6 sent, 6/6 CRM reconciled",
+        "category": "task"
+      },
       {
         "date": "2026-07-02 15:29",
         "task": "Deployed ROI Calculator to production (notforgotten.com.au) \u2014 dev site approved and promoted",
@@ -135,11 +140,6 @@
         "date": "2026-06-29 03:04",
         "task": "Backfilled 10 missing Messages records for calibration campaign. All sent dates reconciled with Prospects table. Cinderellas bounce confirmed (marked Lost). CRM audit trail now complete.",
         "category": "task"
-      },
-      {
-        "date": "2026-06-29 00:34",
-        "task": "Sent calibration Email 1 to 3 marketing agencies: Click Click Media, OMG, Next&Co. All Pipeline \u2192 Outreach Active. WebAlive replaced with Next&Co (overlap risk). Pre-flight checklist operational. Predictions recorded.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-02T15:30:21.456051+09:30",
+  "last_updated": "2026-07-02T15:37:18.862813+09:30",
   "pipeline": {
     "prospect_count": 181,
     "stages": {
