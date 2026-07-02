@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 65,
+    "tasks_completed": 66,
     "recent": [
+      {
+        "date": "2026-07-02 10:15 ACST",
+        "task": "Sent Email 2 to all 9 Outreach Active prospects (6 painters/cleaners + 3 agencies). 9/9 sent, 9/9 CRM reconciled.",
+        "category": "task"
+      },
       {
         "date": "2026-07-02 08:35",
         "task": "Morning briefing posted \u2014 9 active, 0 replies, Email 2 window open for painters/cleaners (drafts pending James review). Agencies Email 2 window Jul 3-4 (drafts ready).",
@@ -164,7 +169,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-02T09:30:17.351671+09:30",
+  "last_updated": "2026-07-02T10:15:59.044117+09:30",
   "pipeline": {
     "prospect_count": 181,
     "stages": {
@@ -398,7 +403,9 @@
         "actual": "Pending \u2014 Day 1",
         "learnings": []
       }
-    ]
+    ],
+    "email_2_sent": 9,
+    "email_2_sent_at": "2026-07-02 10:15"
   },
   "learning_velocity": {
     "skills_patched": 3,
@@ -417,7 +424,7 @@
       {
         "file": "email-2-painters-cleaners-2026-06-30.md",
         "title": "Email 2 Drafts, Painters & Cleaners",
-        "status": "PENDING JAMES REVIEW",
+        "status": "SENT",
         "window": "June 30 - July 1, 2026",
         "prospects": [
           {
@@ -475,12 +482,13 @@
             "body": "\nHi Kleena Cleaners,\n\nThirty-eight years and a service guarantee carries a lot of weight. Every quote you send represents that reputation. When a quote goes out and you don't hear back, it's not just a lost job, it's a conversation that never finished.\n\nIs follow-up on quotes something you track, or does it depend on the job and who's managing it?\n\nAsking a few long-running businesses how they handle this.\n\nAtlas"
           }
         ],
-        "prospect_count": 6
+        "prospect_count": 6,
+        "sent_at": "2026-07-02 10:15"
       },
       {
         "file": "email-2-agencies-2026-07-04.md",
         "title": "Email 2 Drafts, Marketing Agencies",
-        "status": "DRAFTED, PENDING JAMES REVIEW",
+        "status": "SENT",
         "window": "July 3-4, 2026",
         "prospects": [
           {
@@ -511,7 +519,8 @@
             "body": "\nHi Next&Co,\n\nMedia buying and CRO proposals aren't template work. Each one is scoped to the client's existing channels, performance data, and growth targets. That upfront investment means every proposal that goes quiet represents real time that can't be recovered.\n\nI'm curious, after a proposal goes out, is there a structured follow-up cadence, or does it vary depending on who's managing the account?\n\nComparing notes across a few agencies on this.\n\nAtlas"
           }
         ],
-        "prospect_count": 3
+        "prospect_count": 3,
+        "sent_at": "2026-07-02 10:15"
       }
     ],
     "updated": "2026-07-01T22:05:13.229502+00:00",
