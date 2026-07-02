@@ -7,6 +7,51 @@ tier: primary
 # LEARNINGS — Atlas
 
 > Append-only log of fixes, API quirks, and gotchas. Check BEFORE touching any external API. Newest first.
+
+## 2026-07-02 — DeepSeek API broken pipe burst: 19 errors in 61 min, first 3/3 retry exhaustion
+
+**Symptom:** 19 `[Errno 32] Broken pipe` errors between 08:18-09:19 Adelaide, all from `inbox-pulse-phase2` (`2d4a9ff4f06b`). One run (09:03-09:09) exhausted all 3 retries and failed entirely — first time retries weren't sufficient.
+
+**Cause:** DeepSeek API streaming layer — `Streaming failed before delivery` with `error_type=ReadError`. TCP connections to `api.deepseek.com` established then severed mid-stream. Concentrated in a 61-minute burst; normal service resumed at 09:24. Likely provider-side load event or network path degradation.
+
+**Impact:** Zero — the failed run was on a "no unread mail" cycle (adjacent runs were [SILENT]). If mail had arrived during that window, reply notification would have been delayed ~21 min until next successful run. Retry mechanism caught 18/19 attempts.
+
+**Pattern:** DeepSeek broken pipes now observed on Jun 27 (4 runs), Jul 1 (delivery class, separate), Jul 2 (19 errors, API class). Three distinct days in ~6-day window. Not a one-off.
+
+**Monitoring rule:** Three-tier escalation for DeepSeek API broken pipes on inbox-pulse-phase2:
+
+| Tier | Trigger | Action |
+|---|---|---|
+| **Log** | Isolated broken pipe on a silent (no-mail) cycle | Log to LEARNINGS, no notification |
+| **Escalate immediately** | 3/3 retry exhaustion when mail IS waiting | Flag to James — reply notification may be delayed |
+| **Escalate** | Repeated 3/3 exhaustions within a short period (≤24h) | Flag to James, recommend Hermes config change: retries 3→5 for streaming ReadError |
+
+Current pattern (Jun 27, Jul 1-delivery, Jul 2-burst) is Tier 1 only — all exhaustions were on silent cycles. No escalation needed.
+
+**Related:** Distinct from "delivery broken pipe" class (cron scheduler → Telegram Bot API, Jun 30 / Jul 1), which is self-healing with next-run success.
+
+## 2026-07-02 — Skills need dual-path redundancy: Registry + SOPs, not just the skills-list scanner
+
+**Symptom:** `website-dev` skill was created (Jun 29) but wasn't loaded for subsequent website work. The skill existed and had trigger conditions in its metadata, but neither the Registry (master map) nor SOPs (procedural triggers) pointed to it.
+
+**Cause:** The skill-matching mechanism in the system prompt scans available skills at turn start. This is a single point of failure — if the scan misses a match, there's no fallback. Pre-flight skills ("load before ANY website change") are especially vulnerable because they're context-triggered, not keyword-triggered.
+
+**Fix:** Dual-path redundancy for all pre-flight skills:
+1. **Registry.md** — skill must appear under appropriate section (Design, Operations, Publishing, etc.)
+2. **SOPs.md** — skill must have an explicit MANDATORY section with trigger conditions and load order
+3. **Self-lint** — weekly scan catches orphaned skills (Section 5 "Skills coverage check", reports in Section 7)
+4. **Same-session registration** — SOPs now require registering new skills in Registry immediately on creation
+
+**Pattern:** On-demand skills with unambiguous trigger phrases (cold-email, copywriting) can rely on the skills-list scanner. Pre-flight skills (website-dev, case-study, godaddy-dns, quote-intake, email-inbox-pulse) MUST have dual-path redundancy. A skill is only as reliable as its weakest discovery path.
+
+## 2026-07-01 — Always Use Adelaide Timezone
+
+**Symptom:** Command Centre dashboard showed dates in UTC (e.g., "2026-06-30 23:11") instead of Adelaide time.  
+**Cause:** `datetime.datetime.now()` was called without timezone specification in dash-update.py, dash-live-refresh.py, pipeline-data.py, on-error handler, and quote-intake.py. The orgo server runs UTC.  
+**Fix:** All scripts now use `ZoneInfo("Australia/Adelaide")` — pattern: `from zoneinfo import ZoneInfo; ADELAIDE = ZoneInfo("Australia/Adelaide"); datetime.now(ADELAIDE)`.  
+**Exception:** For Airtable API timestamps with `Z` suffix (e.g., "Sent at"), convert to UTC first: `datetime.now(ADELAIDE).astimezone(timezone.utc)`.  
+**Pattern protection:** session-activity hook already had this correct — other scripts should follow its pattern. New scripts must use Adelaide timezone from day one.
+
 # LEARNINGS — Snowark
 
 Append-only log of fixes, API quirks, and gotchas. Check this BEFORE touching any external API. Newest first.
@@ -19,6 +64,11 @@ Format per entry:
 **Symptom:** what broke
 **Cause:** why
 **Fix:** what works (exact commands/parameters)
+
+## 2026-06-30 — Cron --script paths resolve relative to scripts/, not vault root (corrected from 2026-06-29 misdiagnosis)
+**Symptom:** Pipeline data refresh cron (251c65e49027) with `--script bin/pipeline-data.py` failed with "Script not found: /root/.hermes/scripts/bin/pipeline-data.py". Vault graph rebuild (ed054f2de399) with `--script scripts/vault-graph.py` failed with "Script not found: /root/.hermes/scripts/scripts/vault-graph.py".
+**Cause:** The 2026-06-29 pitfall was wrong. Hermes cron does NOT resolve `--script` paths from vault root (~/.hermes/). It prepends `scripts/` to every script path. `bin/pipeline-data.py` → `scripts/bin/pipeline-data.py`. `scripts/vault-graph.py` → `scripts/scripts/vault-graph.py`.
+**Fix:** Scripts in `scripts/` use bare filename (`dashboard-update.py`). Scripts in `bin/` use `../bin/name.py` or create symlink at `scripts/bin/name.py → ../../bin/name.py`. Verify: `test -f ~/.hermes/scripts/<script-path>`. Corrected growth-operations skill pitfall.
 
 ## 2026-06-29 — CRM Messages gap: crm-update-send.py only updated Prospects, not Messages
 **Symptom:** After every calibration send, the Messages table remained empty. Manual backfill required after each campaign send wave. 0 of 10 calibration sends had Messages records until manual backfill (2026-06-29).
@@ -154,3 +204,8 @@ Format per entry:
 **Symptom:** CSS files in deploy kit templates weren't being rendered with placeholder substitution.
 **Cause:** The render script's text suffix list included `.md`, `.yaml`, `.yml`, `.json`, `.html`, `.txt` but not `.css`.
 **Fix:** Add `.css` to the text suffix list in the render script. CSS template files need placeholder substitution just like other text formats.
+
+## 2026-06-30 — Epoch-zero Gmail `expiry` flagged as broken by cron; token was fine
+**Symptom:** Prepare-Ahead cron (4a10d4135c2c) reported "⚠️ Blocker: Gmail token expired. OAuth app promoted to Production invalidated the refresh token. Token expiry shows epoch zero — unusable until James re-authenticates." Manual testing showed `gmail_auth.get_access_token()` working perfectly.
+**Cause:** The `expiry` field is `1970-01-01T00:00:00Z` (epoch zero), which is the deliberate Jun 25 fix — it forces the refresh_token flow on every call, producing a fresh access token each time. The cron agent inspected the `expiry` field, saw epoch zero, and incorrectly concluded the token was broken without testing it.
+**Fix:** Added pitfall to `growth-operations` skill: epoch-zero expiry is working state, not failure. The only valid diagnostic is calling `gmail_auth.get_access_token()` and checking for a `ya29.*` token. Never flag token status based on the `expiry` field alone.

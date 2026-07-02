@@ -49,12 +49,15 @@ Log: ~/.hermes/logs/inbox-pulse.log
 | Nightly memory consolidation | c72726a332e6 | daily 21:00 ACST (11:30 UTC) | Agent/consolidation-sop.md | 14-step auto-apply: session notes, memory, wikilinks, connections, naming, frontmatter, terse style, index sync, broken links, infra sync, stale pruning, learnings flagging. Reports to Agent/log.md. Deliver: local |
 | Weekly vault-lint | 49d0852ce5ee | Sun 17:00 ACST (07:30 UTC) | Agent/vault-lint.md | READ-ONLY wikilink graph audit. Reports to Agent/lint-reports/ + Agent/log.md. Deliver: telegram:-1003939051249 (Updates group) |
 | Nightly backup to GitHub | d998982d2e15 | daily 21:30 ACST (12:00 UTC) | `bin/nightly-backup.sh` | Push to Snowark-Consulting/client-notforgotten (private). Excludes secrets, caches, sessions, cron output |
-| Dashboard hourly refresh | 8b9563348596 | 0 * * * * | no-agent | `bin/dash-update.py` — refreshes dashboard silently (deliver: local) |
+| Nightly vault graph rebuild | ed054f2de399 | daily 21:30 ACST (12:00 UTC) | `scripts/vault-graph.py` | Rebuilds 3D knowledge graph JSON for Command Centre Brain tab. Fixed 2026-07-01: cron path corrected from `scripts/vault-graph.py` (double) to `vault-graph.py` |
+| Dashboard hourly refresh | 8b9563348596 | 0 * * * * | no-agent | `scripts/dashboard-update.py` — refreshes dashboard.html silently (deliver: local). This is the legacy Airtable→HTML dashboard; distinct from `bin/dash-update.py` (Atlas activity logger for dash.json) |
 
 ### Growth Operations pipeline (LIVE — created 2026-06-28)
 
 | Job | Cron ID | Schedule (ACST) | Deliver | Skills | Purpose |
 | --- | ------- | --------------- | ------- | ------ | ------- |
+| Pipeline data refresh | 251c65e49027 | every 2h | local | — | Queries Airtable Prospects + Messages → computes pipeline stats → enriches dash.json → pushes to GitHub Pages. No-agent script (`scripts/pipeline-data.py` — copied from `bin/` because symlink traversal blocked by security check 2026-07-01). Foundation data layer for the Command Centre dashboard. |
+| Draft Surfacer | c30ef1d988d9 | daily 7:35am | local | — | Scans `drafts/` for `.md` files → extracts prospect names, subjects, bodies → pushes to `dash.json` under `drafts` key. Makes drafts visible in Command Centre Pipeline tab. No-agent script (`scripts/draft-surfacer.py`). Added 2026-07-01. |
 | Prepare-Ahead Clock | 4a10d4135c2c | daily 7:30am | telegram:-1003939051249 | growth-operations, cold-email | Scans campaign timeline. When within 48h of send window: drafts work, saves to vault, notifies. Silent otherwise |
 | Morning Briefing | 28304a6e23c3 | daily 8:30am | telegram:-1003939051249 | growth-operations, email-inbox-pulse, decision-library | Structured status report: inbox, campaign, deadlines, system health, one recommendation |
 | Campaign Pulse | eb8826841606 | every 48h | telegram:-1003939051249 | growth-operations, cold-email, decision-library | Deep dive: reply rates by vertical/greeting, patterns, hypothesis, forecast, recommendation. Silent when no active campaign |
