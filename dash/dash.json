@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 70,
+    "tasks_completed": 71,
     "recent": [
+      {
+        "date": "2026-07-02 15:29",
+        "task": "Deployed ROI Calculator to production (notforgotten.com.au) \u2014 dev site approved and promoted",
+        "category": "task"
+      },
       {
         "date": "2026-07-02 13:57",
         "task": "Synced dev site with production + added ROI calculator section",
@@ -135,11 +140,6 @@
         "date": "2026-06-29 00:34",
         "task": "Sent calibration Email 1 to 3 marketing agencies: Click Click Media, OMG, Next&Co. All Pipeline \u2192 Outreach Active. WebAlive replaced with Next&Co (overlap risk). Pre-flight checklist operational. Predictions recorded.",
         "category": "task"
-      },
-      {
-        "date": "2026-06-29 00:03",
-        "task": "Built gmail_auth.py shared auth layer (eliminates recurring token expiry). Replaced Cinderellas (invalid email) with Sydney Office Clean in calibration. 3 agency Email 1 drafts pending research.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-02T13:57:46.363884+09:30",
+  "last_updated": "2026-07-02T15:29:09.178192+09:30",
   "pipeline": {
     "prospect_count": 181,
     "stages": {
