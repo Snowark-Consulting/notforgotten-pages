@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 66,
+    "tasks_completed": 67,
     "recent": [
+      {
+        "date": "2026-07-02 10:16",
+        "task": "Sent Email 2 to all 9 Outreach Active prospects: 6 painters/cleaners + 3 agencies. 9/9 sent, 9/9 CRM reconciled.",
+        "category": "task"
+      },
       {
         "date": "2026-07-02 10:15 ACST",
         "task": "Sent Email 2 to all 9 Outreach Active prospects (6 painters/cleaners + 3 agencies). 9/9 sent, 9/9 CRM reconciled.",
@@ -135,16 +140,6 @@
         "date": "2026-06-28 06:17",
         "task": "Designed 7-stage prospect lifecycle (first principles). Built New \u2192 Outreach Active automation. Backfilled 7 calibration prospects. CRM now reflects reality.",
         "category": "task"
-      },
-      {
-        "date": "2026-06-28 06:06",
-        "task": "Added 'Campaign Complete' Pipeline stage to Airtable Prospects \u2014 campaign end \u2260 relationship end now represented in CRM",
-        "category": "task"
-      },
-      {
-        "date": "2026-06-28 06:02",
-        "task": "Recorded strategic decision: Calibration outreach adopted as living system \u2014 campaign end \u2260 relationship end, context-awareness overrides timetables, data trumps assumptions",
-        "category": "task"
       }
     ]
   },
@@ -169,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-02T10:15:59.044117+09:30",
+  "last_updated": "2026-07-02T10:16:14.311741+09:30",
   "pipeline": {
     "prospect_count": 181,
     "stages": {
