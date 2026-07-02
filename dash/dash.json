@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 67,
+    "tasks_completed": 68,
     "recent": [
+      {
+        "date": "2026-07-02 11:02",
+        "task": "GitHub token refreshed \u2014 auth restored for hancockjluke with repo + workflow scopes. Dash updates and GitHub Pages push operational.",
+        "category": "task"
+      },
       {
         "date": "2026-07-02 10:16",
         "task": "Sent Email 2 to all 9 Outreach Active prospects: 6 painters/cleaners + 3 agencies. 9/9 sent, 9/9 CRM reconciled.",
@@ -135,11 +140,6 @@
         "date": "2026-06-28 07:44",
         "task": "Reorganized vault: deleted duplicate Wikilinks.md, rewrote SOUL.md in caveman style (-27% tokens), created research/ directory with 14 files and 6 scripts moved from root",
         "category": "task"
-      },
-      {
-        "date": "2026-06-28 06:17",
-        "task": "Designed 7-stage prospect lifecycle (first principles). Built New \u2192 Outreach Active automation. Backfilled 7 calibration prospects. CRM now reflects reality.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-02T10:16:14.311741+09:30",
+  "last_updated": "2026-07-02T11:02:40.557821+09:30",
   "pipeline": {
     "prospect_count": 181,
     "stages": {
