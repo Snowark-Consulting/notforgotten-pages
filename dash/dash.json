@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 76,
+    "tasks_completed": 77,
     "recent": [
+      {
+        "date": "2026-07-03 06:35",
+        "task": "Major outreach philosophy shift: industry fluency over company research. Added Principle 9, 5-question industry-quoting-dynamics framework, rewrote personalisation approach. Company facts now seasoning, not the meal.",
+        "category": "task"
+      },
       {
         "date": "2026-07-03 06:29",
         "task": "Fixed double-Atlas sign-off bug: removed redundant standalone 'Atlas' closing word from all email skills, templates, memory, and SOUL.md. Signature block now the sole sign-off.",
@@ -135,11 +140,6 @@
         "date": "2026-06-29 10:27",
         "task": "Dashboard v2: added Learnings tab (experiment hypotheses), Agent tab (Sales Brain readiness + learning velocity), Decision Review Calendar page",
         "category": "task"
-      },
-      {
-        "date": "2026-06-29 09:19",
-        "task": "Improved footer on desktop: gold border accent, official Facebook SVG icon, logo + tagline layout, 8-pt grid spacing",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-03T06:29:04.575767+09:30",
+  "last_updated": "2026-07-03T06:35:53.699782+09:30",
   "pipeline": {
     "prospect_count": 181,
     "stages": {
