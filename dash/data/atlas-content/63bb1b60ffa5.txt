@@ -22,4 +22,4 @@ See [[Business Overview]] (knowledge/business.md) for company context, [[Systems
 - **Dashboard hourly refresh** — runs silently (deliver: local), no pings to Telegram. Dashboard at snowark-consulting.github.io/notforgotten-pages/dash/.
 - **Atlas avatar** — vector robot portrait (navy suit, gold tie, monocle). Image at /root/.hermes/image_cache/img_415314e4a7a3.jpg. Shared by Josh — branding decision pending.
 - **Phase 2 master prospect list** — 110 qualified prospects (50 trades, 30 agencies, 30 cleaning) at research/prospects/phase2-master-prospect-list.json (45KB). Also published as Google Doc. Built 2026-06-27.
-- **Cold email sign-off** — end email body with "Atlas" to match formal signature block. Never sign off with recipient's name or "James".
+- **Cold email sign-off** — the Gmail signature block IS the sign-off. Never add a standalone "Atlas" closing line above it (creates double sign-off). Let body flow naturally into the signature.

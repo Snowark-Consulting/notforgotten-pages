@@ -75,6 +75,14 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 - `skills/notforgotten-design/SKILL.md` — canonical design system. Load this before creating ANY public-facing page, case study, quote tool, or client deliverable. Contains colours, typography, layout rules, and publishing instructions.
 - `skills/design-language/SKILL.md` — extract design DNA from any website into structured markdown (colours, typography, spacing, motion). Includes Shopify Editions S26 case study.
 - `skills/cro/power-design/SKILL.md` — 20 codified design principles (60-30-10, 8-pt grid, modular type scale, WCAG AAA). Numeric thresholds, not vague advice.
+- `skills/notforgotten/website-dev/SKILL.md` — **Load before ANY website change.** Dev vs prod Vercel projects, deploy workflow, golden rules. Default: deploy to DEV first, verify, then promote to production. Never deploy without stating which environment.
+- `skills/notforgotten/notforgotten-vercel-site/SKILL.md` — page shell, nav patterns, modal, deployment commands for the live Vercel site. Load alongside `website-dev` and `notforgotten-design` for any site change.
+
+## Operations
+
+- `skills/notforgotten/quote-intake/SKILL.md` — **Quote intake pipeline.** Detect, extract, and process quote emails CC'd to atlas@notforgotten.com.au. Cross-references Airtable Prospects/Clients, auto-creates Quotes records. Unknown senders → flag, don't process.
+- `skills/email/email-inbox-pulse/SKILL.md` — **Inbox pulse monitoring.** Two-phase: cheap unread scan (script) then full-identity agent boot when mail found. Auto-mark-read prevents re-surfacing.
+- `skills/devops/godaddy-dns/SKILL.md` — **DNS management for notforgotten.com.au.** Load before touching any DNS record. API credentials in .env. Always snapshot before changes.
 
 ## Email Intelligence
 - `skills/email/email-intelligence-mining/SKILL.md` — historical deep-dive mining of Gmail mailboxes for patterns, contacts, objections, pricing, pipeline data. Not for real-time monitoring.
@@ -82,6 +90,8 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 
 ## Publishing
 
+- `skills/snowark/case-study/SKILL.md` — **Load before building any case study page.** 10-point trust-and-conversion framework, dark canvas design system, publishing workflow. Always load alongside `notforgotten-design`.
+- `skills/devops/github-pages-deploy/SKILL.md` — push HTML content to the Not Forgotten Systems GitHub Pages site. Use after building case studies, dashboards, or static pages.
 - `bin/dash-update.py` — update your client dashboard. Run after any client-visible task: `python3 bin/dash-update.py "What you did"`
 - Dashboard: https://snowark-consulting.github.io/notforgotten-pages/dash/
 - `pages/` — publishable content (case studies, quote pages, landing pages). Write HTML here, push with `git subtree push --prefix=pages pages gh-pages`
