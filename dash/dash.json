@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 79,
+    "tasks_completed": 80,
     "recent": [
+      {
+        "date": "2026-07-05 08:40",
+        "task": "Morning briefing posted -- 20 Outreach Active, 0 calibration replies, July batch Email 2 window Jul 8-10 (drafting starts now), stale drafts flagged for cleanup",
+        "category": "task"
+      },
       {
         "date": "2026-07-03 08:05",
         "task": "Sent calibration batch July 2026: 10/10 first-touch emails \u2014 4 MSPs, 2 Construction, 1 Engineering, 1 Cleaning (sole trader), 2 B2B Services. All CRM reconciled.",
@@ -135,11 +140,6 @@
         "date": "2026-06-30 22:55",
         "task": "Fixed Gmail token false-alarm in Prepare-Ahead cron: epoch-zero expiry is working state, not breakage. Patched growth-operations skill + LEARNINGS.",
         "category": "task"
-      },
-      {
-        "date": "2026-06-30 07:12",
-        "task": "Campaign pulse posted \u2014 9 Outreach Active, 0 replies at Day 1-2, Email 2 window opens tomorrow for painters",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-05T07:31:03.797085+09:30",
+  "last_updated": "2026-07-05T08:40:02.587357+09:30",
   "pipeline": {
     "prospect_count": 191,
     "stages": {
