@@ -164,12 +164,12 @@
       }
     ]
   },
-  "last_updated": "2026-07-05T05:31:02.865763+09:30",
+  "last_updated": "2026-07-05T07:31:03.797085+09:30",
   "pipeline": {
     "prospect_count": 191,
     "stages": {
-      "Outreach Active": 19,
-      "New": 171,
+      "Outreach Active": 20,
+      "New": 170,
       "Lost": 1
     },
     "verticals": {
@@ -185,7 +185,7 @@
     "stage_by_vertical": {
       "Outreach Active": {
         "IT MSP": 4,
-        "Painter": 4,
+        "Painter": 5,
         "Construction": 2,
         "Commercial cleaning": 2,
         "Marketing agency": 3,
@@ -195,7 +195,7 @@
       },
       "New": {
         "Marketing agency": 27,
-        "Painter": 117,
+        "Painter": 116,
         "Commercial cleaning": 27
       },
       "Lost": {
@@ -228,9 +228,15 @@
         "suburb": "Sydney"
       },
       {
+        "name": "Cameron Davidson Painters & Decorators",
+        "industry": "Painter",
+        "last_contacted": "2026-01-14",
+        "suburb": "South Australia"
+      },
+      {
         "name": "Kleena Cleaners",
         "industry": "Commercial cleaning",
-        "last_contacted": "2026-07-02",
+        "last_contacted": "2026-07-04",
         "suburb": "ADELAIDE"
       },
       {
@@ -320,7 +326,7 @@
     ],
     "active_by_vertical": {
       "IT MSP": 4,
-      "Painter": 4,
+      "Painter": 5,
       "Construction": 2,
       "Commercial cleaning": 2,
       "Marketing agency": 3,
@@ -338,7 +344,7 @@
         "inbound": 0
       }
     },
-    "last_refreshed": "2026-07-04T20:01:02.865382+00:00"
+    "last_refreshed": "2026-07-04T22:01:03.796093+00:00"
   },
   "decisions": {
     "total": 10,
@@ -608,7 +614,7 @@
         "prospect_count": 3
       }
     ],
-    "updated": "2026-07-03T22:05:39.424826+00:00",
+    "updated": "2026-07-04T22:05:57.698937+00:00",
     "total_files": 3,
     "total_prospects": 10
   }
