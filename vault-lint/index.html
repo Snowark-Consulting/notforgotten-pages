@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vault Lint Report — 2026-07-05</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0b2c4d;
+  --navy-light: #1a4a6e;
+  --gold: #e0a62a;
+  --white: #fff;
+  --light: #f7fbff;
+  --black: #0a0a0a;
+  --muted: #666;
+  --border: rgba(0,0,0,0.08);
+  --radius: 12px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--black);
+  background: var(--light);
+}
+
+.header {
+  background: var(--navy);
+  padding: var(--space-xl) var(--space-xl);
+  color: var(--white);
+}
+.header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+.header .meta {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+}
+.header .badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 4px;
+  margin-left: var(--space-sm);
+}
+
+.summary-bar {
+  max-width: 900px;
+  margin: var(--space-lg) auto;
+  padding: 0 var(--space-xl);
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+.summary-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-md) var(--space-lg);
+  text-align: center;
+  min-width: 100px;
+  flex: 1;
+}
+.summary-card .count {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+}
+.summary-card .label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: var(--space-xs);
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--space-xl) var(--space-3xl);
+}
+
+.section {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-lg);
+}
+.section h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--gold);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+.section h2 .num {
+  background: var(--navy);
+  color: var(--white);
+  font-size: 14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.finding {
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--border);
+}
+.finding:last-child { border-bottom: none; }
+.finding h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: var(--space-sm);
+}
+.finding h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  margin: var(--space-md) 0 var(--space-sm);
+}
+.finding p, .finding li {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: var(--space-sm);
+}
+.finding ul {
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-sm);
+}
+.finding code {
+  background: var(--light);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  color: var(--navy);
+}
+.finding .rec {
+  background: var(--light);
+  border-left: 3px solid var(--gold);
+  padding: var(--space-sm) var(--space-md);
+  font-size: 13px;
+  color: var(--navy);
+  font-weight: 500;
+  margin-top: var(--space-sm);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: var(--space-md) 0;
+}
+th {
+  background: var(--navy);
+  color: var(--white);
+  padding: var(--space-sm) var(--space-md);
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+}
+td {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--border);
+}
+
+.badge-resolved { color: #16a34a; font-weight: 600; }
+.badge-unresolved { color: #dc2626; font-weight: 600; }
+.badge-new { color: var(--gold); font-weight: 600; }
+
+.resolved-table td:first-child { font-weight: 500; }
+.resolved-table .status { text-align: center; width: 80px; }
+
+.priority-list { counter-reset: priority; list-style: none; padding: 0; }
+.priority-list li {
+  counter-increment: priority;
+  padding: var(--space-sm) 0 var(--space-sm) var(--space-2xl);
+  position: relative;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--muted);
+}
+.priority-list li::before {
+  content: counter(priority);
+  position: absolute;
+  left: 0;
+  top: var(--space-sm);
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 12px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.priority-list li:last-child { border-bottom: none; }
+
+.graph-health {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+.graph-health .bar-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 13px;
+}
+.graph-health .bar-label {
+  width: 140px;
+  flex-shrink: 0;
+  color: var(--muted);
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.graph-health .bar-track {
+  flex: 1;
+  height: 6px;
+  background: var(--light);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.graph-health .bar-fill {
+  height: 100%;
+  background: var(--navy);
+  border-radius: 3px;
+}
+.graph-health .bar-count {
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--navy);
+  width: 30px;
+  text-align: right;
+}
+
+.assessment {
+  background: var(--light);
+  border-radius: var(--radius);
+  padding: var(--space-md) var(--space-lg);
+  font-size: 14px;
+  color: var(--navy);
+  margin-top: var(--space-md);
+}
+
+.footer-note {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  padding: var(--space-xl);
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <h1>Vault Lint Report <span class="badge">2026-07-05</span></h1>
+    <div class="meta">Audit scope: 226 in-scope .md files | Run by Atlas (weekly cron, 17:00 ACST)</div>
+  </div>
+</div>
+
+<div class="summary-bar">
+  <div class="summary-card">
+    <div class="count">2</div>
+    <div class="label">Index Drift</div>
+  </div>
+  <div class="summary-card">
+    <div class="count">1</div>
+    <div class="label">Stale Claims</div>
+  </div>
+  <div class="summary-card">
+    <div class="count">4</div>
+    <div class="label">Unresolved Stubs</div>
+  </div>
+  <div class="summary-card">
+    <div class="count">7</div>
+    <div class="label">Broken Links</div>
+  </div>
+  <div class="summary-card">
+    <div class="count">4</div>
+    <div class="label">Orphans</div>
+  </div>
+  <div class="summary-card">
+    <div class="count">4</div>
+    <div class="label">Promotions</div>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- Section 1: Index Drift -->
+<div class="section">
+  <h2><span class="num">1</span> Index Drift</h2>
+
+  <div class="finding">
+    <h3>1.1 Decision missing from INDEX.md</h3>
+    <p><code>knowledge/decisions/2026-07-04-messages-prospect-linked-field.md</code> exists on disk but is NOT listed in <code>knowledge/decisions/INDEX.md</code>.</p>
+    <p>The INDEX table lists 15 decisions (8 founding + 7 living). There are 16 decision files on disk. The 16th decision — Messages → Prospect linked field — was created Jul 4 but never registered in the INDEX.</p>
+    <p>Additionally, the INDEX footer says "8 founding decisions + 6 living decisions recorded. 0 decisions reviewed." This is stale: there are now 7 living decisions in the table, 8 including the unregistered one.</p>
+    <div class="rec">Recommendation: Add 2026-07-04-messages-prospect-linked-field to INDEX.md table with review date. Update footer counts to 8 founding + 8 living.</div>
+  </div>
+
+  <div class="finding">
+    <h3>1.2 Stale count in INDEX.md footer</h3>
+    <p>The footer count is outdated: says 6 living, reality is 8.</p>
+    <div class="rec">Recommendation: Update footer after registering the missing decision.</div>
+  </div>
+</div>
+
+<!-- Section 2: Stale Claims -->
+<div class="section">
+  <h2><span class="num">2</span> Stale Claims</h2>
+
+  <div class="finding">
+    <h3>2.1 Glossary.md — still empty (carried forward from Jun 28)</h3>
+    <p><code>Agent/Glossary.md</code> still says "(populated during deployment interview)." Deployment was pre-June 21. The glossary remains empty — not a single term defined. Flagged in Jun 22, Jun 28, and Jul 5 lint reports. No change.</p>
+    <div class="rec">Recommendation: Populate with core terms (NF, Atlas, Iron Gate, Tier 1/2, Pulse, Calibration, ICP, DPP) or mark as deferred with an explicit reason and target date.</div>
+  </div>
+</div>
+
+<!-- Section 3: Unresolved Placeholders -->
+<div class="section">
+  <h2><span class="num">3</span> Unresolved Integration Stubs</h2>
+
+  <div class="finding">
+    <p>Four integration stubs remain empty placeholders with skeleton content but no real integration details:</p>
+    <ul>
+      <li><code>integrations/accounting.md</code></li>
+      <li><code>integrations/meta-ads.md</code></li>
+      <li><code>integrations/telegram.md</code></li>
+      <li><code>integrations/whatsapp.md</code></li>
+    </ul>
+    <p>First flagged Jun 22. Still unresolved through three consecutive lints.</p>
+    <p><strong>Update:</strong> Josh confirmed 2026-07-05: meta-ads, accounting, and whatsapp will NOT be integrated. Telegram IS integrated and should be populated.</p>
+    <div class="rec">Recommendation: Archive accounting.md, meta-ads.md, and whatsapp.md. Populate telegram.md with actual integration config.</div>
+  </div>
+</div>
+
+<!-- Section 4: Broken Links -->
+<div class="section">
+  <h2><span class="num">4</span> Broken Links (7)</h2>
+
+  <div class="finding">
+    <h3>4.1 Placeholder/example patterns (5)</h3>
+    <table>
+      <tr><th>Source</th><th>Target</th></tr>
+      <tr><td>Agent/wikilinks.md</td><td>path/to/file.md</td></tr>
+      <tr><td>Agent/consolidation-sop.md</td><td>path/to/file.md</td></tr>
+      <tr><td>Agent/connection-generation.md</td><td>path/to/file.md</td></tr>
+      <tr><td>memory/MEMORY.md</td><td>file.md</td></tr>
+      <tr><td>skills/devops/github-pages-deploy/references/vault-brain-architecture.md</td><td>path.md</td></tr>
+    </table>
+    <div class="rec">Low priority. Illustrative examples. Consider wrapping in code fences or adding "(example)" annotation.</div>
+  </div>
+
+  <div class="finding">
+    <h3>4.2 Snowark cross-vault references (2)</h3>
+    <table>
+      <tr><th>Source</th><th>Target</th></tr>
+      <tr><td>skills/snowark/file-naming/SKILL.md</td><td>Company/Brands/ForceUSA.md</td></tr>
+      <tr><td>skills/snowark/file-naming/SKILL.md</td><td>Company/Brands/Revel Index.md</td></tr>
+    </table>
+    <div class="rec">Remove Snowark-specific path examples or replace with NFS equivalents.</div>
+  </div>
+</div>
+
+<!-- Section 5: Gaps -->
+<div class="section">
+  <h2><span class="num">5</span> Gaps</h2>
+
+  <div class="finding">
+    <p>Two placeholder patterns with 2+ references but no target page:</p>
+    <table>
+      <tr><th>Pattern</th><th>References</th></tr>
+      <tr><td>path/to/file.md</td><td>4</td></tr>
+      <tr><td>path.md</td><td>2</td></tr>
+    </table>
+    <p>Both are example placeholders, not real gaps. No action needed.</p>
+  </div>
+</div>
+
+<!-- Section 6: Contradictions -->
+<div class="section">
+  <h2><span class="num">6</span> Contradictions</h2>
+
+  <div class="finding">
+    <h3>6.1 voice.md → SOUL.md fix CONFIRMED <span class="badge-resolved">RESOLVED</span></h3>
+    <p>The Jun 28 lint flagged identity/AGENT.md referencing non-existent voice.md. Fixed — the reference now correctly points to SOUL.md. No re-report needed.</p>
+  </div>
+
+  <div class="finding">
+    <h3>6.2 memory/ vs memories/ directories (informational)</h3>
+    <p>Two parallel memory directories exist: memory/ (NFS vault manual memory) and memories/ (Hermes internal memory system). Different systems serving different purposes — not a contradiction.</p>
+    <div class="rec">Document the distinction in memory/README.md to prevent future confusion.</div>
+  </div>
+
+  <div class="finding">
+    <h3>6.3 Memory convention drift <span class="badge-unresolved">UNRESOLVED</span></h3>
+    <p>memory/README.md mandates one-file-per-fact pattern. Reality: monolithic MEMORY.md with inline entries. Pattern never implemented.</p>
+    <div class="rec">Either implement one-file-per-fact or update README.md to document current monolithic approach.</div>
+  </div>
+</div>
+
+<!-- Section 7: Orphans -->
+<div class="section">
+  <h2><span class="num">7</span> Orphans</h2>
+
+  <div class="finding">
+    <h3>7.1 Root-level research files (4)</h3>
+    <p>Substantive research artifacts with zero inbound links — unreachable from the knowledge graph:</p>
+    <ul>
+      <li>aus_b2b_prospects.md</li>
+      <li>australian_construction_prospects.md</li>
+      <li>barton_partnership_research.md</li>
+      <li>ct4_research.md</li>
+    </ul>
+    <div class="rec">Link from research/INDEX.md or archive if superseded by Phase 2 prospect list.</div>
+  </div>
+
+  <div class="finding">
+    <h3>7.2 data/james-mining/ reports (3)</h3>
+    <p>Three published email intelligence reports with zero inbound links. Linked from Registry but via GitHub Pages URLs, not vault paths.</p>
+    <div class="rec">Add cross-reference from knowledge/systems.md or data/README.md.</div>
+  </div>
+
+  <div class="finding">
+    <h3>7.3 Skill SKILL.md files (~160)</h3>
+    <p>Expected — skills load via skill_view(), not wikilinks. No action needed.</p>
+  </div>
+</div>
+
+<!-- Section 8: Promotion Candidates -->
+<div class="section">
+  <h2><span class="num">8</span> Promotion Candidates</h2>
+
+  <div class="finding">
+    <h3>8.1 Oversized files (&gt;200 lines)</h3>
+    <table>
+      <tr><th>File</th><th>Lines</th><th>Recommendation</th></tr>
+      <tr><td>SOUL.md</td><td>235</td><td>Extract Dashboard + GitHub Pages to Agent/publishing.md</td></tr>
+      <tr><td>knowledge/interviews/james-hardstaff-2026-06-27.md</td><td>241</td><td>Extract key themes into linked domain cards</td></tr>
+      <tr><td>knowledge/sales-brain/01-first-reply.md</td><td>367</td><td>Monitor; split at 500+ lines</td></tr>
+      <tr><td>learnings/LEARNINGS.md</td><td>266</td><td>Promote sub-sections to learnings/cards/</td></tr>
+    </table>
+  </div>
+
+  <div class="finding">
+    <h3>8.2 Dense cluster</h3>
+    <p>knowledge/outreach-philosophy/ — 11 files, well-organised already. Verify learnings/INDEX.md cross-references.</p>
+  </div>
+</div>
+
+<!-- Resolved from Previous -->
+<div class="section">
+  <h2>Resolved from Previous Lint (2026-06-28)</h2>
+  <table class="resolved-table">
+    <tr><th>Item</th><th class="status">Status</th></tr>
+    <tr><td>voice.md → SOUL.md reference</td><td class="status"><span class="badge-resolved">Fixed</span></td></tr>
+    <tr><td>Agent/Wikilinks.md duplicate</td><td class="status"><span class="badge-resolved">Fixed</span></td></tr>
+    <tr><td>notes/2026-06-24.md bare wikilink</td><td class="status"><span class="badge-resolved">Fixed</span></td></tr>
+    <tr><td>4 integration placeholders</td><td class="status"><span class="badge-unresolved">Still open</span></td></tr>
+    <tr><td>Glossary.md empty</td><td class="status"><span class="badge-unresolved">Still open</span></td></tr>
+    <tr><td>3 root-level research files unlinked</td><td class="status"><span class="badge-unresolved">Still open</span></td></tr>
+    <tr><td>memory convention drift</td><td class="status"><span class="badge-unresolved">Still open</span></td></tr>
+    <tr><td>SOUL.md oversized</td><td class="status"><span class="badge-unresolved">Still open</span></td></tr>
+    <tr><td>Founder interview oversized</td><td class="status"><span class="badge-unresolved">Still open</span></td></tr>
+  </table>
+</div>
+
+<!-- Priority Shortlist -->
+<div class="section">
+  <h2>Recommended for Next Consolidation</h2>
+  <ol class="priority-list">
+    <li><strong>Register missing decision</strong> — 2026-07-04-messages-prospect-linked-field in INDEX.md. Update footer counts. One-line fix, prevents data loss.</li>
+    <li><strong>Populate Glossary.md</strong> — 7+ weeks since deployment. Define 8-10 core terms or mark as deferred with target date.</li>
+    <li><strong>Resolve 3 integration stubs</strong> — Archive accounting.md, meta-ads.md, whatsapp.md (confirmed won't integrate). Populate telegram.md.</li>
+    <li><strong>Index root-level research files</strong> — Link from research/INDEX.md. 4 files currently unreachable.</li>
+    <li><strong>Update memory/README.md</strong> — Align with actual monolithic pattern or implement one-file-per-fact.</li>
+    <li><strong>Remove Snowark cross-vault references</strong> — file-naming skill has paths that don't exist in NFS vault.</li>
+    <li><strong>Split SOUL.md</strong> — Dashboard + GitHub Pages sections to Agent/publishing.md.</li>
+    <li><strong>Monitor Sales Brain</strong> — 01-first-reply.md at 367 lines; split when it hits 500+.</li>
+    <li><strong>Monitor LEARNINGS.md</strong> — 266 lines; promote sub-sections to cards before it becomes unwieldy.</li>
+  </ol>
+</div>
+
+<!-- Graph Health -->
+<div class="section">
+  <h2>Graph Health</h2>
+  <p>226 in-scope files. Core cluster (Agent → knowledge → learnings → memory) is healthy and densely linked:</p>
+
+  <div class="graph-health">
+    <div class="bar-item">
+      <span class="bar-label">Agent/Infrastructure.md</span>
+      <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
+      <span class="bar-count">9</span>
+    </div>
+    <div class="bar-item">
+      <span class="bar-label">learnings/LEARNINGS.md</span>
+      <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
+      <span class="bar-count">8</span>
+    </div>
+    <div class="bar-item">
+      <span class="bar-label">memory/MEMORY.md</span>
+      <div class="bar-track"><div class="bar-fill" style="width:70%"></div></div>
+      <span class="bar-count">7</span>
+    </div>
+    <div class="bar-item">
+      <span class="bar-label">knowledge/systems.md</span>
+      <div class="bar-track"><div class="bar-fill" style="width:60%"></div></div>
+      <span class="bar-count">6</span>
+    </div>
+    <div class="bar-item">
+      <span class="bar-label">integrations/email.md</span>
+      <div class="bar-track"><div class="bar-fill" style="width:60%"></div></div>
+      <span class="bar-count">6</span>
+    </div>
+    <div class="bar-item">
+      <span class="bar-label">knowledge/business.md</span>
+      <div class="bar-track"><div class="bar-fill" style="width:60%"></div></div>
+      <span class="bar-count">6</span>
+    </div>
+    <div class="bar-item">
+      <span class="bar-label">Agent/consolidation-sop.md</span>
+      <div class="bar-track"><div class="bar-fill" style="width:50%"></div></div>
+      <span class="bar-count">5</span>
+    </div>
+    <div class="bar-item">
+      <span class="bar-label">Agent/Registry.md</span>
+      <div class="bar-track"><div class="bar-fill" style="width:50%"></div></div>
+      <span class="bar-count">5</span>
+    </div>
+    <div class="bar-item">
+      <span class="bar-label">outreach-philosophy/INDEX.md</span>
+      <div class="bar-track"><div class="bar-fill" style="width:50%"></div></div>
+      <span class="bar-count">5</span>
+    </div>
+  </div>
+
+  <div class="assessment">
+    <strong>Assessment:</strong> The core graph remains healthy. The vault has grown significantly since the Jun 28 lint (226 files vs ~60 in-scope), driven primarily by skill SKILL.md files. Most new content is well-organised. Main gaps are maintenance debt (Glossary, integration stubs, memory README) and one index drift (unregistered decision). No structural rot detected. The voice.md fix and Wikilinks.md duplicate removal show the lint→consolidation loop working.<br><br>
+    <strong>Carried-forward items (3 lints):</strong> Glossary.md, integration stubs, memory convention drift. If they carry to the Jul 12 lint, escalate to James for a decision on whether to fix or formally defer.
+  </div>
+</div>
+
+<div class="footer-note">
+  Report written 2026-07-05 17:00 ACST. Next lint: 2026-07-12.
+</div>
+
+</div>
+</body>
+</html>
