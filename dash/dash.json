@@ -39,28 +39,8 @@
     ]
   },
   "activity": {
-    "tasks_completed": 82,
+    "tasks_completed": 78,
     "recent": [
-      {
-        "date": "2026-07-05 12:35",
-        "task": "Established Campaign Review as permanent operating standard: template, skill, SOP, decision record, growth-operations integration",
-        "category": "task"
-      },
-      {
-        "date": "2026-07-05 10:43",
-        "task": "Airtable audit complete: 20 recommendations implemented. Schema changes (Prospect link, ICP fields, Design Partner stage), data reconciliation (95% sequence tracking, 98% message purpose, 85% Prospect links), script upgrades (dedup check, batch mode), new cron (stale prospect alert), documentation updated.",
-        "category": "task"
-      },
-      {
-        "date": "2026-07-05 08:40",
-        "task": "Morning briefing posted -- 20 Outreach Active, 0 calibration replies, July batch Email 2 window Jul 8-10 (drafting starts now), stale drafts flagged for cleanup",
-        "category": "task"
-      },
-      {
-        "date": "2026-07-03 08:05",
-        "task": "Sent calibration batch July 2026: 10/10 first-touch emails \u2014 4 MSPs, 2 Construction, 1 Engineering, 1 Cleaning (sole trader), 2 B2B Services. All CRM reconciled.",
-        "category": "task"
-      },
       {
         "date": "2026-07-03 06:37",
         "task": "Subject line philosophy shift: title case, 3-7 words, business-owner-to-business-owner. Three styles (Question/Observation/Context), 5-10 options per campaign with authenticity scoring.",
@@ -140,6 +120,26 @@
         "date": "2026-06-30 23:11",
         "task": "Fixed draft accordion toggle: display:flex on summary kills native details toggle (WebKit bug). Moved flex to inner wrapper div, summary now display:block.",
         "category": "task"
+      },
+      {
+        "date": "2026-06-30 23:05",
+        "task": "Morning briefing posted \u2014 9 active, 0 replies, Email 2 window opening for painters/cleaners (Day 5-7). Inbox pulse restored after OAuth re-auth.",
+        "category": "task"
+      },
+      {
+        "date": "2026-06-30 22:55",
+        "task": "Fixed Gmail token false-alarm in Prepare-Ahead cron: epoch-zero expiry is working state, not breakage. Patched growth-operations skill + LEARNINGS.",
+        "category": "task"
+      },
+      {
+        "date": "2026-06-30 07:12",
+        "task": "Campaign pulse posted \u2014 9 Outreach Active, 0 replies at Day 1-2, Email 2 window opens tomorrow for painters",
+        "category": "task"
+      },
+      {
+        "date": "2026-06-29 22:05",
+        "task": "Prepare-ahead: Email 2 follow-up drafts for 6 painter/cleaner prospects saved to vault (window opens today). Gmail token expired \u2014 James re-auth needed before send.",
+        "category": "task"
       }
     ]
   },
@@ -164,81 +164,40 @@
       }
     ]
   },
-  "last_updated": "2026-07-05T15:30:11.045950+09:30",
+  "last_updated": "2026-07-03T07:30:30.135950+09:30",
   "pipeline": {
-    "prospect_count": 196,
+    "prospect_count": 181,
     "stages": {
-      "Outreach Active": 19,
-      "New": 174,
-      "Lost": 2,
-      "Design Partner": 1
+      "New": 171,
+      "Outreach Active": 9,
+      "Lost": 1
     },
     "verticals": {
-      "IT MSP": 4,
       "Marketing agency": 30,
       "Painter": 121,
-      "Commercial cleaning": 30,
-      "Landscaper": 1,
-      "Construction": 2,
-      "Other": 1,
-      "Plumber": 1,
-      "B2B Services": 2,
-      "Engineering": 1,
-      "Electrician": 2,
-      "Cleaning": 1
+      "Commercial cleaning": 30
     },
     "stage_by_vertical": {
-      "Outreach Active": {
-        "IT MSP": 4,
-        "Painter": 4,
-        "Construction": 2,
-        "Commercial cleaning": 2,
-        "Marketing agency": 3,
-        "B2B Services": 2,
-        "Engineering": 1,
-        "Cleaning": 1
-      },
       "New": {
         "Marketing agency": 27,
-        "Painter": 115,
-        "Commercial cleaning": 27,
-        "Landscaper": 1,
-        "Other": 1,
-        "Plumber": 1,
-        "Electrician": 2
+        "Painter": 117,
+        "Commercial cleaning": 27
+      },
+      "Outreach Active": {
+        "Painter": 4,
+        "Commercial cleaning": 2,
+        "Marketing agency": 3
       },
       "Lost": {
-        "Painter": 1,
         "Commercial cleaning": 1
-      },
-      "Design Partner": {
-        "Painter": 1
       }
     },
     "outreach_active": [
-      {
-        "name": "Netlogyx",
-        "industry": "IT MSP",
-        "last_contacted": "2026-07-02",
-        "suburb": "Gold Coast"
-      },
       {
         "name": "Distinct Painters",
         "industry": "Painter",
         "last_contacted": "2026-07-02",
         "suburb": "South Australia"
-      },
-      {
-        "name": "Atcom Technology",
-        "industry": "IT MSP",
-        "last_contacted": "2026-07-02",
-        "suburb": "Perth"
-      },
-      {
-        "name": "Parkview Constructions",
-        "industry": "Construction",
-        "last_contacted": "2026-07-02",
-        "suburb": "Sydney"
       },
       {
         "name": "Kleena Cleaners",
@@ -259,40 +218,16 @@
         "suburb": "Victoria"
       },
       {
-        "name": "Beaumont People",
-        "industry": "B2B Services",
-        "last_contacted": "2026-07-02",
-        "suburb": "National"
-      },
-      {
         "name": "Matte Projects Painting and Decorating",
         "industry": "Painter",
         "last_contacted": "2026-07-02",
         "suburb": "South Australia"
       },
       {
-        "name": "Matrix Group",
-        "industry": "Engineering",
-        "last_contacted": "2026-07-02",
-        "suburb": "Melbourne"
-      },
-      {
         "name": "Adelaide Designer Painters",
         "industry": "Painter",
         "last_contacted": "2026-07-02",
         "suburb": "South Australia"
-      },
-      {
-        "name": "Synergy IT",
-        "industry": "IT MSP",
-        "last_contacted": "2026-07-02",
-        "suburb": "Sydney"
-      },
-      {
-        "name": "Davidson",
-        "industry": "B2B Services",
-        "last_contacted": "2026-07-02",
-        "suburb": "Brisbane"
       },
       {
         "name": "Performance Cleaning",
@@ -307,51 +242,28 @@
         "suburb": "Sydney"
       },
       {
-        "name": "Excel Cleaning",
-        "industry": "Cleaning",
-        "last_contacted": "2026-07-02",
-        "suburb": "Melbourne"
-      },
-      {
         "name": "Online Marketing Gurus (OMG)",
         "industry": "Marketing agency",
         "last_contacted": "2026-07-02",
         "suburb": "Sydney"
-      },
-      {
-        "name": "Kapitol Group",
-        "industry": "Construction",
-        "last_contacted": "2026-07-02",
-        "suburb": "Melbourne"
-      },
-      {
-        "name": "IT Blueprint",
-        "industry": "IT MSP",
-        "last_contacted": "2026-07-02",
-        "suburb": "Brisbane"
       }
     ],
     "active_by_vertical": {
-      "IT MSP": 4,
       "Painter": 4,
-      "Construction": 2,
       "Commercial cleaning": 2,
-      "Marketing agency": 3,
-      "B2B Services": 2,
-      "Engineering": 1,
-      "Cleaning": 1
+      "Marketing agency": 3
     },
     "messages": {
-      "outbound_total": 38,
+      "outbound_total": 28,
       "inbound_total": 2,
-      "total": 40,
-      "reply_rate": 5.3,
+      "total": 30,
+      "reply_rate": 7.1,
       "last_7_days": {
-        "outbound": 29,
+        "outbound": 26,
         "inbound": 0
       }
     },
-    "last_refreshed": "2026-07-05T06:00:11.044974+00:00"
+    "last_refreshed": "2026-07-02T22:00:30.135607+00:00"
   },
   "decisions": {
     "total": 10,
@@ -505,6 +417,23 @@
   "drafts": {
     "files": [
       {
+        "file": "calibration-jul-2026.md",
+        "title": "Calibration Batch \u2014 July 2026",
+        "status": null,
+        "window": null,
+        "prospects": [
+          {
+            "name": "Beaumont People \u2014 National",
+            "subject": null,
+            "angles": [
+              "Angle: Multi-office recruitment with proposals going to HR/exec teams"
+            ],
+            "body": null
+          }
+        ],
+        "prospect_count": 1
+      },
+      {
         "file": "email-2-painters-cleaners-2026-06-30.md",
         "title": "Email 2 Drafts, Painters & Cleaners",
         "status": "PENDING JAMES REVIEW",
@@ -602,26 +531,9 @@
           }
         ],
         "prospect_count": 3
-      },
-      {
-        "file": "calibration-jul-2026.md",
-        "title": "Calibration Batch \u2014 July 2026",
-        "status": null,
-        "window": null,
-        "prospects": [
-          {
-            "name": "Beaumont People \u2014 National",
-            "subject": null,
-            "angles": [
-              "Angle: Multi-office recruitment with proposals going to HR/exec teams"
-            ],
-            "body": null
-          }
-        ],
-        "prospect_count": 1
       }
     ],
-    "updated": "2026-07-04T23:10:58.788235+00:00",
+    "updated": "2026-07-02T22:05:27.049029+00:00",
     "total_files": 3,
     "total_prospects": 10
   }

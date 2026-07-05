@@ -8,61 +8,6 @@ tier: primary
 
 > Append-only log of fixes, API quirks, and gotchas. Check BEFORE touching any external API. Newest first.
 
-## 2026-07-03: Subject line philosophy — business owner to business owner
-
-**Decision:** Subject lines shift from lowercase conversational ("your quotes", "follow-up problem") to title case business-owner-to-business-owner ("A Quick Question About Your Quoting", "Your Quoting Process").
-
-**Changes:**
-- Cold-email skill: Complete rewrite of Subject Lines section. Title case, 3-7 words, three preferred styles (Question, Observation, Context), 5-10 option generation workflow with authenticity/curiosity/professionalism scoring
-- Post-draft verification: Added subject line check as step 7
-- What NOT to Use now explicitly bans all-lowercase subjects
-
-**Three preferred styles:**
-- Question: "A Quick Question About Your Quoting"
-- Observation: "Commercial Cleaning Quotes"
-- Context: "After Looking at Your Website"
-
-**Per-campaign: generate 5-10 options, score each /10 across three dimensions, recommend strongest with explanation.**
-
-
-## 2026-07-03: Industry fluency > company research — outreach philosophy shift
-
-**Decision:** Outreach personalisation now prioritises industry operational understanding over company website facts. Prospect should feel understood at the business-model level, not researched at the About-page level.
-
-**Trigger:** James identified that company-specific personalisation ("ACS covers medical, dental, schools, offices, strata") signals "I read your website" rather than "I understand your world." The distinction matters for trust.
-
-**Changes (system-wide):**
-- Outreach Philosophy INDEX.md: Added Principle 9, rewrote Personalisation Framework, Decision Tree, Questions section, Never Do list
-- Cold-email skill: Rewrote Principle 2, Insight-led opening, Quality Check dimensions, Over-Displaying Research pitfall, Checklist, Trust signals
-- New reference file: `skills/cold-email/references/industry-quoting-dynamics.md` — 5-question framework with worked examples for cleaning, trades, agencies, IT MSPs, construction
-- Decision Library: `2026-07-03-industry-fluency-over-company-research.md`
-- SOUL.md: No change needed (principle-level change, not core identity)
-
-**The 5-question framework:**
-1. What's their business model? (recurring, project, retainer+project, transactional)
-2. What does quoting look like? (complexity, volume, creator, delivery)
-3. What's the operational tension? (structural reason follow-up is hard in this industry)
-4. What happens after a quote goes out? (process, memory, or nothing)
-5. Why would they feel the gap? (emotional/financial consequence)
-
-**Company-specific details are now seasoning, not the meal. Use only to sharpen an operational observation.**
-
-
-
-**Symptom:** Every email had "Atlas" as standalone body closing, then signature block ALSO started with "Atlas." Looked like a stutter/double sign-off.
-
-**Root cause:** The rule "body's closing word must be Atlas" (in email-draft, cold-email, memory, SOUL.md) was designed to prevent a James-vs-Atlas mismatch, but created a worse problem: the Gmail signature block already contains "Atlas" as the first line. Two "Atlas" lines stacked = awkward.
-
-**Fix:** 8 patches across 6 files. New rule: Gmail signature block IS the sign-off. No standalone closing word needed above it. Body flows naturally into signature.
-
-**Files changed:**
-- `skills/email-draft/SKILL.md` — removed body closing rule from Hard rules
-- `skills/cold-email/SKILL.md` — replaced mismatch rule with duplication rule; removed "Atlas" from 2 templates
-- `skills/cold-email/references/acs-benchmark.md` — removed manual sign-off from 2 benchmark examples
-- `memory/MEMORY.md` — updated sign-off memory entry
-- `pages/dash/data/atlas-content/63bb1b60ffa5.txt` — updated dashboard copy
-- `SOUL.md` — clarified sign-off rule refers to display name, not body closing
-
 ## 2026-07-02 — DeepSeek API broken pipe burst: 19 errors in 61 min, first 3/3 retry exhaustion
 
 **Symptom:** 19 `[Errno 32] Broken pipe` errors between 08:18-09:19 Adelaide, all from `inbox-pulse-phase2` (`2d4a9ff4f06b`). One run (09:03-09:09) exhausted all 3 retries and failed entirely — first time retries weren't sufficient.
