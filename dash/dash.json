@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 80,
+    "tasks_completed": 81,
     "recent": [
+      {
+        "date": "2026-07-05 10:43",
+        "task": "Airtable audit complete: 20 recommendations implemented. Schema changes (Prospect link, ICP fields, Design Partner stage), data reconciliation (95% sequence tracking, 98% message purpose, 85% Prospect links), script upgrades (dedup check, batch mode), new cron (stale prospect alert), documentation updated.",
+        "category": "task"
+      },
       {
         "date": "2026-07-05 08:40",
         "task": "Morning briefing posted -- 20 Outreach Active, 0 calibration replies, July batch Email 2 window Jul 8-10 (drafting starts now), stale drafts flagged for cleanup",
@@ -135,11 +140,6 @@
         "date": "2026-06-30 23:05",
         "task": "Morning briefing posted \u2014 9 active, 0 replies, Email 2 window opening for painters/cleaners (Day 5-7). Inbox pulse restored after OAuth re-auth.",
         "category": "task"
-      },
-      {
-        "date": "2026-06-30 22:55",
-        "task": "Fixed Gmail token false-alarm in Prepare-Ahead cron: epoch-zero expiry is working state, not breakage. Patched growth-operations skill + LEARNINGS.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-05T10:43:21.886041+09:30",
+  "last_updated": "2026-07-05T10:43:50.240801+09:30",
   "pipeline": {
     "prospect_count": 196,
     "stages": {
