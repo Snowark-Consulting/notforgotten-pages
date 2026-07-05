@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 79,
+    "tasks_completed": 80,
     "recent": [
+      {
+        "date": "2026-07-06 08:40",
+        "task": "Morning briefing posted \u2014 19 active prospects, 0 replies, Email 3 window opens today for 7 prospects, Email 2 window Jul 7 for 12 prospects",
+        "category": "task"
+      },
       {
         "date": "2026-07-05 17:46",
         "task": "Published vault lint report 2026-07-05 at /vault-lint/",
@@ -135,11 +140,6 @@
         "date": "2026-06-30 22:55",
         "task": "Fixed Gmail token false-alarm in Prepare-Ahead cron: epoch-zero expiry is working state, not breakage. Patched growth-operations skill + LEARNINGS.",
         "category": "task"
-      },
-      {
-        "date": "2026-06-30 07:12",
-        "task": "Campaign pulse posted \u2014 9 Outreach Active, 0 replies at Day 1-2, Email 2 window opens tomorrow for painters",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-06T07:30:10.230217+09:30",
+  "last_updated": "2026-07-06T08:40:03.406091+09:30",
   "pipeline": {
     "prospect_count": 196,
     "stages": {
