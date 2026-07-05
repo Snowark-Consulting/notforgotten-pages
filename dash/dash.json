@@ -164,13 +164,14 @@
       }
     ]
   },
-  "last_updated": "2026-07-05T12:35:10.740353+09:30",
+  "last_updated": "2026-07-05T15:30:11.045950+09:30",
   "pipeline": {
     "prospect_count": 196,
     "stages": {
       "Outreach Active": 19,
-      "New": 175,
-      "Lost": 2
+      "New": 174,
+      "Lost": 2,
+      "Design Partner": 1
     },
     "verticals": {
       "IT MSP": 4,
@@ -199,7 +200,7 @@
       },
       "New": {
         "Marketing agency": 27,
-        "Painter": 116,
+        "Painter": 115,
         "Commercial cleaning": 27,
         "Landscaper": 1,
         "Other": 1,
@@ -209,6 +210,9 @@
       "Lost": {
         "Painter": 1,
         "Commercial cleaning": 1
+      },
+      "Design Partner": {
+        "Painter": 1
       }
     },
     "outreach_active": [
@@ -343,11 +347,11 @@
       "total": 40,
       "reply_rate": 5.3,
       "last_7_days": {
-        "outbound": 36,
+        "outbound": 29,
         "inbound": 0
       }
     },
-    "last_refreshed": "2026-07-05T02:00:05.065207+00:00"
+    "last_refreshed": "2026-07-05T06:00:11.044974+00:00"
   },
   "decisions": {
     "total": 10,
