@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 81,
+    "tasks_completed": 82,
     "recent": [
+      {
+        "date": "2026-07-05 12:35",
+        "task": "Established Campaign Review as permanent operating standard: template, skill, SOP, decision record, growth-operations integration",
+        "category": "task"
+      },
       {
         "date": "2026-07-05 10:43",
         "task": "Airtable audit complete: 20 recommendations implemented. Schema changes (Prospect link, ICP fields, Design Partner stage), data reconciliation (95% sequence tracking, 98% message purpose, 85% Prospect links), script upgrades (dedup check, batch mode), new cron (stale prospect alert), documentation updated.",
@@ -135,11 +140,6 @@
         "date": "2026-06-30 23:11",
         "task": "Fixed draft accordion toggle: display:flex on summary kills native details toggle (WebKit bug). Moved flex to inner wrapper div, summary now display:block.",
         "category": "task"
-      },
-      {
-        "date": "2026-06-30 23:05",
-        "task": "Morning briefing posted \u2014 9 active, 0 replies, Email 2 window opening for painters/cleaners (Day 5-7). Inbox pulse restored after OAuth re-auth.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-05T11:30:05.065465+09:30",
+  "last_updated": "2026-07-05T12:35:10.740353+09:30",
   "pipeline": {
     "prospect_count": 196,
     "stages": {
