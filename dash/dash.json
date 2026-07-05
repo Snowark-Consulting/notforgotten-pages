@@ -164,40 +164,81 @@
       }
     ]
   },
-  "last_updated": "2026-07-05T17:46:21.711245+09:30",
+  "last_updated": "2026-07-05T19:30:17.986655+09:30",
   "pipeline": {
-    "prospect_count": 181,
+    "prospect_count": 196,
     "stages": {
-      "New": 171,
-      "Outreach Active": 9,
-      "Lost": 1
+      "Outreach Active": 19,
+      "New": 174,
+      "Lost": 2,
+      "Design Partner": 1
     },
     "verticals": {
+      "IT MSP": 4,
       "Marketing agency": 30,
       "Painter": 121,
-      "Commercial cleaning": 30
+      "Commercial cleaning": 30,
+      "Landscaper": 1,
+      "Construction": 2,
+      "Other": 1,
+      "Plumber": 1,
+      "B2B Services": 2,
+      "Engineering": 1,
+      "Electrician": 2,
+      "Cleaning": 1
     },
     "stage_by_vertical": {
+      "Outreach Active": {
+        "IT MSP": 4,
+        "Painter": 4,
+        "Construction": 2,
+        "Commercial cleaning": 2,
+        "Marketing agency": 3,
+        "B2B Services": 2,
+        "Engineering": 1,
+        "Cleaning": 1
+      },
       "New": {
         "Marketing agency": 27,
-        "Painter": 117,
-        "Commercial cleaning": 27
-      },
-      "Outreach Active": {
-        "Painter": 4,
-        "Commercial cleaning": 2,
-        "Marketing agency": 3
+        "Painter": 115,
+        "Commercial cleaning": 27,
+        "Landscaper": 1,
+        "Other": 1,
+        "Plumber": 1,
+        "Electrician": 2
       },
       "Lost": {
+        "Painter": 1,
         "Commercial cleaning": 1
+      },
+      "Design Partner": {
+        "Painter": 1
       }
     },
     "outreach_active": [
+      {
+        "name": "Netlogyx",
+        "industry": "IT MSP",
+        "last_contacted": "2026-07-02",
+        "suburb": "Gold Coast"
+      },
       {
         "name": "Distinct Painters",
         "industry": "Painter",
         "last_contacted": "2026-07-02",
         "suburb": "South Australia"
+      },
+      {
+        "name": "Atcom Technology",
+        "industry": "IT MSP",
+        "last_contacted": "2026-07-02",
+        "suburb": "Perth"
+      },
+      {
+        "name": "Parkview Constructions",
+        "industry": "Construction",
+        "last_contacted": "2026-07-02",
+        "suburb": "Sydney"
       },
       {
         "name": "Kleena Cleaners",
@@ -218,16 +259,40 @@
         "suburb": "Victoria"
       },
       {
+        "name": "Beaumont People",
+        "industry": "B2B Services",
+        "last_contacted": "2026-07-02",
+        "suburb": "National"
+      },
+      {
         "name": "Matte Projects Painting and Decorating",
         "industry": "Painter",
         "last_contacted": "2026-07-02",
         "suburb": "South Australia"
       },
       {
+        "name": "Matrix Group",
+        "industry": "Engineering",
+        "last_contacted": "2026-07-02",
+        "suburb": "Melbourne"
+      },
+      {
         "name": "Adelaide Designer Painters",
         "industry": "Painter",
         "last_contacted": "2026-07-02",
         "suburb": "South Australia"
+      },
+      {
+        "name": "Synergy IT",
+        "industry": "IT MSP",
+        "last_contacted": "2026-07-02",
+        "suburb": "Sydney"
+      },
+      {
+        "name": "Davidson",
+        "industry": "B2B Services",
+        "last_contacted": "2026-07-02",
+        "suburb": "Brisbane"
       },
       {
         "name": "Performance Cleaning",
@@ -242,28 +307,51 @@
         "suburb": "Sydney"
       },
       {
+        "name": "Excel Cleaning",
+        "industry": "Cleaning",
+        "last_contacted": "2026-07-02",
+        "suburb": "Melbourne"
+      },
+      {
         "name": "Online Marketing Gurus (OMG)",
         "industry": "Marketing agency",
         "last_contacted": "2026-07-02",
         "suburb": "Sydney"
+      },
+      {
+        "name": "Kapitol Group",
+        "industry": "Construction",
+        "last_contacted": "2026-07-02",
+        "suburb": "Melbourne"
+      },
+      {
+        "name": "IT Blueprint",
+        "industry": "IT MSP",
+        "last_contacted": "2026-07-02",
+        "suburb": "Brisbane"
       }
     ],
     "active_by_vertical": {
+      "IT MSP": 4,
       "Painter": 4,
+      "Construction": 2,
       "Commercial cleaning": 2,
-      "Marketing agency": 3
+      "Marketing agency": 3,
+      "B2B Services": 2,
+      "Engineering": 1,
+      "Cleaning": 1
     },
     "messages": {
-      "outbound_total": 28,
+      "outbound_total": 38,
       "inbound_total": 2,
-      "total": 30,
-      "reply_rate": 7.1,
+      "total": 40,
+      "reply_rate": 5.3,
       "last_7_days": {
-        "outbound": 26,
+        "outbound": 29,
         "inbound": 0
       }
     },
-    "last_refreshed": "2026-07-02T22:00:30.135607+00:00"
+    "last_refreshed": "2026-07-05T10:00:17.985488+00:00"
   },
   "decisions": {
     "total": 10,
