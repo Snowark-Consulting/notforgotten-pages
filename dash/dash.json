@@ -164,28 +164,32 @@
       }
     ]
   },
-  "last_updated": "2026-07-05T08:40:02.587357+09:30",
+  "last_updated": "2026-07-05T10:43:21.886041+09:30",
   "pipeline": {
-    "prospect_count": 191,
+    "prospect_count": 196,
     "stages": {
-      "Outreach Active": 20,
-      "New": 170,
-      "Lost": 1
+      "Outreach Active": 19,
+      "New": 175,
+      "Lost": 2
     },
     "verticals": {
       "IT MSP": 4,
       "Marketing agency": 30,
       "Painter": 121,
       "Commercial cleaning": 30,
+      "Landscaper": 1,
       "Construction": 2,
+      "Other": 1,
+      "Plumber": 1,
       "B2B Services": 2,
       "Engineering": 1,
+      "Electrician": 2,
       "Cleaning": 1
     },
     "stage_by_vertical": {
       "Outreach Active": {
         "IT MSP": 4,
-        "Painter": 5,
+        "Painter": 4,
         "Construction": 2,
         "Commercial cleaning": 2,
         "Marketing agency": 3,
@@ -196,9 +200,14 @@
       "New": {
         "Marketing agency": 27,
         "Painter": 116,
-        "Commercial cleaning": 27
+        "Commercial cleaning": 27,
+        "Landscaper": 1,
+        "Other": 1,
+        "Plumber": 1,
+        "Electrician": 2
       },
       "Lost": {
+        "Painter": 1,
         "Commercial cleaning": 1
       }
     },
@@ -228,15 +237,9 @@
         "suburb": "Sydney"
       },
       {
-        "name": "Cameron Davidson Painters & Decorators",
-        "industry": "Painter",
-        "last_contacted": "2026-01-14",
-        "suburb": "South Australia"
-      },
-      {
         "name": "Kleena Cleaners",
         "industry": "Commercial cleaning",
-        "last_contacted": "2026-07-04",
+        "last_contacted": "2026-07-02",
         "suburb": "ADELAIDE"
       },
       {
@@ -326,7 +329,7 @@
     ],
     "active_by_vertical": {
       "IT MSP": 4,
-      "Painter": 5,
+      "Painter": 4,
       "Construction": 2,
       "Commercial cleaning": 2,
       "Marketing agency": 3,
@@ -344,7 +347,7 @@
         "inbound": 0
       }
     },
-    "last_refreshed": "2026-07-04T22:01:03.796093+00:00"
+    "last_refreshed": "2026-07-05T01:13:21.885352+00:00"
   },
   "decisions": {
     "total": 10,
