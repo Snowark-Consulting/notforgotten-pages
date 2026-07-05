@@ -1,0 +1,71 @@
+# Decision: Airtable Audit — CRM as Single Source of Truth
+
+**Slug:** `2026-07-05-airtable-audit-crm-reconciliation`
+**Date:** 2026-07-05
+**Status:** 🟢 Made
+**Review Date:** 2026-08-05 (30 days)
+**Type:** Operational
+
+## Context
+
+A comprehensive audit of the Not Forgotten HQ Airtable base (appgw8Q993yOh4xpQ) was conducted on 2026-07-05. The audit examined all 4 tables (Prospects: 196 records, Clients: 0, Quotes: 2, Messages: 40), 13 cron jobs, the crm-update-send.py script, and all 8 audit areas requested by James.
+
+## Key Findings
+
+1. **Sequence tracking was at 0%** — All 4 sequence fields (Outreach Sequence, Current Touchpoint, Next Touchpoint Date, Sequence Status) existed in the schema but were never populated for any of the 20 Outreach Active prospects.
+
+2. **Messages had no Prospect link** — The Messages table linked only to Quotes, making it impossible to trace outreach emails back to the prospects they targeted. 38 outbound messages were functionally orphaned.
+
+3. **CRM and real workflow were disconnected** — crm-update-send.py was designed and built but never executed during actual send waves. Every send created drift between reality and Airtable.
+
+4. **Pipeline stages didn't reflect real workflow** — Stages like "Demo booked" and "In conversation" existed but were never used. No "Design Partner" stage existed despite it being the current acquisition model.
+
+5. **75% of prospects lacked contact names** — 147/196 prospects had no Contact first name, making cold email personalization impossible without manual research.
+
+6. **6 prospects received duplicate sends** on July 2 (5.5 hours apart) due to no duplicate prevention.
+
+## Decision
+
+Implement all Critical and Important recommendations from the audit to make Airtable the single source of truth for the business. Specifically:
+
+1. **Add Prospect link field to Messages** — Enable direct traceability from every message to its prospect.
+2. **Backfill sequence tracking** — Reconcile all 20 Outreach Active prospects with their actual send history.
+3. **Fix crm-update-send.py** — Remove silent-fail Subject bug, add Prospect link, Message purpose, Atlas rationale, and duplicate send prevention.
+4. **Mandate CRM reconciliation** — Update pre-flight checklist to make crm-update-send.py non-negotiable after every send.
+5. **Add ICP qualification fields** — Employee count and Owner does quoting fields for prospect segmentation.
+6. **Add Design Partner pipeline stage** — Reflect actual acquisition model.
+7. **Populate Message purpose** — Categorize all 38 existing outbound messages.
+8. **Build stale prospect alert** — Weekly cron job to flag prospects sitting untouched >14 days.
+9. **Add batch reconciliation mode** — Support bulk send waves via JSON input to crm-update-send.py.
+
+## Expected Outcomes
+
+- Sequence tracking: 0% → 95% populated for Outreach Active prospects
+- Messages with Prospect links: 0% → 85% linked
+- Message purpose: 5% → 98% populated
+- Duplicate send prevention: automated check before every send
+- CRM drift: eliminated by mandatory post-send reconciliation
+
+## Success Criteria
+
+- [ ] At next send wave, every prospect reconciled with exit code 0
+- [ ] Pipeline dashboard reflects actual sequence state
+- [ ] 30-day review: sequence tracking still at >90% population
+- [ ] No duplicate sends detected after July 2026
+
+## Atlas's Challenge
+
+**Concern:** The audit fixes the CRM's ability to track what happened. But the CRM is still reactive — it records sends, it doesn't initiate them. The next bottleneck will be: who runs crm-update-send.py after each send, and how do we ensure it's never skipped?
+
+**Alternative:** Consider a Gmail webhook or post-send trigger that automatically calls crm-update-send.py. Until then, the pre-flight checklist's mandatory step is the enforcement mechanism.
+
+**James's response:** (pending)
+
+## Evidence
+
+- Full schema audit via Airtable Meta API
+- 196 Prospects, 40 Messages, 2 Quotes queried and analyzed
+- crm-update-send.py code review (lines 1-374)
+- 13 cron jobs inventoried
+- 6 duplicate send pairs confirmed via body-prefix matching
+- All changes verified post-implementation (2026-07-05)

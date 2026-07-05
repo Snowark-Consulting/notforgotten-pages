@@ -1,0 +1,176 @@
+# Decision: ICP Refined to Owner-Led Small Businesses (2-10 Employees)
+
+**Slug:** `2026-07-04-icp-owner-led-small-business`
+**Date:** 2026-07-04
+**Status:** Made
+**Review Date:** 2026-10-04
+
+---
+
+## The Decision
+
+Not Forgotten's ideal customer profile is now explicitly owner-led businesses with approximately 2-10 employees (up to ~15 if still founder-led), where the owner or small leadership team is directly involved in quoting and customer follow-up. We optimise for highest probability of becoming an early customer and validating product-market fit, not for brand recognition or company size.
+
+---
+
+## The Problem
+
+Previous industry research and scoring (2026-06-27) was calibrated toward larger, more established businesses. Marketing Agencies scored #1 at 42/50, IT MSPs #2 at 40/50, Commercial Construction #3 at 38/50. James has now identified this as the wrong part of the market for where Not Forgotten is today.
+
+The gap: larger businesses have more complex buying processes, more stakeholders, and often dedicated sales departments. Owner-led businesses have immediate pain, simple decision-making, and faster purchasing cycles — exactly what an early-stage product needs to validate product-market fit.
+
+---
+
+## Options Considered
+
+| # | Option | Summary |
+|---|---|---|
+| A | **Stay broad** — target any business that quotes work, regardless of size | Maximises addressable market but wastes effort on low-probability prospects with complex buying processes |
+| B | **Owner-led small business (chosen)** — 2-10 employees, founder-led, simple buying process | Smaller addressable market but higher conversion probability, faster sales cycles, better feedback loops for product-market fit |
+| C | **Micro-business only** — sole traders and 2-person operations | Fastest buying process but lowest revenue per customer, highest churn risk, limited validation for scalable product |
+
+---
+
+## Why This Path
+
+Option B balances conversion probability with business value. The 2-10 employee range captures businesses large enough to have genuine quoting volume and revenue at stake, but small enough that the owner still feels the pain directly and can make a purchasing decision without committee approval.
+
+This aligns with the "earn the right" meta-principle: start where the pain is most acute and the sale is simplest, prove the product, then expand to more complex segments.
+
+Trade-off accepted: smaller total addressable market in exchange for higher hit rate per prospect.
+
+---
+
+## Core Principles Applied
+
+- **Earn the right** — validate with simplest customers first, then expand
+- **Evidence before optimisation** — this ICP is a hypothesis; we test through outreach and adjust
+- **Customer discovers, we don't convince** — owner-led businesses feel the quoting pain directly; they discover the gap faster than a sales-department manager who's insulated from it
+- **Constraints are design choices** — small market is not a limitation, it's the forcing function for tight messaging
+
+---
+
+## ICP Definition (Operational)
+
+When researching prospects, qualify against:
+
+1. **Employee count:** Approximately 2-10 (up to ~15 if still founder-led)
+2. **Quoting activity:** Regularly sends quotes/proposals as part of winning work
+3. **Decision-making:** Owner or small leadership team directly involved in quoting and customer follow-up
+4. **Structure:** No dedicated sales department or complex corporate structure
+5. **Buying process:** Likely to make purchasing decisions quickly (no board, no procurement team)
+
+**Research deliverables per prospect:**
+- Estimated employee count
+- Whether the business appears founder-led
+- Buying process simplicity assessment
+- **Likelihood the owner is still responsible for quoting and customer follow-up** — rated Very High / High / Medium / Low, with brief reasoning for the assessment
+- Why they're a good fit for Not Forgotten (specific to the ICP criteria above)
+
+**Prioritisation lens:** Prioritise businesses that are *operationally mature but not sales mature*. The ideal prospect has a professional website, sends formal quotes, has a small team, is growing — but doesn't appear to have a dedicated sales department or complex management structure. These are the businesses most likely to benefit from Not Forgotten: they have enough quoting volume to feel the pain, but no one whose job it is to solve it.
+
+### Owner Quoting Likelihood Scale
+
+| Rating | Signal | What to look for |
+|---|---|---|
+| **Very High** | Owner does all quoting personally | Solo founder or 2-3 person team. No admin staff. Owner's name/email is the only contact on the website. About page describes the owner as the business. |
+| **High** | Owner handles all sales/quoting, some admin support | 3-7 employees. Office manager or admin person exists but doesn't do sales. Owner still listed as contact for new enquiries. |
+| **Medium** | Owner oversees quoting but may delegate some | 7-15 employees. May have a junior estimator or office manager handling smaller quotes. Owner still signs off on major proposals or handles key accounts personally. |
+| **Low** | Quoting mostly handled by others | 10-15+ employees. Has a sales manager, general manager, or dedicated estimator. Owner is more strategic/operational. Not our ICP unless there's strong evidence otherwise. |
+
+**What we do NOT optimise for:**
+- Brand recognition
+- Company size
+- Revenue
+
+---
+
+## Risks Identified
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| Smaller ACV per customer limits revenue growth | Medium | Medium | $199/mo is still trivial for any business with deal sizes above $2k. One recovered job pays for years of subscription. |
+| Owner-led businesses have higher churn risk (less process maturity) | Medium | Medium | Onboarding must deliver value in first 30 days. Measure churn by segment. |
+| Narrow ICP limits top-of-funnel volume | Medium | Low | Higher conversion rate offsets lower volume. If conversion doesn't compensate, expand ICP. |
+| Industries previously scored high (marketing agencies, MSPs) may now be poor fits | High | Low | Re-score all industries through new ICP lens before next research sprint. |
+
+---
+
+## Expected Outcome
+
+Higher reply rates, faster sales cycles, and earlier first customers than if we continued targeting larger businesses. The ICP should produce prospects where the pain is self-evident and the decision is one conversation, not a procurement process.
+
+---
+
+## Success Criteria
+
+- [ ] First 3 customers acquired from ICP-aligned outreach (not warm referrals or inbound)
+- [ ] Average time-to-close under 14 days from first reply
+- [ ] Customer feedback confirms "quoting follow-up pain" was genuinely felt by the owner
+- [ ] Churn rate under 10% at 90 days for ICP-aligned customers
+
+### Evidence Loop (mandatory — starts immediately)
+
+ICP framework is now **locked** — no further refinement based on assumptions. All future ICP changes must be driven by evidence from the pipeline.
+
+For every meaningful prospect interaction, capture:
+
+| Field | Values |
+|---|---|
+| Employee count | Number (estimated) |
+| Founder-led assessment | Yes / Partial / No |
+| Owner quoting likelihood | Very High / High / Medium / Low |
+| Industry | As categorised |
+| Outcome | No reply / Reply / Meeting / Trial / Customer |
+
+**Analysis goal:** Over time, identify which ICP characteristics are genuinely predictive of conversion to customer. The framework evolves through evidence, not opinion. No further ICP changes unless the data tells us they are needed.
+
+**Tracking location:** Airtable — add ICP characteristics as fields on Prospect records. Outcomes already tracked via Prospect Lifecycle stage.
+
+---
+
+## ICP Enhancement — July 4 (same day)
+
+Added two refinements before locking the framework:
+
+1. **Owner quoting likelihood scale** (Very High / High / Medium / Low) — distinguishes between "founder is present" and "founder is the one writing and chasing quotes." The pain lives in the second group.
+
+2. **Prioritisation lens: operationally mature but not sales mature** — professional website, formal quotes, small team, growing, but no dedicated sales department. These businesses have enough volume to feel pain but no one whose job it is to solve it.
+
+Both enhancements are now part of the locked framework and subject to the same evidence requirement.
+
+---
+
+## Atlas's Challenge (Pre-Decision)
+
+**Concern:** The current industry scoring matrix (2026-06-27) ranked Marketing Agencies #1 at 42/50. Marketing agencies — even at 10-15 people — frequently have account managers, dedicated new business roles, and multi-stakeholder proposal processes. Under the new ICP, agencies likely score lower. Should we re-score all 8 industries through the new ICP lens immediately, or defer to the next research sprint?
+
+**Alternative proposed:** Add ICP-aligned criteria to the scoring matrix now (founder-led likelihood, buying process simplicity) and re-score during the next active research sprint rather than preemptively. The ICP definition is the decision; re-scoring is execution.
+
+**James's response:** Don't re-score now. The next time we begin a research or outreach sprint, apply the new ICP and score prospects using the updated framework. At that point, industries will naturally be re-ranked based on the new criteria. Research effort should be focused on finding the highest-probability early customers, not on retrospective work that doesn't change an immediate decision.
+
+---
+
+## Actual Outcome (Post-Review)
+
+**Date reviewed:** TBD
+
+**What actually happened:** TBD
+
+**Verdict:** TBD
+
+**Delta from expected:** TBD
+
+---
+
+## Learnings
+
+TBD — review at 2026-10-04.
+
+---
+
+## Related Decisions
+
+- `founding-build-foundation-before-customers` — foundation building must now align with owner-led ICP
+- `2026-07-03-industry-fluency-over-company-research` — industry dynamics research must now account for the owner-led buying pattern
+- `2026-06-28-calibration-outreach-living-system` — outreach experiments now test against this ICP

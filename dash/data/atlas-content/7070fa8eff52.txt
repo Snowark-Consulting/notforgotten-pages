@@ -1,0 +1,62 @@
+---
+doc_type: decision
+owner: notforgotten
+tier: primary
+---
+
+# Schema Change: Messages → Prospect Linked Field
+
+> Messages table gets a Prospect linked record field to make Prospect-Message relationships explicit, not inferred from body text.
+
+**Slug:** `2026-07-04-messages-prospect-linked-field`
+**Type:** Schema change
+**Status:** Pending deployment (field must be added in Airtable UI first)
+
+## What changed
+
+Added a `Prospect` linked record field to the Messages table in Airtable, linking Messages directly to Prospects.
+
+## Why
+
+Before this change, Messages and Prospects existed in separate tables with no explicit relationship. The only link was through body-text inference: matching "Hi Business Name," greetings against Prospect records. This caused:
+
+- **CRM integrity gaps:** The Campaign Pulse couldn't reliably answer "which prospects have been contacted?"
+- **Duplicate sends undetected:** Without prospect-linked Messages, the idempotency guard in `crm-update-send.py` could only match by body text — missing edge cases where the same prospect was contacted with slightly different email bodies.
+- **Reporting fragility:** Every cross-reference required fragile body-text parsing that broke on variations in greeting format.
+- **Reply tracking blind spots:** When a prospect replied, inbox-pulse had no programmatic way to link the reply back to the original campaign touch.
+
+Adding the Prospect link makes relationships explicit rather than inferred. Every Outbound Message now carries a direct pointer to its Prospect.
+
+## Technical details
+
+| Property | Value |
+|---|---|
+| **Table** | Messages (`tblsfhJV9bvJH48nW`) |
+| **New field** | `Prospect` |
+| **Type** | Link to another record |
+| **Linked table** | Prospects (`tblceVflumXdl23JJ`) |
+| **Cardinality** | Many Messages → one Prospect |
+
+## Migration
+
+1. **Field creation:** Manual in Airtable UI (REST API cannot create linked record fields)
+2. **Backfill:** `scripts/backfill-message-links.py` matches existing Messages to Prospects via greeting text, contact names, and domain keywords. HIGH and MEDIUM confidence matches auto-linked. LOW confidence matches reported for manual review.
+3. **Forward compatibility:** `scripts/crm-update-send.py` updated to set `Prospect` link on every new Outbound Message at creation time.
+4. **Verification:** `scripts/reconcile-test.py` validates all Outbound Messages have valid Prospect links, all Outreach Active prospects have Message coverage, and Pipeline stages are consistent.
+
+## Affected systems
+
+| System | Impact |
+|---|---|
+| `crm-update-send.py` | Now sets Prospect link on create |
+| `backfill-message-links.py` | New: one-time historical backfill |
+| `reconcile-test.py` | New: ongoing reconciliation verification |
+| Campaign Pulse | Can now directly query Messages by Prospect |
+| Inbox Pulse | Can match reply senders to campaign prospects |
+| Pipeline Data Refresh | Accurate prospect→message counts |
+| Pre-flight checklist | Can verify duplicate sends by Prospect, not body text |
+
+## Related decisions
+
+- `founding-tiered-trust-automation` — this change enables more automated CRM operations (Tier 1)
+- `2026-07-04` duplicate send incident — the direct trigger for this schema change
