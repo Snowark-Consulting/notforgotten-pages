@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-06T05:31:03.797449+09:30",
+  "last_updated": "2026-07-06T07:30:10.230217+09:30",
   "pipeline": {
     "prospect_count": 196,
     "stages": {
@@ -351,7 +351,7 @@
         "inbound": 0
       }
     },
-    "last_refreshed": "2026-07-05T20:01:03.695676+00:00"
+    "last_refreshed": "2026-07-05T22:00:10.227599+00:00"
   },
   "decisions": {
     "total": 10,
@@ -505,21 +505,20 @@
   "drafts": {
     "files": [
       {
-        "file": "calibration-jul-2026.md",
-        "title": "Calibration Batch \u2014 July 2026",
+        "file": "wave-1-reset-cohort.md",
+        "title": "Wave 1 \u2014 Reset Cohort (7 prospects)",
         "status": null,
         "window": null,
-        "prospects": [
-          {
-            "name": "Beaumont People \u2014 National",
-            "subject": null,
-            "angles": [
-              "Angle: Multi-office recruitment with proposals going to HR/exec teams"
-            ],
-            "body": null
-          }
-        ],
-        "prospect_count": 1
+        "prospects": [],
+        "prospect_count": 0
+      },
+      {
+        "file": "wave-1-complete-sequence.md",
+        "title": "Wave 1 \u2014 Complete Outreach Sequence",
+        "status": null,
+        "window": null,
+        "prospects": [],
+        "prospect_count": 0
       },
       {
         "file": "email-2-painters-cleaners-2026-06-30.md",
@@ -619,10 +618,27 @@
           }
         ],
         "prospect_count": 3
+      },
+      {
+        "file": "calibration-jul-2026.md",
+        "title": "Calibration Batch \u2014 July 2026",
+        "status": null,
+        "window": null,
+        "prospects": [
+          {
+            "name": "Beaumont People \u2014 National",
+            "subject": null,
+            "angles": [
+              "Angle: Multi-office recruitment with proposals going to HR/exec teams"
+            ],
+            "body": null
+          }
+        ],
+        "prospect_count": 1
       }
     ],
-    "updated": "2026-07-02T22:05:27.049029+00:00",
-    "total_files": 3,
+    "updated": "2026-07-05T22:05:04.841500+00:00",
+    "total_files": 5,
     "total_prospects": 10
   }
 }
