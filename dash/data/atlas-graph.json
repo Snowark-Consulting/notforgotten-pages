@@ -77,7 +77,7 @@
       "community": 0,
       "community_name": "Agent",
       "content_hash": "4c1f0984618f",
-      "val": 6.0,
+      "val": 4,
       "color": "#e0a62a"
     },
     {
@@ -88,7 +88,7 @@
       "community": 0,
       "community_name": "Agent",
       "content_hash": "7299776b30de",
-      "val": 14.0,
+      "val": 12.0,
       "color": "#e0a62a"
     },
     {
@@ -180,6 +180,17 @@
       "color": "#60a5fa"
     },
     {
+      "id": "knowledge_30_day_plan_jul_2026",
+      "label": "30 Day Plan Jul 2026",
+      "file_type": "doc",
+      "source_file": "knowledge/30-day-plan-jul-2026.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "3ef74e64d1e1",
+      "val": 4,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_atlas_learning_framework",
       "label": "Atlas Learning Framework",
       "file_type": "doc",
@@ -199,6 +210,17 @@
       "community_name": "Knowledge",
       "content_hash": "832862830105",
       "val": 16.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_campaign_review_template",
+      "label": "Campaign Review Template",
+      "file_type": "doc",
+      "source_file": "knowledge/campaign-review-template.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "528430081827",
+      "val": 6.0,
       "color": "#a78bfa"
     },
     {
@@ -242,7 +264,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "45a68634d126",
-      "val": 10.0,
+      "val": 12.0,
       "color": "#a78bfa"
     },
     {
@@ -275,7 +297,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "1f733230535b",
-      "val": 10.0,
+      "val": 12.0,
       "color": "#a78bfa"
     },
     {
@@ -584,6 +606,13 @@
       "source_file": ""
     },
     {
+      "source": "agent_registry",
+      "target": "knowledge_campaign_review_template",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
       "source": "agent_sops",
       "target": "agent_registry",
       "relation": "wikilink",
@@ -717,20 +746,6 @@
       "source_file": ""
     },
     {
-      "source": "agent_wikilinks",
-      "target": "agent_connection_generation",
-      "relation": "wikilink",
-      "weight": 1.0,
-      "source_file": ""
-    },
-    {
-      "source": "agent_wikilinks",
-      "target": "agent_consolidation_sop",
-      "relation": "wikilink",
-      "weight": 1.0,
-      "source_file": ""
-    },
-    {
       "source": "identity_agent",
       "target": "soul",
       "relation": "wikilink",
@@ -754,6 +769,20 @@
     {
       "source": "integrations_email",
       "target": "integrations_james_inbox",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_30_day_plan_jul_2026",
+      "target": "knowledge_outreach_philosophy_index",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_30_day_plan_jul_2026",
+      "target": "knowledge_decisions_index",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

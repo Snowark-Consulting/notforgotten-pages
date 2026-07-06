@@ -22,8 +22,14 @@
 | 🏛️ | `founding-business-name-fallback` | Business-name fallback when contact name unknown | Jun 2026 | 🟢 Made | 2026-10-01 |
 | 🏛️ | `founding-travis-case-study-as-bridge` | Travis case study as bridge, not opener | Jun 2026 | 🟢 Made | 2026-11-01 |
 | 🏛️ | `founding-tiered-trust-automation` | Tier 1 admin automation, Tier 2 draft-and-ask | Jun 2026 | 🟢 Made | 2026-12-01 |
+| | `2026-07-03-industry-fluency-over-company-research` | Industry fluency over company research for outreach personalisation | Jul 2026 | 🟢 Made | 2026-09-03 |
 | | `2026-06-28-calibration-outreach-living-system` | Calibration outreach strategy as living system | Jun 2026 | 🟢 Made | 2026-09-28 |
 | | `2026-06-28-prospect-lifecycle-architecture` | Prospect lifecycle architecture (7 stages, first principles) | Jun 2026 | 🟢 Made | 2026-10-28 |
+| | `2026-07-04-icp-owner-led-small-business` | ICP: Owner-led small business (2-10 emp, owner does quoting) | Jul 2026 | 🟢 Made | 2026-10-04 |
+| | `2026-07-04-messages-prospect-linked-field` | Messages → Prospect linked field (schema change — explicit relationship) | Jul 2026 | 🟢 Made | 2026-10-04 |
+| | `2026-07-05-complete-sequence-before-first-send` | Complete outreach sequence before first send (hard gate) | Jul 2026 | 🟢 Made | 2026-10-05 |
+| | `2026-07-05-airtable-audit-crm-reconciliation` | Airtable audit — CRM as single source of truth (20 recommendations) | Jul 2026 | 🟢 Made | 2026-08-05 |
+| | `2026-07-06-campaign-review-operating-standard` | Campaign Review after every outreach wave (permanent operating standard) | Jul 2026 | 🟢 Made | 2026-10-06 |
 
 ---
 
@@ -32,6 +38,7 @@
 | Due | Slug | Title | Status |
 |---|---|---|---|
 | 2026-09-01 | `founding-build-foundation-before-customers` | Build foundation before acquiring first 5 customers | 🟢 |
+| 2026-09-03 | `2026-07-03-industry-fluency-over-company-research` | Industry fluency over company research | 🟢 |
 | 2026-09-28 | `2026-06-28-calibration-outreach-living-system` | Calibration outreach strategy as living system | 🟢 |
 | 2026-10-01 | `founding-atlas-as-primary-sender` | atlas@ as primary outreach sender | 🟢 |
 | 2026-10-28 | `2026-06-28-prospect-lifecycle-architecture` | Prospect lifecycle architecture | 🟢 |
@@ -40,7 +47,11 @@
 | 2026-11-01 | `founding-travis-case-study-as-bridge` | Travis case study as bridge, not opener | 🟢 |
 | 2026-12-01 | `founding-pricing-market-entry` | Pricing: $199/mo + $99 setup (market entry) | 🟢 |
 | 2026-12-01 | `founding-tiered-trust-automation` | Tier 1 admin automation, Tier 2 draft-and-ask | 🟢 |
+| 2026-10-04 | `2026-07-04-icp-owner-led-small-business` | ICP: Owner-led small business | 🟢 |
+| 2026-10-04 | `2026-07-04-messages-prospect-linked-field` | Messages → Prospect linked field | 🟢 |
+| 2026-10-05 | `2026-07-05-complete-sequence-before-first-send` | Complete sequence before first send | 🟢 |
 | 2027-06-01 | `founding-atlas-multiplier-not-replacement` | Atlas as AI multiplier, not human replacement | 🟢 |
+| 2026-10-06 | `2026-07-06-campaign-review-operating-standard` | Campaign Review operating standard | 🟢 |
 
 ---
 
@@ -64,10 +75,10 @@ Cross-reference of decisions by the core principles they engaged.
 | *Certainty, not features* | `founding-no-pitch-in-first-email`, `founding-travis-case-study-as-bridge` |
 | *Customer trust > speed* | `founding-tiered-trust-automation`, `founding-build-foundation-before-customers`, `founding-no-pitch-in-first-email`, `2026-06-28-calibration-outreach-living-system` |
 | *Don't let perfect block good* | `founding-business-name-fallback` |
-| *Data over dogma* | `2026-06-28-calibration-outreach-living-system`, `2026-06-28-prospect-lifecycle-architecture` |
+| *Data over dogma* | `2026-06-28-calibration-outreach-living-system`, `2026-06-28-prospect-lifecycle-architecture`, `2026-07-05-complete-sequence-before-first-send` |
 | *Accountability stays with James* | `founding-tiered-trust-automation` |
-| *CRM reflects reality* | `2026-06-28-prospect-lifecycle-architecture` |
-| *Evidence before optimisation* | `2026-06-28-prospect-lifecycle-architecture`, `2026-06-28-calibration-outreach-living-system` |
+| *CRM reflects reality* | `2026-06-28-prospect-lifecycle-architecture`, `2026-07-05-complete-sequence-before-first-send` |
+| *Evidence before optimisation* | `2026-06-28-prospect-lifecycle-architecture`, `2026-06-28-calibration-outreach-living-system`, `2026-07-05-complete-sequence-before-first-send`, `2026-07-06-campaign-review-operating-standard` |
 | *Values cannot be tested* | `founding-tiered-trust-automation`, `founding-no-pitch-in-first-email` |
 
 ---
@@ -130,5 +141,5 @@ Based on patterns observed, Atlas should watch for:
 
 ---
 
-*Last updated: 2026-06-28*
-*8 founding decisions + 2 living decisions recorded. 0 decisions reviewed. 4 challenges logged.*
+*Last updated: 2026-07-05*
+*8 founding decisions + 8 living decisions recorded. 0 decisions reviewed. 4 challenges logged.*

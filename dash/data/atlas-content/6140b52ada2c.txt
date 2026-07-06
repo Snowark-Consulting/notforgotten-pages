@@ -1,0 +1,112 @@
+# Decision: Complete Outreach Sequence Before First Send
+
+**Slug:** `2026-07-05-complete-sequence-before-first-send`
+**Date:** 2026-07-05
+**Status:** Made
+**Review Date:** 2026-10-05
+
+---
+
+## The Decision
+
+No Email 1 is ever sent unless the complete outreach sequence (all planned touchpoints) exists, has been reviewed, and has been approved. A sequence is complete only when every touchpoint has been drafted with a clear objective, each follow-up adds new value, timing and exit conditions are defined, and the sequence aligns with the Outreach Philosophy, Sales Brain, and Learning Framework. Applies to every outreach campaign, every industry, every prospect. No exceptions without James's explicit approval. Enforced by the mandatory pre-flight checklist as a blocking gate.
+
+---
+
+## The Problem
+
+The cold-email skill had a cadence table and a "prepare-ahead principle" advising that follow-up emails be drafted before the sending window opens — but this was guidance, not enforcement. Nothing in the system prevented Email 1 from being sent with Emails 2-4 left as "we'll figure it out later." The pre-flight checklist (mandatory before every campaign) had no sequence-completeness check. Airtable had no fields to track which sequence a prospect was in, what touchpoint they were at, or what their sequence status was. The gap meant a campaign could technically ship with only Email 1 drafted and still pass every existing gate.
+
+---
+
+## Options Considered
+
+| # | Option | Summary |
+|---|---|---|
+| A | Keep as guidance | Leave the prepare-ahead principle as advice in the skill. Trust process. |
+| B | Hard gate with enforcement | Make it a non-negotiable rule, embed it in SOUL, memory, skill, pre-flight checklist, and Airtable. Campaign blocked if incomplete. |
+| C | Per-campaign decision | Decide sequence completeness case-by-case depending on campaign size and risk. |
+
+---
+
+## Why This Path
+
+Chose Option B. James's explicit expectation is that every outreach campaign has a complete follow-up sequence before the first email is sent. "Guidance" is not enforcement — and when Atlas is running autonomously, enforcement is what prevents drift. Embedding this across all layers (SOUL, memory, skill, pre-flight, Airtable) makes it architecturally impossible to miss. The pre-flight checklist is already mandatory before every campaign — adding the sequence gate there creates a single, unavoidable enforcement point. Airtable tracking makes sequence progress visible as the single source of truth.
+
+---
+
+## Core Principles Applied
+
+- **Philosophical Directive 11 (Evidence before optimisation):** The sequence is the experiment. You can't learn from what you don't design. Sending Email 1 without Emails 2-4 is running half an experiment.
+- **Philosophical Directive 8 (Test of success):** "If James disappeared for a month, would Not Forgotten still serve customers at the same standard?" — A system that defaults to complete sequences answers yes. A system that allows one-offs answers no.
+- **Outreach Philosophy meta-principle:** "One email, one job. First email: make them think. Second email: make them curious. Third email: make them want to know more." — These jobs only work as a sequence. A one-off email does one job and abandons the rest.
+- **Sales Brain framework:** The full discovery conversation (process → visibility → consistency → volume → cost) spans multiple touches. A single email can't open and close that conversation.
+
+---
+
+## Risks Identified
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| Sequence drafting becomes a bottleneck — campaigns delayed because follow-ups aren't ready | Medium | Medium | Prepare-ahead cron runs daily. Growth-operations surfaces approaching windows 48h out. The bottleneck is the point — it forces quality. |
+| Over-engineering sequences for small/test campaigns | Low | Low | James can grant explicit exceptions. The rule has a pressure-release valve. |
+| Airtable fields go unused if CRM discipline slips | Low | Medium | CRM reconciliation script (`crm-update-send.py`) should be extended to update sequence fields automatically on send. |
+
+---
+
+## Expected Outcome
+
+Every prospect who receives an outreach email has a complete, designed journey behind them. No prospect receives a one-off email. Airtable becomes the single source of truth for where every prospect sits in their sequence. The pre-flight checklist blocks any campaign that hasn't met the completeness criteria. James reviews the full sequence at campaign approval time, not retroactively.
+
+---
+
+## Risk Mitigation — Implemented (2026-07-05, same session)
+
+**CRM reconciliation script extended.** `scripts/crm-update-send.py` now accepts `--sequence`, `--touchpoint`, `--subject` arguments and automatically updates all four sequence tracking fields (Current Touchpoint, Next Touchpoint Date, Sequence Status, Last Contacted) plus creates a Messages record. Next Touchpoint Date auto-calculated from standard cadence: Email 1→2: +5 days, 2→3: +3 days, 3→4: +7 days, Email 4: null (end of sequence). Script exits with code 0 for full reconciliation, code 3 for partial (Messages backfill required).
+
+**Post-send reconciliation added to pre-flight checklist** as Section 7a. Every touchpoint send must be followed by a successful `crm-update-send.py` run before the campaign is considered complete.
+
+**Living workflow principle encoded as Rule 7 in SOUL.md:** "Airtable is the single source of truth for sequence state. A sequence is not complete because it was written. It is complete when Airtable accurately reflects where every prospect is within that sequence."
+
+## Success Criteria
+
+- [ ] 100% of outreach campaigns presented with complete sequences alongside Email 1 (within 60 days)
+- [ ] Zero one-off emails sent without James's explicit exception approval
+- [ ] Airtable sequence fields populated for every prospect in active outreach (within 30 days)
+- [ ] Pre-flight checklist sequence gate catches at least one incomplete campaign (proving it works)
+- [ ] James can answer "where is this prospect in their sequence?" by looking at Airtable alone
+- [ ] `crm-update-send.py` runs after every touchpoint send and exits 0 (within 30 days, 100% of sends)
+- [ ] Zero instances of Airtable showing a stale touchpoint more than 1 hour after a send
+
+---
+
+## Atlas's Challenge (Pre-Decision)
+
+No challenge. This decision was initiated by James and aligns with every existing principle and pattern in the decision library. The gaps identified were technical enforcement gaps, not philosophical disagreements.
+
+---
+
+## Actual Outcome (Post-Review)
+
+**Date reviewed:** TBD
+
+**What actually happened:** TBD
+
+**Verdict:** TBD
+
+**Delta from expected:** TBD
+
+---
+
+## Learnings
+
+TBD
+
+---
+
+## Related Decisions
+
+- `founding-no-pitch-in-first-email` — First email must not pitch. The sequence exists because relationship building takes multiple touches.
+- `founding-travis-case-study-as-bridge` — Travis appears after recognition. The sequence designs when recognition happens.
+- `2026-06-28-calibration-outreach-living-system` — The living-system meta-principles govern how sequences adapt based on evidence.
+- `2026-06-28-prospect-lifecycle-architecture` — The 7-stage lifecycle includes Campaign Complete (sequence finished, no reply) as distinct from Lost.

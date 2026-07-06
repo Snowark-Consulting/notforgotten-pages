@@ -31,9 +31,87 @@ Resolve the sender against `Agent/Trust.md` contact tiers BEFORE responding. Unk
 
 When a tool, send, or integration fails: the on-error hook handles classification and alerting automatically (`Agent/Support.md`). Your job is to not interfere with it and to never paste customer content into error text. If you notice a problem the hook did not catch, write the bug card yourself (schema in Support.md) into `support/outbox/`; the daily sweep delivers it.
 
+## Website changes (MANDATORY)
+
+Before ANY website change — edit, new page, banner, DNS, deploy, any file under `pages/`:
+
+1. Load `website-dev` skill — confirms dev vs prod project IDs, deploy workflow, golden rules
+2. Load `notforgotten-design` — design system, pre-deploy checklist
+3. Load `notforgotten-vercel-site` — page shell, nav patterns, deploy commands
+4. **Default to DEV.** Never deploy to production without explicit confirmation
+5. State which environment: "deployed to DEV" or "deployed to PRODUCTION" — never just "deployed"
+
+## DNS changes (MANDATORY)
+
+Before touching ANY DNS record on notforgotten.com.au:
+
+1. Load `godaddy-dns` skill — API endpoints, record format, snapshot-before-change rule
+2. **Always snapshot first:** `python3 scripts/godaddy_dns.py snapshot`
+3. State the exact change and get explicit approval before applying
+4. DNS mistakes break the live site instantly. No undo. Be certain.
+
+## Case study builds (MANDATORY)
+
+Before building or editing any case study page:
+
+1. Load `case-study` skill — 10-point trust-and-conversion framework, dark canvas design system
+2. Load `notforgotten-design` — colours, typography, layout rules
+3. Build in `pages/<case-study-slug>/`, deploy via `github-pages-deploy`
+
+## Quote processing (MANDATORY)
+
+When a quote email arrives CC'd to atlas@notforgotten.com.au:
+
+1. Load `quote-intake` skill — detection, extraction, cross-referencing pipeline
+2. Unknown sender → flag, don't process (Iron Gate Protocol)
+3. Known sender → extract, cross-reference Airtable, create Quotes record
+
+## Campaign Review (MANDATORY — after every outreach wave)
+
+After every outreach wave completes its sequence (all touchpoints sent + sufficient reply window):
+
+1. Load `campaign-review` skill — review structure, data sources, update pipeline
+2. Copy `knowledge/campaign-review-template.md` and fill every section
+3. Every recommendation must cite specific campaign evidence, not intuition
+4. Split New vs Reset cohort reporting — never combine
+5. After review approved by James: update Learning Framework, Decision Library, outreach skills, Sales Brain (see Section 7 in template)
+6. Record the completed review in `knowledge/campaign-reviews/`
+
+This is a permanent operating standard (decision `2026-07-06-campaign-review-operating-standard`). No exceptions.
+
+## Inbox monitoring
+
+When checking or troubleshooting the inbox pulse system:
+
+1. Load `email-inbox-pulse` skill — two-phase architecture, script locations, token health
+2. The watchdog cron runs autonomously; manual intervention only when alerted
+
+## GitHub Pages publishing
+
+After building static content (case studies, dashboards, landing pages):
+
+1. Load `github-pages-deploy` skill — deploy commands, subtree push workflow
+2. Verify live at `https://snowark-consulting.github.io/notforgotten-pages/<path>/`
+
 ## Learnings loop
 
 When anything fails and gets fixed (API quirk, formatting trap, wrong assumption): append the fix to `learnings/LEARNINGS.md` immediately, same session. Write memory files for preferences and corrections from James Hardstaff; one file per fact, indexed in `memory/MEMORY.md`.
+
+**Hard triggers — log in the SAME TURN, not "at end of session":**
+- Any system change spanning 3+ files (Registry, SOPs, skills, self-lint, hooks, Infrastructure)
+- Any pattern uncovered that future agents would benefit from knowing
+- Any rule broken that already has a "most commonly broken" warning in SOUL
+- `/new` can arrive anytime. The transcript survives in `.sessions/` for nightly consolidation (daily notes only), but LEARNINGS.md has no automated backfill. If you don't write it, it's lost.
+
+**Session-end detection:** There is none. The `session-activity` hook fires on `session:end` but only creates a timestamp stub. Atlas cannot know when a session ends. The only reliable moment to persist learning is right after the work.
+
+## Skill Registration (MANDATORY)
+
+When creating any new skill for Not Forgotten Systems:
+
+1. **Register it in `Agent/Registry.md`** — add under the appropriate section (Design, Operations, Publishing, Email Intelligence, etc.) with a one-line hook. If no section fits, create one.
+2. **If it's a pre-flight skill** (must-load-before-doing-X), also add a MANDATORY section to SOPs with trigger conditions and load order.
+3. **Do this in the same session.** Never leave a skill unregistered. The self-lint will flag it within a week, but the gap is avoidable.
 
 ## Scheduled maintenance (system jobs; inventory in Agent/Infrastructure.md)
 

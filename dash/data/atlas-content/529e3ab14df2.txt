@@ -1,18 +1,60 @@
+---
+doc_type: reference
+owner: snowark-client
+tier: primary
+---
+
 # Wikilink Conventions
 
-**Rule:** Every cross-reference between vault files must use the dual format: `[[PageName]] (path/to/file.md)`
+> Every cross-reference between vault files uses dual-format wikilinks: Obsidian graph edges + agent file paths in one link.
 
-**Why:** Obsidian uses `[[wikilinks]]` for graph view and backlinks. Agents use file paths for direct reads. The dual format serves both.
+## Dual-Format Syntax
 
-> See [[Connection Generation]] (Agent/connection-generation.md) for the rules on when to add links, [[Consolidation SOP]] (Agent/consolidation-sop.md) for when this is applied (step 3).
+```
+[[PageName]] (path/to/file.md)
+```
 
-**When creating or editing any vault file:**
-1. Reference another vault file → `[[PageName]] (path/to/file.md)`
-2. Mention a person with a knowledge page → link them
-3. Mention a system, product, or service → link it
-4. Mention a concept with its own page → link it
+- **`[[PageName]]`** — Obsidian wikilink. Powers graph edges, backlinks, and unlinked mentions. The page name is the H1 of the target file, not the filename (they should match if naming conventions are followed).
+- **`(path/to/file.md)`** — relative path from vault root. Lets the agent jump directly to the file without resolving the wikilink. Both in one — maximum navigability, minimum noise.
 
-**Do not over-link:**
-- Don't link the same page multiple times in one paragraph
-- Don't link common terms that don't have their own page
-- First mention in a section is enough
+## Rules
+
+1. **Always dual-format.** Every `[[wikilink]]` must be followed by its `(path)` in parentheses. No bare wikilinks.
+2. **First mention per section is enough.** Link once when a page is introduced; don't re-link the same page in the same paragraph.
+3. **Link liberally.** A link to a page that doesn't exist yet is fine — it marks a future card. Vault lint catches them later.
+4. **Link people, systems, products, services, and concepts** that have (or should have) their own page. Don't link common nouns without a dedicated page.
+5. **Registry entries** repeat the hook: `- [[PageName]] (path/to/file.md) — one-line description`
+6. **Never rename a file to "fix" its name** — breaks existing wikilinks. Flag it to the owner instead.
+7. **Skills/ and enrichment/ files are the exception** — they use plain `[[PageName]]` wikilinks without paths. They aren't Obsidian knowledge cards and don't participate in the graph.
+
+## Examples
+
+**Correct:**
+```markdown
+The client uses [[ServiceTitan]] (integrations/servicetitan.md) for job management
+and [[Xero]] (integrations/xero.md) for accounting. Their [[Google Ads]] (channels/google-ads.md)
+campaigns are managed in-house.
+```
+
+**Wrong:**
+```markdown
+The client uses [[ServiceTitan]] for job management
+and [[Xero]] for accounting. Their Google Ads campaigns are managed in-house.
+```
+
+## When Not to Wikilink
+
+- Common nouns without a dedicated page ("the client", "the API", "a script")
+- Self-references (don't wikilink the page you're writing)
+- Repeated mentions in the same paragraph (link once, not every instance)
+- File paths that aren't page references (use backticks: `` `skills/file-naming/SKILL.md` ``)
+
+## Three-Hop Rule
+
+Every link participates in the navigation chain: Registry → Domain Index → Card → Source. Maximum three hops to find anything. The dual format makes every hop traversable by both human (Obsidian graph) and agent (file path).
+
+## Discovery
+
+- **Obsidian:** `[[wikilinks]]` render as graph nodes and backlinks. Open the vault as an Obsidian vault for visual navigation.
+- **Agent:** grep for `[[` to find all wikilinks; follow the `(path)` to read the target.
+- **Vault lint:** Weekly audit catches broken wikilinks (target file doesn't exist) and orphan pages (no inbound wikilinks).

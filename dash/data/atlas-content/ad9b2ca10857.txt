@@ -1,0 +1,85 @@
+---
+doc_type: decision
+owner: notforgotten
+tier: primary
+---
+
+# Decision: Campaign Review Operating Standard
+
+> Every outreach wave receives a formal Campaign Review. Permanent operating standard. Every recommendation backed by evidence.
+
+| Field | Value |
+|---|---|
+| **Decision** | Every outreach wave receives a formal Campaign Review. This is a permanent operating standard. |
+| **Status** | 🟢 Made |
+| **Date** | 2026-07-06 |
+| **Review Date** | 2026-10-06 |
+| **Type** | Operating Standard |
+| **Principle** | Evidence before optimisation, CRM reflects reality |
+
+## Problem
+
+Outreach campaigns produce data — replies, objections, patterns, dead ends. Without a formal review process, that data is lost. Each wave would start from scratch, repeating the same mistakes. The Calibration Outreach Living System decision (2026-06-28) established that outreach is a learning system, but didn't define the formal mechanism for extracting and persisting learnings after each wave.
+
+## Decision
+
+After every outreach wave, Atlas conducts a formal Campaign Review using the template at `knowledge/campaign-review-template.md`. The review must answer:
+
+1. **What happened?** — delivery, reply rates, cohort comparison, industry/subject/angle performance, pipeline movement
+2. **What did we learn?** — patterns, objections, unexpected results, confidence shifts
+3. **What should change?** — messaging, subject lines, personalisation, ICP, follow-up, timing, operations
+4. **What should remain exactly the same?** — evidence-supported elements we keep
+5. **Confidence assessment** — which conclusions are strong vs early signals
+6. **What to test next** — isolated experiments for the next wave
+
+After James approves the review, Atlas updates: the Learning Framework, Decision Library (where applicable), Outreach Philosophy, cold email skill, growth operations skill, Sales Brain, and ICP documentation.
+
+## Why
+
+- **Learning compounds.** Without a formal review, Wave 2 makes the same mistakes as Wave 1. With a review, every wave permanently improves the next.
+- **Evidence over intuition.** The review forces every recommendation to cite specific campaign data. "I think" becomes "the data shows."
+- **Cohort analysis.** The New vs Reset split (established for Wave 1) must persist through reporting. Without it, we can't answer: is re-engagement worthwhile?
+- **System updates are the review's purpose.** A review that doesn't permanently change the system (skills, philosophy, ICP) is a wasted review. Section 7 is the most important section.
+- **The Outreach Philosophy is a living document.** It should evolve with campaign evidence, not remain static.
+
+## Expected Outcomes
+
+- Every wave produces a completed review within 7-14 days of final touchpoint
+- Wave 2 materially outperforms Wave 1 on at least one metric (reply rate, positive rate, conversion) because of evidence-driven changes
+- The Outreach Philosophy reflects evidence from multiple waves, not just first-principles thinking
+- The Sales Brain contains real objection patterns, not hypothetical ones
+- The Decision Library captures strategic shifts driven by campaign evidence
+
+## Success Criteria
+
+- [ ] Campaign Review template filled completely for Wave 1 (by mid-August 2026)
+- [ ] At least one system update (skill, philosophy, or decision) triggered by Wave 1 review
+- [ ] Wave 2 plan reflects Wave 1 evidence (not just original assumptions)
+- [ ] New vs Reset cohort analysis informs whether re-engagement continues
+
+## Dependencies
+
+- `knowledge/campaign-review-template.md` — canonical review structure
+- `skills/snowark/campaign-review/SKILL.md` — procedural skill for conducting reviews
+- `Agent/SOPs.md` — Campaign Review section (mandatory trigger)
+- `Agent/Registry.md` — skill registered under Operations
+- `skills/snowark/growth-operations/SKILL.md` — cross-referenced
+- Airtable — primary data source (Prospects + Messages)
+- Gmail — secondary data source (bounces, actual send times)
+
+## Related Decisions
+
+- `2026-06-28-calibration-outreach-living-system` — established outreach as learning system; this is the operational mechanism
+- `2026-07-05-complete-sequence-before-first-send` — the Hard Rule ensuring sequences exist; Campaign Review evaluates them
+- `2026-07-04-icp-owner-led-small-business` — ICP assumptions tested by each wave; Campaign Review validates or challenges them
+- `founding-no-pitch-in-first-email` — tested by reply data; Campaign Review checks whether the principle holds
+
+## Atlas's Challenge (Pre-Decision)
+
+No challenge. This is a natural operational evolution of the Calibration Outreach Living System decision. The only risk is over-engineering — building an elaborate review framework before we have data. Mitigated by: the template is comprehensive but the review itself starts small. Section 1 (What Happened) is the core; everything else scales with data volume.
+
+## Notes
+
+- The Campaign Pulse cron job (every 48h) handles mid-wave monitoring. Campaign Review is the definitive end-of-wave assessment.
+- For Wave 1: the first full review should occur after the 4-email sequence completes (~mid-August) or when reply data reaches statistical significance, whichever comes first.
+- The review template itself should be reviewed after 2-3 waves — does it capture the right things? Are there sections we never fill?

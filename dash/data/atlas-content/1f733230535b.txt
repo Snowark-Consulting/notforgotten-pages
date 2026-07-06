@@ -10,13 +10,13 @@
 
 Before writing ANY outreach email, answer these in order:
 
-1. **What do we genuinely know about this business?** (Not assumed. Actually researched.)
-2. **What problem might they have that they don't yet recognise?** (The gap we're surfacing.)
-3. **What question would make them think about that gap?** (Not a leading question. A genuine one.)
+1. **What are the unique quoting dynamics of this industry?** (Not the company — the industry. How does this type of business actually operate? What makes their quoting process structurally challenging?)
+2. **What problem might they have that they don't yet recognise?** (The gap we're surfacing — grounded in industry reality, not assumptions.)
+3. **What question would make them think about that gap?** (Not a leading question. A genuine one that shows we understand their world.)
 4. **Why are we the right person to ask this question?** (The "reason I ask" — one sentence, no pitch.)
 5. **What's the smallest possible ask?** (A reply. Not a demo. Not a call. A reply.)
 
-If you can't answer all five, don't write the email yet. Research more.
+If you can't answer all five, don't write the email yet. Research the industry more.
 
 ---
 
@@ -34,6 +34,7 @@ These are not guidelines. They are the philosophy. **If an email violates any of
 | 6 | **Never oversell** | One email, one question, one reason. Don't pile on. The product is the answer to a question they haven't asked yet. Don't give the answer before they feel the question. |
 | 7 | **Earn the right to ask for the next conversation** | Every email must justify why the next one deserves to be read. Permission, not persistence. |
 | 8 | **Sell certainty, not software** | The product isn't follow-up automation. It's confidence that no opportunity is forgotten. The email should make them feel the absence of that certainty. |
+| 9 | **Demonstrate industry fluency, not company research** | Personalise by identifying the operational realities of their industry and connecting that to a thoughtful observation about their quoting process. The prospect should feel we understand the challenges of their business model, not that we scraped their website. Company details only when they strengthen an operational observation. Before each campaign: identify the unique quoting dynamics of that industry so observations come from first principles, not website copy. |
 
 ### Meta-Principles
 
@@ -52,6 +53,7 @@ These are not guidelines. They are the philosophy. **If an email violates any of
 | Use "I" statements about us ("we help," "our platform," "we specialise") | The email is about them, not us. |
 | Ask for a call, demo, or meeting in the first email | You haven't earned it. The only ask is a reply. |
 | Use templated language ("I hope this finds you well," "I wanted to reach out") | Signals laziness. If you can't write something specific, don't write. |
+| Personalise by listing facts from their website | "You offer SEO, PPC, web design, and content marketing" proves you read their services page. It doesn't prove you understand their business. Demonstrate industry fluency instead. |
 | Create false urgency | Dishonest. Destroys trust. Never justified. |
 | Use em dashes | They read as AI-generated. Use commas, colons, or full stops. |
 | Open with self-introduction | "My name is..." means the email is about you. Start with them. |
@@ -78,17 +80,30 @@ Full style guide: `02-writing-style.md`
 
 ## Personalisation Framework
 
-Every email must demonstrate that we've done the work. Personalisation isn't using their name — it's showing we understand their business.
+Personalisation is not using their name or listing facts from their website. It's demonstrating that we understand how their type of business actually operates.
 
-| Research layer | What we look for |
-|---|---|
-| **Services** | What do they actually do? What's their range? |
-| **Scale** | Team size, fleet size, geographic coverage |
-| **Specialisation** | What makes them different from competitors? |
-| **Quote complexity** | Do they quote simple jobs or complex projects? Many quotes or few? |
-| **Gap indicators** | No website, outdated site, no online booking, inconsistent branding — signals they may not have systems in place |
+### The Two-Layer Approach
 
-Full framework: `04-personalisation-framework.md`
+| Layer | What we research | Purpose |
+|---|---|---|
+| **Industry dynamics** (primary) | Business model structure, revenue streams (recurring vs one-off), typical quoting patterns, operational tensions, structural challenges that make follow-up hard | Creates the observation — shows we understand their world |
+| **Company specifics** (secondary, optional) | Services, scale, specialisation, geographic coverage | Strengthens the observation — but only when it makes the operational insight sharper |
+
+**The rule:** Every email must demonstrate industry fluency. Company-specific details are seasoning, not the meal. If a company fact doesn't strengthen an operational observation, leave it in your pocket for the reply.
+
+### Before Each Campaign: Industry Quoting Dynamics
+
+Before drafting any email, identify the unique quoting dynamics of that industry from first principles:
+
+1. **What's their business model?** — Recurring contracts? Project-based? Retainer + project hybrid? Transactional one-offs?
+2. **What does quoting look like?** — Simple price lists or complex bespoke proposals? How many quotes per week/month? Who creates them?
+3. **What's the operational tension?** — What structural aspect of their industry makes follow-up particularly hard? (e.g. cleaning: recurring work consumes attention, one-off quotes slip through; agencies: the person creating proposals is also doing client work)
+4. **What happens after a quote goes out?** — Is there a process? Does it rely on memory? Does silence mean "no" or "not yet"?
+5. **Why would they feel the gap?** — What emotional or financial consequence does poor follow-up create in their specific industry?
+
+This thinking produces observations from first principles rather than website copy. The prospect feels understood at the level of their business model, not their About page.
+
+Full framework: `references/industry-quoting-dynamics.md`
 
 ---
 
@@ -97,7 +112,7 @@ Full framework: `04-personalisation-framework.md`
 The right question is the difference between a deleted email and a reply. Principles:
 
 - **Genuine, not rhetorical.** The question should be one you'd actually ask in conversation.
-- **Specific to their business.** "How do you track quotes?" is generic. "ACS covers medical, dental, schools, offices, strata — once a quote leaves your hands, how do you know what happens to it?" is specific.
+- **Rooted in industry dynamics.** "How do you track quotes?" is generic. "Janitorial contracts and one-off commercial jobs are two very different beasts — once a quote leaves your hands for an end-of-lease clean between regular service rounds, how do you make sure it doesn't get forgotten?" shows you understand how cleaning businesses actually operate.
 - **Surfaces a gap they feel but haven't named.** The best question makes them think "I should know the answer to this, but I don't."
 - **One question per email.** Multiple questions feel like an interrogation.
 
