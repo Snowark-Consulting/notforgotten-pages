@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 81,
+    "tasks_completed": 82,
     "recent": [
+      {
+        "date": "2026-07-07 08:37",
+        "task": "Morning briefing posted -- 19 active prospects, 0 replies, Email 3 window open for 5 calibration prospects (3 missing drafts), Email 2 window Jul 7 for 10 Group 2 (drafts ready)",
+        "category": "task"
+      },
       {
         "date": "2026-07-06 10:47",
         "task": "Group 2 Email 2 drafts approved (10 clean prospects). 4 cadence exception prospects paused (All Melbourne, Matte Projects, Kleena, OMG). Pre-send verification SOP updated with CRM vs Messages reality check.",
@@ -135,11 +140,6 @@
         "date": "2026-06-30 23:11",
         "task": "Fixed draft accordion toggle: display:flex on summary kills native details toggle (WebKit bug). Moved flex to inner wrapper div, summary now display:block.",
         "category": "task"
-      },
-      {
-        "date": "2026-06-30 23:05",
-        "task": "Morning briefing posted \u2014 9 active, 0 replies, Email 2 window opening for painters/cleaners (Day 5-7). Inbox pulse restored after OAuth re-auth.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-07T07:30:22.300844+09:30",
+  "last_updated": "2026-07-07T08:37:07.771058+09:30",
   "pipeline": {
     "prospect_count": 196,
     "stages": {
