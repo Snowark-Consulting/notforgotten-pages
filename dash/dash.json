@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 83,
+    "tasks_completed": 84,
     "recent": [
+      {
+        "date": "2026-07-08 07:38",
+        "task": "Prepare-ahead: Drafted Email 3 for 3 calibration prospects (Distinct Painters, Adelaide Designer Painters, Performance Cleaning). Identified 10 Email 2 drafts ready for Group 2, 2 agency Email 3s ready. 4 paused prospects still in duplicate-send observation window.",
+        "category": "task"
+      },
       {
         "date": "2026-07-07 19:42",
         "task": "Established Communication Voice Standard \u2014 10 principles, coffee test, 8-point Voice Review mandatory gate. Recorded as formal decision (2026-07-07-communication-voice-standard). Propagated through SOUL, Outreach Philosophy, cold-email, email-draft, SOPs, Registry, and memory.",
@@ -135,11 +140,6 @@
         "date": "2026-07-02 08:35",
         "task": "Morning briefing posted \u2014 9 active, 0 replies, Email 2 window open for painters/cleaners (drafts pending James review). Agencies Email 2 window Jul 3-4 (drafts ready).",
         "category": "task"
-      },
-      {
-        "date": "2026-07-01 08:57",
-        "task": "Fixed all timestamps to Adelaide timezone (ACST) \u2014 Command Centre dates now show local Adelaide time",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-08T07:30:49.954297+09:30",
+  "last_updated": "2026-07-08T07:38:24.044091+09:30",
   "pipeline": {
     "prospect_count": 197,
     "stages": {
