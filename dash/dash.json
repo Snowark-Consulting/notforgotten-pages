@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 82,
+    "tasks_completed": 83,
     "recent": [
+      {
+        "date": "2026-07-07 19:42",
+        "task": "Established Communication Voice Standard \u2014 10 principles, coffee test, 8-point Voice Review mandatory gate. Recorded as formal decision (2026-07-07-communication-voice-standard). Propagated through SOUL, Outreach Philosophy, cold-email, email-draft, SOPs, Registry, and memory.",
+        "category": "task"
+      },
       {
         "date": "2026-07-07 08:37",
         "task": "Morning briefing posted -- 19 active prospects, 0 replies, Email 3 window open for 5 calibration prospects (3 missing drafts), Email 2 window Jul 7 for 10 Group 2 (drafts ready)",
@@ -135,11 +140,6 @@
         "date": "2026-07-01 08:57",
         "task": "Fixed all timestamps to Adelaide timezone (ACST) \u2014 Command Centre dates now show local Adelaide time",
         "category": "task"
-      },
-      {
-        "date": "2026-06-30 23:11",
-        "task": "Fixed draft accordion toggle: display:flex on summary kills native details toggle (WebKit bug). Moved flex to inner wrapper div, summary now display:block.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-07T19:30:31.764711+09:30",
+  "last_updated": "2026-07-07T19:42:15.400501+09:30",
   "pipeline": {
     "prospect_count": 196,
     "stages": {
