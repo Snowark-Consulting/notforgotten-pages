@@ -257,6 +257,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decisions_2026_07_07_communication_voice_standard",
+      "label": "Communication Voice Standard",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-07-07-communication-voice-standard.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "9e0e82416d36",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decisions_index",
       "label": "Decisions / Index",
       "file_type": "doc",
@@ -374,6 +385,17 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "148be5401bfa",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_voice_review_checklist",
+      "label": "Voice Review Checklist",
+      "file_type": "doc",
+      "source_file": "knowledge/voice-review-checklist.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "751bfc5321ef",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -524,6 +546,13 @@
     {
       "source": "agent_registry",
       "target": "agent_pulse_bootstrap",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_voice_review_checklist",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
@@ -951,6 +980,13 @@
     {
       "source": "knowledge_systems",
       "target": "integrations_email",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_voice_review_checklist",
+      "target": "knowledge_decisions_2026_07_07_communication_voice_standard",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

@@ -1,0 +1,101 @@
+# Decision: Customer Communication Voice Standard
+
+**Slug:** `2026-07-07-communication-voice-standard`
+**Date:** 2026-07-07
+**Status:** Made
+**Review Date:** 2026-10-07
+
+---
+
+## The Decision
+
+All customer-facing communication follows a permanent voice standard: sound like James talking to a business owner over coffee. Learn business strategy and psychology from great entrepreneurs; use James's voice for everything the customer reads.
+
+---
+
+## The Problem
+
+The existing voice rules ("smart casual, Australian, detailed, thorough") were tactical and scattered across multiple files. They didn't capture the core principle: the reader should feel like they're talking to another business owner who understands their world, not a marketer who studied it. The distinction between learning from entrepreneurs and sounding like them had never been formally separated.
+
+---
+
+## Options Considered
+
+| # | Option | Summary |
+|---|---|---|
+| A | Keep existing voice rules as-is | Tactical rules only. Functional but missing the unifying principle. |
+| B | Adopt Hormozi-style voice wholesale | Would bring energy but alienate the ICP. Owner-led trades businesses don't respond to the same voice as DTC entrepreneurs. |
+| C | Separate source from voice: learn from entrepreneurs, sound like James | Clear source/voice separation. Ten principles + coffee test as the permanent standard. |
+
+---
+
+## Why This Path
+
+Option C is the only one that resolves the tension. We can devour Hormozi, Dixon, and anyone else for offers, experimentation, customer psychology, and value creation — but the voice that reaches the customer is James's: direct, practical, no bullshit. This preserves the strategic learning pipeline while ensuring every word a customer reads passes the coffee test.
+
+The coffee test replaces a scattered set of tactical rules with one unifying question: "Would this sound natural if James said it to a business owner over a coffee?"
+
+---
+
+## Core Principles Applied
+
+- **Earn the right** (founding): Trust is earned in layers. The right voice earns attention before the right offer earns consideration.
+- **Evidence before optimisation** (SOUL.md #11): This is a hypothesis about what voice works best. The calculator experiment will produce evidence. The voice standard is the framework; results will refine it.
+- **Principles can't be tested; results can** (SOUL.md #6): The principles (no bullshit, respect time, never exaggerate) are values. Whether they produce better reply rates is testable.
+
+---
+
+## Risks Identified
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| Voice becomes too casual, loses professionalism | Low | Med | The coffee test implies professional respect — business owners at coffee are direct, not sloppy |
+| "Sound like James" is hard for Atlas to calibrate without examples | Med | Low | The existing calibration campaign + ACS benchmark provide reference. Each rejected draft sharpens calibration. |
+| Experiment (calculator vs curiosity) confounded by new voice standard applied to both cohorts | Low | Low | Both cohorts use the same voice. Voice is controlled, not a variable. |
+
+---
+
+## Expected Outcome
+
+Customer-facing communication becomes consistently direct, practical, and trustworthy. The coffee test catches marketing-adjacent language before it reaches James for review. Reply quality improves because prospects feel they're talking to a peer, not a pitch.
+
+---
+
+## Success Criteria
+
+- [ ] Every customer-facing draft presented to James passes the coffee test on first read
+- [ ] No marketing clichés, artificial urgency, or exaggeration in any outbound communication
+- [ ] James reports fewer "this sounds like AI/marketing" corrections on drafts
+- [ ] Reply quality from Wave 1+ shows prospects engaging as peers, not prospects
+
+---
+
+## Atlas's Challenge (Pre-Decision)
+
+No challenge. This direction aligns with every existing principle — it's a sharper articulation of what was already driving the best-performing drafts. The source/voice separation resolves a genuine tension (we study marketers but shouldn't sound like them) that wasn't previously addressed.
+
+---
+
+## Actual Outcome (Post-Review)
+
+**Date reviewed:** TBD
+
+**What actually happened:** TBD
+
+**Verdict:** TBD
+
+**Delta from expected:** TBD
+
+---
+
+## Learnings
+
+TBD
+
+---
+
+## Related Decisions
+
+- `founding-no-pitch-in-first-email` — the curiosity-before-persuasion principle this standard formalises
+- `founding-travis-case-study-as-bridge` — evidence over hype, help before selling
+- `2026-07-03-industry-fluency-over-company-research` — sounding like someone who understands, not someone who researched

@@ -1,0 +1,78 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# Voice Review Checklist
+
+> Make-or-break 8-point quality gate. Every customer-facing email passes this before reaching James. Decision: [[Communication Voice Standard]] (knowledge/decisions/2026-07-07-communication-voice-standard.md).
+
+---
+
+## The 8-Point Voice Review
+
+For each point, answer **Yes** or **No**. One No = rewrite.
+
+| # | Check | What it means |
+|---|---|---|
+| 1 | **Gets to the point quickly** | No filler openers. No throat-clearing. The first sentence does real work. |
+| 2 | **No bullshit** | Nothing that sounds like marketing copy. No vague promises. No "we help businesses..." |
+| 3 | **No marketing clichés** | No "game-changer," "revolutionary," "cutting-edge," "best-in-class," "seamless," "leverage," "streamline," "optimize." |
+| 4 | **No exaggerated claims** | Every claim is defensible with evidence. If a claim needs a qualifier to be true, remove it. |
+| 5 | **Useful before selling** | The email gives something before asking for anything — an insight, a tool, a genuine question worth thinking about. |
+| 6 | **Sounds like James talking to another business owner** | Direct, practical, no-bullshit. Peer to peer, not marketer to prospect. |
+| 7 | **Reads naturally when spoken aloud** | Read it out loud. If any sentence trips you up or sounds like it came from a script, rewrite it. |
+| 8 | **Passes the coffee test** | "Would this sound natural if James said it to a business owner over a coffee?" If no, or if you're not sure, it's a no. |
+
+---
+
+## Scoring Format
+
+Present each draft to James with this block:
+
+```
+### Voice Review — [Email identifier]
+
+| # | Check | Pass? |
+|---|---|---|
+| 1 | Gets to the point quickly | ✅ / ❌ |
+| 2 | No bullshit | ✅ / ❌ |
+| 3 | No marketing clichés | ✅ / ❌ |
+| 4 | No exaggerated claims | ✅ / ❌ |
+| 5 | Useful before selling | ✅ / ❌ |
+| 6 | Sounds like James | ✅ / ❌ |
+| 7 | Reads naturally aloud | ✅ / ❌ |
+| 8 | Passes coffee test | ✅ / ❌ |
+
+**Result:** 8/8 ✅ / ❌ [N] items need rewrite
+```
+
+---
+
+## When to Run
+
+- **Cold outreach:** After draft, before Post-Draft Verification (em dash scan, hedging scan, etc.)
+- **Email replies:** After draft, before presenting to James
+- **Any customer-facing email:** Before it leaves your hands
+
+---
+
+## What a Fail Looks Like
+
+If the score is less than 8/8, do not present the draft. Rewrite the failing items. If you can't get to 8/8 after two rewrites, present it with the failing items flagged and your specific concern — James may override.
+
+---
+
+## Integration with Post-Draft Verification
+
+Voice Review runs first. It's the quality gate ("is this worth saying?"). Post-Draft Verification runs second — technical hygiene ("are there em dashes? hedging? false engagement?"). A draft that passes Voice Review but fails Post-Draft Verification needs fixing, not rewriting.
+
+Order:
+1. Voice Review (8-point checklist)
+2. Post-Draft Verification (technical scans)
+3. Present to James
+
+---
+
+*Reference: Decision `2026-07-07-communication-voice-standard`. This checklist operationalises the Communication Voice Standard for every customer-facing email.*
