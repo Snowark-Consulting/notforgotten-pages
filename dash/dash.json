@@ -164,12 +164,12 @@
       }
     ]
   },
-  "last_updated": "2026-07-07T19:42:15.400501+09:30",
+  "last_updated": "2026-07-07T21:36:28.440565+09:30",
   "pipeline": {
-    "prospect_count": 196,
+    "prospect_count": 197,
     "stages": {
       "Outreach Active": 19,
-      "New": 174,
+      "New": 175,
       "Lost": 2,
       "Design Partner": 1
     },
@@ -179,8 +179,8 @@
       "Painter": 121,
       "Commercial cleaning": 30,
       "Landscaper": 1,
+      "Other": 2,
       "Construction": 2,
-      "Other": 1,
       "Plumber": 1,
       "B2B Services": 2,
       "Engineering": 1,
@@ -203,7 +203,7 @@
         "Painter": 115,
         "Commercial cleaning": 27,
         "Landscaper": 1,
-        "Other": 1,
+        "Other": 2,
         "Plumber": 1,
         "Electrician": 2
       },
@@ -342,16 +342,22 @@
       "Cleaning": 1
     },
     "messages": {
-      "outbound_total": 38,
+      "outbound_total": 40,
       "inbound_total": 2,
-      "total": 40,
-      "reply_rate": 5.3,
+      "total": 42,
+      "reply_rate": 5.0,
       "last_7_days": {
-        "outbound": 25,
+        "outbound": 27,
         "inbound": 0
       }
     },
-    "last_refreshed": "2026-07-07T10:00:31.763845+00:00"
+    "opens": {
+      "deliveries": 0,
+      "prospects_opened": 0,
+      "total_opens": 0,
+      "avg_opens": 0
+    },
+    "last_refreshed": "2026-07-07T12:06:28.438459+00:00"
   },
   "decisions": {
     "total": 10,
