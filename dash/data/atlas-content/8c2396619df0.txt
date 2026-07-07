@@ -1,0 +1,66 @@
+# Cadence Exception Cohort
+
+> **Created:** July 5, 2026
+> **Purpose:** Track prospects whose actual communication history differs from the planned CRM sequence. These are excluded from clean experiment results and analysed separately.
+> **Principle:** The actual customer experience always takes precedence over the intended sequence. Experiment integrity > schedule maintenance.
+
+---
+
+## Cohort Members
+
+| # | Prospect | Industry | CRM Touch | Actual Messages | Issue |
+|---|---|---|---|---|---|
+| 1 | All Melbourne Painting | Painter | Email 1 | Email 2 (1x, Jul 2) | CRM behind — Email 2 sent but CRM not updated |
+| 2 | Matte Projects Painting | Painter | Email 1 | Email 2 (1x, Jul 2) | CRM behind — Email 2 sent but CRM not updated |
+| 3 | Kleena Cleaners | Commercial cleaning | Email 2 | Email 1 (2x, diff bodies) + Email 2 (2x dup) | Multiple issues: duplicate Email 1 (different bodies), duplicate Email 2 |
+| 4 | Online Marketing Gurus | Marketing agency | Email 2 | Email 1 (2x, diff bodies, Jun 29 + Jul 2) | Multi-Email1 (different bodies), no Email 2 sent, CRM ahead |
+
+---
+
+## Cadence Exception Types
+
+| Type | Symptom | Example |
+|---|---|---|
+| **CRM-behind** | CRM shows earlier touchpoint than actual sends | All Melbourne Painting, Matte Projects |
+| **CRM-ahead** | CRM shows later touchpoint than actual sends | OMG |
+| **Multi-touch** | Multiple different Email 1s sent to same prospect | OMG, Kleena Cleaners |
+| **Duplicate** | Same email sent more than once | Kleena Cleaners (Email 2 dup) |
+
+---
+
+## Excluded From
+
+- Clean experiment reply rate calculations
+- Industry-level performance analysis
+- Campaign Review baseline metrics
+
+## Included In
+
+- Separate cadence exception analysis
+- Learning cohort for operational process improvement
+- Re-engagement assessment after observation window
+
+---
+
+## Analysis Plan (per James, July 5, 2026)
+
+**Observation window:** 14 days from last send
+**Questions to answer:**
+1. Did anyone reply despite the mismatch?
+2. Is future re-engagement worthwhile?
+3. If so, what is the most appropriate timing and approach?
+
+**Rule:** Do not try to recover the issue by sending more emails. Let the evidence guide the next decision.
+
+---
+
+## Airtable Status
+
+All 4 prospects moved to `Sequence Status: Paused` on July 5, 2026.
+
+| Prospect | Airtable Record | Old Status | New Status |
+|---|---|---|---|
+| All Melbourne Painting | `recNlvPbihq69rAAh` | Active | Paused |
+| Matte Projects | `recTdYInhXHr8xvAl` | Active | Paused |
+| Kleena Cleaners | `recDDTpRhhgSWrLXY` | Active | Paused |
+| OMG | `recuRJedvTxQhOnrs` | Active | Paused |

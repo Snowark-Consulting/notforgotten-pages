@@ -63,6 +63,7 @@ Log: ~/.hermes/logs/inbox-pulse.log
 | Campaign Pulse | eb8826841606 | every 48h | telegram:-1003939051249 | growth-operations, cold-email, decision-library | Deep dive: reply rates by vertical/greeting, patterns, hypothesis, forecast, recommendation. Silent when no active campaign |
 | Nightly tracking tag audit | dc044588c680 | daily 8:55pm | local | — | No-agent script (`scripts/tracking-tag-audit.py`). Fetches sitemap, checks every page for GA4 + Clarity tags. Silent when clean; failures injected into nightly consolidation via `context_from`. Added 2026-07-05. |
 | Stale Prospect Alert | 519e0b52719c | Mondays 8am UTC | telegram:-1003939051249 | — | No-agent script (`scripts/stale-prospect-alert.py`). Checks Outreach Active prospects for Last contacted date >14 days. Silent when clean; alerts with prospect names, days stale, and recommended actions. Added 2026-07-05. |
+| Wave 1 — Email 1 Send (22 prospects) | 01d6918d4809 | once at 2026-07-12 23:30 UTC | telegram:-1003880645651 | — | No-agent script (`scripts/send-wave1.sh`). Sends first-touch outreach to 22 Wave 1 prospects. One-shot cron; fires once then self-removes. Added 2026-07-06. |
 
 ## Hooks (event-driven)
 
