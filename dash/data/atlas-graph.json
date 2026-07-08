@@ -88,7 +88,7 @@
       "community": 0,
       "community_name": "Agent",
       "content_hash": "7299776b30de",
-      "val": 12.0,
+      "val": 10.0,
       "color": "#e0a62a"
     },
     {
@@ -103,6 +103,17 @@
       "color": "#e0a62a"
     },
     {
+      "id": "agent_sops_index",
+      "label": "SOPs Index",
+      "file_type": "doc",
+      "source_file": "Agent/sops-index.md",
+      "community": 0,
+      "community_name": "Agent",
+      "content_hash": "38cb95273809",
+      "val": 8.0,
+      "color": "#e0a62a"
+    },
+    {
       "id": "agent_vault_lint",
       "label": "Vault Lint",
       "file_type": "doc",
@@ -110,7 +121,7 @@
       "community": 0,
       "community_name": "Agent",
       "content_hash": "309d74836a09",
-      "val": 8.0,
+      "val": 6.0,
       "color": "#e0a62a"
     },
     {
@@ -503,6 +514,13 @@
     },
     {
       "source": "agent_registry",
+      "target": "agent_sops_index",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
       "target": "agent_trust",
       "relation": "wikilink",
       "weight": 1.0,
@@ -657,14 +675,7 @@
     },
     {
       "source": "agent_sops",
-      "target": "agent_consolidation_sop",
-      "relation": "wikilink",
-      "weight": 1.0,
-      "source_file": ""
-    },
-    {
-      "source": "agent_sops",
-      "target": "agent_vault_lint",
+      "target": "agent_sops_index",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

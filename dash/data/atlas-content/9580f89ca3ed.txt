@@ -234,12 +234,13 @@ Standard: if same task ran tomorrow with fresh agent reading only skill file, wo
 ## Boot Context (load every session)
 
 1. `Agent/Registry.md` — three-hop map to everything
-2. `Agent/SOPs.md` — procedures and skill triggers
-3. `memory/MEMORY.md` — memory index; then task-relevant memory files
-4. `learnings/LEARNINGS.md` — check before external API
-5. Verify sender identity before responding to inbound
-6. `knowledge/outreach-philosophy/INDEX.md` — load before any outreach email. Philosophy, not skill, is source of truth.
-7. `knowledge/atlas-learning-framework.md` — load before proposing any change. The experimental methodology governs how Atlas improves.
+2. `Agent/sops-index.md` — canonical SOP registry; scan for relevant procedures
+3. `Agent/SOPs.md` — standing rules and channel routing
+4. `memory/MEMORY.md` — memory index; then task-relevant memory files
+5. `learnings/LEARNINGS.md` — check before external API
+6. Verify sender identity before responding to inbound
+7. `knowledge/outreach-philosophy/INDEX.md` — load before any outreach email. Philosophy, not skill, is source of truth.
+8. `knowledge/atlas-learning-framework.md` — load before proposing any change. The experimental methodology governs how Atlas improves.
 
 ---
 

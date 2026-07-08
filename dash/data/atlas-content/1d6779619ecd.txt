@@ -4,14 +4,11 @@ owner: notforgotten
 tier: primary
 ---
 
-# SOPs — Atlas
-
-> Recurring procedures and skill triggers. Each entry: trigger → action. Detail lives in skill files.
 # SOPs — Not Forgotten Systems
 
-Recurring procedures. Each entry: trigger → skill or steps. Keep entries terse; detail lives in skill files.
+> Pointers only. Index says *what* and *where*, never *how*. Canonical registry is `Agent/sops-index.md`. This file holds the standing rules that apply every session and the channel routing table.
 
-See [[Registry]] (Agent/Registry.md) for the master map, [[Trust]] (Agent/Trust.md) for message and contact tiers, [[Consolidation SOP]] (Agent/consolidation-sop.md) for the nightly run, [[Vault Lint]] (Agent/vault-lint.md) for the weekly audit, and [[Infrastructure]] (Agent/Infrastructure.md) for scheduled job inventory.
+See [[Registry]] (Agent/Registry.md) for the master map, [[Trust]] (Agent/Trust.md) for message and contact tiers, [[sops-index]] (Agent/sops-index.md) for the full SOP catalogue, and [[Infrastructure]] (Agent/Infrastructure.md) for scheduled job inventory.
 
 ## Session boot (MANDATORY, every session)
 
@@ -105,21 +102,23 @@ When anything fails and gets fixed (API quirk, formatting trap, wrong assumption
 - Any rule broken that already has a "most commonly broken" warning in SOUL
 - `/new` can arrive anytime. The transcript survives in `.sessions/` for nightly consolidation (daily notes only), but LEARNINGS.md has no automated backfill. If you don't write it, it's lost.
 
-**Session-end detection:** There is none. The `session-activity` hook fires on `session:end` but only creates a timestamp stub. Atlas cannot know when a session ends. The only reliable moment to persist learning is right after the work.
-
 ## Skill Registration (MANDATORY)
 
 When creating any new skill for Not Forgotten Systems:
 
-1. **Register it in `Agent/Registry.md`** — add under the appropriate section (Design, Operations, Publishing, Email Intelligence, etc.) with a one-line hook. If no section fits, create one.
-2. **If it's a pre-flight skill** (must-load-before-doing-X), also add a MANDATORY section to SOPs with trigger conditions and load order.
-3. **Do this in the same session.** Never leave a skill unregistered. The self-lint will flag it within a week, but the gap is avoidable.
+1. **Register it in `Agent/Registry.md`** — add under the appropriate section with a one-line hook. If no section fits, create one.
+2. **Register it in `Agent/sops-index.md`** — add a row with trigger condition and skill name.
+3. **If it's a pre-flight skill** (must-load-before-doing-X), also add a MANDATORY section to SOPs with trigger conditions and load order.
+4. **Do this in the same session.** Never leave a skill unregistered. The self-lint will flag it within a week, but the gap is avoidable.
 
-## Scheduled maintenance (system jobs; inventory in Agent/Infrastructure.md)
+## Scheduled maintenance
 
-**Nightly memory consolidation (isolated session).** First detect interactive sessions: check `.sessions/<date>.log` for today and yesterday (each line is a timestamp plus the session transcript path, written by `hooks/session-activity/handler.py`). For either date that shows activity but whose `notes/<date>.md` is missing or only the auto-created stub, read the most recent referenced transcript and write a real summary into `notes/<date>.md` (Worked On, Open Threads, Decisions, Follow Up) before consolidating. Never report a date as empty when its session log shows activity — the consolidation only sees what is on disk, and a chat that left no note is otherwise invisible to it. Then review the day's sessions and notes: write or update memory files for new preferences, corrections, and decisions (one file one fact, index in `memory/MEMORY.md`); promote repeated fixes into `learnings/LEARNINGS.md` and the relevant skill files; convert relative dates to absolute; merge duplicates, delete anything now wrong; update `Agent/Infrastructure.md` if any automation changed. A day that genuinely produced nothing (no session-log activity) is fine; skipping the check is not.
+System jobs inventoried in `Agent/Infrastructure.md`.
 
-**Weekly self-lint (isolated session, READ-ONLY).** Audit the install and write a dated report to `learnings/lint-reports/`: broken internal references, MEMORY.md index drift against `memory/` contents, stale claims (anything labelled current but months old), contradictions between SOUL, SOPs, and Trust, orphan files nothing points to, and automations running that `Agent/Infrastructure.md` does not list. Report findings for the owner and consultant; never auto-edit from a lint run.
+| SOP | Trigger | Pointer |
+|-----|---------|---------|
+| Nightly memory consolidation | Daily 21:00 | → `nightly-consolidation` skill + `Agent/consolidation-sop.md` |
+| Weekly vault-lint | Sunday 17:00 | → `weekly-vault-lint` skill + `Agent/vault-lint.md` |
 
 ## Channel routing
 
@@ -129,7 +128,7 @@ When creating any new skill for Not Forgotten Systems:
 
 Unknown sender or unrecognised ID → Iron Gate Protocol (`Agent/Trust.md`).
 
-### Dashboard Updates
+## Dashboard Updates
 
 After completing any client-visible task (case study written, research done, page built, quote drafted, analysis complete), update the live dashboard immediately:
 

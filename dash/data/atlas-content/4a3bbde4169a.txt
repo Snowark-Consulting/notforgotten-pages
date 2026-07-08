@@ -27,7 +27,8 @@ Three hops max: Registry → Domain Index → Detail Card → Source.
 ## Agent & Operating System
 
 - `SOUL.md` — identity, safety rules, working style (loaded at boot)
-- [[SOPs]] (Agent/SOPs.md) — recurring procedures and skill triggers
+- [[SOPs Index]] (Agent/sops-index.md) — canonical SOP registry: one-liner per procedure, pointer to skill or file
+- [[SOPs]] (Agent/SOPs.md) — standing rules (session boot, comms, learnings loop) and channel routing
 - [[Trust]] (Agent/Trust.md) — contact tiers, outbound message tiers, Iron Gate Protocol
 - [[Infrastructure]] (Agent/Infrastructure.md) — every service, scheduled job, and renewal reminder on this machine. If it runs, it's listed there
 - [[Support]] (Agent/Support.md) — how bugs get reported and fixed: severity tiers, bug cards, the support desk

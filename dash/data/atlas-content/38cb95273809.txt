@@ -1,0 +1,43 @@
+---
+doc_type: index
+owner: notforgotten
+tier: primary
+---
+
+# SOPs Index — Not Forgotten Systems
+
+> Canonical registry of every SOP in the vault. One line per procedure. Index says *what* and *where*, never *how*. Three hops: Registry → sops-index → SOP skill/file.
+
+## Standing Rules (loaded every session)
+
+| SOP | Trigger | Pointer |
+|-----|---------|---------|
+| Session boot | Every session start | `Agent/SOPs.md#session-boot` |
+| Outbound communication | Before any outbound message | `Agent/Trust.md` |
+| Voice Review | Before presenting any draft to James | `knowledge/voice-review-checklist.md` |
+| Inbound communication | On receiving any message | `Agent/Trust.md` |
+| Incident reporting | On tool/send/integration failure | `Agent/Support.md` |
+| Learnings loop | On any fix or failure | `learnings/LEARNINGS.md` |
+| Skill Registration | When creating any new skill | `Agent/SOPs.md#skill-registration` |
+| Dashboard Updates | After any client-visible task | `Agent/SOPs.md#dashboard-updates` |
+| Channel routing | On inbound message | `Agent/SOPs.md#channel-routing` |
+
+## Procedural SOPs (loaded on-demand as skills)
+
+| SOP | Trigger | Skill |
+|-----|---------|-------|
+| Website changes | Before any edit under `pages/` | `website-dev` |
+| DNS changes | Before touching notforgotten.com.au DNS | `godaddy-dns` |
+| Case study builds | Before building/editing any case study | `case-study` |
+| Quote processing | When quote email arrives CC'd to atlas@ | `quote-intake` |
+| Campaign review | After every outreach wave completes | `campaign-review` |
+| Inbox monitoring | When checking inbox pulse system | `email-inbox-pulse` |
+| GitHub Pages publishing | After building static content | `github-pages-deploy` |
+| Nightly memory consolidation | Daily 21:00 | `nightly-consolidation` |
+| Weekly vault-lint | Sunday 17:00 | `weekly-vault-lint` |
+
+## How to use
+
+1. **Agent boots** → loads this index. Scans the Standing Rules table for universal constraints.
+2. **Task triggers a procedural SOP** → loads the skill by name. Full procedure + pitfalls load on-demand.
+3. **New SOP added** → add a row here AND register in `Agent/SOPs.md` (Skill Registration rule). Lint checks for index drift weekly.

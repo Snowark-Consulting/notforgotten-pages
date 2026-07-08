@@ -1,0 +1,107 @@
+# Decision: Morning Briefing — Operations Log to CEO Briefing
+
+**Slug:** `2026-07-08-morning-briefing-ceo-format`
+**Date:** 2026-07-08
+**Status:** Made
+**Review Date:** 2026-08-08
+
+---
+
+## The Decision
+
+The Morning Briefing is restructured from a task-oriented operations log into a CEO briefing. The purpose shifts from "tell James everything that's happening" to "help James make the best decision in under two minutes." The new format has five sections: Executive Summary (30-second business outcomes), Decisions Required (approval items only), Atlas' Recommendation (what, why, impact, trade-offs), Supporting Information (everything else), and "If James only does one thing today" (single highest-leverage action). Language shifts from process-oriented to outcome-oriented — "overdue" is banned in favour of "awaiting approval," "ready for review," "recommended send window now open," and "next recommended action."
+
+---
+
+## The Problem
+
+The existing Morning Briefing was an operations log. It surfaced data — inbox status, campaign counts, system health, risks — but didn't synthesise that data into a recommendation. James had to read the entire briefing and form his own conclusions about what mattered and what to do. This consumed more time than necessary and positioned Atlas as a reporter rather than an advisor.
+
+The trigger was James's direct request to evolve the briefing into something that reads like "a CEO briefing prepared by a trusted chief of staff, not an operations log."
+
+---
+
+## Options Considered
+
+| # | Option | Summary |
+|---|---|---|
+| A | Full CEO briefing restructure | Five-section format with Executive Summary leading. Atlas analyses, not just reports. Language shifts to outcome-oriented. Single "one thing" recommendation at the close. |
+| B | Add analysis layer to existing format | Keep the current structure but add Atlas analysis and recommendation sections. Hybrid approach that adds value without full restructure. |
+| C | Two-tier briefing (exec summary + full report) | Separate the 30-second read from the detail. Two Telegram messages: one decision-layer, one supporting detail. |
+
+---
+
+## Why This Path
+
+Option A was chosen because it fully addresses the core problem: the briefing wasn't structured around decision-making. Adding analysis to the existing format (Option B) would have been incremental but wouldn't change the fundamental posture from reporter to advisor. Option C (two messages) adds friction — James would need to open two messages rather than scanning one.
+
+The five-section structure forces Atlas to prioritise. The Executive Summary comes first because James should understand business health in 30 seconds. Decisions Required appears second because approval items shouldn't be buried. Atlas' Recommendation comes before Supporting Information because analysis should precede raw data. The "one thing" close ensures every briefing leaves James with a clear action.
+
+The language shift — banning "overdue" and similar process-oriented terms — aligns with SOUL Directive #1 (sell certainty, not follow-up). The briefing itself should model the product promise.
+
+---
+
+## Core Principles Applied
+
+- **Sell certainty, not follow-up** (SOUL #1) — The briefing should give James certainty about the business state in 30 seconds
+- **Atlas is multiplier, not replacement** (SOUL #10) — The briefing makes James more effective at decision-making; it doesn't make decisions for him
+- **Evidence before optimisation** (SOUL #11) — The new format will be tested over multiple briefings and refined based on James's feedback and decision quality
+- **James's voice, not a marketer's** (SOUL #12) — The briefing language should sound like a trusted advisor, not a management consultant
+
+---
+
+## Risks Identified
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| Analysis-recommendation gap — Atlas produces weak or generic recommendations in the early briefings | Medium | Medium | The recommendation section has explicit structure (what, why, impact, trade-offs). Quality will improve with pattern recognition across briefings. Review after 30 days. |
+| Supporting Information gets neglected — focus shifts to the top sections and operational detail is missed | Low | Medium | The Supporting Information section is explicitly structured with subsections. Any section can be "All clear" but must be checked. |
+| The "one thing" recommendation becomes repetitive (e.g., "review drafts" every day) | Medium | Low | The recommendation is tied to that day's specific context and evidence. If drafts are genuinely the highest-leverage action every day, that's a signal the system has a bottleneck. |
+
+---
+
+## Expected Outcome
+
+James reads the Morning Briefing in under two minutes and has enough context to make one high-leverage decision or take one high-leverage action. The Executive Summary gives him business health at a glance. The Decisions Required section surfaces only what needs him. The recommendation gives him an advisor's view, not just data. Over time, the quality of the recommendation improves as Atlas learns which recommendations James acts on and which he ignores.
+
+---
+
+## Success Criteria
+
+- [ ] James consistently reads and engages with the Morning Briefing within the delivery window
+- [ ] James reports the briefing format helps him make faster decisions
+- [ ] At least one "If James only does one thing" recommendation per week leads to measurable action (draft approved, reply sent, decision made, etc.)
+- [ ] No operations-log drift — the format stays decision-oriented across 30+ briefings
+- [ ] James provides direct feedback after at least 3 briefings in the new format (by Aug 8 review date)
+
+---
+
+## Atlas's Challenge (Pre-Decision)
+
+No challenge. This was a direct directive from James, not a proposed direction. The format was specified in detail and aligns with established principles.
+
+---
+
+## Actual Outcome (Post-Review)
+
+**Date reviewed:** [Pending — 2026-08-08]
+
+**What actually happened:** [TBD]
+
+**Verdict:** [TBD]
+
+**Delta from expected:** [TBD]
+
+---
+
+## Learnings
+
+[TBD — populated at review]
+
+---
+
+## Related Decisions
+
+- `2026-07-07-communication-voice-standard` — Language shift applies across all customer-facing content; the briefing now follows the same "no bullshit, get to the point" principles
+- `founding-atlas-multiplier-not-replacement` — The briefing is a multiplier: it makes James's decision-making faster and better, but the decisions remain his
+- `founding-tiered-trust-automation` — The briefing's "Decisions Required" section is the operational expression of Tier 2 (draft-and-ask); recommendations are Tier 2 by design
