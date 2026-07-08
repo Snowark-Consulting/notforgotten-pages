@@ -362,6 +362,16 @@ function renderPipeline() {
   html += statCard(fmtNum(p.messages.outbound_total), 'Emails Sent', false);
   html += '</div>';
 
+  // Engagement stat row (open tracking)
+  if (p.opens) {
+    html += '<div class="stat-row" style="grid-template-columns:repeat(4,1fr)">';
+    html += statCard(fmtNum(p.opens.deliveries || 0), 'Deliveries Confirmed', false);
+    html += statCard(fmtNum(p.opens.prospects_opened || 0), 'Prospects Opened', true);
+    html += statCard(fmtNum(p.opens.total_opens || 0), 'Total Opens', false);
+    html += statCard((p.opens.avg_opens || 0), 'Avg Opens / Prospect', false);
+    html += '</div>';
+  }
+
   // Calendar CTA
   if (data.decisions) {
     html += '<div class="cal-cta">';
