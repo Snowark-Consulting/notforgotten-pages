@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-09T15:14:48.878804+09:30",
+  "last_updated": "2026-07-09T15:30:39.493086+09:30",
   "pipeline": {
     "prospect_count": 197,
     "stages": {
@@ -219,25 +219,25 @@
       {
         "name": "Netlogyx",
         "industry": "IT MSP",
-        "last_contacted": "2026-07-02",
+        "last_contacted": "2026-07-09",
         "suburb": "Gold Coast"
       },
       {
         "name": "Distinct Painters",
         "industry": "Painter",
-        "last_contacted": "2026-07-02",
+        "last_contacted": "2026-07-09",
         "suburb": "South Australia"
       },
       {
         "name": "Atcom Technology",
         "industry": "IT MSP",
-        "last_contacted": "2026-07-02",
+        "last_contacted": "2026-07-09",
         "suburb": "Perth"
       },
       {
         "name": "Parkview Constructions",
         "industry": "Construction",
-        "last_contacted": "2026-07-02",
+        "last_contacted": "2026-07-09",
         "suburb": "Sydney"
       },
       {
@@ -249,7 +249,7 @@
       {
         "name": "Next&Co",
         "industry": "Marketing agency",
-        "last_contacted": "2026-07-02",
+        "last_contacted": "2026-07-09",
         "suburb": "Melbourne"
       },
       {
@@ -261,7 +261,7 @@
       {
         "name": "Beaumont People",
         "industry": "B2B Services",
-        "last_contacted": "2026-07-02",
+        "last_contacted": "2026-07-09",
         "suburb": "National"
       },
       {
@@ -273,43 +273,43 @@
       {
         "name": "Matrix Group",
         "industry": "Engineering",
-        "last_contacted": "2026-07-02",
+        "last_contacted": "2026-07-09",
         "suburb": "Melbourne"
       },
       {
         "name": "Adelaide Designer Painters",
         "industry": "Painter",
-        "last_contacted": "2026-07-02",
+        "last_contacted": "2026-07-09",
         "suburb": "South Australia"
       },
       {
         "name": "Synergy IT",
         "industry": "IT MSP",
-        "last_contacted": "2026-07-02",
+        "last_contacted": "2026-07-09",
         "suburb": "Sydney"
       },
       {
         "name": "Davidson",
         "industry": "B2B Services",
-        "last_contacted": "2026-07-02",
+        "last_contacted": "2026-07-09",
         "suburb": "Brisbane"
       },
       {
         "name": "Performance Cleaning",
         "industry": "Commercial cleaning",
-        "last_contacted": "2026-07-02",
+        "last_contacted": "2026-07-09",
         "suburb": "MELBOURNE"
       },
       {
         "name": "Click Click Media",
         "industry": "Marketing agency",
-        "last_contacted": "2026-07-02",
+        "last_contacted": "2026-07-09",
         "suburb": "Sydney"
       },
       {
         "name": "Excel Cleaning",
         "industry": "Cleaning",
-        "last_contacted": "2026-07-02",
+        "last_contacted": "2026-07-09",
         "suburb": "Melbourne"
       },
       {
@@ -321,13 +321,13 @@
       {
         "name": "Kapitol Group",
         "industry": "Construction",
-        "last_contacted": "2026-07-02",
+        "last_contacted": "2026-07-09",
         "suburb": "Melbourne"
       },
       {
         "name": "IT Blueprint",
         "industry": "IT MSP",
-        "last_contacted": "2026-07-02",
+        "last_contacted": "2026-07-09",
         "suburb": "Brisbane"
       }
     ],
@@ -342,22 +342,22 @@
       "Cleaning": 1
     },
     "messages": {
-      "outbound_total": 40,
+      "outbound_total": 52,
       "inbound_total": 2,
-      "total": 42,
-      "reply_rate": 5.0,
+      "total": 54,
+      "reply_rate": 3.8,
       "last_7_days": {
-        "outbound": 18,
+        "outbound": 30,
         "inbound": 0
       }
     },
     "opens": {
-      "deliveries": 0,
-      "prospects_opened": 0,
-      "total_opens": 0,
-      "avg_opens": 0
+      "deliveries": 7,
+      "prospects_opened": 4,
+      "total_opens": 5,
+      "avg_opens": 1.2
     },
-    "last_refreshed": "2026-07-09T04:00:24.368387+00:00"
+    "last_refreshed": "2026-07-09T06:00:39.400971+00:00"
   },
   "decisions": {
     "total": 10,
