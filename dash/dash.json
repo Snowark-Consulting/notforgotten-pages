@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 86,
+    "tasks_completed": 87,
     "recent": [
+      {
+        "date": "2026-07-11 07:36",
+        "task": "Prepare-ahead: Group 2 Email 3 (10 Wave 1 prospects) verified \u2014 all drafts ready for review, send window opens Jul 12",
+        "category": "task"
+      },
       {
         "date": "2026-07-10 16:59",
         "task": "Campaign pulse posted \u2014 0 replies across 19 active prospects. Wave 1 Email 2 (10 prospects) and Agency Email 3 (2 prospects) sent Jul 9. Preparing Email 3 drafts.",
@@ -135,11 +140,6 @@
         "date": "2026-07-02 11:02",
         "task": "GitHub token refreshed \u2014 auth restored for hancockjluke with repo + workflow scopes. Dash updates and GitHub Pages push operational.",
         "category": "task"
-      },
-      {
-        "date": "2026-07-02 10:16",
-        "task": "Sent Email 2 to all 9 Outreach Active prospects: 6 painters/cleaners + 3 agencies. 9/9 sent, 9/9 CRM reconciled.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-11T07:30:25.902100+09:30",
+  "last_updated": "2026-07-11T07:36:59.406625+09:30",
   "pipeline": {
     "prospect_count": 197,
     "stages": {
