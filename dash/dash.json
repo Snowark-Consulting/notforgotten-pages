@@ -164,13 +164,13 @@
       }
     ]
   },
-  "last_updated": "2026-07-12T11:28:27.414353+09:30",
+  "last_updated": "2026-07-12T11:30:42.312152+09:30",
   "pipeline": {
     "prospect_count": 197,
     "stages": {
-      "Outreach Active": 19,
+      "Outreach Active": 18,
       "New": 175,
-      "Lost": 2,
+      "Lost": 3,
       "Design Partner": 1
     },
     "verticals": {
@@ -189,7 +189,7 @@
     },
     "stage_by_vertical": {
       "Outreach Active": {
-        "IT MSP": 4,
+        "IT MSP": 3,
         "Painter": 4,
         "Construction": 2,
         "Commercial cleaning": 2,
@@ -209,7 +209,8 @@
       },
       "Lost": {
         "Painter": 1,
-        "Commercial cleaning": 1
+        "Commercial cleaning": 1,
+        "IT MSP": 1
       },
       "Design Partner": {
         "Painter": 1
@@ -219,7 +220,7 @@
       {
         "name": "Netlogyx",
         "industry": "IT MSP",
-        "last_contacted": "2026-07-09",
+        "last_contacted": "2026-07-12",
         "suburb": "Gold Coast"
       },
       {
@@ -231,13 +232,13 @@
       {
         "name": "Atcom Technology",
         "industry": "IT MSP",
-        "last_contacted": "2026-07-09",
+        "last_contacted": "2026-07-12",
         "suburb": "Perth"
       },
       {
         "name": "Parkview Constructions",
         "industry": "Construction",
-        "last_contacted": "2026-07-09",
+        "last_contacted": "2026-07-12",
         "suburb": "Sydney"
       },
       {
@@ -261,7 +262,7 @@
       {
         "name": "Beaumont People",
         "industry": "B2B Services",
-        "last_contacted": "2026-07-09",
+        "last_contacted": "2026-07-12",
         "suburb": "National"
       },
       {
@@ -273,7 +274,7 @@
       {
         "name": "Matrix Group",
         "industry": "Engineering",
-        "last_contacted": "2026-07-09",
+        "last_contacted": "2026-07-12",
         "suburb": "Melbourne"
       },
       {
@@ -285,13 +286,13 @@
       {
         "name": "Synergy IT",
         "industry": "IT MSP",
-        "last_contacted": "2026-07-09",
+        "last_contacted": "2026-07-12",
         "suburb": "Sydney"
       },
       {
         "name": "Davidson",
         "industry": "B2B Services",
-        "last_contacted": "2026-07-09",
+        "last_contacted": "2026-07-12",
         "suburb": "Brisbane"
       },
       {
@@ -309,7 +310,7 @@
       {
         "name": "Excel Cleaning",
         "industry": "Cleaning",
-        "last_contacted": "2026-07-09",
+        "last_contacted": "2026-07-12",
         "suburb": "Melbourne"
       },
       {
@@ -321,18 +322,12 @@
       {
         "name": "Kapitol Group",
         "industry": "Construction",
-        "last_contacted": "2026-07-09",
+        "last_contacted": "2026-07-12",
         "suburb": "Melbourne"
-      },
-      {
-        "name": "IT Blueprint",
-        "industry": "IT MSP",
-        "last_contacted": "2026-07-09",
-        "suburb": "Brisbane"
       }
     ],
     "active_by_vertical": {
-      "IT MSP": 4,
+      "IT MSP": 3,
       "Painter": 4,
       "Construction": 2,
       "Commercial cleaning": 2,
@@ -342,22 +337,22 @@
       "Cleaning": 1
     },
     "messages": {
-      "outbound_total": 52,
+      "outbound_total": 62,
       "inbound_total": 2,
-      "total": 54,
-      "reply_rate": 3.8,
+      "total": 64,
+      "reply_rate": 3.2,
       "last_7_days": {
-        "outbound": 14,
+        "outbound": 24,
         "inbound": 0
       }
     },
     "opens": {
       "deliveries": 8,
       "prospects_opened": 6,
-      "total_opens": 10,
-      "avg_opens": 1.7
+      "total_opens": 13,
+      "avg_opens": 2.2
     },
-    "last_refreshed": "2026-07-12T00:00:25.172283+00:00"
+    "last_refreshed": "2026-07-12T02:00:42.311205+00:00"
   },
   "decisions": {
     "total": 10,
