@@ -1,0 +1,101 @@
+# Decision: Distribution Validation Phase — Infrastructure Closed, Customer Acquisition Begins
+
+**Slug:** `2026-07-12-distribution-validation-phase`
+**Date:** 2026-07-12
+**Status:** Made
+**Review Date:** 2026-10-12
+
+---
+
+## The Decision
+
+Infrastructure phase is closed. From today, the business shifts to distribution validation and customer acquisition. The only gate for any new work is: *Will this help us consistently acquire customers or learn how to acquire customers?* Everything else goes to backlog. Atlas is delegated Tier 1 authority for standard outreach execution within approved sequences and documented standards, removing James as the bottleneck on routine sends.
+
+---
+
+## The Problem
+
+After weeks of infrastructure building (CRM, dashboards, case studies, ROI calculator, SEO, design system), the core hypothesis remains unproven: 52 outbound emails, zero genuine prospect conversations. The product is strong but distribution is unproven. James identified himself as the bottleneck — every draft waited for his review, creating multi-day lag on every send. The `founding-build-foundation-before-customers` decision review date (Sep 1) was set too far out given zero market signal.
+
+---
+
+## Options Considered
+
+| # | Option | Summary |
+|---|---|---|
+| A | Continue foundation-first approach through Sep 1 review | Predictable but slow. No market signal for 7 more weeks. Risk of building on unproven assumptions. |
+| B | Close infrastructure phase now, shift to acquisition, keep James as approval gate | Correct shift but preserves the bottleneck. Velocity still gated by James's availability. |
+| C | Close infrastructure phase, delegate standard outreach execution to Atlas, James retains strategic decisions only | Maximum velocity. James focuses on strategy. Atlas executes, learns, and recommends. |
+
+---
+
+## Why This Path
+
+Option C maximises learning velocity while keeping strategic control where it belongs. The evidence (zero conversations from 52 emails) demands faster iteration, not more infrastructure. James's constraint — full-time job, family — created the right architecture for the business but shouldn't gate outreach cadence. Delegating standard execution to Atlas removes the bottleneck without surrendering strategic direction. The principles alignment is clean: earn the right (Atlas has earned trust through consistent execution), system over person (the machine runs without James), evidence before optimisation (we need data faster).
+
+---
+
+## Core Principles Applied
+
+- **Earn the right** — Atlas has executed 52 sends with zero errors, caught duplicate-send near-misses, maintained 100% Airtable reconciliation. Trust earned through performance. (SOUL.md Directive 5)
+- **System over person** — The outreach machine now runs without James in the critical path. (SOUL.md Directive 11)
+- **Evidence before optimisation** — We have zero market signal. The fastest way to get signal is to remove the bottleneck. (SOUL.md Directive 11, knowledge/atlas-learning-framework.md)
+- **Build foundation before customers** — This decision doesn't overturn the founding decision; it declares the foundation sufficient. The Sep 1 review will assess whether that was right. (founding-build-foundation-before-customers)
+- **Customer trust > speed** — Delegation is bounded. Strategic decisions remain with James. Trust-damaging risks still stop at the gate. (founding-tiered-trust-automation)
+
+---
+
+## Risks Identified
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| Atlas sends emails with undetected errors | Low | Medium | Voice Review + Technical Verification gates remain mandatory. Every send reconciled to Airtable. Confirmation posted after each wave. |
+| Strategic drift — Atlas optimises for the wrong thing without James's oversight | Medium | High | Strategic changes (positioning, pricing, ICP, offer, messaging, cadence, new experiments, new verticals) still require James's approval. |
+| James disengages from tactical quality and voice degrades over time | Low | Medium | Campaign pulses keep James informed. Voice Review checklist is permanent. James can override or pause delegation at any time. |
+| Increased volume without improved approach burns through the pipeline with no results | High | High | Learning velocity mandate: every wave must produce evidence. If zero conversations persist after concentrated testing, Atlas must recommend strategic changes. |
+
+---
+
+## Expected Outcome
+
+Faster learning cycles. Standard outreach executes on cadence without James in the approval path. James focuses on strategic decisions: what to test, who to target, how to position. Atlas executes, reconciles, measures, and recommends. The goal: acquire first paying customers and validate (or disprove) distribution channels with real market evidence.
+
+---
+
+## Success Criteria
+
+- [ ] 10+ genuine prospect conversations started by Aug 15, 2026
+- [ ] First paying customer acquired by Sep 30, 2026
+- [ ] At least one statistically meaningful A/B test completed by Aug 15 (enough volume per variant to draw conclusions)
+- [ ] Zero trust-damaging incidents from delegated sends (factual errors, wrong prospect, wrong name, principle violations)
+- [ ] James reports reduced operational burden — strategic thinking time increased
+
+---
+
+## Atlas's Challenge (Pre-Decision)
+
+No challenge. This decision aligns with the evidence (zero conversations, need for faster learning) and principles (system over person, evidence before optimisation). The delegation boundaries are well-defined. The risk of burning through the pipeline with an unproven approach is real, but the mitigation — Atlas recommending strategic changes if zero conversations persist — addresses it. James identified himself as the bottleneck before Atlas raised it.
+
+**James's response:** N/A — James initiated.
+
+---
+
+## Actual Outcome (Post-Review)
+
+**Date reviewed:** *Pending — 2026-10-12*
+
+---
+
+## Learnings
+
+*Pending — to be filled at review.*
+
+---
+
+## Related Decisions
+
+- `founding-build-foundation-before-customers` — This decision declares the foundation sufficient. Sep 1 review will assess.
+- `founding-tiered-trust-automation` — Tier 1 expansion: standard outreach execution now delegated.
+- `2026-06-28-calibration-outreach-living-system` — The living system now runs at higher velocity.
+- `2026-07-07-communication-voice-standard` — Voice Review remains the mandatory gate for all delegated sends.
+- `2026-07-05-complete-sequence-before-first-send` — Hard gate remains. No Email 1 without complete sequence.
