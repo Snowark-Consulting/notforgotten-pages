@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 90,
+    "tasks_completed": 91,
     "recent": [
+      {
+        "date": "2026-07-12 17:04",
+        "task": "Campaign Pulse posted \u2014 18 active, 0 replies, Wave 1 Email 3 sent (10 prospects, Sunday timing deviation), Email 3 is first proof-led touch: key test of whether curiosity-first was the bottleneck",
+        "category": "task"
+      },
       {
         "date": "2026-07-12 11:28",
         "task": "Prepared Painter Distribution Validation campaign: 20 Email 1s drafted (10 Control A, 10 Test B), Airtable tagged, batch dry-run verified. Sending Monday Jul 13.",
@@ -135,11 +140,6 @@
         "date": "2026-07-02 15:37",
         "task": "Sent Email 2 batch: 6 painters/cleaners (Distinct, AD Painters, Matte Projects, All Melbourne, Performance Cleaning, Kleena Cleaners) \u2014 6/6 sent, 6/6 CRM reconciled",
         "category": "task"
-      },
-      {
-        "date": "2026-07-02 15:29",
-        "task": "Deployed ROI Calculator to production (notforgotten.com.au) \u2014 dev site approved and promoted",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-12T11:30:42.312152+09:30",
+  "last_updated": "2026-07-12T17:04:11.788255+09:30",
   "pipeline": {
     "prospect_count": 197,
     "stages": {
@@ -352,7 +352,7 @@
       "total_opens": 13,
       "avg_opens": 2.2
     },
-    "last_refreshed": "2026-07-12T02:00:42.311205+00:00"
+    "last_refreshed": "2026-07-12T06:01:07.482598+00:00"
   },
   "decisions": {
     "total": 10,
