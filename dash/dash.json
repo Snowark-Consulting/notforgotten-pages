@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 88,
+    "tasks_completed": 89,
     "recent": [
+      {
+        "date": "2026-07-12 10:38",
+        "task": "Marked IT Blueprint (enquiries@itblueprint.com.au) as Lost \u2014 email bounced back, Wave 1 July 2026",
+        "category": "task"
+      },
       {
         "date": "2026-07-12 10:02",
         "task": "Group 2 Email 3 sent: 10 prospects across IT MSP, Construction, B2B Services, Cleaning, Engineering. Travis case study bridge deployed.",
@@ -135,11 +140,6 @@
         "date": "2026-07-02 13:57",
         "task": "Synced dev site with production + added ROI calculator section",
         "category": "task"
-      },
-      {
-        "date": "2026-07-02 11:33",
-        "task": "Growth audit v1: reduced booking form to 4 fields, fixed pricing CTA, added privacy reassurance, standardised revenue to $177K+, made case study link prominent, updated bottom CTA",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-12T10:02:39.517469+09:30",
+  "last_updated": "2026-07-12T10:38:39.456918+09:30",
   "pipeline": {
     "prospect_count": 197,
     "stages": {
