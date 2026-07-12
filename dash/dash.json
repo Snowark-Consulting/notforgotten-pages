@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 89,
+    "tasks_completed": 90,
     "recent": [
+      {
+        "date": "2026-07-12 11:28",
+        "task": "Prepared Painter Distribution Validation campaign: 20 Email 1s drafted (10 Control A, 10 Test B), Airtable tagged, batch dry-run verified. Sending Monday Jul 13.",
+        "category": "task"
+      },
       {
         "date": "2026-07-12 10:38",
         "task": "Marked IT Blueprint (enquiries@itblueprint.com.au) as Lost \u2014 email bounced back, Wave 1 July 2026",
@@ -135,11 +140,6 @@
         "date": "2026-07-02 15:29",
         "task": "Deployed ROI Calculator to production (notforgotten.com.au) \u2014 dev site approved and promoted",
         "category": "task"
-      },
-      {
-        "date": "2026-07-02 13:57",
-        "task": "Synced dev site with production + added ROI calculator section",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-12T10:38:39.456918+09:30",
+  "last_updated": "2026-07-12T11:28:27.414353+09:30",
   "pipeline": {
     "prospect_count": 197,
     "stages": {
