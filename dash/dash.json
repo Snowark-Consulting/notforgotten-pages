@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 91,
+    "tasks_completed": 92,
     "recent": [
+      {
+        "date": "2026-07-13 14:44",
+        "task": "Processed unsubscribe from Gareth Smith (Distinct Painters) \u2014 Calibration July 2026 Email 3. Updated Airtable: Unsubscribed/Lost.",
+        "category": "task"
+      },
       {
         "date": "2026-07-12 17:04",
         "task": "Campaign Pulse posted \u2014 18 active, 0 replies, Wave 1 Email 3 sent (10 prospects, Sunday timing deviation), Email 3 is first proof-led touch: key test of whether curiosity-first was the bottleneck",
@@ -135,11 +140,6 @@
         "date": "2026-07-02 15:37",
         "task": "Applied comprehensive SEO audit fixes: OG tags, Twitter cards, canonical URL, structured data (JSON-LD Organization + WebSite), robots.txt, sitemap.xml, polished meta description, fixed H6\u2192H3 heading hierarchy, favicon sizes. Dev site protected with noindex.",
         "category": "task"
-      },
-      {
-        "date": "2026-07-02 15:37",
-        "task": "Sent Email 2 batch: 6 painters/cleaners (Distinct, AD Painters, Matte Projects, All Melbourne, Performance Cleaning, Kleena Cleaners) \u2014 6/6 sent, 6/6 CRM reconciled",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-13T13:30:54.480390+09:30",
+  "last_updated": "2026-07-13T14:44:38.869435+09:30",
   "pipeline": {
     "prospect_count": 197,
     "stages": {
