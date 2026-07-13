@@ -1,5 +1,7 @@
 # Integration: WhatsApp
 
+**Status: Deferred (2026-07-12 — James).** Retained as integration template for future use. Will be populated when WhatsApp integration is actively set up. Not stale.
+
 ## Prerequisites
 
 - Decide the path: WhatsApp Business API (via a provider such as Twilio or Meta Cloud API) for programmatic send/receive, or WhatsApp Business app on a dedicated number with the agent assisting via drafts. The API path requires a number NOT currently registered to a personal WhatsApp

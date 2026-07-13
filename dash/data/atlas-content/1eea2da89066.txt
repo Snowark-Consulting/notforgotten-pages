@@ -24,6 +24,14 @@
 
 How the agent authenticates, token rotation schedules, and credential storage conventions.
 
+## Data Reports
+
+Email intelligence mining reports. Published to GitHub Pages; source vault copies retained here.
+
+- `../data/james-mining/report-travis.md` — Travis Krieg email analysis
+- `../data/james-mining/report-completed.md` — Completed job email patterns
+- `../data/james-mining/report-quotes-followups.md` — Quote follow-up email patterns
+
 ## Tech Stack (inferred)
 
 What the business website/product appears to be built with. Used for context when the agent needs to make technical decisions.

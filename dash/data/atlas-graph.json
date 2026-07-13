@@ -4,17 +4,6 @@
   "graph": {},
   "nodes": [
     {
-      "id": "agent_glossary",
-      "label": "Glossary",
-      "file_type": "doc",
-      "source_file": "Agent/Glossary.md",
-      "community": 0,
-      "community_name": "Agent",
-      "content_hash": "8b81fcc2aa6d",
-      "val": 6.0,
-      "color": "#e0a62a"
-    },
-    {
       "id": "agent_infrastructure",
       "label": "Infrastructure",
       "file_type": "doc",
@@ -536,13 +525,6 @@
     {
       "source": "agent_registry",
       "target": "knowledge_sales_brain_index",
-      "relation": "wikilink",
-      "weight": 1.0,
-      "source_file": ""
-    },
-    {
-      "source": "agent_registry",
-      "target": "agent_glossary",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
