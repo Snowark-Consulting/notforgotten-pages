@@ -164,13 +164,13 @@
       }
     ]
   },
-  "last_updated": "2026-07-13T14:44:38.869435+09:30",
+  "last_updated": "2026-07-13T15:30:54.417274+09:30",
   "pipeline": {
     "prospect_count": 197,
     "stages": {
-      "Outreach Active": 46,
-      "New": 147,
-      "Lost": 3,
+      "Outreach Active": 54,
+      "New": 137,
+      "Lost": 5,
       "Design Partner": 1
     },
     "verticals": {
@@ -191,7 +191,7 @@
       "Outreach Active": {
         "IT MSP": 3,
         "Marketing agency": 9,
-        "Painter": 20,
+        "Painter": 28,
         "Landscaper": 1,
         "Commercial cleaning": 7,
         "Construction": 2,
@@ -200,15 +200,15 @@
         "Cleaning": 1
       },
       "New": {
-        "Painter": 99,
         "Marketing agency": 21,
         "Commercial cleaning": 22,
         "Other": 2,
+        "Painter": 89,
         "Plumber": 1,
         "Electrician": 2
       },
       "Lost": {
-        "Painter": 1,
+        "Painter": 3,
         "Commercial cleaning": 1,
         "IT MSP": 1
       },
@@ -236,21 +236,33 @@
         "suburb": "Adelaide"
       },
       {
+        "name": "M .J. Painters Melbourne",
+        "industry": "Painter",
+        "last_contacted": "2026-07-13",
+        "suburb": "Victoria"
+      },
+      {
+        "name": "Melbourne Hose Painters",
+        "industry": "Painter",
+        "last_contacted": "2026-07-13",
+        "suburb": "Victoria"
+      },
+      {
         "name": "Tas Moulis",
         "industry": "Painter",
-        "last_contacted": "2026-07-12",
+        "last_contacted": "2026-07-13",
         "suburb": "Queensland"
       },
       {
         "name": "Dani's Painting",
         "industry": "Painter",
-        "last_contacted": "2026-07-12",
+        "last_contacted": "2026-07-13",
         "suburb": "Victoria"
       },
       {
-        "name": "Distinct Painters",
+        "name": "Like Painting",
         "industry": "Painter",
-        "last_contacted": "2026-07-09",
+        "last_contacted": "2026-07-13",
         "suburb": "South Australia"
       },
       {
@@ -260,22 +272,46 @@
         "suburb": "Brisbane (Moggill), QLD"
       },
       {
+        "name": "Inspire Painting",
+        "industry": "Painter",
+        "last_contacted": "2026-07-13",
+        "suburb": "Victoria"
+      },
+      {
+        "name": "Alta Painters Melbourne",
+        "industry": "Painter",
+        "last_contacted": "2026-07-13",
+        "suburb": "Victoria"
+      },
+      {
         "name": "Whistle Clean Australia",
         "industry": "Commercial cleaning",
         "last_contacted": "2026-07-12",
         "suburb": "MELBOURNE"
       },
       {
+        "name": "The Painting Company",
+        "industry": "Painter",
+        "last_contacted": "2026-07-13",
+        "suburb": "Victoria"
+      },
+      {
         "name": "Zoom Painting",
         "industry": "Painter",
-        "last_contacted": "2026-07-12",
+        "last_contacted": "2026-07-13",
         "suburb": "Victoria"
       },
       {
         "name": "Warren's Painting Service",
         "industry": "Painter",
-        "last_contacted": "2026-07-12",
+        "last_contacted": "2026-07-13",
         "suburb": "Victoria"
+      },
+      {
+        "name": "LPH Painters",
+        "industry": "Painter",
+        "last_contacted": "2026-07-13",
+        "suburb": "South Australia"
       },
       {
         "name": "Atcom Technology",
@@ -284,9 +320,15 @@
         "suburb": "Perth"
       },
       {
+        "name": "Melbourne Painters & Plasterers",
+        "industry": "Painter",
+        "last_contacted": "2026-07-13",
+        "suburb": "Victoria"
+      },
+      {
         "name": "Expert Painting & Renovation",
         "industry": "Painter",
-        "last_contacted": "2026-07-12",
+        "last_contacted": "2026-07-13",
         "suburb": "Victoria"
       },
       {
@@ -298,31 +340,37 @@
       {
         "name": "Quinns Painting & Decorating",
         "industry": "Painter",
-        "last_contacted": "2026-07-12",
+        "last_contacted": "2026-07-13",
         "suburb": "Victoria"
       },
       {
         "name": "SRN Painting Contractors",
         "industry": "Painter",
-        "last_contacted": "2026-07-12",
+        "last_contacted": "2026-07-13",
         "suburb": "Victoria"
       },
       {
         "name": "Adelaide Home Painting",
         "industry": "Painter",
-        "last_contacted": "2026-07-12",
+        "last_contacted": "2026-07-13",
         "suburb": "South Australia"
       },
       {
         "name": "Amazing Painting",
         "industry": "Painter",
-        "last_contacted": "2026-07-12",
+        "last_contacted": "2026-07-13",
+        "suburb": "Victoria"
+      },
+      {
+        "name": "Master Choice Painting",
+        "industry": "Painter",
+        "last_contacted": "2026-07-13",
         "suburb": "Victoria"
       },
       {
         "name": "AKP Painting & Decorating",
         "industry": "Painter",
-        "last_contacted": "2026-07-12",
+        "last_contacted": "2026-07-13",
         "suburb": "South Australia"
       },
       {
@@ -448,7 +496,7 @@
       {
         "name": "Adelaide Designer Painters",
         "industry": "Painter",
-        "last_contacted": "2026-07-09",
+        "last_contacted": "2026-07-13",
         "suburb": "South Australia"
       },
       {
@@ -466,7 +514,7 @@
       {
         "name": "Performance Cleaning",
         "industry": "Commercial cleaning",
-        "last_contacted": "2026-07-09",
+        "last_contacted": "2026-07-13",
         "suburb": "MELBOURNE"
       },
       {
@@ -497,7 +545,7 @@
     "active_by_vertical": {
       "IT MSP": 3,
       "Marketing agency": 9,
-      "Painter": 20,
+      "Painter": 28,
       "Landscaper": 1,
       "Commercial cleaning": 7,
       "Construction": 2,
@@ -506,22 +554,22 @@
       "Cleaning": 1
     },
     "messages": {
-      "outbound_total": 90,
-      "inbound_total": 2,
-      "total": 92,
-      "reply_rate": 2.2,
+      "outbound_total": 113,
+      "inbound_total": 3,
+      "total": 116,
+      "reply_rate": 2.7,
       "last_7_days": {
-        "outbound": 52,
-        "inbound": 0
+        "outbound": 75,
+        "inbound": 1
       }
     },
     "opens": {
-      "deliveries": 17,
-      "prospects_opened": 18,
-      "total_opens": 33,
+      "deliveries": 19,
+      "prospects_opened": 25,
+      "total_opens": 45,
       "avg_opens": 1.8
     },
-    "last_refreshed": "2026-07-13T04:00:54.479647+00:00"
+    "last_refreshed": "2026-07-13T06:00:54.416656+00:00"
   },
   "decisions": {
     "total": 10,
