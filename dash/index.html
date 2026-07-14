@@ -309,7 +309,7 @@ function renderDrafts() {
   if (!drafts || !drafts.files || drafts.files.length === 0) return '';
 
   let html = '<div class="drafts-panel">';
-  html += '<div class="panel-header"><h2>📝 Drafts for Review</h2><span class="drafts-badge">' + drafts.total_prospects + ' drafts</span></div>';
+  html += '<div class="panel-header"><h2>📝 Drafts for Review</h2><span class="drafts-badge">' + drafts.total_files + ' files · ' + drafts.total_prospects + ' prospects</span></div>';
 
   drafts.files.forEach(f => {
     html += '<div class="draft-file-section">';
