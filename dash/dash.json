@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 92,
+    "tasks_completed": 93,
     "recent": [
+      {
+        "date": "2026-07-14 13:05",
+        "task": "Sent Painter Distribution Validation (20 Email 1s) + Calibration Email 3s (3). All reconciled. Routine outreach now fully delegated per Jul 13 decision.",
+        "category": "task"
+      },
       {
         "date": "2026-07-13 14:44",
         "task": "Processed unsubscribe from Gareth Smith (Distinct Painters) \u2014 Calibration July 2026 Email 3. Updated Airtable: Unsubscribed/Lost.",
@@ -135,11 +140,6 @@
         "date": "2026-07-02 16:01",
         "task": "Completed Q2 2026 Quarterly Business Audit: comprehensive 10-area review. Delivered 30-day execution plan focused on product visibility, customer conversations, and design partners. Week 1 checklist issued.",
         "category": "task"
-      },
-      {
-        "date": "2026-07-02 15:37",
-        "task": "Applied comprehensive SEO audit fixes: OG tags, Twitter cards, canonical URL, structured data (JSON-LD Organization + WebSite), robots.txt, sitemap.xml, polished meta description, fixed H6\u2192H3 heading hierarchy, favicon sizes. Dev site protected with noindex.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-14T11:30:11.509977+09:30",
+  "last_updated": "2026-07-14T13:05:22.494785+09:30",
   "pipeline": {
     "prospect_count": 197,
     "stages": {
