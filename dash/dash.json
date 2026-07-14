@@ -164,13 +164,13 @@
       }
     ]
   },
-  "last_updated": "2026-07-14T17:22:06.612077+09:30",
+  "last_updated": "2026-07-14T19:30:17.025405+09:30",
   "pipeline": {
     "prospect_count": 197,
     "stages": {
-      "Outreach Active": 54,
-      "New": 137,
-      "Lost": 5,
+      "Outreach Active": 91,
+      "New": 102,
+      "Lost": 3,
       "Design Partner": 1
     },
     "verticals": {
@@ -191,7 +191,7 @@
       "Outreach Active": {
         "IT MSP": 3,
         "Marketing agency": 9,
-        "Painter": 28,
+        "Painter": 65,
         "Landscaper": 1,
         "Commercial cleaning": 7,
         "Construction": 2,
@@ -203,12 +203,12 @@
         "Marketing agency": 21,
         "Commercial cleaning": 22,
         "Other": 2,
-        "Painter": 89,
+        "Painter": 54,
         "Plumber": 1,
         "Electrician": 2
       },
       "Lost": {
-        "Painter": 3,
+        "Painter": 1,
         "Commercial cleaning": 1,
         "IT MSP": 1
       },
@@ -258,6 +258,12 @@
         "industry": "Painter",
         "last_contacted": "2026-07-13",
         "suburb": "Victoria"
+      },
+      {
+        "name": "Distinct Painters",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
       },
       {
         "name": "Like Painting",
@@ -356,10 +362,22 @@
         "suburb": "South Australia"
       },
       {
+        "name": "Kincoat Painting",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
         "name": "Amazing Painting",
         "industry": "Painter",
         "last_contacted": "2026-07-13",
         "suburb": "Victoria"
+      },
+      {
+        "name": "Cameron Davidson Painters & Decorators",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
       },
       {
         "name": "Master Choice Painting",
@@ -386,10 +404,34 @@
         "suburb": "ADELAIDE"
       },
       {
+        "name": "SAPS \u2013 Local Painters Adelaide",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "Unique Painting",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "Victoria"
+      },
+      {
+        "name": "Aussie Painters SA",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
         "name": "Beem Cleaners",
         "industry": "Commercial cleaning",
         "last_contacted": "2026-07-12",
         "suburb": "MELBOURNE"
+      },
+      {
+        "name": "Freshy Painters",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
       },
       {
         "name": "Elite Painting SA",
@@ -404,6 +446,30 @@
         "suburb": "Melbourne"
       },
       {
+        "name": "Real Painters",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "Orchid House Painters",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "Victoria"
+      },
+      {
+        "name": "Martino Painters",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "Adelaide Golden Painters",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
         "name": "SEO Marketer",
         "industry": "Marketing agency",
         "last_contacted": "2026-07-12",
@@ -414,6 +480,12 @@
         "industry": "Commercial cleaning",
         "last_contacted": "2026-07-12",
         "suburb": "PERTH"
+      },
+      {
+        "name": "M & M Property Services SA",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
       },
       {
         "name": "Adelaide Premier Painters",
@@ -428,6 +500,18 @@
         "suburb": "SYDNEY"
       },
       {
+        "name": "Painting Zone",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "M.A.D. Painters & Decorators",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
         "name": "Mousi Painting",
         "industry": "Painter",
         "last_contacted": "2026-07-12",
@@ -436,8 +520,26 @@
       {
         "name": "All Melbourne Painting",
         "industry": "Painter",
-        "last_contacted": "2026-07-02",
+        "last_contacted": "2026-07-14",
         "suburb": "Victoria"
+      },
+      {
+        "name": "Restyle Painting & Decorating",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "MJ Painting",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "AJ Blunt Painting",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
       },
       {
         "name": "Beaumont People",
@@ -464,9 +566,21 @@
         "suburb": "Melbourne"
       },
       {
+        "name": "Noonan Painting Contractors",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "Star Painters Adelaide",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
         "name": "Matte Projects Painting and Decorating",
         "industry": "Painter",
-        "last_contacted": "2026-07-02",
+        "last_contacted": "2026-07-14",
         "suburb": "South Australia"
       },
       {
@@ -474,6 +588,18 @@
         "industry": "Commercial cleaning",
         "last_contacted": "2026-07-12",
         "suburb": "BRISBANE"
+      },
+      {
+        "name": "Mcintosh Painters",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "Victoria"
+      },
+      {
+        "name": "Top Painters Adelaide",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
       },
       {
         "name": "G Squared",
@@ -488,15 +614,63 @@
         "suburb": "Victoria"
       },
       {
+        "name": "Clean Cut Painters",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
         "name": "Matrix Group",
         "industry": "Engineering",
         "last_contacted": "2026-07-12",
         "suburb": "Melbourne"
       },
       {
+        "name": "On Point Painting SA",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "Jordan Paint Service",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
         "name": "Adelaide Designer Painters",
         "industry": "Painter",
-        "last_contacted": "2026-07-13",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "Paint Master",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "North Side Painters",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "Victoria"
+      },
+      {
+        "name": "Adelaide Esteem Painting",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "SA Metro Painters",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "Adelaide Commercial Painters",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
         "suburb": "South Australia"
       },
       {
@@ -506,10 +680,58 @@
         "suburb": "Sydney"
       },
       {
+        "name": "SA Painter",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "Sunshine Adelaide Painting",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "Mike's Painting & Decorating",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "Sun Painters Adelaide",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "Andy Shanley",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "Apex Painters",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
+      },
+      {
         "name": "Davidson",
         "industry": "B2B Services",
         "last_contacted": "2026-07-12",
         "suburb": "Brisbane"
+      },
+      {
+        "name": "Sterling Painters Melbourne",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "Victoria"
+      },
+      {
+        "name": "Painless Painting",
+        "industry": "Painter",
+        "last_contacted": "2026-07-14",
+        "suburb": "South Australia"
       },
       {
         "name": "Performance Cleaning",
@@ -545,7 +767,7 @@
     "active_by_vertical": {
       "IT MSP": 3,
       "Marketing agency": 9,
-      "Painter": 28,
+      "Painter": 65,
       "Landscaper": 1,
       "Commercial cleaning": 7,
       "Construction": 2,
@@ -554,22 +776,22 @@
       "Cleaning": 1
     },
     "messages": {
-      "outbound_total": 113,
+      "outbound_total": 153,
       "inbound_total": 3,
-      "total": 116,
-      "reply_rate": 2.7,
+      "total": 156,
+      "reply_rate": 2.0,
       "last_7_days": {
-        "outbound": 75,
+        "outbound": 115,
         "inbound": 1
       }
     },
     "opens": {
-      "deliveries": 19,
-      "prospects_opened": 25,
-      "total_opens": 57,
-      "avg_opens": 2.3
+      "deliveries": 30,
+      "prospects_opened": 34,
+      "total_opens": 72,
+      "avg_opens": 2.1
     },
-    "last_refreshed": "2026-07-14T06:00:14.668233+00:00"
+    "last_refreshed": "2026-07-14T10:00:17.024712+00:00"
   },
   "decisions": {
     "total": 10,
