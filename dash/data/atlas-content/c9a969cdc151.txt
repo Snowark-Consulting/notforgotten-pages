@@ -1,0 +1,45 @@
+# Context vs Curiosity — Experiment Manifest
+
+> **Status:** LIVE — Send: 2026-07-14
+> 
+> **Locked:** No changes to copy, structure, subject lines, or methodology while experiment is running.
+
+## Hypothesis
+
+Adding one woven context sentence ("I've been asking painting business owners about this lately...") changes meaningful reply rate compared to curiosity-only emails.
+
+## Design
+
+| Variable | Value |
+|---|---|
+| Sample | 40 painters (20 Control, 20 Treatment) |
+| Industry | Painters (Trades) |
+| Assignment | Random, stratified by state |
+| Variable | One woven context sentence between observation and question |
+| Control | Observation → Question |
+| Treatment | Observation → Context → Question |
+| Context sentence | "I've been asking painting business owners about this lately, which made me curious how [you/your team] handle[s] it." |
+| Send date | 2026-07-14 |
+| Checkpoint 1 (Day 7) | 2026-07-21 |
+| Checkpoint 2 (Day 21) | 2026-08-04 |
+
+## Files
+
+- `roster.json` — Prospect assignment and group allocation
+- `taxonomy.md` — Reply quality classification tiers
+- `drafts/context-vs-curiosity-batch.json` — The 40 emails as sent
+- Archive: every reply will be stored in `replies/` with classification
+
+## Primary Metrics
+
+- Meaningful reply rate (T3+) by group
+- Reply rate (all tiers) by group
+- Positive signal rate (T3+ / all replies) by group
+
+## Rules
+
+1. No changes to copy mid-experiment
+2. Every reply classified using taxonomy within 24 hours
+3. Ideas for improvement recorded as hypotheses, not implemented
+4. Results analysed at Day 7 and Day 21
+5. Recommendation based on evidence, not intuition

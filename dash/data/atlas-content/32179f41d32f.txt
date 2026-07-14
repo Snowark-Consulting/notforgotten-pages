@@ -1,0 +1,126 @@
+---
+doc_type: decision
+owner: notforgotten
+tier: primary
+---
+
+# Decision: Diagnose-Before-Change + CEO Briefing Scope Refinement
+
+> Two operational refinements: diagnose before major change + routine outreach executed, not reviewed.
+
+**Slug:** `2026-07-13-diagnose-before-change-ceo-briefing-scope`
+**Date:** 2026-07-13
+**Status:** Made
+**Review Date:** 2026-09-13
+
+---
+
+## The Decision
+
+Two operational refinements:
+
+1. **Diagnose before recommending major change.** When a campaign underperforms, work through the evidence chain (deliverability → opens → clicks → replies), identify the most likely bottleneck, then recommend the smallest experiment most likely to improve it. No large strategic changes when a smaller, evidence-based experiment could answer the question.
+
+2. **Operate within delegated authority — routine outreach is executed, not reviewed.** Atlas does not present routine outreach drafts to James for review. Full stop. The workflow is: draft → Voice Review → Technical Verification → send via `send-outreach.py` → reconcile Airtable → report in CEO Briefing. James only sees an outreach draft before sending if: (a) Atlas is genuinely uncertain, (b) there's a factual error or trust-damaging issue, (c) the email falls outside an approved sequence, or (d) the email requires a strategic decision outside delegated authority. Otherwise: execute. The CEO Briefing tells James what was executed, what happened, what was learned, and what strategic decisions (if any) require his input. If a strategic change is needed, Atlas presents: evidence, diagnosis, smallest experiment recommended, expected outcome and trade-offs. James decides the strategy. Atlas executes it.
+
+---
+
+## The Problem
+
+Two issues had emerged:
+
+1. **Campaign underperformance → instinct to recommend fundamental revision.** Without a structured diagnostic framework, there was a risk of jumping past small, testable hypotheses to larger strategic changes. This violated the principle of evidence before optimisation.
+
+2. **CEO Briefing was presenting routine execution work as "awaiting approval."** After the Jul 12 Tier 1 delegation decision, the briefing format still included routine email drafts as decisions for James. This cluttered the briefing and undermined the delegation boundary. James wants the briefing to be a strategic decision surface, not an execution queue.
+
+---
+
+## Options Considered
+
+| # | Option | Summary |
+|---|---|---|
+| A | Full delegation — no CEO review of any outreach, ever | Too aggressive. Removes James from strategic oversight of campaigns. |
+| B | Keep current Tier 1/Tier 2 split, refine briefing format | The Jul 12 delegation was right in principle but the briefing hadn't caught up. Refine the briefing filter. |
+| C | Reverse delegation — back to all-draft review | Regressive. Slower, doesn't build Atlas capability. |
+
+**Chose B** with a sharper filter: diagnostic framework for recommendations + "Chief of Staff test" for briefing items.
+
+---
+
+## Why This Path
+
+- Option A removes James from strategic visibility entirely — he still needs to see campaign performance and approve pivots.
+- Option C reverses the trust built. James explicitly said "Routine execution is now your responsibility."
+- Option B sharpens the existing delegation without changing its architecture. The briefing becomes a CEO decision surface. The diagnostic framework ensures recommendations are evidence-grounded.
+
+Trade-off accepted: Atlas might occasionally send an email James would have tweaked. That's the cost of delegation. The Campaign Review catches patterns.
+
+---
+
+## Core Principles Applied
+
+- **Evidence before optimisation** — the diagnostic framework enforces the evidence chain before any recommendation
+- **Tiered trust** (from `founding-tiered-trust-automation`) — trust expands with demonstrated reliability
+- **James's role is strategic decisions; Atlas's role is execution** — the "Chief of Staff test" formalises this boundary
+- **Learn as quickly as possible** — the diagnostic framework accelerates learning by isolating variables
+
+---
+
+## Risks Identified
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| Atlas sends an email below standard | Low | Low | Voice Review + Technical Verification gates. Campaign Review catches patterns. |
+| Strategic decision slips through without James | Low | Med | "Chief of Staff test" as pre-briefing filter. In doubt, escalate. |
+| Diagnostic framework applied too rigidly | Low | Low | Framework is guide, not dogma. Complex cases may need broader investigation. |
+
+---
+
+## Expected Outcome
+
+- CEO Briefing becomes a strategic decision surface, not an execution queue
+- Routine outreach executes faster (no briefing bottleneck)
+- Campaign recommendations are evidence-grounded, starting from the smallest testable hypothesis
+- Atlas develops independent judgment about what requires CEO attention vs. what falls within delegation
+
+---
+
+## Success Criteria
+
+- [ ] CEO Briefing contains zero routine "approve this draft" items after Jul 20
+- [ ] Next campaign underperformance → recommendation follows evidence chain (deliverability → opens → clicks → replies)
+- [ ] No campaign pivots proposed without first diagnosing the bottleneck
+- [ ] James does not have to redirect briefing items back to Atlas ("this is your call")
+
+---
+
+## Atlas's Challenge (Pre-Decision)
+
+No challenge. These refinements directly strengthen the Jul 12 delegation decision and align with the founding principle of tiered trust. The diagnostic framework is a natural extension of the Learning Framework. The only watch point: the "Chief of Staff test" requires judgment — what's strategic vs. executional can blur. If in doubt, escalate briefly with rationale.
+
+---
+
+## Actual Outcome (Post-Review)
+
+**Date reviewed:** TBD
+
+**What actually happened:** TBD
+
+**Verdict:** TBD
+
+**Delta from expected:** TBD
+
+---
+
+## Learnings
+
+TBD
+
+---
+
+## Related Decisions
+
+- [[Distribution Validation Phase]] (knowledge/decisions/2026-07-12-distribution-validation-phase.md) — established Tier 1 delegation for standard outreach
+- [[Tiered Trust Automation]] (knowledge/decisions/founding-tiered-trust-automation.md) — the original Tier 1/Tier 2 framework
+- [[Morning Briefing — CEO Format]] (knowledge/decisions/2026-07-08-morning-briefing-ceo-format.md) — the briefing restructure this decision refines further
+- [[Campaign Review Operating Standard]] (knowledge/decisions/2026-07-06-campaign-review-operating-standard.md) — the review mechanism that catches patterns

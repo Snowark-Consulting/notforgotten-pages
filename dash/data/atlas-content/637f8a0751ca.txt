@@ -1,0 +1,32 @@
+# Reply Quality Taxonomy — Context vs Curiosity Experiment
+
+> Applied to every reply from both Control and Treatment groups.
+> Established: 2026-07-14
+
+## Classification Tiers
+
+| Tier | Label | Definition |
+|---|---|---|
+| **T0** | Bounce / Auto-reply | Hard bounce, OOO, mailbox full. Not a human response. |
+| **T1** | Dismissal | Explicit no-interest. "Stop emailing." "Not interested." |
+| **T2** | Polite deflection | Friendly but closed. "We're good thanks." No opening. |
+| **T3** | Engaged reply | Answers the question substantively. Shows curiosity. May ask a question back. |
+| **T4** | Discovery conversation | Multi-exchange thread. Prospect shares specifics. Pain points surface naturally. |
+| **T5** | Qualified opportunity | Prospect explicitly wants a solution. Asks about pricing/features. Agrees to a call. |
+
+## Meaningful Threshold
+
+**T3+ = Meaningful conversation.** T0-T2 are noise.
+
+## Primary Metrics
+
+| Metric | Definition |
+|---|---|
+| Reply rate | (T1+T2+T3+T4+T5) / Delivered |
+| Meaningful reply rate | (T3+T4+T5) / Delivered |
+| Positive signal rate | (T3+T4+T5) / All replies |
+| Conversation progression | T3 → T4 → T5 rates |
+
+## Application Rule
+
+Every reply receives one tier classification. If a reply is borderline, the lower tier applies (conservative classification). Classification is recorded in the experiment archive at the time of reply and never retroactively changed.

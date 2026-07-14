@@ -30,34 +30,37 @@
 | | `2026-07-05-complete-sequence-before-first-send` | Complete outreach sequence before first send (hard gate) | Jul 2026 | 🟢 Made | 2026-10-05 |
 | | `2026-07-05-airtable-audit-crm-reconciliation` | Airtable audit — CRM as single source of truth (20 recommendations) | Jul 2026 | 🟢 Made | 2026-08-05 |
 | | `2026-07-06-campaign-review-operating-standard` | Campaign Review after every outreach wave (permanent operating standard) | Jul 2026 | 🟢 Made | 2026-10-06 |
-|| | `2026-07-07-communication-voice-standard` | Customer communication voice standard — James's voice, not marketer's | Jul 2026 | 🟢 Made | 2026-10-07 |
-|| | `2026-07-08-morning-briefing-ceo-format` | Morning Briefing: operations log to CEO briefing | Jul 2026 | 🟢 Made | 2026-08-08 |
-|| | `2026-07-12-distribution-validation-phase` | Distribution validation phase — infrastructure closed, customer acquisition begins. Atlas Tier 1 outreach delegation. | Jul 2026 | 🟢 Made | 2026-10-12 |
+| | `2026-07-07-communication-voice-standard` | Customer communication voice standard — James's voice, not marketer's | Jul 2026 | 🟢 Made | 2026-10-07 |
+| | `2026-07-08-morning-briefing-ceo-format` | Morning Briefing: operations log to CEO briefing | Jul 2026 | 🟢 Made | 2026-08-08 |
+| | `2026-07-12-distribution-validation-phase` | Distribution validation phase — infrastructure closed, customer acquisition begins. Atlas Tier 1 outreach delegation. | Jul 2026 | 🟢 Made | 2026-10-12 |
+| | `2026-07-13-diagnose-before-change-ceo-briefing-scope` | Diagnose-before-change framework + CEO Briefing scope: routine execution delegated, strategic decisions only | Jul 2026 | 🟢 Made | 2026-09-13 |
 
 ---
 
 ## Upcoming Reviews
 
-|| Due | Slug | Title | Status |
-||---|---|---|---|
-|| 2026-08-08 | `2026-07-08-morning-briefing-ceo-format` | Morning Briefing: operations log to CEO briefing | 🟢 |
-|| 2026-09-01 | `founding-build-foundation-before-customers` | Build foundation before acquiring first 5 customers | 🟢 |
+| Due | Slug | Title | Status |
+|---|---|---|---|
+| 2026-08-05 | `2026-07-05-airtable-audit-crm-reconciliation` | Airtable audit | 🟢 |
+| 2026-08-08 | `2026-07-08-morning-briefing-ceo-format` | Morning Briefing: operations log to CEO briefing | 🟢 |
+| 2026-09-01 | `founding-build-foundation-before-customers` | Build foundation before acquiring first 5 customers | 🟢 |
 | 2026-09-03 | `2026-07-03-industry-fluency-over-company-research` | Industry fluency over company research | 🟢 |
+| 2026-09-13 | `2026-07-13-diagnose-before-change-ceo-briefing-scope` | Diagnose-before-change + CEO Briefing scope | 🟢 |
 | 2026-09-28 | `2026-06-28-calibration-outreach-living-system` | Calibration outreach strategy as living system | 🟢 |
 | 2026-10-01 | `founding-atlas-as-primary-sender` | atlas@ as primary outreach sender | 🟢 |
-| 2026-10-28 | `2026-06-28-prospect-lifecycle-architecture` | Prospect lifecycle architecture | 🟢 |
 | 2026-10-01 | `founding-no-pitch-in-first-email` | No product pitch in first cold email | 🟢 |
 | 2026-10-01 | `founding-business-name-fallback` | Business-name fallback when contact name unknown | 🟢 |
-| 2026-11-01 | `founding-travis-case-study-as-bridge` | Travis case study as bridge, not opener | 🟢 |
-| 2026-12-01 | `founding-pricing-market-entry` | Pricing: $199/mo + $99 setup (market entry) | 🟢 |
-| 2026-12-01 | `founding-tiered-trust-automation` | Tier 1 admin automation, Tier 2 draft-and-ask | 🟢 |
 | 2026-10-04 | `2026-07-04-icp-owner-led-small-business` | ICP: Owner-led small business | 🟢 |
 | 2026-10-04 | `2026-07-04-messages-prospect-linked-field` | Messages → Prospect linked field | 🟢 |
 | 2026-10-05 | `2026-07-05-complete-sequence-before-first-send` | Complete sequence before first send | 🟢 |
-| 2027-06-01 | `founding-atlas-multiplier-not-replacement` | Atlas as AI multiplier, not human replacement | 🟢 |
 | 2026-10-06 | `2026-07-06-campaign-review-operating-standard` | Campaign Review operating standard | 🟢 |
-|| 2026-10-07 | `2026-07-07-communication-voice-standard` | Communication voice standard | 🟢 |
-|| 2026-10-12 | `2026-07-12-distribution-validation-phase` | Distribution validation phase — infrastructure closed, customer acquisition begins | 🟢 |
+| 2026-10-07 | `2026-07-07-communication-voice-standard` | Communication voice standard | 🟢 |
+| 2026-10-12 | `2026-07-12-distribution-validation-phase` | Distribution validation phase | 🟢 |
+| 2026-10-28 | `2026-06-28-prospect-lifecycle-architecture` | Prospect lifecycle architecture | 🟢 |
+| 2026-11-01 | `founding-travis-case-study-as-bridge` | Travis case study as bridge, not opener | 🟢 |
+| 2026-12-01 | `founding-pricing-market-entry` | Pricing: $199/mo + $99 setup (market entry) | 🟢 |
+| 2026-12-01 | `founding-tiered-trust-automation` | Tier 1 admin automation, Tier 2 draft-and-ask | 🟢 |
+| 2027-06-01 | `founding-atlas-multiplier-not-replacement` | Atlas as AI multiplier, not human replacement | 🟢 |
 
 ---
 
@@ -76,7 +79,7 @@ Cross-reference of decisions by the core principles they engaged.
 | Principle | Decision Slugs |
 |---|---|
 | *System over person* | `founding-atlas-multiplier-not-replacement`, `founding-build-foundation-before-customers`, `founding-atlas-as-primary-sender` |
-| *Earn the right* | `founding-pricing-market-entry`, `founding-tiered-trust-automation`, `founding-build-foundation-before-customers` |
+| *Earn the right* | `founding-pricing-market-entry`, `founding-tiered-trust-automation`, `founding-build-foundation-before-customers`, `2026-07-12-distribution-validation-phase`, `2026-07-13-diagnose-before-change-ceo-briefing-scope` |
 | *Lead with questions, not product* | `founding-no-pitch-in-first-email`, `founding-travis-case-study-as-bridge` |
 | *Certainty, not features* | `founding-no-pitch-in-first-email`, `founding-travis-case-study-as-bridge` |
 | *Customer trust > speed* | `founding-tiered-trust-automation`, `founding-build-foundation-before-customers`, `founding-no-pitch-in-first-email`, `2026-06-28-calibration-outreach-living-system` |
@@ -84,7 +87,7 @@ Cross-reference of decisions by the core principles they engaged.
 | *Data over dogma* | `2026-06-28-calibration-outreach-living-system`, `2026-06-28-prospect-lifecycle-architecture`, `2026-07-05-complete-sequence-before-first-send` |
 | *Accountability stays with James* | `founding-tiered-trust-automation` |
 | *CRM reflects reality* | `2026-06-28-prospect-lifecycle-architecture`, `2026-07-05-complete-sequence-before-first-send` |
-| *Evidence before optimisation* | `2026-06-28-prospect-lifecycle-architecture`, `2026-06-28-calibration-outreach-living-system`, `2026-07-05-complete-sequence-before-first-send`, `2026-07-06-campaign-review-operating-standard`, `2026-07-08-morning-briefing-ceo-format` |
+| *Evidence before optimisation* | `2026-06-28-prospect-lifecycle-architecture`, `2026-06-28-calibration-outreach-living-system`, `2026-07-05-complete-sequence-before-first-send`, `2026-07-06-campaign-review-operating-standard`, `2026-07-08-morning-briefing-ceo-format`, `2026-07-13-diagnose-before-change-ceo-briefing-scope` |
 | *Values cannot be tested* | `founding-tiered-trust-automation`, `founding-no-pitch-in-first-email` |
 | *Customer voice* | `2026-07-07-communication-voice-standard`, `2026-07-08-morning-briefing-ceo-format` |
 
@@ -148,5 +151,5 @@ Based on patterns observed, Atlas should watch for:
 
 ---
 
-*Last updated: 2026-07-12*
-*8 founding decisions + 11 living decisions recorded. 0 decisions reviewed. 4 challenges logged.*
+*Last updated: 2026-07-13*
+*8 founding decisions + 12 living decisions recorded. 0 decisions reviewed. 4 challenges logged.*

@@ -257,6 +257,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decisions_2026_07_06_campaign_review_operating_standard",
+      "label": "Campaign Review Operating Standard",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-07-06-campaign-review-operating-standard.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "ad9b2ca10857",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decisions_2026_07_07_communication_voice_standard",
       "label": "Communication Voice Standard",
       "file_type": "doc",
@@ -268,6 +279,39 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decisions_2026_07_08_morning_briefing_ceo_format",
+      "label": "Morning Briefing Ceo Format",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-07-08-morning-briefing-ceo-format.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "7eec7b1e3d4d",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decisions_2026_07_12_distribution_validation_phase",
+      "label": "Distribution Validation Phase",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-07-12-distribution-validation-phase.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "d6e720581aa9",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decisions_2026_07_13_diagnose_before_change_ceo_briefing_scope",
+      "label": "Diagnose Before Change Ceo Briefing Scope",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-07-13-diagnose-before-change-ceo-briefing-scope.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "32179f41d32f",
+      "val": 4,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decisions_index",
       "label": "Decisions / Index",
       "file_type": "doc",
@@ -276,6 +320,17 @@
       "community_name": "Knowledge",
       "content_hash": "45a68634d126",
       "val": 12.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decisions_founding_tiered_trust_automation",
+      "label": "Founding Tiered Trust Automation",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/founding-tiered-trust-automation.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "6fe60e72efa5",
+      "val": 6.0,
       "color": "#a78bfa"
     },
     {
@@ -896,6 +951,34 @@
     {
       "source": "knowledge_decisions_2026_06_28_prospect_lifecycle_architecture",
       "target": "memory_memory",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decisions_2026_07_13_diagnose_before_change_ceo_briefing_scope",
+      "target": "knowledge_decisions_2026_07_12_distribution_validation_phase",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decisions_2026_07_13_diagnose_before_change_ceo_briefing_scope",
+      "target": "knowledge_decisions_founding_tiered_trust_automation",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decisions_2026_07_13_diagnose_before_change_ceo_briefing_scope",
+      "target": "knowledge_decisions_2026_07_08_morning_briefing_ceo_format",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decisions_2026_07_13_diagnose_before_change_ceo_briefing_scope",
+      "target": "knowledge_decisions_2026_07_06_campaign_review_operating_standard",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
