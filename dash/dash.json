@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 95,
+    "tasks_completed": 96,
     "recent": [
+      {
+        "date": "2026-07-17 09:06",
+        "task": "Completed Wave 1 July 2026 Campaign Review (Group 2 \u2014 Mixed Industries). 10 prospects, 30 emails, 0 replies across all touchpoints. Full review saved to knowledge/campaign-reviews/wave-1-july-2026.md. Recommendation: pivot to painters-only for Wave 2, fix tracking tags before next send.",
+        "category": "task"
+      },
       {
         "date": "2026-07-17 07:39",
         "task": "Prepare-ahead: drafted CvC Email 2 (29 painters), verified Wave 1 Email 2 (10/12 ready), fixed Distinct Painters unsubscribe, patched CCM/Next&Co CRM touchpoints",
@@ -135,11 +140,6 @@
         "date": "2026-07-03 06:35",
         "task": "Major outreach philosophy shift: industry fluency over company research. Added Principle 9, 5-question industry-quoting-dynamics framework, rewrote personalisation approach. Company facts now seasoning, not the meal.",
         "category": "task"
-      },
-      {
-        "date": "2026-07-03 06:29",
-        "task": "Fixed double-Atlas sign-off bug: removed redundant standalone 'Atlas' closing word from all email skills, templates, memory, and SOUL.md. Signature block now the sole sign-off.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-17T07:39:35.383370+09:30",
+  "last_updated": "2026-07-17T09:06:55.478411+09:30",
   "pipeline": {
     "prospect_count": 197,
     "stages": {
