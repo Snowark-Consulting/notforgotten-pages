@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 94,
+    "tasks_completed": 95,
     "recent": [
+      {
+        "date": "2026-07-17 07:39",
+        "task": "Prepare-ahead: drafted CvC Email 2 (29 painters), verified Wave 1 Email 2 (10/12 ready), fixed Distinct Painters unsubscribe, patched CCM/Next&Co CRM touchpoints",
+        "category": "task"
+      },
       {
         "date": "2026-07-14 17:22",
         "task": "Sent Context vs Curiosity experiment \u2014 40 painters (20 Control, 20 Treatment). Testing whether woven context sentence improves meaningful reply rates. Day 7 checkpoint: Jul 21. Day 21: Aug 4.",
@@ -135,11 +140,6 @@
         "date": "2026-07-03 06:29",
         "task": "Fixed double-Atlas sign-off bug: removed redundant standalone 'Atlas' closing word from all email skills, templates, memory, and SOUL.md. Signature block now the sole sign-off.",
         "category": "task"
-      },
-      {
-        "date": "2026-07-02 16:45",
-        "task": "Campaign pulse posted \u2014 9 Email 1s across 3 verticals, 0 replies, Email 2s deployed today",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-17T07:30:41.168837+09:30",
+  "last_updated": "2026-07-17T07:39:35.383370+09:30",
   "pipeline": {
     "prospect_count": 197,
     "stages": {
