@@ -224,6 +224,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_campaign_reviews_wave_1_july_2026",
+      "label": "Wave 1 July 2026",
+      "file_type": "doc",
+      "source_file": "knowledge/campaign-reviews/wave-1-july-2026.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "0d1cede58b19",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_customers",
       "label": "Customers",
       "file_type": "doc",
@@ -330,6 +341,17 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "6fe60e72efa5",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_experiments_context_vs_curiosity_readme",
+      "label": "Readme",
+      "file_type": "doc",
+      "source_file": "knowledge/experiments/context-vs-curiosity/README.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "c9a969cdc151",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -692,6 +714,20 @@
     {
       "source": "agent_registry",
       "target": "knowledge_campaign_review_template",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_campaign_reviews_wave_1_july_2026",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_experiments_context_vs_curiosity_readme",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

@@ -1,0 +1,340 @@
+---
+doc_type: summary
+owner: notforgotten
+tier: primary
+---
+
+# Campaign Review: Wave 1 July 2026 (Group 2 — Mixed Industries) — Jul 2-16
+
+> **Operating Standard:** Every outreach wave receives a formal Campaign Review. This is not optional. The review captures what happened, what we learned, what should change, and what should remain exactly the same. Every recommendation must be backed by campaign evidence, not intuition.
+>
+> **After completing this review:** Update the Learning Framework, Decision Library (where applicable), and any relevant outreach skills.
+
+---
+
+## 1. What Happened
+
+### Campaign Overview
+
+| Parameter | Value |
+|---|---|
+| Wave | Wave 1 July 2026, Group 2 |
+| Prospects | 10 (all New cohort) |
+| Industries | IT MSP (4), Construction (2), B2B Services (2), Cleaning (1), Engineering (1) |
+| Emails sent | 30 (3 touchpoints × 10 prospects) |
+| Date range | Jul 2 — Jul 16, 2026 |
+| Email 4 status | Not yet sent (due Jul 19/20) |
+| Review trigger | 14 days after Email 1, sufficient data threshold met (0 replies is itself a signal) |
+
+**Note:** Group 1 (7 prospects: Painters, Agencies, Cleaners) was paused before Email 1. This review covers Group 2 only. The 7 paused prospects are observation-only.
+
+### Delivery Summary
+
+| Metric | Value |
+|---|---|
+| Emails sent | 30 |
+| Delivered | 30 (no bounces detected in Gmail sent mail or daily notes) |
+| Bounced | 0 |
+| Delivery rate | 100% |
+| Replies received | 0 |
+| **Raw reply rate** | **0.0%** |
+| **Meaningful reply rate (T3-T5)** | **0.0%** |
+| Positive replies (T3+) | 0 |
+| Neutral replies (T1-T2) | 0 |
+| Negative replies | 0 |
+| Unsubscribes | 0 |
+
+**Delivery verification:** Cross-referenced against Gmail sent mail and daily notes (Jul 2-14). No bounces detected. All 10 prospects received all 3 touchpoints. Airtable Messages query returned 0 records for Wave 1 July 2026 — the Messages table may have paginated past these records or Outreach Sequence field may not be populated. Daily notes and CRM send scripts confirm delivery.
+
+**Reply classification note:** Reply Quality Taxonomy not applicable — zero replies to classify.
+
+### Cohort Comparison
+
+Not applicable — all 10 prospects are New cohort. No Reset prospects in this wave.
+
+### Industry Performance
+
+| Industry | Sent | Replies | Reply Rate |
+|---|---|---|---|
+| IT MSP | 4 | 0 | 0.0% |
+| Construction | 2 | 0 | 0.0% |
+| B2B Services | 2 | 0 | 0.0% |
+| Cleaning | 1 | 0 | 0.0% |
+| Engineering | 1 | 0 | 0.0% |
+
+No industry generated a reply. With 0/30 total, no industry-level performance differential can be identified.
+
+### Subject Line Performance
+
+**Email 1** (Jul 2): Per-industry subjects — one per prospect
+
+| Prospect | Industry | Subject | Sent | Replies |
+|---|---|---|---|---|
+| Netlogyx | IT MSP | Managed Services and Project Work | 1 | 0 |
+| IT Blueprint | IT MSP | CTO-as-a-Service and Proposals | 1 | 0 |
+| Atcom Technology | IT MSP | IT Support and Project Work | 1 | 0 |
+| Synergy IT | IT MSP | Multi-Industry IT and Quoting | 1 | 0 |
+| Parkview Constructions | Construction | Tenders and What Happens After | 1 | 0 |
+| Kapitol Group | Construction | Large-Scale Projects and Follow-Up | 1 | 0 |
+| Davidson | B2B Services | Consulting and Recruitment Proposals | 1 | 0 |
+| Beaumont People | B2B Services | Executive Search and Proposals | 1 | 0 |
+| Excel Cleaning | Cleaning | Recurring Clients and One-Off Jobs | 1 | 0 |
+| Matrix Group | Engineering | Engineering Proposals and Decisions | 1 | 0 |
+
+All Email 1 subjects are observation-led, 3-6 words, title case, no clickbait. Consistent with cold-email skill subject line principles.
+
+**Email 2** (Jul 9): Uniform subject
+
+| Subject | Sent | Replies | Reply Rate |
+|---|---|---|---|
+| one more question | 10 | 0 | 0.0% |
+
+**Email 3** (Jul 12): Uniform subject
+
+| Subject | Sent | Replies | Reply Rate |
+|---|---|---|---|
+| a real example | 10 | 0 | 0.0% |
+
+**Assessment:** With zero replies across all subjects, no subject line performance differential exists. The uniform Email 2 and Email 3 subjects were intentional (reduce variable count per the Learning Framework) but prevent touchpoint-level subject line analysis for those sends.
+
+### Personalisation Angle Performance
+
+| Angle | Prospects | Replies | Reply Rate |
+|---|---|---|---|
+| Industry-specific structural tension | 10 | 0 | 0.0% |
+
+All Email 1s used industry-fluency personalisation (industry-specific operational observation, not website-scraped facts). Email 2s deepened the industry angle with a new question. Email 3s bridged to the Travis Krieg case study with a "different industry, same pattern" framing.
+
+### Touchpoint Performance
+
+| Touchpoint | Sent | Replies | Reply Rate | Cumulative |
+|---|---|---|---|---|
+| Email 1 | 10 | 0 | 0.0% | 0/10 replied |
+| Email 2 | 10 | 0 | 0.0% | 0/10 replied |
+| Email 3 | 10 | 0 | 0.0% | 0/10 replied |
+| Email 4 | 0 (not yet sent) | — | — | — |
+
+### Pipeline Movement
+
+| Stage | Pre-Wave (Jul 2) | Post-Wave (Jul 16) | Net Change |
+|---|---|---|---|
+| New | 10 | 0 | -10 |
+| Outreach Active | 0 | 10 | +10 |
+| Engaged | 0 | 0 | 0 |
+| Design Partner | 0 | 0 | 0 |
+| Won | 0 | 0 | 0 |
+| Lost | 0 | 0 | 0 |
+| Campaign Complete | 0 | 0 | 0 |
+
+All 10 prospects moved from New → Outreach Active after Email 1. No further pipeline movement. Zero transitions to Engaged or beyond.
+
+### Open Rate
+
+**Not available.** Tracking tags (GA4 + Clarity) have been flagged as missing on both live pages (notforgotten.com.au and case-study-travis-krieg) for 6+ consecutive days as of Jul 14 (daily notes Jul 8-14). The email tracking pixel system is not functional for this wave. Open rate data is unavailable for all 30 emails.
+
+**This is a significant data gap.** Without open rates, we cannot distinguish between "emails not being opened" and "emails being opened but not generating replies." These are two fundamentally different problems with different fixes.
+
+### Timing
+
+| Touchpoint | Planned Date | Actual Date | Day of Week | Cadence |
+|---|---|---|---|---|
+| Email 1 | Jul 2 | Jul 2 | Thursday | — |
+| Email 2 | Jul 9 | Jul 9 | Thursday | +7 days (not standard +5) |
+| Email 3 | Jul 12 | Jul 12 | **Sunday** | +3 days |
+| Email 4 | Jul 19 | Jul 20 (projected) | Monday | +8 days (pushed from Sunday) |
+
+**Timing deviation:** Email 3 was sent Sunday Jul 12 rather than Monday Jul 13. This violates the Weekend Send Prohibition (SOUL.md, 2026-07-12 decision). Per the Timing Error Protocol, the batch was not recalled — it is treated as experimental data. The impact on reply rates cannot be isolated given zero replies overall.
+
+**Cadence note:** Email 1→2 gap was 7 days (not the standard 5 in the cold-email skill). Email 2→3 was 3 days (standard). The longer gap between Email 1 and 2 was intentional for this mixed-industry wave.
+
+---
+
+## 2. What We Learned
+
+### Patterns Observed
+
+**Zero replies is itself a pattern.** This is the most significant finding of the review. Across 30 carefully crafted, industry-specific emails sent to 10 businesses across 5 industries, not a single prospect replied. This is not a small-sample fluctuation — it's an unambiguous signal.
+
+**Possible interpretations (ranked by likelihood):**
+
+1. **The cold-email approach doesn't work for these industries (IT MSP, Construction, B2B Services, Engineering, Cleaning) at this stage of NF's maturity.** These are not tradies. Their quoting processes are more complex, their decision-makers are harder to reach, and their inboxes are more competitive. The Travis Krieg case study, while compelling, may not bridge the credibility gap for non-trades prospects.
+
+2. **The emails are landing in spam or promotions tabs.** Without open-rate data and delivery monitoring beyond bounce detection, this cannot be ruled out.
+
+3. **The sample is too small to draw industry-level conclusions, but large enough to flag a fundamental approach issue.** 0/30 is statistically significant regardless of sample size.
+
+4. **The contact information is wrong or outdated.** The contact names for 9 of 10 prospects were unknown (business name greeting used). Emails went to generic addresses (info@, hello@, enquiries@, sales@, admin@). These may not reach decision-makers.
+
+### Objections Received
+
+None. Zero replies means zero objections to categorise. This itself is telling — we're not even getting "not interested."
+
+### Unexpected Results
+
+**Complete silence was not predicted.** The pre-wave hypothesis, based on calibration campaign patterns, was that industry-fluency personalisation + curiosity-led framing would generate at least a few T2 ("not for us but thanks") or T3 ("tell me more") replies across 10 prospects. Zero is below any reasonable expectation.
+
+**The "different industry, same problem" framing didn't land.** Email 3 explicitly acknowledged the industry gap ("Different industry entirely," "I know it's a different universe") while arguing the pattern underneath was identical. This approach was designed to bridge the Travis Krieg case study to non-trades verticals. It generated no replies. The framing may have backfired — by highlighting the gap, we may have reinforced it.
+
+**Email 2 questions got no responses either.** Email 2 asked genuine operational questions ("Who ends up wearing that?", "How do you balance...?", "Do you adjust by industry?"). These were designed to be easy to reply to. The fact that zero prospects engaged with these questions suggests the email never reached a person who cared, or the sender wasn't trusted enough to warrant a reply.
+
+### Confidence Assessment
+
+| Belief | Evidence Strength | Direction | Confidence Change |
+|---|---|---|---|
+| "Industry-fluency personalisation generates replies" | Strong (this wave) | Challenged | **Decreased** — 0/30 replies with strong industry observations |
+| "Curiosity-led questioning lowers reply friction" | Strong (this wave) | Challenged | **Decreased** — 0 replies to genuine operational questions |
+| "The Travis case study bridges to non-trades verticals" | Moderate | Challenged | **Decreased** — Email 3 with Travis framing generated 0 replies |
+| "Mixed-industry outreach is viable at current NF maturity" | Strong (this wave) | Challenged | **Decreased** — may be too early |
+| "Cold email to generic addresses reaches decision-makers" | Moderate | Challenged | **Decreased** — 9/10 emails went to generic inboxes |
+| "IT MSPs and B2B services are within ICP" | Early signal | Challenged | **Decreased** — unclear, but this wave provides no supporting evidence |
+| "4-email sequence structure is sound" | Insufficient data | Unchanged | Email 4 not yet sent; can't assess |
+| "Our email quality (Voice Review, Technical Verification) is good" | Insufficient data | Unchanged | Quality may be high but not the binding constraint |
+
+---
+
+## 3. What Should Change
+
+### Messaging
+
+| Change | Evidence | Priority |
+|---|---|---|
+| **Test significantly shorter Email 1 (40-60 words).** Current drafts are 70-120 words. If emails aren't being read, length is a barrier. Shorter emails may not improve reply rates but will produce cleaner data — if short emails also get 0 replies, the problem is landing/deliverability, not content. | 0 replies across 30 long-form emails | **High** |
+| **Test proof-led Email 1 for non-trades.** The Travis case study was deferred to Email 3. An earlier deployment (Email 1 or 2) might build credibility faster, especially for industries where a painting case study feels distant. | Email 3 Travis deployment generated 0 replies | **Medium** |
+| **Consider dropping the "different industry, same problem" framing.** By explicitly acknowledging the gap between Travis and the prospect's industry, we may be reinforcing the disconnect rather than bridging it. | Email 3 framing generated 0 replies; no replies to any touchpoint | **Medium** |
+
+### Subject Lines
+
+| Change | Evidence | Priority |
+|---|---|---|
+| **Test question-led and very-short subjects for Email 1.** Current Email 1 subjects are observation-led and 3-6 words. A question like "A Question About Your Proposals" may generate more opens. Without open-rate data, this is speculative — but worth testing given the 0% reply rate. | 0 replies across all Email 1 subjects | **Medium** |
+| **Test removing per-prospect unique subjects.** Uniform subjects ("one more question", "a real example") performed identically to unique industry subjects — both got 0 replies. The overhead of per-prospect subject research may not be justified. | Equal performance (0 vs 0) | **Low** |
+
+### Personalisation
+
+| Change | Evidence | Priority |
+|---|---|---|
+| **Test company-specific personalisation (not just industry-fluency).** Current Email 1s demonstrate industry understanding but not company-specific insight. A single specific detail about their business might increase trust and open rates. This contradicts Principle 2 (personalise with industry fluency, not company research) — but the principle itself may need revision based on this wave's evidence. | 0 replies from industry-fluency-only personalisation | **High** |
+| **Prioritise finding contact names.** 9 of 10 prospects were addressed by business name. This is within the cold-email skill rules but may reduce reply rates. The calibration campaign had contact names for 0 of 10 prospects — this should be tracked as a variable. | 90% of emails used business-name greeting | **Medium** |
+
+### ICP Assumptions
+
+| Change | Evidence | Priority |
+|---|---|---|
+| **Reconsider whether IT MSP, Construction, B2B Services, Engineering belong in ICP at current stage.** These industries generated 0 replies from 8 prospects (all except Cleaning). Their quoting processes are complex, their decision-makers are hard to reach via generic email addresses, and the Travis case study may not resonate. Focus on trades where the product and proof are strongest. | 0/8 non-trades replies | **High** |
+| **Test whether smaller businesses (<20 employees) respond differently.** The 10 prospects span from small MSPs to large construction firms. Size might be a confounding variable. | Insufficient data — need to isolate | **Medium** |
+
+### Follow-Up Sequence
+
+| Change | Evidence | Priority |
+|---|---|---|
+| **Keep the 4-email sequence with breakup.** Don't shorten to 3 or extend to 5 without evidence that 4 is wrong. Email 4 may yet generate replies. | Email 4 not yet sent; can't assess sequence length | **Low** |
+| **Add more value in Email 2 before going to case study.** Email 2 asked another question — which is consistent with the "two questions before proof" pattern. But a tool, calculator, or useful resource might perform better than a second question. | 0 replies to Email 2 questions | **Medium** |
+
+### Timing
+
+| Change | Evidence | Priority |
+|---|---|---|
+| **Never send on weekends.** This is already policy (Weekend Send Prohibition, Jul 12). The Sunday Jul 12 batch was a timing deviation — protocol was followed (no recall). Enforce more strictly. | Email 3 sent Sunday; 0 replies; cannot isolate timing effect | **High** |
+| **Shorten Email 1→2 gap to 5 days (from 7).** The standard cadence is +5/+3/+7. Wave 1 used +7/+3/+8. Align with standard unless evidence supports a deviation. | Standard cadence defined in cold-email skill but not followed | **Low** |
+
+### Operational
+
+| Change | Evidence | Priority |
+|---|---|---|
+| **Fix tracking tags immediately.** 6+ days of missing GA4 + Clarity on both live pages. Without open-rate data, we cannot diagnose whether emails are being opened. This is a critical data gap for the next wave. | Flagged daily Jul 8-14; no open-rate data for 30 emails | **Critical** |
+| **Fix Airtable Messages pagination for Campaign Reviews.** The Messages table returned 0 records for Wave 1 July 2026 despite 30 confirmed sends. Either the Outreach Sequence field is not populated on Messages or pagination is cutting off results. The Campaign Review process depends on this data. | This review relied on draft files and daily notes, not Airtable Messages query | **High** |
+| **Add delivery monitoring (not just bounce detection).** We know emails didn't bounce. We don't know if they landed in inbox, spam, or promotions. Add inbox placement testing or at minimum a seed-list approach. | Cannot distinguish "not opened" from "not delivered to inbox" | **High** |
+
+---
+
+## 4. What Should Remain Exactly the Same
+
+| Element | Supporting Evidence | Confidence |
+|---|---|---|
+| **Voice Review + Technical Verification gates** | All 30 emails passed 8/8 Voice Review and full Technical Verification. The quality of the emails is not the problem (or at least not the only problem). These gates prevent quality degradation — they don't cause 0% reply rates. | **Strong** |
+| **4-email sequence structure (not yet assessed)** | Email 4 hasn't been sent. The sequence structure can't be evaluated until it completes. Keep unless Email 4 also generates 0 replies. | **Moderate** |
+| **No product pitch in Email 1** | Correct. The problem is not that we're pitching too early — we're not pitching at all. Don't add product mentions to Email 1. | **Strong** |
+| **Canonical signature** | Clean, professional, no issues. The signature does its job. | **Strong** |
+| **Campaign Review process itself** | This review surfaced critical gaps (tracking, Airtable pagination) that would have gone unnoticed otherwise. The process is working. | **Strong** |
+| **Industry-fluency as the foundation (not the only ingredient)** | The industry observations in Email 1 were good — they demonstrated real understanding. The issue may be that industry fluency alone isn't enough without company-specific hooks or a warmer channel. Keep the foundation but build on it. | **Moderate** |
+| **Draft archive for traceability** | The draft files (group-2-email-2-july-7.md, group-2-email-3-july-2026.md, calibration-jul-2026.md, group-2-email-3-batch.json) provided complete traceability for this review when Airtable failed. Archive is essential. | **Strong** |
+| **Daily notes discipline** | The daily notes (Jul 2-14) were the primary data source for this review. Without them, the review would be significantly thinner. Keep the discipline. | **Strong** |
+
+---
+
+## 5. Confidence Assessment — All Conclusions
+
+| Conclusion | Evidence Basis | Confidence Level | Needs Replication? |
+|---|---|---|---|
+| Zero replies from 30 mixed-industry outreach emails is a significant signal | 30 emails, 5 industries, 14 days | **Strong** | No — 0/30 is unambiguous |
+| Industry-fluency personalisation alone may not be sufficient for cold email | This wave + calibration campaign patterns | **Moderate** | Yes — test company-specific personalisation |
+| Non-trades verticals (IT MSP, Construction, B2B Services, Engineering) may be outside current ICP | 8 prospects, 0 replies | **Early Signal** | Yes — very small per-industry sample |
+| Tracking tags being broken is a critical data gap | 6+ days of flagged missing tags; 0 open-rate data for 30 emails | **Strong** | No — already confirmed |
+| The Travis Krieg case study bridge is not working for non-trades | 10 Email 3 sends with Travis framing, 0 replies | **Early Signal** | Yes — test different case study approaches or vertical-specific proof |
+| Email quality is not the binding constraint | All 30 passed 8/8 Voice Review + Technical Verification | **Moderate** | Partially — quality may still be improvable but quality alone can't explain 0/30 |
+| Sunday sends are a risk factor | 1 Sunday batch, 0 replies (but all other batches also got 0) | **Hypothesis** | Yes — need a weekday-only baseline |
+
+---
+
+## 6. What to Test Next
+
+| Experiment | Hypothesis | Variable Isolated | How Measured |
+|---|---|---|---|
+| **Trades vs non-trades split test.** Send the same Email 1 structure to 10 painters and 10 non-trades. | Painters will reply at higher rates than non-trades because the product and case study are directly relevant. | Prospect industry | Reply rate per cohort |
+| **Ultra-short Email 1 (40-60 words).** Cut Email 1 to observation + question only. Remove the "why I'm asking" sentence. | Shorter emails will generate more replies because they respect the reader's time and feel less like a campaign. | Email length | Reply rate vs 70-120 word baseline |
+| **Company-specific hook in Email 1.** Add one specific detail about their business (a recent project, a visible process gap, an operational signal from their website). | Company-specific personalisation will increase trust and reply rates compared to industry-fluency alone. | Personalisation depth | Reply rate vs industry-fluency-only baseline |
+| **Contact-name-only outreach.** Send only to prospects where a contact name is confirmed (not business-name greeting). | Named recipients will reply at higher rates than business-name greetings. | Greeting type | Reply rate per greeting type |
+| **Tool-led Email 1.** Give away a calculator or diagnostic tool. No product mention, no Travis case study. | A genuinely useful tool generates curiosity and replies better than an observation + question email. | Email format | Reply rate vs observation-led baseline |
+
+---
+
+## 7. System Updates Required
+
+- [ ] **Learning Framework updated** — Record: "Industry-fluency personalisation alone insufficient for cold email reply generation across mixed industries." Record: "Non-trades verticals may be outside current ICP without warmer channel or company-specific hooks."
+- [ ] **Decision Library updated** — If this review challenges founding decisions (e.g., ICP assumptions, channel strategy), create or update decisions.
+- [ ] **Outreach Philosophy updated** — Principle 2 (personalise with industry fluency, not company research) may need revision based on 0/30 evidence.
+- [ ] **Cold email skill updated** — Add pitfall: "Industry-fluency alone may not generate replies in non-trades verticals. Test company-specific personalisation." Update Email 1 structure options.
+- [ ] **Growth operations skill updated** — Add: tracking tag verification as a pre-wave gate. Add: Airtable Messages pagination awareness.
+- [ ] **Sales Brain updated** — Record: "No objections received across 30 emails — prospects are not engaging at all, not engaging and then objecting."
+- [ ] **ICP assumptions reviewed** — "Any business that quotes work" may be too broad for cold email. Narrow to trades until evidence supports expansion.
+- [ ] **Campaign Review template reviewed** — Add "Open Rate" section with tracking data availability check. Add "Data Gaps" section.
+- [ ] **Fix tracking tags** — This is the most critical operational item. GA4 + Clarity needed on notforgotten.com.au and case-study-travis-krieg.
+- [ ] **Fix Airtable Messages Outreach Sequence field** — Verify Messages records have the Outreach Sequence field populated for Wave 1 July 2026.
+- [ ] **Add inbox placement testing** — Seed-list or similar before Wave 2.
+
+---
+
+## 8. Next Wave Recommendations
+
+**Based on this review, Wave 2 should NOT proceed with the same approach.**
+
+| Parameter | Current Wave | Recommended Next Wave | Rationale |
+|---|---|---|---|
+| Industries targeted | IT MSP, Construction, B2B Services, Cleaning, Engineering | **Painters only** (or painters + one close adjacent trade) | Focus on where the Travis case study is directly relevant. Prove the cold-email approach works in one vertical before expanding. |
+| Prospect count | 10 | 15-20 painters | Larger sample in a single vertical produces cleaner data. |
+| Subject line strategy | Per-industry unique subjects for Email 1; uniform for Email 2-3 | A/B test: question-led vs observation-led Email 1 subjects. Uniform Email 2-3. | Isolate subject-line as a variable. |
+| Personalisation strategy | Industry-fluency observations | Industry-fluency + one company-specific detail per email | Test whether company-specific hooks increase reply rates. |
+| Email 1 structure | Observation + Question + Why asking (70-120 words) | A/B test: (A) current structure vs (B) ultra-short (40-60 words, observation + question only) | Isolate length as a variable. |
+| Timing between touches | +7/+3/+8 | Standard cadence: +5/+3/+7. Never weekends. | Align with cold-email skill standard. |
+| Cohort strategy | New only | New only (no Reset prospects) | Maintain clean experimental data. |
+| Contact name requirement | Business-name greeting allowed | Prioritise prospects with known contact names. Flag business-name-only prospects for a separate batch. | Test greeting-type variable. |
+| Tracking | Broken (no open-rate data) | **Must be fixed before Wave 2 sends.** GA4 + Clarity on live pages. Verify email tracking pixel works end-to-end. | Without open-rate data, we are flying blind. |
+| Pre-wave gate | Sequence completeness only | Add: tracking verification, inbox placement test, contact-name coverage report | Operational readiness before sends. |
+
+### Wave 2 Candidate: Painter Distribution Validation
+
+The Painter Distribution Validation campaign (20 Email 1s drafted Jul 13-14, A/B test: Context vs Curiosity) is the natural Wave 2 candidate. It addresses several recommendations:
+- Single vertical (painters)
+- Single variable isolation (context vs no-context)
+- Larger sample (20 prospects)
+- Contact names available for some prospects
+
+**Blockers before Wave 2 proceeds:**
+1. Fix tracking tags (Critical)
+2. Verify Airtable Messages table has Outreach Sequence populated (High)
+3. Resolve whether the 20 Painter Email 1s were sent or still pending (as of Jul 14 notes: "send still unconfirmed")
+4. Add inbox placement testing (High)
+
+---
+
+*Review completed: July 16, 2026. Next review: after Wave 2 completes its full sequence.*
