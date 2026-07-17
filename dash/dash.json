@@ -164,13 +164,13 @@
       }
     ]
   },
-  "last_updated": "2026-07-17T09:06:55.478411+09:30",
+  "last_updated": "2026-07-17T09:30:42.699578+09:30",
   "pipeline": {
     "prospect_count": 197,
     "stages": {
-      "Outreach Active": 91,
+      "Outreach Active": 90,
       "New": 102,
-      "Lost": 3,
+      "Lost": 4,
       "Design Partner": 1
     },
     "verticals": {
@@ -191,7 +191,7 @@
       "Outreach Active": {
         "IT MSP": 3,
         "Marketing agency": 9,
-        "Painter": 65,
+        "Painter": 64,
         "Landscaper": 1,
         "Commercial cleaning": 7,
         "Construction": 2,
@@ -208,7 +208,7 @@
         "Electrician": 2
       },
       "Lost": {
-        "Painter": 1,
+        "Painter": 2,
         "Commercial cleaning": 1,
         "IT MSP": 1
       },
@@ -258,12 +258,6 @@
         "industry": "Painter",
         "last_contacted": "2026-07-13",
         "suburb": "Victoria"
-      },
-      {
-        "name": "Distinct Painters",
-        "industry": "Painter",
-        "last_contacted": "2026-07-14",
-        "suburb": "South Australia"
       },
       {
         "name": "Like Painting",
@@ -767,7 +761,7 @@
     "active_by_vertical": {
       "IT MSP": 3,
       "Marketing agency": 9,
-      "Painter": 65,
+      "Painter": 64,
       "Landscaper": 1,
       "Commercial cleaning": 7,
       "Construction": 2,
@@ -791,7 +785,7 @@
       "total_opens": 86,
       "avg_opens": 2.1
     },
-    "last_refreshed": "2026-07-16T22:00:41.168246+00:00"
+    "last_refreshed": "2026-07-17T00:00:42.699119+00:00"
   },
   "decisions": {
     "total": 10,
