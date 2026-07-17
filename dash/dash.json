@@ -164,13 +164,13 @@
       }
     ]
   },
-  "last_updated": "2026-07-17T17:30:47.840320+09:30",
+  "last_updated": "2026-07-17T19:30:57.885074+09:30",
   "pipeline": {
     "prospect_count": 197,
     "stages": {
-      "Outreach Active": 90,
+      "Outreach Active": 89,
       "New": 102,
-      "Lost": 4,
+      "Lost": 5,
       "Design Partner": 1
     },
     "verticals": {
@@ -191,7 +191,7 @@
       "Outreach Active": {
         "IT MSP": 3,
         "Marketing agency": 9,
-        "Painter": 64,
+        "Painter": 63,
         "Landscaper": 1,
         "Commercial cleaning": 7,
         "Construction": 2,
@@ -208,7 +208,7 @@
         "Electrician": 2
       },
       "Lost": {
-        "Painter": 2,
+        "Painter": 3,
         "Commercial cleaning": 1,
         "IT MSP": 1
       },
@@ -674,12 +674,6 @@
         "suburb": "Sydney"
       },
       {
-        "name": "SA Painter",
-        "industry": "Painter",
-        "last_contacted": "2026-07-14",
-        "suburb": "South Australia"
-      },
-      {
         "name": "Sunshine Adelaide Painting",
         "industry": "Painter",
         "last_contacted": "2026-07-14",
@@ -761,7 +755,7 @@
     "active_by_vertical": {
       "IT MSP": 3,
       "Marketing agency": 9,
-      "Painter": 64,
+      "Painter": 63,
       "Landscaper": 1,
       "Commercial cleaning": 7,
       "Construction": 2,
@@ -782,10 +776,10 @@
     "opens": {
       "deliveries": 30,
       "prospects_opened": 40,
-      "total_opens": 86,
-      "avg_opens": 2.1
+      "total_opens": 87,
+      "avg_opens": 2.2
     },
-    "last_refreshed": "2026-07-17T08:00:47.839563+00:00"
+    "last_refreshed": "2026-07-17T10:00:57.884020+00:00"
   },
   "decisions": {
     "total": 10,
