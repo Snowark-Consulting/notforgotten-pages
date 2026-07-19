@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 97,
+    "tasks_completed": 98,
     "recent": [
+      {
+        "date": "2026-07-20 07:45",
+        "task": "Email 2 sent to 75 prospects across 3 campaigns: CvC (38), PDV (19), Wave 1 (18). Email 4 breakup sent to 12 prospects: Next&Co, Click Click Media, Group 2 Wave 1 (9), Performance Cleaning. Total: 87 emails reconciled.",
+        "category": "task"
+      },
       {
         "date": "2026-07-18 21:29",
         "task": "Campaign Pulse: Executed Monday Email 2 prep \u2014 75 drafts across 3 campaigns (CvC 38, PDV 19, Wave 1 New 18). Fixed 18 weekend dates, excluded 4 Lost/Unsubscribed, all batches pass Voice Review 8/8 + Technical Verification. Ready for Monday Jul 20 send.",
@@ -135,11 +140,6 @@
         "date": "2026-07-05 17:46",
         "task": "Published vault lint report 2026-07-05 at /vault-lint/",
         "category": "task"
-      },
-      {
-        "date": "2026-07-03 06:37",
-        "task": "Subject line philosophy shift: title case, 3-7 words, business-owner-to-business-owner. Three styles (Question/Observation/Context), 5-10 options per campaign with authenticity scoring.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-20T07:30:48.434025+09:30",
+  "last_updated": "2026-07-20T07:45:31.450930+09:30",
   "pipeline": {
     "prospect_count": 197,
     "stages": {
