@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 99,
+    "tasks_completed": 100,
     "recent": [
+      {
+        "date": "2026-07-21 08:03",
+        "task": "CvC Day 7 checkpoint: 0 replies from 38 delivered (18 Control, 20 Treatment). Effective sample: 2 excluded (Distinct Painters \u2014 Unsubscribed Jul 13; SA Painter \u2014 Lost). Day 21 checkpoint due Aug 4.",
+        "category": "task"
+      },
       {
         "date": "2026-07-20 17:17",
         "task": "Campaign pulse: 87 emails sent this morning (75 Email 2s + 12 Email 4 breakups). 0 replies across all active campaigns. CvC Day 6, PDV Day 6. CvC Day 7 checkpoint tomorrow. Email 3 due Jul 22 for 68 prospects.",
@@ -135,11 +140,6 @@
         "date": "2026-07-06 10:47",
         "task": "Group 2 Email 2 drafts approved (10 clean prospects). 4 cadence exception prospects paused (All Melbourne, Matte Projects, Kleena, OMG). Pre-send verification SOP updated with CRM vs Messages reality check.",
         "category": "task"
-      },
-      {
-        "date": "2026-07-06 08:40",
-        "task": "Morning briefing posted \u2014 19 active prospects, 0 replies, Email 3 window opens today for 7 prospects, Email 2 window Jul 7 for 12 prospects",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-21T07:31:03.865966+09:30",
+  "last_updated": "2026-07-21T08:03:35.295616+09:30",
   "pipeline": {
     "prospect_count": 197,
     "stages": {
