@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 98,
+    "tasks_completed": 99,
     "recent": [
+      {
+        "date": "2026-07-20 17:17",
+        "task": "Campaign pulse: 87 emails sent this morning (75 Email 2s + 12 Email 4 breakups). 0 replies across all active campaigns. CvC Day 6, PDV Day 6. CvC Day 7 checkpoint tomorrow. Email 3 due Jul 22 for 68 prospects.",
+        "category": "task"
+      },
       {
         "date": "2026-07-20 07:45",
         "task": "Email 2 sent to 75 prospects across 3 campaigns: CvC (38), PDV (19), Wave 1 (18). Email 4 breakup sent to 12 prospects: Next&Co, Click Click Media, Group 2 Wave 1 (9), Performance Cleaning. Total: 87 emails reconciled.",
@@ -135,11 +140,6 @@
         "date": "2026-07-06 08:40",
         "task": "Morning briefing posted \u2014 19 active prospects, 0 replies, Email 3 window opens today for 7 prospects, Email 2 window Jul 7 for 12 prospects",
         "category": "task"
-      },
-      {
-        "date": "2026-07-05 17:46",
-        "task": "Published vault lint report 2026-07-05 at /vault-lint/",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-20T15:30:53.709572+09:30",
+  "last_updated": "2026-07-20T17:17:31.654380+09:30",
   "pipeline": {
     "prospect_count": 197,
     "stages": {
