@@ -352,7 +352,18 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "c9a969cdc151",
-      "val": 6.0,
+      "val": 8.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_experiments_context_vs_curiosity_hypothesis_backlog",
+      "label": "Hypothesis Backlog",
+      "file_type": "doc",
+      "source_file": "knowledge/experiments/context-vs-curiosity/hypothesis-backlog.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "15b31ee3cee2",
+      "val": 4,
       "color": "#a78bfa"
     },
     {
@@ -1015,6 +1026,13 @@
     {
       "source": "knowledge_decisions_2026_07_13_diagnose_before_change_ceo_briefing_scope",
       "target": "knowledge_decisions_2026_07_06_campaign_review_operating_standard",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_experiments_context_vs_curiosity_hypothesis_backlog",
+      "target": "knowledge_experiments_context_vs_curiosity_readme",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

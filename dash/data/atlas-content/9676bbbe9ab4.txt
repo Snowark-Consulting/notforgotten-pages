@@ -64,7 +64,7 @@ Log: ~/.hermes/logs/inbox-pulse.log
 | Nightly tracking tag audit | dc044588c680 | daily 8:55pm | local | — | No-agent script (`scripts/tracking-tag-audit.py`). Fetches sitemap, checks every page for GA4 + Clarity tags. Silent when clean; failures injected into nightly consolidation via `context_from`. Added 2026-07-05. |
 | Stale Prospect Alert | 519e0b52719c | Mondays 8am UTC | telegram:-1003939051249 | — | No-agent script (`scripts/stale-prospect-alert.py`). Checks Outreach Active prospects for Last contacted date >14 days. Silent when clean; alerts with prospect names, days stale, and recommended actions. Added 2026-07-05. |
 | Campaign Review — Group 2 Wave 1 | 471242dad1d3 | ~~once at 2026-07-17 09:00 ACST~~ **COMPLETED** | origin | campaign-review, cold-email | Formal post-mortem after Wave 1 and Group 2 outreach sequences. Report: `knowledge/campaign-reviews/wave-1-july-2026.md`. Completed 2026-07-17. |
-| Context vs Curiosity — Day 7 Checkpoint | c02a3e330fa4 | once at 2026-07-21 08:00 ACST | origin | email-inbox-pulse, growth-operations | Experiment checkpoint: A/B test mid-point. Added 2026-07-13. |
+| Context vs Curiosity — Day 7 Checkpoint | c02a3e330fa4 | ~~once at 2026-07-21 08:00 ACST~~ **COMPLETED** | origin | email-inbox-pulse, growth-operations | Experiment checkpoint: A/B test mid-point. Result: 0 replies from 38 prospects. Report: `knowledge/experiments/context-vs-curiosity/replies/day7.json`. Completed 2026-07-21. |
 | Context vs Curiosity — Day 21 Final | bc65c833dc72 | once at 2026-08-04 08:00 ACST | origin | email-inbox-pulse, growth-operations, campaign-review | Experiment checkpoint: A/B test final analysis. Added 2026-07-13. |
 
 ## Hooks (event-driven)

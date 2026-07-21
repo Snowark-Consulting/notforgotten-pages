@@ -1,4 +1,13 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+experiment: context-vs-curiosity
+---
+
 # Hypothesis Backlog — Context vs Curiosity Experiment
+
+> Running log of hypotheses for [[Context vs Curiosity Experiment]] (knowledge/experiments/context-vs-curiosity/README.md). Record ideas here; act on none during active experiment.
 
 > **Rule:** Record ideas here. Do not act on them. Every idea becomes fuel for the next experiment.
 > 
@@ -10,7 +19,11 @@
 
 ## Backlog
 
-*No entries yet. Will populate as replies arrive and patterns emerge.*
+### H1: Zero replies at Day 6 — painters may need follow-up to engage
+**Observation:** 0 replies from 38 delivered CvC Email 1s at Day 6. Cold email reply rates for first touch typically range 1-5% for trades. At 38 sends, 0 replies is within expected range (expected 0-2 replies).
+**Hypothesis:** Painters, as a trade vertical, may require Email 2 or Email 3 before engaging — the first touch plants the seed but doesn't generate replies directly. The meaningful comparison may be at Day 21 (after full sequence), not Day 7.
+**Why it matters:** If painters are a "slow to engage" vertical, experiment design should weight Day 21 metrics more heavily than Day 7. The context-vs-curiosity variable may show its effect through conversion rates across the full sequence, not through first-touch reply rates.
+**Suggested experiment:** If Day 21 also shows zero meaningful replies, test a more direct CTA in Email 1 (e.g., "Reply with a number: how many quotes went quiet last month?") vs current question-only approach.
 
 ---
 
