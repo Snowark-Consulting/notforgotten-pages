@@ -164,13 +164,14 @@
       }
     ]
   },
-  "last_updated": "2026-07-23T09:30:35.333519+09:30",
+  "last_updated": "2026-07-23T11:30:39.085614+09:30",
   "pipeline": {
     "prospect_count": 197,
     "stages": {
-      "Outreach Active": 88,
+      "Outreach Active": 87,
       "New": 102,
       "Lost": 6,
+      "Engaged": 1,
       "Design Partner": 1
     },
     "verticals": {
@@ -191,7 +192,7 @@
       "Outreach Active": {
         "IT MSP": 3,
         "Marketing agency": 9,
-        "Painter": 62,
+        "Painter": 61,
         "Landscaper": 1,
         "Commercial cleaning": 7,
         "Construction": 2,
@@ -211,6 +212,9 @@
         "Painter": 4,
         "Commercial cleaning": 1,
         "IT MSP": 1
+      },
+      "Engaged": {
+        "Painter": 1
       },
       "Design Partner": {
         "Painter": 1
@@ -560,12 +564,6 @@
         "suburb": "South Australia"
       },
       {
-        "name": "Star Painters Adelaide",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
         "name": "Matte Projects Painting and Decorating",
         "industry": "Painter",
         "last_contacted": "2026-07-22",
@@ -749,7 +747,7 @@
     "active_by_vertical": {
       "IT MSP": 3,
       "Marketing agency": 9,
-      "Painter": 62,
+      "Painter": 61,
       "Landscaper": 1,
       "Commercial cleaning": 7,
       "Construction": 2,
@@ -758,22 +756,22 @@
       "Cleaning": 1
     },
     "messages": {
-      "outbound_total": 200,
-      "inbound_total": 0,
+      "outbound_total": 199,
+      "inbound_total": 1,
       "total": 200,
-      "reply_rate": 0.0,
+      "reply_rate": 0.5,
       "last_7_days": {
         "outbound": 173,
-        "inbound": 0
+        "inbound": 1
       }
     },
     "opens": {
       "deliveries": 35,
       "prospects_opened": 53,
-      "total_opens": 180,
-      "avg_opens": 3.4
+      "total_opens": 185,
+      "avg_opens": 3.5
     },
-    "last_refreshed": "2026-07-23T00:00:35.332994+00:00"
+    "last_refreshed": "2026-07-23T02:00:39.085159+00:00"
   },
   "decisions": {
     "total": 10,
