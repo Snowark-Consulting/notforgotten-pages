@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 103,
+    "tasks_completed": 104,
     "recent": [
+      {
+        "date": "2026-07-23 20:00",
+        "task": "System check complete \u2014 Stale Prospect Alert fixed, quotes@ pipeline end-to-end verified. 2 clients active.",
+        "category": "task"
+      },
       {
         "date": "2026-07-23 19:16",
         "task": "Star Painters Adelaide converted to client \u2014 Ahmad replied to Email 3 (Travis case study) with buying questions. Painter, SA.",
@@ -135,11 +140,6 @@
         "date": "2026-07-09 15:14",
         "task": "Sent 12 follow-up emails: 2x Email 3 (Click Click Media, Next&Co) + 10x Email 2 (Netlogyx, IT Blueprint, Atcom, Synergy IT, Parkview, Kapitol, Davidson, Beaumont People, Excel Cleaning, Matrix Group). All 12/12 delivered + Airtable reconciled. Paused 3 duplicate-send cohort prospects (Distinct Painters, Adelaide Designer Painters, Performance Cleaning). Archived 8 stale draft files.",
         "category": "task"
-      },
-      {
-        "date": "2026-07-08 07:38",
-        "task": "Prepare-ahead: Drafted Email 3 for 3 calibration prospects (Distinct Painters, Adelaide Designer Painters, Performance Cleaning). Identified 10 Email 2 drafts ready for Group 2, 2 agency Email 3s ready. 4 paused prospects still in duplicate-send observation window.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-23T19:30:46.925251+09:30",
+  "last_updated": "2026-07-23T20:00:43.143606+09:30",
   "pipeline": {
     "prospect_count": 197,
     "stages": {
