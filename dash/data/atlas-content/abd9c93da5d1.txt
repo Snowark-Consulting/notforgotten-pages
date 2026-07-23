@@ -1,0 +1,47 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# Quotes@ Inbox — Standard Operating Procedure
+
+**Established:** 2026-07-23
+**Status:** End-to-End Verified ✅ (tested 23 Jul 2026)
+**Last test:** 23 Jul 2026 — 2 test quotes processed, all 7 steps passed
+
+## When a Quote Lands in quotes@notforgotten.com.au
+
+### 1. Extract
+Extract all available data from the email and any PDF attachments:
+- Customer name, email, mobile
+- Quote value, scope summary, suburb
+- Any other fields visible in the quote
+
+### 2. Cross-Reference
+Match the sender (the Not Forgotten client who CC'd quotes@) to their Airtable Client record by email address.
+
+### 3. Create Quote Record
+In Airtable Quotes table, create a record with:
+- **Business Name** → linked to the Client record
+- All extracted customer/quote fields
+- **Status** → New
+- **Urgency** → Warm
+- **Atlas next action** → "Begin follow-up sequence"
+
+### 4. Follow-Up Signature
+When sending follow-up emails to the client's customer, use `atlas@notforgotten.com.au` as the sender but sign as:
+
+```
+Kind Regards
+Atlas
+Working with [Client Business Name]
+```
+
+The signature omits the standard Not Forgotten branding (no logo, no tagline, no website). Atlas acts as a white-label assistant embedded in the client's team. The client's customer should perceive Atlas as working for the painting business, not as a separate SaaS company.
+
+### 5. Tracking
+Everything gets tracked in Airtable:
+- Quote records linked to Client
+- Message records for every outbound/inbound touchpoint
+- Customer responses tracked in the Messages table

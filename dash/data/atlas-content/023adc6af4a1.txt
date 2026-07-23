@@ -1,0 +1,111 @@
+---
+doc_type: decision
+owner: notforgotten
+tier: primary
+---
+
+# Decision: Stage 1 Approved — Design Phase Complete, Learning Phase Begins
+
+**Slug:** `2026-07-24-stage-1-approved-learning-phase`
+**Date:** 2026-07-24
+**Status:** Made
+**Review Date:** 2026-10-24
+
+---
+
+## The Decision
+
+Stage 1 of the quote follow-up email (Customer Journey: Build Trust) is approved as v8.0. The design phase is closed — no further iteration on wording without evidence. From this point forward, Atlas operates in the learning phase: optimising through evidence, not opinion. A Writing Playbook is established as the living document for capturing what works and what doesn't.
+
+---
+
+## The Problem
+
+Stage 1 email design went through eight iterations across two days. Each version improved, but the process risked becoming infinite refinement without an end state. The email had reached the quality standard James wanted. The risk was no longer "the email isn't good enough" — it was "we'll never stop polishing and never start learning from real customers."
+
+---
+
+## Options Considered
+
+| # | Option | Summary |
+|---|---|---|
+| A | Continue iterating the design | Push for a "perfect" v9, v10, etc. Risk: diminishing returns, delayed learning, design-by-opinion. |
+| B | Lock v8.0 and shift to learning | Approve current version. All future changes must be evidence-based. Build infrastructure for continuous improvement. |
+| C | Lock v8.0 but revisit design regularly | Hybrid: lock now but schedule design reviews. Risk: opinion creeps back in under the guise of "review." |
+
+---
+
+## Why This Path
+
+Option B. v8.0 achieved the standard: it introduces Atlas naturally, puts the business owner at the centre, demonstrates care rather than describing it, and passes the "exceptional Client Care Manager" test. Further iteration without customer evidence is optimisation by guesswork. The Writing Playbook provides the mechanism for evidence-based improvement — every change from here forward must be earned through observed customer behaviour.
+
+---
+
+## Core Principles Applied
+
+- **Evidence before optimisation** (Philosophical Directive 11) — No further changes without customer data
+- **Sell certainty, not follow-up** (Philosophical Directive 1) — The email demonstrates the product: confidence that no customer is forgotten
+- **Customer discovers, we don't convince** (Decision-Making Pattern 5) — The email shows professionalism; it never announces it
+- **Atlas is multiplier, not replacement** (Philosophical Directive 10) — Atlas is the Client Care function, not the hero. The business owner is the hero.
+
+---
+
+## Risks Identified
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| Email performs poorly with real customers and we don't know why | Low | High | Writing Playbook captures every reply, sentiment, and pattern. Campaign reviews surface evidence. |
+| "Evidence-based" becomes "never change anything" | Medium | Medium | Writing Playbook has active hypotheses section. Review date (Oct 24) forces re-evaluation. |
+| Single-industry template (painter) doesn't generalise | Medium | Medium | Template is a starting point, not a straitjacket. Industry-specific adaptations are expected — the principles carry across. |
+| Autopilot sends with stale template if not updated | Low | High | Autopilot prompt updated immediately. Template locked in sequence file. Cron verified. |
+
+---
+
+## Expected Outcome
+
+Stage 1 emails sent through the autopilot will produce customer replies that feel natural, warm, and unpressured. Customers will engage because they feel looked after — not because they were sold to. Over the next 90 days, the Writing Playbook will accumulate evidence: what language creates engagement, what questions customers commonly ask, and what patterns emerge across industries.
+
+---
+
+## Success Criteria
+
+- [ ] Stage 1 emails are sending autonomously via follow-up-autopilot within 24 hours
+- [ ] Writing Playbook has at least 3 evidence-backed entries by review date (Oct 24, 2026)
+- [ ] Customer reply rate to Stage 1 is measurable and tracked
+- [ ] No customer has expressed confusion about who Atlas is or why they were contacted
+- [ ] At least one hypothesis has been formed, tested, and resolved (confirmed or rejected)
+
+---
+
+## Atlas's Challenge (Pre-Decision)
+
+No challenge. The decision to lock v8.0 and shift to evidence-based learning is the correct inflection point. The design phase produced eight versions — each better than the last — but the marginal improvement from v8 to v9 without customer data would be speculative. The Writing Playbook architecture aligns with the Atlas Learning Framework and the evidence-before-optimisation directive. The only watch point: when early replies arrive, resist the urge to over-interpret a single interaction as a pattern. The playbook enforces this through its hypothesis-test-revert cycle.
+
+**James's response:** Aligned. Decision made as proposed.
+
+---
+
+## Actual Outcome (Post-Review)
+
+**Date reviewed:** *(2026-10-24)*
+
+**What actually happened:** *[TBD]*
+
+**Verdict:** *[TBD]*
+
+**Delta from expected:** *[TBD]*
+
+---
+
+## Learnings
+
+*[To be filled at review]*
+
+---
+
+## Related Decisions
+
+- `2026-07-07-communication-voice-standard` — Voice Standard that governs all customer-facing writing
+- `2026-07-13-diagnose-before-change-ceo-briefing-scope` — Delegation of routine execution to Atlas
+- `2026-07-12-distribution-validation-phase` — Infrastructure closed, customer acquisition focus
+- `founding-atlas-multiplier-not-replacement` — Atlas as multiplier, not replacement

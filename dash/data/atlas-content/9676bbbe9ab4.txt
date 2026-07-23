@@ -36,6 +36,23 @@ Detection → extraction (pymupdf + Gemini vision fallback) → Airtable cross-r
 - Client found → create Quote only
 - Neither → flag to James
 
+### Quotes inbox monitoring (LIVE — two-phase)
+
+| Phase | Job | Cron ID | Schedule | Mode |
+| ----- | --- | ------- | -------- | ---- |
+| Phase 1 — unread scan | quotes-watchdog-phase1 | 20810e75d779 | */1 * * * * | no-agent (script-only: `scripts/quotes-watchdog.py`) |
+| Phase 2 — process | quotes-pulse-phase2 | 203f3a6cfd56 | */1 * * * * | agent (skills: email-inbox-pulse, quote-intake; deliver: telegram) |
+
+Monitors `quotes@notforgotten.com.au` inbox. Phase 1 detects unread; Phase 2 runs quote-intake on every new email. Cross-references Client records, creates Quote records. SOP: `knowledge/sop-quotes-inbox.md`. Added 2026-07-23.
+
+### Follow-up autopilot (LIVE)
+
+| Job | Cron ID | Schedule | Mode |
+| --- | ------- | -------- | ---- |
+| follow-up-autopilot | 51474e46f382 | */5 * * * * | agent (skills: quote-intake, cold-email, email-draft, email-tracking; deliver: local) |
+
+Scans Airtable Quotes with `Status=New`. Drafts Stage 1 follow-up email, passes Voice Review (9/9) + Technical Verification (8/8), sends via Gmail API, updates Quote status. Proposed in `knowledge/proposals/autonomous-quote-follow-up.md`. Added 2026-07-23.
+
 Phase 1 runs `scripts/inbox-watchdog.sh` every 180s: checks Gmail API for unread, outputs JSON array of message IDs when mail found, silent when clean.
 
 Phase 2 reads Phase 1's output via `context_from`. When empty: silent, no output. When IDs found: loads `Agent/pulse-bootstrap.md` → SOUL, Registry, MEMORY, LEARNINGS, gmail-card, email-int → reads each email → runs `scripts/quote-intake.py` (quote detection + cross-reference) → processes quote or posts summary to Telegram via Bot API. Quote emails are auto-processed (move Prospect→Client, create Quote in Airtable); non-quotes follow the standard summary-and-ask flow. Mark as read immediately for all emails. Deliver set to `local` so empty runs produce nothing visible. Telegram posting is explicit via curl when mail found.

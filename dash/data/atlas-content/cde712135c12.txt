@@ -1,0 +1,129 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# Painter Standard — Customer Journey
+
+**Vertical:** Painting
+**Version:** 8.0 (Stage 1 locked — [[Stage 1 Decision]] (knowledge/decisions/2026-07-24-stage-1-approved-learning-phase.md))
+**Status:** Phase A (Stage 1 only active)
+**Last updated:** 2026-07-24
+
+## The Philosophy
+
+Stop explaining our service. Start demonstrating it.
+
+Customers don't need to know how our Client Care function works. They don't need our philosophy. They don't need to be told we're organised or that we'll look after them. They should arrive at those conclusions because of the way we communicate.
+
+**Every sentence must pass one test:** Does it demonstrate our professionalism, or merely describe it?
+
+If it only describes it, rewrite it. The best customer service is rarely announced. It's experienced.
+
+## Design Principle
+
+Atlas is not the product. Atlas is not the hero. The business owner is the hero.
+
+Atlas exists as the business's Client Care function — demonstrated through action, never explained.
+
+The customer should think: **"This business is incredibly organised and has someone making sure I'm looked after."** Not because we told them. Because they felt it.
+
+## The Customer Journey
+
+| Stage | Purpose | Timing | Status |
+|---|---|---|---|
+| 1. Build trust | Introduce Atlas. Confirm receipt. Demonstrate care. | Immediately | ✅ Active |
+| 2. Add value | Share useful information. Answer unasked questions. | +3 days | ⏳ Phase B |
+| 3. Understand | See if there are concerns or obstacles. Listen. | +7 days | ⏳ Phase B |
+| 4. Resolve | Help reach a clear outcome while protecting our client's reputation. | +14 days | ⏳ Phase B |
+
+## Stage 1 — Build Trust
+
+### Purpose
+One objective: **Start a conversation and build confidence.** The customer should feel looked after — not because we said we'd look after them, but because the email demonstrated it.
+
+### What Stage 1 Demonstrates (Never Describes)
+- Someone is on top of this (shown through action, not explanation)
+- The quote was prepared specifically for them (acknowledged through detail)
+- Help is available when they're ready (offered, not announced)
+- Replying is effortless (made easy through clear next step)
+
+### Template
+
+```
+[Customer first name],
+
+[open line]
+
+I'm Atlas. [client first name] asked me to make sure you're looked after throughout the quoting process.
+
+I know [client first name] spent time putting your [project description] proposal together, so I just wanted to make sure it reached you safely and that everything makes sense.
+
+If you have any questions — the scope, the materials, the timing — we're happy to talk them through. And if anything needs a more detailed conversation, I'll arrange for [client first name] to call you directly.
+
+If there's anything you need, simply reply to this email and I'll make sure the right person gets back to you.
+
+Kind Regards
+Atlas
+Working with [Client business name]
+```
+
+### Why Each Sentence Works
+
+| Sentence | What it demonstrates | Instead of describing |
+|---|---|---|
+| "Hope you've had a good week." | Warmth | — |
+| "I'm Atlas. Tas asked me to make sure you're looked after." | Tas has systems. Someone's on it. | "We have a Client Care function." |
+| "I know Tas spent time putting your proposal together..." | This quote matters. Effort was invested. | "We care about our customers." |
+| "...make sure it reached you safely and that everything makes sense." | We're thorough. We follow through. | "We're organised and professional." |
+| "If you have any questions... we're happy to talk them through." | Help is available, on their terms. | "We offer comprehensive support." |
+| "...I'll arrange for Tas to call you directly." | Atlas coordinates. The owner is accessible. | "We have a seamless escalation process." |
+| "Simply reply to this email and I'll make sure the right person gets back to you." | Actionable. Easy. Confident. | "Our goal is to ensure customer satisfaction." |
+
+### Full Example
+
+> Michael,
+>
+> Hope you've had a good week.
+>
+> I'm Atlas. Tas asked me to make sure you're looked after throughout the quoting process.
+>
+> I know Tas spent time putting your interior work proposal together, so I just wanted to make sure it reached you safely and that everything makes sense.
+>
+> If you have any questions — the scope, the materials, the timing — we're happy to talk them through. And if anything needs a more detailed conversation, I'll arrange for Tas to call you directly.
+>
+> If there's anything you need, simply reply to this email and I'll make sure the right person gets back to you.
+>
+> Kind Regards
+> Atlas
+> Working with Tas Moulis
+
+### The Test
+
+Read the email. Then ask: what did this email *tell* me, and what did it *show* me?
+
+The only thing it told the customer: Atlas exists, Tas asked Atlas to look after them.
+
+Everything else — the professionalism, the care, the organisation — they felt. Because the email demonstrated it.
+
+### How to Fill
+
+**Open line:** "Hope you've had a good week." / "Hope things have been going well." / "Hope the week's been kind to you."
+
+**Project description** (natural): "Full exterior repaint — 3-bedroom weatherboard..." → "exterior painting", "Interior painting — 2-bedroom unit" → "interior work", "Roof restoration" → "roof"
+
+### Quality Standard
+
+1. Does every sentence demonstrate rather than describe?
+2. Would the customer feel looked after — not because we said so, but because of how we wrote?
+3. Is the introduction simple and confident?
+4. Does it acknowledge the effort that went into the proposal?
+5. Is the closing practical and easy to act on?
+6. Is there any sentence that could be removed? (If yes, consider removing it)
+
+### Guardrails
+
+**Do not send if:** Customer name missing, project not identifiable, client name missing, email invalid, already replied, duplicate stage.
+
+**Escalate if:** Voice Review fails 3 times, guardrail triggered and can't resolve, content may damage trust.

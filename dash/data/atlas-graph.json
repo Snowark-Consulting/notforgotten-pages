@@ -198,7 +198,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "88b110d5753e",
-      "val": 8.0,
+      "val": 10.0,
       "color": "#a78bfa"
     },
     {
@@ -323,6 +323,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decisions_2026_07_24_stage_1_approved_learning_phase",
+      "label": "Stage 1 Approved Learning Phase",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-07-24-stage-1-approved-learning-phase.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "023adc6af4a1",
+      "val": 8.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decisions_index",
       "label": "Decisions / Index",
       "file_type": "doc",
@@ -352,7 +363,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "c9a969cdc151",
-      "val": 8.0,
+      "val": 10.0,
       "color": "#a78bfa"
     },
     {
@@ -364,6 +375,17 @@
       "community_name": "Knowledge",
       "content_hash": "15b31ee3cee2",
       "val": 4,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_follow_up_sequences_painter_standard",
+      "label": "Painter Standard",
+      "file_type": "doc",
+      "source_file": "knowledge/follow-up-sequences/painter-standard.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "cde712135c12",
+      "val": 6.0,
       "color": "#a78bfa"
     },
     {
@@ -433,6 +455,39 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_proposals_autonomous_quote_follow_up",
+      "label": "Autonomous Quote Follow Up",
+      "file_type": "doc",
+      "source_file": "knowledge/proposals/autonomous-quote-follow-up.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "f80cbe8f9afc",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_research_star_painters_adelaide_conversion",
+      "label": "Star Painters Adelaide Conversion",
+      "file_type": "doc",
+      "source_file": "knowledge/research/star-painters-adelaide-conversion.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "dea18c304331",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_research_tas_moulis_conversion",
+      "label": "Tas Moulis Conversion",
+      "file_type": "doc",
+      "source_file": "knowledge/research/tas-moulis-conversion.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "66b099ae52eb",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_sales_brain_index",
       "label": "Sales Brain / Index",
       "file_type": "doc",
@@ -452,6 +507,17 @@
       "community_name": "Knowledge",
       "content_hash": "1e76a8888798",
       "val": 8.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_sop_quotes_inbox",
+      "label": "SOP Quotes Inbox",
+      "file_type": "doc",
+      "source_file": "knowledge/sop-quotes-inbox.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "abd9c93da5d1",
+      "val": 6.0,
       "color": "#a78bfa"
     },
     {
@@ -484,6 +550,17 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "751bfc5321ef",
+      "val": 8.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_writing_playbook",
+      "label": "Writing Playbook",
+      "file_type": "doc",
+      "source_file": "knowledge/writing-playbook.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "c92d689ad2dc",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -718,6 +795,55 @@
     {
       "source": "agent_registry",
       "target": "integrations_james_inbox",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_writing_playbook",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_07_24_stage_1_approved_learning_phase",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_follow_up_sequences_painter_standard",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_sop_quotes_inbox",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_proposals_autonomous_quote_follow_up",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_research_star_painters_adelaide_conversion",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_research_tas_moulis_conversion",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
@@ -1038,6 +1164,13 @@
       "source_file": ""
     },
     {
+      "source": "knowledge_follow_up_sequences_painter_standard",
+      "target": "knowledge_decisions_2026_07_24_stage_1_approved_learning_phase",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
       "source": "knowledge_future_capabilities",
       "target": "knowledge_systems",
       "relation": "wikilink",
@@ -1061,6 +1194,13 @@
     {
       "source": "knowledge_products",
       "target": "knowledge_services",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_research_star_painters_adelaide_conversion",
+      "target": "knowledge_experiments_context_vs_curiosity_readme",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
@@ -1115,8 +1255,22 @@
       "source_file": ""
     },
     {
-      "source": "knowledge_voice_review_checklist",
+      "source": "knowledge_writing_playbook",
+      "target": "knowledge_voice_review_checklist",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_writing_playbook",
       "target": "knowledge_decisions_2026_07_07_communication_voice_standard",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_writing_playbook",
+      "target": "knowledge_atlas_learning_framework",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

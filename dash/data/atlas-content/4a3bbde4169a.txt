@@ -80,6 +80,13 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 - `skills/notforgotten/website-dev/SKILL.md` — **Load before ANY website change.** Dev vs prod Vercel projects, deploy workflow, golden rules. Default: deploy to DEV first, verify, then promote to production. Never deploy without stating which environment.
 - `skills/notforgotten/notforgotten-vercel-site/SKILL.md` — page shell, nav patterns, modal, deployment commands for the live Vercel site. Load alongside `website-dev` and `notforgotten-design` for any site change.
 
+- [[Writing Playbook]] (knowledge/writing-playbook.md) — living document: mission, values, methodology, patterns. All Atlas writing governed by this. Stage 1 locked per [[Stage 1 Decision]] (knowledge/decisions/2026-07-24-stage-1-approved-learning-phase.md).
+- [[Painter Standard Follow-Up]] (knowledge/follow-up-sequences/painter-standard.md) — Customer Journey Stage 1 template v8.0. White-label, demonstrate-don't-describe.
+- [[Quotes Inbox SOP]] (knowledge/sop-quotes-inbox.md) — 7-step pipeline: extract → cross-reference → create record → send follow-up (white-label sig) → track. End-to-end verified.
+- [[Autonomous Quote Pipeline]] (knowledge/proposals/autonomous-quote-follow-up.md) — Phase A design proposal. Awaiting James review.
+- [[Star Painters Conversion]] (knowledge/research/star-painters-adelaide-conversion.md) — Ahmad Haidari replied to Email 3 (Travis), asked 3 buying questions, converted same day. Second Travis-triggered painter conversion.
+- [[Tas Moulis Conversion]] (knowledge/research/tas-moulis-conversion.md) — Tas called James after Email 3 (Travis). First Travis-triggered conversion. 3 emails, 11 opens, 10 days.
+
 ## Operations
 
 - `skills/notforgotten/quote-intake/SKILL.md` — **Quote intake pipeline.** Detect, extract, and process quote emails CC'd to atlas@notforgotten.com.au. Cross-references Airtable Prospects/Clients, auto-creates Quotes records. Unknown senders → flag, don't process.

@@ -1,0 +1,343 @@
+---
+doc_type: proposal
+owner: notforgotten
+tier: internal
+---
+
+# Autonomous Quote Follow-Up Pipeline — Design Proposal
+
+**Date:** 2026-07-23
+**Status:** Awaiting Review
+**Author:** Atlas
+
+---
+
+## Objective
+
+Remove the manual step between quote intake and first follow-up. A client CC's `quotes@notforgotten.com.au` on their quote. Atlas handles everything: extract, cross-reference, create records, draft follow-up, pass quality gates, send, and monitor replies through to Won/Lost/Deferred.
+
+---
+
+## Architecture Overview
+
+```
+Quote arrives in quotes@
+        │
+        ▼
+┌──────────────────────────────────┐
+│ PHASE 2: quotes-pulse (existing) │
+│ • Detect unread                  │
+│ • Run quote-intake.py            │
+│ • Cross-reference Client         │
+│ • Create Quote record            │
+│ • Mark as read                   │
+└──────────────────────────────────┘
+        │ Quote created (Status: New)
+        ▼
+┌──────────────────────────────────┐
+│ NEW: follow-up-autopilot         │
+│ Cron: every 5 minutes            │
+│ • Scan Quotes with Status=New    │
+│ • Draft Email 1                  │
+│ • Voice Review (8/8)             │
+│ • Technical Verification         │
+│ • Send via send-outreach.py      │
+│ • Update Quote status            │
+│ • Schedule next touchpoint       │
+└──────────────────────────────────┘
+        │ Email 1 sent
+        ▼
+┌──────────────────────────────────┐
+│ NEW: follow-up-scheduler         │
+│ Cron: every 15 minutes           │
+│ • Scan Quotes due for next touch │
+│ • Draft Email 2/3, SMS, etc.    │
+│ • Same quality gates             │
+│ • Send + update                  │
+└──────────────────────────────────┘
+        │
+        ▼
+┌──────────────────────────────────┐
+│ EXISTING: inbox-pulse (atlas@)   │
+│ • Detect customer replies        │
+│ • Cross-reference to Quote       │
+│ • Classify: Won/Lost/Deferred    │
+│ • Pause or stop sequence         │
+└──────────────────────────────────┘
+```
+
+### New Components
+
+| Component | Type | Schedule | Purpose |
+|---|---|---|---|
+| `follow-up-autopilot` | Agent cron | Every 5 min | Draft and send first follow-up for new Quotes |
+| `follow-up-scheduler` | Agent cron | Every 15 min | Draft and send subsequent touchpoints |
+
+### Modified Components
+
+| Component | Change |
+|---|---|
+| `quote-intake.py` | Already operational — no changes needed |
+| `quotes-pulse-phase2` | Already operational — no changes needed |
+| `send-outreach.py` | Existing — call with customer email, not prospect email |
+
+---
+
+## 1. Trigger: What Starts the First Follow-Up
+
+**Trigger condition:** A Quote record exists in Airtable where:
+- `Status = "New"`
+- `Atlas next action = "Begin follow-up sequence"`
+- `Customer email` is not empty
+
+**Detection:** `follow-up-autopilot` cron job scans Airtable Quotes table every 5 minutes for records matching these criteria.
+
+**Timing:** The first follow-up is sent within 5 minutes of the Quote record being created. The quote-intake pipeline creates the record in ~2 seconds after email arrival, so the total time from CC to first follow-up is under 10 minutes.
+
+**Why 5 minutes, not instant:** A short buffer allows the quote-intake to fully complete (Airtable writes are eventually consistent) and prevents race conditions where the autopilot picks up a Quote before all fields are populated.
+
+---
+
+## 2. Sequence Selection
+
+### Default Sequence (Painter Vertical)
+
+| Touchpoint | Timing | Channel | Purpose |
+|---|---|---|---|
+| Email 1 | Immediately | Email | Acknowledge quote, set expectations |
+| Email 2 | +3 days | Email | Value reminder, social proof |
+| Email 3 | +7 days | Email | Case study, urgency |
+| SMS 1 | +10 days | SMS | Brief nudge (if mobile present) |
+| Call task | +14 days | Task | Flag to client for personal call |
+
+### Sequence Assignment
+
+Each Client record in Airtable gets a `Follow-up sequence` field. Default: "Painter Standard". Future: different sequences per vertical, per client preference.
+
+The sequence definition is stored in `knowledge/follow-up-sequences/painter-standard.md` with:
+- Template for each touchpoint
+- Merge fields (customer name, quote value, scope, suburb, client business name)
+- Tone rules
+
+### What Each Email References
+
+Every follow-up is tailored to the specific quote. Merge fields pull from the Quote record:
+
+| Field | Source |
+|---|---|
+| Customer first name | Quote → Customer first name |
+| Quote value | Quote → Quote value |
+| Scope summary | Quote → Scope Summary Text |
+| Client business name | Client → Business name |
+| Suburb | Quote → Suburb |
+| Quote date | Quote → Quote date |
+
+---
+
+## 3. Quality Gates (Before Every Send)
+
+No email leaves the system without passing two gates. These run inside the agent cron job — same standard we already use for outreach.
+
+### Gate 1: Voice Review (8/8 Checklist)
+
+| # | Check | Standard |
+|---|---|---|
+| 1 | No bullshit | No exaggeration, no marketing fluff |
+| 2 | Gets to the point | Lead with what matters |
+| 3 | Curious before persuasive | Questions before claims where appropriate |
+| 4 | Practical before clever | Useful beats impressive |
+| 5 | Helps before selling | Give value, earn the right |
+| 6 | Uses evidence | Real numbers from real quotes |
+| 7 | Respects time | Every sentence earns its place |
+| 8 | Sounds like a person | Passes the coffee test |
+
+**Rule:** 8/8 required. Any failure → rewrite, re-check. Three consecutive failures → escalate to James.
+
+### Gate 2: Technical Verification
+
+| # | Check |
+|---|---|
+| 1 | All merge fields resolved (no `{{unresolved}}`) |
+| 2 | Customer email is valid format |
+| 3 | Quote value is present and > $0 |
+| 4 | Client business name matches Airtable |
+| 5 | From address is atlas@notforgotten.com.au |
+| 6 | Signature is white-label format (`Kind Regards / Atlas / Working with [Business]`) |
+| 7 | No Not Forgotten branding in follow-up |
+| 8 | Reply-To or equivalent routes replies back to atlas@ |
+
+### Audit Trail
+
+Every sent email creates a Message record in Airtable linked to the Quote, with:
+- Direction: Outbound
+- Channel: Email (or SMS)
+- Message purpose: Follow-up 1, Follow-up 2, etc.
+- Body: Full sent text
+- Sent at: Timestamp
+- Approval status: Auto-approved (Voice Review + Tech Verification passed)
+
+---
+
+## 4. Duplicate Protection
+
+### Layer 1: Quote Status Guard
+
+Before sending any follow-up, the agent checks the Quote's current status. If the status has advanced past the touchpoint being sent (e.g., another agent already sent Email 1), the send is skipped.
+
+Status flow:
+```
+New → Follow-up 1 Sent → Follow-up 2 Sent → Follow-up 3 Sent → SMS 1 Sent → Call Task Created
+                                                                                    ↓
+                                                                         Won / Lost / Deferred
+```
+
+### Layer 2: Idempotency Key
+
+Each follow-up touchpoint has a unique key: `{quote_id}-{touchpoint_name}`. Before drafting, check if a Message record already exists with this purpose for this Quote. If yes, skip.
+
+### Layer 3: Inbound Mark-Read
+
+The quote-intake pipeline marks the inbound email as read after processing. This prevents the same email from being re-detected on the next Phase 2 tick.
+
+### Layer 4: Airtable as Source of Truth
+
+Sequence state lives in Airtable. The Quote's `Status` and `Atlas next action` fields are the authoritative source. Cron agents read state before acting and write state after acting. If Airtable is unreachable, the agent pauses — it never sends without confirmed state.
+
+---
+
+## 5. Error Handling and Recovery
+
+### Send Failures
+
+| Failure | Action |
+|---|---|
+| Gmail API error (transient) | Retry 3x with 30s/60s/120s backoff |
+| Gmail API error (auth) | Refresh token, retry once |
+| Gmail API error (permanent) | Log, flag Quote with error note, escalate |
+| Airtable update fails after send | Retry update 3x, log discrepancy if still fails |
+
+### Recovery States
+
+Quotes can enter these error states:
+
+| State | Meaning | Recovery |
+|---|---|---|
+| `New` | Normal — waiting for autopilot | Autopilot picks up next tick |
+| `Draft failed` | Voice Review or Tech Verification failed 3x | Flag to James with the drafts |
+| `Send failed` | Gmail API rejected the send 3x | Flag to James with error details |
+| `Awaiting clarification` | Missing data (no customer email, no client match) | Flag to James to resolve |
+
+### Logging
+
+All autopilot actions are logged to `logs/follow-up-autopilot.log` with:
+- Timestamp (Adelaide timezone)
+- Quote ID
+- Action (drafted, reviewed, sent, failed)
+- Outcome
+
+---
+
+## 6. Escalation: When to Pause and Ask James
+
+The autopilot pauses and escalates under these conditions:
+
+### Critical (immediate escalation)
+
+| Trigger | Why |
+|---|---|
+| Unknown sender (can't match to Client) | Don't know whose customer this is |
+| Customer email missing or invalid | Can't send follow-up |
+| Quote value = $0 or missing | Can't write a meaningful follow-up |
+| 3 consecutive Voice Review failures | The AI can't produce acceptable copy — needs human judgment |
+
+### Important (batched escalation in Morning Briefing)
+
+| Trigger | Why |
+|---|---|
+| Customer replies | Any reply pauses the sequence — James decides next step |
+| Bounce or delivery failure | Email address may be wrong |
+| Quote marked Lost by client | Client manually closed it — confirm |
+| 14+ days with no customer response | May need a different approach |
+
+### Automatic (no escalation needed)
+
+| Trigger | Action |
+|---|---|
+| Quote marked Won by reply classification | Close Quote, notify client, log |
+| Quote marked Deferred by reply classification | Pause sequence, note reason |
+| Normal touchpoint progression | Continue autonomously |
+
+---
+
+## 7. Risks and Safeguards
+
+### Risk: Wrong tone in automated follow-up
+
+**Safeguard:** Voice Review (8/8) runs on every draft before send. Three failures → escalate. The checklist is concrete and testable.
+
+### Risk: Sending to wrong customer
+
+**Safeguard:** Technical Verification checks email validity. Customer email comes from the extracted quote data, not inferred. If extraction fails, Quote goes to "Awaiting clarification."
+
+### Risk: Duplicate sends
+
+**Safeguard:** Four-layer protection (status guard, idempotency key, mark-read, Airtable as source of truth). The system assumes duplicates are worse than missed sends — it's conservative.
+
+### Risk: Infinite loop on retry
+
+**Safeguard:** Hard cap of 3 retries per action. After 3 failures, the Quote enters an error state and escalates. No unbounded retry loops.
+
+### Risk: Client's customer thinks Atlas is a bot
+
+**Safeguard:** Every email references the specific quote (value, scope, date). White-label signature makes Atlas appear as part of the client's team. Voice Review ensures natural language.
+
+### Risk: Phase 2 and autopilot race condition
+
+**Safeguard:** Autopilot runs on a 5-minute cycle, offset from Phase 2 by 2 minutes. Phase 2 completes its Airtable writes before autopilot reads. Quote Status guard provides defense-in-depth.
+
+---
+
+## 8. Implementation Phases
+
+### Phase A: Autopilot (first follow-up only)
+
+- `follow-up-autopilot` cron job
+- Detects new Quotes, drafts Email 1, passes gates, sends
+- Subsequent touchpoints remain manual
+- **Risk:** Low — only one automated touchpoint
+
+### Phase B: Full Sequence Scheduler
+
+- `follow-up-scheduler` cron job
+- Handles Email 2, Email 3, SMS 1, Call Task
+- Full autonomous sequence from intake to completion
+- **Risk:** Medium — requires reply detection to pause/stop
+
+### Phase C: Reply Classification
+
+- inbox-pulse classifies customer replies
+- Auto-detects Won/Lost/Deferred signals
+- Updates Quote status automatically
+- **Risk:** Medium — misclassification could close a live opportunity
+
+---
+
+## 9. What Stays Manual (by Design)
+
+| Task | Why |
+|---|---|
+| Client onboarding | Requires James's judgment on fit, pricing discussion |
+| New sequence design | Strategic — needs James's input on messaging |
+| Handling complaints | Reputation risk — human judgment required |
+| Price negotiation | Not in scope for automation |
+| Complex customer replies | "I'll think about it" type replies need human reading |
+
+---
+
+## Recommendation
+
+Start with **Phase A** (Autopilot for Email 1 only). It removes the highest-value manual step — the first follow-up — with the lowest risk. Phase B and C can follow after Phase A has processed real quotes without error for one week.
+
+---
+
+*End of proposal. Awaiting review.*
