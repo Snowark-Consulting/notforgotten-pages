@@ -164,14 +164,14 @@
       }
     ]
   },
-  "last_updated": "2026-07-23T19:16:31.702033+09:30",
+  "last_updated": "2026-07-23T19:30:46.925251+09:30",
   "pipeline": {
     "prospect_count": 197,
     "stages": {
-      "Outreach Active": 87,
+      "Outreach Active": 86,
       "New": 102,
+      "Won": 2,
       "Lost": 6,
-      "Engaged": 1,
       "Design Partner": 1
     },
     "verticals": {
@@ -192,7 +192,7 @@
       "Outreach Active": {
         "IT MSP": 3,
         "Marketing agency": 9,
-        "Painter": 61,
+        "Painter": 60,
         "Landscaper": 1,
         "Commercial cleaning": 7,
         "Construction": 2,
@@ -208,13 +208,13 @@
         "Plumber": 1,
         "Electrician": 2
       },
+      "Won": {
+        "Painter": 2
+      },
       "Lost": {
         "Painter": 4,
         "Commercial cleaning": 1,
         "IT MSP": 1
-      },
-      "Engaged": {
-        "Painter": 1
       },
       "Design Partner": {
         "Painter": 1
@@ -250,12 +250,6 @@
         "industry": "Painter",
         "last_contacted": "2026-07-22",
         "suburb": "Victoria"
-      },
-      {
-        "name": "Tas Moulis",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "Queensland"
       },
       {
         "name": "Dani's Painting",
@@ -747,7 +741,7 @@
     "active_by_vertical": {
       "IT MSP": 3,
       "Marketing agency": 9,
-      "Painter": 61,
+      "Painter": 60,
       "Landscaper": 1,
       "Commercial cleaning": 7,
       "Construction": 2,
@@ -768,10 +762,10 @@
     "opens": {
       "deliveries": 35,
       "prospects_opened": 55,
-      "total_opens": 190,
+      "total_opens": 193,
       "avg_opens": 3.5
     },
-    "last_refreshed": "2026-07-23T08:00:43.872663+00:00"
+    "last_refreshed": "2026-07-23T10:00:46.924384+00:00"
   },
   "decisions": {
     "total": 10,
