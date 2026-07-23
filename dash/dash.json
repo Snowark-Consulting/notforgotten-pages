@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 104,
+    "tasks_completed": 105,
     "recent": [
+      {
+        "date": "2026-07-24 09:28",
+        "task": "First client payment received \u2014 Tas Moulis (QPAINT). Onboarding 9 paid, subscription Active at 99/mo MRR.",
+        "category": "task"
+      },
       {
         "date": "2026-07-23 20:00",
         "task": "System check complete \u2014 Stale Prospect Alert fixed, quotes@ pipeline end-to-end verified. 2 clients active.",
@@ -135,11 +140,6 @@
         "date": "2026-07-10 16:59",
         "task": "Campaign pulse posted \u2014 0 replies across 19 active prospects. Wave 1 Email 2 (10 prospects) and Agency Email 3 (2 prospects) sent Jul 9. Preparing Email 3 drafts.",
         "category": "task"
-      },
-      {
-        "date": "2026-07-09 15:14",
-        "task": "Sent 12 follow-up emails: 2x Email 3 (Click Click Media, Next&Co) + 10x Email 2 (Netlogyx, IT Blueprint, Atcom, Synergy IT, Parkview, Kapitol, Davidson, Beaumont People, Excel Cleaning, Matrix Group). All 12/12 delivered + Airtable reconciled. Paused 3 duplicate-send cohort prospects (Distinct Painters, Adelaide Designer Painters, Performance Cleaning). Archived 8 stale draft files.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-24T07:31:01.024011+09:30",
+  "last_updated": "2026-07-24T09:28:48.290517+09:30",
   "pipeline": {
     "prospect_count": 197,
     "stages": {
