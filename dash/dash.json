@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 101,
+    "tasks_completed": 102,
     "recent": [
+      {
+        "date": "2026-07-23 19:04",
+        "task": "Tas Moulis converted to client \u2014 called after Email 3 (Travis case study). Painter, Queensland. 11 opens over 10 days.",
+        "category": "task"
+      },
       {
         "date": "2026-07-23 07:44",
         "task": "Email 3 sent: 74 prospects across CvC (38), PDV (18), Wave 1 trades (12), Wave 1 non-trades (6). Email 4 sent: 12 prospects (Next&Co, Click Click Media, Performance Cleaning, 9 Wave 1 Group 2). CRM touchpoints fixed (Email 2\u2192Email 3 for 74 prospects). Sequence Status\u2192Completed for 12 Email 4 completions.",
@@ -135,11 +140,6 @@
         "date": "2026-07-07 19:42",
         "task": "Established Communication Voice Standard \u2014 10 principles, coffee test, 8-point Voice Review mandatory gate. Recorded as formal decision (2026-07-07-communication-voice-standard). Propagated through SOUL, Outreach Philosophy, cold-email, email-draft, SOPs, Registry, and memory.",
         "category": "task"
-      },
-      {
-        "date": "2026-07-07 08:37",
-        "task": "Morning briefing posted -- 19 active prospects, 0 replies, Email 3 window open for 5 calibration prospects (3 missing drafts), Email 2 window Jul 7 for 10 Group 2 (drafts ready)",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-23T17:30:43.873115+09:30",
+  "last_updated": "2026-07-23T19:04:59.108298+09:30",
   "pipeline": {
     "prospect_count": 197,
     "stages": {
