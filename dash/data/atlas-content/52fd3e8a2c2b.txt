@@ -1,0 +1,67 @@
+---
+doc_type: decision
+owner: notforgotten
+tier: primary
+---
+
+# Decision: Provider Failover — Gemini Fallback Chain
+
+> Deployed Google Gemini as fallback provider after DeepSeek streaming outage took down 3 production cron jobs. Chain: deepseek-v4-pro → gemini-2.5-flash.
+
+**Slug:** `2026-07-24-provider-failover-gemini-fallback`
+**Status:** 🟢 Made
+**Date:** 2026-07-24
+**Review Date:** 2026-08-24
+**Type:** Operational (Tier 1 — delegated authority)
+**Principle:** System over person
+
+## Context
+
+Three LLM-based production cron jobs began failing on every run with `RuntimeError: [Errno 32] Broken pipe` — DeepSeek API streaming layer degraded. Phase 1 watchdog scripts (no_agent: true) were unaffected. Errors delivered to Telegram every 1-3 minutes (~40+/hour).
+
+The LEARNINGS.md escalation table (2026-07-02) specified Tier 3: repeated exhaustions within 24h across multiple jobs → flag to James, recommend provider change.
+
+Incident window: approximately 06:33-06:56 UTC on 2026-07-24. API self-recovered. Non-streaming requests succeeded throughout.
+
+## Options Considered
+
+| Option | Pros | Cons | Selected |
+|---|---|---|---|
+| **A: Deploy Gemini fallback chain** | Existing API key, no new cost, automatic failover | Gemini may have different quality/behaviour on complex tasks | ✅ |
+| **B: Wait and retry DeepSeek only** | No config change, API recovered quickly | Single point of failure, no protection against recurrence | |
+| **C: Switch to Gemini as primary** | Most reliable during outage | Unnecessary — DeepSeek is preferred for quality/cost, outage was brief | |
+
+## Decision
+
+Deploy Google Gemini (`google/gemini-2.5-flash`) as a fallback provider in the provider chain: **deepseek-v4-pro → google/gemini-2.5-flash**. Falls back automatically on rate-limit, 5xx, and connection errors. Uses existing `GEMINI_API_KEY` from `.env`. No new cost or credentials.
+
+Restoration: staged — `follow-up-autopilot` → `inbox-pulse-phase2` → `quotes-pulse-phase2`. Monitor each for 3+ successful runs before restoring next.
+
+## Expected Outcomes
+
+1. No single-provider outage can take down all LLM cron jobs
+2. Brief streaming outages self-heal via fallback without Telegram spam
+3. Gemini serves as safety net for rare DeepSeek degradation events
+
+## Success Criteria
+
+- [ ] No Telegram error spam during next DeepSeek streaming degradation
+- [ ] Fallback provider used successfully at least once (tracked in cron output)
+- [ ] No quality degradation on fallback runs (spot-check output)
+
+## Atlas's Challenge
+
+None at implementation stage. This was operational containment with clear escalation rules triggered. The decision aligns with principle "System over person" — reducing single-provider dependency increases system resilience.
+
+## Learnings
+
+- `hermes config set` doesn't handle list-type values — used Python script to directly write config.yaml
+- Streaming failure and non-streaming failure can be independent — always test both before diagnosing provider as "down"
+- Phase 1 watchdog scripts (no_agent: true) are correctly isolated from LLM dependency — this architecture decision proved itself
+
+## Related
+
+- `learnings/LEARNINGS.md` — 2026-07-24 entry for full incident detail
+- `learnings/LEARNINGS.md` — 2026-07-02 entry for prior DeepSeek broken pipe pattern
+- [[Infrastructure]] (Agent/Infrastructure.md) — affected job inventory
+- [[Service Levels]] (knowledge/service-levels.md) — the SL1-SL4 framework this incident informed

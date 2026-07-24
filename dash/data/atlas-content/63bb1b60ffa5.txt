@@ -9,7 +9,7 @@ tier: primary
 > Flat index of cross-session memory files. One line per fact. Terse style. Loaded every session.
 # Memory Index — Not Forgotten Systems
 
-One line per memory: `- [Title](file.md) — hook`. Never put memory content here; this is the index loaded each session. Facts and values only. Procedures live in skills.
+One line per memory: `- [Title](file.md) — hook `[confidence: high]``. Confidence levels: `high` (verified, multi-source), `medium` (reasonable, single-source), `low` (speculative, needs verification). Never put memory content here; this is the index loaded each session. Facts and values only. Procedures live in skills.
 
 See [[Business Overview]] (knowledge/business.md) for company context, [[Systems]] (knowledge/systems.md) for integration status, [[Email Integration]] (integrations/email.md) for email setup, and [[Infrastructure]] (Agent/Infrastructure.md) for what's running.
 

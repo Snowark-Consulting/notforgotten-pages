@@ -1,0 +1,81 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# Service Levels — Not Forgotten Systems
+
+> Classify every incident by service impact, not by technology. SL1-SL4 framework with staged restoration gates.
+
+**Established:** 2026-07-24
+**Canonical source:** [[SOUL]] (SOUL.md) § Service Levels
+**Purpose:** Classify every incident by service impact, not technology.
+**Related:** [[Provider Failover Decision]] (knowledge/decisions/2026-07-24-provider-failover-gemini-fallback.md) — the incident that created this framework, [[Infrastructure]] (Agent/Infrastructure.md) — service dependency inventory, [[LEARNINGS]] (learnings/LEARNINGS.md) — 2026-07-24 incident details, [[Systems]] (knowledge/systems.md) — provider integration status.
+
+## The Levels
+
+| Level | State | Meaning | Atlas Response |
+|---|---|---|---|
+| **SL1** | Normal | Preferred provider operating correctly | Standard operations |
+| **SL2** | Degraded | Preferred provider degraded. Automatic failover engaged. Customer experience unaffected. | Log incident. Monitor. No customer notification needed. |
+| **SL3** | Impaired | Multiple providers unavailable. Work queued where possible. Customer-facing operations protected at all costs. | Queue non-critical work. Protect customer ops. Escalate internally if recovery exceeds thresholds. |
+| **SL4** | Critical | Prolonged or widespread disruption requiring strategic intervention | Escalate to James. Strategic decisions required. |
+
+## Triggers
+
+| Transition | Condition |
+|---|---|
+| SL1 → SL2 | Any provider error that triggers automatic failover |
+| SL2 → SL3 | Failover provider also fails, or 3+ jobs cannot execute |
+| SL3 → SL4 | Customer-facing operations affected, or outage exceeds 2 hours |
+| SL4 → SL1 | James confirms incident resolved and systems restored |
+
+Automatic recovery: When all providers return to normal operation, classification drops back to SL1 (Atlas discretion for SL2→SL1; James confirmation for SL3→SL1 or SL4→SL1).
+
+## Restoration Gate
+
+Never resume services because they "look stable." Resume only when all criteria are met:
+
+1. ✅ 3 consecutive successful executions
+2. ✅ Expected runtime (within normal range, not degraded)
+3. ✅ Expected output produced (not silent-fail, not garbled)
+4. ✅ No unexpected provider failovers during window
+5. ✅ No customer-facing impact detected
+
+**Operational decisions based on evidence, not intuition.**
+
+## Incident Classification Examples
+
+| Scenario | Classification | Reasoning |
+|---|---|---|
+| DeepSeek streaming broken pipe, Gemini failover engaged, all jobs running | SL2 | Customer unaffected, automatic failover working |
+| DeepSeek down, Gemini also unavailable, 4 jobs failing, only Phase 1 watchdogs running | SL3 | Multiple providers, jobs queued but customer ops idle |
+| All providers down for 3 hours, client follow-up emails not sent, quotes inbox unmonitored | SL4 | Customer-facing impact, prolonged, strategic decision needed |
+| DeepSeek rate-limited briefly, retry succeeds, no failover needed | SL1 | Brief blip, self-recovered |
+
+## Provider Classification
+
+Providers are infrastructure, not identity. Classification is by impact:
+
+| Dependency | Type | Criticality |
+|---|---|---|
+| LLM providers (DeepSeek, Gemini, any future) | Compute | SL2 failover available |
+| Gmail API (atlas@, quotes@) | Customer channel | No failover — direct SL3 risk |
+| Airtable API | CRM | No failover — queue-able, not real-time |
+| GitHub Pages | Publishing | No failover — non-critical delay tolerable |
+| Telegram Bot API | Alerting | No failover — email fallback for critical alerts |
+
+## Resilience Design Principle
+
+Assume every dependency will eventually fail. Design so clients rarely notice when it does.
+
+Every infrastructure decision must answer: **"Does this make Not Forgotten more resilient?"**
+
+If yes, it is usually worth doing.
+
+## History
+
+| Date | Incident | Peak Level | Duration | Resolution |
+|---|---|---|---|---|
+| 2026-07-24 | DeepSeek streaming outage | SL2 (contained at SL2) | ~25 min | Paused LLM jobs. Deployed Gemini fallback. Staged restoration. |

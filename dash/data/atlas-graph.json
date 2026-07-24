@@ -11,7 +11,7 @@
       "community": 0,
       "community_name": "Agent",
       "content_hash": "9676bbbe9ab4",
-      "val": 16.0,
+      "val": 20.0,
       "color": "#e0a62a"
     },
     {
@@ -132,7 +132,7 @@
       "community": 1,
       "community_name": "Core",
       "content_hash": "9580f89ca3ed",
-      "val": 10.0,
+      "val": 12.0,
       "color": "#f0c040"
     },
     {
@@ -323,6 +323,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decisions_2026_07_24_provider_failover_gemini_fallback",
+      "label": "Provider Failover Gemini Fallback",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-07-24-provider-failover-gemini-fallback.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "52fd3e8a2c2b",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decisions_2026_07_24_stage_1_approved_learning_phase",
       "label": "Stage 1 Approved Learning Phase",
       "file_type": "doc",
@@ -499,6 +510,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_service_levels",
+      "label": "Service Levels",
+      "file_type": "doc",
+      "source_file": "knowledge/service-levels.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "69e6e712a96b",
+      "val": 8.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_services",
       "label": "Services",
       "file_type": "doc",
@@ -528,7 +550,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "1eea2da89066",
-      "val": 14.0,
+      "val": 16.0,
       "color": "#a78bfa"
     },
     {
@@ -583,7 +605,7 @@
       "community": 5,
       "community_name": "Learnings",
       "content_hash": "d5d6365794d4",
-      "val": 12.0,
+      "val": 14.0,
       "color": "#f472b6"
     },
     {
@@ -760,6 +782,13 @@
     {
       "source": "agent_registry",
       "target": "knowledge_atlas_learning_framework",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_service_levels",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
@@ -1157,6 +1186,20 @@
       "source_file": ""
     },
     {
+      "source": "knowledge_decisions_2026_07_24_provider_failover_gemini_fallback",
+      "target": "agent_infrastructure",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decisions_2026_07_24_provider_failover_gemini_fallback",
+      "target": "knowledge_service_levels",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
       "source": "knowledge_experiments_context_vs_curiosity_hypothesis_backlog",
       "target": "knowledge_experiments_context_vs_curiosity_readme",
       "relation": "wikilink",
@@ -1201,6 +1244,41 @@
     {
       "source": "knowledge_research_star_painters_adelaide_conversion",
       "target": "knowledge_experiments_context_vs_curiosity_readme",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_service_levels",
+      "target": "soul",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_service_levels",
+      "target": "knowledge_decisions_2026_07_24_provider_failover_gemini_fallback",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_service_levels",
+      "target": "agent_infrastructure",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_service_levels",
+      "target": "learnings_learnings",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_service_levels",
+      "target": "knowledge_systems",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
