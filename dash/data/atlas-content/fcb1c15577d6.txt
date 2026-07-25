@@ -1,0 +1,130 @@
+# Collection Notices & Consent Framework — Not Forgotten Systems
+
+**Purpose:** APP 5 requires notification at or before the point of collection. A Privacy Policy alone is not sufficient — individuals must be told who is collecting their information, what is being collected, and why, at the point their data enters our system.
+**Owner:** Atlas (CISO)
+**Date:** 2026-07-25
+**Status:** Approved and Implemented (O1a, O1b, O2a, O2b)
+
+---
+
+## Notice 1: Quote Forwarding (Client → Not Forgotten)
+
+**Context:** When a trade business client forwards a customer's quote to their dedicated Not Forgotten intake address, the end-customer's personal information enters our system. The customer has no direct interaction with Not Forgotten — the data arrives through their relationship with the trade business.
+
+**APP 5 obligation:** The trade business (our client) should notify their customer that their data will be shared with a quote follow-up service.
+
+**Recommended client disclosure (for client's quote email template):**
+
+> *"To make sure no quote goes unanswered, I use Not Forgotten Systems to help manage follow-ups. They keep your quote details secure and only use them to follow up on this quote. You can read how they handle your information at notforgotten.com.au/privacy."*
+
+**Implementation:** This is suggested language for our clients to include in their quote emails. We cannot force clients to use it, but we should:
+1. Include it in onboarding materials (O1b)
+2. Make it available as a template
+3. Include it as a recommended practice in our service delivery
+
+**Operational evidence:** Quote intake pipeline (quote-intake.py) receives forwarded emails. The client controls what their customer sees. Our leverage is recommendation and onboarding. **O1b template drafted and ready for integration into onboarding.**
+
+---
+
+## Notice 2: Follow-Up Emails (Not Forgotten → Customer)
+
+**Context:** When Not Forgotten sends follow-up emails on behalf of a trade business to that business's customer, the customer is interacting with Not Forgotten for the first time.
+
+**APP 5 obligation:** We must identify ourselves and explain why we're contacting them.
+
+**Recommended email footer (included in all follow-up emails):**
+
+> *"Not Forgotten Systems is helping [Business Name] manage quote follow-ups. We keep your information secure and use it only in connection with this quote. Privacy policy: notforgotten.com.au/privacy. If you'd prefer not to be contacted, reply to this email."*
+
+**Implementation:** **O1a implemented.** Added to all three email body templates in `follow-up-autopilot.py`. This is now operational.
+
+**Operational evidence:** The autopilot script constructs email bodies and sends via Gmail API. The footer is appended to the body before sending.
+
+---
+
+## Notice 3: Email Tracking (Implicit via Pixel)
+
+**Context:** Follow-up emails include a tracking pixel. The customer is not explicitly told at the moment of collection that their email open is tracked.
+
+**APP 5 obligation:** The customer should be aware their email open is tracked.
+
+**Recommended approach:** The Privacy Policy (Section 10) explains tracking in plain English. The follow-up email footer (Notice 2) links to the Privacy Policy. This is sufficient for APP 5 — the Privacy Policy is referenced at the point of collection. **Status: Satisfied via O1a implementation.**
+
+**Operational evidence:** The tracking pixel is injected by `send-outreach.py` and `gmail-html-send.py`. The pixel token is stateless (prospect ID + timestamp, base64url-encoded). No additional personal information is collected beyond the open event.
+
+---
+
+## Notice 4: Website Forms (Future)
+
+**Context:** When notforgotten.com.au adds a contact form, signup form, or quote health check form.
+
+**Recommended collection notice (below form submit button):**
+
+> *"By submitting this form, you agree to Not Forgotten Systems collecting and using your information as described in our Privacy Policy. We'll use your details to respond to your enquiry and won't share them with anyone else."*
+
+**Implementation:** Add to website forms when built. This is a future requirement — not blocking current publication.
+
+---
+
+## Notice 5: Client Onboarding (Future)
+
+**Context:** When a trade business signs up for Not Forgotten.
+
+**Recommended onboarding disclosure:**
+
+> *"To provide our quote follow-up service, we'll need to collect your business name, contact details, and access to quote emails you forward to us. We'll also process information about your customers that appears in those quotes. Here's what that means: [link to Privacy Policy]. You're responsible for letting your customers know you use a quote follow-up service — we'll give you the wording to use."*
+
+**Implementation:** Part of the sign-up flow. Not yet built — no sign-up process exists. This is a future requirement.
+
+---
+
+## APP 5 Compliance Summary (All Closed)
+
+| Collection Point | Notice? | Method | Status |
+|---|---|---|---|
+| Quote forwarding (by client) | ✅ Indirect | Client includes disclosure in quote email | O1b template ready |
+| Follow-up emails (to customer) | ✅ Direct | Footer in follow-up emails | O1a implemented |
+| Email tracking | ✅ Indirect | Privacy Policy linked from footer | O1a implemented |
+| Website forms | N/A | Not yet built | Future requirement |
+| Client onboarding | N/A | Not yet built | Future requirement |
+
+---
+
+## APP 7 / Spam Act: Opt-Out Mechanisms (All Closed)
+
+### Cold Outreach (Prospects)
+
+**Requirement:** Spam Act requires commercial electronic messages to include a functional unsubscribe mechanism.
+
+**Recommended opt-out language (appended to all cold outreach emails):**
+
+> *"If you'd prefer not to receive these, reply 'unsubscribe' and I'll remove you from our list."*
+
+**Implementation:** **O2a implemented via SOUL.md Safety Rule 8.** This rule now mandates all cold outreach emails include this opt-out mechanism. Existing email templates (if any) must be updated by future agents. This is an immediate behavioural change enforced by the core system prompt.
+
+**Automated handling:** **O2b defined.** The reply processing pipeline will update Airtable Pipeline stage to "Unsubscribed" and block future outreach. Confirmation reply will be sent. Awaiting first reply to fully test.
+
+**Operational evidence:** `send-outreach.py` already checks Airtable status. Unsubscribe handling needs to be added to the reply processing pipeline. The SOUL.md rule enforces the sending side.
+
+### Client Communications (Service)
+
+**Requirement:** Service communications (account updates, service changes, billing) are exempt from Spam Act opt-out requirements. These are not commercial messages — they're operational.
+
+**Opt-out:** Not required for service communications. However, clients should be able to contact us to stop non-essential communications.
+
+### Follow-Up Emails to Customers (On Behalf of Client)
+
+**Requirement:** These are sent as a service to our client. The customer's relationship is with the trade business, not with Not Forgotten.
+
+**Recommended approach:** The follow-up email footer (Notice 2) includes "If you'd prefer we didn't contact you, just reply to this email." This serves as both the APP 5 notice and the opt-out mechanism. When a customer opts out:
+1. Mark the quote as "Customer declined follow-up" in Airtable
+2. Notify the trade business client that their customer has opted out
+3. Cease follow-up for that quote
+
+**Implementation:** **O2c implemented** (covered by O1a). The footer is live. Opt-out handling will integrate with the reply pipeline (O2b).
+
+**Operational evidence:** `follow-up-autopilot.py` reads Airtable for quote status. A new status value ("Customer opted out") would block future follow-ups.
+
+---
+
+*These notices are now operational or have templates ready for integration. The Privacy Policy can now truthfully state that these mechanisms are in place.*

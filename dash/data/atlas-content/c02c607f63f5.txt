@@ -1,0 +1,248 @@
+# Privacy Policy — APP Gap Analysis
+
+**Document:** Privacy Policy v1.0-draft
+**Analyst:** Atlas (CISO)
+**Date:** 2026-07-25
+**Methodology:** Each Australian Privacy Principle evaluated against both the draft policy text and current operational reality. Gaps are categorised as:
+- **Policy gap:** The policy doesn't address the APP requirement
+- **Operational gap:** Our practice doesn't match what the APP requires
+- **Policy-practice gap:** The policy says one thing but we do another (most dangerous)
+
+---
+
+## APP 1 — Open and Transparent Management
+
+**Requirement:** Have a clearly expressed and up-to-date Privacy Policy available.
+
+| Check | Status | Finding |
+|---|---|---|
+| Policy exists | ✅ | Draft prepared |
+| Policy is publicly available | 🔴 | Not yet published on website |
+| Policy is in plain English | ✅ | Written for business owners |
+| Policy is free of charge | ✅ | Will be on website |
+| Policy reflects current practice | ⚠️ | See specific gaps below |
+
+**Gap:** Policy not published. Solvable by publishing on notforgotten.com.au/privacy.
+
+---
+
+## APP 2 — Anonymity and Pseudonymity
+
+**Requirement:** Give individuals the option of not identifying themselves where lawful and practicable.
+
+| Check | Status | Finding |
+|---|---|---|
+| Policy addresses anonymity | 🔴 | Not addressed in draft |
+| Operational feasibility | ⚠️ | Not practical for clients (we need to contact them). Possible for website visitors (already anonymised via GA4). |
+
+**Recommendation:** Add a section noting that website visitors can browse anonymously but clients and their customers must be identifiable for the service to function. This is honest and accurate.
+
+---
+
+## APP 3 — Collection of Solicited Personal Information
+
+**Requirement:** Only collect personal information that is reasonably necessary for functions or activities.
+
+| Check | Status | Finding |
+|---|---|---|
+| Collection is limited to what's needed | ⚠️ | Phone numbers collected for all prospects even when phone outreach not planned. Quote PDFs may contain more than needed. |
+| Collection is by lawful and fair means | ✅ | Data comes from clients directly or from client-forwarded emails |
+
+**Policy gap:** None — policy accurately describes what we collect and why.
+**Operational gap:** Phone number collection should be optional, not default. PDF retention (30 days) needs to be implemented.
+
+---
+
+## APP 4 — Dealing with Unsolicited Personal Information
+
+**Requirement:** If we receive personal information we didn't solicit, determine whether we could have collected it under APP 3. If not, destroy or de-identify.
+
+| Check | Status | Finding |
+|---|---|---|
+| Policy addresses unsolicited information | 🔴 | Not addressed |
+| Operational practice | ✅ | Quote intake pipeline already filters/detects quote emails |
+
+**Recommendation:** Add clause: "If we receive information we didn't ask for, we assess whether we could have collected it under this policy. If not, we delete it."
+
+---
+
+## APP 5 — Notification of Collection
+
+**Requirement:** At or before the time of collection (or as soon as practicable), notify individuals of certain matters including who we are, what we collect, why, and how to access it.
+
+| Check | Status | Finding |
+|---|---|---|
+| Clients notified at sign-up | 🔴 | No sign-up process exists yet. Collection notice not provided. |
+| Customers notified when their data enters our system | 🔴 | No notification to end-customers when quotes are forwarded to us |
+| Policy exists for reference | ✅ | Privacy Policy serves as the notification document |
+
+**Operational gap (critical):** This is the biggest operational gap. When a client's customer's quote enters our system, that customer has no idea Not Forgotten now has their name, email, phone, suburb, quote value, and scope of work. 
+
+**Recommendation:** The practical solution is that our clients (the trade businesses) should notify their customers that they use a quote follow-up service. This could be a line in the quote email: "I use Not Forgotten Systems to make sure no quote goes unanswered. They help me follow up professionally. You can read their privacy policy at notforgotten.com.au/privacy."
+
+We should also add a brief privacy notice to our follow-up emails: "Not Forgotten Systems is helping [Business Name] follow up on quotes. We keep your information secure. Our privacy policy: notforgotten.com.au/privacy."
+
+---
+
+## APP 6 — Use or Disclosure
+
+**Requirement:** Only use or disclose personal information for the primary purpose of collection (or a related secondary purpose the individual would reasonably expect).
+
+| Check | Status | Finding |
+|---|---|---|
+| Uses are clearly listed | ✅ | Section 3 lists all purposes |
+| Uses are consistent with service | ✅ | Follow-up, reporting, improvement — all related to the primary purpose |
+| No unexpected secondary uses | ✅ | Policy explicitly states what we don't do |
+
+**No gap.** Policy is honest and accurate.
+
+---
+
+## APP 7 — Direct Marketing
+
+**Requirement:** Provide a simple means to opt out of direct marketing communications.
+
+| Check | Status | Finding |
+|---|---|---|
+| Opt-out exists for cold outreach | 🔴 | No opt-out mechanism in current outreach emails |
+| Policy addresses direct marketing | 🔴 | Not specifically addressed |
+
+**Operational gap:** Our cold outreach emails to prospects do not include an unsubscribe mechanism. This is both an APP 7 concern and bad practice — it damages trust.
+
+**Recommendation:** Add an unsubscribe link to all outreach emails immediately. "If you'd prefer not to receive these, just reply 'unsubscribe' and I'll take you off the list." This is simple, honest, and compliant.
+
+---
+
+## APP 8 — Cross-Border Disclosure
+
+**Requirement:** Before disclosing personal information to an overseas recipient, take reasonable steps to ensure the recipient does not breach the APPs.
+
+| Check | Status | Finding |
+|---|---|---|
+| Overseas recipients disclosed | ✅ | Policy Section 4 and 5 list all providers with locations |
+| DeepSeek (China) disclosed | ✅ | Explicitly disclosed with transparency note |
+| DPAs in place | 🔴 | DeepSeek does not offer a DPA. Airtable, Google, Vercel do but we haven't executed them. |
+
+**Operational gap:** We disclose where data goes but haven't taken the "reasonable steps" the APPs require — specifically for DeepSeek. The policy's transparency note acknowledges this honestly, but transparency alone doesn't satisfy APP 8.
+
+**Recommendation:** The DR-006 review (August 2026) must resolve this. Options: (1) Transition primary AI to Gemini (US-based, DPA-available), (2) Execute whatever agreement DeepSeek offers and document the assessment, (3) Implement client consent model for DeepSeek processing.
+
+---
+
+## APP 9 — Government Identifiers
+
+**Requirement:** Do not adopt, use, or disclose government identifiers (TFN, Medicare, etc.) unless required or authorised.
+
+| Check | Status | Finding |
+|---|---|---|
+| Government identifiers collected | ✅ | We don't collect TFNs, Medicare numbers, or similar |
+| ABR/ABN in quote PDFs | ⚠️ | Customer ABNs may appear in quote PDFs forwarded by clients |
+
+**Minor gap:** If ABNs appear in quote PDFs, they're collected incidentally. Policy should note we don't use or retain identifiers beyond what's in the original document.
+
+---
+
+## APP 10 — Quality of Personal Information
+
+**Requirement:** Take reasonable steps to ensure personal information is accurate, up-to-date, and complete.
+
+| Check | Status | Finding |
+|---|---|---|
+| Correction process exists | ✅ | Policy Section 8 provides correction mechanism |
+| Proactive accuracy measures | ⚠️ | No regular data quality review |
+
+**Minor gap.** The correction process exists on request. Proactive data quality checks would be good practice but not strictly required.
+
+---
+
+## APP 11 — Security of Personal Information
+
+**Requirement:** Take reasonable steps to protect personal information from misuse, interference, loss, unauthorised access, modification, or disclosure. Take reasonable steps to destroy or de-identify when no longer needed.
+
+| Check | Status | Finding |
+|---|---|---|
+| Security measures described | ✅ | Section 6 describes what we do |
+| Honest about being a small business | ✅ | "Honest assessment" section included |
+| Deletion capability | 🔴 | Manual only. Automated retention not implemented. |
+| Encryption at rest | 🔴 | state.db (3.9GB of conversation history) is not encrypted |
+| File permissions | ✅ | Hardened to 600 on 2026-07-25 |
+| Firewall | 🔴 | No firewall active |
+
+**Operational gaps:** The policy is honest about being a small business, which is the right approach. But:
+1. Automated deletion doesn't exist — policy says "we expect to have automated retention in place by September 2026." This must actually happen.
+2. state.db encryption at rest would be good practice.
+3. Firewall needs to be enabled (SEC-002).
+
+---
+
+## APP 12 — Access to Personal Information
+
+**Requirement:** On request, give individuals access to their personal information.
+
+| Check | Status | Finding |
+|---|---|---|
+| Access process described | ✅ | Policy Section 8 provides process |
+| 30-day timeframe stated | ✅ | Industry standard |
+| Operational feasibility | ⚠️ | Access requests would require manual assembly from Airtable + Gmail + state.db |
+
+**Operational gap:** The process exists in policy but would be labour-intensive to execute. For a small client base this is manageable. At scale, we'd need a more automated access request workflow.
+
+---
+
+## APP 13 — Correction of Personal Information
+
+**Requirement:** On request, correct personal information.
+
+| Check | Status | Finding |
+|---|---|---|
+| Correction process described | ✅ | Policy Section 8 provides process |
+| Operational feasibility | ✅ | Airtable records are editable. Gmail can be corrected with follow-up messages. |
+
+**No significant gap.**
+
+---
+
+## Summary
+
+### Gaps Requiring Policy Updates
+
+| # | Gap | Priority |
+|---|---|---|
+| P1 | Add APP 2 — anonymity/pseudonymity statement | Low |
+| P2 | Add APP 4 — unsolicited information handling | Low |
+| P3 | Add APP 9 — government identifiers note | Low |
+
+### Gaps Requiring Operational Changes (BEFORE Policy Publication)
+
+| # | Gap | Priority | What Must Change |
+|---|---|---|---|
+| O1 | APP 5 — no collection notification to end-customers | **Critical** | Add privacy notice to follow-up emails. Recommend clients notify their customers. |
+| O2 | APP 7 — no opt-out in outreach emails | **High** | Add unsubscribe to all outreach. |
+| O3 | APP 8 — no "reasonable steps" for DeepSeek (China) | **High** | Must be addressed before policy claims compliance. DR-006 review. |
+| O4 | APP 11 — no firewall | **High** | SEC-002 — enable UFW. |
+| O5 | APP 11 — automated retention not implemented | **Medium** | Deliver September commitment. |
+| O6 | APP 11 — state.db not encrypted at rest | **Medium** | Good practice but not emergency. |
+
+### Gaps We're Transparent About in the Policy (Acceptable)
+
+| # | Gap | Mitigation |
+|---|---|---|
+| T1 | Small business security posture | "Honest assessment" section |
+| T2 | DeepSeek China processing | Explicit disclosure + transparency note |
+| T3 | Manual deletion (for now) | "We expect to have automated retention in place by September 2026" |
+
+---
+
+## Publication Prerequisites
+
+Before this Privacy Policy can be published on the website, we must:
+
+1. **Add unsubscribe to all outreach emails** (APP 7) — this is the only hard blocker. We cannot publish a policy that says we respect privacy while sending outreach with no opt-out.
+2. **Add privacy notice to follow-up emails** (APP 5) — one line: who we are, why we're contacting, link to privacy policy.
+3. **Decide the DeepSeek position** (APP 8) — either keep and document the risk assessment, or begin transition. The transparency note in the policy is honest but the Trust Test says "would the client trust us more or less?" The answer to that question should drive the decision.
+
+The remaining operational gaps (firewall, automated retention, encryption) can be addressed after publication, provided the policy is honest about their current state and committed timelines.
+
+---
+
+*Next step: James to review operational gaps O1-O3 and decide on publication approach.*

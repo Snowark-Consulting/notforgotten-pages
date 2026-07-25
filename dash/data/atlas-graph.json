@@ -132,7 +132,7 @@
       "community": 1,
       "community_name": "Core",
       "content_hash": "9580f89ca3ed",
-      "val": 12.0,
+      "val": 14.0,
       "color": "#f0c040"
     },
     {
@@ -199,6 +199,17 @@
       "community_name": "Knowledge",
       "content_hash": "88b110d5753e",
       "val": 10.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_business_intelligence_architecture",
+      "label": "Business Intelligence Architecture",
+      "file_type": "doc",
+      "source_file": "knowledge/business-intelligence-architecture.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "5e30f9921e2b",
+      "val": 6.0,
       "color": "#a78bfa"
     },
     {
@@ -367,6 +378,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_experiments_exp_001_end_to_end_attribution",
+      "label": "EXP 001 End To End Attribution",
+      "file_type": "doc",
+      "source_file": "knowledge/experiments/EXP-001-end-to-end-attribution.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "e698ace88b58",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_experiments_context_vs_curiosity_readme",
       "label": "Readme",
       "file_type": "doc",
@@ -411,6 +433,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_governance_review_framework",
+      "label": "Governance Review Framework",
+      "file_type": "doc",
+      "source_file": "knowledge/governance-review-framework.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "ecde15adc42c",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_interviews_james_hardstaff_2026_06_27",
       "label": "Interviews / James Hardstaff",
       "file_type": "doc",
@@ -419,6 +452,28 @@
       "community_name": "Knowledge",
       "content_hash": "de42a761e128",
       "val": 8.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_legal_compliance_checklist",
+      "label": "Compliance Checklist",
+      "file_type": "doc",
+      "source_file": "knowledge/legal/compliance-checklist.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "b4df9393527f",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_legal_privacy_policy_v1.0",
+      "label": "Privacy Policy V1.0",
+      "file_type": "doc",
+      "source_file": "knowledge/legal/privacy-policy-v1.0.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "5a5a550ad692",
+      "val": 6.0,
       "color": "#a78bfa"
     },
     {
@@ -510,6 +565,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_security_audit_2026_07_25",
+      "label": "Security Audit",
+      "file_type": "doc",
+      "source_file": "knowledge/security-audit-2026-07-25.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "ee36d6303aff",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_service_levels",
       "label": "Service Levels",
       "file_type": "doc",
@@ -565,6 +631,72 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_trust_data_flow_map",
+      "label": "Data Flow Map",
+      "file_type": "doc",
+      "source_file": "knowledge/trust/data-flow-map.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "6c6dadfb8f77",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_trust_decision_register",
+      "label": "Decision Register",
+      "file_type": "doc",
+      "source_file": "knowledge/trust/decision-register.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "e419acaf45e6",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_trust_operational_trust_framework",
+      "label": "Operational Trust Framework",
+      "file_type": "doc",
+      "source_file": "knowledge/trust/operational-trust-framework.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "54cf0e468c1a",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_trust_privacy_register",
+      "label": "Privacy Register",
+      "file_type": "doc",
+      "source_file": "knowledge/trust/privacy-register.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "2f412bda1955",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_trust_security_register",
+      "label": "Security Register",
+      "file_type": "doc",
+      "source_file": "knowledge/trust/security-register.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "9fa33149d677",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_utm_naming_convention",
+      "label": "Utm Naming Convention",
+      "file_type": "doc",
+      "source_file": "knowledge/utm-naming-convention.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "d6c33575721c",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_voice_review_checklist",
       "label": "Voice Review Checklist",
       "file_type": "doc",
@@ -573,6 +705,17 @@
       "community_name": "Knowledge",
       "content_hash": "751bfc5321ef",
       "val": 8.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_website_intelligence_standard",
+      "label": "Website Intelligence Standard",
+      "file_type": "doc",
+      "source_file": "knowledge/website-intelligence-standard.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "8b182162d04e",
+      "val": 6.0,
       "color": "#a78bfa"
     },
     {
@@ -795,6 +938,55 @@
     },
     {
       "source": "agent_registry",
+      "target": "soul",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_trust_operational_trust_framework",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_trust_security_register",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_trust_privacy_register",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_trust_data_flow_map",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_trust_decision_register",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_governance_review_framework",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
       "target": "knowledge_outreach_philosophy_index",
       "relation": "wikilink",
       "weight": 1.0,
@@ -852,6 +1044,55 @@
     {
       "source": "agent_registry",
       "target": "knowledge_sop_quotes_inbox",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_security_audit_2026_07_25",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_legal_privacy_policy_v1.0",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_legal_compliance_checklist",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_business_intelligence_architecture",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_website_intelligence_standard",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_utm_naming_convention",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_experiments_exp_001_end_to_end_attribution",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

@@ -1,0 +1,99 @@
+# Credential Rotation Guide — SEC-001 + IA-2026-001
+
+**Date:** 2026-07-25
+**Status:** James action required
+
+---
+
+## SEC-001: GitHub PAT Rotation
+
+### What's Exposed
+
+| Item | Location | Owner |
+|---|---|---|
+| Josh's PAT (`ghp_bJ...`) | Both git remote URLs (origin + pages) | Josh |
+| Josh's PAT | `/root/.git-credentials` | Josh |
+| Josh's PAT | `/root/.hermes/logs/agent.log.1` | Josh |
+| James's PAT (`ghp_bL...`) | `/root/.git-credentials` | James |
+| James's PAT | `/root/.hermes/.env` (GITHUB_TOKEN) | James |
+
+### What James Must Do
+
+**Step 1:** Go to GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens
+**Step 2:** Create a new fine-grained PAT with minimum scope:
+  - Repository: `Snowark-Consulting/client-notforgotten` and `Snowark-Consulting/notforgotten-pages`
+  - Permissions: Contents (read/write), Metadata (read)
+  - Expiration: 90 days
+**Step 3:** Copy the new token. Send it via Bitwarden or email attachment (not Telegram)
+**Step 4:** Revoke the old exposed token
+
+### What Josh Must Do
+
+**Step 1:** Go to GitHub → Settings → Developer settings → Personal access tokens
+**Step 2:** Revoke the exposed token immediately
+**Step 3:** If the token is still needed, create a new one with minimum scope
+**Step 4:** Send the new token via secure channel if needed
+
+### What Atlas Will Do (After New Token Received)
+
+1. Remove PATs from git remote URLs:
+   ```bash
+   cd /root/.hermes
+   git remote set-url origin https://github.com/Snowark-Consulting/client-notforgotten.git
+   git remote set-url pages https://github.com/Snowark-Consulting/notforgotten-pages.git
+   ```
+2. Update `/root/.git-credentials` with new credential
+3. Update `/root/.hermes/.env` GITHUB_TOKEN
+4. Purge exposed PAT from agent.log.1 where possible
+5. Verify: `git fetch origin` works
+6. Verify: `dash-update.py` test push works
+
+---
+
+## IA-2026-001: GA4 Service Account Key Rotation
+
+### What's Exposed
+
+| Item | Location |
+|---|---|
+| Base64-encoded GA4 service account JSON | `/root/.hermes/.env` (GA4_SERVICE_ACCOUNT_KEY_B64, appears twice) |
+| Base64-encoded GA4 service account JSON | `/root/.hermes/logs/agent.log` (from 2026-07-25 audit session) |
+| Base64-encoded GA4 service account JSON | Current session in state.db |
+
+### What James Must Do
+
+**Step 1:** Go to Google Cloud Console → IAM & Admin → Service Accounts
+**Step 2:** Find `atlas-analytics-reader@not-forgotten-atlas.iam.gserviceaccount.com`
+**Step 3:** Keys → Add Key → Create new key → JSON
+**Step 4:** Download the new JSON key file
+**Step 5:** Base64-encode it (Windows: `certutil -encode new-key.json %TEMP%\out.b64 >nul && type %TEMP%\out.b64` — remove the BEGIN/END CERTIFICATE wrapper lines)
+**Step 6:** Send the base64 string via email attachment to atlas@notforgotten.com.au (preferred — avoids clipboard corruption)
+**Step 7:** After Atlas confirms new key works, delete the old key in GCP
+
+### What Atlas Will Do (After New Key Received)
+
+1. Decode and validate the new key structure
+2. Update `/root/.hermes/.env` GA4_SERVICE_ACCOUNT_KEY_B64 (deduplicate)
+3. Test GA4 access with new key
+4. Confirm old key is deleted from GCP
+5. Document rotation in Security Register
+6. Mark IA-2026-001 as Resolved
+
+---
+
+## Post-Rotation Verification
+
+After both rotations:
+
+| Check | Command |
+|---|---|
+| Git fetch works | `cd /root/.hermes && git fetch origin` |
+| Git push works | `cd /root/.hermes && git push --dry-run origin main` |
+| GA4 query works | Test GA4 API call with new key |
+| No PATs in git remotes | `git remote -v` — should show no `ghp_` strings |
+| No PATs in logs | `grep -r "ghp_" /root/.hermes/logs/` — should be clean |
+| Credential files 600 | `stat -c "%a" /root/.git-credentials /root/.hermes/.env` |
+
+---
+
+*James: Please complete Steps 1-4 for SEC-001 and Steps 1-6 for IA-2026-001. Atlas will handle all VPS-side cleanup upon receipt of the new credentials.*

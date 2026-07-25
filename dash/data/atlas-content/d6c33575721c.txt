@@ -1,0 +1,140 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: internal
+---
+
+# UTM Naming Convention — Not Forgotten Systems
+
+> Every external link carries UTM parameters. Reference this, never invent on the fly.
+
+**Standard:** EXP-001  
+**Established:** 2026-07-25  
+**Rule:** Every external link must carry UTM parameters. No exceptions. Never invent names on the fly — reference this document.
+
+---
+
+## Parameter Rules
+
+| Parameter | Format | Example |
+|---|---|---|
+| `utm_source` | Lowercase, hyphens. Identifies WHO sent the traffic. | `outreach`, `linkedin`, `email-signature` |
+| `utm_medium` | Lowercase, hyphens. Identifies HOW it was delivered. | `email`, `social`, `partner` |
+| `utm_campaign` | Lowercase, hyphens. Identifies WHICH campaign. | `wave-1`, `cvc-experiment` |
+| `utm_content` | Lowercase, hyphens. Identifies WHICH variant. Optional. | `variant-a`, `cta-demo` |
+| `utm_term` | Lowercase. For paid search keywords. Rarely used. | — |
+
+**Enforcement:** Lowercase only. Hyphens, not underscores. No spaces. No special characters. No ad-hoc names.
+
+---
+
+## Canonical Source Values
+
+### utm_source
+
+| Value | When to use |
+|---|---|
+| `outreach` | Cold email campaigns |
+| `linkedin` | LinkedIn posts, messages, profile link |
+| `email-signature` | Email signature block links |
+| `referral` | Partner, client, or industry referrals |
+| `facebook` | Facebook page or posts |
+| `google` | Google Business Profile or organic search |
+| `quote-report` | Quote Health Check / Insights Report emails |
+| `website` | Cross-links within the website itself (rare) |
+
+### utm_medium
+
+| Value | When to use |
+|---|---|
+| `email` | Any email communication |
+| `social` | Any social media platform |
+| `partner` | Referral from a partner |
+| `organic` | Organic search traffic (not tagged by us) |
+| `qr` | QR code on print material |
+
+### utm_campaign
+
+| Value | When to use |
+|---|---|
+| `wave-1` | First outreach wave (Jul 2026) |
+| `wave-2` | Second outreach wave |
+| `cvc-experiment` | Context vs Curiosity experiment |
+| `pdv-experiment` | Painter Distribution Validation experiment |
+| `calibration` | Original calibration cohort |
+| `quote-health-check` | Quote Health Check report emails |
+| `signature` | Email signature links (always on) |
+| `demo` | Links specifically promoting demo bookings |
+| `brand` | General brand awareness (social posts, etc.) |
+
+### utm_content
+
+| Value | When to use |
+|---|---|
+| `cta-demo` | Link pointing to demo/booking |
+| `cta-health-check` | Link pointing to Quote Health Check |
+| `cta-home` | Link to homepage |
+| `cta-case-study` | Link to case study page |
+| `variant-a` | A/B test variant A |
+| `variant-b` | A/B test variant B |
+
+---
+
+## Examples
+
+### Cold outreach email — Wave 2, CTA to demo
+```
+?utm_source=outreach&utm_medium=email&utm_campaign=wave-2&utm_content=cta-demo
+```
+
+### Email signature — always-on
+```
+?utm_source=email-signature&utm_medium=email&utm_campaign=signature
+```
+
+### LinkedIn post — brand awareness
+```
+?utm_source=linkedin&utm_medium=social&utm_campaign=brand
+```
+
+### Quote Health Check report — painter industry
+```
+?utm_source=quote-report&utm_medium=email&utm_campaign=quote-health-check
+```
+
+### A/B test — variant A of a demo CTA
+```
+?utm_source=outreach&utm_medium=email&utm_campaign=cvc-experiment&utm_content=variant-a
+```
+
+---
+
+## Anti-Patterns (BLOCKED)
+
+| Wrong | Why |
+|---|---|
+| `utm_source=Email` | Must be lowercase |
+| `utm_source=email_signature` | Hyphens, not underscores |
+| `utm_campaign=Wave 1` | No spaces, no capitals |
+| `utm_source=cold-outreach` | Use canonical `outreach` |
+| `utm_campaign=test` | No throwaway names — log an experiment |
+
+---
+
+## Implementation Checklist
+
+- [ ] Cold outreach emails — all links in all sequences
+- [ ] Website CTAs — homepage modal, health check section, case study links
+- [ ] Email signatures — Atlas and James
+- [ ] LinkedIn profile — website link
+- [ ] Facebook page — website link
+- [ ] Quote Health Check reports — email links
+- [ ] Future: paid ads, QR codes, partner referrals
+
+---
+
+## Governance
+
+- This is a living standard. Add new source/campaign/content values as channels and campaigns are created.
+- A value exists ONLY if it's documented here. No undocumented UTM values.
+- The weekly website intelligence report validates UTM coverage and flags untagged links.

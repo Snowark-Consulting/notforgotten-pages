@@ -1,0 +1,211 @@
+# Legal Document Assessment — Not Forgotten Systems
+
+**Analyst:** Atlas (CISO)
+**Date:** 2026-07-25
+**Purpose:** Assess every potential legal/policy document, determine whether it's needed, why, and its priority.
+
+---
+
+## Document Assessment Matrix
+
+### 1. Privacy Policy
+
+| Attribute | Assessment |
+|---|---|
+| **Why needed** | APP 1 requires it. Transparency demands it. The audit showed we handle PII across 8 data categories with 9 third-party processors. |
+| **Public or internal** | Public — on website |
+| **Legally required** | Yes — Australian Privacy Act 1988 (Cth), APP 1 |
+| **Priority** | **Critical — draft prepared, operational gaps being addressed** |
+| **Lawyer review** | Recommended before publication. This is the foundation document. |
+
+---
+
+### 2. Website Terms of Use
+
+| Attribute | Assessment |
+|---|---|
+| **Why needed** | Protects Not Forgotten from liability for website content, links, availability. Sets rules for website visitors. |
+| **Public or internal** | Public — on website, usually linked in footer |
+| **Legally required** | No — not strictly required, but strongly recommended |
+| **Priority** | **Medium** — the website is currently informational only (no forms, no logins, no transactions). Lower priority than documents governing data handling. |
+| **Lawyer review** | Recommended. Standard terms exist but Australian jurisdiction matters. |
+
+**Current state:** notforgotten.com.au is informational only. No user accounts, no forms collecting data, no payments. Terms of Use would cover: intellectual property (website content, logo), limitation of liability, links to third-party sites, governing law (South Australia).
+
+**Recommendation:** Draft after Privacy Policy is published. Use Australian legal template, not US.
+
+---
+
+### 3. Customer Terms & Conditions (Service Agreement)
+
+| Attribute | Assessment |
+|---|---|
+| **Why needed** | Defines the legal relationship between Not Forgotten and paying clients: service levels, payment terms, liability, termination, data handling obligations. |
+| **Public or internal** | Provided to clients at sign-up (not public on website) |
+| **Legally required** | No — but operating without one creates significant legal risk |
+| **Priority** | **High — needed before first paying client** |
+| **Lawyer review** | Critical. This is a commercial contract. Do not self-draft without legal review. |
+
+**Key clauses needed:**
+- Service description (what we do and don't do)
+- Client obligations (forwarding quotes, providing accurate information)
+- Payment terms ($199/mo + $99 setup)
+- Data handling — client's responsibility to obtain customer consent
+- Limitation of liability
+- Termination by either party
+- Confidentiality
+- Intellectual property
+- Dispute resolution
+
+**Recommendation:** Engage an Australian commercial lawyer to draft. Provide them with the Privacy Policy and Data Flow Map so the terms accurately reflect our operations.
+
+---
+
+### 4. Cookie Policy
+
+| Attribute | Assessment |
+|---|---|---|---|
+| **Why needed** | Discloses use of cookies and tracking technologies. GA4 uses cookies. Email tracking uses pixel. |
+| **Public or internal** | Public — on website, usually linked from Privacy Policy |
+| **Legally required** | Not strictly in Australia (unlike EU GDPR). Strongly recommended for transparency. |
+| **Priority** | **Low-Medium** — Privacy Policy already covers tracking in Sections 2 and 10. A separate Cookie Policy adds clarity but isn't essential yet. |
+| **Lawyer review** | Not essential. Can be drafted in-house. |
+
+**Recommendation:** For now, the Privacy Policy sections on website analytics and email tracking are sufficient. Add a dedicated Cookie Policy page when we add more tracking (e.g., retargeting, conversion pixels). If we ever target EU visitors, a cookie consent banner becomes required.
+
+---
+
+### 5. AI Usage & Disclosure Statement
+
+| Attribute | Assessment |
+|---|---|
+| **Why needed** | Transparency about how we use AI. Clients and their customers deserve to know their data goes through AI processing, including to China-based servers. |
+| **Public or internal** | Public — could be a section of Privacy Policy or standalone page |
+| **Legally required** | Not yet — but regulatory direction is toward mandatory AI disclosure. Australia's AI Ethics Framework is currently voluntary. Getting ahead of this demonstrates leadership. |
+| **Priority** | **High** — our competitive differentiation is trust. Being transparent about AI is part of that. |
+| **Lawyer review** | Recommended given evolving regulatory landscape. |
+
+**Current state:** Privacy Policy Section 4 already covers AI processing honestly — including DeepSeek China disclosure. This may be sufficient for now.
+
+**Recommendation:** The AI disclosure in the Privacy Policy is strong. Consider a standalone "How We Use AI" page on the website that explains in plain English: what AI does, what it doesn't do, where data goes, and why we chose our providers. This would be a trust-building asset, not just a compliance document.
+
+---
+
+### 6. Data Retention Policy
+
+| Attribute | Assessment |
+|---|---|
+| **Why needed** | APP 11 requires reasonable steps to destroy or de-identify personal information when no longer needed. A documented retention policy demonstrates these steps. |
+| **Public or internal** | Internal — with summary in Privacy Policy |
+| **Legally required** | Not explicitly — but APP 11 compliance is difficult to demonstrate without one |
+| **Priority** | **High** — Privacy Policy already commits to retention periods. We need the internal process to deliver on that commitment. |
+| **Lawyer review** | Not essential. Can be drafted in-house. |
+
+**Current state:** Retention periods defined in Privacy Policy Section 7. Implementation pending (manual → automated by September 2026).
+
+**Recommendation:** Create an internal Data Retention Policy that operationalises the Privacy Policy commitments. Include: retention periods per data category, deletion/archival procedures, responsible roles, and quarterly audit process. This is needed to deliver on the September 2026 commitment.
+
+---
+
+### 7. Information Security Policy
+
+| Attribute | Assessment |
+|---|---|
+| **Why needed** | Documents our security controls, incident response, access management, and continuous improvement. Demonstrates APP 11 compliance. Reassures clients. |
+| **Public or internal** | Internal — with high-level summary available to clients on request |
+| **Legally required** | No — but APP 11 expects "reasonable steps" and a documented security policy is a reasonable step |
+| **Priority** | **Medium** — we have the Security Register and Operational Trust Framework. A consolidated policy would organise these into a coherent document. |
+| **Lawyer review** | Not essential. Can be drafted in-house from existing registers. |
+
+**Current state:** We have extensive security documentation: Security Register (25 issues tracked), file permission standards, credential rotation schedule, Operational Trust Framework. These are operational documents, not a policy.
+
+**Recommendation:** Consolidate existing documentation into a single Information Security Policy. Include: security organisation (CISO role), access control, encryption standards, incident response, vulnerability management, and review cadence. This makes our security posture auditable and shareable.
+
+---
+
+### 8. Incident Response Policy
+
+| Attribute | Assessment |
+|---|---|
+| **Why needed** | Defines what happens when there's a security incident: who does what, how to contain, how to investigate, when to notify clients, when to notify OAIC. |
+| **Public or internal** | Internal — but summary may be shared with clients |
+| **Legally required** | No — but the Notifiable Data Breaches (NDB) scheme requires organisations to notify affected individuals and the OAIC of eligible data breaches. An IR policy operationalises this obligation. |
+| **Priority** | **High** — we have no incident response plan (SEC-017). If a data breach occurred tomorrow, our response would be improvised. |
+| **Lawyer review** | Recommended for NDB assessment criteria (what constitutes "serious harm"). |
+
+**Current state:** No IR plan. Service Level framework (SL1-SL4) addresses availability incidents but not security incidents.
+
+**Recommendation:** Create Incident Response Policy covering: detection, classification (severity levels), containment procedures, investigation process, notification triggers (NDB scheme: when to notify OAIC and affected individuals), recovery, and post-incident review. This is the SEC-017 remediation.
+
+---
+
+### 9. Subprocessor Register
+
+| Attribute | Assessment |
+|---|---|
+| **Why needed** | Transparency about all third parties that process client data. Clients (especially business/enterprise) increasingly expect this. |
+| **Public or internal** | Public — on website, linked from Privacy Policy |
+| **Legally required** | No — but industry best practice and builds trust |
+| **Priority** | **Medium** — we have the data in the Privacy Register. Making a public-facing version is low effort and high trust value. |
+| **Lawyer review** | Not essential. |
+
+**Current state:** Privacy Policy Section 5 lists all services with locations. Privacy Register has the full third-party processor assessment.
+
+**Recommendation:** Extract the third-party table from the Privacy Policy into a standalone public Subprocessor Register page. Include: processor name, purpose, data processed, location, and DPA status. Update when processors change. This demonstrates the transparency the Trust Test demands.
+
+---
+
+### 10. Acceptable Use Policy
+
+| Attribute | Assessment |
+|---|---|
+| **Why needed** | Defines acceptable and unacceptable use of Not Forgotten's platform by clients. Prevents misuse (spam, illegal content, harassment). |
+| **Public or internal** | Provided to clients at sign-up |
+| **Legally required** | No — but strongly recommended for any SaaS platform |
+| **Priority** | **Low** — we're not a self-service platform yet. Add when clients can independently use the system. |
+| **Lawyer review** | Recommended when drafted. |
+
+**Current state:** Atlas operates the platform. Clients don't have direct access to the AI or automation tools. An AUP becomes relevant when we offer a client dashboard or self-service features.
+
+**Recommendation:** Defer until client-facing platform features are built. Then draft AUP covering: no illegal use, no harassment, no spam, no reverse engineering, and consequences for violation.
+
+---
+
+## Priority Summary
+
+| # | Document | Priority | Status | Lawyer? |
+|---|---|---|---|---|
+| 1 | Privacy Policy | **Critical** | Drafted — operational gaps being addressed | Yes — before publication |
+| 2 | Customer Terms & Conditions | **High** | Not started — needed before first paying client | Yes — critical |
+| 3 | AI Usage & Disclosure | **High** | Covered in Privacy Policy — standalone page optional | Recommended |
+| 4 | Data Retention Policy | **High** | Retention periods defined — implementation pending | No |
+| 5 | Incident Response Policy | **High** | Not started — SEC-017 | Recommended |
+| 6 | Website Terms of Use | **Medium** | Not started | Recommended |
+| 7 | Information Security Policy | **Medium** | Material exists in registers — needs consolidation | No |
+| 8 | Subprocessor Register | **Medium** | Material exists — needs public-facing version | No |
+| 9 | Cookie Policy | **Low-Medium** | Covered in Privacy Policy | No |
+| 10 | Acceptable Use Policy | **Low** | Defer until self-service platform exists | Recommended when drafted |
+
+---
+
+## Recommended Approach
+
+**Phase 1 — Before First Paying Client (Next 30 Days)**
+1. Privacy Policy — close operational gaps, lawyer review, publish
+2. Customer Terms & Conditions — engage lawyer, draft bespoke
+3. Incident Response Policy — draft in-house
+4. Data Retention Policy — draft in-house
+
+**Phase 2 — Before Scaling (Next 60 Days)**
+5. AI Usage & Disclosure page — optional trust-building asset
+6. Information Security Policy — consolidate from registers
+7. Subprocessor Register — extract from Privacy Register
+
+**Phase 3 — As Needed**
+8. Website Terms of Use — when website adds forms/accounts
+9. Cookie Policy — when tracking scope expands
+10. Acceptable Use Policy — when self-service platform exists
+
+---
+
+*The Trust Test applied: every one of these documents should demonstrate transparency rather than simply protect us. If we wouldn't want a client to read it, we shouldn't publish it.*

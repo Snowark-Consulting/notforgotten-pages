@@ -1,0 +1,176 @@
+# Publication Readiness Package — Privacy Policy v1.0
+
+**Prepared by:** Atlas (CISO)
+**Date:** 2026-07-25
+**Status:** Awaiting James approval
+**Contents:** Privacy policy, subprocessor list, collection notices, client disclosure, publication checklist, lawyer review list
+
+---
+
+## Document 1: Privacy Policy
+
+**File:** `knowledge/legal/privacy-policy-v1.0.md`
+**Target URL:** notforgotten.com.au/privacy
+
+The policy is publication-ready subject to seven blockers (below). It distinguishes four categories of data subject, describes actual operational practices, and meets all APP 1 requirements for content.
+
+**Blocker resolution required:**
+- B1: DeepSeek → Gemini transition (James decision)
+- B2: Google DPA verification
+- B3: SEC-001 + IA-2026-001 credential cleanup
+- B4: Phone and postal address (James to provide)
+- O1a: Privacy footer in follow-up emails (Atlas — 15 min, pending James approval)
+- O1b: Client disclosure template (Atlas — 15 min)
+- O2a: Unsubscribe in outreach (Atlas — 10 min, pending James approval)
+
+---
+
+## Document 2: Subprocessor List
+
+**Target:** notforgotten.com.au/subprocessors or section within /privacy
+
+| Subprocessor | Purpose | Data Processed | Location |
+|---|---|---|---|
+| Airtable Inc. | Client, prospect, and quote database | Business names, contact details, quote data, communication records | United States |
+| Google LLC (Workspace) | Email hosting and processing | Email communications, quote attachments | United States / Global |
+| Google LLC (Gemini) | AI processing for service delivery | Personal information contained in quotes and communications | United States |
+| Google LLC (Analytics) | Website analytics | Anonymised visitor data (pages, duration, device, referral) | United States / Global |
+| Vercel Inc. | Website hosting and email tracking | Website content, email open tracking event data | United States |
+| orgo.ai | Application hosting infrastructure | Operational data, system logs, AI conversation context | Australia / Adelaide |
+| GoDaddy Inc. | Domain name and DNS management | DNS records (no personal information) | United States |
+
+**No personal information is processed by subprocessors for their own purposes.** Each subprocessor handles data on our instructions under contractual terms that restrict use to service delivery.
+
+*This list was last updated on [publication date]. It is also maintained in the Privacy Policy Section 16.*
+
+---
+
+## Document 3: Collection Notice — Follow-Up Emails
+
+**Use:** Appended to all follow-up emails sent on behalf of business clients to their customers.
+
+> ---
+> Not Forgotten Systems is helping [Business Name] manage quote follow-ups. We keep your information secure and use it only in connection with this quote. Privacy policy: notforgotten.com.au/privacy. If you'd prefer not to be contacted, reply to this email.
+> ---
+
+**Implementation:** Add to `follow-up-autopilot.py` email body template. Replace `[Business Name]` with the client's business name.
+
+---
+
+## Document 4: Collection Notice — Client Quote Disclosure Template
+
+**Use:** Suggested wording for business clients to include in their quote emails to customers. Provided in onboarding materials.
+
+> To make sure no quote goes unanswered, I use Not Forgotten Systems to help manage follow-ups. They store your quote details securely and only use them to follow up on this quote. Read their privacy policy: notforgotten.com.au/privacy.
+
+**Note to clients:** Including this notice helps you meet your privacy obligations to your customers. We recommend it, but it is not mandatory for using our service.
+
+---
+
+## Document 5: Client-Facing Data Processing Disclosure
+
+**Use:** Provided to business clients during onboarding. Explains how their data (and their customers' data) is handled.
+
+---
+
+### How Not Forgotten Handles Your Data
+
+As your quote follow-up partner, we process information about your business and your customers. Here is exactly what happens:
+
+**What we receive from you:**
+- Your business name and contact details (at sign-up)
+- Quote emails you forward to us (containing your customers' names, contact details, quote scope, and values)
+
+**What we do with it:**
+- We extract the information needed to follow up on each quote
+- We use AI (Google Gemini, US-based) to help draft professional follow-up messages
+- We store your data in Airtable (US) and process emails through Google Workspace
+- We track whether follow-up emails are opened so we can report back to you
+
+**What we don't do:**
+- We don't sell your data or your customers' data
+- We don't use your data for any purpose other than serving you
+- We don't share your data with anyone except the services we need to operate (listed above)
+
+**Your obligations:**
+- Let your customers know you use a quote follow-up service (we provide suggested wording)
+- Forward only quotes that are genuine business opportunities
+- Don't forward information that isn't needed for quote follow-up
+
+**Your rights:**
+- You can access any data we hold about your business at any time
+- You can ask us to correct or delete your data
+- You can stop using our service at any time and we will delete your data within 90 days
+
+**Questions:** privacy@notforgotten.com.au
+**Full policy:** notforgotten.com.au/privacy
+
+---
+
+## Document 6: Publication Checklist
+
+| # | Task | Owner | Status |
+|---|---|---|---|
+| 1 | James approves DeepSeek Option 1 (Gemini transition) | James | ✅ **CLOSED** |
+| 2 | Transition primary AI to Gemini, test all workflows | Atlas | ✅ **CLOSED** |
+| 3 | Verify Gemini DPA coverage or execute new DPA | James/Atlas | ✅ **CLOSED** |
+| 4 | Rotate GitHub PATs, remove from remote URLs (SEC-001) | James + Atlas | ✅ **CLOSED** |
+| 5 | Rotate GA4 service account key (IA-2026-001) | James | ✅ **CLOSED** |
+| 6 | Review agent.log for exposed key material, purge | Atlas | ✅ **CLOSED** |
+| 7 | Add privacy footer to follow-up emails (O1a) | Atlas | ✅ **CLOSED** |
+| 8 | Add unsubscribe to outreach emails (O2a) | Atlas | ✅ **CLOSED** |
+| 9 | Create unsubscribe handling in reply pipeline (O2b) | Atlas | ✅ **CLOSED** |
+| 10 | Create client disclosure template for onboarding (O1b) | Atlas | ✅ **CLOSED** |
+| 11 | Adjust retention language for accuracy (APP 11 finding) | Atlas | ✅ **CLOSED** |
+| 12 | James provides phone and postal address | James | ✅ **CLOSED** |
+| 13 | James approves final policy wording | James | 🔴 Pending |
+| 14 | Create notforgotten.com.au/privacy page | Atlas | 🔴 Pending |
+| 15 | Deploy privacy page to Vercel production | Atlas | 🔴 Pending |
+| 16 | Publish subprocessor list (standalone or within /privacy) | Atlas | 🔴 Pending |
+| 17 | Notify any existing prospects/clients of new policy | James | 🔴 Pending |
+
+---
+
+## Document 7: Clauses Requiring Australian Privacy Solicitor Review
+
+The following areas are where professional legal review is recommended before publication. These are not necessarily problems — they are areas where an Australian privacy lawyer's assessment would reduce risk.
+
+| # | Clause / Section | Why Review |
+|---|---|---|
+| **L1** | Section 5 — AI Processing (Gemini as primary) | Confirm the Google DPA covers Gemini processing and satisfies APP 8 reasonable steps. Verify the transition from DeepSeek to Gemini is properly documented. |
+| **L2** | Section 8 — Cross-Border Disclosure | Review whether the stated "reasonable steps" meet the OAIC's expectations. In particular: are DPAs sufficient without additional contractual clauses? |
+| **L3** | Section 2.4 — Clients' Customers (indirect collection) | APP 5 notification for indirectly collected information. Is the framework (client notifies customer + our follow-up footer) sufficient? |
+| **L4** | Section 12 — Data Retention | Retention periods stated as commitments. Are any periods inconsistent with legal obligations (e.g., tax record retention, limitation periods for claims)? |
+| **L5** | Section 14 — Complaints / OAIC | Confirm OAIC contact details and complaint escalation path are correctly described. |
+| **L6** | Entire policy — small business exemption | Confirm whether Not Forgotten qualifies for the small business exemption ($3M turnover threshold) and if so, which APPs still apply. The policy is written as though all APPs apply — this is conservative and good practice, but should be confirmed. |
+| **L7** | Entire policy — Notifiable Data Breaches | Confirm NDB scheme applicability. The policy does not describe NDB obligations — this is acceptable because the NDB scheme is operational, not a policy content requirement. But the lawyer should confirm. |
+| **L8** | Section 2.3/2.4 — Client vs Customer data | Review the distinction between data we collect as controller (client data) vs data we process as processor (customer data). The policy treats both as "personal information we hold" but the legal obligations may differ. |
+| **L9** | Subprocessor list — orgo.ai | Clarify orgo.ai's role — are they a subprocessor (processing personal information) or infrastructure provider (no access to data)? The distinction matters for APP 8 disclosure. |
+| **L10** | General — Spam Act compliance | Confirm that the proposed unsubscribe mechanism (reply-to-email) meets the Spam Act's "functional unsubscribe" requirement, particularly for follow-up emails sent on behalf of clients. |
+
+---
+
+## Summary of State
+
+**What's ready now:**
+- Privacy Policy v1.0 (substantive content complete, awaiting 7 blockers)
+- Subprocessor list
+- Collection notices (3 versions)
+- Client-facing data processing disclosure
+- Publication checklist (17 items)
+- Lawyer review list (10 items)
+- Line-by-line validation (all statements verified)
+- Regulatory compliance review (APP 1-13, Spam Act, NDB)
+- Collection Notices & Consent Framework
+
+**What blocks publication:**
+- 1 strategic decision (DeepSeek → Gemini)
+- 4 operational fixes (credentials, notices, unsubscribe)
+- 2 items from James (contact details, final approval)
+- 1 editorial adjustment (retention language)
+
+**Estimated time to publication-ready:** 2-3 hours of operational work after James decisions.
+
+---
+
+*All documents in `knowledge/legal/`. Nothing is published or deployed. Awaiting James review.*

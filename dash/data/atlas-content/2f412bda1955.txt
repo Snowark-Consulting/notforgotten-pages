@@ -1,0 +1,194 @@
+# Privacy Register — Not Forgotten Systems
+
+**Purpose:** Full inventory of every type of information collected, processed, or stored. Updated before any new feature goes live.
+**Owner:** Atlas (CISO)
+**Updated:** 2026-07-25 (baseline from Security Audit)
+**Review cadence:** Before every new feature launch; quarterly full review
+
+---
+
+## Data Inventory
+
+### 1. Business Information (Prospect)
+
+| Attribute | Detail |
+|---|---|
+| **What** | Business names, employee count, owner quoting status |
+| **Why collected** | Core product — identifying and qualifying prospects |
+| **Where stored** | Airtable (Prospects table), state.db (sessions), agent.log (tool output) |
+| **Who has access** | James (Airtable owner), Atlas (Airtable API via PAT), Google (Gemini) |
+| **Leaves infrastructure?** | Yes — Airtable (US), Google (Gemini, US) |
+| **Third-party processors** | Airtable Inc., Google (Gemini) |
+| **Retention** | Indefinite (active), proposed: 12 months after lost, then anonymise |
+| **Deletion process** | Manual Airtable record deletion. No automated purge. No backup purge. |
+| **Legal considerations** | APP 3 (collection), APP 11 (security), APP 8 (cross-border — Gemini US) |
+
+### 2. Personal Information — Contact Details
+
+| Attribute | Detail |
+|---|---|
+| **What** | Contact first names, email addresses, phone numbers |
+| **Why collected** | Primary contact channel for outreach and follow-up |
+| **Where stored** | Airtable (Prospects, Clients, Quotes tables), state.db, agent.log, Gmail mailboxes |
+| **Who has access** | James, Atlas (automated), Google (Gemini) |
+| **Leaves infrastructure?** | Yes — Airtable (US), Google Workspace (US/global), Google (Gemini, US) |
+| **Third-party processors** | Airtable Inc., Google Workspace, Google (Gemini) |
+| **Retention** | Indefinite. Proposed: Duration of engagement + 90 days for clients; 12 months for lost prospects |
+| **Deletion process** | Manual only. Must also delete from state.db, agent.log, Gmail — no process exists |
+| **Legal considerations** | APP 3, APP 5 (notification — now implemented via notices), APP 6 (use limitation), APP 7 (direct marketing opt-out — now implemented via notices), APP 11, APP 12 (access requests — no process) |
+| **Minimisation** | Phone numbers collected for all prospects even when phone outreach not planned. Recommendation: collect only when phone outreach is planned. |
+
+### 3. Location Data
+
+| Attribute | Detail |
+|---|---|
+| **What** | Suburbs (and implicitly addresses in quote PDFs) |
+| **Why collected** | Service area context for outreach and quote follow-up |
+| **Where stored** | Airtable (Prospects, Quotes tables), quote PDFs in Gmail (quotes@) |
+| **Who has access** | James, Atlas (automated), Google (Gemini) |
+| **Leaves infrastructure?** | Yes — Airtable (US), Google Workspace (US/global), Google (Gemini, US) |
+| **Third-party processors** | Airtable Inc., Google Workspace, Google (Gemini) |
+| **Retention** | Indefinite. Proposed: 24 months for quote data, then anonymise to suburb-level only |
+| **Deletion process** | Manual. Quote PDFs in Gmail require mailbox-level deletion — no process. |
+| **Legal considerations** | APP 3, APP 11. Full addresses in PDFs may be sensitive for sole traders operating from home. |
+| **Minimisation** | Suburb is often sufficient. Full addresses in quote PDFs should be reviewed. |
+
+### 4. Financial Information
+
+| Attribute | Detail |
+|---|---|
+| **What** | Quote values ($), MRR, won values |
+| **Why collected** | Core product — quote follow-up and business intelligence |
+| **Where stored** | Airtable (Quotes, Clients tables), state.db, agent.log |
+| **Who has access** | James, Atlas (automated), Google (Gemini) |
+| **Leaves infrastructure?** | Yes — Airtable (US), Google (Gemini, US) |
+| **Third-party processors** | Airtable Inc., Google (Gemini) |
+| **Retention** | Indefinite. Proposed: 24 months, then anonymise |
+| **Deletion process** | Manual only |
+| **Legal considerations** | APP 11. Quote values are commercially sensitive for NFS's clients — breach would expose client pricing. |
+| **Minimisation** | Essential for product function. No reduction possible. |
+
+### 5. Communication Records
+
+| Attribute | Detail |
+|---|---|
+| **What** | Email bodies, outreach notes, message records, conversation state, relationship memory |
+| **Why collected** | Operational record. Sales context. AI follow-up context. |
+| **Where stored** | Gmail (atlas@, quotes@, james@), Airtable (Messages, Prospects.Outreach notes, Clients.Relationship memory, Quotes.Conversation state), state.db (all sessions), agent.log (tool output) |
+| **Who has access** | James, Atlas (Gmail via OAuth, Airtable via PAT), Google (Gemini) |
+| **Leaves infrastructure?** | Yes — Google Workspace (US/global), Airtable (US), Google (Gemini, US) |
+| **Third-party processors** | Google Workspace, Airtable Inc., Google (Gemini) |
+| **Retention** | Indefinite everywhere. Proposed: 90 days state.db, 30 days agent.log, 24 months Airtable Messages |
+| **Deletion process** | No process for state.db or agent.log. Manual for Airtable and Gmail. |
+| **Legal considerations** | APP 11 (security — world-readable state.db until 2026-07-25). APP 12 (access requests would require manual assembly from 4+ systems). |
+| **Minimisation** | state.db is 3.9GB — largest single PII store. 90-day retention would reduce to ~500MB. |
+
+### 6. Quote Attachments
+
+| Attribute | Detail |
+|---|---|
+| **What** | Quote PDFs — may contain full business names, addresses, ABNs, phone numbers, pricing, scope of work |
+| **Why collected** | Quote intake pipeline — extracting structured data for follow-up |
+| **Where stored** | Gmail (quotes@ mailbox), extracted text in Airtable (Quotes.Scope Summary Text), temporary files in /tmp during processing |
+| **Who has access** | James, Atlas (quotes_token.json — OAuth to quotes@), Google (Gemini) |
+| **Leaves infrastructure?** | Yes — Google Workspace (US/global), Airtable (US), Google (Gemini, US) |
+| **Third-party processors** | Google Workspace, Airtable Inc., Google (Gemini) |
+| **Retention** | Indefinite in Gmail. Extracted text indefinite in Airtable. /tmp files temporary. |
+| **Deletion process** | No automated deletion for Gmail or Airtable. /tmp cleared on reboot. |
+| **Legal considerations** | APP 11 (PDFs may contain full personal information of customers' customers). Potentially notifiable data if breached. |
+| **Minimisation** | Extract only needed fields. Do not retain full PDF text in Airtable if scope summary is sufficient. Delete /tmp extracts immediately after processing. |
+
+### 7. Analytics & Tracking
+
+| Attribute | Detail |
+|---|---|
+| **What** | Email open events (timestamp), website visitor data (GA4) |
+| **Why collected** | Email engagement measurement (open tracking pixel), website analytics |
+| **Where stored** | Airtable (Prospects.Last opened date, Open count), Vercel serverless logs, Google Analytics (GA4 property 502899171) |
+| **Who has access** | James, Atlas, Google (GA4), Vercel |
+| **Leaves infrastructure?** | Yes — Airtable (US), Vercel (US), Google Analytics (US/global) |
+| **Third-party processors** | Airtable Inc., Vercel Inc., Google (Analytics) |
+| **Retention** | Airtable: indefinite. GA4: 14 months (default). Vercel logs: unknown. |
+| **Deletion process** | GA4 auto-expires. Airtable manual. |
+| **Legal considerations** | APP 5 (collection notification — email open tracking now disclosed via notices). Privacy Policy disclosure required. |
+| **Minimisation** | Tracking pixel is legitimate product feature. Privacy Policy disclosure required. |
+
+### 8. AI Memory & Learning
+
+| Attribute | Detail |
+|---|---|
+| **What** | memory/MEMORY.md — summarised business facts, preferences, corrections. learnings/LEARNINGS.md — bug fixes, may reference client scenarios indirectly |
+| **Why collected** | System improvement. Cross-session continuity. |
+| **Where stored** | /root/.hermes/memory/, /root/.hermes/learnings/ |
+| **Who has access** | Atlas, (backed up to GitHub — private repo) |
+| **Leaves infrastructure?** | Yes — GitHub (US) via nightly backup |
+| **Third-party processors** | GitHub (Microsoft) |
+| **Retention** | Indefinite |
+| **Deletion process** | Git history contains all versions. Full purge requires git filter-branch. |
+| **Legal considerations** | Memory entries are summaries, should not contain raw PII. Current practice appears compliant. |
+| **Minimisation** | Continue current practice — summarise, never store raw PII in memory/learnings. |
+
+---
+
+## Third-Party Processor Summary
+
+| Processor | Data Handled | Location | DPA Available? | Risk Level |
+|---|---|---|---|---|
+| Airtable Inc. | All client records, PII, financial data | US | Yes (Enterprise) | Medium |
+| Google Workspace | Email (Gmail), attachments | US/Global | Yes | Low |
+| Google Analytics | Website visitor data | US/Global | Yes | Low |
+| Vercel Inc. | Tracking pixel data, website hosting | US | Yes | Low |
+| Google (Gemini) | United States / Global | AI model prompts for processing client data |
+| Internal AI (DeepSeek, etc.) | Various (no client data) | Internal system operations only (no client-identifiable data) |
+| Google (Gemini) | United States / Global | AI model prompts for processing client data |
+| Internal AI (DeepSeek, etc.) | Various (no client data) | Internal system operations only (no client-identifiable data) |
+| GoDaddy | DNS records only | US | Yes | Low |
+| GitHub (Microsoft) | Backup (code, config, memory, learnings) | US | Yes | Low |
+| orgo.ai | VPS hosting (all data at rest) | Unknown | Unclear | Medium |
+
+---
+
+## Privacy Policy Gaps
+
+| Gap | Priority | Action |
+|---|---|---|
+| P1 | Add APP 2 — anonymity/pseudonymity statement | Low |
+| P2 | Add APP 4 — unsolicited information handling | Low |
+| P3 | Add APP 9 — government identifiers note | Low |
+
+### Gaps Requiring Operational Changes (BEFORE Policy Publication)
+
+| # | Gap | Priority | What Must Change |
+|---|---|---|---|
+| O1 | APP 5 — collection notification to end-customers | **IN PROGRESS** | Operational embedding via new client onboarding process. Onboarding checklist includes:
+    *   ☐ Privacy notice discussed
+    *   ☐ Recommended implementation location identified
+    *   ☐ Client provided with standard wording
+    *   ☐ Client implementation status recorded |
+| O2 | APP 7 — opt-out in outreach emails | **CLOSED** | Implemented via unsubscribe link in outreach emails. |
+| O3 | APP 8 — no "reasonable steps" for DeepSeek (China) | **CLOSED** | DeepSeek removed from client data workflows. Gemini is primary (US, DPA). |
+| O4 | APP 11 — no firewall | **High** | SEC-002 — enable UFW. |
+| O5 | APP 11 — automated retention not implemented | **Medium** | Deliver September commitment. |
+| O6 | APP 11 — state.db not encrypted at rest | **Medium** | Good practice but not emergency. |
+
+### Gaps We're Transparent About in the Policy (Acceptable)
+
+| # | Gap | Mitigation |
+|---|---|---|
+| T1 | Small business security posture | "Honest assessment" section (removed from policy - see v1.0) |
+| T2 | DeepSeek China processing | **REMOVED** — DeepSeek no longer processes client data |
+| T3 | Manual deletion (for now) | Policy language adjusted to reflect ongoing implementation |
+
+---
+
+## Publication Prerequisites (CLOSED)
+
+Before this Privacy Policy can be published on the website, we must:
+
+1. **Add unsubscribe to all outreach emails** (APP 7) — **CLOSED.** Implemented in autopilot template. 
+2. **Add privacy notice to follow-up emails** (APP 5) — **CLOSED.** Implemented in autopilot template.
+3. **Decide the DeepSeek position** (APP 8) — **CLOSED.** DeepSeek removed from client-data workflows. Gemini is primary.
+
+---
+
+*Updated when new features are added. Last update: 2026-07-25.*

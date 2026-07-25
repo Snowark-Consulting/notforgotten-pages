@@ -51,6 +51,13 @@ Three hops max: Registry → Domain Index → Detail Card → Source.
 - [[Decision Library]] (knowledge/decisions/INDEX.md) — every meaningful business decision recorded, reviewed, and learned from. Template: knowledge/decisions/TEMPLATE.md. Challenge protocol in SOUL.md.
 - [[Atlas Learning Framework]] (knowledge/atlas-learning-framework.md) — systematic self-improvement methodology: experimental cycle, variable isolation, evidence-based judgment updates. Established 2026-06-28.
 - [[Service Levels]] (knowledge/service-levels.md) — SL1-SL4 incident classification by service impact, not technology. Restoration gate criteria. Established 2026-07-24.
+- [[Trust Test]] (SOUL.md) — Five-question supreme principle. Pass before any implementation. Established 2026-07-25.
+- [[Operational Trust Framework]] (knowledge/trust/operational-trust-framework.md) — Four-gate release checklist (Security, Privacy, Reliability, Recoverability). No feature bypasses these checks. Established 2026-07-25.
+- [[Security Register]] (knowledge/trust/security-register.md) — Live register of all security issues, risks, remediations. Weekly review in Monday Command Centre.
+- [[Privacy Register]] (knowledge/trust/privacy-register.md) — Full inventory of all data collected, processed, stored. Updated before every feature launch.
+- [[Data Flow Map]] (knowledge/trust/data-flow-map.md) — How information moves through the business. Updated when integrations change.
+- [[Decision Register]] (knowledge/trust/decision-register.md) — Governance decisions tracked with rationale and review dates.
+- [[Governance Review Framework]] (knowledge/governance-review-framework.md) — Monthly proactive review of entire Trust OS. First Monday. First review: August 2026.
 - [[Outreach Philosophy]] (knowledge/outreach-philosophy/INDEX.md) — permanent thinking framework for cold outreach. Principles, writing style, psychological foundations, personalisation framework, question patterns, common mistakes, rule-breaking guide. The cold-email skill is execution; this is the philosophy behind it.
 - [[Systems]] (knowledge/systems.md) — every tool, platform, API, and integration with access details
 - [[Products & Services]] (knowledge/products.md) — everything sold or provided, pricing policy, delivery
@@ -84,6 +91,13 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 - [[Writing Playbook]] (knowledge/writing-playbook.md) — living document: mission, values, methodology, patterns. All Atlas writing governed by this. Stage 1 locked per [[Stage 1 Decision]] (knowledge/decisions/2026-07-24-stage-1-approved-learning-phase.md).
 - [[Painter Standard Follow-Up]] (knowledge/follow-up-sequences/painter-standard.md) — Customer Journey Stage 1 template v8.0. White-label, demonstrate-don't-describe.
 - [[Quotes Inbox SOP]] (knowledge/sop-quotes-inbox.md) — 7-step pipeline: extract → cross-reference → create record → send follow-up (white-label sig) → track. End-to-end verified.
+- [[Security Audit 2026-07-25]] (knowledge/security-audit-2026-07-25.md) — Full-platform security, privacy, and trust audit. Scores: 41/100, 35/100, 38/100. Six critical findings. 30-day remediation plan.
+- [[Privacy Policy v1.0]] (knowledge/legal/privacy-policy-v1.0.md) — Full APP-compliant privacy policy. Four data subject categories. Publication pending 7 blockers.
+- [[Compliance Checklist]] (knowledge/legal/compliance-checklist.md) — Pre-implementation checklist for new features. Four sections: Data Collection, Storage, AI Processing, Tracking.
+- [[Business Intelligence Architecture]] (knowledge/business-intelligence-architecture.md) — Single intelligence layer for complete customer journey. Gets smarter with every integration.
+- [[Website Intelligence Standard]] (knowledge/website-intelligence-standard.md) — GA4 as evidence source for business decisions, not another dashboard.
+- [[UTM Naming Convention]] (knowledge/utm-naming-convention.md) — EXP-001 standard. Every external link carries UTM parameters.
+- [[EXP-001]] (knowledge/experiments/EXP-001-end-to-end-attribution.md) — End-to-end attribution experiment. UTM deployed across all channels. Results: Aug 25.
 - [[Autonomous Quote Pipeline]] (knowledge/proposals/autonomous-quote-follow-up.md) — Phase A design proposal. Awaiting James review.
 - [[Star Painters Conversion]] (knowledge/research/star-painters-adelaide-conversion.md) — Ahmad Haidari replied to Email 3 (Travis), asked 3 buying questions, converted same day. Second Travis-triggered painter conversion.
 - [[Tas Moulis Conversion]] (knowledge/research/tas-moulis-conversion.md) — Tas called James after Email 3 (Travis). First Travis-triggered conversion. 3 emails, 11 opens, 10 days.

@@ -1,0 +1,607 @@
+# Security, Privacy & Trust Audit — Not Forgotten Systems
+
+**Date:** 25 July 2026
+**Auditor:** Atlas (internal audit, external-consultant methodology)
+**Scope:** Full platform — infrastructure, secrets, client data, privacy, AI risk, email, access control, monitoring, compliance
+**Classification:** Confidential
+
+---
+
+## Executive Summary
+
+Not Forgotten Systems is a two-month-old startup handling real client data (quotes, customer details, business intelligence) on behalf of trade businesses. The platform is operational and functioning, but security has not been systematically addressed.
+
+**This is expected for a company this young** — no criticism implied. The purpose of this audit is to identify risks before they become incidents, and to build security into the platform as it scales.
+
+### Scores
+
+| Score | Rating | Explanation |
+|---|---|---|
+| **Security Score** | **41/100** | Critical credential exposures. No firewall, no intrusion detection, world-readable secrets. Core infrastructure is unprotected. |
+| **Privacy Score** | **35/100** | Client PII stored without formal policy. No consent framework, no retention policy, no deletion process. 4GB state.db contains all conversations indefinitely. |
+| **Operational Maturity** | **38/100** | Monitoring is reactive. No backup beyond git push. No incident response plan. No regular security review cadence. Hermes 270 commits behind. |
+
+### Bottom Line
+
+The platform works. But a single compromise of this VPS would expose every credential, every client conversation, every quote, and every piece of business intelligence Not Forgotten has ever handled. Six critical findings need immediate attention. The rest can be addressed over the next 1-3 months as the business scales.
+
+**This platform is not ready for enterprise clients or anyone with contractual data-handling requirements.** It is adequate for the current validation phase with small trade businesses, provided the critical items below are addressed within 30 days.
+
+---
+
+## Risk Register
+
+### Critical — Fix Immediately
+
+| # | Risk | Impact | Likelihood | Recommendation | Effort |
+|---|---|---|---|---|---|
+| **C1** | Git remotes embed PATs in URLs (`hancockjluke`, `Hardstaff08`) | Complete GitHub account compromise | Already exposed | Remove PATs from remote URLs. Use `git credential-store` or SSH keys. Rotate both tokens immediately. | 30 min |
+| **C2** | No firewall active — ports 8080, 6080 exposed on 0.0.0.0 | Unauthorised access to desktop API and VNC | High | Enable UFW. Allow only: 443, 80 outbound. Block all inbound except explicitly required. | 1 hour |
+| **C3** | `quotes_token.json` is world-readable (644) and `state.db` is world-readable (644) | OAuth token theft, full conversation history exfiltration | High (multi-tenant orgo) | `chmod 600` on all token files and state.db. Audit all file permissions. | 15 min |
+| **C4** | GA4 service account private key exposed in agent.log and session during this audit | Google Cloud project compromise | Occurred | Rotate GA4 key in GCP immediately. Review agent.log for exposure. Implement output filtering. | 1 hour |
+| **C5** | DMARC policy is `p=none` — domain can be spoofed | Email spoofing attacks, phishing, reputation damage | Medium-High | Escalate to `p=quarantine` after monitoring, then `p=reject`. | 30 min |
+| **C6** | `.env` has duplicate entries and possible corruption (`GA4_SERVICE_ACCOUNT_KEY_B64` ×2, `GATEWAY_ALLOW_ALL_USERS` ×2) | Unexpected credential behaviour, wrong key in use | Medium | Deduplicate. Verify each value is correct. Audit for other duplicates. | 30 min |
+
+### High — Address Within 2 Weeks
+
+| # | Risk | Impact | Likelihood | Recommendation | Effort |
+|---|---|---|---|---|---|
+| H1 | Kernel 5.10.0 (Nov 2021) — no security patches for 4+ years | Unpatched kernel vulnerabilities | Medium | Cannot update (orgo platform). Mitigate: ensure all userspace packages are current. Isolate with firewall. | N/A |
+| H2 | No unattended security updates | Known-vulnerable packages remain exploitable | Medium | Configure `unattended-upgrades` for security patches only. | 30 min |
+| H3 | `state.db` is 3.9GB and growing — contains all conversations, including client data | Privacy breach on compromise. Storage exhaustion. | High | Implement retention policy (90-day rolling). Archive older sessions. Monitor size. | 2 hours |
+| H4 | `agent.log` (5MB) captures all tool output including PII from email bodies, Airtable records | PII leaked to log files | High | Implement log redaction for known PII patterns. Rotate logs aggressively. Never log email body content. | 4 hours |
+| H5 | No swap configured, 7.7GB/7.8GB memory used | OOM kills during spikes | Medium | Add 2GB swap file. | 15 min |
+| H6 | Hermes Agent 270 commits behind upstream | Missing security fixes and features | Low-Medium | Run `hermes update` during maintenance window. Test rollback path. | 1 hour |
+| H7 | Vercel auth token world-readable (644) | Vercel account compromise | Medium | `chmod 600`. | 1 min |
+| H8 | No off-server backup — git push is the only backup | Total loss if VPS compromised or disk fails | Medium | Implement encrypted S3/GCS daily backup of `.env`, `state.db`, and skills. | 3 hours |
+| H9 | `GATEWAY_ALLOW_ALL_USERS` appears to be set in `.env` | Any Telegram user could potentially interact | Medium | Verify this is constrained. Remove if not explicitly needed. | 15 min |
+
+### Medium — Address Within 1 Month
+
+| # | Risk | Impact | Likelihood | Recommendation | Effort |
+|---|---|---|---|---|---|
+| M1 | No system logging (no auth.log, no syslog, no rsyslog) | Zero audit trail for security incidents | Medium | Install and configure rsyslog. Ship logs off-server. | 2 hours |
+| M2 | No monitoring or alerting for any system | Silent failures until customer impact | Medium | Implement: disk usage alert (>85%), service health checks, API error rates, failed login detection. | 4 hours |
+| M3 | No incident response plan | Chaos during real security incident | Medium | Create incident response runbook. Define escalation paths, containment procedures, communication templates. | 3 hours |
+| M4 | Session request dumps contain full unredacted message content | Complete conversation history in JSON files | Medium | Implement PII redaction in request dumps. Consider disabling dumps in production. | 2 hours |
+| M5 | No Privacy Policy or Terms of Service | Legal/compliance gap. APP 1 violation. | Medium | Draft and publish privacy policy covering data collection, use, storage, third parties. | 4 hours |
+| M6 | No data retention or deletion policy | Cannot fulfil data deletion requests. APP 11 risk. | Medium | Define retention periods per data category. Implement deletion workflow. | 3 hours |
+| M7 | `websockify` and `desktop-api` exposed on 0.0.0.0 with no authentication | Any network-adjacent actor can access desktop | Low-Medium | Bind to localhost only if possible. If remote access needed, add authentication layer. | 1 hour |
+| M8 | No Stripe integration yet (good — no payment data on server) but no plan for PCI scope | Future compliance gap | Low | When implementing payments, use Stripe Elements/Checkout to keep PCI scope minimal. | N/A |
+| M9 | Multiple Google OAuth tokens stored (`atlas_oauth_pending.json`, `james_token.json`) | Token sprawl, unclear which is active | Low | Audit and consolidate. Revoke unused tokens. Document token purpose. | 1 hour |
+
+### Low — Address Within 3 Months
+
+| # | Risk | Impact | Likelihood | Recommendation | Effort |
+|---|---|---|---|---|---|
+| L1 | TLS certificate expires Sep 27 2026 | Website shows security warning | Low (auto-renew expected) | Verify auto-renewal is working. Add certificate expiry monitoring. | 30 min |
+| L2 | Domain expires Aug 2028 (auto-renew on, locked) | Domain loss | Very Low | Monitor annually. | 5 min |
+| L3 | No regular security review cadence | Drift accumulates unnoticed | Low | Monthly automated health check. Quarterly full review. | Ongoing |
+| L4 | `GMAIL_KEYS` env var set but no matching file found | Unclear credential state | Low | Audit and remove stale references. | 15 min |
+| L5 | `GMAIL_CREDS` env var set — verify what it points to | May reference non-existent or wrong path | Low | Verify path resolves. Document. | 10 min |
+
+---
+
+## 1. Infrastructure
+
+### Environment
+
+| Property | Value | Assessment |
+|---|---|---|
+| Host | `orgo-desktop` (orgo.ai VPS) | Not a dedicated NFS server — shared platform |
+| OS | Ubuntu 24.04.4 LTS (Noble Numbat) | Current LTS ✓ |
+| Kernel | 5.10.0 (Nov 2021) | **Critical — 4+ years old, no security patches** |
+| CPU | 8-core AMD EPYC | Adequate |
+| RAM | 7.8GB (99% used, no swap) | Under-provisioned |
+| Disk | 20GB (79% used, 4.1GB free) | Approaching capacity |
+| Uptime | 34 days | Reasonable |
+
+### Firewall
+
+**No firewall active.** No iptables, nftables, or UFW. All services bind to interfaces without filtering. This is the single biggest infrastructure risk.
+
+### SSH
+
+No SSH server installed. Access is through the orgo.ai platform layer. This reduces the SSH attack surface but means the security model relies entirely on orgo's platform security.
+
+### Users
+
+| User | UID | Groups | Shell | Risk |
+|---|---|---|---|---|
+| `root` | 0 | root | /bin/bash | Primary user |
+| `ubuntu` | 1000 | sudo, adm, dialout, cdrom, floppy, audio, dip, video, plugdev | /bin/bash | **Has sudo access** |
+| `orgo` | 1001 | orgo | /bin/bash | Platform user |
+| `nova` | 101 | nova | /bin/bash | Unknown purpose |
+
+**Finding:** `ubuntu` user has full sudo access. If this user is the orgo platform's default account, it represents an escalation path.
+
+### Open Ports
+
+| Port | Service | Bind | Risk |
+|---|---|---|---|
+| 8080 | `desktop-api` | 0.0.0.0 | **Exposed — no auth** |
+| 6080 | `websockify` (noVNC) | 0.0.0.0 | **Exposed — VNC gateway** |
+| 9222 | Chrome CDP | 127.0.0.1 | Local only ✓ |
+| 5999 | Xvnc | 127.0.0.1 / ::1 | Local only ✓ |
+
+### Installed Services (notable)
+
+| Service | Purpose |
+|---|---|
+| Google Chrome 148 | Browser automation (orgo-chrome skill) |
+| Node.js 18.19.1 | Vercel functions, tooling |
+| Python 3.12.3 | Primary runtime |
+| Supervisor | Process manager (websockify only) |
+| websockify | noVNC gateway |
+| XFCE Desktop | Desktop environment (orgo platform) |
+| tigervnc | Remote desktop |
+| Apache2 | Installed but not running |
+
+### SSL/TLS
+
+| Property | Value |
+|---|---|
+| Provider | Let's Encrypt |
+| Issuer | YR2 |
+| Protocol | TLS 1.3 |
+| Cipher | TLS_AES_128_GCM_SHA256 |
+| Expiry | 27 Sep 2026 |
+| Auto-renewal | Assumed (certbot not found on server — likely managed by orgo platform) |
+
+### Backups
+
+**Only backup mechanism:** Nightly git push of `/root/.hermes/` to GitHub (`client-notforgotten` repo).
+
+**What this covers:** Skills, memory, learnings, scripts, configuration.
+**What this misses:** `.env` (credentials — excluded via .gitignore), `state.db` (not tracked in git), logs, sessions.
+
+**Finding:** Credentials and conversation history have NO backup. A disk failure would lose all client interaction history and require complete credential regeneration.
+
+### Disaster Recovery
+
+No documented DR plan. Recovery would require:
+1. Provision new orgo instance
+2. Clone git repo
+3. Re-create all credentials from scratch
+4. Re-authorise all OAuth tokens
+5. Rebuild venv
+
+Estimated recovery time: 4-8 hours. No RTO/RPO defined.
+
+---
+
+## 2. Secrets Management
+
+### Credential Inventory
+
+| Credential | Location | Format | Rotation | Risk |
+|---|---|---|---|---|
+| `DEEPSEEK_API_KEY` | `.env` | Plaintext | Never rotated | Medium |
+| `TELEGRAM_BOT_TOKEN` | `.env` | Plaintext | Never rotated | High |
+| `AIRTABLE_API_KEY` | `.env` | Plaintext PAT (`patBdV...`) | Never rotated | High |
+| `GEMINI_API_KEY` | `.env` | Plaintext | Never rotated | Medium |
+| `GITHUB_TOKEN` | `.env` + git remote + credential store | Plaintext ×3 | Never rotated | **Critical** |
+| `GODADDY_API_KEY` | `.env` | Plaintext | Never rotated | High |
+| `GODADDY_API_SECRET` | `.env` | Plaintext | Never rotated | High |
+| `GA4_SERVICE_ACCOUNT_KEY_B64` | `.env` (×2) | Base64-encoded JSON key | Never rotated | **Critical** |
+| `google_token.json` | `/root/.hermes/` | JSON (OAuth refresh) | Auto-refresh | Medium |
+| `quotes_token.json` | `/root/.hermes/` | JSON (OAuth refresh) | Auto-refresh | **Critical** (644 perms) |
+| `james_token.json` | `/root/.hermes/` | JSON (OAuth refresh) | Auto-refresh | Medium |
+| `atlas_oauth_pending.json` | `/root/.hermes/` | JSON | Unknown | Low |
+| `google_client_secret.json` | `/root/.hermes/` | JSON | Never | Medium |
+| Vercel token | `/root/.vercel/auth.json` | JSON | Never | Medium (644 perms) |
+
+### Critical Issues
+
+1. **GitHub PAT embedded in git remote URLs** — `hancockjluke:ghp_bJ...` and `Hardstaff08:ghp_bL...` visible in `git remote -v` output and stored in `/root/.git-credentials`. These tokens appear to have repo scope. Rotate immediately.
+
+2. **GA4 service account key exposed** — During this audit, the base64-encoded service account JSON was output to the terminal and captured in `agent.log`. While base64-encoded, this is reversible encoding, not encryption. The key should be rotated. **This is the first incident — IA-2026-001.**
+
+3. **Duplicate entries** — `GA4_SERVICE_ACCOUNT_KEY_B64` and `GATEWAY_ALLOW_ALL_USERS` appear twice in `.env`. The last occurrence wins (shell behaviour), meaning the first entry is dead but confusing. Could mask a wrong-key situation.
+
+4. **No credential rotation** — No credential has ever been rotated. Some tokens (GitHub PATs) are embedded in remote URLs and cannot be rotated without breaking git operations.
+
+5. **quotes_token.json is world-readable** — Any process on the system can read a live OAuth token granting Gmail access to `quotes@notforgotten.com.au`.
+
+### Recommendations
+
+1. Rotate GitHub PATs immediately (Josh + James). Use fine-grained tokens with minimum scope.
+2. Remove PATs from git remote URLs. Use `git credential-store` with file permissions 600.
+3. Rotate GA4 service account key (incident IA-2026-001).
+4. Deduplicate `.env`.
+5. `chmod 600` all credential files.
+6. Implement Bitwarden Secrets Manager for long-lived credentials (GA4, API keys).
+7. Establish 90-day credential rotation policy.
+8. Schedule monthly credential audit.
+
+---
+
+## 3. Client Data
+
+### Data Map
+
+| Data | Location | Why Stored | Retention | Access | Minimisable? |
+|---|---|---|---|---|---|
+| **Business names** | Airtable (Prospects, Clients, Quotes) | Core product data | Indefinite | Airtable API (PAT) | No — essential |
+| **Contact first names** | Airtable (Prospects, Clients, Quotes) | Personalisation | Indefinite | Airtable API (PAT) | No — essential |
+| **Phone numbers** | Airtable (Prospects, Clients, Quotes) | Contact channel | Indefinite | Airtable API (PAT) | **Yes — store only when needed** |
+| **Email addresses** | Airtable (Prospects, Clients, Quotes) | Primary contact | Indefinite | Airtable API (PAT) | No — essential |
+| **Suburbs/addresses** | Airtable (Prospects, Quotes) | Service area context | Indefinite | Airtable API (PAT) | Partial — suburb may be enough |
+| **Quote values ($)** | Airtable (Quotes) | Core product — quote follow-up | Indefinite | Airtable API (PAT) | No — essential |
+| **Quote PDFs** | Gmail (quotes@ mailbox), extracted to Airtable | Quote intake | Indefinite | Gmail OAuth | **Review — PDFs may contain full addresses, terms** |
+| **Email bodies** | Gmail (atlas@, quotes@, james@), `state.db`, `agent.log`, Airtable (Messages) | Communication record | Indefinite in state.db | Gmail OAuth, local files | **Yes — trim state.db, redact logs** |
+| **Outreach notes** | Airtable (Prospects) | Sales context | Indefinite | Airtable API (PAT) | Can be summarised |
+| **Relationship memory** | Airtable (Clients) | Client context | Indefinite | Airtable API (PAT) | No — product value |
+| **Customer summary** | Airtable (Quotes) | Quote context | Indefinite | Airtable API (PAT) | Can be anonymised after win/loss |
+| **Conversation state** | Airtable (Quotes), `state.db` | Follow-up autopilot context | Indefinite | Airtable API, local DB | **Prune after quote resolved** |
+
+### Hidden Data Stores
+
+| Store | Content | Size | Risk |
+|---|---|---|---|
+| `state.db` | Full conversation history (all sessions, all messages, all tool output) | 3.9GB | **PII goldmine** |
+| `agent.log` | All tool calls and responses including Airtable records, email bodies | 5MB + 15MB rotated | PII in plaintext |
+| `sessions/request_dump_*.json` | Full API request/response pairs | ~5MB total | PII in JSON |
+| `memory/MEMORY.md` | Summarised business context | Small | Low |
+| `learnings/LEARNINGS.md` | Bug fixes, may reference client data | Small | Low |
+
+### Retention Recommendations
+
+| Data | Proposed Retention | Rationale |
+|---|---|---|
+| Active client data | Duration of engagement + 90 days | Operational need |
+| Lost prospect data | 12 months | Sales analysis, then anonymise |
+| Quote data (won/lost) | 24 months | Business intelligence, then anonymise |
+| `state.db` sessions | 90 days rolling | Debugging, then archive/delete |
+| `agent.log` | 30 days rolling | Debugging |
+| Request dumps | 7 days or disable | Debugging only |
+| Gmail mailboxes | Follow Google Workspace retention policy | Operational |
+
+---
+
+## 4. Privacy
+
+### Australian Privacy Principles (APP) Compliance
+
+| APP | Requirement | Status | Gap |
+|---|---|---|---|
+| **APP 1** — Open and transparent management | Privacy Policy must be available | ❌ **No Privacy Policy** | Draft and publish |
+| **APP 2** — Anonymity and pseudonymity | Option where lawful | ⚠️ Partial | Not offered |
+| **APP 3** — Collection of solicited PI | Only collect what's necessary | ⚠️ Partial | Phone numbers collected even when not used |
+| **APP 4** — Dealing with unsolicited PI | Destroy if not needed | ✓ Reasonable | Quote intake identifies and filters |
+| **APP 5** — Notification of collection | Inform individuals what you collect and why | ❌ **Not done** | No collection notice |
+| **APP 6** — Use or disclosure | Only for primary purpose | ⚠️ Partial | Data used for product, not disclosed — but no policy |
+| **APP 7** — Direct marketing | Opt-out required | ❌ **Not implemented** | Cold outreach has no opt-out mechanism beyond reply |
+| **APP 8** — Cross-border disclosure | Must take reasonable steps | ✓ N/A | Data stays within Australian/US services (Vercel, Airtable, Google) |
+| **APP 9** — Government identifiers | Don't adopt gov IDs | ✓ N/A | Not collected |
+| **APP 10** — Quality of PI | Keep accurate and up-to-date | ✓ Reasonable | Airtable records are maintained |
+| **APP 11** — Security of PI | Protect from misuse, interference, loss, unauthorised access | ❌ **Significant gaps** | No encryption at rest for state.db, world-readable files, no firewall |
+| **APP 12** — Access to PI | Individuals can access their data | ❌ **No process** | No mechanism for data access requests |
+| **APP 13** — Correction of PI | Individuals can correct their data | ⚠️ Partial | No formal process, but records are editable |
+
+### Privacy Policy Requirements
+
+A Privacy Policy must cover:
+1. What personal information is collected (business names, contact names, emails, phones, suburbs, quote values)
+2. How it's collected (email intake, direct entry, website forms)
+3. Why it's collected (quote follow-up service)
+4. Who it's shared with (Airtable, Google Workspace, Vercel — all as data processors)
+5. How it's stored and protected
+6. How to access, correct, or delete data
+7. How to complain
+8. Whether data is sent overseas (Airtable and Vercel are US-based)
+9. Cookie/tracking disclosure (GA4, email open pixel)
+
+### Third-Party Processors
+
+| Processor | Data Handled | Location | DPA Available? |
+|---|---|---|---|
+| Airtable | All client records | US | Yes (Enterprise plan) |
+| Google Workspace | Email (Gmail), Analytics (GA4) | Global (US primary) | Yes |
+| Vercel | Tracking pixel data, website hosting | US | Yes |
+| DeepSeek | AI model inference (prompts, may contain client context) | China | **No DPA — significant risk** |
+| Google (Gemini) | AI model inference (fallback) | US | Yes |
+| GoDaddy | DNS records | US | Yes |
+| GitHub | Backup (code, config, but not credentials per .gitignore) | US | Yes |
+| orgo.ai | VPS hosting (all data at rest) | Unknown | **Unclear** |
+
+**Critical finding:** DeepSeek (China-based) receives prompt data that may include client business names, email context, and quote summaries. There is no data processing agreement, and Chinese data protection laws differ significantly from Australian privacy law. This is a material privacy risk for clients.
+
+---
+
+## 5. AI Risk
+
+### Data Flow Into AI Models
+
+Every API call to DeepSeek or Gemini includes the full conversation context:
+- System prompt (SOUL.md — this file, ~800 lines)
+- Memory entries (summarised business facts)
+- The user's message
+- All tool output from the current conversation (Airtable records, email bodies, script output)
+
+### Exposure Vectors
+
+| Vector | Risk | Evidence |
+|---|---|---|
+| **agent.log** | Captures all tool output including Airtable records with PII, email bodies with full names/phones/amounts | Confirmed — 5MB log with unredacted tool output |
+| **state.db** | Contains full conversation history — all messages, all tool calls, all responses, across all sessions | 3.9GB and growing |
+| **Request dumps** | Full API request/response pairs with complete prompt context | 25 dump files in sessions/ |
+| **API transmission** | Prompts sent to DeepSeek (China) include client context | Every session |
+| **Error messages** | Stack traces may include variable values | Minimal risk — Python exceptions are well-structured |
+
+### Safeguard Recommendations
+
+1. **PII redaction middleware** — Before tool output enters the conversation context, strip phone numbers, email addresses (when not operationally needed), and physical addresses. This protects logs, state.db, and model prompts.
+
+2. **AI provider risk assessment** — Evaluate whether DeepSeek (China-based) is appropriate for handling client data. Consider whether to route client-data workflows exclusively through Gemini (US-based, existing DPA).
+
+3. **state.db retention** — Implement 90-day rolling retention. Current indefinite storage creates an accumulating privacy liability.
+
+4. **Log-level control** — Add a `--sensitive` flag to scripts that suppresses PII from tool output. Never log full email bodies or Airtable records at INFO level.
+
+5. **Prompt boundary markers** — Consider whether client-specific context can be summarised rather than included verbatim in prompts. The current system includes full names, business names, and quote values directly in tool output that enters the model context.
+
+### Incident IA-2026-001 (This Audit)
+
+During this audit, the GA4 service account private key (base64-encoded) was output to the terminal and captured in `agent.log`. While base64 is encoding, not encryption, the key material was exposed in logs and session storage.
+
+**Action required:** Rotate GA4 key. Review `agent.log` and `state.db` for the exposed key material. Consider this a controlled finding — the audit was designed to find this kind of exposure.
+
+---
+
+## 6. Email Security
+
+### Current Configuration
+
+| Mechanism | Record | Status |
+|---|---|---|
+| **SPF** | `v=spf1 include:_spf.google.com include:spf.em.secureserver.net ~all` | ✓ Configured |
+| **DKIM** | Google key (RSA 2048-bit, `google._domainkey`) | ✓ Configured |
+| **DMARC** | `v=DMARC1; p=none; rua=mailto:james@notforgotten.com.au` | ⚠️ **Monitor only — not enforcing** |
+| **BIMI** | Not configured | — |
+| **MTA-STS** | Not configured | — |
+| **TLS** | TLS 1.3 on web, Gmail enforces TLS for email | ✓ |
+
+### Issues
+
+| Issue | Risk | Recommendation |
+|---|---|---|
+| **DMARC `p=none`** | Anyone can spoof `@notforgotten.com.au` with zero consequences | Escalate: `p=none` → monitor for 2 weeks → `p=quarantine` → `p=reject` |
+| **No BIMI** | Missing brand indicator in supporting clients | Configure after DMARC at `p=quarantine` or higher |
+| **No MTA-STS** | Missing TLS enforcement policy for inbound mail | Configure MTA-STS policy |
+| **`secureserver.net` in SPF** | GoDaddy's email sending service included. If not used, remove to narrow SPF surface. | Verify if needed; remove if unused |
+
+### Anti-Spoofing
+
+| Vector | Status |
+|---|---|
+| Lookalike domain registration | Not monitored |
+| Display name spoofing | Gmail provides some protection |
+| Reply-to manipulation | Not monitored |
+| Email open tracking pixel | Legitimate use but should be disclosed in Privacy Policy |
+
+---
+
+## 7. Access Control
+
+### System Access Matrix
+
+| System | Who Has Access | Level | Risk |
+|---|---|---|---|
+| **Gmail (atlas@)** | Atlas (automated), James | Full send/receive | Low — dedicated service account |
+| **Gmail (james@)** | James, Atlas (read-only) | Read-only for Atlas | Low — read-only enforced |
+| **Gmail (quotes@)** | Atlas (automated via quotes_token.json) | Full access for quote intake | **High** — world-readable token (644) |
+| **Airtable (Not Forgotten HQ)** | James, Atlas (via PAT) | Full CRUD via API | **High** — PAT has full access, never rotated |
+| **Google Analytics** | GA4 service account (read-only), James | Read-only analytics | Medium — key exposed in audit |
+| **GitHub (client-notforgotten)** | James (Hardstaff08), Josh (hancockjluke), Atlas (via PAT) | Full repo access | **Critical** — PATs in remote URLs |
+| **GitHub (notforgotten-pages)** | James, Josh, Atlas | Pages deployment | Medium — same PAT exposure |
+| **GoDaddy DNS** | James, Atlas (via API key) | Full DNS management | High — no scoped API key |
+| **Vercel** | Atlas (via token), James | Deployment, env vars | Medium — world-readable token (644) |
+| **VPS (orgo)** | Root (via orgo platform), ubuntu user (sudo) | Full system access | Medium — ubuntu user has unnecessary sudo |
+| **DeepSeek API** | Atlas (via API key) | Model inference | Medium — prompts contain client data |
+| **Telegram Bot** | Atlas | Message send/receive | Low — scoped to bot |
+
+### Least-Privilege Recommendations
+
+| System | Current | Recommended |
+|---|---|---|
+| GitHub PAT (Hardstaff08) | Unknown scope, embedded in URL | Fine-grained PAT: `contents:read/write` on specific repos only. Never in URLs. |
+| GitHub PAT (hancockjluke) | Unknown scope, embedded in URL | Review if Josh's PAT is needed. If so, minimum scope. |
+| Airtable PAT | Full base access | Scope to specific bases. Consider read-only for most operations, write for specific tables. |
+| GoDaddy API | Full DNS management | Create scoped key: DNS read/write only on `notforgotten.com.au`. |
+| GA4 Service Account | Read-only analytics | Rotate. Scope to single property. |
+| VPS ubuntu user | Full sudo | Remove from sudo group if not needed. |
+| Vercel token | Full account | Use scoped team token if available. |
+
+---
+
+## 8. Monitoring
+
+### Current State
+
+**No proactive monitoring exists.** The only alerting is:
+- Cron job failures echo to Telegram (DeepSeek outage on Jul 24 generated ~40+ messages/hour)
+- Manual awareness (James notices if something breaks)
+
+### Recommended Monitoring
+
+| Monitor | What to Watch | Alert Threshold | Effort |
+|---|---|---|---|
+| **Disk usage** | Root partition | >85% used | 15 min (simple cron watchdog) |
+| **Memory pressure** | Available memory | <500MB for >10min | 15 min |
+| **API error rates** | DeepSeek/Gemini 5xx, rate limits | >5 errors in 10 minutes | 1 hour |
+| **Cron job health** | Job success/failure rates | Any failure in last 3 runs | Already partially done — formalise |
+| **Certificate expiry** | TLS cert | <30 days to expiry | 30 min |
+| **Domain expiry** | Registration | <90 days to expiry | 5 min |
+| **Credential expiry** | OAuth token refresh failures | Any failure | 30 min |
+| **Service availability** | Endpoints (8080, Vercel, Airtable) | Down for >5 min | 1 hour |
+| **state.db size** | Database growth | >5GB or growing >500MB/week | 15 min |
+| **Failed login attempts** | If SSH enabled | >5 failures in 10 min | 15 min |
+| **Backup success** | Nightly git push exit code | Any non-zero | Already done partially |
+| **Suspicious outbound traffic** | Unexpected connections | Pattern-based | 2 hours (needs netflow) |
+
+### Quick Wins (Under 1 Hour Total)
+
+1. Disk usage watchdog (cron, `no_agent: true`)
+2. Memory watchdog
+3. state.db size check
+4. Certificate expiry check
+
+---
+
+## 9. Compliance Checklist
+
+### Australian Privacy Act 1988 (Cth)
+
+| Obligation | Status | Action |
+|---|---|---|
+| Privacy Policy published | ❌ | Draft and publish on notforgotten.com.au |
+| APP 1 — transparent management | ❌ | Privacy Policy is the minimum |
+| APP 5 — collection notification | ❌ | Add to email footers, quote intake confirmation |
+| APP 6 — use limitation | ⚠️ | Define and document acceptable uses |
+| APP 7 — direct marketing opt-out | ❌ | Add unsubscribe to all outreach |
+| APP 11 — data security | ❌ | Implement recommendations from this audit |
+| APP 12 — data access requests | ❌ | Create process for individuals to request their data |
+| APP 13 — correction | ⚠️ | Document process |
+| Notifiable Data Breaches scheme | ⚠️ | Need incident response plan with breach assessment framework |
+| Cross-border disclosure (APP 8) | ⚠️ | Disclose DeepSeek (China) and Airtable (US) in Privacy Policy |
+
+### Data Retention & Deletion
+
+| Requirement | Status |
+|---|---|
+| Retention policy defined | ❌ |
+| Deletion process for client requests | ❌ |
+| Deletion process for end-of-engagement | ❌ |
+| Backup purging (deleted data removed from backups) | ❌ |
+| state.db pruning | ❌ |
+
+### Incident Response
+
+No incident response plan exists. At minimum, document:
+1. Detection — how incidents are identified
+2. Containment — who does what to stop the bleeding
+3. Investigation — how root cause is determined
+4. Notification — who to tell (clients, OAIC if eligible data breach)
+5. Recovery — how to restore service
+6. Post-mortem — what to learn
+
+### Security Review Schedule
+
+| Review | Frequency | Status |
+|---|---|---|
+| Full security audit | Annually | This is the first |
+| Credential rotation | 90 days | Not implemented |
+| Access review | Quarterly | Not implemented |
+| Vulnerability scan | Monthly | Not implemented |
+| Dependency updates | Monthly | Not implemented |
+| Privacy Policy review | Annually or after material change | Not implemented |
+
+### Where to Seek Professional Guidance
+
+- **Privacy Policy drafting** — Australian privacy lawyer (not optional — APP 1)
+- **Data Processing Agreements** — Review with lawyer, particularly for DeepSeek
+- **Notifiable Data Breaches** — Understand OAIC thresholds (serious harm)
+- **Small business exemption** — Not Forgotten may qualify for some exemptions as a small business (<$3M turnover), but the Privacy Act applies to all businesses handling personal information in certain ways
+- **Contractual obligations** — Client contracts may impose higher standards than the Privacy Act
+
+---
+
+## 10. Prioritised Action Plan
+
+### Quick Wins (< 1 Hour Total)
+
+| # | Action | Risk Addressed | Time |
+|---|---|---|---|
+| 1 | `chmod 600` all credential files (`quotes_token.json`, `state.db`, `.git-credentials`, Vercel `auth.json`) | C3 | 5 min |
+| 2 | Rotate GA4 service account key in GCP + update `.env` base64 | C4 | 20 min |
+| 3 | Deduplicate `.env` (`GA4_SERVICE_ACCOUNT_KEY_B64` ×2, `GATEWAY_ALLOW_ALL_USERS` ×2) | C6 | 10 min |
+| 4 | Enable UFW: deny all inbound except established, allow outbound | C2 | 15 min |
+| 5 | Add 2GB swap file | H5 | 10 min |
+
+### This Week (2-4 Hours)
+
+| # | Action | Risk Addressed | Time |
+|---|---|---|---|
+| 6 | Rotate both GitHub PATs. Remove from remote URLs. Switch to `git credential-store` | C1 | 1 hour |
+| 7 | Escalate DMARC to `p=quarantine` after verifying reports | C5 | 30 min |
+| 8 | Configure `unattended-upgrades` for security patches | H2 | 30 min |
+| 9 | Run `hermes update` during maintenance window | H6 | 1 hour |
+| 10 | Audit `GATEWAY_ALLOW_ALL_USERS` — verify constrained or remove | H9 | 15 min |
+
+### This Month (8-16 Hours)
+
+| # | Action | Risk Addressed | Time |
+|---|---|---|---|
+| 11 | Implement state.db 90-day retention policy | H3, M4 | 2 hours |
+| 12 | Implement agent.log PII redaction + 30-day rotation | H4 | 4 hours |
+| 13 | Implement off-server encrypted backup (.env, state.db, skills) | H8 | 3 hours |
+| 14 | Install rsyslog, ship logs off-server | M1 | 2 hours |
+| 15 | Create incident response runbook | M3 | 3 hours |
+| 16 | Draft and publish Privacy Policy | M5 | 4 hours |
+| 17 | Define data retention and deletion policies | M6 | 3 hours |
+| 18 | Implement core monitoring (disk, memory, state.db, certs) | M2 | 2 hours |
+
+### This Quarter (Ongoing)
+
+| # | Action | Risk Addressed | Time |
+|---|---|---|---|
+| 19 | AI provider risk assessment — evaluate DeepSeek for client-data workflows | Privacy, APP 8 | Ongoing |
+| 20 | Implement Bitwarden Secrets Manager for long-lived credentials | Secrets management | 3 hours |
+| 21 | Move to least-privilege access across all systems | Access control | Ongoing |
+| 22 | Monthly automated security health check | Configuration drift | 2 hours |
+| 23 | Quarterly full security review | Continuous improvement | 4 hours/quarter |
+
+---
+
+## Appendices
+
+### A. Credential Rotation Schedule
+
+| Credential | Last Rotated | Next Rotation | Method |
+|---|---|---|---|
+| GitHub PAT (Hardstaff08) | Unknown | **IMMEDIATE** | GitHub Settings → Developer Settings → PATs |
+| GitHub PAT (hancockjluke) | Unknown | **IMMEDIATE** | GitHub Settings → Developer Settings → PATs |
+| GA4 Service Account Key | Unknown | **IMMEDIATE** (IA-2026-001) | GCP Console → IAM → Service Accounts → Keys |
+| Airtable PAT | Unknown | Aug 2026 | Airtable → Account → Developer Hub |
+| DeepSeek API Key | Unknown | Aug 2026 | DeepSeek Platform → API Keys |
+| GoDaddy API Key/Secret | Unknown | Aug 2026 | GoDaddy → Account → API Keys |
+| Telegram Bot Token | Unknown | Aug 2026 | @BotFather → /revoke |
+| Gemini API Key | Unknown | Aug 2026 | Google AI Studio → API Keys |
+| Vercel Token | Unknown | Aug 2026 | Vercel → Account → Tokens |
+
+### B. File Permission Hardening
+
+```bash
+chmod 600 /root/.hermes/quotes_token.json
+chmod 600 /root/.hermes/state.db
+chmod 600 /root/.git-credentials
+chmod 600 /root/.vercel/auth.json
+chmod 600 /root/.hermes/google_token.json
+chmod 600 /root/.hermes/james_token.json
+chmod 600 /root/.hermes/atlas_oauth_pending.json
+chmod 640 /root/.hermes/.env  # already 640 — verify
+```
+
+### C. Incident Log
+
+| ID | Date | Description | Severity | Status |
+|---|---|---|---|---|
+| IA-2026-001 | 2026-07-25 | GA4 service account key exposed in agent.log and session during security audit | Medium | Open — key rotation pending |
+
+### D. Methodology
+
+This audit was performed by Atlas acting as an external security consultant. Methodology:
+
+1. **Reconnaissance** — Enumerate all system components, services, ports, users
+2. **Configuration review** — Inspect all configuration files, environment variables, permissions
+3. **Data flow mapping** — Trace personal information from intake to storage to processing to output
+4. **Credential audit** — Inventory every credential, check storage, rotation, exposure
+5. **External verification** — DNS records, TLS certificate, email authentication
+6. **Gap analysis** — Compare against Australian Privacy Principles and security best practices
+
+**Limitations:** This audit did not perform penetration testing, vulnerability scanning, or code review. It assessed configuration, not implementation security. The AI model supply chain (DeepSeek API) was assessed for privacy risk but not for model security.
+
+---
+
+*This audit is a living document. Schedule next full review: October 2026.*

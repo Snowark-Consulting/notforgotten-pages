@@ -1,0 +1,207 @@
+# Data Flow Map — Not Forgotten Systems
+
+**Purpose:** Map how information moves through the business. Every step identifies what data is transferred, whether it is encrypted, who has access, and what the risks are.
+**Owner:** Atlas (CISO)
+**Updated:** 2026-07-25 (baseline)
+**Review cadence:** When integrations or data paths change
+
+---
+
+## Flow 1: Website Visitor → Prospect
+
+```
+Website Visitor
+  ↓ HTTPS (TLS 1.3, Let's Encrypt)
+notforgotten.com.au (Vercel hosting)
+  ↓ HTTPS (API)
+Google Analytics (GA4 property 502899171)
+  ↓ (no direct link to Airtable — manual or future form integration)
+```
+
+| Step | Data | Encrypted? | Access | Risk |
+|---|---|---|---|---|
+| Browser → Vercel | Page requests, IP address, user agent | TLS 1.3 | Vercel (hosting) | Low |
+| Vercel → GA4 | Page views, session data, anonymised IP | HTTPS | Google Analytics | Low |
+| GA4 → Atlas | Aggregated analytics reports | HTTPS (API) | Atlas (read-only SA) | Low |
+
+**Note:** No form-to-Airtable pipeline yet. When implemented: form data would flow Vercel → Airtable via HTTPS API, adding PII to the flow.
+
+---
+
+## Flow 2: Cold Outreach (Prospect Acquisition)
+
+```
+Atlas (SOUL.md + Memory + Outreach Philosophy)
+  ↓ prompt (contains prospect context: name, business, industry)
+AI Provider (Google Gemini, US)
+  ↓ generated email text
+Atlas (Voice Review 8/8 + Technical Verification)
+  ↓ send-outreach.py → Gmail API (OAuth)
+Gmail (atlas@notforgotten.com.au)
+  ↓ SMTP (TLS)
+Prospect's Email Server
+  ↓
+Prospect's Inbox (with tracking pixel → Vercel /api/track)
+```
+
+| Step | Data | Encrypted? | Access | Risk |
+|---|---|---|---|---|
+| Atlas → Gemini | System prompt + memory + prospect context (name, business, industry) | HTTPS | Google (US) | Low |
+| Atlas → Gmail API | Email body, recipient address, tracking pixel HTML | HTTPS (OAuth) | Google Workspace | Low |
+| Gmail → Prospect | Email content, tracking pixel | TLS (Gmail enforces) | Recipient's email provider | Low |
+| Prospect → Vercel (pixel) | Open event (token decodes to prospect ID + timestamp) | HTTPS | Vercel (serverless) | Low |
+| Vercel → Airtable | Prospect ID, open timestamp, increment count | HTTPS (PAT) | Airtable | Low |
+
+---
+
+## Flow 3: Quote Intake (Client Data Ingestion)
+
+```
+Client's Quote Email (sent by trade business to quotes@)
+  ↓ SMTP (TLS)
+Gmail (quotes@notforgotten.com.au)
+  ↓ Gmail API (OAuth — quotes_token.json)
+quote-intake.py (Atlas cron job)
+  ↓ PyPDF2/OCR
+Text extraction (PDF → text)
+  ↓
+Airtable API (PAT)
+  ↓
+Airtable (Quotes table: Business Name, Customer name/mobile/email, Suburb, Scope Summary, Quote value, Status, Conversation state)
+  ↓
+Atlas (follow-up-autopilot.py reads Quote records for follow-up)
+  ↓
+AI Provider (prompt contains customer name, scope, value, business name)
+  ↓
+Generated follow-up email → Gmail API → Customer
+```
+
+| Step | Data | Encrypted? | Access | Risk |
+|---|---|---|---|---|
+| Client → Gmail | Full email + PDF attachment (may contain customer PII, addresses, pricing) | TLS | Google Workspace | Medium |
+| Atlas → Gmail API | OAuth token | HTTPS (OAuth) | quotes_token.json (600 perms) | Medium |
+| PDF text extraction | Full PDF content decoded to text | At rest on VPS (/tmp) | Root | Medium (temporary files) |
+| Atlas → Airtable | Extracted: business name, customer name, mobile, email, suburb, scope, value | HTTPS (PAT) | Airtable | Medium |
+| Airtable → Atlas (follow-up) | Quote record with all fields | HTTPS (PAT) | Atlas, then Google (Gemini) | Low |
+| Atlas → AI | Customer name, scope, value, business context | HTTPS | Google (Gemini, US) | Low |
+| Atlas → Gmail → Customer | Follow-up email body | TLS | Google, recipient | Low |
+
+---
+
+## Flow 4: Client Data at Rest (Storage Map)
+
+```
+Client Data Sources:
+  ├── Airtable (cloud, US)
+  │     ├── Prospects (business names, names, phones, emails, notes)
+  │     ├── Clients (business names, names, phones, emails, MRR, memory)
+  │     ├── Quotes (business names, names, phones, emails, values, summaries)
+  │     └── Messages (email bodies, directions)
+  │
+  ├── Gmail (cloud, US/global)
+  │     ├── atlas@ mailbox (outreach sent/received)
+  │     ├── quotes@ mailbox (client quote emails + PDF attachments)
+  │     └── james@ mailbox (read-only for Atlas)
+  │
+  ├── VPS (orgo.ai, location unknown)
+  │     ├── state.db (3.9GB — all conversations, tool output, PII)
+  │     ├── agent.log (5MB — tool output with PII)
+  │     ├── sessions/request_dump_*.json (API request/response pairs)
+  │     ├── memory/MEMORY.md (summarised business facts)
+  │     ├── learnings/LEARNINGS.md (bug fixes, may reference client scenarios)
+  │     └── /tmp (temporary file processing — PDF extracts)
+  │
+  └── GitHub (cloud, US)
+        └── client-notforgotten repo (nightly backup: skills, memory, learnings, config)
+              └── .env excluded via .gitignore (credentials NOT in git)
+              └── state.db NOT tracked (NOT in backup)
+```
+
+| Store | Contains PII? | Encryption at Rest? | Access Control | Retention |
+|---|---|---|---|---|
+| Airtable | Yes | Airtable-managed | PAT (full access) | Indefinite |
+| Gmail | Yes | Google-managed | OAuth (scoped) | Indefinite |
+| state.db | **Yes — 3.9GB of everything** | No | File perms 600 (since 2026-07-25) | Indefinite |
+| agent.log | Yes | No | File perms (root) | ~30MB rolling (3 files) |
+| Request dumps | Yes | No | File perms | Indefinite |
+| memory/learnings | Summaries only | No | File perms | Indefinite + git history |
+| GitHub backup | Summaries only | GitHub-managed | PAT (write) | Git history forever |
+
+---
+
+## Flow 5: Backup & Recovery
+
+```
+VPS (orgo.ai)
+  ↓ nightly-backup.sh (cron)
+git add -A → git commit → git push
+  ↓ HTTPS (PAT embedded in remote URL)
+GitHub (client-notforgotten repo)
+  └── What's backed up: skills/, knowledge/, memory/, learnings/, scripts/, config
+  └── NOT backed up: .env (credentials), state.db (conversations), logs, sessions
+```
+
+| Step | Data | Encrypted? | Access | Risk |
+|---|---|---|---|---|
+| VPS → GitHub | Code, config, memory, learnings | HTTPS | PAT in git remote URL | **Critical** (PAT exposed) |
+| GitHub at rest | As above | GitHub-managed | Private repo (James, Josh, Atlas) | Low |
+
+**Gap:** Credentials and conversation history have no backup. Disk failure = total loss of client interaction history and credential regeneration required.
+
+---
+
+## Flow 6: AI Processing (Cross-Cutting)
+
+Every operational flow passes through an AI provider:
+
+```
+Atlas
+  ↓ prompt = SOUL.md + Memory + User Message + Tool Output
+AI Provider
+  ├── Primary: Google Gemini (US)
+  └── Fallback: None (DeepSeek disabled for client data)
+  ↓ response
+Atlas (takes action)
+```
+
+**Tool output that enters AI prompt includes:**
+- Airtable record contents (full names, businesses, phones, emails, quote values)
+- Gmail message bodies (full email content)
+- Terminal output (may include credentials if not careful — see IA-2026-001)
+- File contents
+
+| Data | Goes to DeepSeek? | Goes to Gemini? | Risk |
+|---|---|---|---|---|
+| Prospect names, businesses, industries | No | Yes | Low |
+| Client names, phones, emails, suburbs | No | Yes | Low |
+| Quote values, scope, customer summaries | No | Yes | Low |
+| Email bodies (full content) | No | Yes | Low |
+| System configuration (no credentials) | No | Yes | Low |
+
+---
+
+## Risk Heat Map
+
+| Flow | Security Risk | Privacy Risk | Reliability Risk |
+|---|---|---|---|
+| Website → GA4 | Low | Low | Low |
+| Cold Outreach (via Gemini) | Low | Low | Medium (fallback exists) |
+| Quote Intake | Medium | Low | Medium |
+| Data at Rest (VPS) | **High** (no encryption) | **High** (state.db) | **High** (no backup) |
+| Data at Rest (Airtable/Gmail) | Low | Medium | Low |
+| Backup (GitHub) | **Critical** (PAT exposed) | Low | Medium (incomplete) |
+| AI Processing (all flows) | Low | Low | Medium |
+
+---
+
+## Changes Since Last Review
+
+| Date | Change | Impact |
+|---|---|---|---|
+| 2026-07-25 | Baseline established | All flows documented for first time |
+| 2026-07-25 | File permissions hardened (state.db, token files → 600) | Reduced VPS at-rest risk |
+| 2026-07-25 | DeepSeek removed from client-data workflows | Significantly reduced cross-border privacy risk |
+
+---
+
+*Updated when integrations or data paths change. Last update: 2026-07-25.*

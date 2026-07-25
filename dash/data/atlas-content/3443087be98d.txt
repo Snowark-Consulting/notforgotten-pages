@@ -1,0 +1,193 @@
+# Regulatory Compliance Review — Privacy Policy v1.0
+
+**Policy:** v1.0 (publication draft)
+**Reviewer:** Atlas (CISO)
+**Date:** 2026-07-25
+**Scope:** APP 1, 3, 5, 6, 7, 8, 11, 12, 13; Spam Act 2003; Notifiable Data Breaches scheme
+
+---
+
+## APP 1 — Open and Transparent Management
+
+**Requirement:** Privacy Policy must be clearly expressed, up-to-date, and freely available.
+
+| Element | v1.0 Coverage | Status |
+|---|---|---|
+| Identity and contact details | Section 1 + Section 17 | ✅ |
+| Types of information collected | Section 2 (four categories) | ✅ |
+| How collected | Section 3 | ✅ |
+| Purposes of collection | Section 4 | ✅ |
+| How to access and correct | Section 13 | ✅ |
+| How to complain | Section 14 | ✅ |
+| Cross-border disclosure | Section 8 | ✅ |
+| Plain English | Throughout | ✅ |
+| Freely available | notforgotten.com.au/privacy (on publication) | ⚠️ Pending |
+
+**Gap:** Page not yet published. **Resolution:** Create /privacy page on Vercel site.
+
+---
+
+## APP 3 — Collection of Solicited Personal Information
+
+**Requirement:** Only collect personal information reasonably necessary for functions or activities.
+
+| Element | v1.0 Coverage | Status |
+|---|---|---|
+| Each data type justified by purpose | Section 2 maps all data to service functions | ✅ |
+| Collection limited to what's necessary | "We extract only the information needed for follow-up" (S2.4) | ✅ |
+| Collection by lawful and fair means | Section 3 describes lawful collection methods | ✅ |
+
+**No gap.** Policy describes proportionate collection.
+
+---
+
+## APP 5 — Notification of Collection
+
+**Requirement:** Notify individuals at or before collection (or as soon as practicable) of key matters.
+
+| Element | v1.0 Coverage | Status |
+|---|---|---|
+| Policy serves as notification document | Policy is the reference for all collection notices | ✅ |
+| Collection notices at each touchpoint | Collection Notices document drafted (O1a, O1b pending implementation) | ⚠️ |
+| Clients' customers notified indirectly | "The business client is responsible for letting their customer know" (S2.4) | ⚠️ |
+| Suggested wording provided | "We can provide suggested wording on request" | ⚠️ |
+
+**Gap:** Collection notices not yet operational (O1a, O1b). **Resolution:** Implement before publication. The policy accurately describes the framework — the notices must be live.
+
+---
+
+## APP 6 — Use and Disclosure
+
+**Requirement:** Only use or disclose for the primary purpose (or related secondary purpose the individual would reasonably expect).
+
+| Element | v1.0 Coverage | Status |
+|---|---|---|
+| Uses clearly limited | Section 4 lists all purposes | ✅ |
+| Related to primary purpose | All uses are service-related | ✅ |
+| What we do not do | Section 4.4 lists explicitly excluded uses | ✅ |
+| Disclosure limited | Section 7: to service providers, to clients, when required by law, with consent | ✅ |
+
+**No gap.**
+
+---
+
+## APP 7 — Direct Marketing
+
+**Requirement:** Provide simple opt-out mechanism for direct marketing. Spam Act: commercial electronic messages must include functional unsubscribe.
+
+| Element | v1.0 Coverage | Status |
+|---|---|---|
+| Opt-out mechanism described | Collection Notices: "reply 'unsubscribe'" for outreach | ⚠️ Not yet live |
+| Spam Act — sender identified | Follow-up emails identify Not Forgotten (O1a footer) | ⚠️ Not yet live |
+| Spam Act — functional unsubscribe | Unsubscribe handling in reply pipeline (O2b) | ⚠️ Not yet live |
+| Service communications exempt | Section 4 distinguishes service from marketing | ✅ |
+
+**Gap:** Opt-out not yet operational (O2a, O2b). **Resolution:** Implement before publication. The policy doesn't need to describe the opt-out mechanism in detail — the emails themselves must include it.
+
+---
+
+## APP 8 — Cross-Border Disclosure
+
+**Requirement:** Before disclosing personal information overseas, take reasonable steps to ensure recipient does not breach APPs. Remain accountable if they do.
+
+| Element | v1.0 Coverage | Status |
+|---|---|---|
+| Countries disclosed | Section 8: United States, other (orgo) | ✅ |
+| Reasonable steps described | "Selecting providers who offer DPAs, limiting data sent, monitoring security practices" | ⚠️ |
+| DeepSeek removed from client-data path | v1.0 assumes Option 1 approved | 🔴 **Depends on James decision** |
+| Google Gemini with DPA | v1.0 states "Processing occurs under Google's data processing terms" | 🔴 **Depends on B1+B2** |
+
+**Gap:** The policy describes a state that doesn't exist yet (Gemini as primary). If James approves Option 1, this gap closes. If not, Section 5 must be rewritten. **Resolution:** James decision required.
+
+---
+
+## APP 11 — Security and Destruction/De-identification
+
+**Requirement:** Take reasonable steps to protect personal information, and to destroy or de-identify when no longer needed.
+
+| Element | v1.0 Coverage | Status |
+|---|---|---|
+| Security safeguards described | Section 9: encryption, access controls, credential management, provider security, regular review | ✅ |
+| Honest about limitations | "No online system can guarantee complete security" | ✅ |
+| Retention periods defined | Section 12: specific periods per data category | ✅ |
+| Deletion described | "We take steps to delete or de-identify" | ⚠️ Aspirational — automated retention not yet implemented |
+| Credential security statement | "API keys and access tokens stored in secured credential stores, not in code or logs" | 🔴 SEC-001 and IA-2026-001 unresolved |
+
+**Gap:** SEC-001 (GitHub PATs in URLs) and IA-2026-001 (GA4 key in logs) contradict the credential security statement. **Resolution:** Resolve before publication.
+
+**Gap:** Automated retention not yet implemented. **Resolution:** The policy currently claims automated processes exist. Either implement before publication or adjust language to be honest about current state. **Recommended:** "We are implementing automated retention processes. Currently, deletion requests are handled manually on request."
+
+---
+
+## APP 12 — Access
+
+**Requirement:** On request, give individuals access to their personal information.
+
+| Element | v1.0 Coverage | Status |
+|---|---|---|
+| Access process described | Section 13.1: email, subject line format, 30-day response | ✅ |
+| Identity verification noted | "We may need to verify your identity" | ✅ |
+| Operational feasibility | Manual process adequate for current scale | ✅ |
+
+**No gap.**
+
+---
+
+## APP 13 — Correction
+
+**Requirement:** On request, correct personal information.
+
+| Element | v1.0 Coverage | Status |
+|---|---|---|
+| Correction process described | Section 13.2: contact us with details | ✅ |
+
+**No gap.**
+
+---
+
+## Spam Act 2003 — Commercial Electronic Messages
+
+**Requirement:** Commercial emails must: (a) be sent with consent, (b) identify the sender, (c) include functional unsubscribe.
+
+| Element | Status |
+|---|---|
+| **Outreach to prospects:** Consent basis is existing business relationship or publicly available business contact. Identification: "Atlas (James's assistant) at Not Forgotten Systems." Unsubscribe: O2a pending. | ⚠️ Unsubscribe not yet live |
+| **Follow-up to customers:** Sent on behalf of client. Client has existing customer relationship. Identification: O1a footer identifies Not Forgotten. Opt-out: "reply to this email" in footer. | ⚠️ Not yet live |
+| **Service communications to clients:** Exempt — not commercial messages. | ✅ |
+
+**Gap:** Unsubscribe not yet operational. **Resolution:** O2a, O2b before publication.
+
+---
+
+## Notifiable Data Breaches (NDB) Scheme
+
+**Requirement:** If there is an eligible data breach (unauthorised access/disclosure likely to result in serious harm), notify affected individuals and the OAIC.
+
+| Element | Status |
+|---|---|
+| Incident response plan | 🔴 **Does not exist.** SEC-017 unresolved. |
+| Breach assessment framework | 🔴 Not documented |
+| Notification templates | 🔴 Not prepared |
+| OAIC contact known | ✅ Referenced in Privacy Policy Section 14 |
+
+**Gap:** No incident response capability. **Resolution:** Incident Response Policy (Phase 1 priority per Document Assessment). This does not block policy publication because the NDB scheme is about operational response to a breach, not about policy wording. But the gap is real.
+
+---
+
+## Summary: Publication Readiness
+
+| Requirement | Status | Blocks Publication? |
+|---|---|---|
+| APP 1 — Policy available | Page not yet created | Yes — page must exist |
+| APP 3 — Proportionate collection | Pass | No |
+| APP 5 — Collection notices | O1a, O1b pending | Yes — notices must be live |
+| APP 6 — Use and disclosure | Pass | No |
+| APP 7 — Direct marketing opt-out | O2a, O2b pending | Yes — opt-out must be live |
+| APP 8 — Cross-border | Depends on DeepSeek decision | Yes — policy must match reality |
+| APP 11 — Security | SEC-001, IA-2026-001 unresolved | Yes — credential statement must be true |
+| APP 11 — Retention | Automated retention not yet implemented | Yes — adjust language or implement |
+| APP 12/13 — Access/correction | Pass | No |
+| Spam Act | O2a, O2b pending | Yes — unsubscribe must be live |
+| NDB Scheme | IR plan not yet built | No — operational gap, not policy gap |
+
+**Seven blockers.** Five are operational (can be implemented quickly). One is strategic (DeepSeek decision). One is editorial (retention language).

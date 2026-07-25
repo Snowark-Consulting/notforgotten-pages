@@ -1,0 +1,56 @@
+---
+doc_type: experiment
+owner: notforgotten
+tier: internal
+---
+
+# EXP-001: End-to-End Attribution
+
+> Every external link traceable to source. UTM standard deployed across all channels.
+
+**Status:** running  
+**Released:** 2026-07-25  
+**Review Date:** 2026-08-25  
+
+## What Changed
+
+Every external link now carries standardised UTM parameters. Cold outreach, email signatures, website CTAs, social profiles — every visitor can be traced back to how they found us.
+
+Naming convention: `knowledge/utm-naming-convention.md`
+
+## Hypothesis
+
+UTM-tagged links will reveal which channels drive website traffic, which produce enquiries, and eventually which produce paying clients. Without attribution, all traffic looks like `(direct)` — we can't optimise what we can't measure.
+
+## Expected Result
+
+Within 30 days:
+- 0% of traffic shows as "(direct) / (none)" from known outreach recipients
+- At least one channel emerges as the dominant traffic driver
+- The weekly intelligence report includes a "Traffic by Channel" section
+- We can trace at least one enquiry back to its source channel
+
+Within 90 days:
+- Attribution data connects a channel to a qualified lead
+- Attribution data connects a channel to a paying client
+
+## Phases
+
+| Phase | Scope | Status |
+|---|---|---|
+| 1 | UTM naming standard | ✅ Complete |
+| 2 | Apply to all outbound links | 🔄 In progress |
+| 3 | Update weekly intelligence for attribution | ⬜ Pending |
+| 4 | Recommend channel optimisations | ⬜ Pending |
+
+## Actual Result
+
+*To be completed at review date.*
+
+## Learning
+
+*To be completed at review date.*
+
+## Decision
+
+*To be completed at review date.*

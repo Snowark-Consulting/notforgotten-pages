@@ -1,0 +1,101 @@
+# Security Register — Not Forgotten Systems
+
+**Purpose:** Every security issue, risk, and remediation. Nothing disappears because an audit finished.
+**Owner:** Atlas (CISO)
+**Updated:** When issues found or resolved
+**Review cadence:** Weekly (Monday Command Centre), quarterly full review
+
+---
+
+## Active Issues
+
+### Critical
+
+| ID | Description | Impact | Likelihood | Recommendation | Owner | Identified | Target | Status |
+|---|---|---|---|---|---|---|---|---|
+| SEC-001 | GitHub PATs embedded in git remote URLs (hancockjluke, Hardstaff08) | Complete GitHub account compromise | Already exposed | Rotate both PATs. Remove from remote URLs. Use git credential-store. | James + Josh | 2026-07-25 | 2026-07-28 | **In Progress — James instructed 2026-07-25** |
+| SEC-002 | No firewall active — ports 8080, 6080 exposed on 0.0.0.0 | Unauthorised access to desktop API and VNC | High | Enable UFW. Allow only 443, 80 outbound. Block all inbound except explicitly required. | Atlas | 2026-07-25 | 2026-07-28 | **Open** |
+| SEC-003 | quotes_token.json, state.db, vercel auth.json were world-readable (644) → all files hardened to 600 on 2026-07-25. Monitor for new files created with weak permissions. | OAuth token theft, conversation exfiltration | Medium | Ongoing permission audit. Add to pre-commit hooks. | Atlas | 2026-07-25 | Resolved | **Resolved** (2026-07-25) |
+| SEC-004 | GA4 service account private key exposed in agent.log and session during 2026-07-25 audit (IA-2026-001) | Google Cloud project compromise | Occurred | Rotate GA4 key in GCP immediately. Review agent.log for exposure. Implement output filtering. | James | 2026-07-25 | 2026-07-28 | **In Progress — James instructed 2026-07-25** |
+| SEC-005 | DMARC policy is `p=none` — domain can be spoofed | Email spoofing, phishing, reputation damage | Medium-High | Escalate to p=quarantine after monitoring, then p=reject. | James | 2026-07-25 | 2026-08-07 | **Open** |
+| SEC-006 | .env has duplicate entries (GA4_SERVICE_ACCOUNT_KEY_B64 ×2, GATEWAY_ALLOW_ALL_USERS ×2) | Unexpected credential behaviour | Medium | Deduplicate. Verify each value is correct. Audit for other duplicates. | Atlas | 2026-07-25 | 2026-07-28 | **Open** |
+
+### High
+
+| ID | Description | Impact | Likelihood | Recommendation | Owner | Identified | Target | Status |
+|---|---|---|---|---|---|---|---|---|
+| SEC-007 | Kernel 5.10.0 (Nov 2021) — no security patches for 4+ years | Unpatched kernel vulnerabilities | Medium | Cannot update (orgo platform). Mitigate: ensure userspace packages current. Isolate with firewall. | — | 2026-07-25 | Ongoing | **Accepted** (platform constraint) |
+| SEC-008 | No unattended security updates | Known-vulnerable packages exploitable | Medium | Configure unattended-upgrades for security patches only. | Atlas | 2026-07-25 | 2026-08-01 | **Open** |
+| SEC-009 | state.db is 3.9GB, contains all conversations including client PII | Privacy breach on compromise. Storage exhaustion. | High | Implement 90-day retention. Archive older sessions. Monitor size. | Atlas | 2026-07-25 | 2026-08-14 | **Open** |
+| SEC-010 | agent.log (5MB) captures all tool output including PII | PII leaked to log files | High | Implement PII redaction. 30-day log rotation. Never log email body content at INFO level. | Atlas | 2026-07-25 | 2026-08-14 | **Open** |
+| SEC-011 | No swap configured, 7.7GB/7.8GB memory used (99%) | OOM kills during spikes | Medium | Add 2GB swap file. | Atlas | 2026-07-25 | 2026-07-28 | **Open** |
+| SEC-012 | Hermes Agent 270 commits behind upstream | Missing security fixes | Low-Medium | Run `hermes update` during maintenance window. Test rollback path. | Atlas | 2026-07-25 | 2026-08-01 | **Open** |
+| SEC-013 | No off-server backup — git push is only backup | Total loss if VPS compromised or disk fails | Medium | Implement encrypted off-server backup for .env, state.db, skills. | Atlas | 2026-07-25 | 2026-08-14 | **Open** |
+| SEC-014 | GATEWAY_ALLOW_ALL_USERS appears set in .env | Any Telegram user could potentially interact | Medium | Verify this is constrained. Remove if not explicitly needed. | Atlas | 2026-07-25 | 2026-07-28 | **Open** |
+
+### Medium
+
+| ID | Description | Impact | Likelihood | Recommendation | Owner | Identified | Target | Status |
+|---|---|---|---|---|---|---|---|---|
+| SEC-015 | No system logging (no auth.log, syslog, rsyslog) | Zero audit trail for security incidents | Medium | Install and configure rsyslog. Ship logs off-server. | Atlas | 2026-07-25 | 2026-08-21 | **Open** |
+| SEC-016 | No monitoring or alerting for any system | Silent failures until customer impact | Medium | Disk, memory, service health, API error rate monitoring. | Atlas | 2026-07-25 | 2026-08-21 | **Open** |
+| SEC-017 | No incident response plan | Chaos during real security incident | Medium | Create IR runbook: detection, containment, investigation, notification, recovery, post-mortem. | Atlas | 2026-07-25 | 2026-08-21 | **Open** |
+| SEC-018 | Session request dumps contain unredacted message content | Conversation history in JSON files | Medium | PII redaction or disable dumps in production. | Atlas | 2026-07-25 | 2026-08-21 | **Open** |
+| SEC-019 | websockify (VNC) and desktop-api on 0.0.0.0 with no auth | Network-adjacent access to desktop | Low-Medium | Bind to localhost only. Add auth if remote access needed. | Atlas | 2026-07-25 | 2026-08-21 | **Open** |
+| SEC-020 | Multiple Google OAuth tokens (atlas_oauth_pending, james_token) | Token sprawl, unclear active state | Low | Audit and consolidate. Revoke unused tokens. | Atlas | 2026-07-25 | 2026-08-14 | **Open** |
+
+### Low
+
+| ID | Description | Impact | Likelihood | Recommendation | Owner | Identified | Target | Status |
+|---|---|---|---|---|---|---|---|---|
+| SEC-021 | TLS certificate expires Sep 27 2026 | Website security warning | Low | Verify auto-renewal. Add expiry monitoring. | Atlas | 2026-07-25 | 2026-08-01 | **Open** |
+| SEC-022 | Domain expires Aug 2028 (auto-renew on, locked) | Domain loss | Very Low | Monitor annually. | Atlas | 2026-07-25 | Ongoing | **Monitored** |
+| SEC-023 | No regular security review cadence | Drift accumulates | Low | Monthly automated health check. Quarterly full review. | Atlas | 2026-07-25 | Ongoing | **Open** |
+| SEC-024 | GMAIL_KEYS env var set but no matching file found | Unclear credential state | Low | Audit and remove stale references. | Atlas | 2026-07-25 | 2026-08-01 | **Open** |
+| SEC-025 | GMAIL_CREDS env var — verify what it points to | May reference wrong path | Low | Verify path resolves. Document. | Atlas | 2026-07-25 | 2026-08-01 | **Open** |
+
+---
+
+## Resolved
+
+| ID | Description | Resolution | Date Resolved |
+|---|---|---|---|
+| SEC-003 | World-readable credential files (quotes_token.json, state.db, vercel auth.json, google_token.json, james_token.json, atlas_oauth_pending.json) | chmod 600 applied to all files | 2026-07-25 |
+
+---
+
+## Credential Rotation Schedule
+
+| Credential | Last Rotated | Next Due | Owner |
+|---|---|---|---|
+| GitHub PAT (Hardstaff08) | Unknown | **IMMEDIATE** | James |
+| GitHub PAT (hancockjluke) | Unknown | **IMMEDIATE** | Josh |
+| GA4 Service Account Key | Unknown | **IMMEDIATE** (IA-2026-001) | James |
+| Airtable PAT | Unknown | 2026-08-25 | James |
+| DeepSeek API Key | Unknown | 2026-08-25 | Atlas/James |
+| GoDaddy API Key/Secret | Unknown | 2026-08-25 | James |
+| Telegram Bot Token | Unknown | 2026-08-25 | James |
+| Gemini API Key | Unknown | 2026-08-25 | Atlas/James |
+| Vercel Token | Unknown | 2026-08-25 | James |
+
+Rotation policy: 90-day maximum. Credentials approaching 60 days flagged in weekly Security Health.
+
+---
+
+## Incident Log
+
+| ID | Date | Description | Severity | Status |
+|---|---|---|---|---|
+| IA-2026-001 | 2026-07-25 | GA4 service account key exposed in agent.log and session during security audit | Medium | Open — key rotation pending |
+
+---
+
+## Scores (as of 2026-07-25)
+
+| Score | Value | Trend |
+|---|---|---|
+| Security | 41/100 | Baseline |
+| Privacy | 35/100 | Baseline |
+| Operational Maturity | 38/100 | Baseline |
+
+*Scores recalculated weekly in Monday Command Centre.*

@@ -1,0 +1,201 @@
+# Decision Register — Not Forgotten Systems
+
+**Purpose:** For every major architectural or operational decision, record what was decided, why, alternatives considered, risks accepted, and expected benefits. Never ask "why did we build it this way?" — know.
+**Owner:** Atlas (CISO)
+**Established:** 2026-07-25
+**Relationship:** Complements the Decision Library (`knowledge/decisions/`) which captures James's strategic business decisions. The Register captures operational and architectural decisions made during implementation.
+
+---
+
+## Active Decisions
+
+### DR-2026-07-25-001 — Security Audit Infrastructure
+
+**Decision:** Conducted full security, privacy, and compliance audit treating the platform as an external consultant would. All findings documented in permanent registers.
+
+**Why:** Client data is now being handled. Security needed to move from implicit assumption to explicit system before scaling.
+
+**Alternatives Considered:**
+1. Defer audit until first enterprise client — rejected: risk of discovering issues after commitment
+2. External consultant — rejected: internal audit surfaces more institutional knowledge and builds permanent registers
+3. No formal audit, address issues ad hoc — rejected: no baseline, no accountability
+
+**Risks Accepted:** Medium — internal audit may miss issues an external auditor would catch. Mitigated by using external-consultant methodology.
+
+**Expected Benefits:** Risk baseline established. 25 issues tracked. Registers created. Trust operating system built.
+
+**Date Implemented:** 2026-07-25
+**Review:** October 2026 (next full audit)
+
+---
+
+### DR-2026-07-25-002 — CISO Role Formalised
+
+**Decision:** Atlas formally designated as Chief Information Security Officer alongside existing Head of Growth & Operations role. Security, privacy, and trust became permanent functions, not projects.
+
+**Why:** The audit revealed systemic gaps that require ongoing stewardship, not one-time fixes. Trust needs an owner.
+
+**Alternatives Considered:**
+1. External CISO — rejected: cost, lack of institutional knowledge, no 24/7 presence
+2. James as CISO — rejected: already wearing too many hats, needs Atlas as multiplier
+3. No formal CISO — rejected: security without an owner drifts
+
+**Risks Accepted:** Low — AI as CISO is novel. Mitigated by: challenge mandate (Atlas pushes back), weekly reporting (James oversight), external audit path (for compliance requirements).
+
+**Expected Benefits:** Every feature now passes through security/privacy/reliability/recoverability gates. Trust registers maintained. Weekly health reporting.
+
+**Date Implemented:** 2026-07-25
+**Review:** October 2026
+
+---
+
+### DR-2026-07-25-003 — Trust Registers Architecture
+
+**Decision:** Three permanent registers (Security, Privacy, Data Flow Map) plus Operational Trust Framework stored in `knowledge/trust/`. Loaded as boot context every session. Updated before every new feature launch.
+
+**Why:** Knowledge about security issues and data handling must persist across sessions and compound over time. "Nothing should ever disappear because an audit has finished."
+
+**Alternatives Considered:**
+1. Airtable-based tracking — rejected: adds external dependency for critical path, harder to version-control
+2. Single monolithic document — rejected: different registers serve different purposes, different update cadences
+3. External tool (Jira, Notion) — rejected: adds cost, dependency, credential surface area
+
+**Risks Accepted:** Low — markdown files in git are simple, version-controlled, and dependency-free. Risk: no automated alerts — mitigated by weekly health check.
+
+**Expected Benefits:** Every session loads trust context. Every feature updates registers. Trust knowledge compounds instead of decaying.
+
+**Date Implemented:** 2026-07-25
+**Review:** October 2026
+
+---
+
+### DR-2026-07-25-004 — The Trust Test
+
+**Decision:** Five-question ethical test established as supreme operating principle, sitting above all other frameworks. If any question creates doubt, the decision is wrong and must be reconsidered.
+
+**Why:** Technical gates can be passed while still making the wrong decision. The Trust Test addresses intent, not just implementation. "If we ever have to choose between growth and trust, we choose trust."
+
+**Alternatives Considered:**
+1. Technical gates only (Security/Privacy/Reliability/Recoverability) — rejected: gates check implementation, not motivation
+2. External ethics framework — rejected: generic frameworks don't capture "would the client trust us more or less?"
+3. Trust Test as informal guideline — rejected: principles without enforcement become optional
+
+**Risks Accepted:** Low — the Trust Test may slow some decisions. This is intentional. Speed at the cost of trust is never a good trade.
+
+**Expected Benefits:** Every decision passes through five human-centric questions before reaching technical gates. Doubt is treated as a stop signal, not a hesitation.
+
+**Date Implemented:** 2026-07-25
+**Review:** Never expires. The Trust Test is permanent.
+
+---
+
+### DR-2026-07-25-005 — File Permission Hardening
+
+**Decision:** All credential and sensitive files hardened to 600 permissions (quotes_token.json, state.db, google_token.json, james_token.json, atlas_oauth_pending.json, .git-credentials, vercel auth.json). Applied immediately during audit.
+
+**Why:** World-readable (644) OAuth tokens and conversation database were accessible to any process on the VPS. On a multi-tenant platform (orgo.ai), this is a material risk.
+
+**Alternatives Considered:**
+1. 600 with root:root — chosen: only root (the process owner) needs access
+2. ACL-based restrictions — rejected: over-engineered for single-user system
+3. Encrypted at rest — rejected: adds complexity without addressing the file-level access problem
+
+**Risks Accepted:** None — 600 is the correct permission for credential files.
+
+**Expected Benefits:** Defense-in-depth. Even if VPS is compromised by another tenant, credential files are not readable.
+
+**Date Implemented:** 2026-07-25
+**Review:** Monthly permission audit (part of weekly Security Health)
+
+---
+
+### DR-2026-07-25-006 — DeepSeek as Primary AI Provider (Existing — Now Under Review)
+
+**Decision (Original):** DeepSeek (deepseek-v4-pro) is the primary AI provider for all operations, with Gemini as fallback.
+
+**Why (Original):** Performance and cost characteristics favoured DeepSeek at time of selection.
+
+**Trust Test Assessment (2026-07-25):**
+- **Owner Test:** ⚠️ Would I be comfortable if my quote data and customer details went through a Chinese AI provider? Probably not without disclosure.
+- **Transparency Test:** ⚠️ If clients knew their data went through DeepSeek in China, would they trust us more or less? Almost certainly less.
+- **Front Page Test:** ❌ "Australian startup sends client financial data to Chinese AI company" — this would not be a good headline.
+- **Scale Test:** ❌ At 10,000 businesses, this is a material privacy risk. No DPA exists.
+- **Motive Test:** ⚠️ This was chosen for performance/cost, not trust.
+
+**Status:** This decision is flagged for review. The Trust Test produces doubt.
+
+**Resolution (2026-07-25):** **Option 1 approved by James.** DeepSeek removed from all client-data workflows. Google Gemini designated as primary AI provider for all operations involving personal, client, customer, prospect, quote, email, financial, commercially sensitive, or personal information. DeepSeek retained only for system operations containing zero personal information — a technical configuration boundary enforces this, not merely instruction. 
+
+The Gemini transition was executed on 2026-07-25: config.yaml updated (provider: google, model: google/gemini-2.5-flash), fallback cleared (no silent DeepSeek fallback possible), and SOUL.md updated with Safety Rule 7 (AI Provider boundary).
+
+This decision supersedes the original DR-006. DR-006 is now closed.
+
+**Alternatives Under Consideration:**
+1. Switch primary to Gemini (US-based, DPA available) — preserves fallback structure
+2. Keep DeepSeek but exclude client-data workflows (route only non-PII prompts)
+3. Implement client disclosure and consent for DeepSeek processing
+
+**Risks Accepted (Current):** Medium — small client base limits exposure, but the Trust Test says this needs addressing.
+
+**Date Implemented:** Pre-dates Decision Register (~June 2026)
+**Review:** August 2026 (decision required before Phase 2 outreach scales)
+
+---
+
+### DR-2026-07-25-007 — Collection Notices & Opt-Out Implemented
+
+**Decision:** Privacy footer added to all follow-up emails (O1a). Unsubscribe language required in all cold outreach emails (O2a). Both enforced via Safety Rules 7 and 8 in SOUL.md.
+
+**Why:** APP 5 requires collection notification. APP 7 and Spam Act require opt-out mechanisms. Publishing a Privacy Policy without operational mechanisms behind it would create a policy-practice gap.
+
+**Alternatives Considered:**
+1. Publish Privacy Policy without operational changes — rejected: policy must describe reality
+2. Defer until sign-up flow exists — rejected: current operations (follow-up autopilot, outreach) are active and need notices now
+
+**Risks Accepted:** None — these are defensive measures that reduce legal risk.
+
+**Expected Benefits:** APP 5 and APP 7 compliance. Privacy Policy can accurately describe practices. Trust built through transparency.
+
+**Date Implemented:** 2026-07-25
+**Review:** Never expires. Enforced by Safety Rules.
+
+---
+
+## Decision Audit Trail
+
+| Date | DR-ID | What Changed | Why |
+|---|---|---|---|
+| 2026-07-25 | DR-001 | Security audit completed | Client data now being handled |
+| 2026-07-25 | DR-002 | CISO role formalised | Trust needs an owner |
+| 2026-07-25 | DR-003 | Trust registers created | Knowledge must compound |
+| 2026-07-25 | DR-004 | Trust Test established | Ethics above implementation |
+| 2026-07-25 | DR-005 | File permissions hardened | World-readable secrets closed |
+| 2026-07-25 | DR-006 | DeepSeek flagged for review | Failed Trust Test at scale |
+| 2026-07-25 | DR-007 | Collection notices & opt-out implemented | APP 5/7 compliance |
+
+---
+
+## Template
+
+```markdown
+### DR-YYYY-MM-DD-NNN — Short Title
+
+**Decision:** What was decided.
+
+**Why:** The reasoning.
+
+**Alternatives Considered:**
+1. Option A — rejected: reason
+2. Option B — rejected: reason
+
+**Risks Accepted:** What risk we're knowingly carrying and why.
+
+**Expected Benefits:** What we expect to gain.
+
+**Date Implemented:** YYYY-MM-DD
+**Review:** Date or "never expires"
+```
+
+---
+
+*Every "why did we build it this way?" should have an answer here. Updated whenever a major architectural or operational decision is made.*

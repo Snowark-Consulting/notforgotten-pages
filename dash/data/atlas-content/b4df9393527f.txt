@@ -1,0 +1,188 @@
+# Compliance Checklist — Not Forgotten Systems
+
+**Purpose:** Triggered whenever a new feature, integration, or data processing change is proposed. Ensures legal documents and registers are updated before go-live.
+**Owner:** Atlas (CISO)
+**Established:** 2026-07-25
+**Trigger:** Any new feature, integration, automation, or data processing change
+
+---
+
+## Pre-Implementation Checklist
+
+Before any new feature goes live, answer every question. A "needs update" answer creates a blocking action item.
+
+### Section A: Data Collection
+
+| # | Question | Answer | Action Required |
+|---|---|---|---|
+| A1 | Does this feature collect any new type of personal information? | Yes / No | If yes: update Privacy Register + Privacy Policy Section 2 |
+| A2 | Does it collect more of an existing type than before? | Yes / No | If yes: justify in Privacy Register |
+| A3 | Can we achieve the same outcome collecting less data? | Yes / No | If yes: minimise before proceeding |
+| A4 | Are individuals notified at the point of collection? | Yes / No / N/A | If no: add collection notice (APP 5) |
+
+### Section B: Data Storage & Processing
+
+| # | Question | Answer | Action Required |
+|---|---|---|---|
+| B1 | Where is the new data stored? | [List locations] | Update Privacy Policy Section 5 if new |
+| B2 | Does it involve a new third-party processor? | Yes / No | If yes: assess processor, update Privacy Register, update Subprocessor Register |
+| B3 | Does data leave Australia to a new jurisdiction? | Yes / No | If yes: APP 8 assessment. Update Privacy Policy Section 4/5 |
+| B4 | Does data go through DeepSeek (China)? | Yes / No | If yes: Trust Test assessment. Document risk acceptance or transition plan |
+
+### Section C: AI Processing
+
+| # | Question | Answer | Action Required |
+|---|---|---|---|
+| C1 | Does this feature involve AI processing of personal information? | Yes / No | If yes: update AI Usage disclosure if standalone page exists |
+| C2 | Is the AI provider the same as existing? | Yes / No | If no: add to Privacy Policy Section 4, Data Flow Map |
+| C3 | Could the AI output contain personal information? | Yes / No | If yes: ensure retention and deletion policies cover it |
+
+### Section D: Tracking & Analytics
+
+| # | Question | Answer | Action Required |
+|---|---|---|---|
+| D1 | Does this feature add new tracking (cookies, pixels, analytics)? | Yes / No | If yes: update Cookie Policy or Privacy Policy Section 10 |
+| D2 | Are individuals informed about the tracking? | Yes / No / N/A | If no: add disclosure |
+| D3 | Is there an opt-out mechanism if tracking is for marketing? | Yes / No / N/A | If no: add opt-out (APP 7) |
+
+### Section E: Security
+
+| # | Question | Answer | Action Required |
+|---|---|---|---|
+| E1 | Does this feature introduce a new attack surface? | Yes / No | If yes: Security Register entry, Operational Trust Framework Gate 1 |
+| E2 | Are new credentials created? | Yes / No | If yes: add to credential rotation schedule |
+| E3 | Are credentials stored safely (not in code, logs, URLs)? | Yes / No | If no: fix before proceeding |
+| E4 | Are file permissions correct for any new sensitive files? | Yes / No | If no: apply 600/640 standard |
+
+### Section F: Retention & Deletion
+
+| # | Question | Answer | Action Required |
+|---|---|---|---|
+| F1 | How long will the new data be retained? | [Duration] | Update Data Retention Policy + Privacy Policy Section 7 |
+| F2 | Can the data be deleted on request? | Yes / No | If no: build deletion capability or document limitation |
+| F3 | Is the retention period consistent with the Privacy Policy? | Yes / No | If no: update policy or change retention |
+
+### Section G: Access & Control
+
+| # | Question | Answer | Action Required |
+|---|---|---|---|
+| G1 | Who can access the new data? | [List] | Update access control documentation |
+| G2 | Can individuals request access to this data? | Yes / No | If no: document limitation |
+| G3 | Can individuals request correction of this data? | Yes / No | If no: document limitation |
+
+### Section H: Marketing & Outreach
+
+| # | Question | Answer | Action Required |
+|---|---|---|---|
+| H1 | Does this feature involve contacting new people? | Yes / No | If yes: ensure opt-out mechanism exists (APP 7) |
+| H2 | Is there a clear unsubscribe path? | Yes / No / N/A | If no: add before launch |
+| H3 | Are outreach emails consistent with Privacy Policy disclosures? | Yes / No | If no: update email templates |
+
+### Section I: Documentation Updates
+
+| # | Update Required? | Status |
+|---|---|---|
+| I1 | Privacy Policy | No change / Updated / **Needs update** |
+| I2 | Privacy Register | No change / Updated / **Needs update** |
+| I3 | Data Flow Map | No change / Updated / **Needs update** |
+| I4 | Security Register | No change / New issue / **New mitigation** |
+| I5 | Decision Register | No change / New decision |
+| I6 | Subprocessor Register | No change / Updated / **Needs update** |
+| I7 | Data Retention Policy | No change / Updated / **Needs update** |
+| I8 | Cookie Policy | No change / Updated / **Needs update** |
+| I9 | AI Usage Disclosure | No change / Updated / **Needs update** |
+| I10 | Website Terms of Use | No change / Updated / **Needs update** |
+| I11 | Customer Terms & Conditions | No change / Updated / **Needs update** |
+
+### Section J: Trust Test
+
+Before go-live, apply the Trust Test to this feature:
+
+| # | Question | Response |
+|---|---|---|
+| J1 | **Owner Test:** If I owned the client's business, would I be comfortable? | |
+| J2 | **Transparency Test:** If clients knew exactly how this works, would they trust us more? | |
+| J3 | **Front Page Test:** Would I stand behind this on a newspaper front page? | |
+| J4 | **Scale Test:** Would this still be right at 10,000 businesses? | |
+| J5 | **Motive Test:** Are we optimising for trust or convenience? | |
+
+**Trust Test outcome:** Pass / **Fail — stop and reconsider**
+
+---
+
+## Post-Implementation Verification
+
+After the feature goes live, verify within 7 days:
+
+| # | Check | Verified? |
+|---|---|---|
+| V1 | All blocking documentation updates completed | |
+| V2 | Privacy Policy published version matches current practice | |
+| V3 | Data Flow Map accurately reflects the new feature | |
+| V4 | Security Register updated with any new risks | |
+| V5 | Credential rotation schedule updated | |
+| V6 | No credentials in logs or code | |
+| V7 | File permissions verified | |
+
+---
+
+## Integration-Specific Checks
+
+### When Adding a New AI Provider
+
+- [ ] Privacy Policy Section 4 updated with new provider (name, location, purpose)
+- [ ] Data Flow Map updated — new flow for AI processing
+- [ ] APP 8 assessment: jurisdiction, DPA availability, reasonable steps
+- [ ] Trust Test applied: would clients trust a new AI provider?
+- [ ] Subprocessor Register updated
+- [ ] AI Usage Disclosure updated (if standalone page exists)
+
+### When Adding a New Cloud Service
+
+- [ ] Privacy Policy Section 5 updated with new service (name, location, what's stored)
+- [ ] Data Flow Map updated — new flow for data to/from service
+- [ ] APP 8 assessment if overseas
+- [ ] DPA reviewed and executed if available
+- [ ] Security assessment: what data, encryption, access control
+- [ ] Credential added to rotation schedule
+- [ ] Subprocessor Register updated
+- [ ] Data Retention Policy updated if new storage location
+
+### When Adding a New Data Type
+
+- [ ] Privacy Register updated with full lifecycle (what, why, where, who, retention, deletion)
+- [ ] Privacy Policy Section 2 updated
+- [ ] Minimisation assessment: do we need all of it?
+- [ ] APP 3 assessment: is it reasonably necessary?
+- [ ] APP 5 assessment: are individuals notified?
+- [ ] Data Retention Policy updated
+- [ ] Deletion capability verified (can we delete it?)
+
+### When Changing an Existing Feature
+
+- [ ] Privacy Policy reviewed — does any statement no longer match reality?
+- [ ] Privacy Register updated — what changed?
+- [ ] Data Flow Map updated — did the flow change?
+- [ ] Trust Test re-applied — does the change improve trust?
+- [ ] Decision Register updated — why was the change made?
+
+---
+
+## Quarterly Compliance Review
+
+Every quarter (aligned with Governance Review), verify:
+
+| # | Check |
+|---|---|
+| Q1 | Privacy Policy still accurately describes operations? |
+| Q2 | All third-party processors still current? |
+| Q3 | Any DPAs expired or superseded? |
+| Q4 | Any new regulatory requirements (Privacy Act amendments, OAIC guidance)? |
+| Q5 | Any data breach notifications required in the quarter? |
+| Q6 | All credential rotations completed on schedule? |
+| Q7 | All security issues resolved within target dates? |
+| Q8 | Customer complaints related to privacy? Any patterns? |
+
+---
+
+*This checklist fires automatically when Atlas proposes any new feature, integration, or data processing change. It ensures no legal document drifts from operational reality. Trust Test Section J must pass before any Section I updates are considered complete.*

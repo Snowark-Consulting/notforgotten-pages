@@ -1,0 +1,67 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: internal
+---
+
+# Business Intelligence Architecture
+
+> Single intelligence layer for the complete customer journey. Gets smarter with every integration.
+
+**Established:** 2026-07-25  
+**Source:** Strategic Directive from James Hardstaff  
+**Status:** Living document — evolves with each integration
+
+## Vision
+
+One Business Intelligence layer where Atlas understands the complete customer journey and explains what matters. Not separate dashboards — one intelligence system that gets smarter with every integration.
+
+## Complete Funnel (end state)
+
+```
+Website Visitor → Quote Health Check / Demo → Qualified Lead → Client → Quotes Followed Up → Jobs Won → Revenue Influenced
+```
+
+## Current Funnel Coverage
+
+| Stage | Data Source | Status | Key Gap |
+|---|---|---|---|
+| Website Visitor | GA4 | ✅ Live | All direct traffic — no channel attribution yet |
+| Form Submission | Website → Airtable | ✅ Live | Not linked to GA4 session |
+| Quote Health Check | Inbound email → CRM | ✅ Live | No source attribution |
+| Demo Booking | Website modal → Airtable | ✅ Live | No GA4 conversion event |
+| Qualified Lead | CRM pipeline | ✅ Live | Manual stage transition |
+| Client | CRM | ✅ Live | Manual conversion |
+| Quotes Followed Up | Follow-up autopilot | ✅ Live | Auto-tracked per client |
+| Jobs Won | — | ⬜ Not built | No revenue/outcome tracking |
+| Revenue Influenced | — | ⬜ Not built | Requires attribution model |
+
+## Attribution Questions (North Star)
+
+- Which page produces the highest quality enquiries?
+- Which marketing channel produces paying clients?
+- Which industries convert best after visiting the website?
+- Which content builds the most trust?
+- Which website changes increase demo bookings?
+- Which leads become our highest-value clients?
+
+## Experiment Register
+
+Every significant change to website, outreach, pricing, messaging, or product must be logged with:
+
+| Field | Description |
+|---|---|
+| What changed | Specific, testable |
+| Why | Hypothesis being tested |
+| Released | Date deployed |
+| Expected result | Measurable prediction |
+| Actual result | Evidence at review date |
+| Learning | What we now know |
+
+Location: `knowledge/experiments/INDEX.md`
+
+## Measurement Principle
+
+Whenever we launch something new: **"How will we measure whether this worked?"**
+
+If we can't answer that, we're flying blind. Don't launch until we can.

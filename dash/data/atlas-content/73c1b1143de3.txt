@@ -1,0 +1,277 @@
+# Privacy Policy — Not Forgotten Systems
+
+**Last updated:** 2026-07-25
+**Version:** 1.0
+
+---
+
+## About This Policy
+
+Not Forgotten Systems Pty Ltd ("Not Forgotten", "we", "us") provides a quote follow-up service for trade and service businesses.
+
+This Privacy Policy explains how we handle personal information. We've written it in plain English because the business owners who trust us with their data deserve to understand what we do with it.
+
+If you have questions about this policy, contact us at:
+
+Email: james@notforgotten.com.au
+Phone: 0409 146 029
+Mail: PO Box 23 Callington, South Australia 5254
+
+---
+
+## 1. Who We Are
+
+Not Forgotten Systems helps trade and service businesses follow up on quotes they've sent to their customers. When a plumber, electrician, painter, or other tradesperson sends a quote and doesn't hear back, we help make sure that opportunity isn't forgotten.
+
+In providing this service, we handle two categories of personal information:
+
+- **Our client's information** — the trade business owner's name, contact details, and business information.
+- **Our client's customers' information** — the names, contact details, and quote information of the people our clients are quoting. This information comes to us through quote emails forwarded by our clients.
+
+We are an Australian company. Our service is hosted on infrastructure in Australia, the United States, and — for certain AI processing — China. Where data leaves Australia, we take steps to ensure it remains protected.
+
+---
+
+## 2. What Information We Collect
+
+### Information our clients provide directly
+
+When a trade business signs up for Not Forgotten, we collect:
+
+| Information | Example | Why we need it |
+|---|---|---|
+| Business name | "Adelaide Electrical Pty Ltd" | To identify the business we're serving |
+| Contact person's name | "James Smith" | To communicate with the right person |
+| Email address | james@adelaideelectrical.com.au | Primary contact channel |
+| Phone number | 0412 345 678 | Alternative contact if email isn't working |
+| Business industry | Electrical, Plumbing, Painting | To understand the type of work and tailor our service |
+
+### Information from quote emails
+
+When our clients forward quote emails to their dedicated Not Forgotten intake address, we extract:
+
+| Information | Example | Why we need it |
+|---|---|---|
+| Customer name | "Sarah Jones" | To personalise follow-up communication |
+| Customer email | sarah@example.com | To send follow-up messages |
+| Customer phone | 0412 345 678 | Alternative contact where provided |
+| Customer suburb | "Glenelg, SA" | Context for the quote and service area |
+| Quote description | "Ducted air conditioning install, 4 zones" | To understand the scope of work |
+| Quote value | $12,500 | To track and report on pipeline value |
+| Quote PDF attachment | Full quote document | To extract structured data for follow-up |
+
+**Important:** Quote PDFs may contain additional personal information about the customer such as their full street address, ABN (if a business customer), or specific property details. We extract only the information needed for follow-up and do not retain the full PDF longer than necessary for processing.
+
+### Information from communication
+
+When we communicate with clients or their customers:
+
+| Information | Example | Why we keep it |
+|---|---|---|
+| Email body content | Full text of emails sent and received | Record of communication and context for follow-up |
+| Outreach notes | Internal notes about conversations | To maintain context across interactions |
+| Relationship memory | "Prefers text messages, usually responds within 2 days" | To provide better service |
+
+### Information from our website
+
+When someone visits notforgotten.com.au:
+
+| Information | Example | Why we collect it |
+|---|---|---|
+| Pages viewed | /features, /pricing | To understand what visitors are interested in |
+| Session duration | 3 minutes 45 seconds | To improve website content |
+| Referral source | Google search, direct link | To understand how people find us |
+| Device type | Mobile, desktop | To ensure the website works well on all devices |
+
+This is collected through Google Analytics and is anonymised. We do not track individual visitors across other websites.
+
+### Information from email opens
+
+When we send follow-up emails to our clients' customers, we include a tiny invisible image (a tracking pixel) that tells us whether the email was opened. We collect:
+
+- Whether the email was opened
+- When it was opened
+- How many times it was opened
+
+We do this so our clients know whether their follow-up messages are being seen. This helps us improve our service and reporting.
+
+**Note:** Email open tracking is not perfectly accurate. Some email systems (like Apple Mail and Microsoft Outlook) pre-load images or block them entirely, which means we may not detect every open. We present open data as directional rather than definitive.
+
+---
+
+## 3. How We Use Information
+
+We use personal information for the following purposes, and only for these purposes:
+
+1. **Providing our core service** — following up on quotes sent by our clients to their customers. This includes sending follow-up emails, tracking responses, and reporting on engagement.
+
+2. **Improving our service** — analysing patterns in quote follow-up to improve our approach. This analysis is done at an aggregate level where possible.
+
+3. **Communicating with our clients** — contacting clients about their account, service updates, or new features.
+
+4. **Generating Quote Insights reports** — providing our clients with monthly analysis of their quote activity (e.g., "15 quotes sent this month, 8 followed up, 3 converted").
+
+5. **Website analytics** — understanding how visitors use our website so we can improve it.
+
+We do **not**:
+
+- Sell personal information to anyone
+- Use personal information for marketing other products or services
+- Use personal information to train AI models that are shared with other customers
+- Make automated decisions that have legal or significant effects on individuals
+
+---
+
+## 4. AI Processing
+
+We use artificial intelligence to help draft follow-up emails, extract information from quote PDFs, and analyse communication patterns.
+
+When our AI processes data, the information in that specific task (which may include names, business details, quote values, and email content) is sent to our AI providers for processing.
+
+Our primary AI provider is Google (Gemini) in the United States. We may also use other AI services for internal-only tasks that do not involve client-identifiable information.
+
+**What this means for your data:** When our system processes a quote or drafts a follow-up email, the content of that task is sent to Google's Gemini AI service for processing. Google processes the request and returns a response. We do not send data to AI providers for training purposes, and we do not permit our providers to retain or use your data for their own purposes.
+
+**Transparency note:** We are committed to transparency about how we handle your data. Our primary AI processing is conducted using Google's Gemini in the United States, which operates under robust data protection frameworks. We ensure that any AI processing involving client data adheres to our strict privacy principles and minimises data exposure.
+
+---
+
+## 5. Where Information Is Stored
+
+Your information is stored across several services that we use to operate our business:
+
+| Service | Location | What's stored there |
+|---|---|---|
+| Airtable | United States | Client records, prospect records, quote data, communication logs |
+| Google Workspace (Gmail) | United States / Global | Email communications, quote PDF attachments |
+| Google Analytics | United States / Global | Anonymised website visitor data |
+| Vercel | United States | Website hosting, email open tracking data |
+| orgo.ai (VPS) | [Host location — clarify with orgo] | AI conversation history, system logs, temporary file processing |
+| GitHub | United States | System configuration backup (no client data, no credentials) |
+| GoDaddy | United States | Domain name registration, DNS records |
+
+Our primary operational database is Airtable, a US-based cloud service. Our email is through Google Workspace. Our primary AI processing is conducted using Google Gemini in the United States.
+
+We have chosen these services because they provide the reliability and capability needed to operate our service. Where possible, we select providers who offer data processing agreements that align with Australian privacy requirements.
+
+---
+
+## 6. How We Protect Information
+
+We take the security of your information seriously. Here is what we do to protect it:
+
+| Measure | What it means |
+|---|---|
+| Encryption in transit | All data sent between our systems and third-party services is encrypted using HTTPS/TLS |
+| Cloud provider security | We use established cloud providers (Google, Airtable, Vercel) who maintain their own security certifications |
+| Access control | Access to client data is limited to authorised personnel and our automated systems. Our AI assistant (Atlas) operates under defined access controls |
+| Credential management | API keys and access tokens are stored securely, never in code or logs |
+| File permissions | Sensitive files on our servers are restricted to authorised system processes only |
+| Regular security reviews | We conduct monthly security health checks and quarterly comprehensive reviews |
+
+**Honest assessment:** We are a small, growing business. We do not have the security infrastructure of a large enterprise. We are transparent about this with our clients. We invest in security proportionate to the sensitivity of the data we handle, and we improve our security posture every month. Our full security practices are documented internally and available to clients on request.
+
+---
+
+## 7. How Long We Keep Information
+
+Our approach to data retention is:
+
+| Data type | Retention period | Reason |
+|---|---|---|
+| Active client records | Duration of engagement + 90 days | Operational need and offboarding transition |
+| Quote data (won/lost) | 24 months, then anonymised | Business intelligence and trend analysis |
+| Lost prospect data | 12 months, then anonymised | Sales analysis and pipeline reporting |
+| Email communications | Duration of engagement + 90 days | Communication record and dispute resolution |
+| Quote PDF attachments | 30 days after processing | Extracted data is retained; full PDFs are not needed long-term |
+| Website analytics | 14 months (Google Analytics default) | Trend analysis |
+| AI conversation history | 90 days rolling | System improvement and debugging |
+| System logs | 30 days rolling | Operational monitoring and troubleshooting |
+
+**Current status:** We are in the process of implementing automated retention policies. At present, some data may be retained longer than the periods stated above because our deletion processes are manual. We expect to have automated retention in place by September 2026. If you need data deleted before our automated systems are in place, contact us and we will handle it manually.
+
+---
+
+## 8. Your Rights
+
+Under Australian privacy law, individuals have rights regarding their personal information. This applies to both our clients and our clients' customers.
+
+### Access
+
+You can ask us what personal information we hold about you. We will provide this within 30 days. Contact us at james@notforgotten.com.au with "Privacy — Access Request" in the subject line, describing what information you're looking for.
+
+### Correction
+
+If information we hold about you is incorrect, you can ask us to fix it. Contact us with the details and we will update our records.
+
+### Deletion
+
+You can ask us to delete your personal information. We will do so unless we have a legal or contractual obligation to keep it (for example, financial records we're required to retain).
+
+For our clients' customers: if you receive a follow-up email from Not Forgotten on behalf of a trade business and want your information removed, contact us directly or reply to the email. We will process your request and notify the trade business that sent the original quote.
+
+### Complaints
+
+If you believe we have not handled your personal information properly, contact us first. We take privacy seriously and will investigate.
+
+If you are not satisfied with our response, you can contact the Office of the Australian Information Commissioner (OAIC) at oaic.gov.au.
+
+---
+
+## 9. When We Share Information
+
+We share information only in these circumstances:
+
+1. **With our service providers** — the third-party services listed in Section 5 that we use to operate our platform. These providers process data on our instructions and are not permitted to use it for their own purposes.
+
+2. **With our clients** — the trade businesses who use our service. They receive reports about their own quote activity, which may include their customers' names and contact details (information the client already has from the original quote).
+
+3. **When required by law** — if we receive a valid legal request from an Australian authority, we may need to disclose information.
+
+4. **With your consent** — if you ask us to share information with someone else.
+
+---
+
+## 10. Cookies and Tracking
+
+### Our website
+
+Our website at notforgotten.com.au uses Google Analytics, which places cookies in your browser to understand how visitors use the site. These cookies collect anonymised information about pages visited, time on site, and referral sources. They do not identify you personally.
+
+You can disable cookies in your browser settings. The website will still work.
+
+### Email tracking
+
+As described in Section 2, our follow-up emails include a tracking pixel that tells us whether an email was opened. This is a tiny (1×1 pixel) invisible image. When the email is opened and images are loaded, our server records the open event.
+
+This tracking is part of the service we provide to our clients — it helps them know whether their follow-up messages are being seen. If you prefer not to be tracked, most email programs allow you to disable automatic image loading.
+
+---
+
+## 11. Children's Privacy
+
+Our service is designed for business-to-business use. We do not knowingly collect personal information from children under 16. If we become aware that we have collected information from a child, we will delete it.
+
+---
+
+## 12. Changes to This Policy
+
+We will update this policy as our service evolves and as privacy requirements change. When we make material changes, we will notify our clients by email.
+
+The current version of this policy is always available at notforgotten.com.au/privacy.
+
+---
+
+## 13. Contact Us
+
+For any privacy-related questions, requests, or complaints:
+
+Email: james@notforgotten.com.au
+**Mail:** PO Box 23 Callington, South Australia 5254
+**Phone:** 0409 146 029
+
+We aim to respond to all privacy enquiries within 5 business days.
+
+---
+
+*This policy was last updated on 2026-07-25. It accurately describes how Not Forgotten Systems operates as of that date. If our practices change, this policy will be updated before those changes take effect.*

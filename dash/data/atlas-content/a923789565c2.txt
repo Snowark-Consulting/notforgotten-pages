@@ -1,0 +1,61 @@
+---
+doc_type: index
+owner: notforgotten
+tier: internal
+---
+
+# Experiment Register
+
+> Every significant change becomes a measurable experiment. No opinions — evidence.
+
+**Purpose:** Every significant change becomes a measurable experiment. No opinions — evidence.
+
+**How to use:**
+1. When launching a change, create a new entry with status `running`
+2. Set a review date
+3. At review date, measure actual vs expected
+4. Update status to `completed` with learnings
+5. Every completed experiment feeds back into the business intelligence layer
+
+---
+
+## Active Experiments
+
+| ID | What Changed | Hypothesis | Released | Review Date | Status |
+|---|---|---|---|---|---|
+| EXP-001 | End-to-End Attribution | UTM tagging will reveal which channels drive enquiries and clients | 2026-07-25 | 2026-08-25 | running |
+|---|---|---|---|---|---|---|
+
+| ID | What Changed | Expected | Actual | Learning |
+|---|---|---|---|---|
+| — | None yet | — | — | — |
+
+---
+
+## Experiment Template
+
+```markdown
+# EXP-XXX: [Title]
+
+**Status:** proposed | running | completed
+**Released:** YYYY-MM-DD
+**Review Date:** YYYY-MM-DD
+
+## What Changed
+[Specific, testable description]
+
+## Hypothesis
+[Why we think this will improve X metric]
+
+## Expected Result
+[Measurable prediction — "X will increase by Y%"]
+
+## Actual Result
+[Evidence at review date]
+
+## Learning
+[What we now know. If hypothesis was wrong, what does the data suggest instead?]
+
+## Decision
+[Keep / revert / iterate]
+```

@@ -1,0 +1,259 @@
+# DeepSeek Assessment — Client Data Processing
+
+**Reference:** DR-006, O3, APP 8
+**Analyst:** Atlas (CISO)
+**Date:** 2026-07-25
+**Status:** Recommendation — James decision required
+
+---
+
+## Current State
+
+DeepSeek (deepseek-v4-pro) is the primary AI provider for all Atlas operations. Every prompt — including those containing client business names, customer names, email contents, quote values, and scope descriptions — is transmitted to `api.deepseek.com` (China-based servers) for processing.
+
+- **Provider:** DeepSeek (杭州深度求索人工智能基础技术研究有限公司)
+- **Jurisdiction:** People's Republic of China
+- **Data Processing Agreement:** Not available
+- **Traffic:** All AI prompts (100% unless DeepSeek is degraded → Gemini fallback)
+- **Fallback:** Google Gemini (US-based, DPA-available)
+
+---
+
+## The Trust Test
+
+### 1. Owner Test
+
+*"If I owned the client's business, would I be comfortable with this decision?"*
+
+A plumber in Adelaide forwards a customer's quote to us. The quote contains the customer's name, email, phone number, street address, and a $15,000 scope of work for a bathroom renovation. That information is sent to a server in China for AI processing.
+
+If I were that plumber, and someone told me my customer's personal and financial details were being sent to a Chinese AI company — without my knowledge or consent — I would not be comfortable. I would feel that trust had been broken before it was built.
+
+**Result: FAIL.**
+
+### 2. Transparency Test
+
+*"If the client knew exactly how we handled their data, would they trust us more or less?"*
+
+If we sat a client down and said: "Every quote your customers send us goes through an AI company in China. We chose them because they're fast and cost-effective. They don't offer a data processing agreement, and we haven't assessed what they do with the data after processing."
+
+The client would trust us less. Some would leave. Some would never sign up. The transparency itself would be the damage.
+
+**Result: FAIL.**
+
+### 3. Front Page Test
+
+*"If this decision appeared on the front page of a newspaper tomorrow, would I still stand behind it?"*
+
+Headline: "Australian AI Startup Sends Customer Data to Chinese Servers Without Disclosure."
+
+There is no version of this headline where Not Forgotten comes out ahead. The damage to reputation would be immediate and potentially terminal for a young company built on trust.
+
+**Result: FAIL.**
+
+### 4. Scale Test
+
+*"If this system grows to 10,000 businesses, will this decision still be the right one?"*
+
+At current scale (test data, no paying clients), the risk is contained. At 10,000 businesses processing thousands of quotes daily, this becomes a material privacy risk. A single data breach at DeepSeek could expose customer information for thousands of Australian consumers. The OAIC would investigate. The reputational harm would be existential.
+
+**Result: FAIL.**
+
+### 5. Motive Test
+
+*"Are we optimising for short-term convenience or long-term trust?"*
+
+DeepSeek was chosen for performance and cost. Those are convenience factors. Trust was not part of the decision. We are optimising for short-term convenience at the expense of long-term trust.
+
+**Result: FAIL.**
+
+### Trust Test Verdict
+
+**DeepSeek fails all five Trust Test questions.** This is not a close call. The decision to use DeepSeek for client-data workflows was made before the Trust Operating System existed. The Trust Test now requires it to be revisited.
+
+---
+
+## APP 8 Analysis — Cross-Border Disclosure
+
+### The Obligation
+
+APP 8.1 states: *"Before an APP entity discloses personal information about an individual to an overseas recipient, the entity must take such steps as are reasonable in the circumstances to ensure that the overseas recipient does not breach the Australian Privacy Principles in relation to the information."*
+
+### "Reasonable Steps" — What the OAIC Expects
+
+The OAIC guidance identifies the following as reasonable steps:
+
+| Step | Current Status |
+|---|---|
+| Contractual measures (DPA with APP-compliant clauses) | **Not in place** — DeepSeek does not offer a DPA |
+| Assessment of the overseas recipient's privacy practices | **Not performed** — DeepSeek's privacy policy is in Chinese; no independent assessment exists |
+| Technical measures (encryption, access controls, data minimisation) | Partially — HTTPS in transit, but no data minimisation before transmission |
+| Transparency with individuals | **Not in place** — no disclosure to data subjects before the Privacy Policy draft |
+| Monitoring and auditing the overseas recipient | **Not possible** — no contractual right to audit DeepSeek |
+
+**Finding:** We have not taken reasonable steps as required by APP 8.1. The disclosure to DeepSeek does not currently comply with Australian privacy law.
+
+### APP 8.2 — Accountability
+
+APP 8.2 states that even after disclosure overseas, the disclosing entity remains accountable under the Privacy Act if the overseas recipient breaches the APPs. This means:
+
+**If DeepSeek mishandles Australian personal information, Not Forgotten is legally accountable.** We cannot contractually transfer this risk because there is no contract. We cannot assert we took reasonable steps because we haven't.
+
+---
+
+## Privacy Policy Commitments
+
+The draft Privacy Policy (v1.0) Section 4 states:
+
+> *"We are actively evaluating whether to transition our primary AI processing to providers in jurisdictions with data protection frameworks more closely aligned with Australian law."*
+
+And in Section 6:
+
+> *"We invest in security proportionate to the sensitivity of the data we handle, and we improve our security posture every month."*
+
+**Reality check:** These statements describe intent, not current practice. If we publish the policy while continuing to send all client data to DeepSeek without change, the gap between the policy and reality will be visible to anyone who reads it carefully. This is not a policy-practice gap we should publish with.
+
+---
+
+## Options Analysis
+
+### Option 1: Remove DeepSeek from All Client-Data Workflows
+
+**What it means:** Switch primary AI provider to Google Gemini for all workflows that touch client information. DeepSeek retained only for system operations that contain no PII (code generation, infrastructure management, internal analysis).
+
+**Trust Test:** PASS (all five questions)
+**APP 8 compliance:** Gemini offers a DPA. US jurisdiction with Privacy Shield successor framework. Reasonable steps can be demonstrated.
+**Privacy Policy:** Clean statement. "Our primary AI processing is through Google Gemini, based in the United States, under a data processing agreement that protects your information to Australian privacy standards."
+
+**Benefits:**
+- Clear trust signal to clients and prospects
+- APP 8 compliance achievable
+- Privacy Policy can honestly describe the processing
+- Eliminates the "front page test" risk
+- Gemini infrastructure already exists (current fallback)
+
+**Risks:**
+- Cost increase (Gemini pricing vs DeepSeek)
+- Migration effort (provider swap, testing, prompt tuning)
+- Single-provider dependency (mitigated: DeepSeek retained as emergency fallback with notice)
+
+**Effort:** Medium. Provider configuration exists. `config.yaml` update. Testing cycle. Prompt validation.
+
+---
+
+### Option 2: Keep DeepSeek but Redact/Anonymise Before Transmission
+
+**What it means:** Before sending prompts to DeepSeek, strip names, email addresses, phone numbers, business names, suburb details, and quote values. Replace with placeholders. Reconstruct after response.
+
+**Trust Test:** PARTIAL PASS
+- Owner Test: Still uncertain — redaction adds complexity and potential failure points
+- Transparency Test: "We send your data to China but we strip identifying details first" — partial trust improvement
+- Front Page Test: "Australian Startup Sends Anonymised Data to China" — better, but China is still the story
+- Scale Test: At 10,000 businesses, redaction failures become statistically inevitable
+- Motive Test: Still optimising for cost over trust, just with a mitigation layer
+
+**APP 8 compliance:** If redaction is genuinely effective (data cannot be re-identified), APP 8 may not apply because de-identified information is not "personal information." However, full redaction of names, businesses, values, and scope descriptions would severely degrade AI output quality for follow-up emails. The cure may be worse than the disease.
+
+**Benefits:**
+- Retains DeepSeek cost advantage
+- Addresses the most identifiable PII
+
+**Risks:**
+- Redaction adds complexity and failure modes
+- AI output quality degradation for personalised follow-ups
+- Redaction failures expose PII anyway
+- Still sends commercial data to China (quote values, scope, context)
+- "Anonymised data to China" is not a strong trust story
+
+---
+
+### Option 3: DeepSeek Only for Non-Client Workflows
+
+**What it means:** DeepSeek used for system operations (code generation, configuration, internal analysis). All client-data workflows use Gemini exclusively.
+
+**Trust Test:** PASS (for client data)
+**APP 8 compliance:** Client data disclosure is managed (Gemini with DPA). DeepSeek receives only non-PII system prompts.
+
+**Benefits:**
+- Retains DeepSeek where it doesn't touch client data
+- Clear compliance boundary
+- Gemini for anything with PII
+
+**Risks:**
+- "Non-client workflow" boundary requires strict enforcement
+- Many Atlas operations blur the line — tool output from client-data operations enters the same conversation context
+- Practical implementation is harder than binary switch
+
+**This is effectively Option 1 with a carve-out for system operations.** The carve-out is defensible if strictly enforced.
+
+---
+
+### Option 4: Continue with Contractual Protections, Disclosure, and Informed Consent
+
+**What it means:** Attempt to negotiate a DPA with DeepSeek. If unavailable, document the risk assessment. Disclose the practice to clients and obtain their informed consent. Include in Privacy Policy.
+
+**Trust Test:** FAIL
+- Owner Test: Consent doesn't make it right. "I signed something" is not the same as "I trust you."
+- Transparency Test: Disclosure improves transparency but not trust. The underlying practice is still problematic.
+- Front Page Test: "Startup Discloses Data Goes to China" — still fails.
+- Scale Test: Consent model doesn't scale well. Enterprise clients will refuse.
+- Motive Test: Still optimising for cost.
+
+**APP 8 compliance:** Partial. Disclosure and consent are factors in "reasonable steps," but the OAIC expects more than just telling people. The absence of a DPA remains the fundamental gap. "Informed consent" to an APP 8 shortfall is legally uncertain.
+
+**Benefits:**
+- Retains DeepSeek cost advantage
+- Some level of transparency
+
+**Risks:**
+- Fundamentally fails the Trust Test
+- Consent is a weak defence when the underlying issue is jurisdiction
+- Creates a permanent competitive disadvantage — "Not Forgotten? They send your data to China."
+- Enterprise clients will flag this in vendor assessments and refuse
+
+---
+
+## Recommendation
+
+**Option 1: Remove DeepSeek from all client-data workflows. Switch primary AI provider to Google Gemini for all operations that involve personal information.**
+
+Reasons:
+
+1. **The Trust Test demands it.** Five out of five questions fail. This is not borderline. The Trust Test is the supreme operating principle. If we invoke it, we must follow where it leads.
+
+2. **APP 8 requires it.** We have not taken reasonable steps. We cannot demonstrate them. Continuing the current practice while publishing a Privacy Policy that implies otherwise would be misleading.
+
+3. **The Privacy Policy must describe reality.** A policy that says "we process your data through a Chinese AI provider but we're thinking about changing" is not a confidence-inspiring document. A policy that says "we process your data through Google's infrastructure under a data processing agreement that protects it to Australian standards" is.
+
+4. **Trust is our product.** This is the first test of whether we mean it. If we choose cost over trust on something as fundamental as where client data goes, we've failed the Trust Test before we've even launched.
+
+5. **The migration is manageable.** Gemini is already configured as fallback. The infrastructure exists. The testing path is defined. This is not a rebuild — it's a provider swap.
+
+### Implementation
+
+| Phase | Action | Effort |
+|---|---|---|
+| 1 | Update `config.yaml`: primary provider → Gemini, fallback → DeepSeek (system ops only) | 5 min |
+| 2 | Test all client-data workflows with Gemini | 2 hours |
+| 3 | Validate follow-up email quality with Gemini | 1 hour |
+| 4 | Document the decision in Decision Register (superseding DR-006) | 15 min |
+| 5 | Update Privacy Policy Section 4 to reflect new provider | 10 min |
+| 6 | Update Data Flow Map — AI Processing flow | 15 min |
+| 7 | Update Subprocessor Register | 5 min |
+| 8 | Execute Gemini DPA (if not already covered by Google Workspace agreement) | Legal |
+
+**DeepSeek retained for:** System operations, code generation, infrastructure management, internal analysis — any workflow that contains zero personal information. Strict boundary enforced: if tool output could contain PII, route to Gemini.
+
+### Cost Consideration
+
+Yes, Gemini costs more than DeepSeek. The Trust Test says "trust before growth" and "security before convenience." The question is not "does it cost more?" The question is "is the additional cost worth the trust we earn?"
+
+At current volumes (test/validation only), the cost difference is negligible. At scale, it becomes a line item worth managing — but not at the expense of the trust foundation the business is built on.
+
+---
+
+## Decision Required
+
+James: Approve Option 1 (Gemini as primary for client data), or select an alternative. This decision should be recorded in the Decision Register as superseding DR-006.
+
+This is the first decision where the Trust Test and the Six Principles are directly tested against an existing operational choice. The system is working as designed. Now it needs your direction.

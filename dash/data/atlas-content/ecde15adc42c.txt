@@ -1,0 +1,156 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: internal
+---
+
+# Governance Review Framework — Not Forgotten Systems
+
+> Monthly proactive review of the entire Trust Operating System. Principles stay, everything else improves.
+
+**Purpose:** Monthly proactive review of the entire Trust Operating System. The system that builds the system must also improve the system.
+**Owner:** Atlas (Steward of the Trust Operating System)
+**Established:** 2026-07-25
+**Cadence:** First Monday of every month
+**Archive:** `knowledge/governance-reviews/`
+
+---
+
+## The Steward's Mandate
+
+Atlas's responsibility is not to preserve the operating system. It is to make it better every month.
+
+- Never defend an old decision simply because it is documented.
+- Documentation preserves history. Evidence drives the future.
+- If a policy no longer serves, recommend changing it.
+- If a control is unnecessary, recommend removing it.
+- If a process creates work without reducing risk, recommend simplifying it.
+
+**Protect the principles. Improve everything else.**
+
+---
+
+## Review Layers
+
+Every Governance Review examines six layers:
+
+### Layer 1: The Six Principles
+
+| Principle | Check |
+|---|---|
+| Trust before growth | Any decision this month that prioritised growth over trust? |
+| Evidence before opinion | Any decision made on intuition without data? |
+| Security before convenience | Any security work deferred for speed? |
+| Privacy by design | Any new data collection that wasn't minimised and justified? |
+| Continuous learning | Did every surprise become permanent knowledge? |
+| Human accountability | Any decision Atlas should have escalated but didn't? |
+
+### Layer 2: The Trust Test
+
+- Are the five questions still the right questions?
+- Has the Trust Test caught anything this month? (Record in Decision Register)
+- Has the Trust Test been applied to every recommendation?
+
+### Layer 3: The Four Gates
+
+- Are the gates creating unnecessary friction?
+- Are there false positives — features blocked that shouldn't have been?
+- Are there false negatives — features that passed but shouldn't have?
+- Do the gate checks need updating?
+
+### Layer 4: Registers
+
+- **Security Register:** Issues closed? New issues opened? Accepted risk that's been carried too long? Credentials approaching rotation?
+- **Privacy Register:** Any new data types not registered? Third-party changes? Deletion capability improved?
+- **Data Flow Map:** Any new flows? Any stale flows? Risk heat map changed?
+- **Decision Register:** Any decisions that should be revisited? New evidence that changes a prior decision?
+- **Decision Library:** Any strategic decisions overdue for review?
+
+### Layer 5: Processes
+
+- Which processes created work without reducing risk this month?
+- Which processes are no longer needed?
+- Which processes could be simplified?
+- Where is duplication across skills, SOPs, and registers?
+
+### Layer 6: Learnings
+
+- What did we learn this month?
+- Has every learning been embedded in skills, memory, or registers?
+- Are there patterns across learnings that suggest a deeper issue?
+
+---
+
+## Recommendation Template
+
+Every recommendation in a Governance Review must include:
+
+| Field | Description |
+|---|---|
+| **Recommendation** | What should change |
+| **Evidence** | Data, observations, incidents that support this |
+| **Benefits** | What improves (security, efficiency, clarity, trust) |
+| **Risks** | What could go wrong |
+| **Effort** | Estimated time (S/M/L/XL) |
+| **Priority** | Critical / High / Medium / Low |
+| **Layer** | Which layer of the OS this affects |
+
+---
+
+## Scoring Update
+
+Every Governance Review recalculates the three trust scores:
+
+### Security Score (/100)
+
+| Factor | Weight | Calculation |
+|---|---|---|
+| Critical issues open | 40pts | 40 - (10 × count), floor 0 |
+| High issues open | 30pts | 30 - (5 × count), floor 0 |
+| Credential rotation status | 20pts | All current = 20, any overdue = 0 |
+| File permissions | 10pts | All correct = 10, issues = 0 |
+
+### Privacy Score (/100)
+
+| Factor | Weight | Calculation |
+|---|---|---|
+| Privacy Policy exists | 30pts | Yes = 30, No = 0 |
+| Deletion capability | 30pts | 10pts per data store with deletion process |
+| Third-party DPA coverage | 20pts | All covered = 20, gaps = proportional |
+| Data minimisation | 20pts | All minimised = 20, gaps = proportional |
+
+### Operational Trust Score (/100)
+
+| Factor | Weight | Calculation |
+|---|---|---|
+| Backup status | 25pts | Complete = 25, gaps = proportional |
+| Monitoring coverage | 25pts | Comprehensive = 25, gaps = proportional |
+| Incident response readiness | 25pts | Plan exists and tested = 25 |
+| Recovery capability | 25pts | Tested = 25, untested = proportional |
+
+---
+
+## Review Output
+
+Each monthly review produces:
+
+1. **Cover note** — one-paragraph summary for James
+2. **Scorecard** — updated trust scores with trend arrows
+3. **Recommendations** — prioritised list with evidence
+4. **Register updates** — any changes applied to registers
+5. **Escalations** — anything needing James's decision now
+6. **Next month focus** — what to watch
+
+---
+
+## Schedule
+
+| Review | Date | Status |
+|---|---|---|
+| August 2026 | 2026-08-03 (first Monday) | Scheduled |
+| September 2026 | 2026-09-07 | Scheduled |
+| October 2026 | 2026-10-05 | Scheduled |
+
+---
+
+*First review: August 2026. That review establishes the baseline and tests the framework itself.*

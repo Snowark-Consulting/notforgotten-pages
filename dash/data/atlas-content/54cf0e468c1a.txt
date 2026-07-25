@@ -1,0 +1,194 @@
+# Operational Trust Framework — Not Forgotten Systems
+
+**Purpose:** Four-gate release checklist with Trust Test as supreme preamble. No feature bypasses these checks. No deadline overrides them.
+**Owner:** Atlas (CISO)
+**Established:** 2026-07-25
+**Updated:** 2026-07-25 (Trust Test added as supreme principle)
+**Applies to:** Every new feature, automation, integration, AI capability, and significant change
+
+---
+
+## The Trust Test (Supreme Principle — Fire First)
+
+Before any implementation gate, before any technical checklist, ask five questions. A single "no" or moment of doubt = stop. Fix the approach. Return with a better answer.
+
+1. **The Owner Test:** If I owned the client's business, would I be comfortable with this decision?
+2. **The Transparency Test:** If the client knew exactly how we handled their data, would they trust us more or less?
+3. **The Front Page Test:** If this decision appeared on the front page of a newspaper tomorrow, would I still stand behind it?
+4. **The Scale Test:** If this system grows to 10,000 businesses, will this decision still be the right one?
+5. **The Motive Test:** Are we optimising for short-term convenience or long-term trust?
+
+**The Ultimate Rule:** If we ever have to choose between growth and trust, we choose trust. Technology is not our product. Trust is our product. AI is one of the tools we use to earn that trust.
+
+**Pass the Trust Test first.** Then proceed to the four gates. The gates implement what the Trust Test demands.
+
+---
+
+## The Four Questions (Pre-Implementation)
+
+Before implementing anything new, answer all four. A "no" to any = stop and recommend a better approach.
+
+### 1. Is it secure?
+
+| Check | Pass Condition |
+|---|---|
+| Does it increase attack surface? | New surface is identified and mitigated |
+| Does it handle credentials safely? | Credentials never in logs, URLs, code, chat output |
+| Does it respect least privilege? | Minimum access required. New tokens scoped appropriately. |
+| Are file permissions correct? | 600 for credentials, 640 for config with secrets |
+| Is the principle of least privilege applied? | New API keys/tokens created with minimum scope |
+
+### 2. Does it protect client privacy?
+
+| Check | Pass Condition |
+|---|---|
+| What data does it collect? | All data collected is justified and documented in Privacy Register |
+| Where does the data go? | All data flows documented in Data Flow Map |
+| Is collection necessary? | Collection is minimised — only what's needed |
+| Does data leave our infrastructure? | All third-party processors identified and assessed |
+| Is DeepSeek (China) involved? | If yes: risk assessed, alternative considered |
+
+### 3. Is it reliable if something fails?
+
+| Check | Pass Condition |
+|---|---|
+| What happens when a dependency fails? | Failure mode is defined and tested |
+| Is there a fallback? | Fallback path exists (e.g., DeepSeek → Gemini) |
+| Does it fail open or closed? | Decision is intentional, not accidental |
+| What SL does failure trigger? | Service Level impact is assessed |
+| Does it respect the restoration gate? | Recovery criteria are defined (3 successful consecutive runs, etc.) |
+
+### 4. Can we recover quickly if something goes wrong?
+
+| Check | Pass Condition |
+|---|---|
+| Is it reversible? | Rollback path exists and has been tested |
+| Is there a rollback plan? | Documented, not assumed |
+| How would we detect the failure? | Monitoring or alerting covers the new feature |
+| What data is at risk if it fails? | Data loss scenario is assessed |
+| How long would recovery take? | Recovery time is estimated and acceptable |
+
+---
+
+## Release Gate Checklist
+
+For every feature going live, complete this checklist:
+
+### Gate 1: Security
+
+- [ ] Security Register reviewed for related issues
+- [ ] No new credentials created without documentation
+- [ ] No credentials in logs, URLs, code, or chat
+- [ ] New API tokens scoped to minimum required
+- [ ] File permissions verified (600/640 as appropriate)
+- [ ] No increase in exposed attack surface without explicit mitigation
+- [ ] If new dependency: vendor security assessed
+
+### Gate 2: Privacy
+
+- [ ] Privacy Register updated with any new data collected
+- [ ] Data Flow Map updated with any new data paths
+- [ ] All data collection justified (why, not just what)
+- [ ] Data minimisation applied (can we collect less?)
+- [ ] Third-party processors identified and assessed
+- [ ] DeepSeek exposure assessed if applicable
+- [ ] Privacy Policy reviewed — does new feature need disclosure?
+
+### Gate 3: Reliability
+
+- [ ] Failure mode defined for every external dependency
+- [ ] Fallback path exists where feasible
+- [ ] Service Level impact assessed (SL1-SL4)
+- [ ] Failure does not cascade to unrelated systems
+- [ ] Restoration gate criteria defined
+- [ ] Tested: what happens when [dependency] is down?
+
+### Gate 4: Recoverability
+
+- [ ] Rollback path documented
+- [ ] Rollback tested (not just theorised)
+- [ ] Data loss scenario assessed
+- [ ] Recovery time estimated
+- [ ] Monitoring covers the new feature
+- [ ] Alert threshold defined (when do we wake someone up?)
+
+---
+
+## Trust Decisions
+
+When a feature has an unresolved trust question, record it as a Trust Decision:
+
+```markdown
+### TD-YYYY-MM-DD — Short Title
+
+**Feature:** What's being built
+**Trust Question:** What's the unresolved issue
+**Options Considered:**
+1. Option A — risk: X, benefit: Y
+2. Option B — risk: X, benefit: Y
+**Decision:** Chosen option + rationale
+**Residual Risk:** What risk remains and why it's accepted
+**Review Date:** When to revisit
+```
+
+Trust Decisions are stored in `knowledge/trust/decisions/`.
+
+---
+
+## Experiment Framework
+
+Every significant change is also an experiment:
+
+| Field | Description |
+|---|---|
+| What changed | Specific change made |
+| Why we changed it | Hypothesis — what we expected to improve |
+| Expected outcome | Measurable prediction |
+| Actual outcome | What actually happened |
+| Lessons learned | What to do differently next time |
+
+Experiments in `knowledge/experiments/`. Review cycle: check actual vs expected at defined interval.
+
+---
+
+## Trust Scores (Weekly)
+
+Recalculated every Monday for Command Centre:
+
+### Security Score (/100)
+
+Based on:
+- Critical issues open (0 = 40pts, each open -10pts, max -40)
+- High issues open (0 = 30pts, each open -5pts, max -30)
+- Credential rotation status (all current = 20pts, overdue = 0pts)
+- File permissions (all correct = 10pts, issues = 0pts)
+
+### Privacy Score (/100)
+
+Based on:
+- Privacy Policy exists (30pts / 0pts)
+- Data deletion capability (10pts per store with deletion process, max 30pts)
+- Third-party DPA coverage (all covered = 20pts, gaps = proportional)
+- Data minimisation (all minimised = 20pts, gaps = proportional)
+
+### Operational Trust Score (/100)
+
+Based on:
+- Backup status (complete = 25pts, incomplete = proportional)
+- Monitoring coverage (comprehensive = 25pts, gaps = proportional)
+- Incident response readiness (plan exists = 25pts, no plan = 0pts)
+- Recovery capability (tested = 25pts, untested = proportional)
+
+---
+
+## Challenge Record
+
+When Atlas pushed back on a security/privacy/reliability concern:
+
+| Date | Concern | James's Response | Outcome |
+|---|---|---|---|
+| — | — | — | — |
+
+---
+
+*Applies to all changes from 2026-07-25. Trust is a product. Protect it.*

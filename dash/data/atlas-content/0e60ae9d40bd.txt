@@ -1,0 +1,27 @@
+# Subprocessor Register — Not Forgotten Systems
+
+**Purpose:** Transparency about all third parties that process client data. Public-facing document.
+**Owner:** Atlas (CISO)
+**Established:** 2026-07-25
+**Updated:** 2026-07-25
+**Target URL:** notforgotten.com.au/subprocessors (or integrated into /privacy)
+
+---
+
+## Third-Party Services Processing Personal Information
+
+This list details the third-party services that process personal information on behalf of Not Forgotten Systems. These are our "subprocessors."
+
+**No personal information is processed by subprocessors for their own purposes.** Each subprocessor handles data on our instructions under contractual terms that restrict use to service delivery.
+
+| Subprocessor | Purpose | Data Processed | Location |
+|---|---|---|---|
+| Airtable Inc. | Client, prospect, and quote database | Business names, contact details, quote data, communication records | United States |
+| Google LLC (Workspace) | Email hosting and processing | Email communications, quote attachments | United States / Global |
+| Google LLC (Gemini) | AI processing for service delivery | Personal information contained in quotes and communications | United States |
+| Google LLC (Analytics) | Website analytics | Anonymised visitor data (pages, duration, device, referral) | United States / Global |
+| Vercel Inc. | Website hosting and email tracking | Website content, email open tracking event data | United States |
+| orgo.ai | Application hosting infrastructure | Operational data, system logs, AI conversation context | Australia / Adelaide |
+| GoDaddy Inc. | Domain name and DNS management | DNS records (no personal information) | United States |
+
+*This list is current as of the policy effective date. We update it when our subprocessors change.*
