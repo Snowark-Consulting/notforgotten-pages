@@ -159,6 +159,15 @@ tr:last-child td { border-bottom: none; }
 </style>
 
 <!-- Google Analytics -->
+<script>
+// Internal traffic detection — must run before gtag load
+(function(){
+  if (document.cookie.indexOf('nfs_internal=') !== -1) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(['set', {traffic_type: 'internal'}]);
+  }
+})();
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-03Y95NSDRV"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
