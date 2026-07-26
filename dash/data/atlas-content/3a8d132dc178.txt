@@ -1,0 +1,1219 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# SMS Integration Readiness Report — Not Forgotten Systems
+
+**Status:** Architecture window deliverable — design only, no implementation. **Design frozen 2026-07-27.**
+**Author:** Atlas
+**Date:** 2026-07-27
+**Next stage:** `knowledge/sms-phase-1-validation-plan.md` — 5-scenario validation plan for when Twilio is active
+**Trigger:** Twilio identity verification pending
+**Governed by:** SMS Communication Framework (`knowledge/sms-communication-framework.md`)
+**Objective:** Platform prepared so that, once Twilio number is active, implementation is a controlled engineering task
+
+---
+
+## Table of Contents
+
+1. [SMS Service Interface Design](#1-sms-service-interface-design)
+2. [Airtable Schema Recommendations](#2-airtable-schema-recommendations)
+3. [Decision Engine Design](#3-decision-engine-design)
+4. [Unified Conversation Timeline](#4-unified-conversation-timeline)
+5. [SMS Template Library](#5-sms-template-library)
+6. [Integration Readiness Checklist](#6-integration-readiness-checklist)
+7. [Schema Change Summary](#7-schema-change-summary)
+
+---
+
+## 1. SMS Service Interface Design
+
+### 1.1 Architecture Principle
+
+The SMS Service is a **provider-agnostic abstraction layer**. Twilio is the Phase 1 carrier. The interface is designed so that swapping to a different SMS provider requires zero changes to business logic, Decision Engine, or Airtable integration. Only the provider implementation module is replaced.
+
+```
+Decision Engine  →  SMSService (interface)  →  TwilioSMSService (Phase 1)
+                                              →  [Future: Telstra, Vonage, etc.]
+```
+
+### 1.2 Interface Definition
+
+The SMSService exposes 9 functions. All are synchronous. All return structured result objects. None have side effects beyond their documented scope.
+
+```
+SMSService Interface
+═══════════════════
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ FUNCTION                 │ PURPOSE                                  │
+├─────────────────────────────────────────────────────────────────────┤
+│ send()                   │ Send an outbound SMS. Returns message    │
+│                          │ ID, segment count, status.               │
+│                          │                                          │
+│ receive()                │ Process an inbound SMS webhook. Returns  │
+│                          │ parsed message with sender, body, time.  │
+│                          │                                          │
+│ validate_number()        │ Validate phone number: type (mobile/     │
+│                          │ landline/VOIP), carrier, country,        │
+│                          │ reachability.                            │
+│                          │                                          │
+│ check_delivery_status()  │ Poll delivery status for a sent message. │
+│                          │ Returns: queued/sent/delivered/failed/   │
+│                          │ undelivered.                             │
+│                          │                                          │
+│ check_consent()          │ Query Airtable for consent tier, opt-out │
+│                          │ status, and deliverability. Returns      │
+│                          │ ConsentResult with tier and flags.       │
+│                          │                                          │
+│ log_to_crm()             │ Write SMS activity to Airtable Messages  │
+│                          │ table with all SMS-specific metadata.    │
+│                          │                                          │
+│ handle_opt_out()         │ Process STOP/UNSUBSCRIBE. Mark Airtable  │
+│                          │ opt-out flag. Log to Opt-Out register.   │
+│                          │ Send confirmation SMS.                   │
+│                          │                                          │
+│ queue_for_quiet_hours()  │ If current time is within quiet hours,   │
+│                          │ queue message for 7:01 AM delivery.      │
+│                          │                                          │
+│ check_duplicate()        │ Prevent double-sends. Check Airtable for │
+│                          │ same purpose + recipient within 60s.    │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### 1.3 Function Signatures
+
+```python
+# ── Type definitions (not classes, just shape contracts) ──
+
+# SMSResult — returned by send()
+#   message_id: str        # Provider message SID (Twilio: SMxxx)
+#   status: str            # "queued" | "sent" | "failed"
+#   segment_count: int     # Number of SMS segments (1 = ≤160 chars)
+#   recipient: str         # E.164 formatted number
+#   sent_at: datetime      # Adelaide timezone
+
+# NumberValidation — returned by validate_number()
+#   valid: bool            # Is this a valid number?
+#   number_type: str       # "mobile" | "landline" | "voip" | "unknown"
+#   country: str           # ISO country code (e.g. "AU")
+#   carrier: str           # Carrier name if available
+#   deliverable: bool      # Can this number receive SMS?
+#   formatted: str         # E.164 formatted number
+
+# ConsentResult — returned by check_consent()
+#   consent_tier: str      # "T0" | "T1" | "T2" | "T3" | "T4"
+#   opted_out: bool        # Is permanent opt-out active?
+#   deliverable: bool      # Is number validated as reachable?
+#   timezone: str          # e.g. "Australia/Adelaide"
+#   last_sms_sent: datetime|None
+#   can_send: bool         # Overall: consent_tier >= required AND not opted_out
+
+# DeliveryStatus — returned by check_delivery_status()
+#   message_id: str
+#   status: str            # "queued" | "sent" | "delivered" | "failed" | "undelivered"
+#   error: str|None        # Error message if failed/undelivered
+#   updated_at: datetime
+
+
+# ── Interface functions ──
+
+def send(recipient_phone: str, body: str, purpose: str) -> SMSResult:
+    """
+    Send an outbound SMS.
+
+    Pre-conditions (checked by Decision Engine BEFORE calling this):
+      - Consent tier verified and sufficient for purpose
+      - Not opted out
+      - Number validated as mobile and deliverable
+      - Not in quiet hours (or queued)
+      - Not a duplicate (within 60s)
+      - Body passes SMS Voice Review (7/7)
+
+    Args:
+      recipient_phone: E.164 formatted number (e.g. "+614XXXXXXXX")
+      body: Plain text, ≤160 characters
+      purpose: Canonical purpose string (e.g. "Quote reply alert")
+
+    Returns:
+      SMSResult with provider message_id, status, segment_count
+    """
+    ...
+
+
+def receive(webhook_payload: dict) -> InboundSMS:
+    """
+    Process an inbound SMS from Twilio webhook.
+
+    Args:
+      webhook_payload: Raw Twilio webhook JSON
+
+    Returns:
+      InboundSMS with from_number, body, received_at
+
+    Side effects:
+      - Checks for opt-out trigger words (STOP, UNSUBSCRIBE, etc.)
+      - Calls handle_opt_out() if triggered
+      - Calls log_to_crm() for the inbound message
+    """
+    ...
+
+
+def validate_number(phone: str) -> NumberValidation:
+    """
+    Validate a phone number via Twilio Lookup API.
+
+    Validates:
+      - Number format (E.164)
+      - Number type (must be mobile for SMS)
+      - Country (must be AU for Phase 1)
+      - Carrier and reachability
+
+    Caches results in Airtable (SMS Deliverable checkbox).
+    Re-validates if cache is older than 90 days.
+    """
+    ...
+
+
+def check_delivery_status(message_id: str) -> DeliveryStatus:
+    """
+    Poll delivery status from provider.
+
+    Called by: status callback webhook, or periodic health check.
+    Updates Airtable SMS Delivery Status field on change.
+    """
+    ...
+
+
+def check_consent(prospect_id: str, required_tier: str) -> ConsentResult:
+    """
+    Query Airtable for consent status.
+
+    Reads: SMS Consent Tier, SMS Opted Out, SMS Deliverable,
+           SMS Timezone, Last SMS Sent.
+
+    Returns ConsentResult. can_send is True only when:
+      - consent_tier >= required_tier
+      - opted_out is False
+    """
+    ...
+
+
+def log_to_crm(direction: str, body: str, purpose: str,
+               prospect_id: str, message_id: str,
+               segment_count: int, delivery_status: str,
+               opt_out_triggered: bool, quiet_hours_queued: bool) -> str:
+    """
+    Write SMS activity to Airtable Messages table.
+
+    Returns the Airtable record ID of the created message.
+    All SMS metadata fields populated.
+    """
+    ...
+
+
+def handle_opt_out(phone: str, trigger_word: str, message_id: str) -> None:
+    """
+    Process permanent SMS opt-out.
+
+    Actions:
+      1. Set SMS Opted Out = True in Airtable Prospects
+      2. Set SMS Consent Tier = T0
+      3. Log to SMS Consent Log table (event: "Opt-out")
+      4. Log to sms-opt-out-register.md
+      5. Send confirmation SMS: "You've been removed..."
+      6. If T3 consent (client's customer), notify the NFS client
+
+    This is permanent. Re-opt-in requires explicit documented consent.
+    """
+    ...
+
+
+def queue_for_quiet_hours(recipient_phone: str, body: str,
+                          purpose: str, timezone: str) -> SMSResult:
+    """
+    Queue a message for delivery at next available window.
+
+    If current time is within quiet hours (9pm-7am local):
+      - Store message in queue
+      - Set Quiet Hours Queued = True in Airtable
+      - Deliver at 7:01 AM local time
+
+    Returns SMSResult with status="queued".
+    """
+    ...
+
+
+def check_duplicate(prospect_id: str, purpose: str,
+                    window_seconds: int = 60) -> bool:
+    """
+    Check Airtable Messages for duplicate sends.
+
+    Returns True if an SMS with the same purpose was sent to the
+    same prospect within window_seconds.
+    """
+    ...
+```
+
+### 1.4 Canonical SMS Purpose Values
+
+These are the only valid values for the `purpose` parameter across all SMS functions:
+
+| # | Purpose | Minimum Consent Tier | Context |
+|---|---|---|---|
+| 1 | `Quote reply alert` | T1 | Client notification |
+| 2 | `Quote accepted notification` | T1 | Client notification |
+| 3 | `Daily follow-up summary` | T1 | Client notification |
+| 4 | `Quote cold warning` | T1 | Client notification |
+| 5 | `Monthly performance digest` | T1 | Client notification |
+| 6 | `System issue alert` | T1 | Client notification |
+| 7 | `Meeting reminder` | T2 | Post-engagement |
+| 8 | `Post-call follow-up` | T2 | Post-engagement |
+| 9 | `Onboarding kickoff` | T2 | Post-engagement |
+| 10 | `Customer follow-up (gentle)` | T3 | Client's customer |
+| 11 | `Customer follow-up (final)` | T3 | Client's customer |
+| 12 | `Opt-out confirmation` | T0 | Compliance — sent regardless |
+
+### 1.5 Provider Implementation Sketch (Twilio — Not Built)
+
+```python
+# TwilioSMSService implements the SMSService interface.
+# This is a SKETCH — no implementation until Twilio number is active.
+
+class TwilioSMSService:
+    """
+    Twilio implementation of SMSService interface.
+
+    Dependencies:
+      - Twilio Python SDK (twilio)
+      - Credentials: TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN (in .env, 600)
+      - Phone number: provisioned Australian mobile from Twilio console
+
+    API endpoints used:
+      - Messages.Create (outbound send)
+      - Lookups (number validation)
+      - Message resource (delivery status)
+      - Incoming webhook (Twilio → Atlas endpoint)
+    """
+
+    def __init__(self):
+        self.account_sid = self._load_credential("TWILIO_ACCOUNT_SID")
+        self.auth_token = self._load_credential("TWILIO_AUTH_TOKEN")
+        self.from_number = self._load_credential("TWILIO_PHONE_NUMBER")
+        # Client initialised on first use to defer credential loading
+
+    def _load_credential(self, key: str) -> str:
+        """Load credential from .env (600 permissions). Never logged."""
+        ...
+
+    def send(self, to: str, body: str, purpose: str) -> SMSResult:
+        """Create message via Twilio Messages API."""
+        # client = Client(self.account_sid, self.auth_token)
+        # msg = client.messages.create(to=to, from_=self.from_number, body=body)
+        # return SMSResult(message_id=msg.sid, status=msg.status, ...)
+        ...
+
+    def validate_number(self, phone: str) -> NumberValidation:
+        """Lookup via Twilio Lookups API."""
+        # client.lookups.v2.phone_numbers(phone).fetch()
+        ...
+
+    def check_delivery_status(self, message_id: str) -> DeliveryStatus:
+        """Fetch message resource."""
+        # client.messages(message_id).fetch()
+        ...
+
+    def receive(self, webhook_payload: dict) -> InboundSMS:
+        """Parse Twilio webhook POST."""
+        # from_number = webhook_payload["From"]
+        # body = webhook_payload["Body"]
+        # message_id = webhook_payload["MessageSid"]
+        ...
+```
+
+---
+
+## 2. Airtable Schema Recommendations
+
+### 2.1 Current State Assessment
+
+The existing schema already has partial SMS awareness. The Messages table has `Channel` with "Email" and "SMS" options, and `Direction` with "Outbound", "Inbound", and "Tradie SMS". The Prospects table has a `Mobile` field. This is a starting point — it means SMS data has always been part of the data model, just never operationalised.
+
+**What's missing:** Consent tracking, opt-out enforcement, delivery status, frequency tracking, quiet hours support, conversation threading. All of these are required before SMS can be sent safely.
+
+### 2.2 New Fields Required — Prospects Table
+
+| # | Field Name | Type | Options / Format | Rationale |
+|---|---|---|---|---|
+| 1 | `SMS Consent Tier` | Single select | T0, T1, T2, T3, T4 | Core consent classification. Default: T0. Every SMS send gates on this field. |
+| 2 | `SMS Consent Source` | Single line text | Free text | Audit trail: how consent was obtained. "Client onboarding", "Prospect request", "Delegated: Client Name", etc. |
+| 3 | `SMS Consent Date` | Date | YYYY-MM-DD | When consent was established. Used for re-verification on dormant records. |
+| 4 | `SMS Opted Out` | Checkbox | Boolean | Permanent opt-out flag. Once True, never reset without explicit re-opt-in. Takes precedence over consent tier. |
+| 5 | `SMS Opt-Out Date` | Date | YYYY-MM-DD | When opt-out occurred. For audit trail. |
+| 6 | `SMS Opt-Out Reason` | Single line text | Free text | Trigger word that caused opt-out (e.g. "STOP"). |
+| 7 | `SMS Deliverable` | Checkbox | Boolean | Number validated as mobile and reachable. Updated by validate_number(). Re-checked every 90 days. |
+| 8 | `SMS Last Validated` | Date | YYYY-MM-DD | When validate_number() last ran successfully. |
+| 9 | `SMS Timezone` | Single select | Australia/Adelaide, Australia/Sydney, Australia/Melbourne, Australia/Brisbane, Australia/Perth, Australia/Darwin, Australia/Hobart | For quiet hours enforcement. Default: Australia/Adelaide. |
+| 10 | `Preferred Communication Channel` | Single select | Email, SMS, Both | Client/prospect preference. Advisory, not binding (consent tier is binding). |
+| 11 | `Last SMS Sent` | DateTime | ISO 8601 | Frequency cap enforcement and duplicate prevention. |
+| 12 | `SMS Message Count` | Number | Integer | Lifetime SMS count for this recipient. For reporting. |
+
+**Total new Prospect fields: 12**
+
+### 2.3 New Fields Required — Messages Table
+
+| # | Field Name | Type | Options / Format | Rationale |
+|---|---|---|---|---|
+| 1 | `SMS Segment Count` | Number | Integer (1-10) | Number of SMS segments sent. Used for cost tracking and quality (target: 1). |
+| 2 | `SMS Delivery Status` | Single select | Queued, Sent, Delivered, Failed, Undelivered | Real-time delivery tracking. Updated by status callback webhook. |
+| 3 | `SMS Message SID` | Single line text | Free text | Provider message ID (Twilio: SMxxx). For delivery status lookups. |
+| 4 | `SMS Opt-Out Triggered` | Checkbox | Boolean | Did this inbound message trigger an opt-out? For audit trail. |
+| 5 | `Quiet Hours Queued` | Checkbox | Boolean | Was this message queued and sent at 7am? For reporting. |
+| 6 | `SMS Delivery Error` | Single line text | Free text | Error message if delivery failed. From Twilio error codes. |
+
+**Total new Message fields: 6**
+**Existing Message fields that already serve SMS:** `Channel` (SMS), `Direction` (Inbound/Outbound/Tradie SMS), `Body`, `Message purpose`
+
+### 2.4 New Table Required — SMS Consent Log
+
+**Purpose:** Immutable audit trail of every consent state change. Separate from Messages because consent changes are not messages — they are administrative events.
+
+**Table name:** `SMS Consent Log`
+
+| # | Field Name | Type | Options / Format |
+|---|---|---|---|
+| 1 | `Prospect` | Link to Prospects | Required |
+| 2 | `Client` | Link to Clients | Optional (if consent is delegated from a client) |
+| 3 | `Event Type` | Single select | Consent granted, Consent upgraded, Consent degraded, Consent expired, Opt-out, Number validated, Number invalidated |
+| 4 | `Tier Before` | Single select | T0, T1, T2, T3, T4 |
+| 5 | `Tier After` | Single select | T0, T1, T2, T3, T4 |
+| 6 | `Event Source` | Single line text | How the event was triggered: "STOP received", "Client onboarding", "Manual override by James", etc. |
+| 7 | `Timestamp` | DateTime | Auto-populated |
+| 8 | `Notes` | Long text | Context: the message that triggered opt-out, the consent mechanism, etc. |
+
+### 2.5 Schema Changes — What NOT To Change
+
+The existing `Mobile` field in Prospects and Clients is sufficient for phone number storage. Airtable's `phoneNumber` type already handles formatting and validation. Adding a separate "SMS-specific" phone field would create synchronisation problems.
+
+The existing `Channel` and `Direction` fields in Messages already support SMS. The values "SMS" (Channel) and "Tradie SMS" (Direction) are already in the option lists. No changes needed.
+
+### 2.6 Recommendation Summary
+
+| Action | Table | Details |
+|---|---|---|
+| **Add 12 fields** | Prospects | SMS Consent Tier through SMS Message Count (see list above) |
+| **Add 6 fields** | Messages | SMS Segment Count through SMS Delivery Error (see list above) |
+| **Create new table** | SMS Consent Log | 8 fields for consent audit trail |
+| **No changes** | Clients | Existing Mobile field is sufficient |
+| **No changes** | Quotes | Existing Customer mobile field is sufficient |
+| **No changes to existing fields** | Messages | Channel and Direction already support SMS |
+
+**Do not make any schema changes until James reviews and approves these recommendations.** This document is the design. Schema changes are implementation.
+
+---
+
+## 3. Decision Engine Design
+
+### 3.1 Purpose
+
+The Decision Engine answers four questions for every communication Atlas needs to send:
+
+1. **Should Atlas send an SMS?** — Is this message appropriate for SMS, and do all the gates pass?
+2. **Should Atlas send an email?** — Is email the right channel for this message?
+3. **Should Atlas create a phone task for James?** — Is human intervention required?
+4. **Should Atlas wait?** — Is now the wrong time for any channel?
+
+### 3.2 Decision Engine Architecture
+
+```
+                         ┌──────────────────────┐
+                         │   ATLAS NEEDS TO     │
+                         │   COMMUNICATE        │
+                         └──────────┬───────────┘
+                                    │
+                         ┌──────────▼───────────┐
+                         │  ROUTE BY CONTEXT     │
+                         │  ┌─────────────────┐  │
+                         │  │ Recipient type:  │  │
+                         │  │ Client / Prospect│  │
+                         │  │ / Customer /     │  │
+                         │  │ Unknown          │  │
+                         │  └────────┬────────┘  │
+                         └───────────┼───────────┘
+                                     │
+              ┌──────────────────────┼──────────────────────┐
+              │                      │                      │
+    ┌─────────▼─────────┐  ┌────────▼────────┐  ┌─────────▼─────────┐
+    │   SMS GATE CHECK  │  │  EMAIL GATE     │  │  PHONE TASK       │
+    │                   │  │  CHECK          │  │  CHECK            │
+    │ 1. Consent tier   │  │                 │  │                   │
+    │ 2. Not opted out  │  │ 1. Email exists │  │ 1. Urgency level  │
+    │ 3. Number valid   │  │ 2. Not bounced  │  │ 2. James capacity │
+    │ 4. Not quiet hrs  │  │ 3. Valid domain │  │ 3. Relationship   │
+    │ 5. Under freq cap │  │ 4. Not unsub'd  │  │    warmth         │
+    │ 6. Not duplicate  │  │                 │  │                   │
+    │ 7. Voice Review   │  │                 │  │                   │
+    └─────────┬─────────┘  └────────┬────────┘  └─────────┬─────────┘
+              │                      │                      │
+              └──────────────────────┼──────────────────────┘
+                                     │
+                         ┌───────────▼───────────┐
+                         │   FINAL DECISION:     │
+                         │   SMS | Email | Phone │
+                         │   | Wait | Escalate   │
+                         └───────────────────────┘
+```
+
+### 3.3 SMS Gate — Full Decision Flow
+
+This is the definitive check sequence. It fires before every SMS send. A single failure blocks the send.
+
+```
+SMS_SEND_DECISION(recipient, message_body, purpose):
+    ┌──────────────────────────────────────────────────┐
+    │ GATE 1: RECIPIENT EXISTS                         │
+    │ Query Airtable Prospects + Clients by phone      │
+    │   Found? → Continue                              │
+    │   Not Found? → BLOCK. Unknown recipient.          │
+    │   Multiple? → BLOCK. Ambiguous recipient.         │
+    │   Log attempt. Flag for James.                   │
+    └──────────────────────────────────────────────────┘
+                         │ PASS
+    ┌──────────────────────────────────────────────────┐
+    │ GATE 2: CONSENT TIER                             │
+    │ Read SMS Consent Tier from Airtable              │
+    │   Tier >= MINIMUM_TIER[purpose]? → Continue      │
+    │   Tier too low? → BLOCK. Insufficient consent.   │
+    │   Tier = T0? → BLOCK. No consent on file.        │
+    └──────────────────────────────────────────────────┘
+                         │ PASS
+    ┌──────────────────────────────────────────────────┐
+    │ GATE 3: NOT OPTED OUT                            │
+    │ Read SMS Opted Out from Airtable                 │
+    │   False? → Continue                              │
+    │   True? → BLOCK. Permanent. Never retry.         │
+    │   Log attempt with timestamp.                    │
+    └──────────────────────────────────────────────────┘
+                         │ PASS
+    ┌──────────────────────────────────────────────────┐
+    │ GATE 4: NUMBER VALID                             │
+    │ Check SMS Deliverable flag in Airtable           │
+    │   True and validated < 90 days? → Continue       │
+    │   False or expired? → Run validate_number()      │
+    │     Valid → Update flag, continue                │
+    │     Invalid → BLOCK. Flag for review.            │
+    └──────────────────────────────────────────────────┘
+                         │ PASS
+    ┌──────────────────────────────────────────────────┐
+    │ GATE 5: NOT QUIET HOURS                          │
+    │ Get current time in recipient's timezone         │
+    │   7:00 AM ≤ time < 9:00 PM? → Continue           │
+    │   Otherwise → QUEUE for 7:01 AM.                 │
+    │   (queue_for_quiet_hours() handles this)         │
+    └──────────────────────────────────────────────────┘
+                         │ PASS
+    ┌──────────────────────────────────────────────────┐
+    │ GATE 6: FREQUENCY CAP                            │
+    │ Count SMS to this recipient today (Airtable)     │
+    │   Under daily cap? → Continue                    │
+    │   Exceeded? → BLOCK or QUEUE for tomorrow.       │
+    │   Caps: Client=3/day, Prospect=1/day,            │
+    │         Customer=embedded in sequence cadence    │
+    └──────────────────────────────────────────────────┘
+                         │ PASS
+    ┌──────────────────────────────────────────────────┐
+    │ GATE 7: NOT DUPLICATE                            │
+    │ Search Airtable Messages for same purpose +      │
+    │ same recipient within last 60 seconds            │
+    │   No duplicate? → Continue                       │
+    │   Duplicate? → BLOCK. Idempotency protection.    │
+    └──────────────────────────────────────────────────┘
+                         │ PASS
+    ┌──────────────────────────────────────────────────┐
+    │ GATE 8: SMS VOICE REVIEW (7-point)               │
+    │ Run the 7-point checklist on message_body:       │
+    │   1. Fits in one segment (≤160 chars)?           │
+    │   2. Lead is the news (first 40 chars)?          │
+    │   3. No bullshit?                                │
+    │   4. No exaggerated claims?                      │
+    │   5. Reads naturally aloud?                      │
+    │   6. Passes coffee test?                         │
+    │   7. Actionable or informative?                  │
+    │   All 7 pass? → SEND                            │
+    │   Any fail? → REWRITE. Retry Gate 8.            │
+    │   2 rewrites fail? → ESCALATE to James.          │
+    └──────────────────────────────────────────────────┘
+                         │ SEND
+                    ┌────▼────┐
+                    │  SEND   │
+                    │  SMS    │
+                    └────┬────┘
+                         │
+    ┌──────────────────────────────────────────────────┐
+    │ POST-SEND: LOG TO CRM                            │
+    │ log_to_crm() with all SMS metadata               │
+    │ Update Last SMS Sent timestamp                   │
+    │ Increment SMS Message Count                      │
+    └──────────────────────────────────────────────────┘
+```
+
+### 3.4 Channel Selection Matrix
+
+When Atlas needs to send a communication, the Decision Engine routes by message type:
+
+| Message Type | Primary Channel | SMS If | Email If | Phone Task If |
+|---|---|---|---|---|
+| **Cold outreach** | Email | Never (blocked) | Always | Never |
+| **Follow-up (Email 2-4)** | Email | Never (no consent) | Always | Never |
+| **Quote reply alert** | SMS first | Consent T1+, not opted out, not quiet hours | Always (dual-send for audit trail) | Never |
+| **Quote accepted** | SMS first | Consent T1+, valid number | Always | Never |
+| **Daily summary** | SMS (end of day) | Consent T1+ | Optional (user preference) | Never |
+| **Monthly digest** | Email primary, SMS supplement | Consent T1+ | Always | Never |
+| **System alert (SL3+)** | SMS + Email | Consent T1+, all hours (override quiet hours) | Always | SL4 only |
+| **Meeting reminder** | SMS | Consent T2+ | Email backup | Never |
+| **Post-call follow-up** | SMS + Email | Consent T2+ | Always | Never |
+| **Customer follow-up** | Email primary, SMS supplement | Consent T3+ | Always | Never |
+| **Complaint received** | Never SMS | Never | Flag to James | **Always — escalate immediately** |
+| **Legal/regulatory** | Never SMS | Never | Flag to James | **Always — escalate immediately** |
+| **Opt-out confirmation** | SMS | Always (compliance) | Never | Never |
+
+### 3.5 Escalation to Phone Task
+
+The Decision Engine creates a phone task for James when:
+
+| Trigger | Rationale |
+|---|---|
+| SMS reply contains complaint or negative sentiment | Do not handle via text. Human conversation required. |
+| Client opts out of SMS | Churn risk signal. James should understand why. |
+| NFS client's customer opts out and the client has 3+ opt-outs | Pattern problem. Client may not be obtaining consent properly. |
+| SMS delivery failure rate > 10% for a single recipient | Number may be wrong. James may have an alternate contact. |
+| Two Voice Review rewrites fail | The message content needs human judgment. |
+| Any communication where Trust Test produces doubt | If Atlas isn't sure, James decides. |
+
+**Phone task format (Airtable task record):**
+
+```
+Priority: High / Medium / Low
+Subject: "SMS escalation — [trigger type]"
+Context: Linked prospect/client, last 3 messages, reason for escalation
+Recommended action: What Atlas would do if it could decide
+```
+
+---
+
+## 4. Unified Conversation Timeline
+
+### 4.1 Design Principle
+
+Every interaction with a prospect, client, or customer should appear in a single chronological timeline, regardless of channel. Email, SMS, and phone activity are different transports for the same relationship. The timeline reflects that.
+
+### 4.2 Data Source
+
+The Messages table is already the single source of truth for all communications. It already supports:
+- `Channel`: Email, SMS
+- `Direction`: Outbound, Inbound, Tradie SMS
+- Timestamps via `Sent at` / created time
+- Body content
+- Prospect linkage
+
+The unified timeline is a **view** over the Messages table, not a new data store.
+
+### 4.3 Timeline Entry Schema
+
+Every entry in the unified timeline — regardless of channel — has this structure:
+
+```json
+{
+  "timestamp": "2026-07-27T14:30:00+09:30",
+  "channel": "sms | email | phone",
+  "direction": "outbound | inbound",
+  "actor": "Atlas | James | Prospect Name | Customer Name",
+  "content_preview": "First 80 characters of body...",
+  "purpose": "Quote reply alert | Follow-up | etc.",
+  "status": "delivered | sent | failed | queued",
+  "message_id": "Airtable record ID",
+  "conversation_thread": "quote-127 | outreach-sequence-abc | general"
+}
+```
+
+### 4.4 Timeline Rendering (Example)
+
+```
+UNIFIED CONVERSATION TIMELINE — Travis Krieg Painting
+═══════════════════════════════════════════════════════
+
+Jul 27, 14:30  📱 SMS OUT  Atlas
+  "Quote #127 (Bathroom Reno) — Sarah just replied..."
+  Status: Delivered ✓
+
+Jul 27, 14:30  ✉️ EMAIL OUT  Atlas
+  Subject: "Sarah replied to Quote #127 — Bathroom Reno"
+  Status: Sent ✓
+
+Jul 27, 14:28  ✉️ EMAIL IN  Sarah (Customer)
+  Subject: "Re: Quote #127 — Bathroom Reno"
+  "Hi Michael, yes I'd like to go ahead with the..."
+  AI Category: READY_TO_PROCEED
+
+Jul 27, 09:15  📱 SMS OUT  Atlas
+  "Today: 14 follow-ups sent, 8 quotes active..."
+  Status: Delivered ✓
+
+Jul 24, 10:00  ✉️ EMAIL OUT  Atlas
+  Subject: "Following up on your bathroom reno quote"
+  Status: Delivered ✓
+  Open: Jul 24, 10:03
+
+Jul 22, 16:45  ✉️ EMAIL OUT  Atlas
+  Subject: "A question about your bathroom reno"
+  Status: Sent ✓
+
+Jul 20, 11:00  ✉️ EMAIL OUT  Atlas
+  Subject: "Your bathroom renovation quote from Michael"
+  Status: Sent ✓
+
+Jul 20, 10:55  📞 PHONE  James
+  "Called Michael — discussed quote tracking setup"
+  Duration: 12 min
+  Notes: Client keen to start. Set up tomorrow.
+
+Jul 18, 15:00  ✉️ EMAIL IN  Michael (Client)
+  Subject: "Re: Not Forgotten — quote follow-up"
+  "Sounds interesting — can we chat Thursday?"
+```
+
+### 4.5 Implementation Approach
+
+The unified timeline is a **query pattern**, not a new table:
+
+1. Query Messages table with `filterByFormula={Prospect}='recXXX'`
+2. Sort by `Sent at` descending
+3. Augment phone entries from a Phone Call Log (simple table: date, duration, notes, linked prospect)
+4. Render with channel-specific icons and formatting
+
+**Phone Call Log table (new, minimal):**
+
+| Field | Type | Purpose |
+|---|---|---|
+| `Prospect` | Link to Prospects | Who was called |
+| `Call Date` | DateTime | When call occurred |
+| `Direction` | Single select | Outbound, Inbound |
+| `Duration` | Number | Minutes |
+| `Notes` | Long text | James's call notes |
+| `Outcome` | Single select | Connected, Voicemail, No answer, Callback requested |
+
+This table is lightweight. It exists solely to make phone activity visible in the unified timeline. No complex workflow — just a log.
+
+### 4.6 Conversation Threading
+
+Threads group related messages together. A thread is defined by a shared context, not a technical session:
+
+| Thread Type | How Messages Are Grouped |
+|---|---|
+| **Quote thread** | All messages linked to a specific Quote record (via Messages → Quotes link) |
+| **Outreach thread** | All messages in a single Outreach Sequence for a prospect |
+| **Support thread** | All messages about a specific issue (manual grouping) |
+| **Onboarding thread** | All messages during client onboarding |
+
+Threads are implemented via the existing `Messages` → `Quotes` link field, and the `Outreach Sequence` field on Prospects. No new fields are required for threading — the existing linkages already define the groupings.
+
+---
+
+## 5. SMS Template Library
+
+### 5.1 Template Structure
+
+Every template has:
+- **ID:** Unique identifier
+- **Category:** Client notification / Meeting reminder / Customer service / Post-engagement
+- **Purpose:** Canonical purpose value (matches Airtable Message purpose)
+- **Consent tier required:** Minimum tier to send
+- **Template body:** The fixed text with `{variables}`
+- **Expected segment count:** Always 1 (≤160 chars)
+- **Quiet hours behaviour:** Send / Queue / Override
+- **Notes:** When to use, when not to use
+
+### 5.2 Category 1: Client Notifications (T1 Consent)
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│ ID: SMS-CLIENT-001                                                  │
+│ Category: Client Notifications                                     │
+│ Purpose: Quote reply alert                                          │
+│ Consent: T1 minimum                                                 │
+│ Segments: 1                                                         │
+│ Quiet hours: Send (time-sensitive)                                  │
+├─────────────────────────────────────────────────────────────────────┤
+│ Quote #{quote_id} ({quote_scope}) — {customer_name} just replied.   │
+│ They want to proceed. Details in your inbox.                        │
+│                                                                     │
+│ [96 chars]                                                          │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ ID: SMS-CLIENT-002                                                  │
+│ Category: Client Notifications                                     │
+│ Purpose: Quote accepted notification                                │
+│ Consent: T1 minimum                                                 │
+│ Segments: 1                                                         │
+│ Quiet hours: Queue (not urgent enough to wake someone)              │
+├─────────────────────────────────────────────────────────────────────┤
+│ {customer_name} accepted Quote #{quote_id} — {quote_scope}.         │
+│ {quote_value}. Nice one.                                            │
+│                                                                     │
+│ [77 chars + variables]                                              │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ ID: SMS-CLIENT-003                                                  │
+│ Category: Client Notifications                                     │
+│ Purpose: Daily follow-up summary                                    │
+│ Consent: T1 minimum                                                 │
+│ Segments: 1                                                         │
+│ Quiet hours: Queue (scheduled for end of day, may hit quiet hours)  │
+├─────────────────────────────────────────────────────────────────────┤
+│ Today: {follow_ups_sent} follow-ups, {quotes_active} active,        │
+│ {new_replies} new {reply_word}. {cold_count} gone cold.             │
+│                                                                     │
+│ [~90 chars + variables]                                             │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ ID: SMS-CLIENT-004                                                  │
+│ Category: Client Notifications                                     │
+│ Purpose: Quote cold warning                                         │
+│ Consent: T1 minimum                                                 │
+│ Segments: 1                                                         │
+│ Quiet hours: Queue                                                  │
+├─────────────────────────────────────────────────────────────────────┤
+│ Quote #{quote_id} ({quote_scope}, {quote_value}) — {days} days      │
+│ no reply. Want me to try a different approach?                      │
+│                                                                     │
+│ [~100 chars + variables]                                            │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ ID: SMS-CLIENT-005                                                  │
+│ Category: Client Notifications                                     │
+│ Purpose: Monthly performance digest                                 │
+│ Consent: T1 minimum                                                 │
+│ Segments: 1 (headline) — full report goes to email                  │
+│ Quiet hours: Queue                                                  │
+├─────────────────────────────────────────────────────────────────────┤
+│ {month}: {quotes_tracked} quotes, {accepted} accepted,              │
+│ {revenue_recovered} recovered. Full report in your inbox.           │
+│                                                                     │
+│ [~100 chars + variables]                                            │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ ID: SMS-CLIENT-006                                                  │
+│ Category: Client Notifications                                     │
+│ Purpose: System issue alert                                         │
+│ Consent: T1 minimum                                                 │
+│ Segments: 1                                                         │
+│ Quiet hours: Send (override — operational issue)                    │
+├─────────────────────────────────────────────────────────────────────┤
+│ Atlas hit a brief snag — {impact}. Back on track.                   │
+│ Nothing to worry about.                                             │
+│                                                                     │
+│ [~80 chars + variables]                                             │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### 5.3 Category 2: Meeting Reminders (T2 Consent)
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│ ID: SMS-MEETING-001                                                 │
+│ Category: Meeting Reminders                                         │
+│ Purpose: Meeting reminder                                           │
+│ Consent: T2 minimum                                                 │
+│ Segments: 1                                                         │
+│ Quiet hours: Queue                                                  │
+├─────────────────────────────────────────────────────────────────────┤
+│ Quick reminder — call with James at {time} today. {duration} min.   │
+│ No prep needed.                                                     │
+│                                                                     │
+│ [~85 chars + variables]                                             │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ ID: SMS-MEETING-002                                                 │
+│ Category: Meeting Reminders                                         │
+│ Purpose: Post-call follow-up                                        │
+│ Consent: T2 minimum                                                 │
+│ Segments: 1                                                         │
+│ Quiet hours: Queue                                                  │
+├─────────────────────────────────────────────────────────────────────┤
+│ Great chat today. James sent the details to your inbox.             │
+│ Reply here anytime if you've got questions.                         │
+│                                                                     │
+│ [98 chars]                                                          │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ ID: SMS-MEETING-003                                                 │
+│ Category: Meeting Reminders                                         │
+│ Purpose: Onboarding kickoff                                         │
+│ Consent: T2 minimum                                                 │
+│ Segments: 1                                                         │
+│ Quiet hours: Queue                                                  │
+├─────────────────────────────────────────────────────────────────────┤
+│ Welcome aboard. Quote tracking goes live today.                     │
+│ Setup instructions in your inbox — takes 2 minutes.                 │
+│                                                                     │
+│ [98 chars]                                                          │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### 5.4 Category 3: Customer Service (T3 Consent)
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│ ID: SMS-CUSTOMER-001                                                │
+│ Category: Customer Service                                          │
+│ Purpose: Customer follow-up (gentle)                                │
+│ Consent: T3 minimum (delegated from NFS client)                     │
+│ Segments: 1                                                         │
+│ Quiet hours: Queue                                                  │
+├─────────────────────────────────────────────────────────────────────┤
+│ Hi {customer_name} — just checking you received {client_name}'s     │
+│ quote for the {job_scope}. Any questions, just reply.               │
+│                                                                     │
+│ [~110 chars + variables]                                            │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ ID: SMS-CUSTOMER-002                                                │
+│ Category: Customer Service                                          │
+│ Purpose: Customer follow-up (final)                                 │
+│ Consent: T3 minimum (delegated from NFS client)                     │
+│ Segments: 1                                                         │
+│ Quiet hours: Queue                                                  │
+├─────────────────────────────────────────────────────────────────────┤
+│ Hi {customer_name} — closing the loop on {client_name}'s            │
+│ {job_scope} quote. No pressure, the offer's open.                   │
+│                                                                     │
+│ [~110 chars + variables]                                            │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ ID: SMS-CUSTOMER-003                                                │
+│ Category: Customer Service                                          │
+│ Purpose: Opt-out confirmation                                       │
+│ Consent: T0 (sent regardless — compliance message)                  │
+│ Segments: 1                                                         │
+│ Quiet hours: Send immediately                                       │
+├─────────────────────────────────────────────────────────────────────┤
+│ You've been removed from SMS updates. Email communication           │
+│ will continue. Reply HELP for more info.                            │
+│                                                                     │
+│ [99 chars]                                                          │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### 5.5 Category 4: Post-Engagement Follow-Up (T2 Consent)
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│ ID: SMS-POSTENG-001                                                 │
+│ Category: Post-Engagement                                           │
+│ Purpose: Onboarding kickoff (used as Post-call follow-up)           │
+│ Consent: T2 minimum                                                 │
+│ Segments: 1                                                         │
+│ Quiet hours: Queue                                                  │
+├─────────────────────────────────────────────────────────────────────┤
+│ Use SMS-MEETING-002 (post-call) or SMS-MEETING-003 (onboarding).    │
+│ These templates serve both meeting reminder and post-engagement     │
+│ categories — the consent tier and context determine the usage.      │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### 5.6 Template Variable Reference
+
+| Variable | Source | Example |
+|---|---|---|
+| `{quote_id}` | Quotes table → Quote ID | "127" |
+| `{quote_scope}` | Quotes table → Scope Summary Text (truncated) | "Bathroom Reno" |
+| `{quote_value}` | Quotes table → Quote value | "$4,200" |
+| `{customer_name}` | Quotes table → Customer first name | "Sarah" |
+| `{client_name}` | Clients table → Business name | "Michael's Painting" |
+| `{job_scope}` | Quotes table → Scope Summary Text (short) | "bathroom reno" |
+| `{days}` | Calculated: days since quote sent | "7" |
+| `{follow_ups_sent}` | Daily counter | "14" |
+| `{quotes_active}` | Count of active quotes | "8" |
+| `{new_replies}` | Count of replies today | "1" |
+| `{reply_word}` | "reply" or "replies" (grammar) | "reply" |
+| `{cold_count}` | Count of quotes past threshold | "0" |
+| `{month}` | Current month name | "July" |
+| `{quotes_tracked}` | Monthly count | "43" |
+| `{accepted}` | Monthly accepted count | "11" |
+| `{revenue_recovered}` | Monthly recovered value | "$47,200" |
+| `{time}` | Meeting time | "2pm" |
+| `{duration}` | Meeting duration in minutes | "15" |
+| `{impact}` | System issue description | "3 follow-ups delayed ~20 min" |
+| `{days}` | Days since last contact | "7" |
+
+### 5.7 Template Usage Rules
+
+1. **Never modify a template's core structure without James approval.** Variables can be populated. Wording is fixed until evidence supports a change.
+2. **Always run SMS Voice Review on the populated template**, not just the template skeleton.
+3. **Track template performance.** Tag each SMS in Airtable with the template ID. Measure: delivery rate, reply rate, opt-out rate by template.
+4. **If a template generates > 1% opt-out rate**, pause it and escalate to James.
+5. **Templates are living.** The Campaign Review framework applies: after each month, review template performance and recommend changes.
+
+---
+
+## 6. Integration Readiness Checklist
+
+### 6.1 Pre-Implementation Gates (Complete Before Any Code)
+
+| # | Gate | Status | Notes |
+|---|---|---|---|
+| 1 | James approves Airtable schema recommendations | ⬜ Pending | Section 2 of this report |
+| 2 | James approves SMS Service interface design | ⬜ Pending | Section 1 of this report |
+| 3 | James approves Decision Engine design | ⬜ Pending | Section 3 of this report |
+| 4 | James approves SMS template library | ⬜ Pending | Section 5 of this report |
+| 5 | Trust Test fired on SMS implementation plan | ⬜ Pending | Use trust-framework skill |
+| 6 | Trust Decision recorded in knowledge/trust/decisions/ | ⬜ Pending | TD-2026-07-27-SMS-001 |
+| 7 | Privacy Register updated with SMS data flows | ⬜ Pending | See Section 7.3 of SMS Communication Framework |
+| 8 | Data Flow Map updated with SMS paths | ⬜ Pending | Atlas → SMS Service → Twilio → Carrier |
+
+### 6.2 Twilio Account Setup
+
+| # | Task | Status | Notes |
+|---|---|---|---|
+| 1 | Identity verification approved by Twilio | ⬜ Pending | Already submitted |
+| 2 | Provision Australian mobile number | ⬜ Pending | From Twilio console |
+| 3 | Record TWILIO_PHONE_NUMBER in .env | ⬜ Pending | E.164 format: +614XXXXXXXX |
+| 4 | Generate TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN | ⬜ Pending | From Twilio console → API keys |
+| 5 | Store credentials in .env with 600 permissions | ⬜ Pending | NEVER in code, logs, or chat |
+| 6 | Set Twilio spending limit / budget alert | ⬜ Pending | ~$50/mo cap initially |
+| 7 | Test credentials with Twilio API health check | ⬜ Pending | Simple GET to verify auth works |
+
+### 6.3 Webhooks
+
+| # | Task | Status | Notes |
+|---|---|---|---|
+| 1 | Set up incoming SMS webhook endpoint | ⬜ Pending | Twilio console → Phone Number → Messaging → Webhook |
+| 2 | Webhook URL: `https://[atlas-endpoint]/sms/incoming` | ⬜ Pending | Needs publicly accessible HTTPS endpoint |
+| 3 | Configure webhook authentication | ⬜ Pending | Twilio request validation (X-Twilio-Signature header) |
+| 4 | Set up delivery status callback webhook | ⬜ Pending | Separate endpoint: `/sms/status-callback` |
+| 5 | Test webhook with Twilio Dev Tools or curl simulation | ⬜ Pending | Before live traffic |
+| 6 | Document webhook payload schema | ⬜ Pending | What fields Twilio sends, which we use |
+
+### 6.4 Airtable Schema Changes
+
+| # | Task | Status | Notes |
+|---|---|---|---|
+| 1 | Add 12 fields to Prospects table | ⬜ Pending | Per Section 2.2 recommendations |
+| 2 | Add 6 fields to Messages table | ⬜ Pending | Per Section 2.3 recommendations |
+| 3 | Create SMS Consent Log table | ⬜ Pending | Per Section 2.4 |
+| 4 | Create Phone Call Log table | ⬜ Pending | Per Section 4.5 |
+| 5 | Populate SMS Consent Tier for existing clients | ⬜ Pending | Manual review: all active clients get T1 |
+| 6 | Validate all existing Mobile numbers in Prospects | ⬜ Pending | Run validate_number() on every populated Mobile field |
+| 7 | Backfill SMS Consent Log for existing consent states | ⬜ Pending | One "Consent granted" event per client |
+
+### 6.5 SMS Service Implementation
+
+| # | Task | Status | Notes |
+|---|---|---|---|
+| 1 | Implement SMSService interface (abstract) | ⬜ Pending | Python module: `scripts/sms_service.py` |
+| 2 | Implement TwilioSMSService (provider) | ⬜ Pending | Extends SMSService, wraps Twilio SDK |
+| 3 | Implement send() with error handling and retry | ⬜ Pending | 3 retries with exponential backoff |
+| 4 | Implement validate_number() with caching | ⬜ Pending | Cache in Airtable, re-validate every 90 days |
+| 5 | Implement receive() webhook handler | ⬜ Pending | Parse webhook, detect STOP, route to handler |
+| 6 | Implement handle_opt_out() | ⬜ Pending | Permanent block + confirmation + client notification |
+| 7 | Implement log_to_crm() | ⬜ Pending | Write to Airtable Messages with all SMS metadata |
+| 8 | Implement queue_for_quiet_hours() | ⬜ Pending | Queue mechanism (file-based queue for Phase 1) |
+| 9 | Implement check_duplicate() | ⬜ Pending | Query Airtable Messages, 60s window |
+
+### 6.6 Decision Engine Implementation
+
+| # | Task | Status | Notes |
+|---|---|---|---|
+| 1 | Implement SMS Gate check (8 gates) | ⬜ Pending | Python module: `scripts/sms_decision_engine.py` |
+| 2 | Implement channel selection matrix | ⬜ Pending | Route by message type per Section 3.4 |
+| 3 | Implement escalation to phone task | ⬜ Pending | Create task record, notify James |
+| 4 | Wire Decision Engine into existing outreach pipeline | ⬜ Pending | Call from send-outreach.py extension point |
+| 5 | Wire Decision Engine into quote intake pipeline | ⬜ Pending | Call from quote-intake.py on new reply |
+
+### 6.7 Testing (Internal Only — James's Number)
+
+| # | Task | Status | Notes |
+|---|---|---|---|
+| 1 | Send first test SMS to James | ⬜ Pending | "Atlas SMS test — this is a system verification. Reply STOP to opt out." |
+| 2 | Verify delivery status updates in Airtable | ⬜ Pending | Check SMS Delivery Status field updates |
+| 3 | Test opt-out: James texts STOP | ⬜ Pending | Verify: opt-out flag set, confirmation sent, consent tier → T0 |
+| 4 | Test re-opt-in: James manually re-opts in | ⬜ Pending | Verify: consent tier restored, can send again |
+| 5 | Test quiet hours: trigger send at 11pm | ⬜ Pending | Verify: message queued, delivered at 7:01am |
+| 6 | Test frequency cap: attempt 4th send in one day | ⬜ Pending | Verify: 4th message blocked |
+| 7 | Test duplicate prevention: same message twice | ⬜ Pending | Verify: second send blocked |
+| 8 | Test Voice Review: send message with >160 chars | ⬜ Pending | Verify: blocked at Gate 8 |
+| 9 | Test invalid number: send to landline | ⬜ Pending | Verify: blocked at Gate 4 |
+| 10 | Test webhook: simulate incoming SMS via Twilio Dev Tools | ⬜ Pending | Verify: inbound logged, opt-out detection works |
+
+### 6.8 Logging
+
+| # | Task | Status | Notes |
+|---|---|---|---|
+| 1 | SMS send log: `logs/sms-send.log` | ⬜ Pending | Timestamp, recipient, purpose, status, message_id |
+| 2 | SMS delivery log: `logs/sms-delivery.log` | ⬜ Pending | Status callback events |
+| 3 | SMS inbound log: `logs/sms-inbound.log` | ⬜ Pending | All incoming messages (raw) |
+| 4 | SMS opt-out log: `logs/sms-opt-out.log` | ⬜ Pending | Every opt-out event with trigger word |
+| 5 | SMS error log: `logs/sms-error.log` | ⬜ Pending | API failures, delivery failures, anomalies |
+| 6 | Airtable reconciliation: all logs written to Messages too | ⬜ Pending | Dual-write: log file + Airtable |
+
+### 6.9 Error Handling
+
+| # | Scenario | Handler | Status |
+|---|---|---|---|
+| 1 | Twilio API timeout (>5s) | Retry x3 with exponential backoff (1s, 2s, 4s). Fail → log error, flag for James. | ⬜ Pending |
+| 2 | Twilio API returns 4xx (auth/bad request) | Do NOT retry. Log error. Flag for James. Credential or config issue. | ⬜ Pending |
+| 3 | Twilio API returns 5xx (server error) | Retry x3. Fail → SL2 degradation. Queue for later. | ⬜ Pending |
+| 4 | Airtable API timeout during consent check | Block the send. Do NOT default to "probably okay." Fail closed. | ⬜ Pending |
+| 5 | Airtable API timeout during logging | Log locally. Retry Airtable write on next cycle. Flag reconciliation gap. | ⬜ Pending |
+| 6 | Webhook receives malformed payload | Log raw payload. Return 400 to Twilio. Flag for investigation. | ⬜ Pending |
+| 7 | Webhook receives message from unknown number | Log as "Unknown sender." Create temporary record. Flag for James. | ⬜ Pending |
+| 8 | SMS send succeeds but Airtable log fails | Emergency: log locally. Recovery: run reconciliation script. | ⬜ Pending |
+
+### 6.10 Rollback Plan
+
+| # | Step | Notes | Status |
+|---|---|---|---|
+| 1 | Disable SMS sending at Decision Engine level | Single boolean flag: `SMS_ENABLED = False` in config. All sends blocked. | ⬜ Pending |
+| 2 | Stop Twilio webhook processing | Disable webhook endpoint or return 503. Inbound messages queued at Twilio. | ⬜ Pending |
+| 3 | Notify all clients who received SMS | Email: "SMS notifications temporarily paused. You'll still receive all updates via email." | ⬜ Pending |
+| 4 | Audit all SMS sent during incident window | Query Airtable Messages for Channel=SMS, filter by date range. | ⬜ Pending |
+| 5 | Resend any critical notifications via email | Quote reply alerts, system alerts — resend via email for the affected window. | ⬜ Pending |
+| 6 | Root cause analysis | What failed? Twilio, our code, Airtable, or network? | ⬜ Pending |
+| 7 | Restoration gate: 3 successful test SMS to James | Before re-enabling for clients. | ⬜ Pending |
+| 8 | Re-enable SMS | SMS_ENABLED = True. Webhook re-activated. | ⬜ Pending |
+
+### 6.11 Security Verification
+
+| # | Check | Status | Notes |
+|---|---|---|---|
+| 1 | TWILIO_AUTH_TOKEN only in .env (600 permissions) | ⬜ Pending | Never in code, config files, or version control |
+| 2 | TWILIO_ACCOUNT_SID only in .env (600 permissions) | ⬜ Pending | Never in code, config files, or version control |
+| 3 | Webhook endpoint uses Twilio request validation | ⬜ Pending | X-Twilio-Signature header verification |
+| 4 | Webhook endpoint rate-limited | ⬜ Pending | Prevent abuse |
+| 5 | Inbound SMS treated as untrusted input | ⬜ Pending | Never execute commands, never follow links |
+| 6 | Airtable API key not exposed to Twilio | ⬜ Pending | Twilio only sees phone numbers and message bodies |
+| 7 | No phone numbers in log files (or masked) | ⬜ Pending | Mask as +614XXXXXXX in non-essential logs |
+| 8 | SMS bodies in Airtable follow existing email body security posture | ⬜ Pending | Same access controls as email content |
+
+### 6.12 Go/No-Go Criteria
+
+| # | Criterion | Threshold |
+|---|---|---|
+| 1 | All 8 pre-implementation gates approved by James | 8/8 |
+| 2 | All internal tests pass (James's number only) | 10/10 tests |
+| 3 | Zero opt-out complaints during internal testing | 0 |
+| 4 | Airtable schema deployed and verified | All fields created and populated |
+| 5 | Webhooks configured and tested | Inbound + status callback both verified |
+| 6 | Rollback plan tested | SMS_ENABLED=False confirmed to block all sends |
+| 7 | Trust Decision recorded | TD-2026-07-27-SMS-001 in knowledge/trust/decisions/ |
+| 8 | Privacy Register and Data Flow Map updated | Both registers current |
+
+**Go decision:** James signs off on the checklist. First live SMS goes to James. Then to 1-2 beta clients.
+
+---
+
+## 7. Schema Change Summary
+
+### Quick Reference for Airtable Admin
+
+```
+PROSPECTS TABLE — 12 new fields
+════════════════════════════════════════════════════════
+  SMS Consent Tier            | Single select | T0,T1,T2,T3,T4
+  SMS Consent Source          | Single line text
+  SMS Consent Date            | Date
+  SMS Opted Out               | Checkbox
+  SMS Opt-Out Date            | Date
+  SMS Opt-Out Reason          | Single line text
+  SMS Deliverable             | Checkbox
+  SMS Last Validated          | Date
+  SMS Timezone                | Single select | 7 AU timezones
+  Preferred Communication Ch. | Single select | Email,SMS,Both
+  Last SMS Sent               | DateTime
+  SMS Message Count           | Number
+
+MESSAGES TABLE — 6 new fields
+════════════════════════════════════════════════════════
+  SMS Segment Count           | Number
+  SMS Delivery Status         | Single select | Queued,Sent,Delivered,Failed,Undelivered
+  SMS Message SID             | Single line text
+  SMS Opt-Out Triggered       | Checkbox
+  Quiet Hours Queued          | Checkbox
+  SMS Delivery Error          | Single line text
+
+NEW TABLE: SMS Consent Log — 8 fields
+════════════════════════════════════════════════════════
+  Prospect                    | Link to Prospects
+  Client                      | Link to Clients
+  Event Type                  | Single select | 7 event types
+  Tier Before                 | Single select | T0-T4
+  Tier After                  | Single select | T0-T4
+  Event Source                | Single line text
+  Timestamp                   | DateTime
+  Notes                       | Long text
+
+NEW TABLE: Phone Call Log — 6 fields
+════════════════════════════════════════════════════════
+  Prospect                    | Link to Prospects
+  Call Date                   | DateTime
+  Direction                   | Single select | Outbound,Inbound
+  Duration                    | Number (minutes)
+  Notes                       | Long text
+  Outcome                     | Single select | Connected,Voicemail,No answer,Callback req.
+```
+
+---
+
+## Appendix A: Files Produced
+
+| File | Purpose |
+|---|---|
+| `knowledge/sms-communication-framework.md` | Strategic framework (pre-existing — this report references it) |
+| `knowledge/sms-integration-readiness-report.md` | This report |
+| `knowledge/decisions/2026-07-27-sms-strategic-capability-design.md` | Decision record |
+| `knowledge/decisions/INDEX.md` | Updated with new decision |
+
+---
+
+## Appendix B: What Was NOT Done
+
+- No code was written
+- No Airtable schema changes were made
+- No Twilio account was connected
+- No webhooks were configured
+- No credentials were provisioned
+- No SMS templates were deployed
+
+---
+
+## Appendix C: When Approval Arrives
+
+When the Twilio number is active:
+
+1. Complete the Integration Readiness Checklist (Section 6)
+2. Implement the SMS Service interface (Section 1)
+3. Deploy Airtable schema changes (Section 2)
+4. Wire up the Decision Engine (Section 3)
+5. Run internal tests on James's number only
+6. Go/No-Go decision from James
+7. Beta with 1-2 clients
+8. Full rollout
+
+The objective has been met: implementation is now a controlled engineering task, not a design exercise.
+
+---
+
+*This report was prepared during the Twilio identity verification architecture window. No implementation was performed. All designs are subject to James's review and approval before any code is written.*
+
+*Governed by the SMS Communication Framework (`knowledge/sms-communication-framework.md`), the Six Principles (SOUL.md), and the Trust Test.*

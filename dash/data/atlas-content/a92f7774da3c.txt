@@ -1,0 +1,80 @@
+# Decision: Recipient Validation Safeguard v1.0
+
+**Date:** 2026-07-27
+**Status:** Made
+**Category:** Engineering / Trust
+**Version:** 1.0 — Complete
+
+## Context
+
+Email 2 intended for Tas Moulis (`tas@qpaint.com.au`) was sent to `tas@tradiematepro.com.au` — a phantom prospect with no Airtable record. Root cause: Prospect identity was determined by email address lookup, not by Prospect ID.
+
+## Decision
+
+Implemented a two-layer recipient validation safeguard in the outbound pipeline:
+
+### Layer 1: Prospect ID as primary identifier
+
+The Prospect ID is now the primary identifier throughout the pipeline. Email is treated as an attribute, not the identity.
+
+**`validate_recipient()` operates in two modes:**
+1. **Prospect ID provided (primary):** Fetch record by ID → get canonical email → verify any provided email matches → send to canonical email
+2. **Email only (legacy):** Look up by email → check ambiguity → verify exact match
+
+**`send-outreach.py` changes:**
+- Added `--prospect-id` argument
+- `process_single()` accepts `prospect_id` parameter
+- Gmail send uses canonical email from Airtable record (not provided email)
+- Batch JSON supports `prospect_id` field (email becomes optional)
+- Prospect ID shown in all output: pre-flight, success report, recovery package
+
+### Layer 2: Ambiguity detection
+
+For short local-parts (≤8 chars like `tas@`, `info@`, `admin@`), searches Airtable for other prospects with the same prefix on the same domain. Two+ matches → blocked with exit code 6.
+
+### Audit trail
+
+Every validation logged to `logs/send-validation.log`:
+```
+timestamp | email | prospect_id | business_name | result | detail
+```
+
+### Exit codes
+
+| Code | Meaning |
+|---|---|
+| 0 | Full reconciliation |
+| 1 | Prospect not found |
+| 2 | Airtable API error |
+| 3 | Duplicate send prevented |
+| 4 | Gmail send failed |
+| 5 | Partial reconciliation |
+| 6 | Ambiguous recipient |
+
+## Testing
+
+| Mode | Result |
+|---|---|
+| Prospect ID only | ✓ Fetches record, uses canonical email |
+| Prospect ID + matching email | ✓ Verifies match, sends to canonical email |
+| Prospect ID + wrong email | ✓ Rejected with mismatch detail |
+| Email only (legacy) | ✓ Backward compatible |
+| Phantom email | ✓ Blocked (not in Airtable) |
+| Ambiguous email prefix | ✓ Blocked with exit code 6 |
+
+## How it prevents the Tas Moulis class of bugs
+
+**Then:** `tas@tradiematepro.com.au` → passed to Gmail → sent to wrong person
+**Now:** `tas@tradiematepro.com.au` → `find_prospect` returns None → blocked exit 1
+
+**Then:** Email was the identity. Two similar emails = two similar identities.
+**Now:** Prospect ID is the identity. Email is validated as an attribute. Even if someone fat-fingers the email in a batch JSON, the Prospect ID guards it.
+
+## Affected Files
+
+- `scripts/crm-update-send.py` — added `fetch_prospect_by_id()`, upgraded `validate_recipient()` for dual-mode
+- `scripts/send-outreach.py` — added `--prospect-id`, `log_send_validation()`, canonical email flow, exit code 6, batch `prospect_id` support
+
+## Review Date
+
+2026-08-27

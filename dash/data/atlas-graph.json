@@ -147,6 +147,17 @@
       "color": "#d4951f"
     },
     {
+      "id": "integrations_readme",
+      "label": "Integrations / Readme",
+      "file_type": "doc",
+      "source_file": "integrations/README.md",
+      "community": 3,
+      "community_name": "Integrations",
+      "content_hash": "e641d6bf2207",
+      "val": 6.0,
+      "color": "#60a5fa"
+    },
+    {
       "id": "integrations_email",
       "label": "Email",
       "file_type": "doc",
@@ -235,6 +246,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_campaign_reviews_painter_campaigns_july_2026",
+      "label": "Painter Campaigns July 2026",
+      "file_type": "doc",
+      "source_file": "knowledge/campaign-reviews/painter-campaigns-july-2026.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "ab1a834342b7",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_campaign_reviews_wave_1_july_2026",
       "label": "Wave 1 July 2026",
       "file_type": "doc",
@@ -242,6 +264,17 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "0d1cede58b19",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_client_probability_score_model",
+      "label": "Client Probability Score Model",
+      "file_type": "doc",
+      "source_file": "knowledge/client-probability-score-model.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "614ec80762b3",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -389,8 +422,19 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_experiments_index",
+      "label": "Experiments / Index",
+      "file_type": "doc",
+      "source_file": "knowledge/experiments/INDEX.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "a923789565c2",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_experiments_context_vs_curiosity_readme",
-      "label": "Readme",
+      "label": "Context Vs Curiosity / Readme",
       "file_type": "doc",
       "source_file": "knowledge/experiments/context-vs-curiosity/README.md",
       "community": 4,
@@ -407,7 +451,18 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "15b31ee3cee2",
-      "val": 4,
+      "val": 8.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_experiments_context_vs_curiosity_taxonomy",
+      "label": "Taxonomy",
+      "file_type": "doc",
+      "source_file": "knowledge/experiments/context-vs-curiosity/taxonomy.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "637f8a0751ca",
+      "val": 8.0,
       "color": "#a78bfa"
     },
     {
@@ -444,6 +499,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_governance_reviews_2026_08",
+      "label": "2026 08",
+      "file_type": "doc",
+      "source_file": "knowledge/governance-reviews/2026-08.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "62f421c22c76",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_interviews_james_hardstaff_2026_06_27",
       "label": "Interviews / James Hardstaff",
       "file_type": "doc",
@@ -452,6 +518,17 @@
       "community_name": "Knowledge",
       "content_hash": "de42a761e128",
       "val": 8.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_legal_collection_notices",
+      "label": "Collection Notices",
+      "file_type": "doc",
+      "source_file": "knowledge/legal/collection-notices.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "fcb1c15577d6",
+      "val": 6.0,
       "color": "#a78bfa"
     },
     {
@@ -473,6 +550,28 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "5a5a550ad692",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_legal_publication_readiness_package",
+      "label": "Publication Readiness Package",
+      "file_type": "doc",
+      "source_file": "knowledge/legal/publication-readiness-package.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "27bd87bd4279",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_legal_subprocessor_register",
+      "label": "Subprocessor Register",
+      "file_type": "doc",
+      "source_file": "knowledge/legal/subprocessor-register.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "0e60ae9d40bd",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -598,6 +697,39 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_sms_communication_framework",
+      "label": "Sms Communication Framework",
+      "file_type": "doc",
+      "source_file": "knowledge/sms-communication-framework.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "92c80a2765e2",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_sms_integration_readiness_report",
+      "label": "Sms Integration Readiness Report",
+      "file_type": "doc",
+      "source_file": "knowledge/sms-integration-readiness-report.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "3a8d132dc178",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_sms_phase_1_validation_plan",
+      "label": "Sms Phase 1 Validation Plan",
+      "file_type": "doc",
+      "source_file": "knowledge/sms-phase-1-validation-plan.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "3ec4e9f24b1c",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_sop_quotes_inbox",
       "label": "SOP Quotes Inbox",
       "file_type": "doc",
@@ -627,6 +759,39 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "148be5401bfa",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_tracking_verification_checklist",
+      "label": "Tracking Verification Checklist",
+      "file_type": "doc",
+      "source_file": "knowledge/tracking-verification-checklist.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "02436e422eb4",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_trust_credential_rotation_guide",
+      "label": "Credential Rotation Guide",
+      "file_type": "doc",
+      "source_file": "knowledge/trust/credential-rotation-guide.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "cd37b7d33a4d",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_trust_customer_privacy_notice",
+      "label": "Customer Privacy Notice",
+      "file_type": "doc",
+      "source_file": "knowledge/trust/customer-privacy-notice.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "78e7a2cd7773",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -889,6 +1054,13 @@
     },
     {
       "source": "agent_registry",
+      "target": "knowledge_tracking_verification_checklist",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
       "target": "knowledge_business",
       "relation": "wikilink",
       "weight": 1.0,
@@ -980,7 +1152,28 @@
     },
     {
       "source": "agent_registry",
+      "target": "knowledge_trust_customer_privacy_notice",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_trust_credential_rotation_guide",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
       "target": "knowledge_governance_review_framework",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_governance_reviews_2026_08",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
@@ -1071,6 +1264,27 @@
     },
     {
       "source": "agent_registry",
+      "target": "knowledge_legal_collection_notices",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_legal_subprocessor_register",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_legal_publication_readiness_package",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
       "target": "knowledge_business_intelligence_architecture",
       "relation": "wikilink",
       "weight": 1.0,
@@ -1134,7 +1348,63 @@
     },
     {
       "source": "agent_registry",
+      "target": "knowledge_campaign_reviews_painter_campaigns_july_2026",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
       "target": "knowledge_experiments_context_vs_curiosity_readme",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_experiments_context_vs_curiosity_hypothesis_backlog",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_experiments_context_vs_curiosity_taxonomy",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_experiments_index",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_client_probability_score_model",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_sms_communication_framework",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_sms_integration_readiness_report",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_sms_phase_1_validation_plan",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
@@ -1436,6 +1706,27 @@
     {
       "source": "knowledge_decisions_2026_07_24_provider_failover_gemini_fallback",
       "target": "knowledge_service_levels",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_experiments_index",
+      "target": "integrations_readme",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_experiments_index",
+      "target": "knowledge_experiments_context_vs_curiosity_hypothesis_backlog",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_experiments_index",
+      "target": "knowledge_experiments_context_vs_curiosity_taxonomy",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

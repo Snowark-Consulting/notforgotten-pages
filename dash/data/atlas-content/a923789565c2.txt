@@ -24,7 +24,11 @@ tier: internal
 | ID | What Changed | Hypothesis | Released | Review Date | Status |
 |---|---|---|---|---|---|
 | EXP-001 | End-to-End Attribution | UTM tagging will reveal which channels drive enquiries and clients | 2026-07-25 | 2026-08-25 | running |
-|---|---|---|---|---|---|---|
+| CvC | Context vs Curiosity | Adding a woven context sentence changes meaningful reply rate | 2026-07-14 | 2026-08-06 | running |
+
+See [[Context vs Curiosity Experiment]] (context-vs-curiosity/README.md) for full design, [[CvC Hypothesis Backlog]] (context-vs-curiosity/hypothesis-backlog.md) for candidate hypotheses, and [[CvC Reply Taxonomy]] (context-vs-curiosity/taxonomy.md) for reply classification.
+
+## Completed Experiments
 
 | ID | What Changed | Expected | Actual | Learning |
 |---|---|---|---|---|

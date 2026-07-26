@@ -1,0 +1,94 @@
+# Decision: SMS as Strategic Platform Capability (Design Only)
+
+**Slug:** `2026-07-27-sms-strategic-capability-design`
+**Date:** 2026-07-27
+**Status:** Made
+**Review Date:** 2026-10-27
+
+---
+
+## The Decision
+
+SMS is prohibited as a cold outreach channel. It is designed as a strategic platform capability for existing client notifications, post-engagement communication, and customer follow-up where consent exists. The SMS Communication Framework governs all future SMS implementation. No code is built until the framework is approved and the Trust Test gates are passed at implementation time.
+
+---
+
+## The Problem
+
+James asked whether adding SMS to cold outreach would improve closing ratios. The answer was no — cold SMS fails the Trust Test and our evidence shows the constraint is message content, not channel. However, SMS has legitimate strategic value within a consent-based model: real-time quote alerts for clients, post-engagement follow-up, and supplementing email follow-up for end customers. This decision separates the bad idea (cold SMS) from the good one (SMS as a product feature) and produces a comprehensive design framework.
+
+---
+
+## Options Considered
+
+| # | Option | Summary |
+|---|---|---|
+| A | Add SMS to cold outreach now | Add text messages to the existing cold outreach sequence. Rejected: fails Trust Test, no consent model, legally risky under Spam Act. |
+| B | No SMS, ever | Close the door entirely. Rejected: leaves value on the table for existing clients and consented communication. |
+| C | Design SMS as a strategic capability with consent model | Cold outreach prohibited. SMS reserved for consented relationships: clients, post-engagement prospects, and end customers under delegated consent. Framework designed first, built later. |
+
+---
+
+## Why This Path
+
+Option C separates the channel from the use case. SMS is not inherently good or bad — it's the consent context that determines whether it builds or erodes trust. By designing the framework before building anything, we preserve optionality while enforcing the principle that cold outreach is a line we don't cross. The framework also positions SMS as a product feature (communication OS for service businesses) rather than a marketing tactic, which aligns with the long-term vision.
+
+---
+
+## Core Principles Applied
+
+- **Trust before growth** (SOUL.md, Principle 1): Cold SMS rejected because it prioritises growth over trust.
+- **Evidence before opinion** (SOUL.md, Principle 2): Current evidence shows message content is the constraint, not channel. SMS adds a variable we haven't earned the right to test.
+- **Privacy by design** (SOUL.md, Principle 4): Consent tier model ensures SMS is only used where privacy expectations are met.
+- **Security before convenience** (SOUL.md, Principle 3): Framework includes credential management, webhook authentication, and inbound input sanitisation.
+
+---
+
+## Risks Identified
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| Framework approved but implementation drifts toward cold use | Low | High | Decision explicitly prohibits cold SMS. Any change requires a new decision with Trust Test re-assessment. |
+| Client pushes for aggressive SMS follow-up to their customers | Medium | Medium | Consent model is non-negotiable. Atlas pushes back if client wants to bypass it. |
+| Twilio outage causes missed notifications | Medium | Low | SL2 degradation. Messages queue. Email fallback for urgent alerts. |
+| SMS cost grows unexpectedly | Low | Low | Monthly budget threshold. Cost monitoring. Escalation to James above threshold. |
+
+---
+
+## Expected Outcome
+
+SMS becomes a high-trust, high-value product feature that existing clients rely on for real-time quote intelligence. It does not become a growth channel. When a client receives "Quote #127 accepted — $4,200", they feel the product working for them in real time. That's the win.
+
+---
+
+## Success Criteria
+
+- [ ] SMS Communication Framework is reviewed and approved by James
+- [ ] Framework becomes a permanent design document in `knowledge/`
+- [ ] Trust Decision recorded in `knowledge/trust/decisions/`
+- [ ] No SMS is sent to any recipient who has not passed the consent model
+- [ ] Implementation (when it happens) passes all four Trust Gates before go-live
+- [ ] First 3 months of SMS usage: zero opt-out complaints, zero Spam Act issues
+
+---
+
+## Atlas's Challenge (Pre-Decision)
+
+Atlas challenged the premise of SMS as cold outreach, identifying Trust Test failures on questions 1, 2, 3, and 5. The alternative proposed: design SMS as a consented platform capability with cold outreach explicitly prohibited.
+
+**James's response:** Accepted. James agreed with the assessment and expanded the scope from a simple yes/no to a comprehensive strategic design. "Not Forgotten wins by becoming the communication operating system for service businesses — not by adding more communication channels for the sake of it."
+
+---
+
+## Actual Outcome (Post-Review)
+
+**Date reviewed:** Pending (2026-10-27)
+
+---
+
+## Related Decisions
+
+- `2026-07-07-communication-voice-standard` — Voice standard that SMS framework extends
+- `2026-07-24-stage-1-approved-learning-phase` — Stage 1 client care function
+- `founding-no-pitch-in-first-email` — No pitch in cold email (same philosophy, different channel)
+- `founding-tiered-trust-automation` — Tiered trust model that the SMS consent tiers mirror

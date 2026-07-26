@@ -39,6 +39,7 @@ Three hops max: Registry → Domain Index → Detail Card → Source.
 - [[Pulse Bootstrap]] (Agent/pulse-bootstrap.md) — inbox pulse boot sequence: what to load when unread mail is found
 
 - [[Voice Review Checklist]] (knowledge/voice-review-checklist.md) — MANDATORY 8-point gate. Every customer-facing email runs this before presentation to James. Decision: 2026-07-07-communication-voice-standard.
+- [[Tracking Verification Checklist]] (knowledge/tracking-verification-checklist.md) — MANDATORY pre-launch gate. GA4, Clarity, tracking pixel, test open, landing page events. No campaign launches without full pass. Established 2026-07-27.
 
 ## Knowledge (domain indexes — follow the pointers)
 
@@ -57,7 +58,10 @@ Three hops max: Registry → Domain Index → Detail Card → Source.
 - [[Privacy Register]] (knowledge/trust/privacy-register.md) — Full inventory of all data collected, processed, stored. Updated before every feature launch.
 - [[Data Flow Map]] (knowledge/trust/data-flow-map.md) — How information moves through the business. Updated when integrations change.
 - [[Decision Register]] (knowledge/trust/decision-register.md) — Governance decisions tracked with rationale and review dates.
+- [[Customer Privacy Notice]] (knowledge/trust/customer-privacy-notice.md) — Standard privacy notice for Not Forgotten clients. Operational onboarding process.
+- [[Credential Rotation Guide]] (knowledge/trust/credential-rotation-guide.md) — Rotation schedule and procedures for all system credentials.
 - [[Governance Review Framework]] (knowledge/governance-review-framework.md) — Monthly proactive review of entire Trust OS. First Monday. First review: August 2026.
+- [[Governance Review — Aug 2026]] (knowledge/governance-reviews/2026-08.md) — First monthly governance review. Baseline assessment of Trust OS.
 - [[Outreach Philosophy]] (knowledge/outreach-philosophy/INDEX.md) — permanent thinking framework for cold outreach. Principles, writing style, psychological foundations, personalisation framework, question patterns, common mistakes, rule-breaking guide. The cold-email skill is execution; this is the philosophy behind it.
 - [[Systems]] (knowledge/systems.md) — every tool, platform, API, and integration with access details
 - [[Products & Services]] (knowledge/products.md) — everything sold or provided, pricing policy, delivery
@@ -94,6 +98,9 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 - [[Security Audit 2026-07-25]] (knowledge/security-audit-2026-07-25.md) — Full-platform security, privacy, and trust audit. Scores: 41/100, 35/100, 38/100. Six critical findings. 30-day remediation plan.
 - [[Privacy Policy v1.0]] (knowledge/legal/privacy-policy-v1.0.md) — Full APP-compliant privacy policy. Four data subject categories. Publication pending 7 blockers.
 - [[Compliance Checklist]] (knowledge/legal/compliance-checklist.md) — Pre-implementation checklist for new features. Four sections: Data Collection, Storage, AI Processing, Tracking.
+- [[Collection Notices]] (knowledge/legal/collection-notices.md) — Per-audience collection notices for website, quote intake, and prospect outreach.
+- [[Subprocessor Register]] (knowledge/legal/subprocessor-register.md) — Register of third-party subprocessors handling NFS data.
+- [[Publication Readiness Package]] (knowledge/legal/publication-readiness-package.md) — Privacy policy publication checklist and blockers.
 - [[Business Intelligence Architecture]] (knowledge/business-intelligence-architecture.md) — Single intelligence layer for complete customer journey. Gets smarter with every integration.
 - [[Website Intelligence Standard]] (knowledge/website-intelligence-standard.md) — GA4 as evidence source for business decisions, not another dashboard.
 - [[UTM Naming Convention]] (knowledge/utm-naming-convention.md) — EXP-001 standard. Every external link carries UTM parameters.
@@ -116,7 +123,18 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 - [[Outreach Philosophy]] (knowledge/outreach-philosophy/INDEX.md) — 9 principles + industry quoting dynamics framework. Load before any outreach work.
 - [[Campaign Review Template]] (knowledge/campaign-review-template.md) — canonical template for formal Campaign Reviews. Copy and fill for each wave.
 - [[Campaign Reviews]] (knowledge/campaign-reviews/wave-1-july-2026.md) — Wave 1 July 2026 formal review: 10 prospects, 30 sent, 0 replies, full recommendations.
+- [[Painter Campaign Review]] (knowledge/campaign-reviews/painter-campaigns-july-2026.md) — July 2026 combined painter campaign review. Travis case study identified as conversion engine. Next-campaign experiment designed.
 - [[Context vs Curiosity Experiment]] (knowledge/experiments/context-vs-curiosity/README.md) — LIVE A/B test: 40 painters. Control vs Treatment (context sentence). Send: Jul 14. Results: Aug 6-7.
+- [[CvC Hypothesis Backlog]] (knowledge/experiments/context-vs-curiosity/hypothesis-backlog.md) — Backlog of hypotheses for CvC experiment. Record ideas, act on none during active experiment.
+- [[CvC Reply Taxonomy]] (knowledge/experiments/context-vs-curiosity/taxonomy.md) — T0-T5 reply quality classification for CvC experiment.
+- [[Experiment Register]] (knowledge/experiments/INDEX.md) — Active and completed experiments register. EXP-001 running.
+- [[Client Probability Score Model]] (knowledge/client-probability-score-model.md) — 7-dimension scoring model for ranking painter prospects by probability of becoming a Not Forgotten client. Established 2026-07-27.
+- [[CvC Hypothesis]] (knowledge/experiments/context-vs-curiosity/hypothesis.md) — CvC experiment hypothesis: context sentence increases reply rate. 
+- [[CvC Email Variants]] (knowledge/experiments/context-vs-curiosity/email-variants.md) — Control vs Treatment email copy for CvC experiment.
+- [[Tracking Verification Checklist]] (knowledge/tracking-verification-checklist.md) — MANDATORY pre-launch gate. GA4, Clarity, tracking pixel, test open, landing page events. No campaign launches without full pass. Established 2026-07-27.
+- [[SMS Communication Framework]] (knowledge/sms-communication-framework.md) — SMS as strategic platform capability. Design document. Governed by Six Principles + Trust Test.
+- [[SMS Integration Readiness]] (knowledge/sms-integration-readiness-report.md) — Interface design, schema recommendations, template library. Design frozen 2026-07-27.
+- [[SMS Phase 1 Validation]] (knowledge/sms-phase-1-validation-plan.md) — 5-scenario validation plan for Twilio. Test recipient: James only.
 
 ## Email Intelligence
 - `skills/email/email-intelligence-mining/SKILL.md` — historical deep-dive mining of Gmail mailboxes for patterns, contacts, objections, pricing, pipeline data. Not for real-time monitoring.

@@ -1,0 +1,88 @@
+# SOUL.md Split Proposal
+
+**Prepared:** 2026-07-27
+**Current size:** 492 lines (31KB)
+**Target after split:** ~290 lines (SOUL.md) + ~160 lines (Agent/trust-bootstrap.md)
+
+## Problem
+
+SOUL.md has grown 82% in one week due to Trust OS deployment (Service Levels, Trust Test, Operational Trust Framework, Governance Review). At the current trajectory, it will exceed 600 lines within a month. This makes boot context loading slower and dilutes the primary identity document.
+
+## Proposed Structure
+
+### SOUL.md (keeps: ~290 lines)
+
+The primary identity document. Everything the agent needs to know "who am I and how do I operate." Core personality, principles, working style, safety rules, closed-loop learning, and boot context.
+
+| Section | Lines | Keep? | Rationale |
+|---|---|---|---|
+| Core Identity | ~8 | ✅ | Primary identity |
+| The Six Principles | ~13 | ✅ | Immutable, must load at boot |
+| Ground Truth | ~11 | ✅ | Priority order for information |
+| Context Trust Rule | ~4 | ✅ | Boot context is verified |
+| You Are Not | ~4 | ✅ | Identity boundary |
+| Personality | ~10 | ✅ | Core voice |
+| Working Style | ~9 | ✅ | Core operating mode |
+| Philosophical Directives | ~18 | ✅ | How James thinks |
+| **Service Levels** | **~19** | **➡️ Move to trust-bootstrap.md** | Operational, not identity |
+| Resilience Design Principle | ~6 | ✅ | Core design principle |
+| **The Trust Test** | **~18** | **Keep inline in SOUL.md** | Supreme principle. Must load at boot. |
+| **Operational Trust Framework** | **~68** | **➡️ Move to trust-bootstrap.md** | 4 gates, registers, weekly health |
+| **Governance Review** | **~48** | **➡️ Move to trust-bootstrap.md** | Cadence, scope, questions, deliverables |
+| Communication Voice Standard | ~32 | ✅ | Permanent writing standard |
+| Atlas Learning Framework | ~4 | ✅ (reference only) | Points to knowledge/ |
+| Decision Library | ~42 | ✅ | Core process |
+| Challenge Protocol | ~33 | ✅ | Core operating behaviour |
+| Boundaries | ~5 | ✅ | Safety |
+| Safety Rules | ~11 | ✅ | Critical |
+| Seven Rules | ~14 | ✅ | Critical |
+| Closed-Loop Learning | ~39 | ✅ | Core learning process |
+| Boot Context | ~21 | ✅ | What to load each session |
+| Dashboard | ~11 | ✅ | Quick reference |
+| GitHub Pages | ~12 | ✅ | Publishing reference |
+
+### Agent/trust-bootstrap.md (new: ~160 lines)
+
+Operational trust material extracted from SOUL.md. Referenced from Boot Context so it still loads every session, but lives in a dedicated file for maintainability.
+
+**Contents:**
+1. Service Levels (SL1-SL4 classification, triggers, restoration gate)
+2. Resilience Design Principle (may stay in SOUL.md — TBD)
+3. Operational Trust Framework (4 questions, 4 gates, 3 registers, weekly security health, challenge mandate, five-year principle)
+4. Governance Review (cadence, scope, questions, deliverables, principles vs processes, review archive)
+
+### Boot Context Update
+
+Current SOUL.md boot context (line 451-470) already loads trust files. Two additions:
+
+```
+8. `Agent/trust-bootstrap.md` — Service Levels, Operational Trust Framework, Governance Review. Extracted from SOUL.md 2026-07-27.
+```
+
+Existing trust entries (security-register, privacy-register, data-flow-map, etc.) remain unchanged — they already point to their dedicated files.
+
+## What This Preserves
+
+- **The Trust Test stays in SOUL.md.** It's the supreme principle — the five questions override everything. It belongs in the primary identity document.
+- **The Six Principles stay in SOUL.md.** Immutable and fundamental.
+- **All Safety Rules and Seven Rules stay in SOUL.md.** Critical operational constraints.
+- **Boot Context just gets one new line.** Minimal disruption.
+
+## Risk Assessment
+
+| Risk | Mitigation |
+|---|---|
+| Trust-bootstrap.md is accidentally skipped during boot | Add to Boot Context section. Same as existing trust files that already load at boot. |
+| Split creates confusion about "which file has what" | Trust Test stays in SOUL.md as the entry point. Trust-bootstrap.md is operational detail. |
+| Governance Review falls out of regular attention | Already referenced from knowledge/governance-review-framework.md. Boot context loads both. |
+
+## Implementation
+
+1. Create `Agent/trust-bootstrap.md` with Service Levels, Operational Trust Framework, Governance Review sections
+2. Remove those sections from SOUL.md, replacing with a one-line reference
+3. Add `Agent/trust-bootstrap.md` to Boot Context section
+4. Verify total line count: SOUL.md ~290 lines (below 300 threshold)
+
+## Decision Required
+
+Approve the split structure. No changes will be made until approved.

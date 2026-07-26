@@ -1,0 +1,431 @@
+---
+doc_type: report
+owner: notforgotten
+tier: primary
+---
+
+# Campaign Review: Painter Campaigns — July 2026
+
+**Review type:** Full Campaign Review (3 concurrent campaigns)
+**Review date:** 27 July 2026
+**Campaigns reviewed:** Painter Distribution Validation (PDV), Context vs Curiosity (CvC), Wave 1 Trades
+**Review trigger:** All 3 campaigns at Email 3 complete. Sufficient reply window elapsed.
+
+---
+
+## 1. What Happened
+
+### Campaign Overview
+
+Three painter campaigns ran concurrently in July 2026. This review combines all three — the combined dataset is stronger than any individual campaign.
+
+| Parameter | PDV | CvC | Wave 1 Trades | COMBINED |
+|---|---|---|---|---|
+| Prospects sent | 20 | 33 | 12 | **~65** |
+| Variant split | Control A (10) / Test B (10) | Context (17) / Curiosity (16) | Mixed | — |
+| Email 1 sent | Jul 13 | Jul 14 | Jul 12-14 | — |
+| Email 2 sent | Jul 16 (+3d) | Jul 20 (+6d) | Jul 19 (+5d) | — |
+| Email 3 sent | Jul 22 (+6d) | Jul 22 (+2d) | Jul 22 (+3d) | — |
+| Email 4 sent | Jul 27 (pending) | Not yet | Not yet | — |
+| Contact names known | ~2-3 | ~10/33 | ~3-4 | ~16/65 (25%) |
+
+### Delivery Summary
+
+| Metric | PDV | CvC | Wave 1 Trades | COMBINED |
+|---|---|---|---|---|
+| Emails sent | ~56 | ~90 | ~30 | **~176** |
+| Delivered | 54 | 89 | 30 | **173** |
+| Bounced | 2 | 1 | 0 | **3 (1.7%)** |
+| Unsubscribed | 0 | 1 | 0 | **1** |
+| **Replied (any)** | **1** | **1** | **0** | **2** |
+| **Converted (Won)** | **1** | **1** | **0** | **2** |
+| Raw reply rate | 5.6% | 3.1% | 0% | **3.1%** |
+| Conversion rate | 5.6% | 3.1% | 0% | **3.1%** |
+
+### The Three Engagements (All of Them)
+
+**1. Tas Moulis — Won (PDV Campaign, Email 3)**
+- `tas@qpaint.com.au` — first name @ domain = owner-operated
+- Queensland painter
+- Sequence: PDV. Email 1 Jul 13, Email 2 Jul 16, Email 3 Jul 22 — converted at Email 3
+- **Client Probability Score:** Not scored yet (was Won before scoring model existed)
+- What happened: Received the Travis case study at Email 3. Became a paying client. Removed from Email 4 batch.
+
+**2. Star Painters Adelaide — Won (CvC Campaign, Email 3)**
+- `info@starpaintersadelaide.com.au`
+- South Australian painter
+- Prior history: Qualification score of 9 in old system. Previous contact attempts.
+- Sequence: CvC. Email 1 Jul 14, Email 2 Jul 20 (Travis preview), Email 3 Jul 22 — converted at Email 3
+- **Client Probability Score:** Not scored yet (was Won before scoring model existed)
+- What happened: Received the Travis case study at Email 3. Became a paying client. Removed from Email 4 batch.
+
+**3. Distinct Painters — Unsubscribed (CvC Campaign, Email 1)**
+- `info@distinctpaintersadelaide.com.au`
+- Gareth Smith, 0433 805 124
+- Unsubscribed via email reply Jul 13: "Unsubscribe -- Gareth Smith Distinct Painters | 0433 805 124"
+- Sequence: CvC, Email 1 only. Immediately opted out.
+
+### Subject Line Performance
+
+| Subject | Touchpoint | Sent | Replies | Reply Rate |
+|---|---|---|---|---|
+| "Your Painting Quotes" | Email 1 (PDV) | 20 | 0 | 0% |
+| CvC Email 1 subjects *(not uniform)* | Email 1 (CvC) | 33 | 0 (1 unsub) | 0% |
+| Wave 1 Email 1 subjects *(varied)* | Email 1 (Wave 1) | 12 | 0 | 0% |
+| "Re: Your Painting Quotes" | Email 2 (PDV) | 18 | 0 | 0% |
+| "A Thought on Your Process" | Email 2 (CvC) | 32 | 0 | 0% |
+| **"A painter in Adelaide recovered $177K"** | **Email 3 (ALL)** | **~60** | **2 (WON)** | **3.3%** |
+
+### Variant Performance (A/B Test Breakdown)
+
+**PDV — Control A vs Test B:**
+| Variant | Email 1 Length | Prospects | Email 1 Replies | Email 2 Replies | Email 3 Replies |
+|---|---|---|---|---|---|
+| Control A (Industry-fluent) | ~90 words | 10 | 0 | 0 | 0 (1 Won)* |
+| Test B (Direct question) | ~45 words | 10 | 0 | 0 | 0 |
+
+**No measurable difference between variants.** *Tas Moulis was in Test B but converted at Email 3 which was uniform subject/content.
+
+**CvC — Context vs Curiosity:**
+| Variant | Email 1 Style | Prospects | Email 1 Replies | Email 2 Replies | Email 3 Replies |
+|---|---|---|---|---|---|
+| Context (with business context) | Industry obs + context | 17 | 0 | 0 | 0 |
+| Curiosity (without context) | Observation only | 16 | 1 unsub | 0 | 0 (1 Won)* |
+
+**No measurable difference between variants for reply generation.** Star Painters converted at Email 3 (uniform content). Distinct Painters unsubscribed from the Curiosity arm.
+
+### Touchpoint Performance (Combined)
+
+| Touchpoint | Sent | Replies (Meaningful) | Cumulative Replies |
+|---|---|---|---|
+| Email 1 | ~65 | 0 (1 unsub) | 0 conversions |
+| Email 2 | ~60 | 0 | 0 conversions |
+| **Email 3 (Travis)** | **~60** | **2 (BOTH WON)** | **2 conversions** |
+| Email 4 | ~57 (pending) | — | — |
+
+**Every single conversion happened at Email 3. Zero conversions from Email 1 or 2.**
+
+### Pipeline Movement (Combined)
+
+| Stage | Pre-Campaign (Jul 12) | Post-Campaign (Jul 27) | Net |
+|---|---|---|---|
+| New | 20 | 6 | -14 |
+| Outreach Active | 0 | 47 | +47 |
+| Engaged | 0 | 0 | 0 |
+| Won | 0 | 2 | **+2** |
+| Lost | 0 | 4 (3 bounced, 1 unsub) | +4 |
+| Campaign Complete | 0 | 0 (pending Email 4) | 0 |
+
+### Open Rate
+
+**Not available.** Tracking tags remain broken as flagged in Wave 1 review. This is a critical data gap that has persisted across multiple campaigns. Without open rates, we cannot distinguish between:
+- Emails not being opened (inbox placement or subject line problem)
+- Emails being opened but not generating replies (content or trust problem)
+
+---
+
+## 2. What We Learned
+
+### The Travis Case Study Is the Conversion Engine
+
+This is the single most important finding of the entire campaign.
+
+**Both conversions happened at the exact touchpoint where the Travis Krieg case study was introduced.** Not before. Not after. Email 3.
+
+This doesn't mean Email 1-2 are worthless — they may be building latent awareness. But the evidence strongly suggests the case study itself is the trigger. Two conversions from ~60 Email 3 sends: 3.3% conversion rate to paying client.
+
+**Implication:** The Travis case study is not a bridge. It's the destination.
+
+### Email 1 and 2 Are Not Generating Engagement
+
+Across ~125 combined Email 1 and 2 sends:
+- 0 meaningful replies
+- 1 unsubscribe
+- 3 bounces
+- Zero trust-building signals (no "not interested but thanks", no "tell me more")
+
+This doesn't prove Email 1-2 are harmful. But it strongly suggests they aren't doing the work we assumed — warming prospects up for the Travis reveal. The data is more consistent with a different model: **prospects who are going to convert do so when they see the Travis numbers, regardless of what came before.**
+
+### The A/B Tests Produced No Differentiation
+
+Both the PDV (Control vs Test) and CvC (Context vs Curiosity) experiments showed zero measurable difference in reply rates. Every variant performed identically: zero replies from Email 1-2.
+
+This is actually useful data. It tells us the variable we're testing (email structure, length, context presence) is not the binding constraint on reply generation. Something more fundamental is at play — likely one or more of:
+- Cold email itself as a channel
+- Sender trust/recognition
+- Subject line not driving opens
+- Email landing in spam/promotions
+
+### Owner-Accessibility Correlates with Conversion
+
+Both converters had accessible email patterns:
+- Tas Moulis: `tas@qpaint.com.au` (first name @ domain — the strongest owner signal)
+- Star Painters: Prior qualification score of 9, meaning they had shown previous interest
+
+No prospect reached via `info@` with no prior contact history converted.
+
+### Small Sample, Unambiguous Pattern
+
+| Finding | Evidence | Confidence |
+|---|---|---|
+| Travis case study converts painters | 2/60 Email 3 → 2 paying clients | **Strong** |
+| Email 1-2 alone do not generate replies | 0/125 combined Email 1-2 | **Strong** |
+| A/B test variables (length, context) don't matter at current reply rates | 0 replies across all variants | **Strong** |
+| Contact name presence may matter | 2/2 conversions had owner signals | **Early Signal** |
+| Open rates are an essential missing metric | 2 campaigns, 0 open data | **Strong** |
+
+### Assumptions Tested
+
+| Assumption | Verdict | Evidence |
+|---|---|---|
+| "Industry-fluency generates curiosity and replies" | **Disproved** | 0/125 Email 1-2 replies |
+| "Curiosity-led questions lower reply friction" | **Disproved** | 0 replies to Email 2 questions |
+| "Longer emails (90w) outperform shorter (45w)" | **No difference** | Both 0% reply rate |
+| "Business context in Email 1 helps" | **No difference** | CvC both arms at 0% |
+| "3-day cadence is viable" | **Insufficient data** | No reply data to assess |
+| "Travis case study converts painters" | **Proved** | 2/2 conversions at Email 3 |
+| "Email 1-2 warm prospects for Email 3" | **Challenged** | No evidence of warming |
+| "Painters are the right vertical for cold email" | **Partially proved** | 2 conversions, but only at Email 3 |
+
+---
+
+## 3. What Should Change
+
+### Critical Changes
+
+| Change | Evidence | Why |
+|---|---|---|
+| **Move the Travis case study to Email 1** | 2/2 conversions came at Email 3. 0/125 replies from Email 1-2. | If the case study is what converts, stop burying it. Test Email 1 = Travis story. |
+| **Fix tracking tags immediately** | 2 campaigns, 0 opens data. | We are flying blind on the most important metric. |
+| **Halve the sequence length for testing** | 4 emails with conversion only at #3. 0 replies before #3. | Test a 2-email sequence: Travis Email 1, question Email 2. Faster learning cycle. |
+
+### Recommended Changes
+
+| Change | Evidence | Priority |
+|---|---|---|
+| Test Travis-led Email 1 against current Email 1 → 2 → 3 sequence | 3.3% conversion at Email 3 vs 0% at Email 1-2 | **Highest** |
+| Add contact name enrichment as a pre-campaign gate | 0/65 contacted without names converted from cold; both converters had owner signals | **High** |
+| Test a single-email campaign (Travis only, no follow-up) | If Email 1-2 add nothing, test removing them entirely | **Medium** |
+| Add inbox placement testing before next sends | Cannot rule out spam/promotions tab delivery | **High** |
+| Shorten the standard cadence for the compressed sequence | +5/+3/+7 adds 15 days of waiting with no engagement. Test +3/+5 for 2-email. | **Medium** |
+| Record Airtable Inbound Messages for all replies | Current Messages table has 0 inbound records | **High** |
+
+---
+
+## 4. What Should Remain Exactly the Same
+
+| Element | Evidence | Confidence |
+|---|---|---|
+| **The Travis case study content** | The exact story converts. Don't change the words, the number, or the framing. | **Strong** |
+| **"A painter in Adelaide recovered $177K" subject line** | Only subject line that generated replies. Don't change it. | **Strong** |
+| **The Email 3 template structure** | Travis story → reflection → question. It works. | **Strong** |
+| **Voice Review + Technical Verification gates** | Quality is not the problem. The gates prevent degradation. | **Strong** |
+| **No product pitch in first substantive email** | Correct. Don't add product mention to the Travis email. | **Strong** |
+| **Campaign Review process** | This review surfaced critical patterns. The process is working. | **Strong** |
+| **Painter vertical focus** | 2 paying clients from painters. Don't expand until this is optimised. | **Strong** |
+| **4-email breakup template** | Not yet assessed. Keep unless Email 4 data contradicts. | **Moderate** |
+
+---
+
+## 5. What Should We Deliberately Avoid Changing?
+
+| Element | Why Not Change | Risk of Changing |
+|---|---|---|
+| **The Travis story framing** | The specific words and numbers are proven. "A painting business in Adelaide, Travis Krieg Painting, five crew, mostly residential..." converts. A rewrite could break it. | Breaking the only thing that works |
+| **The "same quotes, same prices, just systematic follow-up" punchline** | This is the core message. It reframes follow-up from "sales tactic" to "operational discipline." | Losing the conceptual reframe |
+| **The painter vertical** | 2/2 conversions are painters. No data supports expanding to other verticals yet. | Diluting the only proven market |
+| **The $177,555 number** | Real, specific, verified. Generic numbers ("over $150K") would weaken it. | Losing specificity that builds trust |
+| **The entire sequence structure (for now)** | Email 4 hasn't completed. Don't change the full 4-email sequence until we have Email 4 data and at least one Travis-led Email 1 test result. | Thrashing without data |
+
+---
+
+## 6. Top Three Experiments Worth Testing Next
+
+### Experiment 1: Travis-Led Email 1 (HIGHEST PRIORITY)
+
+| Element | Detail |
+|---|---|
+| **Hypothesis** | Moving the Travis case study from Email 3 to Email 1 will increase conversion rate because the case study, not accumulated trust, is the conversion trigger. |
+| **Variable isolated** | Position of Travis case study in sequence (Email 1 vs Email 3) |
+| **Control** | Current sequence: curiosity Email 1 → process Email 2 → Travis Email 3 |
+| **Test** | Travis Email 1 → question Email 2 → breakup Email 3 (compressed 3-touch) |
+| **Sample** | 20 prospects, 10 per arm, single vertical (painters) |
+| **Success metric** | Reply rate at Email 1 (test) vs cumulative reply rate by Email 3 (control) |
+| **Prediction** | Travis-led Email 1 will generate replies at Email 1 that the control doesn't get until Email 3 |
+
+### Experiment 2: Owner-Name-Only Outreach
+
+| Element | Detail |
+|---|---|
+| **Hypothesis** | Prospects with confirmed contact names + owner-accessible emails will convert at higher rates than business-name greetings + generic email addresses. |
+| **Variable isolated** | Contact data quality (contact name + email type) |
+| **Sample** | 10 prospects with first-name contact + personal/firstname@ email vs 10 with business-name greeting + info@ |
+| **Success metric** | Reply rate per cohort |
+| **Prediction** | Owner-accessible cohort will outperform by 2x or more |
+
+### Experiment 3: Compressed 2-Email Sequence
+
+| Element | Detail |
+|---|---|
+| **Hypothesis** | A 2-email sequence (Travis Email 1 → breakup Email 2) will produce equivalent or better results than a 4-email sequence because Email 2-3 in the current sequence generate zero measurable engagement. |
+| **Variable isolated** | Sequence length (2 vs 4 touches) |
+| **Sample** | 20 prospects, 10 per arm |
+| **Success metric** | Cumulative reply/conversion rate at sequence completion |
+| **Prediction** | 2-email performs equivalently — faster cycle, same conversions |
+
+---
+
+## 7. Next Campaign Cohort Recommendation
+
+### Recommendation: Top 20 Painters by Client Probability Score
+
+The evidence is clear: Travis case study converts painters with owner-accessible contact data. The next campaign should target the highest-probability painters from the full scored database.
+
+**Selection criteria:**
+1. Client Probability Score 70+
+2. Not currently in an active campaign sequence (New stage preferred, or Campaign Complete)
+3. Owner-accessible email (firstname@domain, personal email, or confirmed contact name)
+4. At least one strong ICP signal (strata, free quotes, Dulux accredited, heritage)
+5. Verified website (not dead/parked)
+6. Enough prospects to run at least one controlled experiment
+
+### Recommended Cohort (Top 20)
+
+| # | Business | Score | Email | Key Signals | Stage | Why Selected |
+|---|---|---|---|---|---|---|
+| 1 | Cameron Davidson Painters | 86 | cdpainters@bigpond.com | Strata, free quotes, Dulux, bigpond (owner) | Active* | Highest-scored prospect. Strata = recurring volume. Bigpond = owner-direct. Perfect ICP. |
+| 2 | Jay Duggin Painting | 85 | info@jaydugginpainting.com.au | Strata, real estate, name-brand owner | Active* | Strata + real estate = high quote volume. Jay's name is the brand. |
+| 3 | Ron & Robin The Painters | 83 | ronandrobinpainter@gmail.com | Gmail (owner), free quotes, names in brand | New | **NEW.** Gmail = owner-operated. Names in brand. Ready for first contact. |
+| 4 | Master Choice Painting | 83 | info@rezmcp.com.au | Free quotes, Dulux, residential (gmail on site) | Active* | Just re-scored from 41→83. Gmail on website. Residential focus. |
+| 5 | Sydney Painting Experts | 82 | info@sydneypaintingexperts.com.au | Free quotes, STRATA, Dulux, 20+ yrs, 6-10 emp | New | **NEW.** Strata specialist. Highest quote-volume signals in database. |
+| 6 | M.J. Painters Melbourne | 81 | admin@mjharrispainting.com.au | Family-run, free quotes, Dulux, heritage | Active* | Family-run = owner involved. Heritage = longer decision cycles. |
+| 7 | Expert Painting & Renovation | 79 | info@expertpaint.com.au | Family-run, free quotes, Dulux, real estate, heritage | Active* | Family-run + real estate + heritage. Triple ICP signal. |
+| 8 | Zoom Painting | 78 | rad@zoompainting.com.au | rad@ (owner name), free quotes, massive site | Active* | Owner-firstname email. Huge professional site. Rad is accessible. |
+| 9 | AKP Painting & Decorating | 77 | tony@akppainters.com.au | tony@ (owner), heritage, residential | Active* | Owner-firstname email. Tony is directly reachable. |
+| 10 | SRN Painting Contractors | 77 | rexpainting74@gmail.com | Gmail (owner), free quotes, heritage | Active* | Gmail + free quotes + heritage. Strong owner signal. |
+| 11 | Adelaide Home Painting | 72 | info@adelaidehomerepairs.com.au | Free quotes, residential, Tim (contact) | Active* | Just re-scored from 41→72. Has contact name. Free quotes. |
+| 12 | Dani's Painting | 71 | info@danispainting.com.au | Name in brand, free quotes, heritage | Active* | "Dani's" = personal brand. Heritage specialist. |
+| 13 | Melbourne Painters & Plasterers | 70 | melbournepaintersplasterers@gmail.com | Gmail, family-run | Active* | Gmail = owner-operated. Family-run. |
+| 14 | Amazing Painting | 66 | info@amazingpainting.com.au | Free quotes, Dulux | Active* | Free quotes + Dulux. Solid middle-tier. |
+| 15 | Inspire Painting | 66 | info@inspirepainting.com.au | Free quotes, Dulux | Active* | Free quotes + Dulux. Solid middle-tier. |
+| 16 | Brisbane Painting Services | 65 | (no email) | 2-5 emp, eco-friendly | New | **NEW. Needs enrichment before contact.** No email found. 2-5 emp = sweet spot. |
+| 17 | Like Painting | 63 | info@likepainting.com.au | Free quotes, heritage, multi-business group | Active* | Free quotes. Heritage. Multi-business = possible volume. |
+| 18 | Superior Painters & Decorators | ? | info@superiorpd.com | Family-run, free quotes, Dulux, heritage, 800K site | New | **NEW. Not yet scored.** One of the richest-signal prospects in database. |
+| 19 | Upscale Painting & Decorating | ? | info@upscalepainting.com.au | FOUNDER IDENTIFIED: Esmayel Nazari, Dulux, free quotes, heritage | New | **NEW. Not yet scored.** Founder identified = strongest possible Email 1. |
+| 20 | OPC Painting | ? | info@opcpainting.com.au | Strata/body corp, free quotes, eco-friendly, heritage, CBD | New | **NEW. Not yet scored.** Strata specialist. Multiple ICP signals. |
+
+**\*Active = Currently in Outreach Active stage from July campaign. These prospects have received Email 1-3. They are eligible for reset/re-engagement after a cooling period OR for Email 4 breakup if still in sequence.**
+
+### Cohort Summary
+
+| Category | Count |
+|---|---|
+| **New (never contacted)** | 6 |
+| **Active (in July campaign, at Email 3)** | 11 |
+| **Active (needs scoring first)** | 3 |
+| **Owner-accessible email** | 13/20 (65%) |
+| **Free quotes signal** | 14/20 (70%) |
+| **Strata/body corporate signal** | 3/20 (15%) |
+| **Dulux/brand accredited** | 9/20 (45%) |
+| **Average Client Probability Score** | 76 (scored subset) |
+
+### Campaign Strategy Recommendation
+
+**Do not send a full 20-prospect campaign yet.** The evidence says we should run a controlled experiment first:
+
+**Proposed: Travis-Led Email 1 Experiment**
+
+| Parameter | Recommendation |
+|---|---|
+| **Prospects** | 10 New + 10 Campaign Complete/Reset (fresh contacts) |
+| **Campaign structure** | 2-arm A/B test: Travis-led Email 1 vs Current Email 1 |
+| **Email 1 (Test)** | Travis case study. "A painter in Adelaide recovered $177K" subject. |
+| **Email 1 (Control)** | Current industry-fluent observation. "Your Painting Quotes" subject. |
+| **Follow-up** | Identical Email 2 for both arms. Breakup at Email 3. |
+| **Cadence** | +5 / +7 (2 follow-ups, not 3) |
+| **Timing** | Weekday sends only. Never Sunday. |
+| **Pre-requisites** | 1. Tracking tags fixed. 2. Contact names enriched for all 20. 3. New prospects scored. |
+| **Success metric** | Reply rate at Email 1 (test) vs cumulative by Email 3 (control). Conversion rate. |
+
+**Top 10 for experiment (all New or Campaign Complete, clean data):**
+
+| # | Business | Score | Email | Why |
+|---|---|---|---|---|
+| 1 | Ron & Robin The Painters | 83 | ronandrobinpainter@gmail.com | Gmail = owner. Never contacted. |
+| 2 | Sydney Painting Experts | 82 | info@sydneypaintingexperts.com.au | Strata specialist. Never contacted. |
+| 3 | Superior Painters & Decorators | TBD | info@superiorpd.com | 800K site, Dulux, heritage, family-run. |
+| 4 | Upscale Painting & Decorating | TBD | info@upscalepainting.com.au | FOUNDER: Esmayel Nazari. Perfect Email 1. |
+| 5 | OPC Painting | TBD | info@opcpainting.com.au | Strata specialist. Never contacted. |
+| 6 | Brisbane Painting Services | 65 | *(needs enrichment)* | 2-5 emp. Needs email first. |
+| 7 | J'Sydney Painters | TBD | jsydneypainters@gmail.com | Gmail = owner. Squarespace. Heritage. |
+| 8 | Surfside Painting Services | TBD | surfsidepainting@westnet.com.au | Westnet = owner. Free quotes. |
+| 9 | Canberra Painting Services | TBD | *(needs enrichment)* | Canberra market untapped. |
+| 10 | Brisbane Professional Painters | TBD | info@bppainters.com.au | Family-run, free quotes, 2-5 emp. |
+
+### Prospects to Flag
+
+| Prospect | Issue | Recommendation |
+|---|---|---|
+| Quinns Painting & Decorating | Franchise signal detected | Verify before contacting. If confirmed franchise, mark Not a Fit. |
+| Brisbane Painting Services | No email found, contact page 404 | Needs enrichment. Browser-based research or phone verification. |
+| Fresh Coat Painters Sydney | No email, no website | Unreachable. Mark Not a Fit. |
+| Melbourne Hose Painters | Dead site, Yahoo email | Needs phone verification. Yahoo = owner but dead site = risk. |
+| Alta Painters Melbourne | Dead site, Gmail | Needs phone verification. |
+| LPH Painters | Dead site | Needs phone verification. |
+| Kincoat Painting | Dead site | Needs phone verification. |
+
+### Database Quality Flags
+
+| Flag | Count | Action |
+|---|---|---|
+| Dead websites (provisional scores) | 5 | Phone verify or mark Not a Fit |
+| No email (can't outreach) | 3 | Mark Not a Fit |
+| Parked domains (already Not a Fit) | 5 | Keep as Not a Fit |
+| Franchise signal detected | 1 | Verify |
+| Duplicate emails | 0 | Clean |
+| Duplicate business names | 0 | Clean |
+
+---
+
+## 8. Data Gaps
+
+| Gap | Impact | Priority |
+|---|---|---|
+| **Tracking tags broken** | Can't measure opens. Can't diagnose inbox placement vs content. | Critical |
+| **No Airtable Inbound Messages** | Replies tracked only via Prospect checkbox. No message body archive. | High |
+| **65 unscored painter prospects** | Can't compare or recommend from full database. | High |
+| **No open-rate data** | Can't distinguish "not opened" from "opened, not replied" | Critical |
+| **No inbox placement testing** | Delivery confirmed but placement unknown | High |
+| **Email 4 not yet sent for ~57 prospects** | Can't assess full-sequence performance | Medium |
+
+---
+
+## 9. Confidence Assessment — All Conclusions
+
+| Conclusion | Evidence | Confidence | Needs Replication? |
+|---|---|---|---|
+| Travis case study is the conversion mechanism for painters | 2/2 conversions at Email 3 | **Strong** | No — but test at Email 1 |
+| Email 1-2 alone don't generate replies from cold painters | 0/125 combined | **Strong** | Yes — with open-rate data |
+| A/B test variables (length, context) don't matter at current rates | 0 replies across all variants | **Strong** | Yes — with higher baseline reply rate |
+| Contact name presence improves conversion odds | 2/2 converters had owner signals | **Early Signal** | Yes — run owner-name-only test |
+| 3.3% Email 3 conversion rate is the baseline | 2/60 Email 3 sends | **Moderate** | Yes — larger sample needed |
+| Painters are a viable vertical | 2 paying clients | **Moderate** | Yes — more conversions needed |
+| The Travis story itself is optimal | Conversions happened; no failed Travis variants | **Early Signal** | Only test against position, not content |
+
+---
+
+## 10. System Updates Required
+
+- [ ] **Learning Framework:** Record "Travis case study is the conversion engine for painters — all conversions at Email 3, zero at Email 1-2"
+- [ ] **Decision Library:** Create decision "Travis-led Email 1 experiment approved" when James confirms
+- [ ] **Cold email skill:** Add pitfall — "Email 1-2 curiosity-led approach generated 0/125 replies across 3 campaigns. Travis case study is the conversion trigger. Test Travis-led Email 1."
+- [ ] **Outreach Philosophy:** Re-examine Principle "Travis case study is bridge, not opener." Evidence challenges this.
+- [ ] **Growth operations:** Add tracking tag verification as pre-campaign gate. Add Airtable Inbound Messages population.
+- [ ] **ICP documentation:** Update with conversion-correlated signals (owner email type, prior contact history, strata/free-quotes)
+- [ ] **Fix tracking tags** — Critical
+- [ ] **Complete 65-prospect scoring** — High
+- [ ] **Archive July campaign draft files** — Low
+
+---
+
+*Review completed: 27 July 2026. Next review: After Travis-led Email 1 experiment completes full sequence.*

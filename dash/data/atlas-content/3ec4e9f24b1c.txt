@@ -1,0 +1,646 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# SMS Phase 1 Validation Plan — Not Forgotten Systems
+
+**Status:** Operational validation plan — no implementation
+**Author:** Atlas
+**Date:** 2026-07-27
+**Design freeze:** `knowledge/sms-communication-framework.md` and `knowledge/sms-integration-readiness-report.md` are now frozen. No new features, fields, or architecture.
+**Objective:** Make SMS boringly reliable before any customer interaction.
+**Test recipient:** James Hardstaff only (personal mobile). No client, prospect, or customer numbers.
+
+---
+
+## Table of Contents
+
+1. [Validation Philosophy](#1-validation-philosophy)
+2. [Test Environment](#2-test-environment)
+3. [Five End-to-End Scenarios](#3-five-end-to-end-scenarios)
+4. [Logging Standard](#4-logging-standard)
+5. [Rollback Procedures](#5-rollback-procedures)
+6. [Go / No-Go Checklist](#6-go--no-go-checklist)
+
+---
+
+## 1. Validation Philosophy
+
+### 1.1 Principles
+
+| Principle | Meaning |
+|---|---|
+| **One number, one tester** | James's mobile is the only recipient during Phase 1. No exceptions. |
+| **Every test produces evidence** | No test passes because "it looked right." Every test has a defined artifact that proves it passed. |
+| **Failures are documented, not hidden** | If a test fails, the failure is logged with the same rigour as a pass. The validation report includes everything. |
+| **Boring is the goal** | SMS should be the least exciting part of the platform. Reliable, predictable, uneventful. |
+| **Design freeze is absolute** | If a test reveals a gap in the design, the finding is documented and escalated. No design changes happen during validation. |
+| **Test in order** | Scenarios are sequenced. Each builds on the previous. Do not skip ahead. |
+
+### 1.2 What Phase 1 Does NOT Test
+
+- Client interaction (no client numbers)
+- Customer follow-up (no end-customer numbers)
+- Scale (single recipient)
+- Two-way conversations (only structured replies)
+- Template performance (content testing is Phase 2)
+
+Phase 1 tests the infrastructure. Does SMS work, safely and reliably, end to end?
+
+---
+
+## 2. Test Environment
+
+### 2.1 Configuration
+
+| Variable | Value |
+|---|---|
+| **Test recipient** | James Hardstaff — personal mobile (number in Airtable Clients table) |
+| **SMS Consent Tier** | Manually set to T1 before testing begins |
+| **SMS Opted Out** | False |
+| **SMS Deliverable** | True (validated during test) |
+| **SMS Timezone** | Australia/Adelaide |
+| **Twilio number** | Provisioned during implementation (TBD) |
+| **Test window** | Business hours, scheduled with James |
+| **Test duration** | ~30 minutes for all 5 scenarios |
+| **Production traffic** | None. SMS_ENABLED = False for all other recipients |
+
+### 2.2 Pre-Test Verification
+
+Before any scenario begins, verify:
+
+- [ ] Twilio number is active and able to send
+- [ ] TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER in .env (600 perms)
+- [ ] Airtable schema deployed: all new fields in Prospects, Messages, SMS Consent Log, Phone Call Log
+- [ ] SMS_ENABLED = True in config (for James only — all other recipients blocked by consent tier check)
+- [ ] Webhook endpoint publicly accessible (incoming SMS)
+- [ ] Status callback webhook publicly accessible (delivery status)
+- [ ] Log directory exists: `logs/sms-validation/`
+- [ ] James is available and expecting test messages
+
+---
+
+## 3. Five End-to-End Scenarios
+
+### Scenario 1: Client Notification — Send and Delivery
+
+**Purpose:** Verify the simplest SMS path works end to end. A notification is sent, delivered, and logged.
+
+**Pre-condition:**
+- James's record in Airtable: SMS Consent Tier = T1, SMS Opted Out = False, SMS Deliverable = True
+
+**Test steps:**
+1. Atlas composes an SMS using template `SMS-CLIENT-003` (Daily follow-up summary), populated with test values
+2. SMS Voice Review (7-point) runs and passes
+3. Decision Engine runs 8-gate check — all gates pass
+4. SMS is sent via `send()` to James's mobile
+5. Delivery status callback is received and processed
+6. Airtable is updated with send and delivery records
+
+**Expected result:**
+
+| What | Expected |
+|---|---|
+| James receives SMS on his phone | Within 10 seconds of send |
+| SMS content matches template | Variables populated, no placeholder text |
+| SMS is 1 segment | ≤160 characters |
+| SMS appears from NFS Twilio number | Not a random/shared number |
+| Airtable Messages record created | Channel=SMS, Direction=Outbound, Status=Delivered |
+| SMS Delivery Status updated | Sent → Delivered (via status callback) |
+| SMS Message SID populated | Twilio message ID stored |
+| SMS Segment Count = 1 | Accurate segment count |
+| Last SMS Sent timestamp updated | Correct Adelaide time |
+| SMS Message Count incremented | +1 |
+
+**Evidence of pass:**
+
+| Artifact | Location | What to check |
+|---|---|---|
+| Screenshot of received SMS on James's phone | James provides | Content matches, timestamp correct, sender number correct |
+| Airtable Messages record | Messages table | All SMS fields populated correctly |
+| SMS send log entry | `logs/sms-send.log` | Timestamp, recipient, status, message_id |
+| SMS delivery log entry | `logs/sms-delivery.log` | Status callback received and processed |
+| Terminal output from send command | Session transcript | Exit code 0, no errors |
+
+**Failure mode:** If SMS does not arrive within 30 seconds, or arrives with incorrect content, or Airtable does not reconcile — **stop.** Do not proceed to Scenario 2. Investigate and fix before continuing.
+
+---
+
+### Scenario 2: Incoming SMS Reply
+
+**Purpose:** Verify the platform receives and processes an incoming SMS correctly.
+
+**Pre-condition:**
+- Scenario 1 passed
+- James has the test SMS on his phone
+
+**Test steps:**
+1. James replies to the test SMS from Scenario 1 with: "Got it, looks good"
+2. Twilio webhook fires, delivers payload to `/sms/incoming`
+3. `receive()` processes the webhook:
+   - Validates Twilio signature
+   - Checks for opt-out trigger words (none in "Got it, looks good")
+   - Looks up sender by phone number in Airtable
+   - Logs inbound message to Airtable Messages
+4. Atlas detects the inbound message and classifies the reply
+
+**Expected result:**
+
+| What | Expected |
+|---|---|
+| Webhook received and validated | HTTP 200 returned to Twilio |
+| No opt-out triggered | "Got it, looks good" does not match STOP patterns |
+| Sender identified in Airtable | James's record found by phone number |
+| Airtable Messages record created | Channel=SMS, Direction=Inbound, Body="Got it, looks good" |
+| SMS Opt-Out Triggered = False | Correctly not flagged |
+| Inbound log entry created | `logs/sms-inbound.log` |
+
+**Evidence of pass:**
+
+| Artifact | Location | What to check |
+|---|---|---|
+| Airtable Messages record (inbound) | Messages table | Direction=Inbound, Body correct, timestamp correct |
+| Inbound SMS log entry | `logs/sms-inbound.log` | Raw payload logged, opt-out check result |
+| Webhook response log | `logs/sms-webhook.log` | HTTP 200, no errors |
+| No opt-out event in SMS Consent Log | SMS Consent Log table | Zero new records for this test |
+
+**Failure mode:** If webhook returns 4xx/5xx, if sender is not identified, if opt-out is incorrectly triggered — **stop.** Investigate and fix. Do not proceed to Scenario 3 (which tests intentional opt-out).
+
+---
+
+### Scenario 3: Opt-Out Request
+
+**Purpose:** Verify the full opt-out workflow: detection, processing, confirmation, and permanent blocking.
+
+**Pre-condition:**
+- Scenarios 1 and 2 passed
+- James's SMS Consent Tier = T1, SMS Opted Out = False
+
+**Test steps:**
+1. James sends a new SMS to the NFS Twilio number with the word "STOP"
+2. Twilio webhook fires, delivers payload to `/sms/incoming`
+3. `receive()` detects opt-out trigger word ("STOP")
+4. `handle_opt_out()` executes:
+   - Sets SMS Opted Out = True in Airtable
+   - Sets SMS Consent Tier = T0
+   - Logs to SMS Consent Log (Event Type: Opt-out)
+   - Sends confirmation SMS: "You've been removed from SMS updates..."
+   - Notes in `logs/sms-opt-out.log`
+5. Atlas attempts to send a new SMS to James (e.g. another test notification)
+6. Decision Engine Gate 3 (Not Opted Out) blocks the send
+
+**Expected result:**
+
+| What | Expected |
+|---|---|
+| "STOP" detected as opt-out trigger | Case-insensitive match |
+| SMS Opted Out set to True | Airtable Prospects, immediate |
+| SMS Consent Tier set to T0 | Airtable Prospects, immediate |
+| Confirmation SMS sent to James | "You've been removed from SMS updates. Email communication will continue. Reply HELP for more info." |
+| SMS Consent Log entry created | Event Type=Opt-out, Tier Before=T1, Tier After=T0 |
+| Opt-out log entry created | `logs/sms-opt-out.log` with trigger word and timestamp |
+| Subsequent SMS send is blocked | Decision Engine returns "BLOCKED: Opted out" |
+| Blocked send is logged | `logs/sms-send.log` with block reason |
+
+**Evidence of pass:**
+
+| Artifact | Location | What to check |
+|---|---|---|
+| Airtable Prospects: SMS Opted Out | James's record | True |
+| Airtable Prospects: SMS Consent Tier | James's record | T0 |
+| SMS Consent Log record | SMS Consent Log table | Complete audit trail |
+| Confirmation SMS received | James's phone | Content correct |
+| Opt-out log entry | `logs/sms-opt-out.log` | All fields populated |
+| Send block log entry | `logs/sms-send.log` | Block reason = "Opted out" |
+| Attempted send terminal output | Session transcript | Exit code non-zero, clear block message |
+
+**Failure mode:** If opt-out is not detected, if confirmation is not sent, if subsequent send is not blocked — **stop.** This is the most critical test. Opt-out failure is a compliance and trust issue. Do not proceed until it works perfectly.
+
+---
+
+### Scenario 4: Consent Gate Failure
+
+**Purpose:** Verify the Decision Engine blocks SMS sends when consent is insufficient — testing every gate that can fail.
+
+**Pre-condition:**
+- Scenario 3 passed (James is currently opted out — perfect for testing Gate 3)
+- Atlas will then re-instate James's consent for the remaining sub-tests
+
+**Sub-Scenario 4a: Opted-Out Block (Gate 3)**
+
+| Step | Expected |
+|---|---|
+| James still opted out from Scenario 3 | SMS Opted Out = True, SMS Consent Tier = T0 |
+| Atlas attempts to send a T1-level notification | Decision Engine checks Gate 3 → BLOCK |
+| Block reason logged | "Opted out" |
+
+**Sub-Scenario 4b: Insufficient Consent Tier (Gate 2)**
+
+| Step | Expected |
+|---|---|
+| James manually re-instated: SMS Opted Out = False, SMS Consent Tier = T0 | No consent on file |
+| Atlas attempts to send a T1-level notification | Decision Engine checks Gate 2 → BLOCK |
+| Block reason logged | "Insufficient consent tier: T0 < T1 required" |
+| James manually upgraded: SMS Consent Tier = T2 | Post-engagement consent |
+| Atlas attempts to send a T1-level notification | Gate 2 passes (T2 ≥ T1) |
+| Atlas attempts to send a T3-level notification (customer follow-up) | Decision Engine checks Gate 2 → BLOCK |
+| Block reason logged | "Insufficient consent tier: T2 < T3 required" |
+
+**Sub-Scenario 4c: Quiet Hours Queue (Gate 5)**
+
+| Step | Expected |
+|---|---|
+| James's SMS Consent Tier set to T1 | Full client consent |
+| Test run during business hours | But Decision Engine can be tested by mocking time |
+| OR: test scheduled for after 9pm | Real quiet hours test |
+| Atlas attempts to send | Gate 5: queued, not sent immediately |
+| Message delivered at 7:01 AM next morning | If real quiet hours test |
+
+**Expected result (all sub-scenarios):**
+
+| What | Expected |
+|---|---|
+| Each gate failure produces a distinct block reason | Logged clearly, not a generic "blocked" |
+| No SMS is sent when a gate fails | Twilio never receives the request |
+| Each block is logged | `logs/sms-send.log` with gate number and reason |
+| Airtable is NOT updated with a send record | No Messages record created for blocked sends |
+| Block reasons are human-readable | "Insufficient consent tier: T0 < T1 required" not "ERR_403" |
+
+**Evidence of pass:**
+
+| Artifact | Location | What to check |
+|---|---|---|
+| Send log entries for each sub-scenario | `logs/sms-send.log` | Distinct block reasons per gate |
+| Zero Twilio API calls for blocked sends | Twilio console → usage logs | No outbound attempts |
+| Zero Messages records for blocked sends | Airtable Messages | No records created |
+
+**Failure mode:** If any gate fails open (allows a send it should have blocked) — **stop.** This is a critical failure. The Decision Engine must fail closed.
+
+---
+
+### Scenario 5: Delivery Failure and Retry Behaviour
+
+**Purpose:** Verify the platform handles delivery failure gracefully — retry with backoff, log the failure, and surface the issue without cascading.
+
+**Pre-condition:**
+- James's consent fully restored: SMS Consent Tier = T1, SMS Opted Out = False, SMS Deliverable = True
+
+**Test approach:** Delivery failure is hard to trigger with a real, working number. Two options:
+
+**Option A (preferred):** Simulate a delivery failure by sending to a known-invalid number (e.g., +61400000000 — a test number that Twilio will reject). This tests the error handling path without disrupting James.
+
+**Option B:** Use Twilio's test credentials (Magic Number) to simulate delivery failures. This is a Twilio feature that lets you trigger specific error codes.
+
+**Test steps (Option A — invalid number):**
+1. Create a temporary test record in Airtable Prospects: SMS Consent Tier = T1, SMS Opted Out = False, Phone = +61400000000
+2. Atlas sends an SMS to this number
+3. Twilio accepts the send request (it's a valid format) but delivery will fail
+4. Status callback returns "undelivered" or "failed"
+5. SMS Service logs the failure
+6. Retry logic: 3 attempts with exponential backoff (1s, 2s, 4s)
+7. After 3 failures, flag the number and stop retrying
+
+**Expected result:**
+
+| What | Expected |
+|---|---|
+| Initial send accepted by Twilio | Message SID returned, status = "queued" or "sent" |
+| Delivery status updates to "failed" or "undelivered" | Via status callback |
+| SMS Delivery Status updated in Airtable | "Failed" or "Undelivered" |
+| SMS Delivery Error populated | Error code and message from Twilio |
+| Retry: attempt 2 after 1 second | Logged in `logs/sms-send.log` |
+| Retry: attempt 3 after 2 seconds | Logged in `logs/sms-send.log` |
+| After 3 failures: stop retrying | Logged: "Max retries exceeded for +61400000000" |
+| No further attempts to this number | SMS Deliverable set to False |
+| Issue flagged for James review | Alert or task created |
+
+**Evidence of pass:**
+
+| Artifact | Location | What to check |
+|---|---|---|
+| SMS Delivery Status = Failed/Undelivered | Airtable Messages | Correct status |
+| SMS Delivery Error populated | Airtable Messages | Specific error, not generic |
+| Retry attempts logged | `logs/sms-send.log` | 3 attempts with timestamps showing backoff |
+| SMS Deliverable set to False after 3 failures | Airtable Prospects (test record) | Automatic flag |
+| No 4th attempt | `logs/sms-send.log` | Confirm retry stopped at 3 |
+| No cascade to other recipients | Verify no other Messages records created | Isolation confirmed |
+
+**Failure mode:** If retry loops infinitely, if failure cascades to other operations, if Airtable is not updated with the failure — **stop.** Investigate and fix. The platform must degrade gracefully.
+
+---
+
+## 4. Logging Standard
+
+### 4.1 Log Files
+
+Every SMS event is written to a dedicated log file AND to Airtable. The log file is the forensic record. Airtable is the operational record.
+
+| Log File | Path | What It Captures |
+|---|---|---|
+| **SMS send log** | `logs/sms-send.log` | Every outbound send attempt: timestamp, recipient, purpose, gate results, status, message_id |
+| **SMS delivery log** | `logs/sms-delivery.log` | Every status callback: message_id, status change, timestamp, error if any |
+| **SMS inbound log** | `logs/sms-inbound.log` | Every incoming message: from_number, body, opt-out check result, processed action |
+| **SMS opt-out log** | `logs/sms-opt-out.log` | Every opt-out event: phone, trigger word, timestamp, confirmation sent |
+| **SMS error log** | `logs/sms-error.log` | Errors: API failures, webhook errors, Airtable reconciliation failures |
+| **SMS webhook log** | `logs/sms-webhook.log` | Raw webhook deliveries: endpoint, HTTP status, validation result |
+
+### 4.2 Log Entry Format
+
+All logs use a consistent pipe-delimited format for grepability:
+
+```
+YYYY-MM-DDTHH:MM:SS+09:30 | LEVEL | EVENT | DETAIL
+```
+
+**Fields:**
+- `LEVEL`: DEBUG | INFO | WARN | ERROR | CRITICAL
+- `EVENT`: One of the canonical event types below
+- `DETAIL`: Structured key=value pairs, space-separated
+
+**Canonical SMS event types:**
+
+| Event | Level | When |
+|---|---|---|
+| `SMS_SEND_ATTEMPT` | INFO | Send initiated |
+| `SMS_SEND_SUCCESS` | INFO | Send accepted by Twilio |
+| `SMS_SEND_FAILED` | ERROR | Send rejected by Twilio |
+| `SMS_GATE_BLOCKED` | INFO | Decision Engine blocked send (expected) |
+| `SMS_GATE_ERROR` | ERROR | Decision Engine error (unexpected) |
+| `SMS_DELIVERY_UPDATE` | INFO | Status callback received |
+| `SMS_DELIVERY_FAILED` | WARN | Delivery failed (will retry) |
+| `SMS_DELIVERY_PERMANENT_FAIL` | ERROR | Delivery failed after max retries |
+| `SMS_INBOUND_RECEIVED` | INFO | Incoming message received |
+| `SMS_OPTOUT_DETECTED` | WARN | Opt-out trigger word detected |
+| `SMS_OPTOUT_PROCESSED` | INFO | Opt-out workflow completed |
+| `SMS_OPTOUT_CONFIRMATION_SENT` | INFO | Confirmation SMS sent |
+| `SMS_RETRY_ATTEMPT` | INFO | Retry attempt N |
+| `SMS_MAX_RETRIES_EXCEEDED` | ERROR | Retry exhausted |
+| `SMS_WEBHOOK_RECEIVED` | DEBUG | Webhook received (raw) |
+| `SMS_WEBHOOK_ERROR` | ERROR | Webhook validation or processing failed |
+| `SMS_AIRTABLE_SYNC` | INFO | Airtable record created/updated |
+| `SMS_AIRTABLE_SYNC_FAILED` | ERROR | Airtable reconciliation failed |
+
+### 4.3 Log Entry Examples
+
+```
+2026-07-28T14:05:00+09:30 | INFO | SMS_SEND_ATTEMPT | recipient=+614XXXXXXXX purpose="Daily follow-up summary" consent_tier=T1 gates_passed=8/8
+2026-07-28T14:05:01+09:30 | INFO | SMS_SEND_SUCCESS | message_id=SM123abc status=queued segment_count=1
+2026-07-28T14:05:03+09:30 | INFO | SMS_AIRTABLY_SYNC | message_record=recXXX prospect=recYYY sync=complete
+2026-07-28T14:05:05+09:30 | INFO | SMS_DELIVERY_UPDATE | message_id=SM123abc status=delivered
+2026-07-28T14:10:00+09:30 | INFO | SMS_INBOUND_RECEIVED | from=+614XXXXXXXX body="Got it, looks good" optout_triggered=false
+2026-07-28T14:12:00+09:30 | WARN | SMS_OPTOUT_DETECTED | from=+614XXXXXXXX trigger_word="STOP" message_id=SM456def
+2026-07-28T14:12:01+09:30 | INFO | SMS_OPTOUT_PROCESSED | from=+614XXXXXXXX tier_before=T1 tier_after=T0 permanent=true
+2026-07-28T14:15:00+09:30 | INFO | SMS_GATE_BLOCKED | recipient=+614XXXXXXXX gate=3 reason="Opted out"
+2026-07-28T14:20:00+09:30 | INFO | SMS_GATE_BLOCKED | recipient=+614XXXXXXXX gate=2 reason="Insufficient consent tier: T0 < T1 required"
+2026-07-28T14:25:00+09:30 | ERROR | SMS_DELIVERY_FAILED | message_id=SM789ghi status=undelivered error_code=30008 error="Unknown destination handset"
+2026-07-28T14:25:01+09:30 | INFO | SMS_RETRY_ATTEMPT | message_id=SM789ghi attempt=2 delay=1s
+2026-07-28T14:25:04+09:30 | ERROR | SMS_MAX_RETRIES_EXCEEDED | recipient=+61400000000 attempts=3
+2026-07-28T14:30:00+09:30 | ERROR | SMS_WEBHOOK_ERROR | endpoint=/sms/incoming error="Signature validation failed" source_ip=203.0.113.42
+```
+
+### 4.4 Airtable Logging (Dual-Write)
+
+Every log event that represents a state change ALSO writes to Airtable:
+
+| Log Event | Airtable Action |
+|---|---|
+| SMS_SEND_SUCCESS | Create Messages record (Channel=SMS, Direction=Outbound) |
+| SMS_DELIVERY_UPDATE | Update Messages: SMS Delivery Status |
+| SMS_DELIVERY_FAILED | Update Messages: SMS Delivery Status, SMS Delivery Error |
+| SMS_INBOUND_RECEIVED | Create Messages record (Channel=SMS, Direction=Inbound) |
+| SMS_OPTOUT_PROCESSED | Update Prospects: SMS Opted Out, SMS Consent Tier. Create SMS Consent Log record. |
+| SMS_AIRTABLY_SYNC_FAILED | Log locally. Queue for reconciliation. Flag in error log. |
+
+### 4.5 Log Retention
+
+- SMS logs: retained indefinitely (low volume, high forensic value)
+- Rotated annually (archived, not deleted)
+- All logs in `logs/sms-validation/` during validation, `logs/sms/` in production
+
+---
+
+## 5. Rollback Procedures
+
+### 5.1 Rollback Triggers
+
+Rollback is triggered if any of the following occurs during validation:
+
+| Trigger | Severity | Action |
+|---|---|---|
+| SMS sent to wrong recipient | Critical | **Immediate rollback.** Stop all sends. Investigate. |
+| Opt-out not processed correctly | Critical | **Immediate rollback.** Compliance risk. |
+| Decision Engine gate fails open | Critical | **Immediate rollback.** Trust failure. |
+| Twilio credentials exposed in logs or output | Critical | **Immediate rollback.** Rotate credentials. |
+| Airtable reconciliation fails repeatedly (3+ consecutive) | High | Rollback after current test completes. |
+| SMS delivered with wrong content | High | Rollback after current test completes. |
+| Webhook endpoint unresponsive (>60s) | Medium | Finish current test. Pause before next. |
+| Delivery failure rate > 20% | Medium | Finish current test. Investigate before next. |
+
+### 5.2 Rollback Procedure
+
+```
+SMS EMERGENCY ROLLBACK
+══════════════════════
+
+Step 1: DISABLE SENDS (30 seconds)
+  Set SMS_ENABLED = False in the SMS Service config.
+  This blocks all outbound SMS at the Decision Engine level.
+  Verify: attempt a test send, confirm it's blocked with
+  "SMS_ENABLED=False".
+
+Step 2: STOP INBOUND PROCESSING (30 seconds)
+  Disable the webhook endpoint or return 503 to Twilio.
+  Twilio will queue incoming messages for 24 hours.
+  They will not be lost.
+
+Step 3: NOTIFY JAMES (immediate)
+  Telegram: "SMS rollback initiated. Reason: [trigger].
+  All sends blocked. Inbound queued at Twilio. Investigating."
+
+Step 4: AUDIT WHAT WAS SENT (5 minutes)
+  Query Airtable Messages: Channel=SMS, Sent at > last known good.
+  List all SMS sent during the incident window.
+  Verify each against expected recipients.
+
+Step 5: CONTAIN (variable)
+  If wrong recipient: contact the recipient. Explain error.
+  If credential exposure: rotate TWILIO_AUTH_TOKEN immediately.
+  If opt-out failure: manually set SMS Opted Out = True for
+    affected numbers. Send manual confirmation.
+
+Step 6: ROOT CAUSE (before re-enable)
+  Identify: what failed exactly? Code, config, Twilio, Airtable?
+  Document in SMS error log.
+  Fix the root cause. Test the fix.
+
+Step 7: RE-ENABLE (after fix verified)
+  Restoration gate: 3 consecutive successful SMS to James.
+  All 3 must: send successfully, deliver, log correctly.
+  Then: SMS_ENABLED = True. Webhook endpoint re-enabled.
+  Notify James: "SMS re-enabled. Restoration gate passed (3/3)."
+```
+
+### 5.3 Rollback Test (Part of Validation)
+
+Before SMS touches any live recipient, test the rollback procedure itself:
+
+| Step | Test |
+|---|---|
+| 1 | Send a test SMS to James — confirm it works |
+| 2 | Trigger rollback: set SMS_ENABLED = False |
+| 3 | Attempt to send another SMS — confirm it's blocked |
+| 4 | Verify the block reason is "SMS_ENABLED=False" |
+| 5 | Verify Twilio received no request |
+| 6 | Set SMS_ENABLED = True |
+| 7 | Send a test SMS — confirm it works again |
+| 8 | Verify restoration gate passes (3/3) |
+
+**This rollback test must pass before Scenario 1 begins.** If you can't turn SMS off and on cleanly, don't start testing.
+
+---
+
+## 6. Go / No-Go Checklist
+
+### 6.1 Pre-Validation Gates (Before Any Test)
+
+| # | Gate | Status |
+|---|---|---|
+| 1 | SMS Communication Framework approved by James | ⬜ |
+| 2 | SMS Integration Readiness Report approved by James | ⬜ |
+| 3 | SMS Phase 1 Validation Plan approved by James (this document) | ⬜ |
+| 4 | Twilio number active and verified | ⬜ |
+| 5 | All Twilio credentials in .env (600 permissions) | ⬜ |
+| 6 | Airtable schema deployed: all SMS fields created | ⬜ |
+| 7 | SMS_ENABLED config flag implemented | ⬜ |
+| 8 | Rollback procedure tested and working | ⬜ |
+| 9 | James available and expecting test messages | ⬜ |
+| 10 | Log directory created and writable | ⬜ |
+
+### 6.2 Scenario Results
+
+| # | Scenario | Result | Date/Time | Evidence |
+|---|---|---|---|---|
+| 1 | Client Notification — Send and Delivery | ⬜ Pass / Fail | | |
+| 2 | Incoming SMS Reply | ⬜ Pass / Fail | | |
+| 3 | Opt-Out Request | ⬜ Pass / Fail | | |
+| 4 | Consent Gate Failure (3 sub-scenarios) | ⬜ Pass / Fail | | |
+| 5 | Delivery Failure and Retry Behaviour | ⬜ Pass / Fail | | |
+
+### 6.3 Cross-Cutting Verification
+
+| # | Check | Status |
+|---|---|---|
+| 1 | All 5 scenarios pass | ⬜ |
+| 2 | Zero messages sent to wrong recipient | ⬜ |
+| 3 | Zero opt-out failures | ⬜ |
+| 4 | Zero Decision Engine gate failures (fail-open) | ⬜ |
+| 5 | Zero Airtable reconciliation failures | ⬜ |
+| 6 | All log files written correctly | ⬜ |
+| 7 | All Airtable records created correctly | ⬜ |
+| 8 | Rollback tested and re-tested after all scenarios | ⬜ |
+| 9 | SMS_ENABLED confirmed False for all non-James recipients | ⬜ |
+
+### 6.4 Production Readiness (Post-Validation)
+
+| # | Check | Status |
+|---|---|---|
+| 1 | SMS_ENABLED = True for James only (beta mode) | ⬜ |
+| 2 | SMS Consent Tier populated for all existing clients | ⬜ |
+| 3 | All existing client mobile numbers validated | ⬜ |
+| 4 | SMS Consent Log backfilled for existing clients | ⬜ |
+| 5 | Privacy Register updated with SMS in production | ⬜ |
+| 6 | Data Flow Map updated with production SMS paths | ⬜ |
+| 7 | Trust Decision recorded for production SMS | ⬜ |
+| 8 | James approves Phase 2 (client beta) | ⬜ |
+
+### 6.5 Go Decision
+
+**Go:** All 5 scenarios pass. All cross-cutting checks pass. Production readiness checks 1-4 complete. James approves.
+
+**No-Go:** Any scenario fails. Any cross-cutting check fails. Any doubt from James.
+
+**Conditional Go:** All scenarios pass but a non-critical finding is documented and accepted. Example: log format needs refinement but doesn't affect safety or reliability. James decides.
+
+---
+
+## Appendix A: Test Record Template
+
+For each scenario, complete this record during testing:
+
+```
+SCENARIO [N]: [Name]
+══════════════════════
+Date/Time:
+Tester: Atlas (operator), James (recipient)
+
+Pre-conditions verified: ☐
+Test steps executed: ☐
+
+Result: PASS / FAIL
+
+Evidence:
+  - [Artifact 1] — [Location] — [Verified?]
+  - [Artifact 2] — [Location] — [Verified?]
+  - ...
+
+Deviations from expected:
+  - [None, or describe what happened differently]
+
+Issues found:
+  - [None, or describe]
+
+Proceed to next scenario: YES / NO
+  If NO, reason:
+```
+
+---
+
+## Appendix B: Validation Report Template
+
+After all 5 scenarios complete, compile into a single validation report:
+
+```
+SMS PHASE 1 VALIDATION REPORT
+═════════════════════════════
+Date:
+Participants: Atlas, James Hardstaff
+Twilio number: [number]
+Test duration: [start] to [end]
+
+SCENARIO RESULTS:
+  1. Client Notification:            PASS / FAIL
+  2. Incoming SMS Reply:             PASS / FAIL
+  3. Opt-Out Request:                PASS / FAIL
+  4. Consent Gate Failure:           PASS / FAIL
+  5. Delivery Failure & Retry:       PASS / FAIL
+
+CROSS-CUTTING:
+  Wrong recipient sends:             [count] (must be 0)
+  Opt-out failures:                  [count] (must be 0)
+  Gate fail-open events:             [count] (must be 0)
+  Airtable reconciliation failures:   [count] (must be 0)
+
+FINDINGS:
+  - [Finding 1 — action taken]
+  - [Finding 2 — accepted as known limitation]
+
+GO / NO-GO RECOMMENDATION:
+  Atlas recommends: GO / NO-GO / CONDITIONAL GO
+  Rationale: [one paragraph]
+
+JAMES'S DECISION:
+  ☐ Go — proceed to Phase 2 (client beta)
+  ☐ No-Go — [reason]
+  ☐ Conditional Go — [conditions]
+
+Signed: James Hardstaff
+Date:
+```
+
+---
+
+*This validation plan is frozen. No new scenarios, no new checks, no new architecture. The design is complete. The next stage is execution.*
+
+*Governed by the SMS Communication Framework (`knowledge/sms-communication-framework.md`) and the Integration Readiness Report (`knowledge/sms-integration-readiness-report.md`).*

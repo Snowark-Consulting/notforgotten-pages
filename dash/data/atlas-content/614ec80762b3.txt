@@ -1,0 +1,109 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# Client Probability Score — Scoring Model
+
+**Created:** 2026-07-27  
+**Replaces:** Previous "business quality" ranking model  
+**Purpose:** Rank prospects by probability of becoming a paying Not Forgotten client
+
+## The Shift
+
+The old model ranked painters by business quality (size, professionalism, reputation). The new model answers a single question: **"How likely is this painter to become a paying Not Forgotten client?"**
+
+## Seven Dimensions
+
+| Dimension | Max | What it measures |
+|---|---|---|
+| **Owner accessibility** | 15 | Can we reach the decision-maker directly? |
+| **Team-size fit** | 15 | Is the business the right size for $199/mo? |
+| **Quote-volume signals** | 20 | Evidence of high quoting activity and follow-up burden |
+| **Residential focus** | 15 | Repaint/residential = recurring individual quotes |
+| **Follow-up gap** | 15 | How likely they have a follow-up problem |
+| **No sales infrastructure** | 10 | No dedicated sales team, no CRM, no filter |
+| **Personalisation potential** | 10 | Can we write a compelling, specific Email 1? |
+| **TOTAL** | **100** | |
+
+## Scoring Rules
+
+### Owner Accessibility (0-15)
+- First name @ domain (e.g. tony@) = 15
+- Personal email (gmail/yahoo/bigpond/outlook) = 12
+- info@ on small site (<5 employees implied) = 10
+- info@ on larger site (6+ employees) = 5
+- quotes@ = 12 (high quoting maturity, less owner-direct)
+- admin@/office@/sales@ = 3-5
+- No email found = 0
+
+### Team-Size Fit (0-15)
+- 2-5 employees = 15 (sweet spot)
+- 6-10 employees = 12
+- 1 employee (solo) = 8
+- 11-20 employees = 5
+- Unknown: estimate from website signals
+  - Personal email domain = 13
+  - Family-run language = 13
+  - Large professional site (200K+ chars) = 10
+
+### Quote-Volume Signals (0-20)
+- Free quotes explicitly offered = 15
+- Quoting CTA ("Get a Quote") = 8
+- Strata/body corporate specialist = +10
+- Real estate/property management work = +5
+- No quote signals on site = 5
+- Max capped at 20
+
+### Residential Focus (0-15)
+- Explicit residential/repaint specialist = 15
+- Residential + commercial mix = 10
+- Commercial-heavy with some residential = 5
+- Commercial/industrial only = 0
+
+### Follow-Up Gap (0-15)
+- Strata/body corporate specialist (weeks-long decisions) = 14
+- Free quotes + multi-service (high volume) = 13
+- Real estate work (recurring, time-sensitive) = 12
+- Free quotes = 10
+- General quoting language = 8
+- No quoting signals = 5
+
+### No Sales Infrastructure (0-10)
+- No sales team mentioned + small team = 10
+- Family-run = 10
+- No sales team mentioned (any size) = 8
+- Unknown = 7
+- Franchise signal = -15 (disqualifying adjustment)
+- Sales team/department mentioned = -10
+- National/multi-location = -5
+
+### Personalisation Potential (0-10)
+- Owner name extractable + multiple signals = 10
+- Strong ICP signals (strata, Dulux, heritage) = 8-9
+- Some signals = 5-7
+- Minimal data = 3
+
+## Negative Adjustments
+
+Applied within the "No Sales Infrastructure" and "Owner Accessibility" dimensions:
+- Franchise group: -15
+- "Sales team" on website: -10
+- National/multi-location: -5
+- Large commercial-only: -5
+
+## Confidence Flags
+
+| Flag | Meaning |
+|---|---|
+| *(none)* | High-confidence score. Website researched, signals verified. |
+| ⚠️ Provisional | Dead or missing website. Score based on email signals only. Needs alternative research. |
+| ❌ Negative | Disqualifying signal detected (franchise, unreachable, etc.) |
+
+## Review Date
+
+This model should be reviewed after:
+- 5 new client conversions (to validate predictive accuracy)
+- Any new industry vertical launch
+- August 27, 2026 (30 days)

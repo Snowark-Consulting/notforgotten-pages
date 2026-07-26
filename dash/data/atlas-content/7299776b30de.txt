@@ -32,7 +32,7 @@ Check if any workflows from today should become skills. If a repeated multi-step
 
 ### 3. WIKILINKS
 
-Scan any files created or edited today for plain-text references to vault pages that should be wikilinks. Add missing `[[PageName]] (path/to/file.md)` per the conventions in `Agent/wikilinks.md`.
+Scan any files created or edited today for plain-text references to vault pages that should be wikilinks. Add missing ``[[PageName]] (path/to/file.md)`` per the conventions in `Agent/wikilinks.md`.
 
 ### 4. CONNECTION GENERATION
 

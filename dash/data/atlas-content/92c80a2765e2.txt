@@ -1,0 +1,703 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# SMS Communication Framework — Not Forgotten Systems
+
+**Status:** Design document (not built)
+**Author:** Atlas
+**Date:** 2026-07-27
+**Purpose:** Define SMS as a strategic platform capability — not a marketing channel
+**Governed by:** The Six Principles, The Trust Test, The Trust Framework
+**Implementation companion:** `knowledge/sms-integration-readiness-report.md` — detailed interface design, schema recommendations, template library, and deployment checklist
+
+---
+
+## Table of Contents
+
+1. [Where SMS Creates Value](#1-where-sms-creates-value)
+2. [Where SMS Must Never Be Used](#2-where-sms-must-never-be-used)
+3. [Consent Model](#3-consent-model)
+4. [Communication Rules](#4-communication-rules)
+5. [Product Vision](#5-product-vision)
+6. [Technical Architecture](#6-technical-architecture)
+7. [Trust Framework Alignment](#7-trust-framework-alignment)
+8. [Implementation Roadmap](#8-implementation-roadmap)
+
+---
+
+## 1. Where SMS Creates Value
+
+SMS earns its place when it delivers information that is **timely, actionable, and welcome**. The recipient should feel informed, not interrupted. Every SMS must pass the test: "Would the recipient thank us for sending this, or would they wonder why we used their number?"
+
+### 1.1 Existing Client Notifications
+
+For paying Not Forgotten clients, SMS is a service feature. These are notifications about *their* business that they've entrusted us to manage.
+
+| Notification | Trigger | Example | Priority |
+|---|---|---|---|
+| Quote reply alert | Customer replies to a tracked quote | "Quote #127 from Sarah (Bathroom Reno) just replied — she wants to proceed. See email for details." | High |
+| Quote accepted | Customer formally accepts | "Sarah accepted Quote #127 — Bathroom Reno. $4,200. Nice one." | High |
+| Daily follow-up summary | End of business day | "Atlas completed 14 follow-ups today across 8 quotes. 1 new reply. No quotes went cold." | Low |
+| Quote going cold warning | Quote unreplied after configured threshold | "Quote #112 (Kitchen Repaint, $3,800) has had no reply in 7 days. Want me to adjust the follow-up approach?" | Medium |
+| Monthly performance digest | First of month | "July: 43 quotes tracked, 31 followed up, 11 accepted. $47,200 recovered. Full report in your inbox." | Low |
+| System issue alert | Service degradation (SL3+) | "Atlas hit a temporary snag — 3 follow-ups delayed by ~20 min. Back on track. Nothing needed from you." | High |
+
+### 1.2 Post-Engagement Communication
+
+After a prospect has replied to outreach and explicitly opted into SMS, the channel opens for:
+
+| Communication | Trigger | Example |
+|---|---|---|
+| Meeting reminder | 2 hours before scheduled call | "Quick reminder — call with James at 2pm today. 15 min. No prep needed." |
+| Follow-up after call | Post-meeting | "Great chat today. James just sent the details to your email. Reply here anytime if you've got questions." |
+| Onboarding kickoff | Client signs up | "Welcome aboard. Your first quote tracking goes live today. James sent setup instructions to your inbox — takes 2 minutes." |
+
+### 1.3 Appointment and Quote Status Updates (Client's Customer)
+
+This is the product vision: Not Forgotten handles the communication so the client doesn't have to. These messages go to the *client's customer* with the client's branding in mind.
+
+**Critical rule:** These are only sent when the client's customer has been informed that SMS follow-up may occur. This is handled through the O1 Customer Privacy Notice (already operationalised for email, extended here for SMS).
+
+| Communication | Trigger | Example |
+|---|---|---|
+| Quote follow-up (gentle) | Day 3 after quote sent | "Hi Sarah — just checking you received Michael's quote for the bathroom reno. Any questions, just reply here." |
+| Quote follow-up (final) | Day 10 after quote | "Hi Sarah — just closing the loop on Michael's bathroom reno quote. No pressure at all, the offer's open if you'd like to go ahead." |
+| Quote status inquiry response | Customer asks "is this still available" | "Absolutely — the quote's still valid. Michael can start in about 2 weeks. Want me to lock in a time?" |
+
+**Distinction from email follow-up:** SMS is for time-sensitive micro-interactions. Email remains the primary follow-up channel. SMS is used sparingly — when the message is short enough to read and act on in under 10 seconds.
+
+---
+
+## 2. Where SMS Must Never Be Used
+
+This section is absolute. Violating any of these rules is a breach of the Trust Framework and the Six Principles. No exception without James's explicit, documented approval.
+
+### 2.1 The Absolute Prohibitions
+
+| Rule | Why |
+|---|---|
+| **Cold outreach of any kind** | No prior relationship. No consent. Violates Trust Test questions 1, 2, 3, and 5. |
+| **Any communication that fails the Trust Test** | A single "no" or moment of doubt = stop. Trust is the product. SMS is a tool. |
+| **Where consent is absent or uncertain** | If we cannot point to a specific consent event, we do not send. "Probably fine" is never fine. |
+| **After opt-out** | Once someone texts STOP (or any variant: stop, Stop, STOP, unsubscribe, remove, cancel, end, quit), they are permanently blocked from SMS. No re-engagement. No "are you sure?" The block is immediate and irrevocable without explicit re-opt-in. |
+| **Marketing or promotional content** | SMS is for service communication, not selling. No "new feature" announcements, no "special offer," no "upgrade now." Product announcements go to email. |
+| **Sensitive information** | Never send quote values, customer names, or business metrics in SMS where the message preview could be read on a lock screen. |
+| **After hours (see Quiet Hours)** | Never send between 9pm and 7am local time. Respect the recipient's personal time. |
+| **To landlines** | Validate number type before sending. Landline = no send. |
+| **To international numbers without explicit confirmation** | Australia-only unless international capability is explicitly designed and James-approved. |
+| **Multiple messages in rapid succession** | Maximum one SMS per conversation thread per day unless the recipient replies. |
+
+### 2.2 Edge Cases — Escalate to James
+
+| Scenario | Why Escalate |
+|---|---|
+| Client asks us to SMS their customers but hasn't confirmed consent | The client may assume consent exists. We verify, not assume. |
+| Prospect who ghosted after Email 4 replies months later via SMS | Is this a new conversation or a dead thread? James decides. |
+| Someone texts our number thinking it belongs to a different business | Wrong number. Don't engage as NFS. Flag to James. |
+| SMS reply contains abusive or threatening language | Don't respond. Flag to James immediately. |
+| Legal or regulatory communication request arrives via SMS | Don't respond via SMS. Flag to James. Route to email. |
+
+---
+
+## 3. Consent Model
+
+Consent is not binary. It is contextual, tiered, and always verifiable. Before any SMS is sent, Atlas must determine which tier the recipient falls into and whether the specific message is authorised at that tier.
+
+### 3.1 Consent Tiers
+
+| Tier | Name | Scope | How Consent Is Established | Verification |
+|---|---|---|---|---|
+| **T0** | No consent | Cannot send SMS | N/A (default for all unknown numbers) | Absence of any higher tier |
+| **T1** | Service relationship | Account notifications, system alerts, monthly digests | Active NFS subscription. Phone number provided during onboarding. | Airtable: `Pipeline stage` = Client, `Phone` field populated, `SMS Consent Tier` = T1 |
+| **T2** | Explicit post-engagement | Meeting reminders, post-call follow-up, onboarding assistance | Prospect replied to outreach, provided phone number, and explicitly requested or agreed to SMS. | Airtable: `Phone` field populated, `SMS Consent Tier` = T2, `SMS Consent Source` = "Prospect request" or "Offered and accepted" |
+| **T3** | Delegated consent (client's customer) | Quote follow-up, status updates, reply notifications | NFS client has informed their customer that SMS follow-up may occur, and the customer has not opted out. Verified through O1 Customer Privacy Notice process. | Airtable: `SMS Consent Tier` = T3, `SMS Consent Source` = `Client: [Business Name]`, `Consent Verified Date` populated |
+| **T4** | Full opt-in (explicit) | All authorised SMS types | Recipient has explicitly opted into SMS via a documented mechanism (checkbox, text-to-join, written request). Highest confidence tier. | Airtable: `SMS Consent Tier` = T4, `SMS Consent Source` populated with specific mechanism, `SMS Consent Date` populated |
+
+### 3.2 Decision Rules (Atlas SMS Send Gate)
+
+Before any SMS is sent, Atlas runs this decision tree:
+
+```
+1. Does the recipient exist in Airtable?
+   NO  → Block. Unknown recipient.
+   YES → Continue.
+
+2. Does the recipient have an SMS Consent Tier?
+   NO  → Block. No consent on file.
+   YES → Continue.
+
+3. Is the Consent Tier >= the minimum required for this message type?
+   NO  → Block. Insufficient consent tier.
+   YES → Continue.
+
+4. Has the recipient opted out?
+   YES → Block. Permanently. Log attempt.
+   NO  → Continue.
+
+5. Is the number type valid? (mobile, not landline, not VOIP)
+   NO  → Block. Flag number for review.
+   YES → Continue.
+
+6. Is the current time within Quiet Hours?
+   NO  → Queue for next available window.
+   YES → Continue.
+
+7. Would sending this message exceed the frequency cap?
+   YES → Block. Queue or suppress.
+   NO  → Continue.
+
+8. Does the message content pass the SMS Voice Review?
+   NO  → Rewrite.
+   YES → Send.
+
+9. After send: Log to Airtable Messages table with SMS-specific metadata.
+```
+
+### 3.3 Consent Degradation and Expiry
+
+| Event | Action |
+|---|---|
+| Client cancels subscription | T1 consent degrades to T0 immediately. No further SMS. |
+| Prospect marked Lost in Airtable | T2 consent degrades to T0 after 30 days. A final "door's open" SMS may be sent before degradation if James approves. |
+| Client's customer opts out (STOP) | T3 consent removed. Customer moved to SMS Opt-Out list. Client notified. |
+| Phone number bounces (invalid/disconnected) | Consent tier preserved but `SMS Deliverable` set to false. No further attempts until number is updated and re-verified. |
+| 12 months with no SMS activity | Consent tier preserved but flagged for re-verification on next send attempt. |
+
+### 3.4 Consent Registers
+
+Two permanent registers in `knowledge/trust/`:
+
+| Register | Purpose |
+|---|---|
+| `sms-consent-register.md` | Every consent event: who, when, how, tier, scope |
+| `sms-opt-out-register.md` | Every opt-out: who, when, method, permanent block confirmation |
+
+---
+
+## 4. Communication Rules
+
+### 4.1 SMS Voice Standard
+
+SMS messages have different constraints than email. The Communication Voice Standard (Decision `2026-07-07-communication-voice-standard`) still applies, but with SMS-specific adaptations:
+
+| Principle | SMS Adaptation |
+|---|---|
+| **No bullshit** | Even more critical. 160 characters leaves zero room for filler. |
+| **Get to the point quickly** | The point must be visible in the notification preview (first ~40 chars). |
+| **Be practical before clever** | SMS is pure utility. No cleverness. No charm. Just useful information. |
+| **Sound like one business owner talking to another** | Shorter. More casual. "Nice one" is fine. "We are pleased to inform you" is not. |
+| **No em dashes** | Still banned. Use commas, full stops, or line breaks. |
+
+**Additional SMS-specific rules:**
+
+| Rule | Rationale |
+|---|---|
+| **160 characters or fewer** | Standard SMS segment. Longer messages split and arrive out of order. |
+| **Lead with the news** | First 40 characters = notification preview. Make them count. |
+| **No URLs unless essential** | SMS is not for driving traffic. If a link is needed, use a short, trusted domain. |
+| **No formatting** | Plain text only. No bold, no italics, no Markdown. |
+| **One message, one purpose** | Never combine a notification with a question. Never stack updates. |
+| **Identify the source if ambiguous** | "Atlas here — Quote #127 just got a reply" when the recipient may not recognise the number. |
+
+### 4.2 SMS Voice Review (7-Point Checklist)
+
+Adapted from the 9-point email Voice Review. Every SMS must score 7/7.
+
+| # | Check | What It Means |
+|---|---|---|
+| 1 | **Fits in one segment** | 160 characters or fewer. If it doesn't fit, it's not an SMS message. |
+| 2 | **Lead is the news** | First 40 characters contain the key information. |
+| 3 | **No bullshit** | Nothing that sounds like marketing. No vague promises. |
+| 4 | **No exaggerated claims** | Every claim is defensible. |
+| 5 | **Reads naturally aloud** | Say it. If it sounds like a robot, rewrite. |
+| 6 | **Passes the coffee test** | "Would James text this to a business owner?" |
+| 7 | **Actionable or informative** | The recipient can act on it OR they're glad they know it. No "just checking in." |
+
+### 4.3 Frequency Caps
+
+| Recipient Type | Max Frequency | Rationale |
+|---|---|---|
+| Client (T1) — system alerts | 3 per day | Urgent issues don't wait. But cap prevents spam from cascading failures. |
+| Client (T1) — summaries | 1 per day (end of day) | One digest. Not a running commentary. |
+| Client (T1) — monthly digest | 1 per month | First business day. |
+| Prospect (T2) — post-engagement | 1 per day | Respect the relationship. They're not a client yet. |
+| Client's customer (T3) — follow-up | Embedded in email sequence cadence (Day 3, Day 10) | SMS is an email supplement, not a separate sequence. |
+
+### 4.4 Quiet Hours
+
+| Rule | Detail |
+|---|---|
+| **No outbound SMS** | 9:00 PM to 7:00 AM, recipient's local time |
+| **Timezone source** | Phone number area code → state → Australia/Adelaide (default) or state-specific timezone |
+| **Queue behaviour** | Messages generated during quiet hours are queued and sent at 7:01 AM |
+| **Exception** | None. Even system alerts queue. If an alert can't wait 8 hours, it should be an email or a phone call from James. |
+
+### 4.5 Opt-Out Handling
+
+**Trigger words (case-insensitive):** STOP, STOPALL, UNSUBSCRIBE, CANCEL, END, QUIT, REMOVE
+
+**Any of these words anywhere in an incoming SMS triggers immediate opt-out:**
+
+1. Mark the number as `SMS Opted Out: true` in Airtable
+2. Set `SMS Consent Tier` to `T0`
+3. Log the opt-out in `sms-opt-out-register.md` with timestamp, trigger word, and message context
+4. Send confirmation: "You've been removed from SMS updates. Email communication will continue if you have an active relationship with us. Reply HELP for more info."
+5. Notify the relevant NFS client if the opt-out was their customer (T3 consent)
+6. If the opt-out was an NFS client (T1), escalate to James
+7. **Never send SMS to this number again.** The block is permanent unless the recipient explicitly re-opts in.
+
+### 4.6 Escalation to James
+
+| Trigger | Action |
+|---|---|
+| NFS client opts out of SMS | Immediate escalation. This is a churn risk signal. |
+| SMS reply contains question Atlas cannot answer | Forward to James with context. Do not guess. |
+| SMS reply contains complaint or negative sentiment | Flag to James. Do not respond defensively. |
+| SMS delivery failure rate exceeds 5% in a day | Escalate. May indicate a carrier or Twilio issue. |
+| Monthly SMS cost exceeds budget threshold | Escalate with usage breakdown and recommendation. |
+| Any legal or regulatory communication via SMS | Do not engage. Flag to James immediately. |
+
+### 4.7 Airtable Logging
+
+Every SMS — inbound and outbound — creates a record in the Messages table with SMS-specific metadata:
+
+| Field | Value |
+|---|---|
+| `Message type` | SMS |
+| `Direction` | Inbound / Outbound |
+| `Message purpose` | One of 12 canonical purposes (see SMS Message Purposes below) |
+| `Prospect` | Linked prospect record (if applicable) |
+| `SMS Consent Tier` | T0-T4 at time of send |
+| `SMS Segment Count` | Number of segments (1 = ≤160 chars) |
+| `SMS Delivery Status` | queued / sent / delivered / failed / undelivered |
+| `SMS Opt-Out Triggered` | true/false |
+| `Quiet Hours Queued` | true/false (was this queued and sent at 7am?) |
+
+**SMS Message Purposes (canonical values):**
+
+1. `Quote reply alert`
+2. `Quote accepted notification`
+3. `Daily follow-up summary`
+4. `Quote cold warning`
+5. `Monthly performance digest`
+6. `System issue alert`
+7. `Meeting reminder`
+8. `Post-call follow-up`
+9. `Onboarding kickoff`
+10. `Customer follow-up (gentle)`
+11. `Customer follow-up (final)`
+12. `Opt-out confirmation`
+
+---
+
+## 5. Product Vision
+
+### 5.1 Strategic Position
+
+Not Forgotten becomes the communication operating system for service businesses. Email handles structured, long-form, high-context communication. SMS handles immediate, time-sensitive, micro-interactions. Together they form a complete communication layer that sits between the business and its customers.
+
+**The vision in one sentence:** A tradesperson on site gets a text that says "Quote #127 accepted — $4,200" and they don't have to think about follow-up ever again. That's the product.
+
+### 5.2 The Communication OS
+
+```
+                    NOT FORGOTTEN SYSTEMS
+                    ┌─────────────────────┐
+                    │   Decision Engine    │
+                    │   ┌───────────────┐  │
+Business ──quotes──→│   │ Email Service │──→ Business's Customer
+                    │   ├───────────────┤  │
+                    │   │  SMS Service  │──→ Business's Customer
+                    │   ├───────────────┤  │
+                    │   │  Audit Trail  │  │
+                    │   └───────────────┘  │
+                    │         │            │
+                    │    Airtable CRM      │
+                    └─────────────────────┘
+                             │
+                      Business Owner
+                   (notifications, dashboards)
+```
+
+### 5.3 Notification Architecture
+
+| Layer | Channel | Content | Audience |
+|---|---|---|---|
+| **Urgent** | SMS | "Quote accepted", "System down", "Customer replied" | NFS client |
+| **Daily** | SMS (end of day) | "14 follow-ups, 1 reply, 0 cold" | NFS client |
+| **Monthly** | SMS + Email | Performance digest, revenue recovered | NFS client |
+| **Follow-up** | Email (primary) + SMS (supplement) | Gentle check-ins with end customers | Client's customer |
+| **Strategic** | Email | Campaign results, industry insights, product updates | NFS client |
+
+### 5.4 Future SMS Capabilities (Not Building Yet)
+
+These are product ideas that SMS infrastructure enables. None are in scope for initial build.
+
+| Capability | Description | Prerequisites |
+|---|---|---|
+| **Two-way SMS for clients** | Client can reply to SMS and Atlas processes the reply intelligently | NLP for SMS replies, intent classification |
+| **SMS-based quote acceptance** | Customer texts "ACCEPT #127" to accept a quote | Quote ID system, acceptance workflow |
+| **SMS scheduling** | Customer texts preferred time for the job | Calendar integration |
+| **Client SMS commands** | Client texts "SUMMARY" to get an instant daily summary | Command parser, rate limiting |
+| **SMS onboarding flow** | New client completes setup via SMS conversation | Interactive SMS workflow engine |
+| **SMS review requests** | After job completion, text customer asking for Google review | Review platform integration |
+
+### 5.5 Competitive Moat
+
+When a painting business has 40 quotes in flight and their customers are getting timely, professional follow-ups via email AND SMS, with the business owner receiving real-time notifications about replies and acceptances — switching to another provider means losing the entire communication layer. That's the moat. The technology is simple. The trust and integration are not.
+
+---
+
+## 6. Technical Architecture
+
+### 6.1 Design Principles
+
+| Principle | Application |
+|---|---|
+| **Provider abstraction** | Twilio is the first carrier. The SMS Service is provider-agnostic. Swapping carriers should not require changes to business logic. |
+| **Single source of truth** | Airtable is the authority for consent, message history, and delivery status. Twilio is a transport layer. |
+| **Fail closed on consent** | If the consent check cannot reach Airtable, SMS does not send. Never default to "probably okay." |
+| **Full audit trail** | Every SMS — inbound and outbound — is logged in Airtable before it touches Twilio. |
+| **Idempotency** | Duplicate detection prevents double-sends. If Airtable shows the same message purpose sent to the same recipient within 60 seconds, suppress the duplicate. |
+| **SL2 degradation** | If Twilio is down, SMS messages queue and deliver when it recovers. Email fallback for urgent notifications. |
+
+### 6.2 Architecture Overview
+
+```
+┌──────────────────────────────────────────────────────────┐
+│                      ATLAS AGENT                          │
+│                                                           │
+│  ┌─────────────┐    ┌──────────────┐    ┌─────────────┐  │
+│  │ Decision     │───→│ SMS Service   │───→│ Twilio API  │  │
+│  │ Engine       │    │ (abstraction) │    │ (transport)  │  │
+│  └──────┬──────┘    └──────┬───────┘    └──────┬──────┘  │
+│         │                  │                    │         │
+│         ▼                  ▼                    ▼         │
+│  ┌──────────────────────────────────────────────────┐    │
+│  │              AIRTABLE (single source of truth)     │    │
+│  │                                                    │    │
+│  │  ┌──────────┐  ┌──────────┐  ┌──────────────────┐ │    │
+│  │  │ Prospects│  │ Messages │  │ SMS Consent Log  │ │    │
+│  │  └──────────┘  └──────────┘  └──────────────────┘ │    │
+│  │                                                    │    │
+│  │  ┌──────────────┐  ┌──────────────────────────┐   │    │
+│  │  │ SMS Opt-Outs │  │ SMS Delivery Log         │   │    │
+│  │  └──────────────┘  └──────────────────────────┘   │    │
+│  └──────────────────────────────────────────────────┘    │
+└──────────────────────────────────────────────────────────┘
+```
+
+### 6.3 Component Specifications
+
+#### 6.3.1 Twilio Integration
+
+| Aspect | Detail |
+|---|---|
+| **Provider** | Twilio (Phase 1). Provider-agnostic abstraction for future flexibility. |
+| **API** | Twilio REST API (Messages resource) |
+| **Authentication** | Account SID + Auth Token stored in `.env` with 600 permissions |
+| **Phone Number** | Australian mobile number provisioned through Twilio |
+| **Webhook endpoint** | Incoming SMS webhook → Atlas incoming SMS processor |
+| **Status callbacks** | Delivery status webhooks → Airtable `SMS Delivery Status` updates |
+| **Rate limiting** | Twilio-side: 1 message per second per recipient. Atlas-side: frequency caps per consent tier. |
+| **Error handling** | Retry with exponential backoff (3 attempts). After 3 failures → flag for James review. |
+
+#### 6.3.2 SMS Service Abstraction
+
+```python
+# Conceptual interface — not implementation
+
+class SMSService:
+    """
+    Provider-agnostic SMS interface.
+    Phase 1: TwilioSMSService implements this.
+    Future: Any provider can be swapped in.
+    """
+
+    def send(self, to: str, body: str, purpose: str) -> SMSResult:
+        """Send SMS. Returns SMSResult with message_id, status, segment_count."""
+        ...
+
+    def validate_number(self, to: str) -> NumberValidation:
+        """Validate number type, carrier, country. Returns NumberValidation."""
+        ...
+
+    def handle_incoming(self, from_: str, body: str) -> IncomingResult:
+        """Process incoming SMS. Check opt-out triggers, classify intent."""
+        ...
+
+    def get_delivery_status(self, message_id: str) -> DeliveryStatus:
+        """Check delivery status. queued/sent/delivered/failed/undelivered."""
+        ...
+```
+
+#### 6.3.3 Decision Engine
+
+The Decision Engine is the gatekeeper. It runs before any SMS touches Twilio.
+
+```
+send_sms(recipient, body, purpose):
+    1. consent_tier = airtable.get_consent_tier(recipient)
+    2. if consent_tier < MINIMUM_TIER[purpose]: BLOCK
+    3. if airtable.is_opted_out(recipient): BLOCK (permanent)
+    4. if not validate_number(recipient.phone): BLOCK
+    5. if is_quiet_hours(recipient.timezone): QUEUE
+    6. if exceeds_frequency_cap(recipient, purpose): BLOCK or QUEUE
+    7. if is_duplicate(recipient, purpose, 60s): BLOCK
+    8. result = sms_service.send(recipient.phone, body, purpose)
+    9. airtable.log_message(result)
+    10. return result
+```
+
+**Minimum consent tier by purpose:**
+
+| Purpose | Minimum Tier |
+|---|---|
+| Quote reply alert | T1 |
+| Quote accepted notification | T1 |
+| Daily follow-up summary | T1 |
+| Quote cold warning | T1 |
+| Monthly performance digest | T1 |
+| System issue alert | T1 |
+| Meeting reminder | T2 |
+| Post-call follow-up | T2 |
+| Onboarding kickoff | T2 |
+| Customer follow-up (gentle) | T3 |
+| Customer follow-up (final) | T3 |
+| Opt-out confirmation | T0 (send regardless — this is a compliance message) |
+
+#### 6.3.4 Incoming SMS Processor
+
+```
+handle_incoming_sms(from_number, body):
+    1. Check for opt-out trigger words (STOP, UNSUBSCRIBE, etc.)
+       → If triggered: process_opt_out(from_number, body)
+       → Send confirmation. Log. Block future sends. STOP.
+    2. Look up sender in Airtable by phone number
+       → Not found: Log as unknown. Flag for James.
+       → Found: Continue.
+    3. Classify intent:
+       - Question → Forward to Atlas for response or escalate to James
+       - Reply to follow-up → Update quote status, notify client
+       - Complaint → Flag to James immediately
+       - HELP request → Send help response with contact options
+       - Unknown → Log, flag for James
+    4. Log inbound message to Airtable Messages table
+    5. Take appropriate action based on intent classification
+```
+
+#### 6.3.5 Airtable Schema Additions
+
+**Prospects table — new SMS fields:**
+
+| Field Name | Type | Description |
+|---|---|---|
+| `SMS Consent Tier` | Single select (T0/T1/T2/T3/T4) | Current consent level |
+| `SMS Consent Source` | Single line text | How consent was obtained |
+| `SMS Consent Date` | Date | When consent was established |
+| `SMS Opted Out` | Checkbox | Permanent opt-out flag |
+| `SMS Deliverable` | Checkbox | Number is valid and reachable |
+| `SMS Timezone` | Single select (Australia/Adelaide, etc.) | Recipient's timezone |
+
+**Messages table — new SMS fields (in addition to existing):**
+
+| Field Name | Type | Description |
+|---|---|---|
+| `Message type` | Single select (Email/SMS) | Channel |
+| `SMS Direction` | Single select (Inbound/Outbound) | Direction |
+| `SMS Segment Count` | Number | Segments in outbound message |
+| `SMS Delivery Status` | Single select | queued/sent/delivered/failed/undelivered |
+| `SMS Opt-Out Triggered` | Checkbox | Did this message trigger opt-out? |
+| `Quiet Hours Queued` | Checkbox | Was this queued overnight? |
+
+**New table: SMS Consent Log**
+
+| Field Name | Type | Description |
+|---|---|---|
+| `Prospect` | Link to Prospects | Linked prospect |
+| `Event Type` | Single select | Consent granted / Consent upgraded / Consent degraded / Consent expired / Opt-out |
+| `Tier Before` | Single select | Tier before event |
+| `Tier After` | Single select | Tier after event |
+| `Source` | Single line text | How event occurred |
+| `Timestamp` | Date/Time | When event occurred |
+| `Notes` | Long text | Context |
+
+### 6.4 Security Considerations
+
+| Concern | Mitigation |
+|---|---|
+| Twilio credentials | Stored in `.env` with 600 permissions. Never logged, never in chat output. Never in Airtable. |
+| Phone numbers in Airtable | Already covered by Privacy Register. SMS adds no new data type, only a new transport. |
+| Message content at rest | Airtable already stores email bodies. SMS bodies logged there with same security posture. |
+| Twilio data residency | Verify Twilio's Australian data handling. Document in Privacy Register. |
+| SIM swap / number hijacking | Validate number ownership on first use. Flag number changes for James review. |
+| Inbound SMS injection | Treat inbound SMS as untrusted input. Never execute commands from SMS. Never follow links from unknown senders. |
+| Message preview exposure | Sensitive content guidelines prevent quote values and customer names from appearing in lock screen previews. |
+
+### 6.5 Cost Model (Estimate)
+
+| Item | Estimate | Notes |
+|---|---|---|
+| Twilio Australian mobile number | ~$6/mo | Single number for all outbound |
+| Outbound SMS (AU) | ~$0.05/msg | Twilio AU rates |
+| Inbound SMS | ~$0.0075/msg | Only if two-way is enabled |
+| Monthly estimate (10 clients, moderate usage) | ~$15-25/mo | Capped and monitored |
+
+---
+
+## 7. Trust Framework Alignment
+
+### 7.1 The Trust Test (Pre-Build Gate)
+
+Before a single line of SMS code is written, the Trust Test fires.
+
+| Question | Answer |
+|---|---|
+| **Owner Test:** If I owned the client's business, would I be comfortable with this? | Yes — SMS notifications about my quotes help me do my job. The consent model means nobody gets texted who didn't agree to it. |
+| **Transparency Test:** If the client knew exactly how we handled SMS, would they trust us more or less? | More — because the framework is explicit about when SMS is and isn't used. Cold outreach is explicitly prohibited. |
+| **Front Page Test:** Would I stand behind this on a newspaper front page? | Yes. The framework is conservative, consent-first, and opt-out is immediate and permanent. |
+| **Scale Test:** At 10,000 businesses, is this still the right approach? | Yes — the consent tier model and frequency caps scale linearly. The architecture is provider-agnostic. |
+| **Motive Test:** Optimising for growth or trust? | Trust. SMS is a service feature for existing clients, not a growth channel. Growth comes from clients loving the product, not from more intrusive outreach. |
+
+### 7.2 The Four Questions
+
+| Question | Assessment |
+|---|---|
+| **Is it secure?** | New attack surface: Twilio API, webhook endpoint, phone number validation. All mitigated: credentials in env, webhook authenticated, inbound input treated as untrusted. |
+| **Does it protect client privacy?** | No new data types collected. Phone numbers already in Airtable for clients. SMS consent is an additional metadata field with explicit tier tracking. |
+| **Is it reliable if something fails?** | Twilio outage → SL2 degradation. Messages queue. Email fallback for urgent notifications. Restoration gate: 3 consecutive successful sends. |
+| **Can we recover quickly?** | Rollback: disable SMS Service at the Decision Engine level. Data loss scenario: messages queued during outage are stored and delivered on recovery. |
+
+### 7.3 Trust Registers (Required Additions)
+
+| Register | Addition |
+|---|---|
+| `security-register.md` | New entry: SMS infrastructure, Twilio API key, webhook endpoint |
+| `privacy-register.md` | Update: phone numbers now used for SMS transport. Consent tier tracking. |
+| `data-flow-map.md` | New flow: Atlas → SMS Service → Twilio → Carrier → Recipient. Inbound: Recipient → Carrier → Twilio → Webhook → Atlas → Airtable. |
+| `sms-consent-register.md` | New register: every consent event |
+| `sms-opt-out-register.md` | New register: every opt-out event |
+
+### 7.4 Decision Register
+
+Create Trust Decision: `TD-2026-07-27-SMS-001` — SMS as strategic platform capability. Records the framework approval, Trust Test results, and accepted residual risks.
+
+---
+
+## 8. Implementation Roadmap
+
+### Phase 0: Framework Approval (Current)
+
+- [ ] James reviews and approves this framework
+- [ ] Framework becomes a permanent design document in `knowledge/`
+- [ ] Trust Decision recorded
+
+### Phase 1: Infrastructure Foundation
+
+- [ ] Provision Twilio account and Australian phone number
+- [ ] Implement SMS Service abstraction (Twilio provider)
+- [ ] Add SMS fields to Airtable (Prospects + Messages + new Consent Log table)
+- [ ] Implement Decision Engine (consent check, frequency caps, quiet hours)
+- [ ] Implement opt-out detection and permanent blocking
+- [ ] Implement Airtable logging for all SMS activity
+- [ ] Security review: credential storage, webhook authentication
+- [ ] Privacy review: update registers, verify Twilio data handling
+- [ ] Test with James's number only (internal dogfooding)
+
+### Phase 2: Client Beta (T1 Notifications)
+
+- [ ] Onboard 1-2 existing clients to SMS notifications
+- [ ] Implement: quote reply alerts, quote accepted notifications, daily summaries
+- [ ] Monitor delivery rates, client feedback, cost
+- [ ] Iterate on message content and frequency
+
+### Phase 3: Post-Engagement (T2) and Customer Follow-Up (T3)
+
+- [ ] Extend O1 Customer Privacy Notice to cover SMS
+- [ ] Implement T2 post-engagement messages (meeting reminders, post-call follow-up)
+- [ ] Implement T3 customer follow-up SMS as supplement to email sequences
+- [ ] Implement incoming SMS processing (opt-out detection, intent classification)
+
+### Phase 4: Full Platform Capability
+
+- [ ] Two-way SMS for clients (reply handling by Atlas)
+- [ ] SMS-based quote acceptance (structured commands)
+- [ ] Client SMS commands (SUMMARY, STATUS, etc.)
+- [ ] Performance monitoring and cost optimisation
+
+---
+
+## Appendix A: SMS Voice Review Checklist (7-Point)
+
+To be used for every outbound SMS draft, same mandatory status as the 9-point email Voice Review.
+
+```
+### SMS Voice Review
+
+| # | Check | Pass? |
+|---|---|---|
+| 1 | Fits in one segment (≤160 chars) | ✅ / ❌ |
+| 2 | Lead is the news (first 40 chars) | ✅ / ❌ |
+| 3 | No bullshit | ✅ / ❌ |
+| 4 | No exaggerated claims | ✅ / ❌ |
+| 5 | Reads naturally aloud | ✅ / ❌ |
+| 6 | Passes coffee test | ✅ / ❌ |
+| 7 | Actionable or informative | ✅ / ❌ |
+
+**Result:** 7/7 ✅ / ❌ [N] items need rewrite
+```
+
+---
+
+## Appendix B: Example SMS Messages
+
+### T1: Client Notifications
+
+```
+Quote reply alert:
+"Quote #127 (Bathroom Reno) — Sarah just replied. She wants to proceed. Details in your inbox."
+
+Quote accepted:
+"Sarah accepted Quote #127 — Bathroom Reno, $4,200. Nice one."
+
+Daily summary:
+"Today: 14 follow-ups sent, 8 quotes active, 1 new reply, 0 gone cold. All good."
+
+Quote cold warning:
+"Quote #112 (Kitchen Repaint) — 7 days no reply. Want me to try a different approach?"
+
+Monthly digest:
+"July: 43 quotes tracked, 11 accepted, $47,200 recovered. Full report in your inbox."
+
+System alert:
+"Atlas hit a brief snag — 3 follow-ups delayed ~20 min. Back on track. Nothing to worry about."
+```
+
+### T2: Post-Engagement
+
+```
+Meeting reminder:
+"Quick reminder — call with James at 2pm today. 15 min. No prep needed on your end."
+
+Post-call follow-up:
+"Great chat today. James just sent the details to your email. Reply here anytime."
+```
+
+### T3: Customer Follow-Up
+
+```
+Gentle follow-up (Day 3):
+"Hi Sarah — just checking you received Michael's quote for the bathroom reno. Any questions, just reply."
+
+Final follow-up (Day 10):
+"Hi Sarah — closing the loop on Michael's bathroom reno quote. No pressure, the offer's open."
+```
+
+---
+
+*This framework is a design document. No code has been written. No infrastructure has been provisioned. It exists to answer the question: how does SMS strengthen trust and client value without compromising our principles?*
+
+*Every decision in this framework flows from the Six Principles and the Trust Test. If those change, this framework changes. If they don't, this framework stands.*

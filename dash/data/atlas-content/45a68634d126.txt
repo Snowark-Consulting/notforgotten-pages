@@ -28,6 +28,7 @@
 | | `2026-07-04-icp-owner-led-small-business` | ICP: Owner-led small business (2-10 emp, owner does quoting) | Jul 2026 | 🟢 Made | 2026-10-04 |
 | | `2026-07-04-messages-prospect-linked-field` | Messages → Prospect linked field (schema change — explicit relationship) | Jul 2026 | 🟢 Made | 2026-10-04 |
 | | `2026-07-05-complete-sequence-before-first-send` | Complete outreach sequence before first send (hard gate) | Jul 2026 | 🟢 Made | 2026-10-05 |
+| | `2026-07-27-recipient-validation-safeguard` | Recipient validation safeguard — Airtable email verification before every send | Jul 2026 | 🟢 Made | 2026-08-27 |
 | | `2026-07-05-airtable-audit-crm-reconciliation` | Airtable audit — CRM as single source of truth (20 recommendations) | Jul 2026 | 🟢 Made | 2026-08-05 |
 | | `2026-07-06-campaign-review-operating-standard` | Campaign Review after every outreach wave (permanent operating standard) | Jul 2026 | 🟢 Made | 2026-10-06 |
 | | `2026-07-07-communication-voice-standard` | Customer communication voice standard — James's voice, not marketer's | Jul 2026 | 🟢 Made | 2026-10-07 |
@@ -36,6 +37,7 @@
 | | `2026-07-13-diagnose-before-change-ceo-briefing-scope` | Diagnose-before-change framework + CEO Briefing scope: routine execution delegated, strategic decisions only | Jul 2026 | 🟢 Made | 2026-09-13 |
 | | `2026-07-24-stage-1-approved-learning-phase` | Stage 1 approved: Design phase complete, learning phase begins. Writing Playbook established. Evidence-based improvement only. | Jul 2026 | 🟢 Made | 2026-10-24 |
 | | `2026-07-24-provider-failover-gemini-fallback` | Provider failover: Gemini fallback chain deployed after DeepSeek streaming outage | Jul 2026 | 🟢 Made | 2026-08-24 |
+| | `2026-07-27-sms-strategic-capability-design` | SMS as strategic platform capability — design framework, cold outreach prohibited, consent model | Jul 2026 | 🟢 Made | 2026-10-27 |
 
 ---
 
@@ -60,6 +62,7 @@
 | 2026-10-07 | `2026-07-07-communication-voice-standard` | Communication voice standard | 🟢 |
 | 2026-10-12 | `2026-07-12-distribution-validation-phase` | Distribution validation phase | 🟢 |
 | 2026-10-24 | `2026-07-24-stage-1-approved-learning-phase` | Stage 1 approved: Design phase complete | 🟢 |
+| 2026-10-27 | `2026-07-27-sms-strategic-capability-design` | SMS strategic capability design | 🟢 |
 | 2026-10-28 | `2026-06-28-prospect-lifecycle-architecture` | Prospect lifecycle architecture | 🟢 |
 | 2026-11-01 | `founding-travis-case-study-as-bridge` | Travis case study as bridge, not opener | 🟢 |
 | 2026-12-01 | `founding-pricing-market-entry` | Pricing: $199/mo + $99 setup (market entry) | 🟢 |
@@ -157,4 +160,4 @@ Based on patterns observed, Atlas should watch for:
 ---
 
 *Last updated: 2026-07-24*
-*8 founding decisions + 14 living decisions recorded. 0 decisions reviewed. 4 challenges logged.*
+*8 founding decisions + 15 living decisions recorded. 0 decisions reviewed. 4 challenges logged.*
