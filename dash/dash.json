@@ -164,21 +164,21 @@
       }
     ]
   },
-  "last_updated": "2026-07-26T07:30:36.261796+09:30",
+  "last_updated": "2026-07-26T11:30:36.328343+09:30",
   "pipeline": {
-    "prospect_count": 197,
+    "prospect_count": 200,
     "stages": {
-      "Outreach Active": 86,
-      "New": 102,
+      "Campaign Complete": 12,
+      "Outreach Active": 72,
+      "New": 107,
       "Won": 2,
-      "Lost": 6,
-      "Design Partner": 1
+      "Lost": 7
     },
     "verticals": {
-      "IT MSP": 4,
-      "Marketing agency": 30,
-      "Painter": 121,
-      "Commercial cleaning": 30,
+      "IT MSP": 3,
+      "Marketing agency": 27,
+      "Painter": 131,
+      "Commercial cleaning": 27,
       "Landscaper": 1,
       "Other": 2,
       "Construction": 2,
@@ -189,22 +189,26 @@
       "Cleaning": 1
     },
     "stage_by_vertical": {
-      "Outreach Active": {
+      "Campaign Complete": {
         "IT MSP": 3,
-        "Marketing agency": 9,
-        "Painter": 60,
-        "Landscaper": 1,
-        "Commercial cleaning": 7,
         "Construction": 2,
+        "Marketing agency": 2,
         "B2B Services": 2,
         "Engineering": 1,
+        "Commercial cleaning": 1,
         "Cleaning": 1
       },
+      "Outreach Active": {
+        "Marketing agency": 6,
+        "Painter": 60,
+        "Landscaper": 1,
+        "Commercial cleaning": 5
+      },
       "New": {
-        "Marketing agency": 21,
-        "Commercial cleaning": 22,
+        "Painter": 65,
+        "Marketing agency": 18,
+        "Commercial cleaning": 19,
         "Other": 2,
-        "Painter": 54,
         "Plumber": 1,
         "Electrician": 2
       },
@@ -213,20 +217,11 @@
       },
       "Lost": {
         "Painter": 4,
-        "Commercial cleaning": 1,
-        "IT MSP": 1
-      },
-      "Design Partner": {
-        "Painter": 1
+        "Commercial cleaning": 2,
+        "Marketing agency": 1
       }
     },
     "outreach_active": [
-      {
-        "name": "Netlogyx",
-        "industry": "IT MSP",
-        "last_contacted": "2026-07-22",
-        "suburb": "Gold Coast"
-      },
       {
         "name": "Klyp",
         "industry": "Marketing agency",
@@ -306,12 +301,6 @@
         "suburb": "South Australia"
       },
       {
-        "name": "Atcom Technology",
-        "industry": "IT MSP",
-        "last_contacted": "2026-07-22",
-        "suburb": "Perth"
-      },
-      {
         "name": "Melbourne Painters & Plasterers",
         "industry": "Painter",
         "last_contacted": "2026-07-22",
@@ -322,12 +311,6 @@
         "industry": "Painter",
         "last_contacted": "2026-07-22",
         "suburb": "Victoria"
-      },
-      {
-        "name": "Parkview Constructions",
-        "industry": "Construction",
-        "last_contacted": "2026-07-22",
-        "suburb": "Sydney"
       },
       {
         "name": "Quinns Painting & Decorating",
@@ -384,12 +367,6 @@
         "suburb": "South Australia"
       },
       {
-        "name": "Kleena Cleaners",
-        "industry": "Commercial cleaning",
-        "last_contacted": "2026-07-02",
-        "suburb": "ADELAIDE"
-      },
-      {
         "name": "SAPS \u2013 Local Painters Adelaide",
         "industry": "Painter",
         "last_contacted": "2026-07-22",
@@ -424,12 +401,6 @@
         "industry": "Painter",
         "last_contacted": "2026-07-22",
         "suburb": "South Australia"
-      },
-      {
-        "name": "Next&Co",
-        "industry": "Marketing agency",
-        "last_contacted": "2026-07-22",
-        "suburb": "Melbourne"
       },
       {
         "name": "Real Painters",
@@ -528,12 +499,6 @@
         "suburb": "South Australia"
       },
       {
-        "name": "Beaumont People",
-        "industry": "B2B Services",
-        "last_contacted": "2026-07-22",
-        "suburb": "National"
-      },
-      {
         "name": "GoBrush Painting Services",
         "industry": "Painter",
         "last_contacted": "2026-07-22",
@@ -600,12 +565,6 @@
         "suburb": "South Australia"
       },
       {
-        "name": "Matrix Group",
-        "industry": "Engineering",
-        "last_contacted": "2026-07-22",
-        "suburb": "Melbourne"
-      },
-      {
         "name": "On Point Painting SA",
         "industry": "Painter",
         "last_contacted": "2026-07-22",
@@ -654,12 +613,6 @@
         "suburb": "South Australia"
       },
       {
-        "name": "Synergy IT",
-        "industry": "IT MSP",
-        "last_contacted": "2026-07-22",
-        "suburb": "Sydney"
-      },
-      {
         "name": "Sunshine Adelaide Painting",
         "industry": "Painter",
         "last_contacted": "2026-07-22",
@@ -690,12 +643,6 @@
         "suburb": "South Australia"
       },
       {
-        "name": "Davidson",
-        "industry": "B2B Services",
-        "last_contacted": "2026-07-22",
-        "suburb": "Brisbane"
-      },
-      {
         "name": "Sterling Painters Melbourne",
         "industry": "Painter",
         "last_contacted": "2026-07-22",
@@ -706,48 +653,13 @@
         "industry": "Painter",
         "last_contacted": "2026-07-22",
         "suburb": "South Australia"
-      },
-      {
-        "name": "Performance Cleaning",
-        "industry": "Commercial cleaning",
-        "last_contacted": "2026-07-22",
-        "suburb": "MELBOURNE"
-      },
-      {
-        "name": "Click Click Media",
-        "industry": "Marketing agency",
-        "last_contacted": "2026-07-22",
-        "suburb": "Sydney"
-      },
-      {
-        "name": "Excel Cleaning",
-        "industry": "Cleaning",
-        "last_contacted": "2026-07-22",
-        "suburb": "Melbourne"
-      },
-      {
-        "name": "Online Marketing Gurus (OMG)",
-        "industry": "Marketing agency",
-        "last_contacted": "2026-07-02",
-        "suburb": "Sydney"
-      },
-      {
-        "name": "Kapitol Group",
-        "industry": "Construction",
-        "last_contacted": "2026-07-22",
-        "suburb": "Melbourne"
       }
     ],
     "active_by_vertical": {
-      "IT MSP": 3,
-      "Marketing agency": 9,
+      "Marketing agency": 6,
       "Painter": 60,
       "Landscaper": 1,
-      "Commercial cleaning": 7,
-      "Construction": 2,
-      "B2B Services": 2,
-      "Engineering": 1,
-      "Cleaning": 1
+      "Commercial cleaning": 5
     },
     "messages": {
       "outbound_total": 199,
@@ -761,11 +673,11 @@
     },
     "opens": {
       "deliveries": 35,
-      "prospects_opened": 55,
-      "total_opens": 200,
-      "avg_opens": 3.6
+      "prospects_opened": 54,
+      "total_opens": 199,
+      "avg_opens": 3.7
     },
-    "last_refreshed": "2026-07-25T22:00:36.260059+00:00"
+    "last_refreshed": "2026-07-26T02:00:36.327746+00:00"
   },
   "decisions": {
     "total": 10,
