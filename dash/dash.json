@@ -164,13 +164,13 @@
       }
     ]
   },
-  "last_updated": "2026-07-27T07:30:49.978434+09:30",
+  "last_updated": "2026-07-27T13:30:55.181958+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
-      "Campaign Complete": 12,
-      "Outreach Active": 72,
+      "Campaign Complete": 24,
       "New": 102,
+      "Outreach Active": 60,
       "Won": 2,
       "Lost": 7,
       "Not a fit": 5
@@ -192,18 +192,13 @@
     "stage_by_vertical": {
       "Campaign Complete": {
         "IT MSP": 3,
+        "Marketing agency": 8,
+        "Landscaper": 1,
+        "Commercial cleaning": 6,
         "Construction": 2,
-        "Marketing agency": 2,
         "B2B Services": 2,
         "Engineering": 1,
-        "Commercial cleaning": 1,
         "Cleaning": 1
-      },
-      "Outreach Active": {
-        "Marketing agency": 6,
-        "Painter": 60,
-        "Landscaper": 1,
-        "Commercial cleaning": 5
       },
       "New": {
         "Painter": 60,
@@ -212,6 +207,9 @@
         "Other": 2,
         "Plumber": 1,
         "Electrician": 2
+      },
+      "Outreach Active": {
+        "Painter": 60
       },
       "Won": {
         "Painter": 2
@@ -226,18 +224,6 @@
       }
     },
     "outreach_active": [
-      {
-        "name": "Klyp",
-        "industry": "Marketing agency",
-        "last_contacted": "2026-07-22",
-        "suburb": "Brisbane"
-      },
-      {
-        "name": "Simple",
-        "industry": "Marketing agency",
-        "last_contacted": "2026-07-22",
-        "suburb": "Adelaide"
-      },
       {
         "name": "M .J. Painters Melbourne",
         "industry": "Painter",
@@ -263,12 +249,6 @@
         "suburb": "South Australia"
       },
       {
-        "name": "All Seasons Landscaping",
-        "industry": "Landscaper",
-        "last_contacted": "2026-07-22",
-        "suburb": "Brisbane (Moggill), QLD"
-      },
-      {
         "name": "Inspire Painting",
         "industry": "Painter",
         "last_contacted": "2026-07-22",
@@ -279,12 +259,6 @@
         "industry": "Painter",
         "last_contacted": "2026-07-22",
         "suburb": "Victoria"
-      },
-      {
-        "name": "Whistle Clean Australia",
-        "industry": "Commercial cleaning",
-        "last_contacted": "2026-07-22",
-        "suburb": "MELBOURNE"
       },
       {
         "name": "The Painting Company",
@@ -389,12 +363,6 @@
         "suburb": "South Australia"
       },
       {
-        "name": "Beem Cleaners",
-        "industry": "Commercial cleaning",
-        "last_contacted": "2026-07-22",
-        "suburb": "MELBOURNE"
-      },
-      {
         "name": "Freshy Painters",
         "industry": "Painter",
         "last_contacted": "2026-07-22",
@@ -431,18 +399,6 @@
         "suburb": "South Australia"
       },
       {
-        "name": "SEO Marketer",
-        "industry": "Marketing agency",
-        "last_contacted": "2026-07-22",
-        "suburb": "Adelaide"
-      },
-      {
-        "name": "DC Enviro",
-        "industry": "Commercial cleaning",
-        "last_contacted": "2026-07-22",
-        "suburb": "PERTH"
-      },
-      {
         "name": "M & M Property Services SA",
         "industry": "Painter",
         "last_contacted": "2026-07-22",
@@ -453,12 +409,6 @@
         "industry": "Painter",
         "last_contacted": "2026-07-22",
         "suburb": "South Australia"
-      },
-      {
-        "name": "Cleaning & Caretaking Corp",
-        "industry": "Commercial cleaning",
-        "last_contacted": "2026-07-22",
-        "suburb": "SYDNEY"
       },
       {
         "name": "Painting Zone",
@@ -509,18 +459,6 @@
         "suburb": "Victoria"
       },
       {
-        "name": "Safari Digital",
-        "industry": "Marketing agency",
-        "last_contacted": "2026-07-22",
-        "suburb": "Sydney"
-      },
-      {
-        "name": "Marketing Eye",
-        "industry": "Marketing agency",
-        "last_contacted": "2026-07-22",
-        "suburb": "Melbourne"
-      },
-      {
         "name": "Noonan Painting Contractors",
         "industry": "Painter",
         "last_contacted": "2026-07-22",
@@ -533,12 +471,6 @@
         "suburb": "South Australia"
       },
       {
-        "name": "In Tec Commercial Cleaning",
-        "industry": "Commercial cleaning",
-        "last_contacted": "2026-07-22",
-        "suburb": "BRISBANE"
-      },
-      {
         "name": "Mcintosh Painters",
         "industry": "Painter",
         "last_contacted": "2026-07-22",
@@ -549,12 +481,6 @@
         "industry": "Painter",
         "last_contacted": "2026-07-22",
         "suburb": "South Australia"
-      },
-      {
-        "name": "G Squared",
-        "industry": "Marketing agency",
-        "last_contacted": "2026-07-22",
-        "suburb": "Sydney"
       },
       {
         "name": "Paint Melbourne",
@@ -660,10 +586,7 @@
       }
     ],
     "active_by_vertical": {
-      "Marketing agency": 6,
-      "Painter": 60,
-      "Landscaper": 1,
-      "Commercial cleaning": 5
+      "Painter": 60
     },
     "messages": {
       "outbound_total": 199,
@@ -671,17 +594,17 @@
       "total": 200,
       "reply_rate": 0.5,
       "last_7_days": {
-        "outbound": 175,
+        "outbound": 88,
         "inbound": 1
       }
     },
     "opens": {
       "deliveries": 35,
       "prospects_opened": 54,
-      "total_opens": 199,
+      "total_opens": 200,
       "avg_opens": 3.7
     },
-    "last_refreshed": "2026-07-26T22:00:49.977720+00:00"
+    "last_refreshed": "2026-07-27T04:00:55.180970+00:00"
   },
   "decisions": {
     "total": 10,
