@@ -135,6 +135,12 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 - [[SMS Communication Framework]] (knowledge/sms-communication-framework.md) — SMS as strategic platform capability. Design document. Governed by Six Principles + Trust Test.
 - [[SMS Integration Readiness]] (knowledge/sms-integration-readiness-report.md) — Interface design, schema recommendations, template library. Design frozen 2026-07-27.
 - [[SMS Phase 1 Validation]] (knowledge/sms-phase-1-validation-plan.md) — 5-scenario validation plan for Twilio. Test recipient: James only.
+- [[Decision: Atlas Communication Layer]] (knowledge/decisions/2026-07-28-atlas-communication-layer.md) — Atlas redefined as communication layer and relationship manager, not follow-up engine. Four outcome metrics. Daily intelligence summary. Review: Aug 28.
+- [[QPaint Recovery Sequence]] (knowledge/qpaint-recovery-sequence.md) — 5-email recovery sequence for QPaint. Active: 8 calibration contacts. Includes Email 1 template, review framework. Established 2026-07-28.
+- [[Recovery Email Template]] (knowledge/recovery-email-template.md) — Introduction email for QPaint recovery. Not a follow-up. Approved by James.
+- [[Sequence Review Framework]] (knowledge/sequence-review-framework.md) — Post-sequence review methodology. Every completed sequence feeds knowledge base.
+- [[Business Opportunity Report — Jul 29]] (reports/business-opportunity-report-2026-07-29.md) — 624-line phone call sheet. 100 CRM prospects ranked by probability score. 63 with phone numbers.
+- [[Monthly Recovery Intelligence Report]] (knowledge/monthly-recovery-intelligence-report.md) — Synthesises evidence from completed sequences. First Monday each month. First: Sep 7 2026.
 
 ## Email Intelligence
 - `skills/email/email-intelligence-mining/SKILL.md` — historical deep-dive mining of Gmail mailboxes for patterns, contacts, objections, pricing, pipeline data. Not for real-time monitoring.

@@ -1,0 +1,80 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: internal
+---
+
+# Sequence Review Framework
+
+> Every completed recovery sequence feeds a growing knowledge base. No outcome is wasted. Applied after each QPaint sequence. See [[Atlas Learning Framework]] (knowledge/atlas-learning-framework.md), [[Pipeline Recovery]] (skills/snowark/pipeline-recovery/SKILL.md).
+
+**Established:** 2026-07-28
+**Status:** Active — applied after every completed QPaint recovery sequence
+**Purpose:** Every completed sequence contributes to a growing knowledge base. No outcome is wasted.
+
+---
+
+## When to Perform
+
+After every sequence that reaches a terminal state:
+- Won
+- Lost
+- Deferred
+- No Response (all 5 emails sent, no reply)
+- Customer unsubscribed or opted out
+
+---
+
+## The Six Questions
+
+For every completed sequence, answer all six:
+
+### 1. What stage of the sequence generated the first meaningful engagement?
+
+Was it Email 1, 2, 3, 4, or 5? Or was there no engagement at all? Record in `Engagement Stage` field.
+
+### 2. What was the customer's buying stage when they first replied?
+
+Were they still deciding? Ready to proceed? Gathering quotes? Budget-dependent? Record in `Buying Stage at First Reply` field.
+
+### 3. What was the primary reason for the outcome?
+
+Price, timing, scope, competitor, committee, procurement, lost contact, or no reason given? Record in `Primary Objection` field.
+
+### 4. Could we have recognised that earlier?
+
+Were there signals in the quote data (age, value, category, referral source) that predicted this outcome? Does the Recovery Score need adjustment for this pattern?
+
+### 5. Did our sequence help move the customer forward?
+
+Did the emails create forward progress, or did the customer's journey happen independently of them? Would a different approach have been more effective?
+
+### 6. If we ran this sequence again, what would we do differently?
+
+One concrete, specific change. Not "be better." Something like: "For government quotes, add procurement timeline question to Email 1 instead of Email 2."
+
+---
+
+## Airtable Recording
+
+| Field | Purpose |
+|---|---|
+| `Sequence Review` | Full 6-question analysis (multiline text) |
+| `Engagement Stage` | Which email generated first reply |
+| `Buying Stage at First Reply` | Customer's decision stage at engagement |
+| `Primary Objection` | Root cause of outcome |
+
+---
+
+## Monthly Aggregation
+
+All Sequence Reviews feed into the monthly Recovery Intelligence Report. Individual reviews are the evidence. The monthly report is the synthesis.
+
+---
+
+## Principles
+
+- **Evidence before opinion.** Record what happened, not what you think happened.
+- **One concrete change per review.** If you can't name a specific improvement, you haven't thought hard enough.
+- **Patterns over anecdotes.** One customer not replying to Email 1 is noise. Five customers replying to Email 2 with the same objection is a signal.
+- **Honesty over narrative.** If the sequence didn't help, say so. False confidence produces worse sequences.

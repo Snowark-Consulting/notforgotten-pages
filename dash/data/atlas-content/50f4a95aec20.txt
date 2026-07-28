@@ -1,0 +1,163 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# QPaint Recovery Sequence
+
+> Canonical 5-email recovery sequence for QPaint. Active: 8 calibration contacts sent Email 1 2026-07-28. See [[Pipeline Recovery]] (skills/snowark/pipeline-recovery/SKILL.md), [[Recovery Operations]] (skills/snowark/recovery-operations/SKILL.md).
+
+**Established:** 2026-07-28
+**Status:** Active — Email 1 sent to 8 calibration contacts
+**Canonical source for recovery operations.**
+
+---
+
+## Philosophy
+
+This is not an email campaign. It is a guided customer journey. Every email has a purpose. Every subsequent email depends on the customer's previous behaviour. The objective is to understand where the client is in their buying journey and help them move to the next stage.
+
+---
+
+## Email 1 — Introduction
+
+**Purpose:** Introduce yourself, reassure the client they are being looked after, confirm they received the quote, and invite conversation.
+
+**Template:** `knowledge/recovery-email-template.md`
+
+**Success:** Any reply that tells us where they are in their decision.
+
+**If no reply:** Wait 5-7 days before Email 2.
+
+---
+
+## Email 2 — Value & Discovery (Day 5-7)
+
+**Purpose:** Continue the conversation. Ask whether they've had an opportunity to review the proposal and whether there are any questions, concerns, or changes they'd like to discuss. Encourage them to share where they are in the process. Do not pressure for a decision.
+
+**Success:** Understand their current position.
+
+**Draft (to be personalised per contact):**
+
+> Hi [Name],
+>
+> I hope you've had a good week.
+>
+> I wanted to check in and see whether you've had a chance to look over the quote Tas prepared for [project]. I know these decisions can take time, and there's no rush at all — I just wanted to make sure you have everything you need.
+>
+> If any questions have come up while you've been reviewing it, I'm happy to talk them through. And if you need Tas to clarify anything directly, I can arrange that.
+>
+> Wherever you're up to in the process, it'd be great to hear from you.
+>
+> Kind regards,
+>
+> Atlas
+> Working alongside Tas at QPaint
+
+---
+
+## Email 3 — Remove Barriers (Day 12-14)
+
+**Purpose:** Address common reasons clients delay — timing, budget, scope, committee approval, procurement, waiting on another trade. Offer help in overcoming those barriers. If appropriate, offer to arrange a discussion with Tas.
+
+**Draft (to be personalised):**
+
+> Hi [Name],
+>
+> Just a quick note — I know these projects can sometimes get held up for all sorts of reasons. Whether it's timing, budget, waiting on another trade, or just needing more information, I wanted you to know that we're here to help.
+>
+> If there's something specific that's been on your mind about the quote, I'd be glad to work through it with you. And if it would help to have Tas talk through the details directly, I can arrange that at a time that works for you.
+>
+> No pressure — just want to make sure nothing's standing in the way of your project moving forward.
+>
+> Kind regards,
+>
+> Atlas
+> Working alongside Tas at QPaint
+
+---
+
+## Email 4 — Gentle Decision Check (Day 21-28)
+
+**Purpose:** By now enough time has passed. Ask whether the project is still progressing and whether QPaint is still being considered. If they've chosen another contractor, thank them and ask (politely) if they'd be willing to share what influenced their decision. Every answer improves our understanding.
+
+**Draft (to be personalised):**
+
+> Hi [Name],
+>
+> It's been a few weeks since Tas sent through the quote for [project], and I wanted to check in one last time.
+>
+> If the project is still moving ahead and you're considering QPaint, I'd love to know where things stand and whether there's anything we can do to help.
+>
+> If you've decided to go in a different direction, that's completely fine — I'd genuinely appreciate knowing what influenced your decision. We're always looking to improve, and your feedback helps.
+>
+> Either way, thank you for considering QPaint.
+>
+> Kind regards,
+>
+> Atlas
+> Working alongside Tas at QPaint
+
+---
+
+## Email 5 — Relationship Close (Day 35-42)
+
+**Purpose:** Close the recovery sequence professionally. Thank them for their time. Leave the door open. Make it clear we're always happy to help in the future. This is not a breakup email. It is a relationship-preserving email.
+
+**Draft (to be personalised):**
+
+> Hi [Name],
+>
+> I hope things have been going well with [project or just "things"].
+>
+> I wanted to reach out one more time and thank you for considering QPaint. I know Tas put care into your proposal, and we genuinely hope everything works out well for your project.
+>
+> If things change down the track — or if another project comes up — we'd welcome the opportunity to work with you. I'll keep your details on file, and you're always welcome to reach out.
+>
+> Wishing you all the best.
+>
+> Kind regards,
+>
+> Atlas
+> Working alongside Tas at QPaint
+
+---
+
+## Decision Rules
+
+At any point in the sequence, if the customer replies:
+
+**Stop the automated sequence immediately.** Every future communication should be based on the customer's response. Never continue sending scheduled emails after meaningful engagement.
+
+| Customer Response | Action |
+|---|---|
+| Question about the quote | Answer it. Coordinate with Tas if technical. |
+| Needs revised quote | Coordinate with Tas. Update Airtable. |
+| Waiting 3 months | Schedule reminder. Exit active sequence. |
+| Committee approval pending | Wait for committee meeting. Check in after. |
+| Budget issue | Discuss options with Tas. |
+| Won | Mark Won. Exit sequence. Record reason. |
+| Lost | Mark Lost. Record reason. Exit sequence. |
+| Deferred | Schedule future follow-up. Exit active sequence. |
+| Future Opportunity | Create reminder. Exit active sequence. |
+| No response (all 5 sent) | Mark as No Response. Exit sequence. |
+
+---
+
+## Sequence Tracking Fields (Airtable)
+
+| Field | Purpose |
+|---|---|
+| Current Stage | Email 1 / Email 2 / Email 3 / Email 4 / Email 5 / Awaiting Reply / Closed |
+| Next Touchpoint Date | When the next automated email should send (if no reply) |
+| Outreach Notes | All activity log |
+
+---
+
+## Monitoring
+
+- Replies detected via atlas@ inbox pulse
+- On reply: Stage → Awaiting Reply, stop sequence, Atlas recommends next action
+- No reply after Email 1: Email 2 triggers at Day +5
+- No reply after Email 5: Stage → Closed, Outcome → No Response

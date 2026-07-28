@@ -1,0 +1,84 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: internal
+---
+
+# Monthly Recovery Intelligence Report
+
+> Synthesises evidence from all completed recovery sequences into actionable recommendations. First Monday of each month. First report: Sep 7 2026. See [[Atlas Learning Framework]] (knowledge/atlas-learning-framework.md).
+
+**Cadence:** First Monday of each month
+**First report:** Monday 7 September 2026 (covering August)
+**Purpose:** Synthesise evidence from all completed sequences into actionable recommendations.
+
+---
+
+## Report Structure
+
+### 1. Executive Summary
+- Total sequences completed this month
+- Total revenue recovered
+- Recovery rate (% of completed sequences that resulted in Won)
+- Top-line recommendation
+
+### 2. Pipeline Activity
+- Emails sent (by stage)
+- Replies received
+- Sequences completed
+- Outcomes: Won / Lost / Deferred / No Response
+- Revenue recovered vs pipeline value
+
+### 3. Email Performance
+- Reply rate by email number (Email 1 vs 2 vs 3 vs 4 vs 5)
+- Conversion rate by email number (% of replies at each stage that led to Won)
+- Average time to first reply
+- Email 1 open rate (when tracking is available)
+
+### 4. Customer Behaviour
+- Most common buying stage at first reply
+- Average days from quote sent to first engagement
+- Most common objections (ranked by frequency)
+- Most common buying signals
+
+### 5. Segment Performance
+- Residential: reply rate, conversion rate, avg deal value recovered
+- Government: reply rate, conversion rate, avg deal value recovered
+- Corporate/Commercial: reply rate, conversion rate, avg deal value recovered
+- By referral source: QPaint Website vs Facebook vs Body Corp vs Previous Client
+
+### 6. Recovery Score Calibration
+- Did higher-scored deals convert at higher rates?
+- Which scoring dimensions are most predictive of recovery?
+- Recommended adjustments to the scoring model
+
+### 7. Sequence Recommendations
+- What's working (keep)
+- What's not working (change or remove)
+- Proposed changes (specific, evidence-backed)
+- One experiment to run next month
+
+### 8. Learnings
+- What surprised us?
+- What confirmed our assumptions?
+- What did we get wrong?
+- What do we know now that we didn't know last month?
+
+---
+
+## Rules
+
+- **Recommend changes only when supported by evidence across multiple customers.** A single unusual outcome is noise, not signal.
+- **Do not change the sequence automatically.** Changes require James's approval.
+- **Good judgement always takes priority over the framework.** If customer context suggests a different approach, recommend it.
+- **Every recommendation must cite specific evidence.** "3 out of 4 government contacts replied to Email 1" is evidence. "Government contacts seem more responsive" is not.
+- **Continuous improvement through evidence, not continual change through opinion.**
+
+---
+
+## Data Sources
+
+- QPaint Pipeline table (Airtable `tblHPx8o6qp81e60b`)
+- Sequence Review fields on completed records
+- Recovery Dashboard metrics
+- Individual Sequence Review analyses
