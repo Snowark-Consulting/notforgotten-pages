@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 109,
+    "tasks_completed": 110,
     "recent": [
+      {
+        "date": "2026-07-29 08:25",
+        "task": "Email 4 (breakup): sent to 60 painters across CVC, PDV, Wave 1 campaigns. 60/60 reconciled. Pipeline \u2192 Campaign Complete.",
+        "category": "task"
+      },
       {
         "date": "2026-07-28 17:29",
         "task": "Campaign Pulse: 60 painters at Email 3, Next Jul 29 (breakup wave). 2 conversions (Tas Moulis + Star Painters) from Travis Email 3. 5 days of silence since Jul 23. 24 Campaign Complete.",
@@ -135,11 +140,6 @@
         "date": "2026-07-12 17:04",
         "task": "Campaign Pulse posted \u2014 18 active, 0 replies, Wave 1 Email 3 sent (10 prospects, Sunday timing deviation), Email 3 is first proof-led touch: key test of whether curiosity-first was the bottleneck",
         "category": "task"
-      },
-      {
-        "date": "2026-07-12 11:28",
-        "task": "Prepared Painter Distribution Validation campaign: 20 Email 1s drafted (10 Control A, 10 Test B), Airtable tagged, batch dry-run verified. Sending Monday Jul 13.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-29T07:30:36.239798+09:30",
+  "last_updated": "2026-07-29T08:25:28.302777+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
