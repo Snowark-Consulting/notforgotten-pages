@@ -24,74 +24,73 @@
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
   th { text-align: left; color: #8b949e; font-weight: 500; padding: 8px 12px; border-bottom: 1px solid #30363d; font-size: 11px; text-transform: uppercase; }
   td { padding: 8px 12px; border-bottom: 1px solid #21262d; }
-  .batch-badge { display: inline-block; background: #1a2a3a; color: #58a6ff; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+  .p2-badge { display: inline-block; background: #2a2410; color: #d2991d; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
 </style>
 </head>
 <body>
 
 <h1>🎯 QPaint Recovery Dashboard</h1>
-<p class="subtitle">Not Forgotten Systems · Calibration Batch Sent · <span class="batch-badge">8/98 Contacted</span></p>
+<p class="subtitle">Not Forgotten Systems · Full Pipeline · 2026-07-28 · <span class="p2-badge">P2 Held</span></p>
 
 <div class="grid">
   <div class="card">
-    <h3>Pipeline Value</h3>
-    <div class="value">$3,469,182</div>
-    <div class="label">98 deals · 8 contacted · 0 replied</div>
-    <div class="progress-bar"><div class="progress-fill contact-fill" style="width:8%"></div></div>
-    <div class="label" style="margin-top:4px">8% contacted</div>
+    <h3>Total Pipeline</h3>
+    <div class="value">$5,877,530</div>
+    <div class="label">153 deals · 8 contacted · 0 recovered</div>
+    <div class="progress-bar"><div class="progress-fill contact-fill" style="width:5%"></div></div>
+    <div class="label" style="margin-top:4px">5% contacted</div>
   </div>
 
   <div class="card">
-    <h3>Calibration Wave</h3>
-    <div class="stat-row"><span class="stat-label">Emails sent</span><span class="stat-value blue">8</span></div>
-    <div class="stat-row"><span class="stat-label">Delivered</span><span class="stat-value">8/8</span></div>
-    <div class="stat-row"><span class="stat-label">Opened</span><span class="stat-value">—</span></div>
-    <div class="stat-row"><span class="stat-label">Replied</span><span class="stat-value">0</span></div>
-    <div class="stat-row"><span class="stat-label">Awaiting</span><span class="stat-value">8</span></div>
-  </div>
-
-  <div class="card">
-    <h3>Recovered</h3>
-    <div class="value green">$0</div>
-    <div class="label">0 won · 0.0% recovery rate</div>
+    <h3>Tier Breakdown</h3>
+    <div class="stat-row"><span class="stat-label">P1 — Active</span><span class="stat-value red">98</span></div>
+    <div class="stat-row"><span class="stat-label">P1 Active (calibration)</span><span class="stat-value blue">8</span></div>
+    <div class="stat-row"><span class="stat-label">P1 Ready (held)</span><span class="stat-value">90</span></div>
+    <div class="stat-row"><span class="stat-label">P2 — Held</span><span class="stat-value yellow">55</span></div>
   </div>
 
   <div class="card">
     <h3>Status</h3>
-    <div class="stat-row"><span class="stat-label">Not Contacted</span><span class="stat-value">90</span></div>
     <div class="stat-row"><span class="stat-label">Contacted</span><span class="stat-value blue">8</span></div>
     <div class="stat-row"><span class="stat-label">Replied</span><span class="stat-value">0</span></div>
-    <div class="stat-row"><span class="stat-label">Won</span><span class="stat-value green">0</span></div>
-    <div class="stat-row"><span class="stat-label">Lost</span><span class="stat-value red">0</span></div>
+    <div class="stat-row"><span class="stat-label">Not Contacted</span><span class="stat-value">145</span></div>
+    <div class="stat-row"><span class="stat-label">Won / Lost</span><span class="stat-value">0 / 0</span></div>
+  </div>
+
+  <div class="card">
+    <h3>Categories</h3>
+    <div class="stat-row"><span class="stat-label">Residential</span><span class="stat-value">85</span></div>
+    <div class="stat-row"><span class="stat-label">Corporate</span><span class="stat-value">43</span></div>
+    <div class="stat-row"><span class="stat-label">Government</span><span class="stat-value">12</span></div>
+    <div class="stat-row"><span class="stat-label">Commercial</span><span class="stat-value">13</span></div>
   </div>
 </div>
 
 <div class="card" style="margin-bottom:16px">
-  <h3>Calibration Batch — 8 Emails Sent 2026-07-28</h3>
+  <h3>Sequence Stages</h3>
   <table>
-    <tr><th>Contact</th><th>Value</th><th>Age</th><th>Type</th><th>Status</th></tr>
-    <tr><td>Nicholas Zappacosta</td><td>$145,008</td><td>13d</td><td>Government</td><td><span class="blue">Sent</span></td></tr>
-    <tr><td>Jordan Forrest</td><td>$59,411</td><td>13d</td><td>Residential</td><td><span class="blue">Sent</span></td></tr>
-    <tr><td>Lucy Hetherington</td><td>$157,795</td><td>7d</td><td>Corporate</td><td><span class="blue">Sent</span></td></tr>
-    <tr><td>Jeremy Ho</td><td>$35,937</td><td>4d</td><td>Residential</td><td><span class="blue">Sent</span></td></tr>
-    <tr><td>Ramona Jackson</td><td>$67,100</td><td>4d</td><td>Corporate</td><td><span class="blue">Sent</span></td></tr>
-    <tr><td>Joy Ryan</td><td>$17,510</td><td>6d</td><td>Residential</td><td><span class="blue">Sent</span></td></tr>
-    <tr><td>Jason Manley</td><td>$46,828</td><td>13d</td><td>Government</td><td><span class="blue">Sent</span></td></tr>
-    <tr><td>Skyla Garvey</td><td>$13,038</td><td>6d</td><td>Residential</td><td><span class="blue">Sent</span></td></tr>
+    <tr><th>Stage</th><th>Count</th><th>Status</th></tr>
+    <tr><td>Email 1 — Sent</td><td>153</td><td><span class="blue">8 active calibration</span></td></tr>
+    <tr><td>Email 1 — Ready</td><td>145</td><td><span class="yellow">Awaiting wave 2 approval</span></td></tr>
+    <tr><td>Awaiting Reply</td><td>0</td><td>—</td></tr>
+    <tr><td>Closed</td><td>0</td><td>—</td></tr>
   </table>
 </div>
 
 <div class="card">
-  <h3>Held — 20 Deals (Pending Calibration Review)</h3>
+  <h3>Lifecycle Coverage</h3>
   <table>
-    <tr><th>Age Bucket</th><th>Deals</th><th>Status</th></tr>
-    <tr><td>0-14 days</td><td>20</td><td>Held — awaiting batch 1 results</td></tr>
-    <tr><td>15-30 days</td><td>24</td><td>Queued</td></tr>
-    <tr><td>31-60 days</td><td>26</td><td>Queued</td></tr>
+    <tr><th>Stage</th><th>Clients</th><th>Status</th></tr>
+    <tr><td>Outstanding Quote</td><td>153</td><td><span class="green">100% covered</span></td></tr>
+    <tr><td>Recently Won</td><td>0</td><td><span class="yellow">Data requested from Tas</span></td></tr>
+    <tr><td>Completed Projects</td><td>0</td><td><span class="yellow">Data requested from Tas</span></td></tr>
+    <tr><td>Lost Opportunities</td><td>0</td><td><span class="yellow">Data requested from Tas</span></td></tr>
+    <tr><td>Past Customers</td><td>0</td><td><span class="yellow">Data requested from Tas</span></td></tr>
+    <tr><td>Future Pipeline</td><td>0</td><td><span class="yellow">Data requested from Tas</span></td></tr>
   </table>
 </div>
 
-<p style="color:#8b949e;font-size:11px;margin-top:24px">Atlas · Not Forgotten Systems · Calibration active · 8/98 contacted · Dashboard updates with every reply</p>
+<p style="color:#8b949e;font-size:11px;margin-top:24px">Atlas · Not Forgotten Systems · 153 clients · 8 contacted · Full pipeline imported · P2 held for wave 2 approval</p>
 
 </body>
 </html>
