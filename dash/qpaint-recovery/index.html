@@ -3,94 +3,101 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QPaint Recovery Dashboard — Not Forgotten Systems</title>
+<title>QPaint Recovery — Not Forgotten Systems</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e1e4e8; padding: 24px; }
-  h1 { font-size: 22px; margin-bottom: 4px; }
-  .subtitle { color: #8b949e; font-size: 13px; margin-bottom: 24px; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 24px; }
-  .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; }
-  .card h3 { font-size: 11px; text-transform: uppercase; color: #8b949e; letter-spacing: .5px; margin-bottom: 8px; }
-  .card .value { font-size: 32px; font-weight: 700; }
-  .card .label { font-size: 12px; color: #8b949e; margin-top: 4px; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e1e4e8; padding: 20px; }
+  h1 { font-size: 20px; margin-bottom: 4px; }
+  .subtitle { color: #8b949e; font-size: 12px; margin-bottom: 20px; }
+  .banner { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+  .banner-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 18px; text-align: center; }
+  .banner-card .question { font-size: 10px; text-transform: uppercase; color: #8b949e; letter-spacing: .5px; margin-bottom: 6px; }
+  .banner-card .answer { font-size: 28px; font-weight: 700; }
+  .banner-card .detail { font-size: 12px; color: #8b949e; margin-top: 4px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 16px; }
+  .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; }
+  .card h3 { font-size: 10px; text-transform: uppercase; color: #8b949e; letter-spacing: .5px; margin-bottom: 10px; }
   .green { color: #3fb950; } .yellow { color: #d2991d; } .red { color: #f85149; } .blue { color: #58a6ff; }
-  .progress-bar { height: 8px; background: #21262d; border-radius: 4px; margin-top: 12px; overflow: hidden; }
-  .progress-fill { height: 100%; border-radius: 4px; }
-  .contact-fill { background: #58a6ff; }
-  .stat-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; }
-  .stat-label { color: #8b949e; font-size: 13px; }
-  .stat-value { font-size: 16px; font-weight: 600; }
-  table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  th { text-align: left; color: #8b949e; font-weight: 500; padding: 8px 12px; border-bottom: 1px solid #30363d; font-size: 11px; text-transform: uppercase; }
-  td { padding: 8px 12px; border-bottom: 1px solid #21262d; }
-  .p2-badge { display: inline-block; background: #2a2410; color: #d2991d; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+  .stat-row { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; }
+  .stat-label { color: #8b949e; font-size: 12px; }
+  .stat-value { font-size: 14px; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th { text-align: left; color: #8b949e; font-weight: 500; padding: 6px 10px; border-bottom: 1px solid #30363d; font-size: 10px; text-transform: uppercase; }
+  td { padding: 6px 10px; border-bottom: 1px solid #21262d; }
+  .progress-bar { height: 6px; background: #21262d; border-radius: 3px; margin-top: 8px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 3px; }
+  .urgency-bar { display: flex; gap: 3px; height: 20px; border-radius: 4px; overflow: hidden; margin-top: 6px; }
+  .urgency-bar div { display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: #fff; }
+  .u-critical { background: #f85149; } .u-high { background: #d2991d; } .u-medium { background: #58a6ff; } .u-low { background: #30363d; }
+  .completeness { display: flex; gap: 6px; align-items: center; }
 </style>
 </head>
 <body>
 
-<h1>🎯 QPaint Recovery Dashboard</h1>
-<p class="subtitle">Not Forgotten Systems · Full Pipeline · 2026-07-28 · <span class="p2-badge">P2 Held</span></p>
+<h1>QPaint Recovery</h1>
+<p class="subtitle">Not Forgotten Systems · 2026-07-28 · 153 clients</p>
+
+<!-- THREE QUESTIONS -->
+<div class="banner">
+  <div class="banner-card">
+    <div class="question">① Where are we today?</div>
+    <div class="answer">$5,877,530</div>
+    <div class="detail">Pipeline · 8 contacted · 0 replied · 0 won</div>
+  </div>
+  <div class="banner-card">
+    <div class="question">② What should we do next?</div>
+    <div class="answer"><span class="red">5</span> <span style="font-size:14px;font-weight:400">need us most</span></div>
+    <div class="detail">33 high · 93 medium · 22 low</div>
+    <div class="urgency-bar">
+      <div class="u-critical" style="flex:5">5</div>
+      <div class="u-high" style="flex:33">33</div>
+      <div class="u-medium" style="flex:93">93</div>
+      <div class="u-low" style="flex:22">22</div>
+    </div>
+  </div>
+  <div class="banner-card">
+    <div class="question">③ What impact are we having?</div>
+    <div class="answer green">$0</div>
+    <div class="detail">Recovered · 0 conversions · 0.0% rate</div>
+  </div>
+</div>
+
+<!-- WHO NEEDS US MOST -->
+<div class="card" style="margin-bottom:14px">
+  <h3>🔴 Who Needs Us Most Today</h3>
+  <table>
+    <tr><th>#</th><th>Contact</th><th>Value</th><th>Score</th><th>Segment</th><th>Signal</th></tr>
+    <tr><td>1</td><td>Jesse Zhao</td><td>$116,223</td><td>93</td><td style="font-size:11px">Previous Client — Warm</td><td style="font-size:11px">⏳ Waiting for contact</td></tr><tr><td>2</td><td>Lucy Hetherington</td><td>$157,795</td><td>79</td><td style="font-size:11px">Fresh (0-14d)</td><td style="font-size:11px">🆕 Fresh quote — act now</td></tr><tr><td>3</td><td>Nicholas Zappacosta</td><td>$145,008</td><td>89</td><td style="font-size:11px">Calibration Active</td><td style="font-size:11px">Waiting for reply window</td></tr><tr><td>4</td><td>Aaron Whitlock</td><td>$52,812</td><td>78</td><td style="font-size:11px">Previous Client — Warm</td><td style="font-size:11px">⏳ Waiting for contact</td></tr><tr><td>5</td><td>David Delaney</td><td>$123,655</td><td>79</td><td style="font-size:11px">Government — Procureme</td><td style="font-size:11px">⏳ Waiting for contact</td></tr>
+  </table>
+</div>
 
 <div class="grid">
   <div class="card">
-    <h3>Total Pipeline</h3>
-    <div class="value">$5,877,530</div>
-    <div class="label">153 deals · 8 contacted · 0 recovered</div>
-    <div class="progress-bar"><div class="progress-fill contact-fill" style="width:5%"></div></div>
-    <div class="label" style="margin-top:4px">5% contacted</div>
-  </div>
-
-  <div class="card">
-    <h3>Tier Breakdown</h3>
-    <div class="stat-row"><span class="stat-label">P1 — Active</span><span class="stat-value red">98</span></div>
-    <div class="stat-row"><span class="stat-label">P1 Active (calibration)</span><span class="stat-value blue">8</span></div>
-    <div class="stat-row"><span class="stat-label">P1 Ready (held)</span><span class="stat-value">90</span></div>
-    <div class="stat-row"><span class="stat-label">P2 — Held</span><span class="stat-value yellow">55</span></div>
-  </div>
-
-  <div class="card">
-    <h3>Status</h3>
-    <div class="stat-row"><span class="stat-label">Contacted</span><span class="stat-value blue">8</span></div>
-    <div class="stat-row"><span class="stat-label">Replied</span><span class="stat-value">0</span></div>
+    <h3>Pipeline Status</h3>
     <div class="stat-row"><span class="stat-label">Not Contacted</span><span class="stat-value">145</span></div>
+    <div class="stat-row"><span class="stat-label">Contacted</span><span class="stat-value blue">8</span></div>
+    <div class="stat-row"><span class="stat-label">Replied</span><span class="stat-value yellow">0</span></div>
     <div class="stat-row"><span class="stat-label">Won / Lost</span><span class="stat-value">0 / 0</span></div>
+    <div class="progress-bar"><div class="progress-fill" style="width:5%;background:#58a6ff"></div></div>
+    <div style="font-size:10px;color:#8b949e;margin-top:4px">5% contacted</div>
   </div>
 
   <div class="card">
-    <h3>Categories</h3>
-    <div class="stat-row"><span class="stat-label">Residential</span><span class="stat-value">85</span></div>
-    <div class="stat-row"><span class="stat-label">Corporate</span><span class="stat-value">43</span></div>
-    <div class="stat-row"><span class="stat-label">Government</span><span class="stat-value">12</span></div>
-    <div class="stat-row"><span class="stat-label">Commercial</span><span class="stat-value">13</span></div>
+    <h3>Record Completeness</h3>
+    <div class="stat-row"><span class="stat-label">Complete (6/6 fields)</span><span class="stat-value green">8</span></div>
+    <div class="stat-row"><span class="stat-label">Missing Review Date</span><span class="stat-value yellow">145</span></div>
+    <div class="stat-row"><span class="stat-label">Missing other fields</span><span class="stat-value">0</span></div>
+    <div style="font-size:10px;color:#8b949e;margin-top:8px">Review dates set when Email 1 is sent</div>
+  </div>
+
+  <div class="card">
+    <h3>Tiers</h3>
+    <div class="stat-row"><span class="stat-label">P1 — Active</span><span class="stat-value red">98</span></div>
+    <div class="stat-row"><span class="stat-label">P2 — Held</span><span class="stat-value yellow">55</span></div>
+    <div class="stat-row"><span class="stat-label">P3 — Not imported</span><span class="stat-value">3</span></div>
   </div>
 </div>
 
-<div class="card" style="margin-bottom:16px">
-  <h3>Sequence Stages</h3>
-  <table>
-    <tr><th>Stage</th><th>Count</th><th>Status</th></tr>
-    <tr><td>Email 1 — Sent</td><td>153</td><td><span class="blue">8 active calibration</span></td></tr>
-    <tr><td>Email 1 — Ready</td><td>145</td><td><span class="yellow">Awaiting wave 2 approval</span></td></tr>
-    <tr><td>Awaiting Reply</td><td>0</td><td>—</td></tr>
-    <tr><td>Closed</td><td>0</td><td>—</td></tr>
-  </table>
-</div>
-
-<div class="card">
-  <h3>Lifecycle Coverage</h3>
-  <table>
-    <tr><th>Stage</th><th>Clients</th><th>Status</th></tr>
-    <tr><td>Outstanding Quote</td><td>153</td><td><span class="green">100% covered</span></td></tr>
-    <tr><td>Recently Won</td><td>0</td><td><span class="yellow">Data requested from Tas</span></td></tr>
-    <tr><td>Completed Projects</td><td>0</td><td><span class="yellow">Data requested from Tas</span></td></tr>
-    <tr><td>Lost Opportunities</td><td>0</td><td><span class="yellow">Data requested from Tas</span></td></tr>
-    <tr><td>Past Customers</td><td>0</td><td><span class="yellow">Data requested from Tas</span></td></tr>
-    <tr><td>Future Pipeline</td><td>0</td><td><span class="yellow">Data requested from Tas</span></td></tr>
-  </table>
-</div>
-
-<p style="color:#8b949e;font-size:11px;margin-top:24px">Atlas · Not Forgotten Systems · 153 clients · 8 contacted · Full pipeline imported · P2 held for wave 2 approval</p>
-
+<p style="color:#8b949e;font-size:10px;margin-top:16px">Atlas · Not Forgotten Systems · Updated 2026-07-28 · Next milestone: Email 2 on Aug 2</p>
 </body>
 </html>
