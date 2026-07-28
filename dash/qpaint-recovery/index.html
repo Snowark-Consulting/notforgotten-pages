@@ -14,15 +14,10 @@
   .card h3 { font-size: 11px; text-transform: uppercase; color: #8b949e; letter-spacing: .5px; margin-bottom: 8px; }
   .card .value { font-size: 32px; font-weight: 700; }
   .card .label { font-size: 12px; color: #8b949e; margin-top: 4px; }
-  .green { color: #3fb950; }
-  .yellow { color: #d2991d; }
-  .red { color: #f85149; }
-  .blue { color: #58a6ff; }
+  .green { color: #3fb950; } .yellow { color: #d2991d; } .red { color: #f85149; } .blue { color: #58a6ff; }
   .progress-bar { height: 8px; background: #21262d; border-radius: 4px; margin-top: 12px; overflow: hidden; }
   .progress-fill { height: 100%; border-radius: 4px; transition: width .3s; }
-  .p1-fill { background: #f85149; }
-  .p2-fill { background: #d2991d; }
-  .p3-fill { background: #8b949e; }
+  .p1-fill { background: #f85149; } .p2-fill { background: #d2991d; } .p3-fill { background: #8b949e; }
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
   th { text-align: left; color: #8b949e; font-weight: 500; padding: 8px 12px; border-bottom: 1px solid #30363d; font-size: 11px; text-transform: uppercase; }
   td { padding: 8px 12px; border-bottom: 1px solid #21262d; }
@@ -31,21 +26,20 @@
   .stat-value { font-size: 16px; font-weight: 600; }
   .pipeline-breakdown { display: flex; gap: 4px; height: 24px; border-radius: 4px; overflow: hidden; margin-top: 8px; }
   .pipeline-breakdown div { display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: #fff; }
-  .p1-seg { background: #f85149; }
-  .p2-seg { background: #d2991d; }
-  .p3-seg { background: #8b949e; }
+  .p1-seg { background: #f85149; } .p2-seg { background: #d2991d; } .p3-seg { background: #8b949e; }
+  .ready-badge { display: inline-block; background: #1a3320; color: #3fb950; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
 </style>
 </head>
 <body>
 
 <h1>🎯 QPaint Recovery Dashboard</h1>
-<p class="subtitle">Not Forgotten Systems · Generated 2026-07-28 · QPaint (Tas Moulis)</p>
+<p class="subtitle">Not Forgotten Systems · Stage 3 Complete · QPaint (Tas Moulis) · <span class="ready-badge">READY FOR RECOVERY</span></p>
 
 <div class="grid">
   <div class="card">
-    <h3>Total Pipeline</h3>
-    <div class="value">$5,892,413</div>
-    <div class="label">156 open deals</div>
+    <h3>P1 Pipeline (Imported)</h3>
+    <div class="value red">$3,469,182</div>
+    <div class="label">98 deals · All Priority 1 · Not Contacted</div>
     <div class="pipeline-breakdown">
       <div class="p1-seg" style="flex:59">P1 $3.5M</div>
       <div class="p2-seg" style="flex:41">P2 $2.4M</div>
@@ -54,22 +48,23 @@
   </div>
 
   <div class="card">
-    <h3>Pilot Cohort (Stage 1)</h3>
-    <div class="value blue">$1,295,305</div>
-    <div class="label">20 deals · Stage 1 - Not Contacted</div>
-    <div class="progress-bar"><div class="progress-fill p1-fill" style="width:0%"></div></div>
-    <div class="label" style="margin-top:4px">0/20 contacted</div>
+    <h3>Category Mix</h3>
+    <div class="stat-row"><span class="stat-label">Residential</span><span class="stat-value">72 deals</span></div>
+    <div class="stat-row"><span class="stat-label">Corporate</span><span class="stat-value">10 deals</span></div>
+    <div class="stat-row"><span class="stat-label">Government</span><span class="stat-value">8 deals</span></div>
+    <div class="stat-row"><span class="stat-label">Commercial</span><span class="stat-value">8 deals</span></div>
   </div>
 
   <div class="card">
     <h3>Recovered Revenue</h3>
     <div class="value green">$0</div>
     <div class="label">0 jobs won · 0.0% recovery rate</div>
+    <div class="label" style="margin-top:8px">Recovery operations not yet begun</div>
   </div>
 
   <div class="card">
     <h3>Engagement Funnel</h3>
-    <div class="stat-row"><span class="stat-label">Contacted</span><span class="stat-value">0</span></div>
+    <div class="stat-row"><span class="stat-label">Contacted</span><span class="stat-value">0/98</span></div>
     <div class="stat-row"><span class="stat-label">Replied</span><span class="stat-value">0</span></div>
     <div class="stat-row"><span class="stat-label">Meetings Booked</span><span class="stat-value">0</span></div>
     <div class="stat-row"><span class="stat-label">Jobs Won</span><span class="stat-value green">0</span></div>
@@ -78,27 +73,29 @@
 </div>
 
 <div class="card" style="margin-bottom:24px">
-  <h3>Pipeline by Priority</h3>
+  <h3>Age Distribution</h3>
   <table>
-    <tr><th>Tier</th><th>Deals</th><th>Value</th><th>Avg Deal</th><th>Status</th></tr>
-    <tr><td><span class="red">● P1</span></td><td>98</td><td>$3,469,182</td><td>$35,400</td><td>20 in pilot · 78 queued</td></tr>
-    <tr><td><span class="yellow">● P2</span></td><td>55</td><td>$2,408,348</td><td>$43,788</td><td>Held for Stage 3</td></tr>
-    <tr><td><span style="color:#8b949e">● P3</span></td><td>3</td><td>$14,883</td><td>$4,961</td><td>Low priority</td></tr>
+    <tr><th>Age Bucket</th><th>Deals</th><th>Recovery Priority</th></tr>
+    <tr><td>0–14 days</td><td>28</td><td><span class="red">Immediate</span></td></tr>
+    <tr><td>15–30 days</td><td>24</td><td><span class="yellow">This Week</span></td></tr>
+    <tr><td>31–60 days</td><td>26</td><td><span class="blue">This Week</span></td></tr>
+    <tr><td>61–90 days</td><td>8</td><td>Re-engagement</td></tr>
+    <tr><td>90+ days</td><td>12</td><td>Re-engagement</td></tr>
   </table>
 </div>
 
-<div class="card">
+<div class="card" style="margin-bottom:24px">
   <h3>Data Quality</h3>
   <table>
     <tr><th>Metric</th><th>Value</th></tr>
-    <tr><td>Complete & clean records</td><td>97/156 (62%)</td></tr>
-    <tr><td>Missing Drive Folder</td><td>59 (38%)</td></tr>
-    <tr><td>Duplicate contacts</td><td>9 email clusters</td></tr>
-    <tr><td>Very old + No Drive (90d+)</td><td>29 (19%)</td></tr>
+    <tr><td>Has Drive Folder</td><td>80/98 (82%)</td></tr>
+    <tr><td>Records with email</td><td>98/98</td></tr>
+    <tr><td>Records with phone</td><td>98/98</td></tr>
+    <tr><td>Source data clean rate</td><td>97/156 (62%)</td></tr>
   </table>
 </div>
 
-<p style="color:#8b949e;font-size:11px;margin-top:24px">Atlas · Not Forgotten Systems · Recovery scoring model v1.0 · Updated manually after each recovery action</p>
+<p style="color:#8b949e;font-size:11px;margin-top:24px">Atlas · Not Forgotten Systems · Recovery scoring model v1.0 · Stage 3 Complete · 98 P1 deals ready for recovery operations</p>
 
 </body>
 </html>
