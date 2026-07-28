@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 110,
+    "tasks_completed": 111,
     "recent": [
+      {
+        "date": "2026-07-29 08:30",
+        "task": "Processed QPaint customer reply: Joy Ryan (Warenda Close) requests separate internal/external quotes. Positive Buying Signal. Flagged to James.",
+        "category": "task"
+      },
       {
         "date": "2026-07-29 08:25",
         "task": "Email 4 (breakup): sent to 60 painters across CVC, PDV, Wave 1 campaigns. 60/60 reconciled. Pipeline \u2192 Campaign Complete.",
@@ -135,11 +140,6 @@
         "date": "2026-07-13 14:44",
         "task": "Processed unsubscribe from Gareth Smith (Distinct Painters) \u2014 Calibration July 2026 Email 3. Updated Airtable: Unsubscribed/Lost.",
         "category": "task"
-      },
-      {
-        "date": "2026-07-12 17:04",
-        "task": "Campaign Pulse posted \u2014 18 active, 0 replies, Wave 1 Email 3 sent (10 prospects, Sunday timing deviation), Email 3 is first proof-led touch: key test of whether curiosity-first was the bottleneck",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-29T08:25:28.302777+09:30",
+  "last_updated": "2026-07-29T08:30:46.097318+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
