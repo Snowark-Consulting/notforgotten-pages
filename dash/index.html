@@ -253,6 +253,7 @@
     <button class="tab-btn active" data-tab="pipeline">Pipeline</button>
     <button class="tab-btn" data-tab="agent">Agent</button>
     <button class="tab-btn" data-tab="learnings">Learnings</button>
+    <button class="tab-btn" data-tab="qpaint">QPaint</button>
     <a href="brain/" class="tab-btn" style="text-decoration:none;">Brain</a>
     <span class="tab-right">
       <a href="calendar/" class="tab-btn" style="text-decoration:none;">Calendar</a>
@@ -671,6 +672,86 @@ function renderLearnings() {
   return html;
 }
 
+// ── QPaint Recovery Tab ──
+function renderQPaint() {
+  var html = '';
+  
+  // Stat cards
+  html += '<div class="stat-row">';
+  html += '<div class="stat-card"><div class="num">$5.88M</div><div class="label">Pipeline Value</div></div>';
+  html += '<div class="stat-card"><div class="num">153</div><div class="label">Open Deals</div></div>';
+  html += '<div class="stat-card"><div class="num gold">8</div><div class="label">Contacted</div></div>';
+  html += '<div class="stat-card"><div class="num">0</div><div class="label">Replied</div></div>';
+  html += '</div>';
+  
+  // Urgency breakdown
+  html += '<div class="panel">';
+  html += '<div class="panel-header"><h2>Who Needs Us Most Today</h2></div>';
+  html += '<div class="panel-body">';
+  
+  html += '<div class="funnel-bar">';
+  html += '<div class="funnel-seg stage-lost" style="flex:5">5 Critical</div>';
+  html += '<div class="funnel-seg stage-new" style="flex:33">33 High</div>';
+  html += '<div class="funnel-seg stage-active" style="flex:93">93 Medium</div>';
+  html += '<div class="funnel-seg" style="flex:22;background:#c0c0c0">22 Low</div>';
+  html += '</div>';
+  
+  // Top 5 table
+  html += '<table style="width:100%;border-collapse:collapse;font-size:var(--text-sm)">';
+  html += '<tr style="color:var(--muted);font-size:var(--text-xs);text-transform:uppercase">';
+  html += '<th style="text-align:left;padding:8px 12px;border-bottom:1px solid rgba(0,0,0,0.06)">Contact</th>';
+  html += '<th style="text-align:right;padding:8px 12px;border-bottom:1px solid rgba(0,0,0,0.06)">Value</th>';
+  html += '<th style="text-align:center;padding:8px 12px;border-bottom:1px solid rgba(0,0,0,0.06)">Score</th>';
+  html += '<th style="text-align:left;padding:8px 12px;border-bottom:1px solid rgba(0,0,0,0.06)">Segment</th>';
+  html += '<th style="text-align:left;padding:8px 12px;border-bottom:1px solid rgba(0,0,0,0.06)">Signal</th>';
+  html += '</tr>';
+  
+  var top5 = [
+    {c:'Jesse Zhao', v:'$116,223', s:93, seg:'Previous Client', sig:'High score + Value'},
+    {c:'Lucy Hetherington', v:'$157,795', s:79, seg:'Fresh (0-14d)', sig:'Fresh + High value'},
+    {c:'Nicholas Zappacosta', v:'$145,008', s:89, seg:'Calibration Active', sig:'Awaiting reply'},
+    {c:'Aaron Whitlock', v:'$52,812', s:78, seg:'Previous Client', sig:'Previous client'},
+    {c:'David Delaney', v:'$123,655', s:79, seg:'Government', sig:'Gov procurement'},
+  ];
+  
+  for (var i = 0; i < top5.length; i++) {
+    var t = top5[i];
+    html += '<tr>';
+    html += '<td style="padding:8px 12px;border-bottom:1px solid rgba(0,0,0,0.04);font-weight:500">' + t.c + '</td>';
+    html += '<td style="padding:8px 12px;border-bottom:1px solid rgba(0,0,0,0.04);text-align:right">' + t.v + '</td>';
+    html += '<td style="padding:8px 12px;border-bottom:1px solid rgba(0,0,0,0.04);text-align:center;font-weight:600;color:var(--navy)">' + t.s + '</td>';
+    html += '<td style="padding:8px 12px;border-bottom:1px solid rgba(0,0,0,0.04);font-size:12px;color:var(--muted)">' + t.seg + '</td>';
+    html += '<td style="padding:8px 12px;border-bottom:1px solid rgba(0,0,0,0.04);font-size:12px;color:var(--muted)">' + t.sig + '</td>';
+    html += '</tr>';
+  }
+  
+  html += '</table>';
+  
+  // Link to full dashboard
+  html += '<div style="margin-top:16px;text-align:center">';
+  html += '<a href="qpaint-recovery/" style="color:var(--navy);font-weight:500;text-decoration:none;font-size:var(--text-sm)">Open Full Recovery Dashboard →</a>';
+  html += '</div>';
+  
+  html += '</div></div>';
+  
+  // Pipeline summary
+  html += '<div class="grid-2">';
+  html += '<div class="panel"><div class="panel-header"><h2>Tiers</h2></div><div class="panel-body">';
+  html += '<div style="display:flex;justify-content:space-between;padding:8px 0"><span>P1 — Active</span><span style="font-weight:600;color:var(--navy)">98</span></div>';
+  html += '<div style="display:flex;justify-content:space-between;padding:8px 0"><span>P2 — Held</span><span style="font-weight:600;color:var(--gold)">55</span></div>';
+  html += '<div style="display:flex;justify-content:space-between;padding:8px 0"><span>P3 — Not Imported</span><span style="font-weight:600;color:var(--muted)">3</span></div>';
+  html += '</div></div>';
+  
+  html += '<div class="panel"><div class="panel-header"><h2>Sequence</h2></div><div class="panel-body">';
+  html += '<div style="display:flex;justify-content:space-between;padding:8px 0"><span>Email 1 Sent</span><span style="font-weight:600;color:var(--royal)">8</span></div>';
+  html += '<div style="display:flex;justify-content:space-between;padding:8px 0"><span>Email 1 Ready</span><span style="font-weight:600;color:var(--gold)">145</span></div>';
+  html += '<div style="display:flex;justify-content:space-between;padding:8px 0"><span>Next Email</span><span style="font-weight:600;color:var(--muted)">Aug 2</span></div>';
+  html += '</div></div>';
+  html += '</div>';
+  
+  return html;
+}
+
 // ── Main Render ──
 function render() {
   const agentOnline = data.health?.agent === 'online';
@@ -682,6 +763,7 @@ function render() {
   if (currentTab === 'pipeline') html = renderPipeline();
   else if (currentTab === 'agent') html = renderAgent();
   else if (currentTab === 'learnings') html = renderLearnings();
+  else if (currentTab === 'qpaint') html = renderQPaint();
 
   document.getElementById('app').innerHTML = html;
 }
