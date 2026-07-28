@@ -4,100 +4,153 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>QPaint Recovery — Not Forgotten Systems</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e1e4e8; padding: 20px; }
-  h1 { font-size: 20px; margin-bottom: 4px; }
-  .subtitle { color: #8b949e; font-size: 12px; margin-bottom: 20px; }
-  .banner { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 20px; }
-  .banner-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 18px; text-align: center; }
-  .banner-card .question { font-size: 10px; text-transform: uppercase; color: #8b949e; letter-spacing: .5px; margin-bottom: 6px; }
-  .banner-card .answer { font-size: 28px; font-weight: 700; }
-  .banner-card .detail { font-size: 12px; color: #8b949e; margin-top: 4px; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 16px; }
-  .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; }
-  .card h3 { font-size: 10px; text-transform: uppercase; color: #8b949e; letter-spacing: .5px; margin-bottom: 10px; }
-  .green { color: #3fb950; } .yellow { color: #d2991d; } .red { color: #f85149; } .blue { color: #58a6ff; }
-  .stat-row { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; }
-  .stat-label { color: #8b949e; font-size: 12px; }
-  .stat-value { font-size: 14px; font-weight: 600; }
-  table { width: 100%; border-collapse: collapse; font-size: 12px; }
-  th { text-align: left; color: #8b949e; font-weight: 500; padding: 6px 10px; border-bottom: 1px solid #30363d; font-size: 10px; text-transform: uppercase; }
-  td { padding: 6px 10px; border-bottom: 1px solid #21262d; }
-  .progress-bar { height: 6px; background: #21262d; border-radius: 3px; margin-top: 8px; overflow: hidden; }
-  .progress-fill { height: 100%; border-radius: 3px; }
-  .urgency-bar { display: flex; gap: 3px; height: 20px; border-radius: 4px; overflow: hidden; margin-top: 6px; }
-  .urgency-bar div { display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: #fff; }
-  .u-critical { background: #f85149; } .u-high { background: #d2991d; } .u-medium { background: #58a6ff; } .u-low { background: #30363d; }
-  .completeness { display: flex; gap: 6px; align-items: center; }
+:root {
+  --nfs-navy: #0b2c4d;
+  --nfs-near-black: #0a0a0a;
+  --nfs-gold: #e0a62a;
+  --nfs-white: #FFFFFF;
+  --nfs-light: #f7fbff;
+  --nfs-muted: #666666;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --radius: 12px;
+  --space-sm: 8px; --space-md: 16px; --space-lg: 24px; --space-xl: 32px; --space-2xl: 48px; --space-3xl: 64px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font); background: var(--nfs-light); color: var(--nfs-near-black); line-height: 1.5; }
+.header { background: var(--nfs-navy); padding: var(--space-xl) var(--space-3xl); }
+.header h1 { color: var(--nfs-white); font-size: 28px; font-weight: 700; }
+.header .sub { color: rgba(255,255,255,0.6); font-size: 14px; margin-top: var(--space-sm); }
+.container { max-width: 1280px; margin: 0 auto; padding: var(--space-2xl) var(--space-3xl); }
+.metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); margin-bottom: var(--space-2xl); }
+.metric-card { background: var(--nfs-white); border-radius: var(--radius); padding: var(--space-xl); box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+.metric-card .value { font-size: 40px; font-weight: 700; color: var(--nfs-navy); }
+.metric-card .label { font-size: 13px; color: var(--nfs-muted); margin-top: var(--space-sm); text-transform: uppercase; letter-spacing: 0.5px; }
+.metric-card .detail { font-size: 14px; color: var(--nfs-muted); margin-top: var(--space-sm); }
+.metric-card.gold-border { border-left: 4px solid var(--nfs-gold); }
+.section-title { font-size: 20px; font-weight: 700; color: var(--nfs-navy); margin-bottom: var(--space-lg); }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-bottom: var(--space-2xl); }
+.panel { background: var(--nfs-white); border-radius: var(--radius); padding: var(--space-xl); box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+.panel h3 { font-size: 16px; font-weight: 700; color: var(--nfs-navy); margin-bottom: var(--space-md); }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { text-align: left; padding: var(--space-sm) var(--space-md); color: var(--nfs-muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid rgba(0,0,0,0.08); }
+td { padding: var(--space-sm) var(--space-md); border-bottom: 1px solid rgba(0,0,0,0.04); }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+.badge-engaged { background: #e8f5e9; color: #2e7d32; }
+.badge-pending { background: #fff3e0; color: #e65100; }
+.badge-active { background: #e3f2fd; color: #1565c0; }
+.badge-won { background: #c8e6c9; color: #1b5e20; }
+.highlight-gold { color: var(--nfs-gold); font-weight: 700; }
+.footer { text-align: center; color: var(--nfs-muted); font-size: 12px; padding: var(--space-2xl); }
+.footer a { color: var(--nfs-navy); text-decoration: none; }
+@media (max-width: 900px) { .metrics { grid-template-columns: 1fr 1fr; } .grid-2 { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 
-<h1>QPaint Recovery</h1>
-<p class="subtitle">Not Forgotten Systems · 2026-07-28 · 153 clients</p>
+<div class="header">
+  <h1>QPaint Recovery — Operations Dashboard</h1>
+  <p class="sub">Client: Tas Moulis &middot; Launched: 28 July 2026 &middot; Calibration batch: 8 contacts &middot; Day 0</p>
+</div>
 
-<!-- THREE QUESTIONS -->
-<div class="banner">
-  <div class="banner-card">
-    <div class="question">① Where are we today?</div>
-    <div class="answer">$5,877,530</div>
-    <div class="detail">Pipeline · 8 contacted · 0 replied · 0 won</div>
-  </div>
-  <div class="banner-card">
-    <div class="question">② What should we do next?</div>
-    <div class="answer"><span class="red">5</span> <span style="font-size:14px;font-weight:400">need us most</span></div>
-    <div class="detail">33 high · 93 medium · 22 low</div>
-    <div class="urgency-bar">
-      <div class="u-critical" style="flex:5">5</div>
-      <div class="u-high" style="flex:33">33</div>
-      <div class="u-medium" style="flex:93">93</div>
-      <div class="u-low" style="flex:22">22</div>
+<div class="container">
+
+  <!-- Four Outcome Metrics -->
+  <h2 class="section-title">Outcome Metrics (Decision 2026-07-28)</h2>
+  <div class="metrics">
+    <div class="metric-card gold-border">
+      <div class="value">1</div>
+      <div class="label">Opportunities Recovered</div>
+      <div class="detail">Logan Village State School — $145,008<br>Engaged, awaiting confirmation</div>
+    </div>
+    <div class="metric-card gold-border">
+      <div class="value">1</div>
+      <div class="label">New Opportunities Generated</div>
+      <div class="detail">QAS Beenleigh — value TBD<br>New govt project from existing conversation</div>
+    </div>
+    <div class="metric-card">
+      <div class="value">1</div>
+      <div class="label">Customer Relationships Managed</div>
+      <div class="detail">Nicholas Zappacosta (QBuild)<br>Active relationship, 2 threads</div>
+    </div>
+    <div class="metric-card">
+      <div class="value">3</div>
+      <div class="label">Business Intelligence Discovered</div>
+      <div class="detail">Govt engagement pattern, escalation framework, role evolution</div>
     </div>
   </div>
-  <div class="banner-card">
-    <div class="question">③ What impact are we having?</div>
-    <div class="answer green">$0</div>
-    <div class="detail">Recovered · 0 conversions · 0.0% rate</div>
+
+  <!-- Campaign Status + Active Opportunities -->
+  <div class="grid-2">
+    <div class="panel">
+      <h3>Campaign Status</h3>
+      <table>
+        <tr><td>Emails sent</td><td class="highlight-gold">8</td></tr>
+        <tr><td>Reply rate</td><td class="highlight-gold">12.5%</td></tr>
+        <tr><td>Open rate</td><td>Pending data</td></tr>
+        <tr><td>Next send</td><td>Email 2 — Aug 2, 2026</td></tr>
+        <tr><td>Remaining active</td><td>7 contacts</td></tr>
+        <tr><td>Escalations to Tas</td><td>1 (QAS Beenleigh quotation)</td></tr>
+      </table>
+    </div>
+
+    <div class="panel">
+      <h3>Active Opportunities</h3>
+      <table>
+        <tr>
+          <th>Project</th><th>Stage</th><th>Value</th><th>Next</th>
+        </tr>
+        <tr>
+          <td><strong>Logan Village State School</strong><br><small>Nicholas Zappacosta</small></td>
+          <td><span class="badge badge-engaged">Engaged — Awaiting Confirmation</span></td>
+          <td>$145,008</td>
+          <td>Nicholas's reply</td>
+        </tr>
+        <tr>
+          <td><strong>QAS Beenleigh</strong><br><small>Nicholas Zappacosta</small></td>
+          <td><span class="badge badge-pending">Pending — Awaiting Quotation</span></td>
+          <td>TBD</td>
+          <td>Tas to prepare quote</td>
+        </tr>
+        <tr>
+          <td><strong>7 calibration contacts</strong><br><small>Various</small></td>
+          <td><span class="badge badge-active">Email 1 — Awaiting Reply</span></td>
+          <td>$110K combined</td>
+          <td>Email 2 — Aug 2</td>
+        </tr>
+      </table>
+    </div>
   </div>
+
+  <!-- Business Intelligence -->
+  <div class="panel" style="margin-bottom: var(--space-2xl);">
+    <h3>Business Intelligence Discovered (Day 0)</h3>
+    <table>
+      <tr><th>Insight</th><th>Evidence</th><th>Implication</th></tr>
+      <tr>
+        <td>Atlas is the communication layer, not a follow-up engine</td>
+        <td>Nicholas routed a new government project directly to Atlas instead of normal QBuild procurement channels</td>
+        <td>Decision 2026-07-28: role redefined. Escalate only when Tas adds value.</td>
+      </tr>
+      <tr>
+        <td>Government customers engage positively with professional follow-up</td>
+        <td>QBuild foreperson sent two positive replies in one day, including detailed scope for a new project</td>
+        <td>Tone and approach validated for government sector</td>
+      </tr>
+      <tr>
+        <td>One calibration email can generate multiple engagements</td>
+        <td>Single Email 1 produced: Logan Village advancement + QAS Beenleigh new opportunity</td>
+        <td>Metric tracking must separate Recovered from Generated</td>
+      </tr>
+    </table>
+  </div>
+
 </div>
 
-<!-- WHO NEEDS US MOST -->
-<div class="card" style="margin-bottom:14px">
-  <h3>🔴 Who Needs Us Most Today</h3>
-  <table>
-    <tr><th>#</th><th>Contact</th><th>Value</th><th>Score</th><th>Segment</th><th>Signal</th></tr>
-    <tr><td>1</td><td>Jesse Zhao</td><td>$116,223</td><td>93</td><td style="font-size:11px">Previous Client — Warm</td><td style="font-size:11px">⏳ Waiting for contact</td></tr><tr><td>2</td><td>Lucy Hetherington</td><td>$157,795</td><td>79</td><td style="font-size:11px">Fresh (0-14d)</td><td style="font-size:11px">🆕 Fresh quote — act now</td></tr><tr><td>3</td><td>Nicholas Zappacosta</td><td>$145,008</td><td>89</td><td style="font-size:11px">Calibration Active</td><td style="font-size:11px">Waiting for reply window</td></tr><tr><td>4</td><td>Aaron Whitlock</td><td>$52,812</td><td>78</td><td style="font-size:11px">Previous Client — Warm</td><td style="font-size:11px">⏳ Waiting for contact</td></tr><tr><td>5</td><td>David Delaney</td><td>$123,655</td><td>79</td><td style="font-size:11px">Government — Procureme</td><td style="font-size:11px">⏳ Waiting for contact</td></tr>
-  </table>
+<div class="footer">
+  Not Forgotten Systems &middot; <a href="../">Main Dashboard</a> &middot; Generated 2026-07-28
 </div>
 
-<div class="grid">
-  <div class="card">
-    <h3>Pipeline Status</h3>
-    <div class="stat-row"><span class="stat-label">Not Contacted</span><span class="stat-value">145</span></div>
-    <div class="stat-row"><span class="stat-label">Contacted</span><span class="stat-value blue">8</span></div>
-    <div class="stat-row"><span class="stat-label">Replied</span><span class="stat-value yellow">0</span></div>
-    <div class="stat-row"><span class="stat-label">Won / Lost</span><span class="stat-value">0 / 0</span></div>
-    <div class="progress-bar"><div class="progress-fill" style="width:5%;background:#58a6ff"></div></div>
-    <div style="font-size:10px;color:#8b949e;margin-top:4px">5% contacted</div>
-  </div>
-
-  <div class="card">
-    <h3>Record Completeness</h3>
-    <div class="stat-row"><span class="stat-label">Complete (6/6 fields)</span><span class="stat-value green">8</span></div>
-    <div class="stat-row"><span class="stat-label">Missing Review Date</span><span class="stat-value yellow">145</span></div>
-    <div class="stat-row"><span class="stat-label">Missing other fields</span><span class="stat-value">0</span></div>
-    <div style="font-size:10px;color:#8b949e;margin-top:8px">Review dates set when Email 1 is sent</div>
-  </div>
-
-  <div class="card">
-    <h3>Tiers</h3>
-    <div class="stat-row"><span class="stat-label">P1 — Active</span><span class="stat-value red">98</span></div>
-    <div class="stat-row"><span class="stat-label">P2 — Held</span><span class="stat-value yellow">55</span></div>
-    <div class="stat-row"><span class="stat-label">P3 — Not imported</span><span class="stat-value">3</span></div>
-  </div>
-</div>
-
-<p style="color:#8b949e;font-size:10px;margin-top:16px">Atlas · Not Forgotten Systems · Updated 2026-07-28 · Next milestone: Email 2 on Aug 2</p>
 </body>
 </html>
