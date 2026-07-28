@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 111,
+    "tasks_completed": 112,
     "recent": [
+      {
+        "date": "2026-07-29 08:41",
+        "task": "QPaint: Joy Ryan replied (Day +1) \u2014 wants separate external/internal quotes for Warenda Close (7.5K). Atlas replied, Tas flagged. 2nd calibration reply.",
+        "category": "task"
+      },
       {
         "date": "2026-07-29 08:30",
         "task": "Processed QPaint customer reply: Joy Ryan (Warenda Close) requests separate internal/external quotes. Positive Buying Signal. Flagged to James.",
@@ -135,11 +140,6 @@
         "date": "2026-07-14 13:05",
         "task": "Sent Painter Distribution Validation (20 Email 1s) + Calibration Email 3s (3). All reconciled. Routine outreach now fully delegated per Jul 13 decision.",
         "category": "task"
-      },
-      {
-        "date": "2026-07-13 14:44",
-        "task": "Processed unsubscribe from Gareth Smith (Distinct Painters) \u2014 Calibration July 2026 Email 3. Updated Airtable: Unsubscribed/Lost.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-29T08:30:46.097318+09:30",
+  "last_updated": "2026-07-29T08:41:09.938213+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
