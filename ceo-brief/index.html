@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CEO Brief — Not Forgotten Systems</title>
+<style>
+  :root {
+    --navy: #0a1628;
+    --gold: #c8963e;
+    --light: #f8f6f2;
+    --surface: #ffffff;
+    --text: #1a1a2e;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --success: #059669;
+    --warn: #d97706;
+    --danger: #dc2626;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  header {
+    background: var(--navy);
+    color: white;
+    padding: 2rem 1.5rem;
+    border-bottom: 3px solid var(--gold);
+  }
+  header h1 { font-size: 1.75rem; font-weight: 700; }
+  header p { color: #94a3b8; margin-top: 0.25rem; font-size: 0.9rem; }
+  .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+  .search-bar {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    font-family: inherit;
+  }
+  .brief-list { list-style: none; }
+  .brief-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+    transition: box-shadow 0.15s;
+  }
+  .brief-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .brief-date {
+    font-size: 0.85rem;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  .brief-title { font-weight: 600; font-size: 1.05rem; }
+  .brief-preview {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+  }
+  .brief-link {
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.85rem;
+    display: inline-block;
+    margin-top: 0.5rem;
+  }
+  .brief-link:hover { text-decoration: underline; }
+  .nav-back {
+    display: inline-block;
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+  .nav-back:hover { text-decoration: underline; }
+  footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+  .empty { text-align: center; padding: 3rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1>CEO Brief</h1>
+    <p>Not Forgotten Systems — Daily Executive Reports</p>
+  </div>
+</header>
+<div class="container">
+  <a href="/notforgotten-pages/dash/" class="nav-back">← Command Centre</a>
+  <input type="text" class="search-bar" id="search" placeholder="Search briefs..." oninput="filterBriefs()">
+  <ul class="brief-list" id="brief-list">
+    <li class="brief-item" onclick="location.href='2026-07-29'">
+      <div class="brief-date">Wednesday, 29 July 2026</div>
+      <div class="brief-title">Cold campaigns complete. QPaint recovery active. CEO Brief established.</div>
+      <div class="brief-preview">Two active revenue streams: QPaint recovery ($145K Logan Village + Beenleigh) and 2 converted painter clients. 60 Email 4 breakup emails sent. Campaign intelligence monitoring commenced.</div>
+      <a href="2026-07-29" class="brief-link">Read full brief →</a>
+    </li>
+  </ul>
+  <div class="empty" id="empty" style="display:none">No briefs match your search.</div>
+</div>
+<footer>
+  Not Forgotten Systems · CEO Brief Archive · Executive Operating History
+</footer>
+<script>
+function filterBriefs() {
+  const q = document.getElementById('search').value.toLowerCase();
+  const items = document.querySelectorAll('.brief-item');
+  let visible = 0;
+  items.forEach(item => {
+    const text = item.textContent.toLowerCase();
+    const match = text.includes(q);
+    item.style.display = match ? '' : 'none';
+    if (match) visible++;
+  });
+  document.getElementById('empty').style.display = visible === 0 ? '' : 'none';
+}
+</script>
+</body>
+</html>
