@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 112,
+    "tasks_completed": 113,
     "recent": [
+      {
+        "date": "2026-07-29 09:14",
+        "task": "Wave 2 sent: 30 QPaint recovery emails. Pipeline: 37 contacted (8 cal + 30 wave), 1 replied (Nicholas), 119 remaining. 156/156 Pipedrive deals imported. Inclusion principle established \u2014 P3 deals reinstated.",
+        "category": "task"
+      },
       {
         "date": "2026-07-29 08:41",
         "task": "QPaint: Joy Ryan replied (Day +1) \u2014 wants separate external/internal quotes for Warenda Close (7.5K). Atlas replied, Tas flagged. 2nd calibration reply.",
@@ -135,11 +140,6 @@
         "date": "2026-07-14 17:22",
         "task": "Sent Context vs Curiosity experiment \u2014 40 painters (20 Control, 20 Treatment). Testing whether woven context sentence improves meaningful reply rates. Day 7 checkpoint: Jul 21. Day 21: Aug 4.",
         "category": "task"
-      },
-      {
-        "date": "2026-07-14 13:05",
-        "task": "Sent Painter Distribution Validation (20 Email 1s) + Calibration Email 3s (3). All reconciled. Routine outreach now fully delegated per Jul 13 decision.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-29T08:41:09.938213+09:30",
+  "last_updated": "2026-07-29T09:14:50.680209+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
