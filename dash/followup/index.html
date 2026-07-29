@@ -10,449 +10,159 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #0b2c4d;
-    --navy-light: #143b61;
-    --gold: #e0a62a;
-    --gold-light: #f5d06b;
-    --white: #ffffff;
-    --gray-50: #f8f9fa;
-    --gray-100: #f1f3f5;
-    --gray-200: #e9ecef;
-    --gray-300: #dee2e6;
-    --gray-400: #adb5bd;
-    --gray-500: #6c757d;
-    --gray-700: #495057;
-    --gray-900: #212529;
-    --green: #2b8a3e;
-    --green-bg: #ebfbee;
-    --red: #c92a2a;
-    --red-bg: #fff5f5;
-    --blue: #1c7ed6;
-    --blue-bg: #e7f5ff;
-    --orange: #e8590c;
-    --orange-bg: #fff4e6;
-    --purple: #7048e8;
-    --purple-bg: #f3f0ff;
-    --radius: 8px;
-    --radius-lg: 12px;
-    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
-    --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.04);
+    --navy: #0b2c4d; --navy-light: #143b61; --gold: #e0a62a; --gold-light: #f5d06b;
+    --white: #ffffff; --gray-50: #f8f9fa; --gray-100: #f1f3f5; --gray-200: #e9ecef;
+    --gray-300: #dee2e6; --gray-400: #adb5bd; --gray-500: #6c757d; --gray-700: #495057;
+    --gray-900: #212529; --green: #2b8a3e; --green-bg: #ebfbee;
+    --red: #c92a2a; --red-bg: #fff5f5; --blue: #1c7ed6; --blue-bg: #e7f5ff;
+    --orange: #e8590c; --orange-bg: #fff4e6; --purple: #7048e8; --purple-bg: #f3f0ff;
+    --radius: 8px; --radius-lg: 12px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08),0 1px 2px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.07),0 2px 4px rgba(0,0,0,0.04);
   }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--gray-50);color:var(--gray-900);line-height:1.5}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--gray-50);
-    color: var(--gray-900);
-    line-height: 1.5;
-  }
+  .header{background:var(--navy);color:var(--white);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.15)}
+  .header-brand{display:flex;align-items:center;gap:12px}
+  .header-logo{height:28px;width:auto}
+  .header h1{font-size:18px;font-weight:600;letter-spacing:-0.01em}
+  .header-sub{font-size:12px;color:rgba(255,255,255,0.7)}
+  .header-back{color:var(--gold-light);text-decoration:none;font-size:14px;font-weight:500}
+  .header-back:hover{color:var(--gold)}
 
-  /* ── Header ── */
-  .header {
-    background: var(--navy);
-    color: var(--white);
-    padding: 16px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  }
-  .header-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .header-logo {
-    height: 28px;
-    width: auto;
-  }
-  .header h1 {
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-  }
-  .header-sub {
-    font-size: 12px;
-    color: rgba(255,255,255,0.7);
-  }
-  .header-back {
-    color: var(--gold-light);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-  }
-  .header-back:hover { color: var(--gold); }
+  .container{max-width:1280px;margin:0 auto;padding:24px}
 
-  /* ── Container ── */
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 24px;
-  }
+  /* ── Health Dashboard ── */
+  .health-dash{margin-bottom:24px}
+  .health-dash h2{font-size:16px;font-weight:600;color:var(--gray-900);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+  .health-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .h-card{background:var(--white);border-radius:var(--radius-lg);padding:16px;box-shadow:var(--shadow);text-align:center}
+  .h-card .h-num{font-size:28px;font-weight:700;color:var(--navy);line-height:1.1}
+  .h-card .h-num.gold{color:var(--gold)}
+  .h-card .h-num.green{color:var(--green)}
+  .h-card .h-num.blue{color:var(--blue)}
+  .h-card .h-num.red{color:var(--red)}
+  .h-card .h-label{font-size:12px;color:var(--gray-500);margin-top:4px}
 
-  /* ── Summary Cards ── */
-  .summary-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin-bottom: 24px;
-  }
-  .stat-card {
-    background: var(--white);
-    border-radius: var(--radius-lg);
-    padding: 20px;
-    box-shadow: var(--shadow);
-    border-left: 4px solid var(--navy);
-  }
-  .stat-card.gold { border-left-color: var(--gold); }
-  .stat-card.green { border-left-color: var(--green); }
-  .stat-card.blue { border-left-color: var(--blue); }
-  .stat-card .stat-number {
-    font-size: 32px;
-    font-weight: 700;
-    color: var(--navy);
-    line-height: 1.1;
-  }
-  .stat-card.gold .stat-number { color: var(--gold); }
-  .stat-card.green .stat-number { color: var(--green); }
-  .stat-card.blue .stat-number { color: var(--blue); }
-  .stat-card .stat-label {
-    font-size: 13px;
-    color: var(--gray-500);
-    margin-top: 4px;
-  }
+  /* ── Insights Panel ── */
+  .insights-panel{background:linear-gradient(135deg,var(--navy),var(--navy-light));color:var(--white);border-radius:var(--radius-lg);padding:16px 20px;margin-bottom:20px;box-shadow:var(--shadow-md)}
+  .insights-panel h3{font-size:14px;font-weight:600;margin-bottom:10px;color:var(--gold-light)}
+  .insights-panel .insight-item{font-size:13px;padding:4px 0;display:flex;align-items:flex-start;gap:8px}
+  .insights-panel .insight-item::before{content:'💡';flex-shrink:0}
 
-  /* ── Top Pick Banner ── */
-  .top-pick {
-    background: linear-gradient(135deg, var(--navy), var(--navy-light));
-    color: var(--white);
-    border-radius: var(--radius-lg);
-    padding: 20px 24px;
-    margin-bottom: 24px;
-    box-shadow: var(--shadow-md);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-  .top-pick-left { display: flex; align-items: center; gap: 16px; }
-  .top-pick-rank {
-    background: var(--gold);
-    color: var(--navy);
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-  .top-pick-name { font-size: 20px; font-weight: 700; }
-  .top-pick-detail { font-size: 13px; color: rgba(255,255,255,0.8); margin-top: 2px; }
-  .top-pick-right { text-align: right; }
-  .top-pick-score {
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--gold-light);
-    line-height: 1;
-  }
-  .top-pick-score-label { font-size: 12px; color: rgba(255,255,255,0.7); }
-  .top-pick-starter {
-    margin-top: 12px;
-    font-size: 13px;
-    color: rgba(255,255,255,0.9);
-    background: rgba(255,255,255,0.1);
-    padding: 10px 14px;
-    border-radius: var(--radius);
-    flex-basis: 100%;
-    font-style: italic;
-  }
-  .top-pick-starter::before { content: '💬 '; font-style: normal; }
+  /* ── This Week ── */
+  .week-focus{margin-bottom:20px}
+  .week-focus h3{font-size:14px;font-weight:600;margin-bottom:10px;color:var(--gray-900)}
+  .focus-list{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px}
+  .focus-chip{background:var(--white);border-radius:var(--radius-lg);padding:12px 16px;box-shadow:var(--shadow);min-width:200px;flex-shrink:0;border-left:3px solid var(--gold)}
+  .focus-chip .fc-rank{font-size:11px;color:var(--gold);font-weight:700}
+  .focus-chip .fc-name{font-size:14px;font-weight:600;margin:2px 0}
+  .focus-chip .fc-score{font-size:12px;color:var(--gray-500)}
 
-  /* ── Queue Controls ── */
-  .queue-controls {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 20px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  .queue-controls input {
-    flex: 1;
-    min-width: 200px;
-    padding: 10px 14px;
-    border: 1px solid var(--gray-300);
-    border-radius: var(--radius);
-    font-size: 14px;
-    font-family: inherit;
-  }
-  .queue-controls input:focus {
-    outline: none;
-    border-color: var(--navy);
-    box-shadow: 0 0 0 3px rgba(11,44,77,0.1);
-  }
-  .filter-pill {
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    border: 1px solid var(--gray-300);
-    background: var(--white);
-    color: var(--gray-700);
-    white-space: nowrap;
-    transition: all 0.15s;
-  }
-  .filter-pill:hover { border-color: var(--navy); color: var(--navy); }
-  .filter-pill.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
-  .filter-count {
-    display: inline-block;
-    background: rgba(255,255,255,0.2);
-    padding: 1px 6px;
-    border-radius: 10px;
-    font-size: 11px;
-    margin-left: 4px;
-  }
-  .filter-pill.active .filter-count { background: rgba(255,255,255,0.25); }
+  /* ── Top Pick ── */
+  .top-pick{background:linear-gradient(135deg,var(--navy),var(--navy-light));color:var(--white);border-radius:var(--radius-lg);padding:20px 24px;margin-bottom:20px;box-shadow:var(--shadow-md)}
+  .top-pick-inner{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  .top-pick-left{display:flex;align-items:center;gap:14px}
+  .top-pick-rank{background:var(--gold);color:var(--navy);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;flex-shrink:0}
+  .top-pick-name{font-size:18px;font-weight:700}
+  .top-pick-detail{font-size:13px;color:rgba(255,255,255,0.8);margin-top:2px}
+  .top-pick-right{text-align:right}
+  .top-pick-score{font-size:32px;font-weight:700;color:var(--gold-light);line-height:1}
+  .top-pick-score-label{font-size:12px;color:rgba(255,255,255,0.7)}
+  .top-pick-objective{margin-top:12px;padding:10px 14px;background:rgba(255,255,255,0.1);border-radius:var(--radius);font-size:13px;flex-basis:100%}
+  .top-pick-objective span{color:var(--gold-light);font-weight:600;margin-right:6px}
+
+  /* ── Controls ── */
+  .controls{display:flex;gap:10px;margin-bottom:16px;align-items:center;flex-wrap:wrap}
+  .controls input{flex:1;min-width:180px;padding:9px 14px;border:1px solid var(--gray-300);border-radius:var(--radius);font-size:14px;font-family:inherit}
+  .controls input:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(11,44,77,0.1)}
+  .pill{padding:7px 14px;border-radius:20px;font-size:12px;font-weight:500;cursor:pointer;border:1px solid var(--gray-300);background:var(--white);color:var(--gray-700);white-space:nowrap;transition:all 0.15s}
+  .pill:hover{border-color:var(--navy);color:var(--navy)}
+  .pill.active{background:var(--navy);color:var(--white);border-color:var(--navy)}
+  .pill .cnt{display:inline-block;background:rgba(255,255,255,0.2);padding:1px 6px;border-radius:10px;font-size:11px;margin-left:4px}
+  .pill.active .cnt{background:rgba(255,255,255,0.25)}
 
   /* ── Queue Cards ── */
-  .queue-card {
-    background: var(--white);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
-    margin-bottom: 12px;
-    overflow: hidden;
-    transition: box-shadow 0.2s;
-  }
-  .queue-card:hover { box-shadow: var(--shadow-md); }
-  .queue-card.priority { border-left: 4px solid var(--gold); }
+  .q-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow);margin-bottom:10px;overflow:hidden;transition:box-shadow 0.2s;border-left:3px solid transparent}
+  .q-card:hover{box-shadow:var(--shadow-md)}
+  .q-card.hot{border-left-color:var(--red)}
+  .q-card.warm{border-left-color:var(--orange)}
+  .q-card.called{border-left-color:var(--blue)}
+  .q-card.standard{border-left-color:var(--gray-300)}
 
-  .card-main {
-    padding: 16px 20px;
-    display: grid;
-    grid-template-columns: 48px 1fr auto;
-    gap: 16px;
-    align-items: start;
-    cursor: pointer;
-  }
+  .card-main{padding:14px 18px;display:grid;grid-template-columns:40px 1fr auto;gap:12px;align-items:start;cursor:pointer}
+  .card-rank{width:36px;height:36px;border-radius:50%;background:var(--gray-100);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:var(--gray-500);flex-shrink:0}
+  .card-rank.top3{background:var(--gold);color:var(--navy)}
+  .card-rank.top10{background:var(--navy);color:var(--white)}
 
-  .card-rank {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--gray-100);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 16px;
-    color: var(--gray-500);
-    flex-shrink: 0;
-  }
-  .card-rank.top-3 { background: var(--gold); color: var(--navy); }
-  .card-rank.top-10 { background: var(--navy); color: var(--white); }
+  .card-info{min-width:0}
+  .card-name{font-size:15px;font-weight:600;margin-bottom:2px;display:flex;align-items:center;gap:8px}
+  .card-contact{font-size:12px;color:var(--gray-500);display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
+  .card-badges{display:flex;gap:5px;margin-top:5px;flex-wrap:wrap}
+  .badge{padding:2px 9px;border-radius:12px;font-size:10px;font-weight:500;white-space:nowrap}
+  .badge-ind{background:var(--blue-bg);color:var(--blue)}
+  .badge-icp{background:var(--green-bg);color:var(--green)}
+  .badge-hot{background:var(--red-bg);color:var(--red);font-weight:600}
+  .badge-warm{background:var(--orange-bg);color:var(--orange);font-weight:600}
+  .badge-called{background:var(--blue-bg);color:var(--blue)}
+  .badge-opens{background:var(--purple-bg);color:var(--purple)}
 
-  .card-info { min-width: 0; }
-  .card-name {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--gray-900);
-    margin-bottom: 4px;
-  }
-  .card-contact {
-    font-size: 13px;
-    color: var(--gray-500);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .card-contact span {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-  }
-  .card-tags {
-    display: flex;
-    gap: 6px;
-    margin-top: 6px;
-    flex-wrap: wrap;
-  }
-  .tag {
-    padding: 3px 10px;
-    border-radius: 12px;
-    font-size: 11px;
-    font-weight: 500;
-    white-space: nowrap;
-  }
-  .tag-industry { background: var(--blue-bg); color: var(--blue); }
-  .tag-icp { background: var(--green-bg); color: var(--green); }
-  .tag-opens { background: var(--purple-bg); color: var(--purple); }
+  .card-metrics{display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex-shrink:0}
+  .score-num{font-size:22px;font-weight:700;line-height:1}
+  .score-label{font-size:10px;color:var(--gray-400)}
+  .conf-badge{padding:2px 9px;border-radius:12px;font-size:10px;font-weight:600}
+  .conf-High{background:var(--green-bg);color:var(--green)}
+  .conf-Medium{background:var(--orange-bg);color:var(--orange)}
+  .conf-Low{background:var(--gray-100);color:var(--gray-500)}
 
-  .card-metrics {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 4px;
-    flex-shrink: 0;
-  }
-  .score-badge {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--navy);
-    line-height: 1;
-  }
-  .score-label { font-size: 11px; color: var(--gray-400); }
-  .confidence-badge {
-    padding: 3px 10px;
-    border-radius: 12px;
-    font-size: 11px;
-    font-weight: 600;
-  }
-  .confidence-High { background: var(--green-bg); color: var(--green); }
-  .confidence-Medium { background: var(--orange-bg); color: var(--orange); }
-  .confidence-Low { background: var(--gray-100); color: var(--gray-500); }
+  /* ── Expanded Briefing ── */
+  .card-expand{display:none;padding:0 18px 18px 70px;border-top:1px solid var(--gray-100)}
+  .card-expand.open{display:block}
+  .brief-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  .brief-box{background:var(--gray-50);border-radius:var(--radius);padding:12px}
+  .brief-box.full{grid-column:1/-1}
+  .brief-box h4{font-size:11px;font-weight:600;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:8px}
+  .brief-box p,.brief-box li{font-size:13px;color:var(--gray-700);line-height:1.5}
+  .brief-box ul{list-style:none;padding:0}
+  .brief-box li{padding:3px 0;padding-left:14px;position:relative}
+  .brief-box li::before{content:'→';position:absolute;left:0;color:var(--navy);font-weight:600}
 
-  /* ── Card Expanded ── */
-  .card-expand {
-    display: none;
-    padding: 0 20px 20px 84px;
-    border-top: 1px solid var(--gray-100);
-  }
-  .card-expand.open { display: block; }
+  .call-obj{background:var(--navy);color:var(--white);padding:10px 14px;border-radius:var(--radius);font-size:13px;margin-top:10px;display:flex;gap:8px}
+  .call-obj .co-label{font-weight:600;color:var(--gold-light);flex-shrink:0}
 
-  .expand-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 16px;
-  }
-  .expand-section {
-    background: var(--gray-50);
-    border-radius: var(--radius);
-    padding: 14px;
-  }
-  .expand-section.full { grid-column: 1 / -1; }
-  .expand-section h4 {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--gray-500);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 8px;
-  }
-  .expand-section p, .expand-section li {
-    font-size: 13px;
-    color: var(--gray-700);
-    line-height: 1.6;
-  }
-  .expand-section ul {
-    list-style: none;
-    padding: 0;
-  }
-  .expand-section li::before {
-    content: '•';
-    color: var(--navy);
-    font-weight: bold;
-    margin-right: 8px;
-  }
+  .starter-quote{background:var(--blue-bg);border-radius:var(--radius);padding:12px 14px;margin-top:8px;font-size:13px;color:var(--navy-light);font-style:italic;line-height:1.6}
 
-  /* Action status */
-  .action-status {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 500;
-  }
-  .action-pending { background: var(--orange-bg); color: var(--orange); }
-  .action-done { background: var(--green-bg); color: var(--green); }
-  .action-skip { background: var(--red-bg); color: var(--red); }
-  .action-none { background: var(--gray-100); color: var(--gray-500); }
+  /* Call intel row */
+  .call-intel-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+  .ci-chip{padding:3px 10px;border-radius:12px;font-size:11px;font-weight:500;background:var(--gray-100);color:var(--gray-700)}
+  .ci-chip.il-hot{background:var(--red-bg);color:var(--red);font-weight:600}
+  .ci-chip.il-warm{background:var(--orange-bg);color:var(--orange);font-weight:600}
+  .ci-chip.bs-decision{background:var(--green-bg);color:var(--green);font-weight:600}
 
-  .starter-quote {
-    background: var(--blue-bg);
-    border-radius: var(--radius);
-    padding: 14px;
-    margin-top: 8px;
-    font-size: 13px;
-    color: var(--navy-light);
-    font-style: italic;
-    line-height: 1.6;
-  }
-  .starter-quote::before { content: '"'; font-size: 24px; color: var(--blue); font-weight: 700; }
-  .starter-quote::after { content: '"'; font-size: 24px; color: var(--blue); font-weight: 700; }
+  .next-step{padding:9px 14px;background:var(--navy);color:var(--white);border-radius:var(--radius);font-size:12px;font-weight:500;margin-top:10px}
 
-  .next-step {
-    margin-top: 12px;
-    padding: 10px 16px;
-    background: var(--navy);
-    color: var(--white);
-    border-radius: var(--radius);
-    font-size: 13px;
-    font-weight: 500;
-  }
+  .at-link{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--gray-400);text-decoration:none;margin-top:6px}
+  .at-link:hover{color:var(--blue)}
 
-  /* Airtable link */
-  .at-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 12px;
-    color: var(--gray-400);
-    text-decoration: none;
-    margin-top: 8px;
-  }
-  .at-link:hover { color: var(--blue); }
+  .refresh-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;font-size:11px;color:var(--gray-400)}
+  .refresh-bar a{color:var(--navy);text-decoration:none;font-weight:500}
 
-  /* Loading */
-  .loading {
-    text-align: center;
-    padding: 60px 20px;
-    color: var(--gray-400);
-  }
-  .loading-spinner {
-    width: 36px;
-    height: 36px;
-    border: 3px solid var(--gray-200);
-    border-top-color: var(--navy);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-    margin: 0 auto 16px;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
+  .loading{text-align:center;padding:60px 20px;color:var(--gray-400)}
+  .loading-spinner{width:36px;height:36px;border:3px solid var(--gray-200);border-top-color:var(--navy);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 16px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .empty{text-align:center;padding:60px 20px;color:var(--gray-400)}
 
-  /* Empty state */
-  .empty { text-align: center; padding: 60px 20px; color: var(--gray-400); }
-  .empty-icon { font-size: 48px; margin-bottom: 12px; }
-
-  /* Refresh bar */
-  .refresh-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    font-size: 12px;
-    color: var(--gray-400);
-  }
-  .refresh-bar a { color: var(--navy); text-decoration: none; font-weight: 500; }
-
-  @media (max-width: 768px) {
-    .summary-grid { grid-template-columns: repeat(2, 1fr); }
-    .card-main { grid-template-columns: 36px 1fr; }
-    .card-metrics { grid-column: 1 / -1; flex-direction: row; justify-content: space-between; }
-    .expand-grid { grid-template-columns: 1fr; }
-    .card-expand { padding-left: 20px; }
-    .top-pick { flex-direction: column; text-align: center; }
-    .top-pick-left { flex-direction: column; }
-    .top-pick-right { text-align: center; }
+  @media(max-width:768px){
+    .health-grid{grid-template-columns:repeat(2,1fr)}
+    .card-main{grid-template-columns:32px 1fr}
+    .card-metrics{grid-column:1/-1;flex-direction:row;justify-content:space-between;width:100%}
+    .brief-grid{grid-template-columns:1fr}
+    .card-expand{padding-left:18px}
+    .top-pick-inner{flex-direction:column;text-align:center}
+    .top-pick-left{flex-direction:column}
+    .top-pick-right{text-align:center}
+    .focus-list{flex-wrap:nowrap}
   }
 </style>
 </head>
@@ -463,272 +173,285 @@
     <img src="../assets/logo-header.png" alt="NF" class="header-logo">
     <div>
       <h1>Personal Follow-Up Queue</h1>
-      <div class="header-sub">James's Executive Call List</div>
+      <div class="header-sub">James's Executive Call List — Where Automation Ends & Relationships Begin</div>
     </div>
   </div>
   <a href="../" class="header-back">← Command Centre</a>
 </div>
 
 <div class="container">
-  <!-- Summary stats -->
-  <div class="summary-grid" id="summary"></div>
+
+  <!-- Queue Health Dashboard -->
+  <div class="health-dash" id="healthDash"></div>
+
+  <!-- Learning Insights -->
+  <div class="insights-panel" id="insightsPanel"></div>
+
+  <!-- This Week's Focus -->
+  <div class="week-focus" id="weekFocus"></div>
 
   <!-- Top Pick -->
   <div class="top-pick" id="topPick"></div>
 
   <!-- Controls -->
-  <div class="queue-controls">
-    <input type="text" id="searchInput" placeholder="Search by business name, contact, or industry..." oninput="renderQueue()">
-    <span class="filter-pill active" data-filter="all" onclick="setFilter('all', this)">All<span class="filter-count" id="countAll"></span></span>
-    <span class="filter-pill" data-filter="needs-action" onclick="setFilter('needs-action', this)">Needs Action<span class="filter-count" id="countAction"></span></span>
-    <span class="filter-pill" data-filter="in-progress" onclick="setFilter('in-progress', this)">In Progress<span class="filter-count" id="countProgress"></span></span>
-    <span class="filter-pill" data-filter="painter" onclick="setFilter('painter', this)">Painters<span class="filter-count" id="countPainters"></span></span>
-    <span class="filter-pill" data-filter="high" onclick="setFilter('high', this)">Score 70+<span class="filter-count" id="countHigh"></span></span>
+  <div class="controls">
+    <input type="text" id="searchInput" placeholder="Search by name, contact, or industry..." oninput="renderQueue()">
+    <span class="pill active" data-filter="all" onclick="setFilter('all',this)">All<span class="cnt" id="cntAll"></span></span>
+    <span class="pill" data-filter="needs-action" onclick="setFilter('needs-action',this)">Needs Call<span class="cnt" id="cntAction"></span></span>
+    <span class="pill" data-filter="in-progress" onclick="setFilter('in-progress',this)">In Progress<span class="cnt" id="cntProgress"></span></span>
+    <span class="pill" data-filter="hot" onclick="setFilter('hot',this)">🔥 Hot<span class="cnt" id="cntHot"></span></span>
+    <span class="pill" data-filter="painter" onclick="setFilter('painter',this)">Painters<span class="cnt" id="cntPainters"></span></span>
+    <span class="pill" data-filter="score70" onclick="setFilter('score70',this)">Score 70+<span class="cnt" id="cntHigh"></span></span>
   </div>
 
-  <!-- Queue -->
   <div class="refresh-bar">
     <span id="lastUpdated">Loading...</span>
     <a href="javascript:void(0)" onclick="location.reload()">↻ Refresh</a>
   </div>
 
   <div id="queueContainer">
-    <div class="loading">
-      <div class="loading-spinner"></div>
-      <div>Loading follow-up queue...</div>
-    </div>
+    <div class="loading"><div class="loading-spinner"></div><div>Loading your call list...</div></div>
   </div>
-
 </div>
 
 <script>
-// ── State ──
-let queueData = null;
+let data = null;
 let activeFilter = 'all';
 
-// ── Load ──
-async function load() {
-  try {
-    const ts = Date.now();
-    const resp = await fetch(`../dash.json?t=${ts}`);
-    const dash = await resp.json();
-    queueData = dash.followup_queue;
-    if (queueData && queueData.queue) {
+async function load(){
+  try{
+    const r = await fetch(`../dash.json?t=${Date.now()}`);
+    data = (await r.json()).followup_queue;
+    if(data){
       document.getElementById('lastUpdated').textContent =
-        `Last updated: ${new Date(queueData.summary.generated).toLocaleString('en-AU', {timeZone: 'Australia/Adelaide'})} ACST`;
+        `Updated: ${new Date(data.summary.generated).toLocaleString('en-AU',{timeZone:'Australia/Adelaide'})} ACST`;
     }
     renderAll();
-  } catch(e) {
-    document.getElementById('queueContainer').innerHTML =
-      '<div class="empty"><div class="empty-icon">⚠️</div><div>Unable to load queue data</div></div>';
-    console.error(e);
+  }catch(e){
+    document.getElementById('queueContainer').innerHTML = '<div class="empty">⚠️ Unable to load queue</div>';
   }
 }
 
-// ── Render ──
-function renderAll() {
-  if (!queueData || !queueData.queue) return;
-  renderSummary();
+function renderAll(){
+  if(!data||!data.queue) return;
+  renderHealth();
+  renderInsights();
+  renderFocus();
   renderTopPick();
   renderQueue();
-  updateFilterCounts();
+  updateCounts();
 }
 
-function renderSummary() {
-  const s = queueData.summary;
-  document.getElementById('summary').innerHTML = `
-    <div class="stat-card">
-      <div class="stat-number">${s.total}</div>
-      <div class="stat-label">Businesses in Queue</div>
-    </div>
-    <div class="stat-card gold">
-      <div class="stat-number">${s.high_confidence}</div>
-      <div class="stat-label">High Confidence</div>
-    </div>
-    <div class="stat-card green">
-      <div class="stat-number">${s.actionable}</div>
-      <div class="stat-label">Have Phone Number</div>
-    </div>
-    <div class="stat-card blue">
-      <div class="stat-number">${s.ready_to_call}</div>
-      <div class="stat-label">Not Yet Contacted</div>
-    </div>
-  `;
+function renderHealth(){
+  const h = data.health || {};
+  const qs = data.summary || {};
+  const cards = [
+    {n:qs.ready_to_call||0,l:'Waiting for Your Call',c:''},
+    {n:h.calls_completed_week||0,l:'Calls This Week',c:'blue'},
+    {n:h.positive_conversations||0,l:'Positive Conversations',c:'green'},
+    {n:h.followups_required||0,l:'Follow-ups Required',c:'red'},
+    {n:h.meetings_booked||0,l:'Meetings Booked',c:'gold'},
+    {n:h.converted_week||0,l:'Won This Week',c:'green'},
+    {n:h.converted_total||0,l:'Total Won from Calls',c:'green'},
+    {n:(h.conversion_rate||0)+'%',l:'Conversion Rate',c:''},
+  ];
+  document.getElementById('healthDash').innerHTML = `
+    <h2>📊 Queue Health Dashboard</h2>
+    <div class="health-grid">${cards.map(c=>
+      `<div class="h-card"><div class="h-num ${c.c}">${c.n}</div><div class="h-label">${c.l}</div></div>`
+    ).join('')}</div>`;
 }
 
-function renderTopPick() {
-  if (!queueData.queue.length) return;
-  const q = queueData.queue[0];
-  const phoneDisplay = q.phone !== '—' ? q.phone : 'No phone';
-  const actionClass = getActionClass(q.james_action);
-  document.getElementById('topPick').innerHTML = `
-    <div class="top-pick-left">
-      <div class="top-pick-rank">#1</div>
-      <div>
-        <div class="top-pick-name">${esc(q.business_name)}</div>
-        <div class="top-pick-detail">${esc(q.contact_name !== '—' ? q.contact_name : 'Contact')} · ${esc(q.industry)} · ${esc(phoneDisplay)}</div>
-        <div class="top-pick-detail">${esc(q.email)}</div>
-      </div>
-    </div>
-    <div class="top-pick-right">
-      <div class="top-pick-score">${q.opportunity_score}</div>
-      <div class="top-pick-score-label">Opportunity Score</div>
-    </div>
-    <div class="top-pick-starter">${esc(q.conversation_starter)}</div>
-  `;
-}
-
-function renderQueue() {
-  if (!queueData.queue.length) {
-    document.getElementById('queueContainer').innerHTML =
-      '<div class="empty"><div class="empty-icon">📋</div><div>No businesses in the queue</div></div>';
+function renderInsights(){
+  const ins = data.insights || [];
+  if(!ins.length){
+    document.getElementById('insightsPanel').innerHTML = `
+      <h3>🧠 Learning Engine: Waiting for Call Data</h3>
+      <div class="insight-item">The learning engine activates after your first calls. Update James' Action and Call Outcome in Airtable after each conversation to power the intelligence system.</div>`;
     return;
   }
+  document.getElementById('insightsPanel').innerHTML = `
+    <h3>🧠 Learning Engine Insights (${data.summary.called_count||0} calls analysed)</h3>
+    ${ins.map(i=>`<div class="insight-item">${esc(i)}</div>`).join('')}`;
+}
 
-  const search = (document.getElementById('searchInput').value || '').toLowerCase();
-  let filtered = queueData.queue.filter(q => {
-    // Search
-    if (search) {
-      const haystack = `${q.business_name} ${q.contact_name} ${q.industry} ${q.email} ${q.suburb}`.toLowerCase();
-      if (!haystack.includes(search)) return false;
+function renderFocus(){
+  const focus = (data.health||{}).this_weeks_focus||[];
+  if(!focus.length) return;
+  document.getElementById('weekFocus').innerHTML = `
+    <h3>🎯 This Week's Priority Calls</h3>
+    <div class="focus-list">
+      ${focus.map(f=>`
+        <div class="focus-chip">
+          <div class="fc-rank">#${f.rank}</div>
+          <div class="fc-name">${esc(f.name)}</div>
+          <div class="fc-score">Score: ${f.score} — ${esc((f.reason||'').substring(0,80))}</div>
+        </div>`).join('')}
+    </div>`;
+}
+
+function renderTopPick(){
+  const q = data.queue[0];
+  if(!q) return;
+  const obj = q.call_objective || '';
+  document.getElementById('topPick').innerHTML = `
+    <div class="top-pick-inner">
+      <div class="top-pick-left">
+        <div class="top-pick-rank">#1</div>
+        <div>
+          <div class="top-pick-name">${esc(q.business_name)}</div>
+          <div class="top-pick-detail">${esc(q.contact_name!=='—'?q.contact_name:'Contact')} · ${esc(q.industry)} · ${esc(q.phone!=='—'?q.phone:'No phone')}</div>
+          <div class="top-pick-detail">${esc(q.email)} ${q.has_been_called?'· 📞 Called: '+esc(q.call_date):''}</div>
+          ${q.interest_level?`<div class="call-intel-row"><span class="ci-chip il-${q.interest_level.includes('Hot')?'hot':q.interest_level.includes('Warm')?'warm':''}">${esc(q.interest_level)}</span>${q.buying_stage?`<span class="ci-chip bs-${q.buying_stage.includes('Decision')?'decision':''}">${esc(q.buying_stage)}</span>`:''}</div>`:''}
+        </div>
+      </div>
+      <div class="top-pick-right">
+        <div class="top-pick-score">${q.opportunity_score}</div>
+        <div class="top-pick-score-label">Opportunity Score</div>
+        <div style="margin-top:4px"><span class="conf-badge conf-${q.confidence}">${q.confidence}</span></div>
+      </div>
+      ${obj?`<div class="top-pick-objective"><span>🎯 Call Objective:</span>${esc(obj)}</div>`:''}
+    </div>`;
+}
+
+function renderQueue(){
+  if(!data.queue.length){
+    document.getElementById('queueContainer').innerHTML = '<div class="empty">📋 No businesses in queue</div>';
+    return;
+  }
+  const s = (document.getElementById('searchInput').value||'').toLowerCase();
+  let filtered = data.queue.filter(q=>{
+    if(s){
+      const h = `${q.business_name} ${q.contact_name} ${q.industry} ${q.email} ${q.suburb}`.toLowerCase();
+      if(!h.includes(s)) return false;
     }
-    // Filter
-    switch(activeFilter) {
-      case 'needs-action': return q.james_action === '—';
-      case 'in-progress':
-        return ['📞 Call Today','☎️ Left Voicemail','⏳ Waiting for Callback','🤝 Meeting Booked','📧 Sent Personal Email'].includes(q.james_action);
-      case 'painter': return q.industry === 'Painter';
-      case 'high': return q.opportunity_score >= 70;
+    switch(activeFilter){
+      case 'needs-action': return q.james_action==='—';
+      case 'in-progress': return ['📞 Call Today','☎️ Left Voicemail','⏳ Waiting for Callback','🤝 Meeting Booked','📧 Sent Personal Email'].includes(q.james_action);
+      case 'hot': return (q.interest_level||'').includes('Hot');
+      case 'painter': return q.industry==='Painter';
+      case 'score70': return q.opportunity_score>=70;
       default: return true;
     }
   });
-
-  if (!filtered.length) {
-    document.getElementById('queueContainer').innerHTML =
-      '<div class="empty"><div class="empty-icon">🔍</div><div>No businesses match your filter</div></div>';
+  if(!filtered.length){
+    document.getElementById('queueContainer').innerHTML = '<div class="empty">🔍 No matches</div>';
     return;
   }
-
-  document.getElementById('queueContainer').innerHTML = filtered.map(q => cardHTML(q)).join('');
+  document.getElementById('queueContainer').innerHTML = filtered.map(q=>cardHTML(q)).join('');
 }
 
-function cardHTML(q) {
-  const rankClass = q.rank <= 3 ? 'top-3' : (q.rank <= 10 ? 'top-10' : '');
-  const actionClass = getActionClass(q.james_action);
-  const actionText = q.james_action === '—' ? 'No action yet' : q.james_action;
-  const airtableUrl = `https://airtable.com/appgw8Q993yOh4xpQ/tblceVflumXdl23JJ/${q.id}`;
+function cardHTML(q){
+  const rc = q.rank<=3?'top3':(q.rank<=10?'top10':'');
+  const cardCls = (q.interest_level||'').includes('Hot')?'hot':(q.interest_level||'').includes('Warm')?'warm':q.has_been_called?'called':'standard';
+  const scoreClr = q.opportunity_score>=80?'var(--green)':q.opportunity_score>=60?'var(--navy)':'var(--gray-500)';
+  const airtable = `https://airtable.com/appgw8Q993yOh4xpQ/tblceVflumXdl23JJ/${q.id}`;
 
-  let tagsHTML = `<span class="tag tag-industry">${esc(q.industry)}</span>`;
-  if (q.owner_does_quoting) tagsHTML += `<span class="tag tag-icp">Owner Quotes</span>`;
-  if (q.open_count && q.open_count >= 3) tagsHTML += `<span class="tag tag-opens">${q.open_count} Opens</span>`;
+  let badges = `<span class="badge badge-ind">${esc(q.industry)}</span>`;
+  if(q.owner_does_quoting) badges+=`<span class="badge badge-icp">Owner Quotes</span>`;
+  if((q.interest_level||'').includes('Hot')) badges+=`<span class="badge badge-hot">🔥 Hot</span>`;
+  else if((q.interest_level||'').includes('Warm')) badges+=`<span class="badge badge-warm">🟡 Warm</span>`;
+  if(q.has_been_called) badges+=`<span class="badge badge-called">Called ${esc(q.call_date||'')}</span>`;
+  if(q.open_count>=3) badges+=`<span class="badge badge-opens">${q.open_count} opens</span>`;
 
-  let contactHTML = [];
-  if (q.contact_name !== '—') contactHTML.push(`<span>👤 ${esc(q.contact_name)}</span>`);
-  if (q.phone !== '—') contactHTML.push(`<span>📱 ${esc(q.phone)}</span>`);
-  if (q.email !== '—') contactHTML.push(`<span>✉️ ${esc(q.email)}</span>`);
-  if (q.suburb !== '—') contactHTML.push(`<span>📍 ${esc(q.suburb)}</span>`);
+  let contactPts = [];
+  if(q.contact_name!=='—') contactPts.push(`👤 ${esc(q.contact_name)}`);
+  if(q.phone!=='—') contactPts.push(`📱 ${esc(q.phone)}`);
+  if(q.email!=='—') contactPts.push(`✉️ ${esc(q.email)}`);
 
-  let objectionsHTML = q.potential_objections.map(o => `<li>${esc(o)}</li>`).join('');
+  // Call intel chips
+  let intelChips = '';
+  if(q.has_been_called){
+    if(q.interest_level) intelChips+=`<span class="ci-chip il-${q.interest_level.includes('Hot')?'hot':q.interest_level.includes('Warm')?'warm':''}">${esc(q.interest_level)}</span>`;
+    if(q.buying_stage) intelChips+=`<span class="ci-chip bs-${q.buying_stage.includes('Decision')?'decision':''}">${esc(q.buying_stage)}</span>`;
+    if(q.biggest_objection) intelChips+=`<span class="ci-chip">Objection: ${esc(q.biggest_objection)}</span>`;
+  }
 
-  const scoreColor = q.opportunity_score >= 80 ? 'var(--green)' : (q.opportunity_score >= 60 ? 'var(--navy)' : 'var(--gray-500)');
+  // Briefing: buying signals
+  let signalsHTML = (q.buying_signals||[]).map(s=>`<li>${esc(s)}</li>`).join('');
+  // Questions
+  let questionsHTML = (q.questions_to_ask||[]).map(s=>`<li>${esc(s)}</li>`).join('');
+  // Objections
+  let objHTML = (q.potential_objections||[]).map(s=>`<li>${esc(s)}</li>`).join('');
 
   return `
-  <div class="queue-card priority" id="card-${q.rank}">
-    <div class="card-main" onclick="toggleCard(${q.rank})">
-      <div class="card-rank ${rankClass}">${q.rank}</div>
+  <div class="q-card ${cardCls}">
+    <div class="card-main" onclick="toggle(${q.rank})">
+      <div class="card-rank ${rc}">${q.rank}</div>
       <div class="card-info">
         <div class="card-name">${esc(q.business_name)}</div>
-        <div class="card-contact">${contactHTML.join(' · ')}</div>
-        <div class="card-tags">${tagsHTML}</div>
+        <div class="card-contact">${contactPts.join(' · ')}</div>
+        <div class="card-badges">${badges}</div>
+        ${intelChips?`<div class="call-intel-row">${intelChips}</div>`:''}
       </div>
       <div class="card-metrics">
-        <div class="score-badge" style="color:${scoreColor}">${q.opportunity_score}</div>
-        <div class="score-label">Opportunity Score</div>
-        <span class="confidence-badge confidence-${q.confidence}">${q.confidence}</span>
-        <span class="action-status ${actionClass}">${esc(actionText)}</span>
+        <div class="score-num" style="color:${scoreClr}">${q.opportunity_score}</div>
+        <div class="score-label">Score</div>
+        <span class="conf-badge conf-${q.confidence}">${q.confidence}</span>
+        <span style="font-size:10px;color:var(--gray-500)">${esc(q.james_action==='—'?'No action':q.james_action)}</span>
       </div>
     </div>
-    <div class="card-expand" id="expand-${q.rank}">
-      <div class="expand-grid">
-        <div class="expand-section">
-          <h4>Why Ranked Here</h4>
-          <p>${esc(q.ranking_reason)}</p>
+    <div class="card-expand" id="exp-${q.rank}">
+      <div class="brief-grid">
+        <div class="brief-box">
+          <h4>📈 Buying Signals</h4>
+          <ul>${signalsHTML||'<li>No signals yet</li>'}</ul>
         </div>
-        <div class="expand-section">
-          <h4>Interaction Summary</h4>
+        <div class="brief-box">
+          <h4>📋 Interaction History</h4>
           <p>${esc(q.interaction_summary)}</p>
         </div>
-        <div class="expand-section">
-          <h4>Potential Objections</h4>
-          <ul>${objectionsHTML}</ul>
+        <div class="brief-box">
+          <h4>❓ Questions to Ask</h4>
+          <ul>${questionsHTML}</ul>
         </div>
-        <div class="expand-section">
-          <h4>Business Profile</h4>
-          <p>
-            Industry: ${esc(q.industry)}<br>
-            Employees: ${esc(q.employee_count)}<br>
-            Owner Quotes: ${q.owner_does_quoting ? 'Yes ✓' : 'No'}<br>
-            CPS: ${q.client_probability_score || '—'}<br>
-            Stage: ${esc(q.pipeline_stage)}<br>
-            Last Contacted: ${esc(q.last_contacted)}
-          </p>
+        <div class="brief-box">
+          <h4>⚠️ Likely Objections</h4>
+          <ul>${objHTML}</ul>
         </div>
-        <div class="expand-section full">
-          <h4>Conversation Starter</h4>
+        <div class="brief-box full">
+          <h4>💬 Conversation Starter</h4>
           <div class="starter-quote">${esc(q.conversation_starter)}</div>
         </div>
       </div>
+      <div class="call-obj">
+        <span class="co-label">🎯 Call Objective:</span>
+        <span>${esc(q.call_objective||'Establish relationship and understand their process')}</span>
+      </div>
       <div class="next-step">📋 ${esc(q.recommended_next)}</div>
-      <a href="${airtableUrl}" target="_blank" class="at-link">Open in Airtable ↗</a>
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <a href="${airtable}" target="_blank" class="at-link">Open in Airtable ↗</a>
+        <span style="font-size:11px;color:var(--gray-400)">Score factors: CPS 30% · Engagement 20% · Call Intel 20% · ICP 15% · Contact 10% · Recency 5%</span>
+      </div>
     </div>
   </div>`;
 }
 
-function toggleCard(rank) {
-  const expand = document.getElementById(`expand-${rank}`);
-  if (expand) {
-    expand.classList.toggle('open');
-  }
+function toggle(rank){
+  document.getElementById(`exp-${rank}`)?.classList.toggle('open');
 }
 
-// ── Filters ──
-function setFilter(filter, el) {
-  activeFilter = filter;
-  document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+function setFilter(f,el){
+  activeFilter=f;
+  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));
   el.classList.add('active');
   renderQueue();
 }
 
-function updateFilterCounts() {
-  const all = queueData.queue;
-  document.getElementById('countAll').textContent = all.length;
-  document.getElementById('countAction').textContent = all.filter(q => q.james_action === '—').length;
-  document.getElementById('countProgress').textContent = all.filter(q =>
-    ['📞 Call Today','☎️ Left Voicemail','⏳ Waiting for Callback','🤝 Meeting Booked','📧 Sent Personal Email'].includes(q.james_action)
-  ).length;
-  document.getElementById('countPainters').textContent = all.filter(q => q.industry === 'Painter').length;
-  document.getElementById('countHigh').textContent = all.filter(q => q.opportunity_score >= 70).length;
+function updateCounts(){
+  const all = data.queue||[];
+  document.getElementById('cntAll').textContent = all.length;
+  document.getElementById('cntAction').textContent = all.filter(q=>q.james_action==='—').length;
+  document.getElementById('cntProgress').textContent = all.filter(q=>['📞 Call Today','☎️ Left Voicemail','⏳ Waiting for Callback','🤝 Meeting Booked','📧 Sent Personal Email'].includes(q.james_action)).length;
+  document.getElementById('cntHot').textContent = all.filter(q=>(q.interest_level||'').includes('Hot')).length;
+  document.getElementById('cntPainters').textContent = all.filter(q=>q.industry==='Painter').length;
+  document.getElementById('cntHigh').textContent = all.filter(q=>q.opportunity_score>=70).length;
 }
 
-function getActionClass(action) {
-  if (action === '—') return 'action-none';
-  if (['📞 Call Today','☎️ Left Voicemail','⏳ Waiting for Callback'].includes(action)) return 'action-pending';
-  if (['💬 Spoke to Owner','🤝 Meeting Booked','✅ Converted to Client'].includes(action)) return 'action-done';
-  if (['❌ No Further Action'].includes(action)) return 'action-skip';
-  return 'action-pending';
-}
+function esc(s){if(!s)return'';const d=document.createElement('div');d.textContent=s;return d.innerHTML;}
 
-function esc(s) {
-  if (!s) return '';
-  const d = document.createElement('div');
-  d.textContent = s;
-  return d.innerHTML;
-}
-
-// ── Init ──
 load();
-// Auto-refresh every 5 minutes
-setInterval(load, 300000);
+setInterval(load,300000);
 </script>
 </body>
 </html>
