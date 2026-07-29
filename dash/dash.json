@@ -164,13 +164,12 @@
       }
     ]
   },
-  "last_updated": "2026-07-29T09:14:50.680209+09:30",
+  "last_updated": "2026-07-29T09:30:38.957804+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
-      "Campaign Complete": 24,
+      "Campaign Complete": 84,
       "New": 102,
-      "Outreach Active": 60,
       "Won": 2,
       "Lost": 7,
       "Not a fit": 5
@@ -193,6 +192,7 @@
       "Campaign Complete": {
         "IT MSP": 3,
         "Marketing agency": 8,
+        "Painter": 60,
         "Landscaper": 1,
         "Commercial cleaning": 6,
         "Construction": 2,
@@ -208,9 +208,6 @@
         "Plumber": 1,
         "Electrician": 2
       },
-      "Outreach Active": {
-        "Painter": 60
-      },
       "Won": {
         "Painter": 2
       },
@@ -223,388 +220,25 @@
         "Painter": 5
       }
     },
-    "outreach_active": [
-      {
-        "name": "M .J. Painters Melbourne",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "Victoria"
-      },
-      {
-        "name": "Melbourne Hose Painters",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "Victoria"
-      },
-      {
-        "name": "Dani's Painting",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "Victoria"
-      },
-      {
-        "name": "Like Painting",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Inspire Painting",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "Victoria"
-      },
-      {
-        "name": "Alta Painters Melbourne",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "Victoria"
-      },
-      {
-        "name": "The Painting Company",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "Victoria"
-      },
-      {
-        "name": "Zoom Painting",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "Victoria"
-      },
-      {
-        "name": "LPH Painters",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Melbourne Painters & Plasterers",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "Victoria"
-      },
-      {
-        "name": "Expert Painting & Renovation",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "Victoria"
-      },
-      {
-        "name": "Quinns Painting & Decorating",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "Victoria"
-      },
-      {
-        "name": "SRN Painting Contractors",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "Victoria"
-      },
-      {
-        "name": "Adelaide Home Painting",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Kincoat Painting",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Amazing Painting",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "Victoria"
-      },
-      {
-        "name": "Cameron Davidson Painters & Decorators",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Master Choice Painting",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "Victoria"
-      },
-      {
-        "name": "AKP Painting & Decorating",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Jay Duggin Painting",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "SAPS \u2013 Local Painters Adelaide",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Unique Painting",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "Victoria"
-      },
-      {
-        "name": "Aussie Painters SA",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Freshy Painters",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Elite Painting SA",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Real Painters",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Orchid House Painters",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "Victoria"
-      },
-      {
-        "name": "Martino Painters",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Adelaide Golden Painters",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "M & M Property Services SA",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Adelaide Premier Painters",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Painting Zone",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "M.A.D. Painters & Decorators",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Mousi Painting",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "Victoria"
-      },
-      {
-        "name": "All Melbourne Painting",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "Victoria"
-      },
-      {
-        "name": "Restyle Painting & Decorating",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "MJ Painting",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "AJ Blunt Painting",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "GoBrush Painting Services",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "Victoria"
-      },
-      {
-        "name": "Noonan Painting Contractors",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Matte Projects Painting and Decorating",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Mcintosh Painters",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "Victoria"
-      },
-      {
-        "name": "Top Painters Adelaide",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Paint Melbourne",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "Victoria"
-      },
-      {
-        "name": "Clean Cut Painters",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "On Point Painting SA",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Jordan Paint Service",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Adelaide Designer Painters",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Paint Master",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "North Side Painters",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "Victoria"
-      },
-      {
-        "name": "Adelaide Esteem Painting",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "SA Metro Painters",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Adelaide Commercial Painters",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Sunshine Adelaide Painting",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Mike's Painting & Decorating",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Sun Painters Adelaide",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Andy Shanley",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Apex Painters",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Sterling Painters Melbourne",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "Victoria"
-      },
-      {
-        "name": "Painless Painting",
-        "industry": "Painter",
-        "last_contacted": "2026-07-22",
-        "suburb": "South Australia"
-      }
-    ],
-    "active_by_vertical": {
-      "Painter": 60
-    },
+    "outreach_active": [],
+    "active_by_vertical": {},
     "messages": {
       "outbound_total": 199,
       "inbound_total": 1,
       "total": 200,
       "reply_rate": 0.5,
       "last_7_days": {
-        "outbound": 88,
+        "outbound": 148,
         "inbound": 1
       }
     },
     "opens": {
-      "deliveries": 35,
-      "prospects_opened": 54,
-      "total_opens": 201,
-      "avg_opens": 3.7
+      "deliveries": 43,
+      "prospects_opened": 55,
+      "total_opens": 213,
+      "avg_opens": 3.9
     },
-    "last_refreshed": "2026-07-28T22:00:36.239399+00:00"
+    "last_refreshed": "2026-07-29T00:00:38.880881+00:00"
   },
   "decisions": {
     "total": 10,
