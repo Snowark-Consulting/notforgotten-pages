@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 114,
+    "tasks_completed": 115,
     "recent": [
+      {
+        "date": "2026-07-29 10:42",
+        "task": "Built Personal Follow-Up Queue \u2014 84 businesses ranked, new tab in Command Centre",
+        "category": "task"
+      },
       {
         "date": "2026-07-29 10:06",
         "task": "QPaint: Andres Sillet (3K, Russell Island) replied \u2014 not proceeding. Marked Lost. Atlas asked for reason. Weekly loss consolidation process established.",
@@ -135,11 +140,6 @@
         "date": "2026-07-17 09:06",
         "task": "Completed Wave 1 July 2026 Campaign Review (Group 2 \u2014 Mixed Industries). 10 prospects, 30 emails, 0 replies across all touchpoints. Full review saved to knowledge/campaign-reviews/wave-1-july-2026.md. Recommendation: pivot to painters-only for Wave 2, fix tracking tags before next send.",
         "category": "task"
-      },
-      {
-        "date": "2026-07-17 07:39",
-        "task": "Prepare-ahead: drafted CvC Email 2 (29 painters), verified Wave 1 Email 2 (10/12 ready), fixed Distinct Painters unsubscribe, patched CCM/Next&Co CRM touchpoints",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-29T10:38:07.585044+09:30",
+  "last_updated": "2026-07-29T10:42:17.007602+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
