@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 115,
+    "tasks_completed": 116,
     "recent": [
+      {
+        "date": "2026-07-29 17:40",
+        "task": "CEO Brief 29 July 2026 published. QPaint Wave 2: 17 contacted, 81 queued, .57M pipeline. Weekend date issue flagged (19 records). Campaign Intel Monitor cron path bug identified.",
+        "category": "task"
+      },
       {
         "date": "2026-07-29 10:42",
         "task": "Built Personal Follow-Up Queue \u2014 84 businesses ranked, new tab in Command Centre",
@@ -135,11 +140,6 @@
         "date": "2026-07-18 21:29",
         "task": "Campaign Pulse: Executed Monday Email 2 prep \u2014 75 drafts across 3 campaigns (CvC 38, PDV 19, Wave 1 New 18). Fixed 18 weekend dates, excluded 4 Lost/Unsubscribed, all batches pass Voice Review 8/8 + Technical Verification. Ready for Monday Jul 20 send.",
         "category": "task"
-      },
-      {
-        "date": "2026-07-17 09:06",
-        "task": "Completed Wave 1 July 2026 Campaign Review (Group 2 \u2014 Mixed Industries). 10 prospects, 30 emails, 0 replies across all touchpoints. Full review saved to knowledge/campaign-reviews/wave-1-july-2026.md. Recommendation: pivot to painters-only for Wave 2, fix tracking tags before next send.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-07-29T17:30:09.802858+09:30",
+  "last_updated": "2026-07-29T17:40:51.572637+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
