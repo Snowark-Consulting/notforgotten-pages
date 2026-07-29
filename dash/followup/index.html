@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Follow-Up Queue — Not Forgotten Systems</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0b2c4d;
+    --navy-light: #143b61;
+    --gold: #e0a62a;
+    --gold-light: #f5d06b;
+    --white: #ffffff;
+    --gray-50: #f8f9fa;
+    --gray-100: #f1f3f5;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-400: #adb5bd;
+    --gray-500: #6c757d;
+    --gray-700: #495057;
+    --gray-900: #212529;
+    --green: #2b8a3e;
+    --green-bg: #ebfbee;
+    --red: #c92a2a;
+    --red-bg: #fff5f5;
+    --blue: #1c7ed6;
+    --blue-bg: #e7f5ff;
+    --orange: #e8590c;
+    --orange-bg: #fff4e6;
+    --purple: #7048e8;
+    --purple-bg: #f3f0ff;
+    --radius: 8px;
+    --radius-lg: 12px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.04);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-900);
+    line-height: 1.5;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .header-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .header-logo {
+    height: 28px;
+    width: auto;
+  }
+  .header h1 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .header-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+  }
+  .header-back {
+    color: var(--gold-light);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .header-back:hover { color: var(--gold); }
+
+  /* ── Container ── */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+
+  /* ── Summary Cards ── */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .stat-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--navy);
+  }
+  .stat-card.gold { border-left-color: var(--gold); }
+  .stat-card.green { border-left-color: var(--green); }
+  .stat-card.blue { border-left-color: var(--blue); }
+  .stat-card .stat-number {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+  .stat-card.gold .stat-number { color: var(--gold); }
+  .stat-card.green .stat-number { color: var(--green); }
+  .stat-card.blue .stat-number { color: var(--blue); }
+  .stat-card .stat-label {
+    font-size: 13px;
+    color: var(--gray-500);
+    margin-top: 4px;
+  }
+
+  /* ── Top Pick Banner ── */
+  .top-pick {
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    color: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .top-pick-left { display: flex; align-items: center; gap: 16px; }
+  .top-pick-rank {
+    background: var(--gold);
+    color: var(--navy);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .top-pick-name { font-size: 20px; font-weight: 700; }
+  .top-pick-detail { font-size: 13px; color: rgba(255,255,255,0.8); margin-top: 2px; }
+  .top-pick-right { text-align: right; }
+  .top-pick-score {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+  .top-pick-score-label { font-size: 12px; color: rgba(255,255,255,0.7); }
+  .top-pick-starter {
+    margin-top: 12px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.1);
+    padding: 10px 14px;
+    border-radius: var(--radius);
+    flex-basis: 100%;
+    font-style: italic;
+  }
+  .top-pick-starter::before { content: '💬 '; font-style: normal; }
+
+  /* ── Queue Controls ── */
+  .queue-controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .queue-controls input {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px 14px;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-family: inherit;
+  }
+  .queue-controls input:focus {
+    outline: none;
+    border-color: var(--navy);
+    box-shadow: 0 0 0 3px rgba(11,44,77,0.1);
+  }
+  .filter-pill {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid var(--gray-300);
+    background: var(--white);
+    color: var(--gray-700);
+    white-space: nowrap;
+    transition: all 0.15s;
+  }
+  .filter-pill:hover { border-color: var(--navy); color: var(--navy); }
+  .filter-pill.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+  .filter-count {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 1px 6px;
+    border-radius: 10px;
+    font-size: 11px;
+    margin-left: 4px;
+  }
+  .filter-pill.active .filter-count { background: rgba(255,255,255,0.25); }
+
+  /* ── Queue Cards ── */
+  .queue-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .queue-card:hover { box-shadow: var(--shadow-md); }
+  .queue-card.priority { border-left: 4px solid var(--gold); }
+
+  .card-main {
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    gap: 16px;
+    align-items: start;
+    cursor: pointer;
+  }
+
+  .card-rank {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--gray-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--gray-500);
+    flex-shrink: 0;
+  }
+  .card-rank.top-3 { background: var(--gold); color: var(--navy); }
+  .card-rank.top-10 { background: var(--navy); color: var(--white); }
+
+  .card-info { min-width: 0; }
+  .card-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 4px;
+  }
+  .card-contact {
+    font-size: 13px;
+    color: var(--gray-500);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .card-contact span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .card-tags {
+    display: flex;
+    gap: 6px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .tag-industry { background: var(--blue-bg); color: var(--blue); }
+  .tag-icp { background: var(--green-bg); color: var(--green); }
+  .tag-opens { background: var(--purple-bg); color: var(--purple); }
+
+  .card-metrics {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .score-badge {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .score-label { font-size: 11px; color: var(--gray-400); }
+  .confidence-badge {
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .confidence-High { background: var(--green-bg); color: var(--green); }
+  .confidence-Medium { background: var(--orange-bg); color: var(--orange); }
+  .confidence-Low { background: var(--gray-100); color: var(--gray-500); }
+
+  /* ── Card Expanded ── */
+  .card-expand {
+    display: none;
+    padding: 0 20px 20px 84px;
+    border-top: 1px solid var(--gray-100);
+  }
+  .card-expand.open { display: block; }
+
+  .expand-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .expand-section {
+    background: var(--gray-50);
+    border-radius: var(--radius);
+    padding: 14px;
+  }
+  .expand-section.full { grid-column: 1 / -1; }
+  .expand-section h4 {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+  .expand-section p, .expand-section li {
+    font-size: 13px;
+    color: var(--gray-700);
+    line-height: 1.6;
+  }
+  .expand-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  .expand-section li::before {
+    content: '•';
+    color: var(--navy);
+    font-weight: bold;
+    margin-right: 8px;
+  }
+
+  /* Action status */
+  .action-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .action-pending { background: var(--orange-bg); color: var(--orange); }
+  .action-done { background: var(--green-bg); color: var(--green); }
+  .action-skip { background: var(--red-bg); color: var(--red); }
+  .action-none { background: var(--gray-100); color: var(--gray-500); }
+
+  .starter-quote {
+    background: var(--blue-bg);
+    border-radius: var(--radius);
+    padding: 14px;
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--navy-light);
+    font-style: italic;
+    line-height: 1.6;
+  }
+  .starter-quote::before { content: '"'; font-size: 24px; color: var(--blue); font-weight: 700; }
+  .starter-quote::after { content: '"'; font-size: 24px; color: var(--blue); font-weight: 700; }
+
+  .next-step {
+    margin-top: 12px;
+    padding: 10px 16px;
+    background: var(--navy);
+    color: var(--white);
+    border-radius: var(--radius);
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  /* Airtable link */
+  .at-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--gray-400);
+    text-decoration: none;
+    margin-top: 8px;
+  }
+  .at-link:hover { color: var(--blue); }
+
+  /* Loading */
+  .loading {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--gray-400);
+  }
+  .loading-spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid var(--gray-200);
+    border-top-color: var(--navy);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 16px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Empty state */
+  .empty { text-align: center; padding: 60px 20px; color: var(--gray-400); }
+  .empty-icon { font-size: 48px; margin-bottom: 12px; }
+
+  /* Refresh bar */
+  .refresh-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: var(--gray-400);
+  }
+  .refresh-bar a { color: var(--navy); text-decoration: none; font-weight: 500; }
+
+  @media (max-width: 768px) {
+    .summary-grid { grid-template-columns: repeat(2, 1fr); }
+    .card-main { grid-template-columns: 36px 1fr; }
+    .card-metrics { grid-column: 1 / -1; flex-direction: row; justify-content: space-between; }
+    .expand-grid { grid-template-columns: 1fr; }
+    .card-expand { padding-left: 20px; }
+    .top-pick { flex-direction: column; text-align: center; }
+    .top-pick-left { flex-direction: column; }
+    .top-pick-right { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-brand">
+    <img src="../assets/logo-header.png" alt="NF" class="header-logo">
+    <div>
+      <h1>Personal Follow-Up Queue</h1>
+      <div class="header-sub">James's Executive Call List</div>
+    </div>
+  </div>
+  <a href="../" class="header-back">← Command Centre</a>
+</div>
+
+<div class="container">
+  <!-- Summary stats -->
+  <div class="summary-grid" id="summary"></div>
+
+  <!-- Top Pick -->
+  <div class="top-pick" id="topPick"></div>
+
+  <!-- Controls -->
+  <div class="queue-controls">
+    <input type="text" id="searchInput" placeholder="Search by business name, contact, or industry..." oninput="renderQueue()">
+    <span class="filter-pill active" data-filter="all" onclick="setFilter('all', this)">All<span class="filter-count" id="countAll"></span></span>
+    <span class="filter-pill" data-filter="needs-action" onclick="setFilter('needs-action', this)">Needs Action<span class="filter-count" id="countAction"></span></span>
+    <span class="filter-pill" data-filter="in-progress" onclick="setFilter('in-progress', this)">In Progress<span class="filter-count" id="countProgress"></span></span>
+    <span class="filter-pill" data-filter="painter" onclick="setFilter('painter', this)">Painters<span class="filter-count" id="countPainters"></span></span>
+    <span class="filter-pill" data-filter="high" onclick="setFilter('high', this)">Score 70+<span class="filter-count" id="countHigh"></span></span>
+  </div>
+
+  <!-- Queue -->
+  <div class="refresh-bar">
+    <span id="lastUpdated">Loading...</span>
+    <a href="javascript:void(0)" onclick="location.reload()">↻ Refresh</a>
+  </div>
+
+  <div id="queueContainer">
+    <div class="loading">
+      <div class="loading-spinner"></div>
+      <div>Loading follow-up queue...</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ── State ──
+let queueData = null;
+let activeFilter = 'all';
+
+// ── Load ──
+async function load() {
+  try {
+    const ts = Date.now();
+    const resp = await fetch(`../dash.json?t=${ts}`);
+    const dash = await resp.json();
+    queueData = dash.followup_queue;
+    if (queueData && queueData.queue) {
+      document.getElementById('lastUpdated').textContent =
+        `Last updated: ${new Date(queueData.summary.generated).toLocaleString('en-AU', {timeZone: 'Australia/Adelaide'})} ACST`;
+    }
+    renderAll();
+  } catch(e) {
+    document.getElementById('queueContainer').innerHTML =
+      '<div class="empty"><div class="empty-icon">⚠️</div><div>Unable to load queue data</div></div>';
+    console.error(e);
+  }
+}
+
+// ── Render ──
+function renderAll() {
+  if (!queueData || !queueData.queue) return;
+  renderSummary();
+  renderTopPick();
+  renderQueue();
+  updateFilterCounts();
+}
+
+function renderSummary() {
+  const s = queueData.summary;
+  document.getElementById('summary').innerHTML = `
+    <div class="stat-card">
+      <div class="stat-number">${s.total}</div>
+      <div class="stat-label">Businesses in Queue</div>
+    </div>
+    <div class="stat-card gold">
+      <div class="stat-number">${s.high_confidence}</div>
+      <div class="stat-label">High Confidence</div>
+    </div>
+    <div class="stat-card green">
+      <div class="stat-number">${s.actionable}</div>
+      <div class="stat-label">Have Phone Number</div>
+    </div>
+    <div class="stat-card blue">
+      <div class="stat-number">${s.ready_to_call}</div>
+      <div class="stat-label">Not Yet Contacted</div>
+    </div>
+  `;
+}
+
+function renderTopPick() {
+  if (!queueData.queue.length) return;
+  const q = queueData.queue[0];
+  const phoneDisplay = q.phone !== '—' ? q.phone : 'No phone';
+  const actionClass = getActionClass(q.james_action);
+  document.getElementById('topPick').innerHTML = `
+    <div class="top-pick-left">
+      <div class="top-pick-rank">#1</div>
+      <div>
+        <div class="top-pick-name">${esc(q.business_name)}</div>
+        <div class="top-pick-detail">${esc(q.contact_name !== '—' ? q.contact_name : 'Contact')} · ${esc(q.industry)} · ${esc(phoneDisplay)}</div>
+        <div class="top-pick-detail">${esc(q.email)}</div>
+      </div>
+    </div>
+    <div class="top-pick-right">
+      <div class="top-pick-score">${q.opportunity_score}</div>
+      <div class="top-pick-score-label">Opportunity Score</div>
+    </div>
+    <div class="top-pick-starter">${esc(q.conversation_starter)}</div>
+  `;
+}
+
+function renderQueue() {
+  if (!queueData.queue.length) {
+    document.getElementById('queueContainer').innerHTML =
+      '<div class="empty"><div class="empty-icon">📋</div><div>No businesses in the queue</div></div>';
+    return;
+  }
+
+  const search = (document.getElementById('searchInput').value || '').toLowerCase();
+  let filtered = queueData.queue.filter(q => {
+    // Search
+    if (search) {
+      const haystack = `${q.business_name} ${q.contact_name} ${q.industry} ${q.email} ${q.suburb}`.toLowerCase();
+      if (!haystack.includes(search)) return false;
+    }
+    // Filter
+    switch(activeFilter) {
+      case 'needs-action': return q.james_action === '—';
+      case 'in-progress':
+        return ['📞 Call Today','☎️ Left Voicemail','⏳ Waiting for Callback','🤝 Meeting Booked','📧 Sent Personal Email'].includes(q.james_action);
+      case 'painter': return q.industry === 'Painter';
+      case 'high': return q.opportunity_score >= 70;
+      default: return true;
+    }
+  });
+
+  if (!filtered.length) {
+    document.getElementById('queueContainer').innerHTML =
+      '<div class="empty"><div class="empty-icon">🔍</div><div>No businesses match your filter</div></div>';
+    return;
+  }
+
+  document.getElementById('queueContainer').innerHTML = filtered.map(q => cardHTML(q)).join('');
+}
+
+function cardHTML(q) {
+  const rankClass = q.rank <= 3 ? 'top-3' : (q.rank <= 10 ? 'top-10' : '');
+  const actionClass = getActionClass(q.james_action);
+  const actionText = q.james_action === '—' ? 'No action yet' : q.james_action;
+  const airtableUrl = `https://airtable.com/appgw8Q993yOh4xpQ/tblceVflumXdl23JJ/${q.id}`;
+
+  let tagsHTML = `<span class="tag tag-industry">${esc(q.industry)}</span>`;
+  if (q.owner_does_quoting) tagsHTML += `<span class="tag tag-icp">Owner Quotes</span>`;
+  if (q.open_count && q.open_count >= 3) tagsHTML += `<span class="tag tag-opens">${q.open_count} Opens</span>`;
+
+  let contactHTML = [];
+  if (q.contact_name !== '—') contactHTML.push(`<span>👤 ${esc(q.contact_name)}</span>`);
+  if (q.phone !== '—') contactHTML.push(`<span>📱 ${esc(q.phone)}</span>`);
+  if (q.email !== '—') contactHTML.push(`<span>✉️ ${esc(q.email)}</span>`);
+  if (q.suburb !== '—') contactHTML.push(`<span>📍 ${esc(q.suburb)}</span>`);
+
+  let objectionsHTML = q.potential_objections.map(o => `<li>${esc(o)}</li>`).join('');
+
+  const scoreColor = q.opportunity_score >= 80 ? 'var(--green)' : (q.opportunity_score >= 60 ? 'var(--navy)' : 'var(--gray-500)');
+
+  return `
+  <div class="queue-card priority" id="card-${q.rank}">
+    <div class="card-main" onclick="toggleCard(${q.rank})">
+      <div class="card-rank ${rankClass}">${q.rank}</div>
+      <div class="card-info">
+        <div class="card-name">${esc(q.business_name)}</div>
+        <div class="card-contact">${contactHTML.join(' · ')}</div>
+        <div class="card-tags">${tagsHTML}</div>
+      </div>
+      <div class="card-metrics">
+        <div class="score-badge" style="color:${scoreColor}">${q.opportunity_score}</div>
+        <div class="score-label">Opportunity Score</div>
+        <span class="confidence-badge confidence-${q.confidence}">${q.confidence}</span>
+        <span class="action-status ${actionClass}">${esc(actionText)}</span>
+      </div>
+    </div>
+    <div class="card-expand" id="expand-${q.rank}">
+      <div class="expand-grid">
+        <div class="expand-section">
+          <h4>Why Ranked Here</h4>
+          <p>${esc(q.ranking_reason)}</p>
+        </div>
+        <div class="expand-section">
+          <h4>Interaction Summary</h4>
+          <p>${esc(q.interaction_summary)}</p>
+        </div>
+        <div class="expand-section">
+          <h4>Potential Objections</h4>
+          <ul>${objectionsHTML}</ul>
+        </div>
+        <div class="expand-section">
+          <h4>Business Profile</h4>
+          <p>
+            Industry: ${esc(q.industry)}<br>
+            Employees: ${esc(q.employee_count)}<br>
+            Owner Quotes: ${q.owner_does_quoting ? 'Yes ✓' : 'No'}<br>
+            CPS: ${q.client_probability_score || '—'}<br>
+            Stage: ${esc(q.pipeline_stage)}<br>
+            Last Contacted: ${esc(q.last_contacted)}
+          </p>
+        </div>
+        <div class="expand-section full">
+          <h4>Conversation Starter</h4>
+          <div class="starter-quote">${esc(q.conversation_starter)}</div>
+        </div>
+      </div>
+      <div class="next-step">📋 ${esc(q.recommended_next)}</div>
+      <a href="${airtableUrl}" target="_blank" class="at-link">Open in Airtable ↗</a>
+    </div>
+  </div>`;
+}
+
+function toggleCard(rank) {
+  const expand = document.getElementById(`expand-${rank}`);
+  if (expand) {
+    expand.classList.toggle('open');
+  }
+}
+
+// ── Filters ──
+function setFilter(filter, el) {
+  activeFilter = filter;
+  document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  renderQueue();
+}
+
+function updateFilterCounts() {
+  const all = queueData.queue;
+  document.getElementById('countAll').textContent = all.length;
+  document.getElementById('countAction').textContent = all.filter(q => q.james_action === '—').length;
+  document.getElementById('countProgress').textContent = all.filter(q =>
+    ['📞 Call Today','☎️ Left Voicemail','⏳ Waiting for Callback','🤝 Meeting Booked','📧 Sent Personal Email'].includes(q.james_action)
+  ).length;
+  document.getElementById('countPainters').textContent = all.filter(q => q.industry === 'Painter').length;
+  document.getElementById('countHigh').textContent = all.filter(q => q.opportunity_score >= 70).length;
+}
+
+function getActionClass(action) {
+  if (action === '—') return 'action-none';
+  if (['📞 Call Today','☎️ Left Voicemail','⏳ Waiting for Callback'].includes(action)) return 'action-pending';
+  if (['💬 Spoke to Owner','🤝 Meeting Booked','✅ Converted to Client'].includes(action)) return 'action-done';
+  if (['❌ No Further Action'].includes(action)) return 'action-skip';
+  return 'action-pending';
+}
+
+function esc(s) {
+  if (!s) return '';
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+// ── Init ──
+load();
+// Auto-refresh every 5 minutes
+setInterval(load, 300000);
+</script>
+</body>
+</html>
