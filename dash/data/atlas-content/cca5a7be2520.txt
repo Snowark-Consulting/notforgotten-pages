@@ -1,0 +1,75 @@
+# QPaint — Client Identity Profile
+
+**Client ID:** qpaint
+**Business Name:** QPaint
+**Owner:** Tas Moulis
+**Established:** 2026-07-28
+**Identity Profile Verified:** 2026-07-29
+
+---
+
+## Sending Configuration
+
+| Field | Value |
+|---|---|
+| Send-as address | atlas@notforgotten.com.au |
+| Display name | Atlas |
+| Reply-to | atlas@notforgotten.com.au |
+
+---
+
+## Branding Mode
+
+| Setting | Value |
+|---|---|
+| White-label | **Yes** |
+| Co-branding approved | **No** |
+| NF logo permitted | **Never** |
+| NF website link permitted | **Never** |
+| NF tagline permitted | **Never** |
+
+---
+
+## Signature Templates
+
+### Standard (ongoing conversations)
+```
+Kind regards,
+
+Atlas
+Customer Success
+QPaint
+```
+
+### Introduction (first touch)
+```
+Kind regards,
+
+Atlas
+Working alongside Tas at QPaint
+```
+
+---
+
+## Verification Checklist (per send)
+
+- [ ] No "Not Forgotten" in body or signature
+- [ ] No "notforgotten.com.au" link
+- [ ] No NF logo or image
+- [ ] No "Growth & Operations Manager" title
+- [ ] No "Helping businesses turn more quotes into paid jobs" tagline
+- [ ] Signature matches one of the two approved templates above
+- [ ] Display name is "Atlas" (not "Atlas (James's assistant)")
+- [ ] Tone is Client Care / Customer Success (not sales/marketing)
+- [ ] Reply-to is atlas@notforgotten.com.au
+
+---
+
+## Send Method
+
+**Only:** Raw MIME construction via Gmail API
+```
+python MIMEText → base64 encode → messages/send with raw parameter
+```
+
+**Never:** send-outreach.py, gmail-html-send.py, google_api.py gmail send, or any method that auto-appends signatures

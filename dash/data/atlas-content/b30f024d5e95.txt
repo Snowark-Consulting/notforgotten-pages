@@ -1,0 +1,185 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# Relationship Continuation Protocol
+
+> New scope from an existing customer relationship = "Relationship Progress." Deduplicate before creating any new CRM record. One customer, one relationship, one history.
+
+> **Established:** 2026-07-29 | **Decision:** `2026-07-29-relationship-continuation-protocol.md`
+> **Applies to:** All client recovery pipelines (QPaint and future clients)
+> **Gates:** Tier 1 admin automation (forward, acknowledge, CRM update). Tier 2 for deduplication uncertainty.
+
+## Purpose
+
+When a client's customer sends new scope, documentation, or a variation request during an active recovery relationship, this protocol ensures the CRM reflects reality: one customer relationship, one complete history. No duplicate records. No fragmented narrative. No lost context.
+
+## The Five-Step Protocol
+
+### Step 1 — Forward Immediately
+
+Forward the complete scope and all attachments to the client for quotation preparation.
+
+**Action:** Forward the original email (with attachments intact) to the client's email address. Include a brief note:
+
+```
+Hi [Client Name],
+
+New scope received from [Customer Name] — [brief description of what was sent].
+
+I've acknowledged receipt and advised them you'll review and prepare next steps.
+
+Let me know once you've had a chance to look at this.
+
+Atlas
+```
+
+**Timing:** Within 15 minutes of receipt during business hours. Next business morning if received outside hours.
+
+**Do NOT:**
+- Wait for a convenient moment
+- Bundle with other updates
+- Summarise the scope (let the attachments speak)
+- Ask the client whether they want it — they always want it
+
+### Step 2 — Acknowledge Professionally
+
+Draft a reply to the customer that maintains the relationship tone established in prior communications.
+
+**Template:**
+
+```
+Hi [Customer Name],
+
+Thank you for sending through the [documentation/scope/information] for [project description if known]. I've received everything and have forwarded it to [Client Name] for review.
+
+[Client Name] will review what you've sent and prepare the next steps. You'll hear from us shortly.
+
+If you need anything in the meantime, just let me know.
+
+Kind regards,
+
+Atlas
+Customer Success
+[Client Business]
+```
+
+**Tone rules:**
+- Warm and professional — this is a continuation, not a restart
+- Acknowledge the specific thing they sent
+- Name the client — they should know who's handling their work
+- Set clear expectations — "you'll hear from us shortly"
+- Leave the door open — "if you need anything"
+
+**Do NOT:**
+- Ask questions that delay acknowledgment
+- Make promises about timeline you can't keep
+- Sound automated or templated
+- Use em dashes
+- Include Not Forgotten branding
+
+### Step 3 — Deduplication Check
+
+Before creating any new Airtable record, verify whether this customer already exists in the pipeline.
+
+**Query order:**
+1. **Contact Email** — exact match (most reliable)
+2. **Contact Person** — name match (fallback if email differs)
+3. **Deal Title** — pattern match (same project name or address)
+
+**If customer EXISTS in pipeline:**
+- **Do NOT create a new record**
+- Update the existing record:
+  - `Opportunity Type` → appropriate Relationship Progress value
+  - `Engagement Stage` → `Multi-Opportunity Active` (if not already set)
+  - `Outreach Notes` → append: `[Date] New scope received from [Customer] — [brief description of new project]. Value: $[amount if known]. Forwarded to [Client] for quotation.`
+  - `Extent of Work` → append new scope details if relevant
+- If the new scope has a significantly different deal value, note it in Outreach Notes for tracking
+
+**If customer does NOT exist in pipeline:**
+- Create a new record as normal
+- Set `Opportunity Type` → `New Opportunity`
+- Proceed with standard recovery workflow
+
+**If UNCERTAIN (ambiguous match):**
+- Stop. Do not create a record.
+- Flag for James review with the evidence:
+  - Existing record(s) that might match
+  - Why the match is ambiguous
+  - Your recommendation
+- Default to caution — a delayed correct record is better than an immediate duplicate
+
+### Step 4 — Classify Correctly
+
+Every pipeline record must carry an `Opportunity Type`. This determines how the interaction is counted in metrics and reported in the CEO Brief.
+
+| `Opportunity Type` | Meaning | When to use |
+|---|---|---|
+| `New Opportunity` | Genuinely new customer or new project from a dormant relationship | First contact with this customer, or first project in 12+ months |
+| `Relationship Progress — Extension` | Same project, extended scope | Customer wants additional work on the same job |
+| `Relationship Progress — Variation` | Same site, different scope | Customer wants something different but related |
+| `Relationship Progress — New Stage` | Same customer, next phase of work | Multi-stage project moving to the next phase |
+| `Relationship Progress — New Project` | Same customer, entirely new project | Customer has a new job at a different site (e.g. Nicholas: Logan Village + Port Adelaide Plaza) |
+
+**Classification principle:** If the customer relationship is active and the customer is engaging with us, new scope is Relationship Progress — even if it's a completely different project. The relationship is the unit of measurement, not the quote.
+
+### Step 5 — Maintain Single Customer View
+
+The CRM must show one record per customer relationship, with the full history accessible from that single record.
+
+**Rules:**
+- New scope is appended to `Outreach Notes`, not a new record
+- Multiple active opportunities are tracked via `Engagement Stage`: `Multi-Opportunity Active`
+- The relationship narrative is preserved chronologically in `Outreach Notes`
+- Individual deal values are noted in `Outreach Notes` for separate tracking
+- The primary `Deal Value` field reflects the original/largest opportunity
+
+**What goes in Outreach Notes:**
+```
+[2026-07-28] Email 1 sent — introduction and relationship established
+[2026-07-28] Reply received — positive engagement, looking forward to working with QPaint
+[2026-07-28] Atlas replied — confirmed interest, asked clarifying question about next steps
+[2026-07-28] New scope received — QAS Beenleigh. Forwarded to Tas for quotation. Value: TBC.
+[2026-07-29] Engagement Stage updated to Multi-Opportunity Active — Logan Village + QAS Beenleigh both active
+[2026-07-29] New scope received — Port Adelaide Plaza. Forwarded to Tas for quotation. Value: TBC.
+```
+
+## Metrics Impact
+
+### Four-Outcome Classification
+
+| Outcome | Relationship Progress counts as... |
+|---|---|
+| **Opportunities Recovered** | Yes — existing quote advancing through engagement |
+| **New Opportunities Generated** | Yes — but track Relationship Progress separately within this category |
+| **Customer Relationships Managed** | Yes — this IS relationship management |
+| **Business Intelligence Discovered** | Yes — multi-opportunity patterns, procurement behaviour |
+
+### CEO Brief Reporting
+
+In the CEO Brief's Business Impact section, Relationship Progress is reported as a sub-category:
+
+```
+New Opportunities Generated: 3
+  - New Opportunities (new customers): 1
+  - Relationship Progress (existing customers): 2
+```
+
+## Gate Rules
+
+| Scenario | Action | Gate |
+|---|---|---|
+| Customer exists, email matches | Follow protocol, update existing record | Tier 1 — Atlas executes |
+| Customer exists, ambiguous match | Flag for James review | Tier 2 — escalate |
+| Customer does not exist | Create new record, standard workflow | Tier 1 — Atlas executes |
+| Unsure whether to classify as Extension vs Variation vs New Stage | Pick the best fit, note in Outreach Notes | Tier 1 — Atlas executes |
+| Unsure whether it's Relationship Progress or New Opportunity | Flag for James review | Tier 2 — escalate |
+
+## Related Protocols
+
+- **Recovery Operations Reply Handling Protocol** — how to handle replies during recovery sequences
+- **Escalation Framework** — when to involve the client vs keep Atlas as the communication layer
+- **Inclusion Principle** (`2026-07-28-inclusion-principle`) — all customers are included; scoring determines sequence, not inclusion
+- **Context-Aware Recovery** — replies change context; sequences evolve, not terminate

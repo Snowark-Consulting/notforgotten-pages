@@ -1,0 +1,126 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# Client Identity Verification Gate — Permanent Operating Principle
+
+> 9-point verification gate before any outbound client communication. White-label integrity is not cosmetic — it is part of the trust clients place in us.
+
+**Established:** 2026-07-29
+**Status:** Active — hard stop, not warning
+**Triggered by:** Not Forgotten signature leaked into QPaint white-label emails (20 affected)
+**Principle:** White-label integrity is not cosmetic. It is part of the trust clients place in us.
+
+---
+
+## The Gate — 9-Point Verification
+
+Before ANY outbound client communication leaves the system, verify:
+
+| # | Check | Question |
+|---|---|---|
+| 1 | Sending account | Is this sending from the correct email address for this client? |
+| 2 | Display name | Is the display name correct (e.g., "Atlas" not "Atlas (James's assistant)")? |
+| 3 | Email signature | Does the signature match the client's white-label or co-branded template? |
+| 4 | Logo | Is the correct logo present — or absent if white-label requires no logo? |
+| 5 | Company branding | Is the company name correct throughout? No wrong business name anywhere? |
+| 6 | Reply-to address | Will replies go to the correct address? |
+| 7 | Links | Do any links reference Not Forgotten when the client hasn't approved co-branding? |
+| 8 | Tone | Does the tone match the client's voice and relationship stage? |
+| 9 | No unauthorised NF references | Are there zero references to Not Forgotten unless the client has explicitly approved co-branding? |
+
+**Any single verification failure = hard stop. The email is not sent. Period.**
+
+---
+
+## Per-Client Identity Profiles
+
+Every client must have an identity profile containing:
+
+```yaml
+client_id: qpaint
+business_name: QPaint
+owner_name: Tas Moulis
+owner_first_name: Tas
+
+# Sending configuration
+send_as_address: atlas@notforgotten.com.au
+display_name: Atlas
+reply_to: atlas@notforgotten.com.au
+
+# White-label mode
+white_label: true
+co_branding_approved: false
+
+# Signature template
+signature: |
+  Kind regards,
+  
+  Atlas
+  Customer Success
+  {business_name}
+
+# Verification
+verified_by: James Hardstaff
+verified_date: 2026-07-29
+```
+
+This profile is loaded by the send pipeline and verified against before every send.
+
+---
+
+## Verification Failure Protocol
+
+If any check fails:
+
+1. **Stop.** Do not send the email.
+2. **Log the failure** with: timestamp, recipient, client, which check failed, what was found
+3. **Fix the issue** — correct the sending configuration, template, or content
+4. **Re-verify** — run the full 9-point gate again
+5. **Send only after all 9 pass**
+
+---
+
+## Post-Campaign Random Audit
+
+After every campaign send, randomly sample 20% of sent emails (minimum 2).
+
+For each sampled email, verify:
+- Branding correct (logo, company name, signature)
+- Sender identity correct (display name, reply-to)
+- No unauthorised NF references
+- Tone matches client profile
+
+Log results. Report any failures to James within 24 hours.
+
+---
+
+## Relationship to Other Gates
+
+| Gate | When | Purpose |
+|---|---|---|
+| Voice Review (9-point) | Before every customer-facing draft | Tone, clarity, effectiveness |
+| Technical Verification | Before every send | Tracking, links, UTM, recipient |
+| **Client Identity Verification** | **After both above, immediately before send** | **Branding, white-label integrity, client trust** |
+
+All three must pass before any outbound communication leaves the system.
+
+---
+
+## Client Identity Log
+
+Every verification failure is logged permanently. Purpose: identify patterns, not assign blame.
+
+| Date | Client | Recipient | Check Failed | Resolution |
+|---|---|---|---|---|
+| 2026-07-28 | QPaint | 20 recipients | #9 — NF signature in white-label email | Protocol established 2026-07-29 |
+
+---
+
+## Principle
+
+> Every operational issue should leave the system stronger than it was before.
+
+This gate exists because 20 QPaint customers saw a Not Forgotten logo beneath a QPaint signature. That specific failure will never happen again — for any client.

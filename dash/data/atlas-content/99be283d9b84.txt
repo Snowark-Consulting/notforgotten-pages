@@ -1,0 +1,106 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# Sender Identity Policy — Operational Reference
+
+> All external Not Forgotten communications come from james@notforgotten.com.au. One face, one relationship — from first contact through to long-term client.
+> **Overturns:** `2026-07-29-dual-identity-communication-policy.md`
+> **SOUL Directive:** #16 — James builds the relationships. Atlas elevates every interaction.
+> **Applies to:** All Not Forgotten external communications
+
+## The Rule
+
+All external Not Forgotten communications come from `james@notforgotten.com.au`.
+
+| Communication | Sender | Signature |
+|---|---|---|
+| Cold outreach | `james@` | Canonical from `james_signature.json` |
+| Prospect follow-ups | `james@` | Canonical from `james_signature.json` |
+| Client onboarding | `james@` | Canonical from `james_signature.json` |
+| Account management | `james@` | Canonical from `james_signature.json` |
+| Monthly reports | `james@` | Canonical from `james_signature.json` |
+| White-label recovery (QPaint) | `atlas@` | White-label client identity |
+
+## Atlas's Role
+
+Atlas is the intelligence and operations platform behind Not Forgotten. Atlas:
+
+- Drafts all communications
+- Schedules all communications
+- Monitors all replies
+- Analyses customer behaviour
+- Recommends next actions
+- Maintains CRM records
+- Generates reports
+- Ensures no opportunity is forgotten
+
+Atlas is NOT:
+- A visible sender identity for NF business
+- The primary relationship owner
+- Introduced as a person in NF communications
+
+## Atlas as Technology Reference
+
+When appropriate, Atlas may be referenced within communications as the technology that supports Not Forgotten. Examples:
+
+- "Atlas keeps track of every follow-up so nothing gets missed."
+- "Our system monitors your quote activity and flags opportunities."
+
+Atlas is the product, not the person.
+
+## Authentication
+
+Every send from `james@notforgotten.com.au` uses the dedicated `james_token.json` OAuth token. Never rely on From-header overrides with the atlas@ token.
+
+| Sender | Token | API endpoint |
+|---|---|---|
+| `james@notforgotten.com.au` | `james_token.json` | `users/james@notforgotten.com.au/messages/send` |
+| `atlas@notforgotten.com.au` (white-label only) | `google_token.json` | `users/me/messages/send` |
+
+**Hard rule:** Before any send from james@:
+1. Load `james_token.json`
+2. Refresh the access token if needed
+3. Load `james_signature.json` — verify it exists and has been retrieved
+4. Send via `users/james@notforgotten.com.au/messages/send`
+5. If either file is missing, expired, or retrieval fails → **hard stop**
+
+## Gmail Signature Rule
+
+The canonical James signature is stored in `james_signature.json` — retrieved directly from Gmail settings, never recreated or modified.
+
+**Every james@ email:**
+- Draft the subject line and body
+- Append the canonical signature verbatim from `james_signature.json`
+- Do NOT add any closing word, name, title, or hand-typed signature
+- The signature HTML is the complete and only sign-off
+
+**If `james_signature.json` is missing or has never been retrieved → hard stop.**
+
+## Signature Synchronisation
+
+| Mechanism | Detail |
+|---|---|
+| **Source** | Gmail API `users.settings.sendAs.get` |
+| **Storage** | `james_signature.json` — verbatim HTML |
+| **Weekly sync** | Sunday 8am ACST, `bin/sync-james-signature.py` |
+| **Manual sync** | `python3 bin/sync-james-signature.py` |
+| **Auto-update** | If Gmail signature changed, stored version auto-replaces |
+| **Failure** | Error logged to `james_signature.json`. 2+ consecutive failures → escalate to James |
+
+## Edge Cases
+
+| Scenario | Sender |
+|---|---|
+| White-label recovery (QPaint) | `atlas@` — separate identity rules apply |
+| Internal communications | Not governed by this policy |
+| Quote intake (quotes@) | `quotes@` — separate system |
+
+## Related
+
+- `2026-07-29-single-identity-james-led.md` — governing decision
+- `2026-07-29-dual-identity-communication-policy.md` — overturned predecessor
+- Recovery Operations white-label standard — separate identity for client recovery
+- SOUL Directive #16

@@ -1,0 +1,65 @@
+# Post-Campaign Audit — Process
+
+**Established:** 2026-07-29
+**Purpose:** Verify branding, sender identity, and signature integrity after every campaign send.
+**Principle:** Every operational issue should leave the system stronger than it was before.
+
+---
+
+## Schedule
+
+After every campaign send (Email 1 batch or any mass outbound), run within 4 hours of send completion.
+
+---
+
+## Sample Size
+
+Randomly select 20% of emails sent, minimum 2.
+
+For a small calibration batch (8-10 emails): audit 2 emails.
+For a larger batch (50+): audit 10 minimum.
+
+---
+
+## Audit Checklist
+
+For each sampled email, verify via Gmail API (fetch the sent message):
+
+### Identity
+- [ ] Display name matches client profile
+- [ ] From address is correct
+- [ ] Reply-to is correct
+
+### Branding
+- [ ] No unauthorised NF logo or image
+- [ ] No "notforgotten.com.au" links (unless co-branding approved)
+- [ ] No "Not Forgotten Systems" text
+- [ ] No "Growth & Operations Manager" title
+- [ ] No "Helping businesses turn more quotes into paid jobs" tagline
+
+### Signature
+- [ ] Signature matches the client's approved template
+- [ ] Client business name is correct
+- [ ] No double signatures (e.g., white-label + NF stacked)
+
+### Tone
+- [ ] Matches client's voice profile
+- [ ] Appropriate for the relationship stage
+
+---
+
+## Failure Handling
+
+If any check fails:
+1. Log the failure with: campaign, recipient, client, which check failed, what was found
+2. Report to James within 24 hours
+3. Determine if corrective action is needed for remaining unsent emails
+4. Update the Client Identity Verification Gate or send pipeline to prevent recurrence
+
+---
+
+## Audit Log
+
+| Date | Campaign | Sampled | Passed | Failed | Findings |
+|---|---|---|---|---|---|
+| — | — | — | — | — | No audits run yet |

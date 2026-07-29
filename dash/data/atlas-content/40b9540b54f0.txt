@@ -1,0 +1,116 @@
+# Decision: Relationship Continuation Protocol
+
+| Field | Value |
+|---|---|
+| **Decision** | New scope from an existing customer relationship must be classified as "Relationship Progress" and checked for CRM duplication before any new record is created |
+| **Problem** | When existing customers send new scope during an active recovery conversation, the default response path risks creating duplicate Airtable records that fragment the customer relationship into disconnected quote entries |
+| **Why** | The CRM must reflect reality — one customer relationship, one history. Building fragmented records for the same person creates confusion, hides the relationship narrative, and makes it impossible to understand the full customer journey |
+| **Date** | 2026-07-29 |
+| **Status** | Made |
+| **Type** | Living Decision |
+| **Review Date** | 2026-08-29 |
+
+## Context
+
+During the QPaint recovery campaign, Atlas received an email from Nicholas Zappacosta (QBuild Foreperson) containing a new scope document for Port Adelaide Plaza. Nicholas already had an active, engaged record in the QPaint Pipeline — Logan Village State School ($145K, Government, Multi-Opportunity Active). 
+
+The question: do we create a new Airtable record for Port Adelaide Plaza, or update the existing Nicholas record?
+
+James's instruction: **update the existing record**. Nicholas is one customer with one relationship. The new scope is a continuation of that relationship, not a separate entity.
+
+## The Decision
+
+### When a client's customer sends new scope during an active relationship
+
+**Step 1 — Forward Immediately**
+Forward the complete scope and all attachments to the client (Tas, in QPaint's case) for quotation preparation. Do not delay. The client needs to see the new opportunity as soon as it arrives.
+
+**Step 2 — Acknowledge Professionally**
+Draft a reply to the customer that:
+- Acknowledges receipt of the new scope
+- Thanks them for the information
+- Confirms the documentation has been received
+- Advises that the client will review and prepare next steps
+- Maintains the relationship tone established in prior communications
+
+**Step 3 — Deduplication Check**
+Before creating any new Airtable record, check whether this customer already exists in the pipeline.
+
+Query by:
+1. Contact Email (most reliable)
+2. Contact Person name
+3. Deal Title pattern matching (if the same project name appears)
+
+If the customer exists:
+- **Do NOT create a new record**
+- Update the existing record:
+  - Append the new scope to `Extent of Work` or `Outreach Notes`
+  - Update `Engagement Stage` to `Multi-Opportunity Active` (if not already)
+  - Set `Opportunity Type` to `Relationship Progress`
+  - Record the new deal value in notes
+  - Note the date the new scope was received
+
+If the customer does NOT exist:
+- Create a new record as normal
+- Set `Opportunity Type` to `New Opportunity`
+
+If UNCERTAIN (ambiguous match, similar name but different contact):
+- Flag for James review
+- Do NOT create a record
+- Do NOT assume it's a duplicate
+- Default to caution
+
+**Step 4 — Classification**
+Classify the interaction as **"Relationship Progress"** not "New Opportunity." 
+
+- **New Opportunity** = genuinely new customer, or new project from a dormant relationship with no active pipeline record
+- **Relationship Progress** = extension, stage, variation, or continuation from an existing active customer relationship
+
+This classification appears on:
+- `Opportunity Type` field in the pipeline record
+- Metrics tracking (Relationship Progress counts separately from New Opportunities Generated)
+- CEO Brief reporting
+
+**Step 5 — Maintain Single Customer View**
+The CRM should show one record per customer relationship, with the full history visible in that record.
+
+- New scope → appended to existing record's `Outreach Notes`
+- Multiple active quotes → recorded in `Engagement Stage` as `Multi-Opportunity Active`
+- Relationship narrative → preserved in chronological notes
+- Deal values → tracked individually within the single record
+
+## Atlas's Challenge (Pre-Decision)
+
+None. This is a governance formalisation of a practice James already directed. The challenge is implementation: ensuring the deduplication check becomes automatic, not manual, and that the protocol survives across different clients and different pipeline structures.
+
+## Expected Outcomes
+
+1. No duplicate Airtable records for the same customer in any client pipeline
+2. Customer relationship history is complete and accessible from a single record
+3. New scope from existing customers is forwarded to the client within minutes of receipt
+4. Professional acknowledgement is sent to the customer within the same business day
+5. "Relationship Progress" vs "New Opportunity" is clearly tracked in metrics
+6. The protocol works identically across all future clients, not just QPaint
+
+## Success Criteria
+
+- Zero duplicate records by email address in any pipeline table (measured weekly)
+- Average forward-to-client time under 30 minutes for new scope (within business hours)
+- Every new scope receives an acknowledgement reply within 4 business hours
+- `Opportunity Type` field populated on 100% of pipeline records
+- Monthly CEO Brief correctly separates Relationship Progress from New Opportunities
+
+## Implementation
+
+1. Add `Opportunity Type` singleSelect field to QPaint Pipeline table (and future client pipeline tables)
+2. Create formal SOP: `knowledge/relationship-continuation-protocol.md`
+3. Update `recovery-operations` skill to reference the new protocol
+4. Update `quote-intake` skill to include deduplication check
+5. Update the Reply Handling Protocol in recovery-operations to include the new scope workflow
+6. Update the Four-Outcome Metrics to track Relationship Progress as a distinct category
+
+## Cross-References
+
+- `founding-tiered-trust-automation` — this protocol sits at Tier 1 (admin automation: forward, acknowledge, CRM update) but with a Tier 2 gate (deduplication uncertainty → flag for review)
+- `2026-07-28-inclusion-principle` — a customer with an existing relationship is automatically included; the only question is how to classify the new scope
+- Recovery Operations Reply Handling Protocol — this protocol extends the existing reply handling rules with a specific branch for new scope from existing customers

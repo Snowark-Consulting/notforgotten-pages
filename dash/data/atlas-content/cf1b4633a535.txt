@@ -1,0 +1,120 @@
+# Recovery Operations Playbook
+
+**Established:** 2026-07-29
+**Purpose:** Standard operating framework for all client recovery operations. Every client onboarded inherits these protections automatically.
+
+---
+
+## 1. Client Identity Protection
+
+**Principle:** White-label integrity is not cosmetic. It is part of the trust clients place in us.
+
+### Identity Profile Requirement
+
+Every client must have an identity profile before any communication is sent to their customers. Profile location: `knowledge/client-profiles/{client-slug}-identity.md`
+
+### Pre-Send Verification Gate (Hard Stop)
+
+Before ANY outbound communication leaves the system for a client's customer, verify:
+
+| # | Check |
+|---|---|
+| 1 | Correct sending account |
+| 2 | Correct display name |
+| 3 | Correct email signature (client's template, not NF) |
+| 4 | Correct logo (or no logo for white-label) |
+| 5 | Correct company branding throughout |
+| 6 | Correct reply-to address |
+| 7 | No unauthorised NF links |
+| 8 | Tone matches client's voice and relationship stage |
+| 9 | Zero NF references unless co-branding approved |
+
+**Any failure = hard stop. Email not sent.**
+
+### White-Label Default
+
+All new clients default to white-label mode unless co-branding is explicitly approved. White-label means:
+- No Not Forgotten logo
+- No Not Forgotten website links
+- No Not Forgotten tagline
+- Atlas appears as an embedded team member of the client's business
+- Signature: "Atlas / Customer Success / {Client Business Name}"
+
+### Co-Branding Exception
+
+If a client explicitly approves co-branding (documented in their identity profile), NF branding may appear. Until then, the default is white-label.
+
+---
+
+## 2. Recovery Sequence Framework
+
+[To be built as each client's sequence is designed]
+
+---
+
+## 3. Escalation Framework
+
+Atlas handles customer relationships until the client genuinely adds value.
+
+Decision tree: `knowledge/qpaint-escalation-framework.md` (QPaint-specific, pattern for all clients)
+
+Key principle: escalate only when the client's expertise is required — technical questions, commercial negotiation, confirmed awards, complaints, new quote preparation.
+
+---
+
+## 4. Loss Consolidation
+
+Individual losses are not escalated to the client. Losses are consolidated into a single weekly email at end of working week.
+
+Full process: `knowledge/weekly-loss-consolidation.md`
+
+---
+
+## 5. Post-Campaign Audit
+
+After every campaign send, randomly sample 20% of sent emails (minimum 2).
+
+Audit each for:
+- Branding integrity (logo, company name, signature)
+- Sender identity (display name, reply-to)
+- Zero unauthorised NF references
+- Tone matches client profile
+
+Log results. Report failures to James within 24 hours.
+
+Audit process: `knowledge/post-campaign-audit.md`
+
+---
+
+## 6. Outcome Measurement
+
+Four outcomes tracked separately for every client:
+
+| Outcome | Definition |
+|---|---|
+| Opportunities Recovered | Existing quotes that move forward |
+| New Opportunities Generated | Net-new quote requests from conversations |
+| Customer Relationships Managed | Ongoing engagement and intelligence gathering |
+| Business Intelligence Discovered | Patterns, customer behaviour, procurement insights |
+
+---
+
+## 7. Daily Operational Intelligence Summary
+
+Every evening: what happened, what we learned, what changed, what needs attention, recommendations.
+
+---
+
+## Client Onboarding Checklist
+
+When a new client is onboarded:
+
+- [ ] Client identity profile created
+- [ ] White-label or co-branding mode confirmed
+- [ ] Signature template approved
+- [ ] Recovery sequence designed and approved
+- [ ] Escalation framework customised
+- [ ] Airtable pipeline configured
+- [ ] First calibration batch defined (8-10 contacts)
+- [ ] Send method verified (no NF signature leak)
+- [ ] Post-campaign audit scheduled

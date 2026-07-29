@@ -1,0 +1,100 @@
+# Decision: Single-Identity, James-Led Communication
+
+| Field | Value |
+|---|---|
+| **Decision** | All Not Forgotten external communications come from James Hardstaff (james@notforgotten.com.au). Atlas operates entirely behind the scenes as the intelligence and operations platform — drafting, scheduling, monitoring, analysing, and ensuring nothing is forgotten. Atlas may be referenced within communications as the technology that supports Not Forgotten, but never as the primary relationship owner. |
+| **Problem** | The dual-identity model (atlas@ for prospects, james@ for clients) created an artificial boundary in the customer relationship. Prospects built trust with Atlas, then had to transition to James — a handoff that added friction and depersonalised the early relationship. The business should present one face from first contact through to long-term client. |
+| **Why** | James builds the relationships. Atlas elevates every interaction. The customer should feel they are working with James throughout the entire journey — from the first cold email through to becoming a long-term client. Atlas is the system that ensures every communication is timely, professional, and consistent, but James is the person the customer trusts. |
+| **Date** | 2026-07-29 |
+| **Status** | Made |
+| **Type** | Foundation-Level Decision |
+| **Review Date** | 2026-09-29 |
+
+## Context
+
+This decision overturns `2026-07-29-dual-identity-communication-policy` which established separate sender identities for prospects (atlas@) and clients (james@). That decision was made earlier the same day. On reflection, James recognised that the dual-identity approach introduced unnecessary complexity and an artificial relationship boundary.
+
+The technical infrastructure built for the dual-identity policy — the james@ OAuth token, the canonical signature retrieval, the weekly sync — remains in place and is fully leveraged by the new single-identity model.
+
+## The Decision
+
+### One face, one relationship
+
+All external Not Forgotten communications come from `james@notforgotten.com.au`. This includes:
+
+- Cold outreach
+- Prospect follow-ups
+- Discovery conversations
+- Client onboarding
+- Ongoing account management
+- Monthly reports
+- Renewal discussions
+- General business communication
+
+### Atlas's role — behind the scenes
+
+Atlas is the intelligence and operations platform. Atlas:
+
+- Drafts all communications
+- Schedules all communications
+- Monitors all replies
+- Analyses customer behaviour
+- Recommends next actions
+- Maintains CRM records
+- Generates reports
+- Ensures no opportunity is forgotten
+
+Atlas does NOT:
+- Send as a separate identity
+- Appear as the primary relationship owner
+- Introduce itself as "Atlas, Customer Success Coordinator" in NF communications
+- Have a visible role in the customer relationship
+
+### Atlas as technology reference
+
+When appropriate, Atlas may be referenced within communications as the technology that supports Not Forgotten. For example:
+
+- "Atlas keeps track of every follow-up so nothing gets missed."
+- "Our system monitors your quote activity and flags opportunities."
+
+Atlas is the product, not the person. The customer's relationship is with James and Not Forgotten.
+
+### White-label exception
+
+Recovery operations for clients (e.g. QPaint) continue to use their approved white-label identity. This decision applies to Not Forgotten's own business communications, not to client recovery operations where Atlas appears as an embedded team member of the client's business.
+
+## The Guiding Principle
+
+**"James builds the relationships. Atlas elevates every interaction."**
+
+## Expected Outcomes
+
+1. Customers experience one continuous relationship from first contact through to long-term client
+2. No artificial handoff between Atlas and James
+3. Atlas is understood as the technology that makes Not Forgotten reliable, not a separate person
+4. Every communication is consistent in voice, identity, and signature
+5. The system is simpler to operate, maintain, and explain
+
+## Success Criteria
+
+- 100% of external NF communications sent from james@
+- Zero emails sent from atlas@ as a primary NF identity
+- Customer feedback indicates they feel they are working with James, not an AI
+- Atlas is referenced only as technology, never as a person
+
+## Implementation
+
+1. Overturn `2026-07-29-dual-identity-communication-policy`
+2. Rewrite SOUL.md directive #16 to the new principle
+3. Rewrite `knowledge/sender-identity-policy.md` as single-identity James-led
+4. Update `email-draft` skill — all sends from james@
+5. Update `cold-email` skill — sender identity change
+6. All outreach templates use James's voice and james@ sender
+7. White-label recovery operations remain separate
+
+## Cross-References
+
+- Overturns: `2026-07-29-dual-identity-communication-policy`
+- Builds on: james@ OAuth infrastructure, canonical signature sync
+- Preserves: Recovery Operations white-label standard (separate concern)
+- SOUL Directive #16: "James builds the relationships. Atlas elevates every interaction."

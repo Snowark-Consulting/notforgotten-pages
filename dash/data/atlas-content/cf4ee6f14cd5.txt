@@ -1,0 +1,57 @@
+# Decision: Inclusion Principle — Every Customer Deserves an Attempt
+
+**Slug:** `2026-07-28-inclusion-principle`
+**Date:** 2026-07-28
+**Status:** Made
+**Review Date:** 2026-10-28
+**Made By:** James Hardstaff
+
+---
+
+## The Decision
+
+If a client provides us with a list of customers to follow up, our default position is: **every customer will be followed up.**
+
+Scoring exists only to determine the order in which customers are contacted, never whether they are contacted.
+
+The only valid reasons to exclude a customer are:
+1. The client explicitly instructs us not to contact them.
+2. The customer has requested no further contact or unsubscribed.
+3. The opportunity has already been won or is confirmed closed.
+4. The record is a verified duplicate.
+
+Otherwise, every customer entrusted to us deserves an attempt.
+
+## Evidence That Triggered This
+
+QPaint pipeline import: 156 deals from Pipedrive. The standard Recovery Operations scoring model classified 3 deals as P3 (score <40) and excluded them from import. James identified this as a violation of the core promise: we don't forget anyone.
+
+The 3 excluded deals:
+- Callum Fox — $8,943, May 2026
+- Ming Yuan — $4,840, Mar 2026
+- Wayne Beckman — $1,100, Mar 2026
+
+These were reinstated and imported as P3 (sequence last).
+
+## Impact on Recovery Operations
+
+The Priority Tier system is preserved — it governs sequencing, not inclusion:
+- P1 (≥60): Contact first
+- P2 (40-59): Contact after P1
+- P3 (<40): Contact last
+
+The Pipeline Import section of the Recovery Operations skill has been updated. P3 action changed from "Do not import" to "Import, sequence last."
+
+The Inclusion Principle has been added to the Philosophy section as a permanent operating principle. It sits alongside the Core Principle and Execution Principle.
+
+## Application to All Clients
+
+This principle applies to every client Not Forgotten onboards, not just QPaint. When a client entrusts us with their pipeline, our commitment is: nobody gets forgotten. Not the big deals, not the small ones, not the old ones.
+
+## Atlas's Challenge
+
+None. This is the correct ethical and operational stance. The small, old deals might surprise us.
+
+## Atlas's Acknowledgment
+
+Internalised. Scoring = sequencing. Inclusion = universal. Every customer gets contacted.

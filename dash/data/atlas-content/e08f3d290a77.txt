@@ -1,0 +1,92 @@
+# Operational Investigation Standard
+
+**Established:** 2026-07-29
+**Status:** Permanent operating principle
+**Triggered by:** 20-vs-30 discrepancy in QPaint branding leak investigation
+**Principle:** Never report a number unless you have verified it is complete.
+
+---
+
+## Permanent Operating Principle
+
+> Every quantitative report must include a completeness check.
+
+Before reporting any count, total, or metric, verify:
+
+1. Is this the complete dataset?
+2. Is the API paginated?
+3. Have all pages been retrieved?
+4. Are filters excluding records?
+5. Is the reported number an estimate or a verified total?
+
+If there is any uncertainty, state it clearly. Never present a partial dataset as a complete result.
+
+---
+
+## Confidence Ratings
+
+Every number in an operational report must carry one of these ratings:
+
+| Rating | Meaning | When to use |
+|---|---|---|
+| **Verified** | Complete dataset confirmed | All pages retrieved, no filters excluding relevant data, cross-referenced with at least one other source |
+| **High Confidence** | Minor assumptions only | Pagination complete, filters documented, single-source but verified query |
+| **Partial** | Additional data may exist | Known gap: pagination incomplete, time range truncated, or dataset still accumulating |
+| **Preliminary** | Initial findings only, subject to verification | First pass, not yet cross-referenced, rapid assessment |
+
+### Usage in reports
+
+```
+Correct:   "30 emails affected (Verified — paginated to exhaustion)"
+Incorrect: "20 emails affected"
+Correct:   "~$150K pipeline value (High Confidence — Airtable query complete, Stripe pending)"
+Incorrect: "$150K"
+Correct:   "40+ Email 1 records (Partial — Airtable pagination incomplete, minimum confirmed)"
+Incorrect: "40 records"
+```
+
+---
+
+## Data Source Coverage
+
+This standard applies to every data source, current and future:
+
+| Source | Pagination mechanism | Completeness check |
+|---|---|---|
+| **Gmail API** | `nextPageToken` in response | Loop until token absent |
+| **Airtable** | `offset` in response | Loop until offset absent |
+| **Pipedrive** | `start` + `limit` params, `additional_data.pagination.more_items_in_collection` | Loop until `more_items_in_collection` is false |
+| **Stripe** | `has_more` + `starting_after` | Loop until `has_more` is false |
+| **Dashboards** | N/A (static) | Confirm refresh time, note data window |
+| **Future integrations** | Per-API mechanism | Apply same exhaustion pattern |
+
+---
+
+## Investigation Workflow
+
+### Before reporting
+
+- [ ] All data sources paginated to exhaustion
+- [ ] Confidence rating assigned to every number
+- [ ] Cross-reference performed (API vs Airtable vs sent folder vs logs)
+- [ ] Filters and exclusions documented
+- [ ] Time window explicitly stated
+- [ ] Assumptions listed
+- [ ] Discrepancies explained, not papered over
+
+### Reporting format
+
+```
+## Count: N (Confidence Rating)
+- Source: [API name]
+- Pagination: Complete / Incomplete
+- Filters applied: [list or "none"]
+- Cross-referenced with: [source or "none"]
+- Note: [any caveats]
+```
+
+---
+
+## Lesson
+
+The 20-vs-30 discrepancy was a single `maxResults=20` away from being correct. The error wasn't the page size — it was reporting a partial view as fact. This standard exists so that every number James reads carries an honest assessment of how confident we should be in it.

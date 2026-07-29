@@ -38,7 +38,16 @@
 | | `2026-07-24-stage-1-approved-learning-phase` | Stage 1 approved: Design phase complete, learning phase begins. Writing Playbook established. Evidence-based improvement only. | Jul 2026 | 🟢 Made | 2026-10-24 |
 | | `2026-07-24-provider-failover-gemini-fallback` | Provider failover: Gemini fallback chain deployed after DeepSeek streaming outage | Jul 2026 | 🟢 Made | 2026-08-24 |
 | | `2026-07-27-sms-strategic-capability-design` | SMS as strategic platform capability — design framework, cold outreach prohibited, consent model | Jul 2026 | 🟢 Made | 2026-10-27 |
-| | `2026-07-28-atlas-communication-layer` | Atlas as communication layer — role is customer relationship management, not follow-up engine. Four outcomes measured. Daily OIS. Escalate to client only when they add value. | Jul 2026 | 🟢 Made | 2026-08-28 |
+|| | `2026-07-28-atlas-communication-layer` | Atlas as communication layer — role is customer relationship management, not follow-up engine. Four outcomes measured. Daily OIS. Escalate to client only when they add value. | Jul 2026 | 🟢 Made | 2026-08-28 |
+|| | `2026-07-28-inclusion-principle` | Inclusion principle: every customer deserves an attempt. Scoring = sequencing, not exclusion. | Jul 2026 | 🟢 Made | 2026-10-28 |
+|| | `2026-07-29-relationship-continuation-protocol` | Relationship Continuation Protocol: deduplication, classification, single customer view for pipeline interactions | Jul 2026 | 🟢 Made | 2026-08-29 |
+|| | `2026-07-29-relationship-first-crm` | Relationship-First CRM Philosophy: organising principle shifts from opportunity management to relationship storytelling | Jul 2026 | 🟢 Made | 2026-08-29 |
+|| | `2026-07-29-dual-identity-communication-policy` | ❌ Overturned: Dual-Identity Communication Policy — replaced by single-identity model | Jul 2026 | ❌ Overturned | N/A |
+|| | `2026-07-29-single-identity-james-led` | Single-Identity, James-Led Communication: all NF communications from james@. "James builds the relationships. Atlas elevates every interaction." | Jul 2026 | 🟢 Made | 2026-09-29 |
+|| | `2026-07-29-atlas-elevates-every-interaction` | Atlas Elevates Every Interaction: philosophical refinement. Retire "Atlas powers the business." Replace with "Atlas elevates every interaction." Adds The Atlas Mandate and four-question pre-task gate. | Jul 2026 | 🟢 Made | 2026-09-29 |
+|| | `2026-07-29-ceo-standard` | The CEO Standard: constitutional operating principle. Atlas as Chief of Staff — five post-task questions, proactive recommendation, "I hadn't thought of that" metric. | Jul 2026 | 🟢 Made | 2026-09-29 |
+|| | `2026-07-29-strategic-compass` | Strategic Compass: mission direction. One question: "Does this build a world-class company?" Compass, not checklist. Completes the philosophical architecture. | Jul 2026 | 🟢 Made | 2026-09-29 |
+|| | `2026-07-29-loss-intelligence-framework` | Loss Intelligence Framework: three-tier reporting (Critical Alerts, Weekly, Monthly). "Data points are information. Consistent data points are intelligence." | Jul 2026 | 🟢 Made | 2026-08-29 |
 
 ---
 
@@ -64,6 +73,13 @@
 | 2026-10-12 | `2026-07-12-distribution-validation-phase` | Distribution validation phase | 🟢 |
 | 2026-10-24 | `2026-07-24-stage-1-approved-learning-phase` | Stage 1 approved: Design phase complete | 🟢 |
 | 2026-08-28 | `2026-07-28-atlas-communication-layer` | Atlas as communication layer | 🟢 |
+| 2026-08-29 | `2026-07-29-relationship-continuation-protocol` | Relationship Continuation Protocol | 🟢 |
+| 2026-08-29 | `2026-07-29-relationship-first-crm` | Relationship-First CRM Philosophy | 🟢 |
+| 2026-08-29 | `2026-07-29-loss-intelligence-framework` | Loss Intelligence Framework | 🟢 |
+| 2026-09-29 | `2026-07-29-single-identity-james-led` | Single-Identity, James-Led Communication | 🟢 |
+| 2026-09-29 | `2026-07-29-atlas-elevates-every-interaction` | Atlas Elevates Every Interaction | 🟢 |
+| 2026-09-29 | `2026-07-29-ceo-standard` | The CEO Standard | 🟢 |
+| 2026-09-29 | `2026-07-29-strategic-compass` | Strategic Compass | 🟢 |
 | 2026-10-27 | `2026-07-27-sms-strategic-capability-design` | SMS strategic capability design | 🟢 |
 | 2026-10-28 | `2026-06-28-prospect-lifecycle-architecture` | Prospect lifecycle architecture | 🟢 |
 | 2026-11-01 | `founding-travis-case-study-as-bridge` | Travis case study as bridge, not opener | 🟢 |
@@ -95,7 +111,8 @@ Cross-reference of decisions by the core principles they engaged.
 | *Don't let perfect block good* | `founding-business-name-fallback` |
 | *Data over dogma* | `2026-06-28-calibration-outreach-living-system`, `2026-06-28-prospect-lifecycle-architecture`, `2026-07-05-complete-sequence-before-first-send` |
 | *Accountability stays with James* | `founding-tiered-trust-automation` |
-| *CRM reflects reality* | `2026-06-28-prospect-lifecycle-architecture`, `2026-07-05-complete-sequence-before-first-send` |
+| *CRM reflects reality* | `2026-06-28-prospect-lifecycle-architecture`, `2026-07-05-complete-sequence-before-first-send`, `2026-07-29-relationship-continuation-protocol`, `2026-07-29-relationship-first-crm` |
+| *Relationships over opportunities* | `2026-07-29-relationship-first-crm`, `2026-07-28-atlas-communication-layer` |
 | *Evidence before optimisation* | `2026-06-28-prospect-lifecycle-architecture`, `2026-06-28-calibration-outreach-living-system`, `2026-07-05-complete-sequence-before-first-send`, `2026-07-06-campaign-review-operating-standard`, `2026-07-08-morning-briefing-ceo-format`, `2026-07-13-diagnose-before-change-ceo-briefing-scope`, `2026-07-24-stage-1-approved-learning-phase` |
 | *Values cannot be tested* | `founding-tiered-trust-automation`, `founding-no-pitch-in-first-email` |
 | *Customer voice* | `2026-07-07-communication-voice-standard`, `2026-07-08-morning-briefing-ceo-format` |

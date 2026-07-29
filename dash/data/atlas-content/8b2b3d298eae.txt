@@ -1,0 +1,101 @@
+# QPaint White-Label Send Protocol — CRITICAL
+
+**Established:** 2026-07-29
+**Triggered by:** Not Forgotten signature leaked into 20 QPaint calibration emails
+**Rule:** Every QPaint email must appear to come from QPaint only. Zero Not Forgotten branding.
+
+---
+
+## The Breach
+
+On 2026-07-28, all QPaint calibration emails were sent with the Gmail account's default Not Forgotten signature appended beneath the white-label QPaint signature. 20 recipients saw:
+
+```
+Atlas
+Working alongside Tas at QPaint
+
+Kind Regards,
+
+[Not Forgotten logo]
+Atlas
+Growth & Operations Manager
+notforgotten.com.au
+Helping businesses turn more quotes into paid jobs.
+```
+
+This broke the white-label separation for every calibration contact.
+
+---
+
+## The Fix — Raw MIME Construction Only
+
+### ALL QPaint customer-facing sends must use this pattern:
+
+```python
+from email.mime.text import MIMEText
+import base64
+
+body = """Hi [Name],
+
+[email content]
+
+Kind regards,
+
+Atlas
+Customer Success
+QPaint"""
+
+msg = MIMEText(body)
+msg['To'] = 'recipient@example.com'
+msg['Subject'] = 'Subject'
+msg['From'] = 'atlas@notforgotten.com.au'
+msg['In-Reply-To'] = '<message_id>'
+msg['References'] = '<message_id>'
+
+raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
+data = json.dumps({'raw': raw, 'threadId': '<thread_id>'}).encode()
+
+# Send via Gmail API directly
+req = urllib.request.Request(url, data=data, method='POST')
+req.add_header('Authorization', f'Bearer {token}')
+req.add_header('Content-Type', 'application/json')
+```
+
+### Never use for QPaint:
+
+- `send-outreach.py` (appends tracking pixel and NF signature)
+- `gmail-html-send.py` (appends NF signature)
+- `google_api.py gmail send` (may append Gmail signature)
+- Any method that doesn't give Atlas full control of every byte
+
+### Signature variants:
+
+**Standard QPaint:**
+```
+Kind regards,
+
+Atlas
+Customer Success
+QPaint
+```
+
+**Introduction email (first touch):**
+```
+Kind regards,
+
+Atlas
+Working alongside Tas at QPaint
+```
+
+### Verification before every QPaint send:
+
+1. Search email body for: `Not Forgotten`, `notforgotten`, `nf-logo`, `Growth & Operations`
+2. Search for HTML img tags (tracking pixel, logo)
+3. Confirm signature block matches QPaint white-label template
+4. If ANY of these fail → DO NOT SEND
+
+---
+
+## Existing Emails (20 affected)
+
+Cannot be unsent. Monitor for any customer confusion. So far zero recipients have mentioned it — Nicholas, Joy, and Andres all replied normally to what they perceived as a QPaint email.

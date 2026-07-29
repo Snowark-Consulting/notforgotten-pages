@@ -1,0 +1,91 @@
+# Relationship Timeline Standard
+
+> **Established:** 2026-07-29 | **Governed by:** `2026-07-29-relationship-first-crm.md`
+> **Applies to:** All client pipeline Outreach Notes entries, all future client relationships
+
+## Purpose
+
+Every customer relationship must tell a complete, chronological story that can be understood in 30 seconds by someone unfamiliar with the account. The Outreach Notes field is the single source of truth for that story.
+
+## Entry Format
+
+Every entry follows this structure:
+
+```
+[YYYY-MM-DD] [Event Type] — [Description]. [Outcome / Next Step].
+```
+
+### Event Types
+
+| Event Type | When to use | Example |
+|---|---|---|
+| `First Contact` | Initial outreach to customer | `[2026-07-28] First Contact — Email 1 sent introducing Atlas as part of QPaint's customer success team.` |
+| `Email Sent` | Subsequent outbound emails | `[2026-07-31] Email Sent — Follow-up #2. Provided project timeline estimate.` |
+| `Reply Received` | Customer responded | `[2026-07-28] Reply Received — Nicholas replied positively, looking forward to working with QPaint. Attached design standards.` |
+| `Scope Received` | New scope/documentation from customer | `[2026-07-29] Scope Received — Port Adelaide Plaza. Complete RFT documentation forwarded to Tas for quotation.` |
+| `Quote Sent` | Client provided quotation | `[2026-08-02] Quote Sent — QAS Beenleigh. Tas prepared quotation, $[amount]. Sent to Nicholas.` |
+| `Call` | Phone conversation | `[2026-08-05] Call — Spoke with Nicholas. Confirmed Logan Village is awaiting committee approval. Target decision: mid-August.` |
+| `Meeting` | In-person or video meeting | `[2026-08-12] Meeting — Site visit at Logan Village with Nicholas and Tas. Walked scope, confirmed requirements.` |
+| `Decision` | Customer made a choice | `[2026-08-15] Decision — Nicholas confirmed committee approved Logan Village. Awarded to QPaint.` |
+| `Variation` | Scope change on existing project | `[2026-09-01] Variation — Logan Village. Additional external painting requested. Tas preparing variation quote.` |
+| `Status Change` | Relationship stage evolved | `[2026-07-29] Status Change — Engagement Stage updated to Multi-Opportunity Active. 3 active projects with Nicholas.` |
+| `Handoff` | Escalated to client for action | `[2026-07-29] Handoff — Port Adelaide Plaza scope forwarded to Tas for quotation preparation. Atlas will follow up in 3 days if no reply.` |
+| `Won` | Project awarded | `[2026-08-15] Won — Logan Village State School awarded. $145,008.34. Government, external works.` |
+| `Lost` | Project declined | `[2026-08-20] Lost — QAS Beenleigh. Went with another contractor. Reason: existing relationship with competitor.` |
+| `Note` | General observation | `[2026-08-01] Note — Nicholas is QBuild Foreperson. Government procurement cycle. Decisions typically take 2-4 weeks after quote.` |
+
+### Rules
+
+1. **Always start with the date** — `[YYYY-MM-DD]` format, no exceptions
+2. **Always include the event type** — pick from the list above
+3. **Be specific** — "Scope Received — Port Adelaide Plaza" not "Got some documents"
+4. **Include outcomes** — what happened next? What needs to happen?
+5. **Write for the six-month test** — would someone reading this six months from now understand what happened?
+6. **Chronological order** — newest entries at the bottom
+7. **One entry per event** — don't combine multiple events into one entry
+8. **Append, never overwrite** — Outreach Notes is a growing narrative, not a status field
+
+## Reference Example: Nicholas Zappacosta (QPaint)
+
+```
+[2026-07-28] First Contact — Email 1 sent introducing Atlas as part of QPaint's customer success team. Logan Village State School ($145,008.34, Government, External).
+
+[2026-07-28] Reply Received — Nicholas replied positively. "Looking forward to working with QPaint." Attached VSBA design standards for Logan Village. Warm, engaged tone.
+
+[2026-07-28] Email Sent — Atlas replied acknowledging receipt, thanking Nicholas for the design standards, asked clarifying question about whether project is confirmed or still requiring approvals.
+
+[2026-07-28] Status Change — Engagement Stage set to Engaged - Awaiting Confirmation. Positive buying signal but not yet confirmed award.
+
+[2026-07-28] Scope Received — QAS Beenleigh. New government project. Scope forwarded to Tas for quotation.
+
+[2026-07-28] Handoff — QAS Beenleigh scope forwarded to Tas. Atlas will follow up if no quote prepared within 3 business days.
+
+[2026-07-28] Status Change — Engagement Stage updated to Multi-Opportunity Active. Logan Village + QAS Beenleigh both active.
+
+[2026-07-29] Scope Received — Port Adelaide Plaza. Complete RFT documentation with attachments. Forwarded to Tas for quotation preparation. Third active government project with Nicholas.
+
+[2026-07-29] Email Sent — Atlas acknowledged receipt of Port Adelaide Plaza documentation to Nicholas. Confirmed scope forwarded to Tas for review and next steps.
+
+[2026-07-29] Status Change — Opportunity Type set to Relationship Progress — New Project. Nicholas relationship now spans 3 government projects across multiple sites.
+
+[2026-07-29] Note — Nicholas Zappacosta is a QBuild Foreperson managing multiple government school projects. Government procurement cycle applies — decisions typically require committee approval and take 2-4 weeks. Relationship is strengthening — Nicholas proactively sends new scope without being asked. Pattern: Nicholas trusts QPaint's quality and Atlas's responsiveness. Continue proactive relationship management.
+```
+
+## Relationship Status Summary
+
+At the top of every Outreach Notes field, maintain a single-line status summary:
+
+```
+STATUS: Multi-Opportunity Active | 3 projects | $145K confirmed + 2 TBC | Last contact: 2026-07-29 | Next: Await Tas quotes for Beenleigh + Port Adelaide
+```
+
+This is the 30-second read. Updated whenever the status changes.
+
+## Implementation Notes
+
+- The `Note` event type is for observations, patterns, and context that don't fit other types
+- Use `Note` sparingly — prefer specific event types when possible
+- The Status Summary at the top is the only non-chronological entry
+- All other entries maintain strict chronological order
+- When a record is first created, the Status Summary and First Contact entry are populated simultaneously
+- Multi-Opportunity Active relationships should have a Note entry explaining the relationship pattern (like Nicholas's procurement behaviour)

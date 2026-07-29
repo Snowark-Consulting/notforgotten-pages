@@ -1,0 +1,71 @@
+# Weekly Loss Consolidation — Process
+
+**Established:** 2026-07-29
+**Principle:** Do not notify Tas about individual lost opportunities. Consolidate all losses into a single weekly email at end of working week.
+
+---
+
+## Why
+
+- Respect Tas's time — he's a painter, not an inbox manager
+- Individual losses create noise without actionable intelligence
+- Patterns emerge when losses are reviewed together
+- Feedback is more valuable when aggregated and contextualised
+
+---
+
+## Process
+
+### During the week
+
+For each opportunity marked as Lost:
+1. Reply to the customer asking for the reason — genuine, gracious, curious (never defensive)
+2. Update Airtable: Stage → "Lost", Recovery Status → "Lost"
+3. Log the response (if received) in Outreach Notes
+4. Do NOT notify Tas individually
+
+### End of week (Friday afternoon ACST)
+
+Compile a single Weekly Loss Summary email to Tas containing:
+
+```
+Subject: Weekly summary — [N] quotes closed this week
+
+Hi Tas,
+
+Here's a quick summary of quotes that didn't proceed this week:
+
+[Table: Name, Project, Value, Reason (if known)]
+
+Key takeaways:
+- [Pattern if any — e.g., "2 of 3 were budget-related"]
+- [Recommendation if any — e.g., "Worth revisiting the Berwick Gardens quote in 3 months"]
+
+No action needed from you — just keeping you informed.
+
+Kind regards,
+Atlas
+```
+
+### Example format
+
+| Contact | Project | Value | Outcome |
+|---|---|---|---|
+| Andres Sillet | 8 Bay Drive, Russell Island | $33,008 | Lost — awaiting reason |
+| [Name] | [Project] | [Value] | Lost — budget |
+
+---
+
+## Exceptions
+
+Notify Tas immediately (outside weekly cycle) if:
+- Customer provides specific feedback about Tas or QPaint's work quality
+- Customer mentions a competitor by name with useful intelligence
+- Loss is a previous repeat client
+- Pattern suggests a systemic issue that needs immediate attention
+
+---
+
+## Relationship to Four Outcomes
+
+This process feeds directly into **Business Intelligence Discovered**. Every loss contains information. The weekly consolidation turns individual data points into patterns.

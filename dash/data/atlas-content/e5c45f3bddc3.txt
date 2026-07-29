@@ -1,0 +1,58 @@
+# Decision: Loss Intelligence Framework — Structured Reporting Over Individual Notifications
+
+| Field | Value |
+|---|---|
+| **Decision** | Refine the Loss Intelligence protocol. Replace per-loss notifications with a three-tier reporting architecture: Critical Alerts (immediate), Weekly Loss Intelligence Report (COB Friday), Monthly Client Insight Report (end of month). "Data points are information. Consistent data points are intelligence." |
+| **Problem** | The previous protocol (weekly-loss-consolidation.md) was client-specific and reactive — it still defaulted to notifying clients about individual losses in a weekly batch. James's refined standard is that Atlas should reduce noise, not create it. Individual losses should not interrupt James or the client unless they meet Critical Alert criteria. The purpose is to deliver intelligence (patterns, trends, actionable insights), not notifications (individual events). |
+| **Why** | A single lost quote due to price is not a Critical Alert. One data point is information. Several consistent data points become intelligence. The goal is to help clients make better business decisions through trends, evidence, and actionable insights rather than reacting to isolated events. |
+| **Date** | 2026-07-29 |
+| **Status** | Made |
+| **Type** | Operational Decision |
+| **Review Date** | 2026-08-29 |
+| **Builds On** | `2026-07-28-atlas-communication-layer` — the four-outcome measurement framework. Updates `knowledge/weekly-loss-consolidation.md` — superseded by the broader framework. |
+
+## The Decision
+
+### Three-Tier Architecture
+
+**Tier 1: Critical Alerts (Immediate)**
+Only for genuinely significant events: emerging pattern (3+ same issue), systemic problem, major complaint, high-value relationship at risk, immediate action required.
+
+**Tier 2: Weekly Loss Intelligence Report (COB Friday)**
+Totals, loss by category, emerging trends, high-value losses, strategic relationships, recommendations.
+
+**Tier 3: Monthly Client Insight Report (End of Month)**
+Per-client: volume metrics, conversion rate, value metrics, loss analysis, customer feedback, month-over-month trends, strategic recommendations.
+
+### Core Principle
+
+Do not notify James or the client separately for every lost opportunity. The purpose of Atlas is to reduce noise, not create it. All lost opportunities are captured, analysed, and presented through structured reporting.
+
+## Expected Outcomes
+
+1. James and clients receive intelligence (patterns), not noise (individual events)
+2. Critical Alerts are genuinely critical — high signal, rare
+3. Weekly reports surface trends before they become systemic
+4. Monthly reports give clients actionable insights about their quoting and pricing
+5. Atlas's role shifts from notifier to analyst
+
+## Success Criteria
+
+- Zero individual loss notifications to James unless Critical Alert criteria met
+- Weekly Loss Intelligence Report delivered every Friday COB
+- Monthly Client Insight Report delivered by end of first week of new month
+- At least one actionable recommendation per monthly report
+
+## Implementation
+
+1. Create `knowledge/loss-intelligence-framework.md` — full framework with decision tree
+2. Update email-draft skill loss handling section to reference new framework
+3. `knowledge/weekly-loss-consolidation.md` — preserved for historical reference, superseded by new framework
+4. Schedule Weekly Loss Intelligence Report cron job (Friday COB)
+5. Monthly Client Insight Report to be run manually until process is proven
+
+## Cross-References
+
+- Updates: Loss handling in email-draft skill, recovery reply protocol
+- Supersedes: `knowledge/weekly-loss-consolidation.md` (historical reference only)
+- Aligns with: CEO Standard (reduce noise), Strategic Compass (build world-class), Atlas Mandate (client experience)

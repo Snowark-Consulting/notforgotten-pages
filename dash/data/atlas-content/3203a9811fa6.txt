@@ -1,0 +1,115 @@
+# QPaint Email 2 — Value & Discovery Templates
+
+**Batch:** Aug 2, 2026 (Day +5 from Email 1)
+**Recipients:** 7 calibration contacts who did not reply to Email 1
+**Template source:** `knowledge/qpaint-recovery-sequence.md` — Email 2 canon
+**Purpose:** Continue the conversation. Understand their current position. Do not pressure for a decision.
+
+---
+
+## Template — Residential (Standard)
+
+For: Andres Sillet, Carlie Gunn, Vivien Lennan, Roxanne Goode, Steven Fragiacomo, Helen Bradshaw
+
+```
+Hi [Name],
+
+I hope you've had a good week.
+
+I wanted to check in and see whether you've had a chance to look over the quote Tas prepared for [project]. I know these decisions can take time, and there's no rush at all — I just wanted to make sure you have everything you need.
+
+If any questions have come up while you've been reviewing it, I'm happy to talk them through. And if you need Tas to clarify anything directly, I can arrange that.
+
+Wherever you're up to in the process, it'd be great to hear from you.
+
+Kind regards,
+
+Atlas
+Customer Success
+QPaint
+```
+
+---
+
+## Template — Fresh Quotes (Higher Urgency)
+
+For: Leisa Rhule (0-14d, $12K, External), Natasha Diveni (0-14d, $8.5K, Part External)
+
+```
+Hi [Name],
+
+I hope your week's going well.
+
+I wanted to touch base and see whether you've had a moment to look through the quote Tas put together for [project]. It's still early days, and there's no rush — I just wanted to make sure everything made sense and see if anything needed clarifying.
+
+I'm here to help with any questions about the scope, the process, or the timing. And if you'd prefer to speak with Tas directly about the details, I can make that happen.
+
+Let me know how you're tracking when you have a moment.
+
+Kind regards,
+
+Atlas
+Customer Success
+QPaint
+```
+
+---
+
+## Template — Corporate/Business
+
+For: Emma Huskisson (Yule Strata, $15K, External, 90+d stale), Luke Carney (All Energy Co, $7.6K, Internal)
+
+```
+Hi [Name],
+
+I hope the week's treated you well.
+
+I wanted to follow up on the quote Tas prepared for [project]. I know decisions that involve strata/business stakeholders can take a bit more time to work through, and there's no pressure at all — I just wanted to check whether you had everything you needed from our end.
+
+If there's anything specific that would help move things forward on your side — additional documentation, a call with Tas, or clarification on any part of the quote — I'm happy to organise it.
+
+Wherever things stand, I'd appreciate hearing from you when you get a chance.
+
+Kind regards,
+
+Atlas
+Customer Success
+QPaint
+```
+
+---
+
+## Personalisation Fields (per recipient)
+
+| Contact | Deal | Project Reference | Variant |
+|---|---|---|---|
+| Andres Sillet | 42628 — 8 Bay Drive, Russell Island | "8 Bay Drive, Russell Island" | Residential Standard |
+| Emma Huskisson | 42346 — 19 Childs Street, Clayfield | "19 Childs Street, Clayfield" | Corporate |
+| Leisa Rhule | 42784 — 6 Echuca Court, Warana | "6 Echuca Court, Warana" | Fresh Quote |
+| Carlie Gunn | 42762 — 4 Tudar Place, Thornlands | "4 Tudar Place, Thornlands" | Residential Standard |
+| Vivien Lennan | 42738 — 26/10 Grand Parade, Parrearra | "26/10 Grand Parade, Parrearra" | Residential Standard |
+| Roxanne Goode | 42825 — 62 Hall Street, Sherwood | "62 Hall Street, Sherwood" | Residential Standard |
+| Steven Fragiacomo | 42637 — 116 Highbury Drive, Redbank Plains | "116 Highbury Drive, Redbank Plains" | Residential Standard |
+| Natasha Diveni | 42960 — 1 Barton Parade, Balmoral | "1 Barton Parade, Balmoral" | Fresh Quote |
+| Luke Carney | 42923 — 262 Bowhill Road, Willawong | "262 Bowhill Road, Willawong" | Corporate |
+| Helen Bradshaw | 42754 — 14 Tharra Street, Coolum Beach | "14 Tharra Street, Coolum Beach" | Residential Standard |
+
+Note: 10 Email 1 records found. Nicholas Zappacosta excluded (replied). The remaining 10 include some non-calibration records — send Email 2 only to those marked Calibration Active or with Action Reason containing "Calibration".
+
+---
+
+## Send Instructions
+
+1. Filter recipients: `Customer Segment` = "Calibration Active" OR `Action Reason` contains "Calibration"
+2. Apply correct template variant per recipient
+3. Schedule send for Aug 2, 2026 (morning ACST)
+4. Update Airtable: `Current Stage` → "Email 2", `Next Touchpoint Date` → "2026-08-09"
+5. Send via `send-outreach.py` with `--campaign qpaint-calibration-email2`
+
+## Voice Review (Pre-Send)
+
+- No "just checking in" or "touching base" openers ✓
+- No pressure language ✓
+- Invites conversation, not a decision ✓
+- Atlas as Client Care, not sales ✓
+- Coffee test: "Would an exceptional Client Care Manager write this?" ✓

@@ -235,6 +235,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_campaign_intelligence_report_july_2026",
+      "label": "Campaign Intelligence Report July 2026",
+      "file_type": "doc",
+      "source_file": "knowledge/campaign-intelligence-report-july-2026.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "82385a7fbd17",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_campaign_review_template",
       "label": "Campaign Review Template",
       "file_type": "doc",
@@ -264,6 +275,17 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "0d1cede58b19",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_client_identity_verification_gate",
+      "label": "Client Identity Verification Gate",
+      "file_type": "doc",
+      "source_file": "knowledge/client-identity-verification-gate.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "57e0fd674cc9",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -598,6 +620,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_loss_intelligence_framework",
+      "label": "Loss Intelligence Framework",
+      "file_type": "doc",
+      "source_file": "knowledge/loss-intelligence-framework.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "7e86eedcb438",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_monthly_recovery_intelligence_report",
       "label": "Monthly Recovery Intelligence Report",
       "file_type": "doc",
@@ -605,6 +638,28 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "60de02e5e8e1",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_operational_investigation_standard",
+      "label": "Operational Investigation Standard",
+      "file_type": "doc",
+      "source_file": "knowledge/operational-investigation-standard.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "e08f3d290a77",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_operational_learning_register",
+      "label": "Operational Learning Register",
+      "file_type": "doc",
+      "source_file": "knowledge/operational-learning-register.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "d5cbab0e4f6a",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -697,6 +752,28 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_recovery_operations_playbook",
+      "label": "Recovery Operations Playbook",
+      "file_type": "doc",
+      "source_file": "knowledge/recovery-operations-playbook.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "cf1b4633a535",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_relationship_continuation_protocol",
+      "label": "Relationship Continuation Protocol",
+      "file_type": "doc",
+      "source_file": "knowledge/relationship-continuation-protocol.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "b30f024d5e95",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_research_star_painters_adelaide_conversion",
       "label": "Star Painters Adelaide Conversion",
       "file_type": "doc",
@@ -737,6 +814,17 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "ee36d6303aff",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_sender_identity_policy",
+      "label": "Sender Identity Policy",
+      "file_type": "doc",
+      "source_file": "knowledge/sender-identity-policy.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "99be283d9b84",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -1517,6 +1605,62 @@
     {
       "source": "agent_registry",
       "target": "knowledge_monthly_recovery_intelligence_report",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_sender_identity_policy",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_client_identity_verification_gate",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_loss_intelligence_framework",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_relationship_continuation_protocol",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_campaign_intelligence_report_july_2026",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_operational_investigation_standard",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_operational_learning_register",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_recovery_operations_playbook",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

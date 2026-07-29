@@ -1,0 +1,71 @@
+# Operational Learning Register
+
+**Established:** 2026-07-29
+**Purpose:** Permanent institutional knowledge. Every operational failure recorded, analysed, and converted into system-wide improvement. Months from now, every entry should show a platform stronger than before.
+
+---
+
+## Entry #1 — White-Label Signature Leak
+
+| Field | |
+|---|---|
+| **Date** | 2026-07-28 (detected 2026-07-29) |
+| **Severity** | High — breached client trust promise |
+| **What happened** | 30 QPaint emails sent with Not Forgotten branding (logo, tagline, website) beneath the white-label QPaint signature. Initial investigation underreported as 20 due to `maxResults=20` pagination cap (see Entry #2). |
+| **Root cause** | Send path auto-appended the Gmail account's default signature. No pre-send verification gate existed for client identity and branding. |
+| **Immediate impact** | 20 QPaint customers saw NF branding in what was supposed to be a pure QPaint email. White-label separation broken for entire calibration batch. No customer confusion reported — all replies treated emails as QPaint communication. |
+| **Permanent system improvement** | Client Identity Verification Gate — 9-point hard stop before any client outbound. Sequenced after Voice Review + Technical Verification. White-label default for all clients. |
+| **Measurable control** | Every client outbound must pass all 9 verification points. Post-campaign random audit (20% sample, min 2). Any failure logged and reported to James within 24 hours. |
+| **Playbook changes** | Recovery Operations Playbook created with Client Identity Protection section. Post-Campaign Audit process established (20% sample). QPaint identity profile created. |
+| **Verification** | All QPaint replies since detection sent via raw MIME — zero NF branding. Send protocol documented at `knowledge/qpaint-white-label-send-protocol.md`. All future sends subject to the 9-point gate. |
+| **Five questions** | 1) Gmail auto-signature appended to raw sends. 2) No pre-send identity verification existed. 3) 9-point hard-stop gate eliminates this class. 4) Playbook + profiles + audit ensure every client inherits the protection. 5) Active — all sends now gated. |
+
+---
+
+## Register Index
+
+| # | Date | Issue | Severity | Improvement |
+|---|---|---|---|---|
+| 1 | 2026-07-28 | White-label signature leak (30 QPaint emails) | High | Client Identity Verification Gate |
+| 2 | 2026-07-29 | Investigation undercount (20 reported vs 30 actual) | Medium | Operational Investigation Standard |
+
+---
+
+## Entry #2 — Investigation Undercount (20 vs 30)
+
+| Field | |
+|---|---|
+| **Date** | 2026-07-29 |
+| **Severity** | Medium — reporting error, not operational impact |
+| **What happened** | Investigation of QPaint branding leak initially reported 20 affected emails. Follow-up found 30. |
+| **Root cause** | Initial Gmail API query used `maxResults=20`. Gmail returned first page of 20 results. No pagination check performed. Paginated partial result reported as complete count. |
+| **Immediate impact** | Understated scope by 33%. Same pattern at larger scale would produce proportionally larger errors. |
+| **Permanent system improvement** | Operational Investigation Standard: all discovery queries must paginate to exhaustion, all counts must carry confidence labels (Complete/Partial/Estimated), never trust a single API page as a count. |
+| **Measurable control** | Every reported number carries a confidence rating (Verified/High Confidence/Partial/Preliminary). Reports without ratings are rejected. Pagination-to-exhaustion required for all discovery queries. Confidence labels apply to all data sources: Gmail, Airtable, Pipedrive, Stripe, dashboards, future integrations. |
+| **Playbook changes** | `knowledge/operational-investigation-standard.md` created. |
+| **Verification** | Investigation standard applied — all subsequent queries paginate fully. |
+| **Five questions** | 1) `maxResults=20` capped Gmail API response. 2) No pagination check — single page trusted as complete. 3) Pagination-to-exhaustion standard eliminates this class. 4) Every future incident investigation follows the standard. 5) Active — standard live. |
+
+## Five Questions + Three Deliverables (Every Entry Must Answer)
+
+1. Why did this happen?
+2. What allowed it to happen?
+3. How do we eliminate this class of failure permanently?
+4. How do we ensure every future client benefits from what we learned?
+5. Is the improvement verified as active?
+
+**Every entry must leave three things:**
+
+| Deliverable | Definition |
+|---|---|
+| **Root cause** | Why it happened, not just what happened |
+| **Permanent improvement** | System-wide change that prevents this class of failure |
+| **Measurable control** | Proof the improvement is working — a check, audit, or gate |
+
+---
+
+## Principle
+
+> Every operational issue should leave the system stronger than it was before.
+> The objective is not to be perfect. The objective is to ensure the same mistake never happens twice.
+> Don't create client-specific patches. Create system-wide improvements.

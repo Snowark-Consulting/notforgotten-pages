@@ -1,0 +1,143 @@
+# Decision: Relationship-First CRM Philosophy
+
+| Field | Value |
+|---|---|
+| **Decision** | The CRM's organising principle shifts from "opportunity management" to "relationship storytelling." Every customer is a relationship with chapters, not a collection of disconnected quote records. The governing question for every CRM change is: "Will this make it easier to understand this customer's history six months from now?" |
+| **Problem** | An opportunity-centric CRM fragments customer relationships into disconnected records. Nicholas Zappacosta is one person with one relationship to QPaint — but an opportunity-centric view sees three separate quotes. The fragmented view hides the relationship narrative, makes it impossible to understand the customer journey at a glance, and creates work for James and clients who must reconstruct history from scattered records. |
+| **Why** | Our product is trust. Trust is built over time through consistent, intelligent relationship management. If our own CRM cannot tell the complete story of a customer relationship, we cannot credibly help clients manage theirs. The CRM is not a database of quotes — it is the institutional memory of every customer interaction. |
+| **Date** | 2026-07-29 |
+| **Status** | Made |
+| **Type** | Foundation-Level Decision |
+| **Review Date** | 2026-08-29 |
+
+## Context
+
+This decision builds on the Relationship Continuation Protocol (`2026-07-29-relationship-continuation-protocol`) but goes further. The Continuation Protocol established that new scope from existing customers should update existing records rather than create duplicates. This decision establishes *why*: because the organising principle of the CRM is the customer relationship, not the individual quote.
+
+The trigger was the Nicholas Zappacosta relationship at QPaint — three active threads (Logan Village State School, QAS Beenleigh, Port Adelaide Plaza) that are chapters in one evolving relationship with a government foreperson who keeps coming back to QPaint. Fragmenting this into three records would destroy the story.
+
+## The Decision
+
+### Mental Model: Relationship-First
+
+**Before (opportunity-centric):**
+```
+QPaint Pipeline
+├── Quote #1 — Logan Village ($145K)
+├── Quote #2 — QAS Beenleigh (TBC)
+└── Quote #3 — Port Adelaide Plaza (TBC)
+```
+
+**After (relationship-centric):**
+```
+Nicholas Zappacosta — Relationship with QPaint
+├── First contact: 2026-07-28 — Email 1 introduction
+├── Chapter 1: Logan Village State School ($145K) — engaged, awaiting confirmation
+├── Chapter 2: QAS Beenleigh (TBC) — new scope, forwarded to Tas
+├── Chapter 3: Port Adelaide Plaza (TBC) — new scope, forwarded to Tas
+└── Current status: Multi-Opportunity Active — relationship strengthening
+```
+
+### The Governing Question
+
+Before every CRM action, ask:
+
+**"Does this create a clearer picture of the customer's journey?"**
+
+- Yes → proceed
+- No → stop and reassess
+- Creates duplicates or fragments history → stop and find a better way
+
+### The Test Question
+
+Before every CRM action, ask:
+
+**"Will this make it easier for James or the client to understand this customer's history six months from now?"**
+
+- Yes → the action is correct
+- No → the action needs to change
+- Not sure → flag for review
+
+### The Relationship Timeline
+
+Every customer relationship must have a chronological timeline showing:
+
+1. First contact (date and nature)
+2. Every quote (date, value, status)
+3. Every follow-up (date, channel, purpose)
+4. Every reply (date, summary, classification)
+5. Every project (date, scope, outcome)
+6. Every variation (date, description, impact)
+7. Every meeting or phone call (date, participants, outcome)
+8. Every key decision (date, decision, rationale)
+9. Current relationship status
+10. Next recommended action
+
+**Format:** Structured entries in `Outreach Notes`, with each entry following the pattern:
+
+```
+[YYYY-MM-DD] [Event Type] — [Description]. [Outcome/Next Step].
+```
+
+**Event types:**
+- `First Contact` — Initial outreach
+- `Email Sent` — Outbound communication
+- `Reply Received` — Customer responded
+- `Quote Sent` — New quotation provided
+- `Scope Received` — New scope from customer
+- `Call` — Phone conversation
+- `Meeting` — In-person or video
+- `Decision` — Customer made a choice
+- `Status Change` — Relationship stage evolved
+- `Handoff` — Escalated to client
+- `Won` — Project awarded
+- `Lost` — Project declined
+
+### CRM Design Principles
+
+1. **One record per customer relationship** — not one per quote
+2. **Chronological narrative** — Outreach Notes tell the story in order
+3. **Structured but human** — consistent format, natural language
+4. **Glanceable** — James or client should understand the relationship in 30 seconds
+5. **Six-month test** — every entry must make sense without context six months later
+
+## Atlas's Challenge (Pre-Decision)
+
+This is not a challenge to the direction — it is the right direction. The challenge is implementation:
+
+1. **Retrospective timeline construction** — existing records have unstructured Outreach Notes. Building timelines from fragmented history requires judgment.
+2. **Airtable limitations** — Outreach Notes is a single multilineText field. A truly structured timeline would benefit from a linked Timeline Events table with typed entries. This is worth considering as we scale.
+3. **Consistency across clients** — QPaint is the first client. The relationship-first philosophy must be embedded in every future client pipeline from day one, not retrofitted.
+
+James's response: The philosophy is correct. Start with structured Outreach Notes. Consider a Timeline Events table when the evidence supports it.
+
+## Expected Outcomes
+
+1. Every customer relationship tells a complete, chronological story
+2. James or Tas can understand any customer's history in 30 seconds
+3. No duplicate records fragment customer relationships
+4. The CRM becomes the institutional memory of every customer interaction
+5. The six-month test is passed by every CRM entry
+
+## Success Criteria
+
+- Every pipeline record has a structured, chronological Outreach Notes field
+- Timeline entries use consistent event type markers
+- Nicholas Zappacosta's record serves as the reference example
+- The six-month test: pick any record, read Outreach Notes, understand the relationship in 30 seconds
+- Future client pipelines adopt this philosophy from day one
+
+## Implementation
+
+1. Update `SOUL.md` with Relationship-First as a permanent philosophical directive
+2. Create `knowledge/relationship-timeline-standard.md` — the format standard for all future Outreach Notes entries
+3. Update Nicholas Zappacosta's record as the reference example
+4. Update `recovery-operations` skill philosophy to embed relationship-first thinking
+5. Update the Outreach Notes format in all reply handling protocols
+
+## Cross-References
+
+- `2026-07-29-relationship-continuation-protocol` — establishes the deduplication mechanism; this decision establishes *why* it exists
+- `2026-07-28-atlas-communication-layer` — Atlas as relationship manager, not follow-up engine
+- `2026-07-28-inclusion-principle` — every customer deserves their relationship to be documented
+- Founding Decision `founding-atlas-multiplier-not-replacement` — the CRM is Atlas's institutional memory; relationships outlast any single interaction

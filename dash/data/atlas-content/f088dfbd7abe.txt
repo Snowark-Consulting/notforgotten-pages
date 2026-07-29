@@ -1,0 +1,91 @@
+# Client Transition — Standard Operating Procedure
+
+> **Established:** 2026-07-29 | **Governed by:** `2026-07-29-dual-identity-communication-policy.md`
+> **Trigger:** A prospect becomes a paying Not Forgotten client
+> **Sender identity:** james@notforgotten.com.au (Gmail Signature Rule applies — no sign-off)
+
+## Purpose
+
+When a prospect converts to a paying client, the relationship transitions from Atlas-led to James-led. This SOP ensures every transition is intentional, seamless, and personal — the client should feel the upgrade, not a handoff.
+
+## Trigger Conditions
+
+This SOP activates when ALL of the following are true:
+- A record exists in the Airtable `Clients` table
+- `Subscription status` is `Active`, `Trial`, or `Paused`
+- The first email from james@ has NOT yet been sent
+
+## Step 1 — Welcome Email
+
+Draft and send a professional welcome email from `james@notforgotten.com.au`.
+
+### Template
+
+```
+Hi [Client First Name],
+
+I wanted to personally welcome you to Not Forgotten. Really glad to have you on board.
+
+From here on, I'll be your primary point of contact. If you ever need anything — questions about the platform, ideas for getting more out of it, or just a chat about how things are going — just reply to this email and I'll get back to you.
+
+Atlas will still be working behind the scenes — monitoring your quote activity, managing follow-ups, identifying opportunities, and making sure nothing slips through the cracks. But going forward, you'll hear from me directly.
+
+Looking forward to working with you.
+```
+
+### Rules
+
+- Send from `james@notforgotten.com.au`
+- **No sign-off** — Gmail auto-appends James's signature
+- Personalise with the client's first name
+- Reference the specific value Atlas provides behind the scenes
+- Feel like one business owner writing to another
+- Use James's voice — direct, warm, no bullshit
+- The coffee test: "Would this sound natural if James said it to a business owner over a coffee?"
+
+## Step 2 — CRM Update
+
+Update the Airtable `Clients` record:
+
+| Field | Value |
+|---|---|
+| `Onboarding status` | `In progress` |
+| `Onboarding notes` | Append: `[Date] Client Relationship Transition — welcome email sent from james@. Atlas continues behind the scenes.` |
+| `Last check-in date` | Today's date |
+
+## Step 3 — Timeline Event
+
+Record a "Client Relationship Transition" event. If a Relationship Timeline exists for this client (per the Relationship Timeline Standard), append:
+
+```
+[YYYY-MM-DD] Status Change — Client Relationship Transition. Subscription active. Welcome email sent from james@. James now primary contact. Atlas continues behind the scenes (monitoring, follow-ups, opportunity identification).
+```
+
+If the client later replies or acknowledges:
+```
+[YYYY-MM-DD] Reply Received — Client acknowledged welcome email. [Summary of their response].
+```
+
+## Step 4 — Ongoing
+
+From this point forward:
+- All NF communications to this client come from `james@notforgotten.com.au`
+- Atlas drafts, sends, and manages — James is the visible identity
+- Gmail Signature Rule applies to every james@ send
+- The client's `Clients` record is the source of truth for relationship state
+
+## Verification Checklist
+
+Before considering the transition complete:
+- [ ] Welcome email sent from james@
+- [ ] No sign-off added to the welcome email
+- [ ] Clients record updated (Onboarding status, notes, check-in date)
+- [ ] Timeline event recorded
+- [ ] Future communications will use james@
+
+## Related
+
+- `knowledge/sender-identity-policy.md` — full Dual-Identity Communication Policy
+- `knowledge/relationship-timeline-standard.md` — structured timeline entry format
+- `2026-07-29-dual-identity-communication-policy.md` — governing decision
+- SOUL Directive #16 — Two sender identities, one system

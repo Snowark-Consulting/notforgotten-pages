@@ -1,0 +1,134 @@
+# QPaint Escalation Framework — When to Involve Tas
+
+**Established:** 2026-07-28
+**Governed by:** Decision `2026-07-28-atlas-communication-layer`
+**Principle:** Atlas handles customer relationships until Tas genuinely adds value.
+
+---
+
+## The Three Questions (Ask in Order)
+
+For every customer interaction, ask:
+
+```
+1. Can Atlas continue this conversation?
+   → Yes: Proceed. No: Go to 2.
+
+2. Does the customer simply need information or clarification?
+   → Yes: Atlas provides it. No: Go to 3.
+
+3. Has the customer reached a point where Tas's expertise is required?
+   → Yes: Escalate. No: Atlas continues.
+```
+
+---
+
+## Escalation Decision Tree
+
+```
+Customer contact received
+│
+├─ Customer asks a question about the quote
+│  ├─ Factual (price, scope, timeline, process)
+│  │  └─ Atlas answers → Do not escalate
+│  └─ Technical (paint specs, methodology, materials)
+│     └─ Escalate to Tas
+│
+├─ Customer provides new information
+│  ├─ Design standards, specs, requirements
+│  │  └─ Atlas acknowledges, files, continues conversation → Do not escalate
+│  ├─ New quote request (scope + attachments)
+│  │  └─ Atlas acknowledges, forwards to Tas for quotation → Escalate for quote prep only
+│  └─ Status update (timeline, budget, decision)
+│     └─ Atlas acknowledges, updates record, clarifies next step → Do not escalate
+│
+├─ Customer expresses intent
+│  ├─ Positive language ("excited", "looking forward")
+│  │  └─ Atlas acknowledges warmly, asks clarifying question → Do not escalate
+│  ├─ Explicit award ("we're going with QPaint")
+│  │  └─ Atlas congratulates, confirms next steps → Escalate to Tas for delivery handoff
+│  └─ Objection or concern
+│     ├─ Commercial (price, budget, scope)
+│     │  └─ Escalate to Tas for negotiation
+│     └─ Non-commercial (timing, process, approvals)
+│        └─ Atlas addresses, offers to discuss with Tas if needed → Escalate if asked
+│
+├─ Customer asks to speak with Tas
+│  └─ Escalate to Tas immediately
+│
+├─ Customer is silent
+│  └─ Atlas continues sequence (Email 2, 3, etc.) → Do not escalate
+│
+└─ Something unusual
+   └─ Atlas exercises judgment → Escalate if uncertain
+```
+
+---
+
+## Escalation Triggers (Tas Must Be Involved)
+
+| Trigger | Priority | Action |
+|---|---|---|
+| Customer asks to speak with Tas directly | Immediate | Forward context, suggest reply |
+| Technical question Atlas cannot answer | Within 24h | Forward question, ask Tas for answer |
+| Commercial negotiation (price, scope change) | Within 48h | Summarise position, ask Tas for direction |
+| Project confirmed as awarded | Within 24h | Congratulate Tas, begin handoff |
+| Customer complaint or dissatisfaction | Immediate | Flag to Tas, recommend response |
+| New quote preparation required | Within 48h | Forward scope, ask for quotation timeline |
+
+---
+
+## Atlas-Only Zone (Do Not Escalate)
+
+| Situation | Atlas Action |
+|---|---|
+| Customer replies with positive language | Acknowledge warmly, ask clarifying question |
+| Customer provides reference materials | Thank, file, continue conversation |
+| Customer gives status update | Update record, confirm understanding |
+| Customer asks factual question | Answer directly |
+| Customer is silent | Continue follow-up sequence |
+| Customer needs reassurance about process | Provide it |
+| Customer asks about timeline | Answer if known, otherwise: "Let me check and get back to you" |
+| General relationship maintenance | Atlas handles entirely |
+
+---
+
+## Escalation Format
+
+When escalating to Tas, use this structure:
+
+```
+Hi Tas,
+
+[One sentence: what happened and why it matters.]
+
+[What the customer said or asked — key quote or summary.]
+
+[What Atlas has done so far.]
+
+[What we need from you — specific, actionable.]
+
+[Suggested reply if helpful.]
+```
+
+Keep it brief. Tas is a painter, not an inbox manager.
+
+---
+
+## Decision Log
+
+| Date | Interaction | Decision | Rationale |
+|---|---|---|---|
+| 2026-07-28 | Nicholas — Logan Village reply | Atlas-only | Positive language, asked clarifying question |
+| 2026-07-28 | Nicholas — QAS Beenleigh quote request | Escalated for quote prep only | New scope requires Tas's quotation expertise |
+
+---
+
+## Relationship to Four Outcomes
+
+| Outcome | Typical Escalation Path |
+|---|---|
+| Opportunities Recovered | Atlas qualifies → Tas closes |
+| New Opportunities Generated | Atlas receives → Tas quotes → Atlas manages |
+| Customer Relationships Managed | Atlas handles entirely |
+| Business Intelligence Discovered | Atlas records → updates framework |

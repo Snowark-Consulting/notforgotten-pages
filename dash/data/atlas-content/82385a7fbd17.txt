@@ -1,0 +1,128 @@
+---
+doc_type: intelligence-report
+campaigns: ["Context vs Curiosity Experiment — Jul 2026", "Painter Distribution Validation , Jul 2026", "Wave 1 — July 2026", "Calibration July 2026"]
+period: 2026-07-13 to 2026-08-28
+status: active
+created: 2026-07-29
+review_date: 2026-08-28
+---
+
+# Campaign Intelligence Report — July 2026 Painter Campaigns
+
+## Purpose
+
+This report exists to answer one question: **what did we learn, and how does the next campaign improve?**
+
+Every reply, every silence, every conversion, and every objection is evidence. The goal is not to prove the campaign was right — it is to extract every possible lesson before the next campaign launches.
+
+## Campaigns Under Review
+
+| Campaign | Prospects | Started | Status |
+|---|---|---|---|
+| Context vs Curiosity Experiment — Jul 2026 | 19 | 2026-07-14 | Complete |
+| Painter Distribution Validation , Jul 2026 | 20 | 2026-07-13 | Complete |
+| Wave 1 — July 2026 | 15 | 2026-07-05 | Complete |
+| Wave 1 July 2026 | 4 | 2026-07-05 | Complete |
+| Calibration July 2026 | 2 | 2026-07-02 | Complete |
+| **Total** | **60** | | |
+
+*Note: Internal Test (1) excluded. OMG and Kleena Cleaners (Calibration, non-painter) included for completeness.*
+
+---
+
+## Baseline Snapshot (2026-07-29)
+
+### Conversion Summary
+
+| Metric | Value |
+|---|---|
+| Total prospects | 60 |
+| Delivered (excl. bounces) | 56 |
+| Hard bounces | 2 (Painters Adelaide, Warren's Painting Service) |
+| Unsubscribes | 1 (Distinct Painters) |
+| Email 1 sent | ~60 |
+| Email 2 sent | ~58 |
+| Email 3 sent | ~57 |
+| Email 4 sent | 60 |
+| **Conversions** | **2** |
+| Conversion rate (of delivered) | 3.6% |
+| Conversion rate (of total) | 3.3% |
+
+### Conversions Detail
+
+| Prospect | Campaign | Converted At | Date | Notes |
+|---|---|---|---|---|
+| Tas Moulis (QPaint) | PDV | Email 3 (Travis) | 2026-07-22 | Now paying client. QPaint recovery launched Jul 28. |
+| Star Painters Adelaide | CVC | Email 3 (Travis) | 2026-07-23 | Now paying client. |
+
+### Reply Timeline
+
+| Touchpoint | Emails Sent | Meaningful Replies | Conversions |
+|---|---|---|---|
+| Email 1 (curiosity/industry obs) | ~60 | 0 | 0 |
+| Email 2 (process questions) | ~58 | 0 | 0 |
+| **Email 3 (Travis case study)** | **~57** | **2** | **2 (both converted)** |
+| Email 4 (breakup) | 60 | TBD | TBD |
+
+### Key Finding (Already Evident)
+
+**The Travis case study is the only touchpoint that has ever generated a reply or conversion.** Across approximately 175 emails sent over Email 1-2, zero prospects replied. At Email 3 (Travis), two replied and both converted. The sequence structure — curiosity → process → proof → breakup — produced conversions only at proof. Email 1-2 generated zero measurable engagement.
+
+This finding will be tested against any late replies during the 30-day monitoring period, but the evidence is already strong enough to inform the next campaign's design.
+
+---
+
+## Monitoring Dimensions
+
+Over the 30-day monitoring period (Jul 29 — Aug 28), Atlas will track:
+
+### Quantitative
+- [ ] Reply rate (overall and per touchpoint)
+- [ ] Positive replies (T3+)
+- [ ] Negative replies (T1-T2)
+- [ ] Unsubscribes
+- [ ] Meetings created
+- [ ] Clients won
+- [ ] Revenue generated
+- [ ] Time to first reply (from Email 1)
+- [ ] Time to conversion (from first reply)
+- [ ] Email timing patterns (day of week, time of day)
+
+### Qualitative
+- [ ] Common objections
+- [ ] Common buying signals
+- [ ] Industries responding best
+- [ ] Company size patterns
+- [ ] Geographic patterns
+
+### Strategic Questions
+1. Why did businesses reply?
+2. Why didn't businesses reply?
+3. Which signals predicted success?
+4. Which assumptions were wrong?
+
+---
+
+## Daily Monitoring Log
+
+| Date | New Replies | Classification | Notes |
+|---|---|---|---|
+| 2026-07-29 | 0 | — | Monitoring started. Email 4 sent today. |
+| 2026-07-28 | 0 | — | No changes. |
+| | | | |
+
+---
+
+## Final Recommendations (due 2026-08-28)
+
+*To be populated at end of monitoring period. Ranked by expected impact.*
+
+---
+
+## Methodology
+
+- Daily Gmail scan for replies from any prospect in the 4 campaigns
+- Reply classification using Reply Quality Taxonomy (T0-T5)
+- Airtable reconciliation for every detected reply
+- Weekly summary in Monday Command Centre
+- Final report and recommendations delivered Aug 28

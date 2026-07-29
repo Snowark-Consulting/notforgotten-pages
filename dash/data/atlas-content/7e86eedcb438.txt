@@ -1,0 +1,129 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# Loss Intelligence Framework
+
+> Three-tier reporting architecture: Critical Alerts (immediate), Weekly Loss Intelligence (COB Friday), Monthly Client Insights (end of month). Data points are information. Consistent data points are intelligence.
+
+**Established:** 2026-07-29
+**Refined:** 2026-07-29 — shifted from per-client loss consolidation to structured intelligence reporting
+**Governed by:** Decision `2026-07-29-loss-intelligence-framework`
+**Principle:** Data points are information. Consistent data points are intelligence. Atlas delivers intelligence, not notifications.
+
+---
+
+## The Core Principle
+
+Do not notify James or the client separately for every lost opportunity. The purpose of Atlas is to reduce noise, not create it. All lost opportunities are captured, analysed, and presented through structured reporting that identifies patterns rather than reacting to isolated events.
+
+One data point is information. Several consistent data points become intelligence.
+
+---
+
+## Three-Tier Reporting Architecture
+
+### Tier 1: Critical Alerts (Immediate)
+
+Only interrupt the normal reporting cycle for genuinely significant events:
+
+| Alert Type | Examples |
+|---|---|
+| **Emerging pattern** | 3+ losses citing the same issue within a short period |
+| **Systemic problem** | Operational failure affecting multiple customers or quotes |
+| **Major complaint** | Client's customer raises a formal complaint or quality concern |
+| **Relationship at risk** | High-value repeat customer or strategic relationship is lost |
+| **Immediate action** | Issue requiring business action before next reporting cycle |
+
+A single lost quote due to price is not a Critical Alert.
+
+### Tier 2: Weekly Loss Intelligence Report (COB Friday)
+
+Every Friday at the close of business, prepare an internal Loss Intelligence Summary:
+
+| Section | Content |
+|---|---|
+| **Weekly totals** | Opportunities lost, total quoted value lost |
+| **Loss by category** | Price, Timing, No Response, Competitor, Scope, Other |
+| **Emerging trends** | Any recurring themes across multiple losses |
+| **High-value losses** | Any opportunities above significance threshold |
+| **Strategic relationships** | Lost contacts that should remain on radar for re-engagement |
+| **Recommendations** | Based on the week's data |
+
+The objective is to identify patterns, not individual events.
+
+### Tier 3: Monthly Client Insight Report (End of Month)
+
+For each active client, prepare a comprehensive insight report:
+
+| Section | Content |
+|---|---|
+| **Volume metrics** | Quotes received, won, lost, deferred |
+| **Conversion rate** | Won / (Won + Lost) × 100 |
+| **Value metrics** | Total quoted value, total value won |
+| **Loss analysis** | Primary reasons for lost opportunities |
+| **Customer feedback** | Recurring objections and verbatim feedback themes |
+| **Month-over-month** | Trends compared with previous month |
+| **Recommendations** | Pricing, quoting, or customer experience improvements |
+
+This report is designed to help clients make better business decisions through trends, evidence, and actionable insights.
+
+---
+
+## Operational Process
+
+### During the week — for every lost opportunity
+
+1. Reply to the customer asking for the reason (unless already received) — genuine, gracious, curious
+2. Update Airtable: Stage → Lost, Recovery Outcome → appropriate value, Primary Objection → appropriate value
+3. Log all details in Outreach Notes
+4. Do NOT notify James or the client individually
+
+### COB Friday — Weekly Loss Intelligence Report
+
+1. Query Airtable for all opportunities marked Lost this week (across all active clients)
+2. Categorise each loss by Primary Objection
+3. Check for patterns: same objection appearing 3+ times, same client with multiple losses, high-value losses
+4. Compile report in the Weekly Loss Intelligence format
+5. Deliver to James via Command Centre
+6. If patterns warrant: prepare per-client summary for client delivery
+
+### End of Month — Monthly Client Insight Report
+
+1. Gather complete monthly data per client from Airtable
+2. Calculate conversion rates, value metrics, trends
+3. Compile report per the Monthly Client Insight format
+4. Deliver to James for review before client distribution
+
+---
+
+## Critical Alert Decision Tree
+
+```
+Lost opportunity recorded
+│
+├─ 3+ losses this week citing same objection?
+│  └─ YES → Critical Alert — notify James
+│
+├─ High-value relationship lost? (strategic, repeat, or >$50K)
+│  └─ YES → Critical Alert — notify James
+│
+├─ Customer complaint about quality or conduct?
+│  └─ YES → Critical Alert — notify James + client
+│
+├─ Systemic operational issue?
+│  └─ YES → Critical Alert — notify James
+│
+└─ None of the above
+   └─ Log in Airtable. Include in Friday report. Do not interrupt.
+```
+
+---
+
+## Related
+
+- `knowledge/decisions/2026-07-29-loss-intelligence-framework.md` — governing decision
+- `knowledge/qpaint-escalation-framework.md` — client-specific escalation rules
+- SOUL.md — The Atlas Mandate, CEO Standard, Strategic Compass

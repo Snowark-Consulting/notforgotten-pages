@@ -1,0 +1,161 @@
+# Decision: Dual-Identity Communication Policy
+
+| Field | Value |
+|---|---|
+| **Decision** | Not Forgotten uses two sender identities: james@ for paying clients, atlas@ for prospects. The governing rule is: "Is this recipient already a Not Forgotten client?" Yes → James. No → Atlas. Uncertainty → flag for review. |
+| **Problem** | Without a defined sender identity policy, client communications risk coming from the wrong identity — either depersonalising the client relationship by sending from atlas@, or confusing prospects during the prospecting stage. A clear, hard rule eliminates ambiguity. |
+| **Why** | Prospects get to know Atlas. Clients build their relationship with James. Atlas continues operating behind the scenes — drafting, sending, and managing all communications — while James remains the face of Not Forgotten for the people who have chosen to work with us. |
+| **Date** | 2026-07-29 |
+| **Status** | ❌ Overturned — replaced by `2026-07-29-single-identity-james-led` |
+| **Type** | Living Decision |
+| **Review Date** | N/A — overturned |
+
+## Context
+
+Not Forgotten currently has 0 paying clients. All current communications are prospecting (atlas@). This policy is forward-looking — it embeds the identity architecture now so that the moment the first client signs, the system knows which sender to use without hesitation or ambiguity.
+
+The policy builds on Founding Decision `founding-atlas-as-primary-sender` which established atlas@ as the outreach identity. That decision was correct for prospecting. This decision extends it by adding a second identity for the post-conversion relationship.
+
+## The Decision
+
+### Two Identities, One System
+
+| Identity | Sender | Used for | Tone |
+|---|---|---|---|
+| **James Hardstaff** | james@notforgotten.com.au | Paying clients | Direct, personal, relationship-building |
+| **Atlas** | atlas@notforgotten.com.au | Prospects, cold outreach, automated sequences | Professional, helpful, Customer Success Coordinator |
+
+### The Decision Rule
+
+Before any send, ask one question:
+
+**"Is this recipient already a Not Forgotten client?"**
+
+- If **YES** → Send from `james@notforgotten.com.au`. Atlas drafts, sends, and manages behind the scenes. Client-facing identity is James.
+- If **NO** → Send from `atlas@notforgotten.com.au`. Atlas is the visible sender during prospecting.
+- If **UNCERTAIN** → Do not assume. Flag for James review.
+
+### What "Client" Means
+
+A business is a Not Forgotten client when:
+- They have an active record in the Airtable `Clients` table
+- Their `Subscription status` is `Trial`, `Active`, or `Paused`
+- OR James explicitly designates them as a client
+
+A business is NOT a client when:
+- They are a prospect in the `Prospects` table only
+- They have not yet signed up
+- They are in any pre-conversion stage (New, Outreach Active, Engaged, etc.)
+
+### Client Communications (james@)
+
+All of the following go from James's identity:
+
+- General client communication
+- Monthly reports and business reviews
+- Strategic recommendations
+- Follow-up discussions
+- Support and check-ins
+- Strategy conversations
+- Ongoing account management
+- Renewal discussions
+- Anything where the client needs to feel they have a direct relationship with the founder
+
+**Internally:** Every communication records that it was generated and managed by Atlas. The sender identity is James, but Atlas is the system behind every email.
+
+### Prospect Communications (atlas@)
+
+Continue using atlas@ for:
+
+- Cold outreach campaigns
+- Email sequences (calibration, waves)
+- Automated follow-ups
+- Initial relationship building
+- Any communication before the business becomes a paying client
+
+### Edge Cases
+
+| Scenario | Sender | Reason |
+|---|---|---|
+| Client's customer (e.g. QPaint's Nicholas) | atlas@ (white-label as QPaint) | Not an NF client — they're a client's customer. White-label rules apply. |
+| Past client who churned | james@ | They were a client. Re-engagement comes from James. |
+| Referral from existing client | atlas@ | They're a prospect until they convert |
+| Client's employee or team member | james@ | Part of the client relationship |
+| Design partner (pre-launch) | james@ | James explicitly designates them as a client relationship |
+
+### White-Label Exception
+
+When Atlas communicates on behalf of a client (recovery operations for QPaint, etc.), the sender identity rules are separate — governed by the Recovery Operations white-label standard. Those emails come from Atlas as "Customer Success at QPaint," not from James and not from atlas@ as NF. The dual-identity policy applies to NF's own business communications, not to client recovery operations.
+
+## Atlas's Challenge (Pre-Decision)
+
+None. This is a clean identity architecture. The challenge is implementation timing — embedding the policy before the first client signs, so the system is ready on day one of having paying customers. The earlier we embed this, the less we have to retrofit.
+
+## Expected Outcomes
+
+1. Every paying client receives communications from James's identity
+2. No prospect accidentally receives an email from James before conversion
+3. The decision rule ("Is this a client?") is automatic — no manual thinking required
+4. Client relationships feel personal and founder-led
+5. Atlas's role as the system behind every communication is documented internally
+
+## Success Criteria
+
+- 100% of client communications sent from james@ (measured after first client onboarded)
+- 100% of prospect communications sent from atlas@ (measured continuously)
+- Zero "uncertain" cases sent without review
+- Client feedback confirms they feel they have a direct relationship with James
+
+## Implementation
+
+1. Add to SOUL.md as Philosophical Directive #16
+2. Create `knowledge/sender-identity-policy.md` — operational reference with decision tree
+3. Update `email-draft` skill with sender identity logic and james@ no-sign-off rule
+4. Update any email-sending scripts with the decision rule
+5. Document the white-label exception explicitly
+6. Create `knowledge/client-transition.md` — Client Relationship Transition SOP
+
+## Gmail Signature Rule (2026-07-29 — Policy Enhancement)
+
+When sending from `james@notforgotten.com.au`, Atlas must NEVER add any sign-off, signature, or closing text. James's Gmail account already contains his official signature which Gmail auto-appends.
+
+**Mandatory rules for james@ sends:**
+- Draft the subject line and email body only
+- Do NOT add "Kind regards", "Regards", "Thanks", or any closing word
+- Do NOT add James's name, title, phone number, or contact details
+- Do NOT recreate, imitate, or approximate James's Gmail signature
+- Do NOT append any text, logos, branding, disclaimers, or promotional text after the body
+- The email must finish with the final sentence of the message — nothing after
+
+**Exception:** atlas@notforgotten.com.au and approved white-label identities continue to use their respective approved signatures as normal.
+
+**Why:** Gmail auto-appends the official signature on send. If Atlas adds a sign-off, the recipient sees a duplicate or mismatched signature. James's Gmail signature is the canonical version — Atlas must trust it, not recreate it.
+
+## Client Transition (2026-07-29 — Policy Enhancement)
+
+When a prospect becomes a paying Not Forgotten client, Atlas executes a formal transition:
+
+### Welcome Email
+
+Generate a professional welcome email from james@ introducing James as the primary point of contact. The email should:
+- Welcome the client to Not Forgotten
+- Introduce James as their primary contact going forward
+- Explain that Atlas continues operating behind the scenes (monitoring, follow-ups, opportunity identification)
+- Feel intentional, seamless, and personal — not automated
+- End with just the body text (no sign-off — Gmail handles the signature)
+
+### Client Relationship Transition Timeline Event
+
+Create a timeline entry in the Command Centre recording:
+- Date the client became active
+- Date of the first email sent from James
+- Confirmation that the onboarding handover was completed
+- Any acknowledgement or reply from the client
+
+This event is logged in the client's record for historical reference.
+
+## Cross-References
+
+- `founding-atlas-as-primary-sender` — established atlas@ for outreach; this decision extends it
+- `2026-07-28-atlas-communication-layer` — Atlas as relationship manager behind the scenes
+- Recovery Operations white-label standard — separate identity rules for client recovery work
