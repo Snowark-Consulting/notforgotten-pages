@@ -1,0 +1,142 @@
+# Decision: CEO Briefing — Six Operational Refinements
+
+**Slug:** `2026-07-30-ceo-briefing-refinements`
+**Date:** 2026-07-30
+**Status:** Made
+**Review Date:** 2026-08-30
+
+---
+
+## The Decision
+
+Six refinements to the CEO Briefing standard, upgrading it from an executive summary to a true Chief of Staff decision-support document:
+
+1. **Recommend, don't just present options.** When there is a clear preferred path, tell James what Atlas recommends and why. Only present multiple options when there is genuine uncertainty or the decision is based on business preference rather than evidence.
+
+2. **Add Confidence Ratings to every recommendation.** Each recommendation carries a confidence score reflecting the strength of available evidence, not optimism. Scale: High (90%+), Medium (75-89%), Low (<75%).
+
+3. **Add Delay Impact to every decision requiring approval.** Tell James what happens if he does nothing today. Three tiers: Low (timeline shifts a few days), Medium (prospects cool, response probability decreases), High (commercial opportunity or client experience at risk).
+
+4. **Add CEO Priorities section at the top of every briefing.** The three highest-value decisions or actions, ranked by business impact. Each includes: why it matters, estimated review time, business impact if completed today, and consequence of delaying.
+
+5. **Decision Standard — do the analysis before asking.** Before presenting a decision to James, Atlas must ask: "Have I already done enough analysis that I can confidently recommend one path?" If yes, recommend it. If no, explain the uncertainty. The role of a Chief of Staff is to reduce decision fatigue, not transfer it.
+
+6. **Keep the Brief executive — under five minutes.** The briefing must answer four questions: what James needs to know, what he needs to decide, what he should ignore, and what will have the biggest impact today. Supporting detail lives behind links.
+
+---
+
+## The Problem
+
+The CEO Briefing as established on 2026-07-29 was a significant improvement over the operations log — it synthesised data, surfaced decisions, and included Atlas recommendations. But James identified gaps:
+
+- Recommendations sometimes presented options rather than a clear preferred path
+- No mechanism for James to prioritise his attention across multiple decision items
+- No signal of how time-sensitive each decision was
+- No confidence calibration — James couldn't distinguish high-certainty recommendations from speculative ones
+- The briefing risked becoming comprehensive rather than concise
+
+These six refinements address all of those gaps simultaneously.
+
+---
+
+## Options Considered
+
+| # | Option | Summary |
+|---|---|---|
+| A | Full six-refinement package | Implement all six as permanent briefing standard effective immediately |
+| B | Phased rollout (3 now, 3 later) | Implement the structural changes (CEO Priorities, Decision Standard, Keep Brief) now; add the metadata fields (Confidence, Delay Impact) after a week of baseline |
+| C | Add as optional fields | Add Confidence and Delay Impact as "include when applicable" rather than mandatory |
+
+**Chose A.** All six refinements are interdependent. CEO Priorities without Confidence Ratings is weaker — James needs to know not just what matters but how certain Atlas is. Delay Impact without the Decision Standard creates a perverse incentive to inflate urgency. The refinements work as a system. Implementing them together produces a step-change in briefing quality.
+
+---
+
+## Why This Path
+
+James provided the design directly. These aren't speculative improvements — they come from the CEO's experience reading the briefings and identifying what was missing. The refinements align with the existing philosophical architecture:
+
+- **CEO Standard (2026-07-29)** — "Atlas's role is to think ahead, identify risks, reduce James's workload, and help James make better decisions." The Decision Standard and Recommendations-over-options directly operationalise this.
+- **Atlas Mandate (2026-07-29)** — "Does this strengthen James's relationship with the client? … Would James be proud to personally stand behind this communication?" Confidence Ratings ensure Atlas is honest about uncertainty.
+- **Evidence before optimisation (SOUL #11)** — Confidence Ratings are explicitly evidence-grounded, not optimism-based.
+
+No trade-offs identified. These refinements add structure without adding length — the briefing's "under five minutes" standard remains.
+
+---
+
+## Core Principles Applied
+
+- **Atlas is multiplier, not replacement** (SOUL #10) — The briefing now multiplies James's decision-making capacity by prioritising his attention
+- **Evidence before opinion** (SOUL #2) — Confidence Ratings are calibrated to evidence strength
+- **Human accountability** (SOUL #6) — Atlas advises, challenges, and implements. James owns. The Decision Standard formalises this boundary.
+- **CEO Standard** — "The highest compliment is not 'Atlas completed the task.' It is: 'I hadn't thought of that.'" The recommendations-over-options standard raises the bar.
+
+---
+
+## Risks Identified
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| Confidence Ratings become inflated (grade inflation) | Medium | Medium | Review after 30 days. Compare confidence ratings against actual outcomes. If "High" confidence recommendations fail at elevated rates, recalibrate. |
+| CEO Priorities section becomes formulaic (same three items daily) | Low | Medium | The section is context-grounded. If the same items appear daily, that's a signal the business has a bottleneck — surface it. |
+| Delay Impact creates artificial urgency | Low | Medium | Three-tier system (Low/Medium/High) with concrete descriptions. "High" requires commercial or client-experience risk — not just "I'd like a decision." |
+| Decision Standard leads to over-analysis before escalating | Low | Low | The standard asks "enough analysis to confidently recommend" — not exhaustive analysis. In doubt, escalate with uncertainty clearly explained. |
+| Briefing brevity sacrifices necessary context | Medium | Medium | "Under five minutes" applies to the core briefing. Supporting detail lives in linked dashboards, reports, and documents. The briefing tells James where to look. |
+
+---
+
+## Expected Outcome
+
+James reads the CEO Briefing in under five minutes and leaves with:
+- Clear priorities (what to do first, second, third)
+- Trust-calibrated recommendations (how confident Atlas is in each)
+- Time-sensitivity context (what happens if he delays)
+- A single recommended path per decision (not a menu)
+
+Decision fatigue decreases. The quality of James's decisions — not the quantity of Atlas's output — becomes the measure of briefing effectiveness.
+
+---
+
+## Success Criteria
+
+- [ ] James reports the CEO Priorities section consistently surfaces the right three items (by Aug 30 review)
+- [ ] No instance of Atlas presenting options where a clear recommendation should have been made (measured across 10+ briefings)
+- [ ] Confidence Ratings are accurate: "High" recommendations succeed >90% of the time, "Medium" >75%, "Low" <75%
+- [ ] James does not have to ask "what happens if I delay this?" — Delay Impact is present on every decision item
+- [ ] Briefing read time stays under five minutes (measured by James's feedback, not word count)
+- [ ] At least one briefing per week produces an "I hadn't thought of that" response from James
+
+---
+
+## Atlas's Challenge (Pre-Decision)
+
+No challenge. These refinements are a direct directive from James based on his experience reading the briefings. They strengthen every existing principle: the CEO Standard, the Atlas Mandate, the Decision Library's pattern protection, and the evidence-first approach. The refinements are additive — they don't contradict any prior decision.
+
+One watch point: Confidence Rating calibration is genuinely hard and Atlas has no prior calibration data. The first month will be a learning curve. If James disagrees with a confidence rating, Atlas should log the disagreement as a calibration data point and adjust future ratings. The 30-day review should include a simple accuracy table: predicted confidence vs actual outcome.
+
+---
+
+## Actual Outcome (Post-Review)
+
+**Date reviewed:** [Pending — 2026-08-30]
+
+**What actually happened:** [TBD]
+
+**Verdict:** [TBD]
+
+**Delta from expected:** [TBD]
+
+---
+
+## Learnings
+
+[TBD — populated at review]
+
+---
+
+## Related Decisions
+
+- `2026-07-08-morning-briefing-ceo-format` — The original shift from operations log to CEO briefing
+- `2026-07-13-diagnose-before-change-ceo-briefing-scope` — Delegated execution, strategic-only briefing items
+- `2026-07-29-ceo-standard` — The CEO Standard: five post-task questions, proactive recommendation
+- `2026-07-29-atlas-elevates-every-interaction` — The Atlas Mandate and four-question pre-task gate
+- `founding-atlas-multiplier-not-replacement` — Atlas as multiplier, not replacement

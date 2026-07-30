@@ -95,6 +95,7 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 - [[Writing Playbook]] (knowledge/writing-playbook.md) — living document: mission, values, methodology, patterns. All Atlas writing governed by this. Stage 1 locked per [[Stage 1 Decision]] (knowledge/decisions/2026-07-24-stage-1-approved-learning-phase.md).
 - [[Painter Standard Follow-Up]] (knowledge/follow-up-sequences/painter-standard.md) — Customer Journey Stage 1 template v8.0. White-label, demonstrate-don't-describe.
 - [[Quotes Inbox SOP]] (knowledge/sop-quotes-inbox.md) — 7-step pipeline: extract → cross-reference → create record → send follow-up (white-label sig) → track. End-to-end verified.
+- [[Quote Intake Multi-Signal Detection]] (knowledge/quote-intake-multi-signal.md) — 6-layer detection framework for third-party quoting platforms (PandaDoc, Proposify, DocuSign, etc.). Triggered by QPaint PandaDoc #43016 going undetected.
 - [[Security Audit 2026-07-25]] (knowledge/security-audit-2026-07-25.md) — Full-platform security, privacy, and trust audit. Scores: 41/100, 35/100, 38/100. Six critical findings. 30-day remediation plan.
 - [[Privacy Policy v1.0]] (knowledge/legal/privacy-policy-v1.0.md) — Full APP-compliant privacy policy. Four data subject categories. Publication pending 7 blockers.
 - [[Compliance Checklist]] (knowledge/legal/compliance-checklist.md) — Pre-implementation checklist for new features. Four sections: Data Collection, Storage, AI Processing, Tracking.
@@ -149,7 +150,7 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 - [[Operational Investigation Standard]] (knowledge/operational-investigation-standard.md) — Never report a number unless verified complete. Permanent operating principle.
 - [[Operational Learning Register]] (knowledge/operational-learning-register.md) — Permanent institutional knowledge. Every operational failure recorded and converted to system improvement.
 - [[Recovery Operations Playbook]] (knowledge/recovery-operations-playbook.md) — Standard operating framework for all client recovery operations. Inherited by every new client.
-- [[CEO Brief]] (pages/ceo-brief/) — 11-section canonical daily executive report. Published to GitHub Pages. Archival with full-text search. Established 2026-07-29.
+- [[CEO Brief]] (pages/ceo-brief/) — 13-section canonical daily executive report. Published to GitHub Pages. Archived with full-text search. Confidence Ratings, Delay Impact, CEO Priorities. Established 2026-07-29, refined 2026-07-30.
 
 ## Email Intelligence
 - `skills/email/email-intelligence-mining/SKILL.md` — historical deep-dive mining of Gmail mailboxes for patterns, contacts, objections, pricing, pipeline data. Not for real-time monitoring.

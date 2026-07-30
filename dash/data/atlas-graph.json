@@ -286,7 +286,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "57e0fd674cc9",
-      "val": 6.0,
+      "val": 8.0,
       "color": "#a78bfa"
     },
     {
@@ -741,6 +741,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_quote_intake_multi_signal",
+      "label": "Quote Intake Multi Signal",
+      "file_type": "doc",
+      "source_file": "knowledge/quote-intake-multi-signal.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "add29dcef974",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_recovery_email_template",
       "label": "Recovery Email Template",
       "file_type": "doc",
@@ -902,7 +913,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "abd9c93da5d1",
-      "val": 6.0,
+      "val": 8.0,
       "color": "#a78bfa"
     },
     {
@@ -913,7 +924,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "1eea2da89066",
-      "val": 16.0,
+      "val": 18.0,
       "color": "#a78bfa"
     },
     {
@@ -1402,6 +1413,13 @@
     {
       "source": "agent_registry",
       "target": "knowledge_sop_quotes_inbox",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_quote_intake_multi_signal",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
@@ -2046,6 +2064,27 @@
     {
       "source": "knowledge_qpaint_new_opportunity_qas_beenleigh_2026_07_28",
       "target": "knowledge_intelligence_summaries_2026_07_28",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_quote_intake_multi_signal",
+      "target": "knowledge_sop_quotes_inbox",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_quote_intake_multi_signal",
+      "target": "knowledge_systems",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_quote_intake_multi_signal",
+      "target": "knowledge_client_identity_verification_gate",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

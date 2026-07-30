@@ -1,0 +1,143 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# Quote Intake: Third-Party Platform Detection
+
+> Six-layer detection framework for third-party quoting platforms. Triggered by QPaint PandaDoc #43016 going undetected — sender was PandaDoc, not QPaint.
+
+---
+
+## The Gap
+
+The current quote intake pipeline (`scripts/quote-intake.py`, lines 451-453) identifies the client by matching the sender's email address against Airtable Prospects and Clients tables:
+
+```python
+prospect_id, prospect_fields = find_in_airtable(sender_email, PROSPECTS_TABLE)
+client_id, client_fields = find_in_airtable(sender_email, CLIENTS_TABLE)
+```
+
+This fails when quotes are sent through third-party platforms:
+
+| Platform | Typical Sender | Client Email Not Present |
+|---|---|---|
+| PandaDoc | notifications@pandadoc.com | ✓ |
+| Proposify | notifications@proposify.com | ✓ |
+| DocuSign | dse@docusign.net | ✓ |
+| Quotient | quotes@quotientapp.com | ✓ |
+| QuoteWerks | quotes@quotewerks.com | ✓ |
+| Xero | messaging@xero.com | ✓ |
+| ServiceM8 | quotes@servicem8.com | ✓ |
+
+---
+
+## The Solution: Multi-Signal Detection
+
+Replace the single-signal sender-email match with a layered detection approach:
+
+### Layer 1: Direct sender match (existing — keep)
+Match sender_email against Prospects.Email and Clients.Email. Fast path when the client sends directly.
+
+### Layer 2: Client forwarding detection
+Check email headers for forwarding evidence:
+- `X-Forwarded-For` containing a recognised client domain
+- `Reply-To` containing a recognised client email
+- Forwarded email body containing "From: [client email]"
+- `In-Reply-To` / `References` matching a known client thread
+
+### Layer 3: Client-specific intake addresses
+Each client gets a unique forwarding address:
+- QPaint → qpaint@notforgotten.com.au (forwards to quotes@)
+- [Future clients] → [slug]@notforgotten.com.au
+
+The intake address maps directly to the Client record. No sender matching needed.
+
+### Layer 4: Third-party platform fingerprinting
+Maintain a registry of known platforms and their signal patterns:
+
+```json
+{
+  "pandadoc": {
+    "sender_domains": ["pandadoc.com"],
+    "subject_patterns": ["Document.*completed", "Document.*sent", "via PandaDoc"],
+    "body_markers": ["pandadoc.com/document/", "Completed by", "Document ID"],
+    "quote_number_pattern": "[PandaDoc document naming convention]"
+  },
+  "proposify": {
+    "sender_domains": ["proposify.com"],
+    "subject_patterns": ["Proposal.*sent", "via Proposify"],
+    "body_markers": ["proposify.com/proposal/"]
+  }
+}
+```
+
+When a known platform is detected:
+1. Extract client-identifying signals from the email body/attachments
+2. Search for: client business name, client email, quote/proposal number prefix
+3. Cross-reference extracted signals against Clients table
+
+### Layer 5: Quote content cross-referencing
+Extract quote numbers, customer names, and property addresses from the email body or PDF. Cross-reference against:
+- Existing Quotes table (quote number prefix match)
+- QPaint Pipeline table (deal title, customer name match)
+- Client intake email field (business name in body)
+
+### Layer 6: Client-side configuration
+When onboarding a client, capture their quoting platforms:
+
+| Field | Purpose |
+|---|---|
+| `Intake email` (existing) | Client-specific forwarding address |
+| `Quoting platforms` (new — Clients table) | Multi-select: PandaDoc, Proposify, Email Direct, etc. |
+| `Platform sender addresses` (new — Clients table) | Known sender emails from those platforms |
+
+---
+
+## Implementation Priority
+
+| Phase | What | Effort |
+|---|---|---|
+| **Immediate** | Layer 3: Create qpaint@ forwarding address. Document for all future clients. | 30 min |
+| **This week** | Layer 1 + Layer 2: Add forwarding detection to quote-intake.py. Check `Reply-To` and forwarded email headers. | 2 hours |
+| **Next sprint** | Layer 4: Platform fingerprint registry. Start with PandaDoc. | 3 hours |
+| **Ongoing** | Layer 6: Capture platform data during client onboarding. | Process change |
+
+---
+
+## New Fields Required
+
+### Clients table additions
+
+| Field | Type | Purpose |
+|---|---|---|
+| `Quoting platforms` | Multiple select | PandaDoc, Proposify, DocuSign, Email Direct, Xero, Other |
+| `Platform sender addresses` | Long text | Known sender addresses from quoting platforms (one per line) |
+| `Quote number prefix` | Single line text | Prefix pattern for this client's quote numbers (e.g., "QP-", "43000 series") |
+
+### Quote intake detection registry
+
+New file: `knowledge/quoting-platforms.json` — canonical registry of known platforms, sender domains, subject patterns, and body markers. Updated as new platforms are discovered.
+
+---
+
+## Client Onboarding Checklist Addition
+
+Add to onboarding SOP:
+- [ ] Identify all quoting platforms the client uses
+- [ ] For each platform: capture sender addresses, document naming patterns, quote number formats
+- [ ] Configure platform-based detection rules
+- [ ] Set up client-specific intake forwarding address
+- [ ] Test: send a test quote through each platform, verify detection
+
+---
+
+## Related
+
+- [[Quote Intake Skill]] (skills/notforgotten/quote-intake/SKILL.md) — quote intake pipeline documentation
+- [[SOP — Quotes Inbox]] (knowledge/sop-quotes-inbox.md) — standard operating procedure
+- [[Systems]] (knowledge/systems.md) — quoting platform integration details
+- [[Client Identity Verification Gate]] (knowledge/client-identity-verification-gate.md) — white-label verification
+- `scripts/quote-intake.py` — current intake pipeline (to be updated)
+- Decision: `knowledge/decisions/2026-07-29-quote-intake-multi-signal.md`

@@ -299,9 +299,17 @@ If a process creates work without reducing risk, recommend simplifying it.
 
 All reviews stored in `knowledge/governance-reviews/`. Format: `YYYY-MM.md`. The first review (August 2026) is the baseline.
 
-## CEO Brief — Daily Executive Workspace (Established 2026-07-29)
+## CEO Brief — Daily Executive Workspace (Established 2026-07-29, Refined 2026-07-30)
 
-The CEO Brief is the canonical daily executive report for Not Forgotten Systems.
+The CEO Brief is the canonical daily executive report for Not Forgotten Systems. It is designed to be read in under five minutes. Supporting detail lives behind links, dashboards, and supporting documents.
+
+### The Four Questions
+
+Every briefing must answer these four questions:
+1. **What does James need to know?** — The state of the business, filtered for signal.
+2. **What does James need to decide?** — Only items requiring his judgment, with a recommended path.
+3. **What should James ignore?** — Things that are running fine and need no attention.
+4. **What will have the biggest impact today?** — The single highest-leverage action or decision.
 
 ### Delivery Standard
 
@@ -309,19 +317,64 @@ The CEO Brief is the canonical daily executive report for Not Forgotten Systems.
 - **Telegram:** Notification channel only. Short alert: "CEO Brief for [date] is ready. X decisions require your attention. Y customer replies. Z recommendations. View in Command Centre."
 - The Command Centre is where James reads, thinks, and makes decisions. Telegram alerts him that something needs his attention.
 
-### 11 Sections
+### 13 Sections (Revised)
 
-1. **Executive Summary** — 3-4 sentences. What matters today.
-2. **Decisions Required** — Table: decision, context, priority.
-3. **Atlas' Recommendations** — Each with: why change, evidence, expected impact, measurement plan. Recommendations only — no automatic playbook edits without James approval.
-4. **Inbox Summary** — New replies, customer activity, escalations.
-5. **Pipeline Summary** — Table: cohort, count, stage, next action, next date.
-6. **Customer Highlights** — 1-3 customers of note with context.
-7. **Business Impact** — Four-outcome metrics: Opportunities Recovered, New Opportunities Generated, Customer Relationships Managed, Business Intelligence Discovered.
-8. **System Health** — Atlas, Airtable, Dashboard, Inbox, Crons. Status indicators.
-9. **Upcoming Events** — Next 7 days, table format.
-10. **Risks & Watch List** — What could go wrong. What needs monitoring.
-11. **Actions Requiring My Decision** — Table: action, owner, deadline.
+1. **CEO Priorities** — The three highest-value decisions or actions for James today, ranked by business impact. Each includes: why it matters, estimated review time, business impact if completed today, consequence of delaying. This section prioritises James's attention — not every task deserves equal weight.
+
+2. **Executive Summary** — 3-4 sentences. What matters today. The 30-second business health read.
+
+3. **Decisions Required** — Table: decision, recommendation, confidence, delay impact, context. Every decision requiring James's approval must include a Delay Impact rating (Low/Medium/High) describing what happens if he does nothing today, and a recommended path. Multiple options are only presented when there is genuine uncertainty or the decision is based on business preference rather than evidence.
+
+4. **Atlas' Recommendations** — Each with: recommendation, confidence rating, why change, evidence, expected impact, measurement plan. Every recommendation carries a Confidence Rating reflecting evidence strength (not optimism): High (90%+), Medium (75-89%), Low (<75%). Recommendations only — no automatic playbook edits without James approval.
+
+5. **Inbox Summary** — New replies, customer activity, escalations.
+
+6. **Pipeline Summary** — Table: cohort, count, stage, next action, next date.
+
+7. **Customer Highlights** — 1-3 customers of note with context.
+
+8. **Business Impact** — Four-outcome metrics: Opportunities Recovered, New Opportunities Generated, Customer Relationships Managed, Business Intelligence Discovered.
+
+9. **System Health** — Atlas, Airtable, Dashboard, Inbox, Crons. Status indicators.
+
+10. **Upcoming Events** — Next 7 days, table format.
+
+11. **Risks & Watch List** — What could go wrong. What needs monitoring.
+
+12. **Actions Requiring My Decision** — Table: action, recommendation, confidence, delay impact, owner, deadline.
+
+13. **What to Ignore** — Things running smoothly that need no attention today. This section is as important as the others — it prevents James from spending mental energy on things that are under control.
+
+### Recommendation Standard
+
+Before presenting any decision to James, Atlas must ask: **"Have I already done enough analysis that I can confidently recommend one path?"**
+
+- If yes → present the recommendation with confidence rating and reasoning. No menu of options.
+- If no → explain the uncertainty. Present the analysis so far. Ask a specific, narrow question.
+
+The role of a Chief of Staff is to reduce decision fatigue, not transfer it to the CEO.
+
+### Confidence Ratings
+
+Every recommendation and decision item carries a confidence score:
+
+| Rating | Range | Meaning |
+|---|---|---|
+| **High** | 90%+ | Well-supported by multiple lines of evidence, verified data, or confirmed by James |
+| **Medium** | 75-89% | Reasonable inference from available data but single-source or limited sample |
+| **Low** | <75% | Speculative — best judgment with significant uncertainty. Needs more evidence |
+
+Confidence reflects evidence strength, not optimism. A recommendation can be strong ("we should do X") at Medium confidence ("but I'm 80% sure, not 95%").
+
+### Delay Impact
+
+Every decision requiring James's approval carries a Delay Impact rating:
+
+| Level | Meaning | Example |
+|---|---|---|
+| **Low** | Timeline shifts a few days. No material consequence. | Pilot moves back slightly. |
+| **Medium** | Prospects become colder. Response probability decreases. Opportunity cost accumulates. | Warm leads stall. |
+| **High** | Commercial opportunity or client experience is at immediate risk. | Revenue at risk, SLA breach, client dissatisfaction. |
 
 ### Archive
 
@@ -336,6 +389,11 @@ Every briefing is built around these:
 4. What did we learn today?
 5. What should we improve?
 6. What risks do you see before they become problems?
+
+---
+
+**Decision:** `knowledge/decisions/2026-07-30-ceo-briefing-refinements.md`
+**Prior decision:** `knowledge/decisions/2026-07-08-morning-briefing-ceo-format.md`
 
 ## Communication Voice Standard (Permanent — 2026-07-07)
 
