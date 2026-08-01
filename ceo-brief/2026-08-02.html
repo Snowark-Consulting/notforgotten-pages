@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CEO Brief — 2 August 2026 — Not Forgotten Systems</title>
+<style>
+  :root {
+    --navy: #0a1628;
+    --gold: #c8963e;
+    --light: #f8f6f2;
+    --surface: #ffffff;
+    --text: #1a1a2e;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --success: #059669;
+    --warn: #d97706;
+    --danger: #dc2626;
+    --info: #2563eb;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.7;
+  }
+  header {
+    background: var(--navy);
+    color: white;
+    padding: 2rem 2.5rem;
+    border-bottom: 3px solid var(--gold);
+  }
+  header h1 { font-size: 1.75rem; font-weight: 700; }
+  header .date { color: var(--gold); font-size: 0.95rem; margin-top: 0.25rem; }
+  header .subtitle { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 0.5rem; }
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+  .section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .section h2 {
+    font-size: 1.2rem;
+    color: var(--navy);
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .summary { font-size: 1.05rem; line-height: 1.8; }
+  table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+  th, td { padding: 0.6rem 0.8rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.92rem; }
+  th { background: var(--navy); color: white; font-weight: 600; }
+  tr:hover { background: rgba(200,150,62,0.05); }
+  .badge {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .badge-success { background: #d1fae5; color: var(--success); }
+  .badge-warn { background: #fef3c7; color: var(--warn); }
+  .badge-danger { background: #fee2e2; color: var(--danger); }
+  .badge-info { background: #dbeafe; color: var(--info); }
+  .badge-neutral { background: #f3f4f6; color: var(--muted); }
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  .metric-card {
+    background: var(--light);
+    border-radius: 6px;
+    padding: 1rem;
+    text-align: center;
+  }
+  .metric-card .value { font-size: 1.5rem; font-weight: 700; color: var(--navy); }
+  .metric-card .label { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+  .highlight { color: var(--gold); font-weight: 600; }
+  .alert {
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin: 0.5rem 0;
+    font-size: 0.92rem;
+  }
+  .alert-warn { background: #fef3c7; border-left: 4px solid var(--warn); }
+  .alert-danger { background: #fee2e2; border-left: 4px solid var(--danger); }
+  .alert-info { background: #dbeafe; border-left: 4px solid var(--info); }
+  ul { padding-left: 1.5rem; }
+  li { margin-bottom: 0.3rem; font-size: 0.92rem; }
+  footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+  .priority-badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .priority-high { background: #fee2e2; color: var(--danger); }
+  .priority-med { background: #fef3c7; color: var(--warn); }
+  .priority-low { background: #dbeafe; color: var(--info); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>CEO Brief — Sunday, 2 August 2026</h1>
+  <div class="date">Not Forgotten Systems</div>
+  <div class="subtitle">Weekend edition. Monday is busy: Governance Review, QPaint Email 2 sends, and campaign direction decisions. Today is quiet — prep day.</div>
+</header>
+
+<div class="container">
+
+<!-- 1. CEO Priorities -->
+<div class="section">
+  <h2>1. CEO Priorities</h2>
+  <p style="font-size:0.85rem; color: var(--muted); margin-bottom:0.75rem;">The three highest-value actions for James today, ranked by business impact.</p>
+
+  <table>
+    <tr>
+      <th style="width:5%">#</th>
+      <th style="width:35%">Action</th>
+      <th style="width:30%">Why It Matters</th>
+      <th style="width:15%">Time</th>
+      <th style="width:15%">Delay Impact</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td><strong>Approve next outreach campaign direction</strong></td>
+      <td>Pipeline is idle: 122 New prospects, 0 active sequences. Travis-led Email 1 for painters is the highest-evidence path. Approve today so drafting can start Monday.</td>
+      <td>~15 min</td>
+      <td><span class="priority-badge priority-med">Medium</span></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>Twilio SMS bundle — review and resubmit</strong></td>
+      <td>Rejected Jul 30. SMS capability remains blocked. QPaint SMS integration stalled. Supporting document issue per Twilio.</td>
+      <td>~15 min</td>
+      <td><span class="priority-badge priority-med">Medium</span></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>Reserve 30 min Monday for Governance Review</strong></td>
+      <td>First monthly Trust OS audit due tomorrow. Atlas will lead and present findings. James needs to review recommendations and approve changes.</td>
+      <td>0 min today (Mon)</td>
+      <td><span class="priority-badge priority-low">Low</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 2. Executive Summary -->
+<div class="section">
+  <h2>2. Executive Summary</h2>
+  <div class="summary">
+    <p>Sunday. No activity since yesterday's briefing. The inbox is clean, all outreach campaigns are complete, and systems are quiet. Monday is the inflection point: Governance Review, QPaint Email 2 sends (17 contacts, drafts ready), and the campaign direction decision. 86% of prospects are in terminal states (New or Campaign Complete). The engine is primed but idle — the next campaign decision unlocks the pipeline.</p>
+  </div>
+</div>
+
+<!-- 3. Decisions Required -->
+<div class="section">
+  <h2>3. Decisions Required</h2>
+  <table>
+    <tr>
+      <th>Decision</th>
+      <th>Recommendation</th>
+      <th>Confidence</th>
+      <th>Delay Impact</th>
+      <th>Context</th>
+    </tr>
+    <tr>
+      <td>Next outreach campaign</td>
+      <td>Travis-led Email 1 for 20-25 painters from New prospects list. Same structure confirmed yesterday.</td>
+      <td><span class="badge badge-warn">Medium (85%)</span></td>
+      <td><span class="priority-badge priority-med">Medium</span> — idle this week</td>
+      <td>July evidence: Travis at Email 3 = 2/2 conversions. 0/125 Emails 1-2 generated replies. Moving Travis to Email 1 tests whether we compress the conversion timeline from 10-14 days to 1-5 days.</td>
+    </tr>
+    <tr>
+      <td>Twilio SMS resubmission</td>
+      <td>Review rejection reason in Twilio console, fix supporting documents, resubmit.</td>
+      <td><span class="badge badge-success">High (90%+)</span></td>
+      <td><span class="priority-badge priority-med">Medium</span></td>
+      <td>Rejected Jul 30. Bundle ID: BUde46f82095d0f2220219da093246b7c4.</td>
+    </tr>
+    <tr>
+      <td>Founder re-engagement pilot</td>
+      <td>Personalised drafts due Aug 8. First sends Aug 11. Decision already approved — execution only.</td>
+      <td><span class="badge badge-success">High (90%+)</span></td>
+      <td><span class="priority-badge priority-low">Low</span></td>
+      <td>Decision 2026-07-29-founder-reengagement-strategy. 15-prospect pilot. First cohort exits 14-day window Aug 11.</td>
+    </tr>
+  </table>
+</div>
+
+<!-- 4. Atlas' Recommendations -->
+<div class="section">
+  <h2>4. Atlas' Recommendations</h2>
+
+  <table>
+    <tr>
+      <th>Recommendation</th>
+      <th>Confidence</th>
+      <th>Why</th>
+      <th>Expected Impact</th>
+    </tr>
+    <tr>
+      <td><strong>Approve Travis-led Email 1 painter campaign today</strong></td>
+      <td><span class="badge badge-warn">Medium (85%)</span></td>
+      <td>Pipeline idle since Jul 28. 102 New prospects. 131 painters total in CRM. Evidence is clear: Travis converts painters. The question is whether Email 1 Travis compresses the timeline. Only way to find out is to run it.</td>
+      <td>If approved today, I can draft the complete sequence tomorrow (Monday), run Voice Review + Technical Verification, and have Email 1 ready by Tuesday. 20-25 painter prospects. Could validate within 2 weeks.</td>
+    </tr>
+    <tr>
+      <td><strong>Fix Campaign Intel Monitor cron path</strong></td>
+      <td><span class="badge badge-success">High (95%+)</span></td>
+      <td>Script exists but cron path is doubled (<code>scripts/scripts/...</code> — Pitfall 18). 30-day post-campaign monitoring is blind. Late replies from the Jul 28 breakup wave (60 emails) won't be detected automatically.</td>
+      <td>Low-effort fix: update cron job path to absolute. Restores monitoring for delayed conversions. I can execute this without James — it's Tier 1 operational.</td>
+    </tr>
+  </table>
+</div>
+
+<!-- 5. Inbox Summary -->
+<div class="section">
+  <h2>5. Inbox Summary</h2>
+  <p><strong>Inbox is clear.</strong> Zero unread messages in atlas@notforgotten.com.au. No new prospect replies, no bounces, no customer activity since yesterday's briefing.</p>
+</div>
+
+<!-- 6. Pipeline Summary -->
+<div class="section">
+  <h2>6. Pipeline Summary</h2>
+
+  <div class="metric-grid">
+    <div class="metric-card">
+      <div class="value">200</div>
+      <div class="label">Total Prospects</div>
+    </div>
+    <div class="metric-card">
+      <div class="value">102</div>
+      <div class="label">New (Uncontacted)</div>
+    </div>
+    <div class="metric-card">
+      <div class="value">84</div>
+      <div class="label">Campaign Complete</div>
+    </div>
+    <div class="metric-card">
+      <div class="value">2</div>
+      <div class="label">Won</div>
+    </div>
+  </div>
+
+  <table style="margin-top:1rem;">
+    <tr>
+      <th>Stage</th>
+      <th>Count</th>
+      <th>Next Action</th>
+    </tr>
+    <tr><td>New</td><td>102</td><td>Awaiting campaign design decision</td></tr>
+    <tr><td>Campaign Complete</td><td>84</td><td>30-day monitoring; re-engagement eligible from Aug 11</td></tr>
+    <tr><td>Lost</td><td>7</td><td>No further action</td></tr>
+    <tr><td>Not a fit</td><td>5</td><td>No further action</td></tr>
+    <tr><td>Won</td><td>2</td><td>Tas Moulis, Star Painters Adelaide</td></tr>
+    <tr><td>Design Partner</td><td>1</td><td>QPaint — active recovery operations</td></tr>
+    <tr><td>Active</td><td>0</td><td>No sequences running</td></tr>
+  </table>
+
+  <div class="alert alert-info" style="margin-top:1rem;">
+    <strong>Pipeline idle since Jul 28</strong> — 86% of prospects in terminal states. The next campaign decision is the unlock.
+  </div>
+</div>
+
+<!-- 7. QPaint Recovery -->
+<div class="section">
+  <h2>7. QPaint Recovery Operations</h2>
+  <table>
+    <tr>
+      <th>Item</th>
+      <th>Status</th>
+      <th>Detail</th>
+    </tr>
+    <tr>
+      <td>Pipeline records</td>
+      <td><span class="badge badge-info">30 total</span></td>
+      <td>1 Lost (Andres Sillet), 5 Contacted, 24 Not Contacted</td>
+    </tr>
+    <tr>
+      <td>Customer follow-ups</td>
+      <td><span class="badge badge-success">Active</span></td>
+      <td>3 sent Aug 1: Deb Brown, Lee Wright, Brian Mitchell. Monitoring for replies.</td>
+    </tr>
+    <tr>
+      <td>Email 2 drafts</td>
+      <td><span class="badge badge-success">Ready</span></td>
+      <td>17 contacts, Voice Review 9/9, batch JSON built. Window opens Monday Aug 4 (pushed from Sunday per weekend prohibition).</td>
+    </tr>
+    <tr>
+      <td>Nicholas Zappacosta (QBuild)</td>
+      <td><span class="badge badge-success">Engaged</span></td>
+      <td>Two government projects: Logan Village State School ($145k) + QAS Beenleigh (new).</td>
+    </tr>
+  </table>
+</div>
+
+<!-- 8. Business Impact -->
+<div class="section">
+  <h2>8. Business Impact</h2>
+  <div class="metric-grid">
+    <div class="metric-card">
+      <div class="value">$0</div>
+      <div class="label">Recovered (this period)</div>
+    </div>
+    <div class="metric-card">
+      <div class="value">2</div>
+      <div class="label">Opportunities Generated (Won)</div>
+    </div>
+    <div class="metric-card">
+      <div class="value">3</div>
+      <div class="label">Relationships Managed</div>
+    </div>
+    <div class="metric-card">
+      <div class="value">Travis-led</div>
+      <div class="label">Top Intelligence</div>
+    </div>
+  </div>
+  <p style="margin-top:1rem; font-size:0.92rem; color: var(--muted);">
+    <strong>Relationships:</strong> QPaint (Design Partner), Tas Moulis (Won), Star Painters Adelaide (Won).<br>
+    <strong>Email engagement:</strong> 43 deliveries confirmed, 58 prospects opened, 238 total opens, 4.1 avg opens/prospect.
+  </p>
+</div>
+
+<!-- 9. System Health -->
+<div class="section">
+  <h2>9. System Health</h2>
+  <table>
+    <tr>
+      <th>System</th>
+      <th>Status</th>
+      <th>Notes</th>
+    </tr>
+    <tr><td>Atlas</td><td><span class="badge badge-success">Online</span></td><td>Operating normally</td></tr>
+    <tr><td>Airtable</td><td><span class="badge badge-success">Connected</span></td><td>200 prospects, API healthy</td></tr>
+    <tr><td>Dashboard</td><td><span class="badge badge-success">Live</span></td><td>Refreshed Aug 1 22:00 UTC</td></tr>
+    <tr><td>Inbox (atlas@)</td><td><span class="badge badge-success">Monitoring</span></td><td>Pulse active, no unread</td></tr>
+    <tr><td>Inbox (quotes@)</td><td><span class="badge badge-success">Monitoring</span></td><td>No new quotes</td></tr>
+    <tr><td>Campaign Intel Monitor</td><td><span class="badge badge-danger">Failed</span></td><td>Cron path doubled. 30-day monitoring blind.</td></tr>
+    <tr><td>Twilio SMS</td><td><span class="badge badge-danger">Blocked</span></td><td>Regulatory bundle rejected Jul 30</td></tr>
+    <tr><td>QPaint Recovery</td><td><span class="badge badge-success">Active</span></td><td>Email 2 drafts ready for Monday</td></tr>
+  </table>
+</div>
+
+<!-- 10. Upcoming Events -->
+<div class="section">
+  <h2>10. Upcoming Events</h2>
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Event</th>
+      <th>Action</th>
+    </tr>
+    <tr><td><strong>Mon, Aug 3</strong></td><td><strong>First Governance Review</strong></td><td>Atlas-led Trust OS audit. James: 30 min review. Baseline scores: Security 41, Privacy 35, Ops Maturity 38.</td></tr>
+    <tr><td><strong>Mon, Aug 3</strong></td><td><strong>QPaint Email 2 sends</strong></td><td>17 contacts. Drafts ready (9/9 Voice Review). Batch JSON built. Weekend push from Sunday.</td></tr>
+    <tr><td>Wed, Aug 5</td><td>CvC experiment results window</td><td>40-painter A/B test. Final reply data by Aug 6-7. Formal review to follow.</td></tr>
+    <tr><td>Fri, Aug 8</td><td>Founder re-engagement drafts due</td><td>Personalised drafts for 15-painter pilot.</td></tr>
+    <tr><td>Mon, Aug 11</td><td>Founder re-engagement first sends</td><td>First 5 painters hit 14-day post-Email-4 mark.</td></tr>
+    <tr><td>Thu, Aug 28</td><td>Campaign Intelligence Report</td><td>30-day monitoring completes.</td></tr>
+    <tr><td>Thu, Aug 28</td><td>Atlas Communication Layer review</td><td>Decision 2026-07-28 30-day review.</td></tr>
+  </table>
+</div>
+
+<!-- 11. Risks & Watch List -->
+<div class="section">
+  <h2>11. Risks & Watch List</h2>
+  <table>
+    <tr>
+      <th>Risk</th>
+      <th>Severity</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td><strong>Pipeline idle — no active campaigns</strong></td>
+      <td><span class="badge badge-warn">Medium</span></td>
+      <td>No sequences running since Jul 28. 102 New prospects. Decision needed this week to restart momentum.</td>
+    </tr>
+    <tr>
+      <td><strong>Campaign Intel Monitor offline</strong></td>
+      <td><span class="badge badge-warn">Medium</span></td>
+      <td>Late replies from breakup wave undetected. Fix before Monday.</td>
+    </tr>
+    <tr>
+      <td><strong>Twilio SMS blocked</strong></td>
+      <td><span class="badge badge-warn">Medium</span></td>
+      <td>SMS capability stalled. QPaint integration on hold.</td>
+    </tr>
+    <tr>
+      <td><strong>Privacy policy unpublished</strong></td>
+      <td><span class="badge badge-warn">Medium</span></td>
+      <td>7 blockers from Jul 25 audit. To be addressed in Governance Review.</td>
+    </tr>
+  </table>
+</div>
+
+<!-- 12. Actions Requiring My Decision -->
+<div class="section">
+  <h2>12. Actions Requiring My Decision</h2>
+  <table>
+    <tr>
+      <th>Action</th>
+      <th>Recommendation</th>
+      <th>Confidence</th>
+      <th>Delay Impact</th>
+      <th>Deadline</th>
+    </tr>
+    <tr>
+      <td>Approve next campaign</td>
+      <td>Travis-led Email 1 for 20-25 painters</td>
+      <td><span class="badge badge-warn">Med (85%)</span></td>
+      <td><span class="priority-badge priority-med">Medium</span></td>
+      <td>Today (Sun)</td>
+    </tr>
+    <tr>
+      <td>Fix Twilio bundle</td>
+      <td>Review rejection, resubmit</td>
+      <td><span class="badge badge-success">High</span></td>
+      <td><span class="priority-badge priority-med">Medium</span></td>
+      <td>This week</td>
+    </tr>
+    <tr>
+      <td>Governance Review time</td>
+      <td>Reserve 30 min Monday</td>
+      <td><span class="badge badge-success">High</span></td>
+      <td><span class="priority-badge priority-low">Low</span></td>
+      <td>Aug 3</td>
+    </tr>
+  </table>
+</div>
+
+<!-- 13. What to Ignore -->
+<div class="section">
+  <h2>13. What to Ignore</h2>
+  <ul>
+    <li><strong>QPaint follow-ups:</strong> Running smoothly. 3 sent Aug 1. Monitoring for replies. No attention needed.</li>
+    <li><strong>84 Campaign Complete prospects:</strong> In 30-day monitoring window. No action needed until re-engagement (Aug 11+).</li>
+    <li><strong>Inbox pulses:</strong> Both atlas@ and quotes@ monitoring running. No unread customer mail.</li>
+    <li><strong>Dashboard:</strong> Refreshed and healthy. Pipeline data current.</li>
+    <li><strong>Cron jobs (except campaign-intel-monitor):</strong> All running normally.</li>
+  </ul>
+</div>
+
+</div>
+
+<footer>
+  Generated by Atlas · Not Forgotten Systems · 2 August 2026 · <a href="https://snowark-consulting.github.io/notforgotten-pages/ceo-brief/">Archive</a>
+</footer>
+
+</body>
+</html>
