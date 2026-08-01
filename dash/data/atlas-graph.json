@@ -279,6 +279,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_canonical_templates_index",
+      "label": "Canonical Templates / Index",
+      "file_type": "doc",
+      "source_file": "knowledge/canonical-templates/INDEX.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "855a43370377",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_client_identity_verification_gate",
       "label": "Client Identity Verification Gate",
       "file_type": "doc",
@@ -418,6 +429,28 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "55df6a3159a5",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decisions_2026_08_01_campaign_pulse_reporting_standard",
+      "label": "Campaign Pulse Reporting Standard",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-01-campaign-pulse-reporting-standard.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "4cca130891ae",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decisions_2026_08_01_single_source_of_truth",
+      "label": "Single Source Of Truth",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-01-single-source-of-truth.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "4cd8af6ecbec",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -1679,6 +1712,27 @@
     {
       "source": "agent_registry",
       "target": "knowledge_recovery_operations_playbook",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_canonical_templates_index",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_01_single_source_of_truth",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_01_campaign_pulse_reporting_standard",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

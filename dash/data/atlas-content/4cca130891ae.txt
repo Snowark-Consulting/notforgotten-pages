@@ -1,0 +1,130 @@
+# Decision: Campaign Pulse Reporting Standard — Facts, Confidence, Risk, and CEO Decision
+
+**Slug:** `2026-08-01-campaign-pulse-reporting-standard`
+**Date:** 2026-08-01
+**Status:** Made
+**Review Date:** 2026-10-01
+
+---
+
+## The Decision
+
+James Hardstaff established a permanent Campaign Pulse reporting standard with six structural requirements: (1) separate facts from interpretation using a five-part structure, (2) include confidence ratings for every interpretation, (3) add a Biggest Risk section, (4) add a Biggest Opportunity section, (5) challenge assumptions with counter-evidence, and (6) finish with one CEO Decision. The purpose of Campaign Pulse is to help James run the business — not to describe it.
+
+---
+
+## The Problem
+
+The existing Campaign Pulse format (established in `growth-operations/SKILL.md` via the five-section table) was directionally correct but lacked specificity. It didn't distinguish between high-confidence observations and speculative hypotheses. It didn't proactively surface risk or opportunity. And it didn't end with a single, unambiguous recommendation for James. The report described the business; it didn't help run it.
+
+James provided six refinements during the August 1 Campaign Pulse review to address these gaps permanently.
+
+---
+
+## The Six Refinements
+
+### 1. Separate Facts from Interpretation
+
+Every Campaign Pulse must follow this structure:
+
+| Section | Purpose |
+|---|---|
+| **What happened** | Facts only. No interpretation. "7 sent, 0 replies at Day 3." |
+| **What it means** | Analysis. Interpretation of the facts. |
+| **Why we believe it happened** | Hypothesis. Causal reasoning. |
+| **What we expect next** | Forecast. Prediction with reasoning. |
+| **Recommended action** | Decision. What should be done. |
+
+This keeps evidence clearly separated from opinion at every level.
+
+### 2. Include Confidence for Every Interpretation
+
+Facts don't need confidence ratings. Analysis, hypotheses, forecasts, and recommendations do.
+
+| Rating | Range | Meaning |
+|---|---|---|
+| **High** | 90%+ | Well-supported by multiple lines of evidence, verified data, or confirmed by James |
+| **Medium** | 70-89% | Reasonable inference from available data but single-source or limited sample |
+| **Low** | <70% | Speculative — best judgment with significant uncertainty |
+
+Confidence reflects evidence strength, not optimism. Format: "Confidence: High (90%)" after the interpretation.
+
+### 3. Biggest Risk Section
+
+Every Campaign Pulse must answer:
+
+**"What is the single biggest risk to the business over the next seven days?"**
+
+Possible answers include: nothing significant, client churn, low reply volume, technical risk, execution bottleneck. If there is genuinely no material risk, say so — but do the work to assess it first.
+
+### 4. Biggest Opportunity Section
+
+Every Campaign Pulse must answer:
+
+**"What is the single biggest opportunity available right now?"**
+
+This keeps focus on growth, not just operations. Even in quiet periods, there is always an opportunity — it may be preparing for the next wave, improving a process, or mining existing data for intelligence.
+
+### 5. Challenge Assumptions
+
+When writing "Why we believe it happened," Atlas must ask:
+
+**"What evidence would prove me wrong?"**
+
+If there is meaningful uncertainty, state it. Hypotheses must be clearly distinguished from conclusions. Correlation must be distinguished from causation. This prevents storytelling from masquerading as analysis.
+
+### 6. Finish with One CEO Decision
+
+Every Campaign Pulse must end with:
+
+**"If James only does one thing because of this report, it should be..."**
+
+One clear recommendation. No ambiguity. No menu of options. The single highest-leverage action.
+
+---
+
+## The Purpose
+
+> The purpose of Campaign Pulse is not to describe the business.
+> The purpose is to help me run the business.
+
+Every report should leave James knowing:
+- What changed
+- Why it matters
+- What he should do
+- What can safely wait
+
+---
+
+## Implementation
+
+This standard replaces the existing Campaign Pulse section in `skills/snowark/growth-operations/SKILL.md` (lines 89-100). It applies to every Campaign Pulse cron job (ID: `eb8826841606`, every 48h) and any ad-hoc pulse report.
+
+---
+
+## Atlas's Challenge
+
+No challenge. This is a direct refinement from James based on reviewing the Campaign Pulse output. The existing five-section format was the foundation; these six refinements are the completion. Fully aligned with all Six Principles, particularly Principle 2 (Evidence before opinion) and Principle 5 (Continuous learning).
+
+---
+
+## Expected Outcomes
+
+- Every Campaign Pulse is immediately actionable
+- James can distinguish between high-confidence observations and speculative hypotheses
+- Risk is surfaced proactively, not discovered reactively
+- Growth opportunities are flagged alongside operational concerns
+- The single CEO Decision reduces decision friction
+
+---
+
+## Success Criteria
+
+- Campaign Pulse reports consistently follow the six-refinement structure
+- James can identify the one action he should take within 30 seconds of reading
+- Risk items that would have been missed are surfaced proactively
+- Confidence ratings prove accurate over time (high-confidence predictions materialise; low-confidence predictions are refined)
+
+---
+
+*Decision recorded 2026-08-01. Review scheduled for 2026-10-01.*

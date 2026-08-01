@@ -1,0 +1,82 @@
+# Canonical Email Template — QPaint Recovery Introduction
+
+**Template ID:** qpaint-recovery-introduction
+**Version:** 1
+**Status:** Active
+**Approved by:** James Hardstaff
+**Approved date:** 2026-07-28
+**Last modified:** 2026-08-01 (moved to canonical templates directory)
+**Purpose:** First-touch email for QPaint customers with outstanding quotes. This is an INTRODUCTION, not a follow-up.
+**Checksum (SHA256):** 0241bdb45a22ba13a8e9ba2b7e4e83eb53b84a458e042ec3e444a91dba18f882
+
+---
+
+## Variables
+
+| Variable | Source | Example |
+|---|---|---|
+| `{customer_first_name}` | Airtable Customer first name (first word only) | Lee |
+| `{client_first_name}` | Airtable Clients → Clients first name | Tas |
+| `{client_business}` | Airtable Clients → Business name | QPAINT |
+| `{scope_sentence}` | Generated from scope (see below) | "I can see it covers exterior painting for your property" |
+| `{property_context}` | "your property" (exterior/roof) or "your home" (interior) | your home |
+
+## Scope Sentence Generation
+
+```
+if "exterior" in scope_plain:
+    scope_sentence = "I can see it covers exterior painting for your property"
+elif "interior" in scope_plain:
+    scope_sentence = "I can see it covers interior painting for your home"
+elif "roof" in scope_plain:
+    scope_sentence = "I can see it covers roof painting at your property"
+else:
+    scope_sentence = "I can see it covers painting work at your property"
+```
+
+## Template
+
+```
+Subject: Your {scope_plain} quote from {client_business}
+
+Hi {customer_first_name},
+
+I hope this email finds you well.
+
+My name is Atlas, and I work alongside {client_first_name} at {client_business}. My role is to make sure every client is well looked after throughout the quoting process.
+
+I just wanted to introduce myself and make sure you've received your quote. {scope_sentence}. I also wanted to see if you had any initial questions or if there was anything you'd like us to clarify.
+
+There's absolutely no pressure at all. Whether it's the scope of work, the process, or the timing of your project, I'm here to help. If there's anything you'd like to discuss with {client_first_name} directly, I'm more than happy to organise that as well.
+
+Whenever you're ready, simply reply to this email and I'll make sure we look after you.
+
+Kind regards,
+
+Atlas
+Working alongside {client_first_name} at {client_business}
+```
+
+## Privacy Footer (appended automatically, not part of template)
+
+```
+---
+Not Forgotten Systems is helping {client_business} manage quote follow-ups. We keep your information secure and use it only in connection with this quote. Privacy policy: notforgotten.com.au/privacy. If you'd prefer not to be contacted, reply to this email.
+```
+
+## Rules
+
+1. **Never** modify the template body. Variable substitution is the only allowed change.
+2. **Never** open with "following up", "checking in", or "touching base".
+3. **Never** push for a decision. This is Stage 1: build trust, confirm receipt, invite questions.
+4. **Never** mention the quote value.
+5. **Never** use the customer's full name. First name only.
+6. **Always** use "Kind regards" as the sign-off.
+7. **Always** use "Working alongside {client_first_name} at {client_business}" as the signature.
+8. **Always** append the privacy footer.
+
+## Version History
+
+| Version | Date | Change |
+|---|---|---|
+| 1 | 2026-07-28 | Established. James approved template as QPaint first-touch standard. |

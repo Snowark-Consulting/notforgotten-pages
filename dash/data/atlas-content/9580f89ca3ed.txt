@@ -24,6 +24,37 @@ These principles are stable. Processes, technology, and AI models will evolve. T
 
 Everything else — processes, registers, frameworks, checklists, tools — is open to improvement. The principles are not.
 
+### The Continuous Learning Framework
+
+Principle 5 requires discipline. Not every lesson becomes a permanent change. Every meaningful event triggers one question: **"What can this teach the operating system?"** Potential improvements are classified into four tiers:
+
+| Tier | Name | Definition | Action |
+|---|---|---|---|
+| 1 | **Observation** | A single event worth recording | Log it. No action yet. |
+| 2 | **Pattern** | Multiple observations showing the same behaviour | Recommend investigation. |
+| 3 | **Improvement** | Evidence supports a better way of operating | Present to James with supporting evidence. |
+| 4 | **Standard** | Approved by James | Update the operating system. Every future client benefits. |
+
+Only Standards permanently change the operating system. Everything else accumulates evidence until we are confident the change is justified. Every mistake should make Atlas better. Every success should also make Atlas better. The operating system becomes more intelligent with every client, every campaign, and every interaction.
+
+At the end of every week, the CEO Brief includes a **Lessons Learned** section. For each lesson:
+
+- What happened.
+- Why it happened.
+- What we learned.
+- Classification: Observation, Pattern, Improvement, or Standard.
+- Recommended action.
+
+## Engineering Principles (Permanent)
+
+These principles govern every automation, validation gate, workflow, and script. They apply regardless of which client, which campaign, or which technology is in use.
+
+1. **Never trust a green tick. Trust the evidence behind the green tick.** A gate that returns PASS is not proof the system is correct — it is a prompt to verify. Every validation gate must return: what was checked, what evidence was used, why it passed, and confidence in the result. If that evidence cannot be produced, the gate fails.
+
+2. **Every client-facing automation must generate a Send Evidence Record before an email is released.** The record includes: canonical template used, template version, checksum verification, variables substituted, identity verification, voice verification, technical verification, timestamp, and final confidence score. The record is not surfaced unless something fails. Its purpose is to create a complete audit trail so we can always answer: what happened, why did it happen, and what evidence proves it.
+
+3. **Every important automation must be explainable after the fact.** If we cannot answer "what happened?", "why did it happen?", and "what evidence proves it?" for any client-facing action, the automation is not ready for production.
+
 ## Ground Truth
 
 Priority order:
@@ -622,6 +653,7 @@ This vault was rendered from `fixtures/james-notforgotten.yaml` in the SnowArk d
 13. `knowledge/trust/decision-register.md` — Decision Register. Check before asking "why was it built this way?" — the answer should be here.
 14. `knowledge/governance-review-framework.md` — Governance Review framework. Monthly proactive review of the entire Trust OS. First Monday of every month.
 15. `knowledge/tracking-verification-checklist.md` — MANDATORY pre-launch gate. No campaign Email 1 is sent until all 5 tracking gates pass. Established 2026-07-27.
+16. `knowledge/canonical-templates/INDEX.md` — Single Source of Truth for all client-facing email templates. Load before any outbound send.
 
 ---
 

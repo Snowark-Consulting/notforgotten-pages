@@ -1,0 +1,44 @@
+---
+doc_type: index
+owner: notforgotten
+tier: primary
+---
+
+# Canonical Templates — Index
+
+> Single Source of Truth for all client-facing email templates. No automation may contain its own copy of any email body.
+
+No automation, script, cron job, or workflow may contain its own copy of any email body. Every outbound email must be generated from the canonical template in this directory, loaded at send time.
+
+## Registry
+
+| Template ID | Client | Version | File | Purpose | Approved |
+|---|---|---|---|---|---|
+| `qpaint-recovery-introduction` | QPaint | 1 | [qpaint/recovery-introduction-v1.md](qpaint/recovery-introduction-v1.md) | First-touch introduction for new quote customers | 2026-07-28 |
+
+## Rules
+
+1. **One template per communication purpose per client.** No variants, no "simplified" copies.
+2. **Versioned files.** `{template-id}-v{version}.md`. Never overwrite — create new version.
+3. **SHA256 checksum stored** in the template file header. Used for verification at send time.
+4. **Automations load at send time.** `load_canonical_template(template_id, client)` fetches the latest active version.
+5. **If a template can't be loaded, the send hard-stops.** No fallback to hardcoded text.
+
+## Template File Format
+
+See `TEMPLATE.md` for the canonical structure. Every template must include:
+- YAML-like frontmatter (template ID, version, status, approval, checksum)
+- Variables table
+- Template body (plain text with `{variable}` placeholders)
+- Privacy footer
+- Rules section
+- Version history
+
+## Checksum Verification
+
+The SHA256 checksum in the template header is computed over the **template body only** (from `Subject:` to the end of the signature, excluding the privacy footer and frontmatter). At send time, the loader:
+1. Reads the template file
+2. Extracts the body section
+3. Computes SHA256
+4. Compares against stored checksum
+5. If mismatch: hard stop. Template has been modified.
