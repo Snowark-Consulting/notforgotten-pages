@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 118,
+    "tasks_completed": 119,
     "recent": [
+      {
+        "date": "2026-08-01 17:33",
+        "task": "CEO Brief generated for 1 August 2026",
+        "category": "task"
+      },
       {
         "date": "2026-07-30 17:40",
         "task": "CEO Brief for 30 July 2026 published. 84 Campaign Complete, 2 Won. QPaint Email 2 due Aug 3. Governance Review due Aug 3.",
@@ -135,11 +140,6 @@
         "date": "2026-07-21 08:03",
         "task": "CvC Day 7 checkpoint: 0 replies from 38 delivered (18 Control, 20 Treatment). Effective sample: 2 excluded (Distinct Painters \u2014 Unsubscribed Jul 13; SA Painter \u2014 Lost). Day 21 checkpoint due Aug 4.",
         "category": "task"
-      },
-      {
-        "date": "2026-07-20 17:17",
-        "task": "Campaign pulse: 87 emails sent this morning (75 Email 2s + 12 Email 4 breakups). 0 replies across all active campaigns. CvC Day 6, PDV Day 6. CvC Day 7 checkpoint tomorrow. Email 3 due Jul 22 for 68 prospects.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-01T17:30:40.069196+09:30",
+  "last_updated": "2026-08-01T17:33:18.363593+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
