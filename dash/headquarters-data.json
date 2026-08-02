@@ -53,14 +53,6 @@
   },
   "waiting_for_james": [
     {
-      "title": "Approve next outreach campaign direction (NF prospects)",
-      "why_it_matters": "122 NF prospects are idle with no active sequences. July evidence: Travis case study at Email 3 converted 2/2. Moving it to Email 1 could compress conversion timeline.",
-      "business_impact": "High \u2014 unlocks the entire prospect pipeline",
-      "estimated_time": "15 min",
-      "recommended_action": "Review the Travis-led Email 1 proposal. Approve to begin drafting.",
-      "impact_sort": 85
-    },
-    {
       "title": "Twilio SMS bundle \u2014 review and resubmit",
       "why_it_matters": "Rejected July 30. SMS capability remains blocked. QPaint SMS integration cannot proceed without approved A2P bundle.",
       "business_impact": "Medium \u2014 blocks SMS channel for all clients",
@@ -111,6 +103,10 @@
   },
   "changes": {
     "today": [
+      {
+        "time": "2:45 PM",
+        "description": "NF campaign direction deprioritized \u2014 waits until after Monday QPaint observation data. Removed from Waiting For James."
+      },
       {
         "time": "2:40 PM",
         "description": "Operational phase declared by James. Headquarters is now the operating system. Telegram exception-only. Knowledge preservation. Continuous improvement. Focus on building Not Forgotten."
