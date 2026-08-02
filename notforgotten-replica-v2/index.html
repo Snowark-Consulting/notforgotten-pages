@@ -192,17 +192,21 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* FOOTER */
 .footer { background: var(--white); border-top: 1px solid var(--gold); padding: 48px 32px 32px; }
-.footer-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
-.footer-brand { display: flex; flex-direction: column; gap: 4px; }
+.footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 32px; }
+.footer-brand { display: flex; flex-direction: column; gap: 8px; }
 .footer-logo { display: flex; align-items: center; text-decoration: none; }
 .footer-logo img { height: 40px; width: auto; }
-.footer-tagline { font-size: var(--text-xs); color: var(--muted); line-height: 1.4; }
-.footer-right { display: flex; align-items: center; gap: 32px; }
-.footer-social { display: flex; align-items: center; }
-.footer-social a { width: 40px; height: 40px; border-radius: 8px; background: rgba(0,0,0,0.04); display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; transition: background 0.2s, color 0.2s, transform 0.15s; }
-.footer-social a:hover { background: #1877F2; color: #fff; transform: translateY(-1px); }
-.footer-social a svg { width: 20px; height: 20px; }
+.footer-tagline { font-size: var(--text-xs); color: var(--muted); line-height: 1.4; max-width: 280px; }
 .footer-copy { font-size: var(--text-xs); color: var(--muted); }
+.footer-col h4 { font-size: var(--text-xs); font-weight: 600; color: var(--navy); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+.footer-col ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.footer-col ul li a { font-size: var(--text-xs); color: var(--muted); text-decoration: none; transition: color 0.15s; }
+.footer-col ul li a:hover { color: var(--navy); text-decoration: underline; }
+.footer-social { display: flex; align-items: center; margin-top: 4px; }
+.footer-social a { width: 36px; height: 36px; border-radius: 8px; background: rgba(0,0,0,0.04); display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; transition: background 0.2s, color 0.2s; }
+.footer-social a:hover { background: #1877F2; color: #fff; }
+.footer-social a svg { width: 18px; height: 18px; }
+.footer-bottom { max-width: 1280px; margin: 24px auto 0; padding-top: 24px; border-top: 1px solid rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
@@ -228,6 +232,11 @@ img { max-width: 100%; height: auto; display: block; }
   .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
   .footer-right { flex-direction: column; gap: 16px; }
   .hero-cta-wrap { flex-direction: column; align-items: flex-start; }
+  .footer-inner { grid-template-columns: 1fr; text-align: center; }
+  .footer-brand { align-items: center; }
+  .footer-col ul { align-items: center; }
+  .footer-social { justify-content: center; }
+  .footer-bottom { flex-direction: column; text-align: center; }
 }
 @media (max-width: 480px) {
   .hero-stat-stack { flex-direction: column; }
@@ -792,15 +801,32 @@ section[id] { scroll-margin-top: 80px; }
         <img src="https://framerusercontent.com/images/k03dAbO8XczGV4bNXuqgUIdpbP8.png?width=917&height=546" alt="Not Forgotten">
       </a>
       <span class="footer-tagline">We help businesses win more work by making sure no quote is forgotten.</span>
-    </div>
-    <div class="footer-right">
       <div class="footer-social">
         <a href="https://www.facebook.com/profile.php?id=61583365509962" aria-label="Facebook" target="_blank" rel="noopener">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
         </a>
       </div>
-      <p class="footer-copy">&copy; 2026 Not Forgotten. All rights reserved.</p>
     </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/privacy">Privacy Policy</a></li>
+        <li><a href="/terms">Terms of Service</a></li>
+        <li><a href="/cookies">Cookie Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:james@notforgotten.com.au">james@notforgotten.com.au</a></li>
+        <li><a href="tel:+61409146029">0409 146 029</a></li>
+        <li>PO Box 23, Callington SA 5254</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 Not Forgotten Systems Pty Ltd. All rights reserved.</p>
+    <p class="footer-copy">ABN: XX XXX XXX XXX</p>
   </div>
 </footer>
 
