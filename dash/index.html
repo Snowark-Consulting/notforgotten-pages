@@ -358,6 +358,26 @@ function render() {
   }
 
   // ═══════════════════════════════════════
+  // 6. LESSONS LEARNED
+  // ═══════════════════════════════════════
+  const lessons = H?.lessons_learned;
+  if (lessons && lessons.total > 0) {
+    html += '<div class="section">';
+    html += '<div class="section-header"><h2>Lessons Learned</h2><span class="line"></span><span style="font-size:var(--text-xs);color:var(--muted);">' + lessons.total + ' total</span></div>';
+    const recent = lessons.recent || [];
+    recent.forEach(ll => {
+      html += '<div class="waiting-item" style="margin-bottom:var(--space-sm);">';
+      html += '<div class="waiting-top">';
+      html += '<h3 style="font-size:var(--text-sm);">' + esc(ll.id) + ' — ' + esc(ll.title) + '</h3>';
+      html += '<span class="waiting-impact impact-medium" style="font-size:10px;">' + esc(ll.status) + '</span>';
+      html += '</div>';
+      html += '<div style="font-size:var(--text-xs);color:var(--muted);line-height:1.5;">' + esc(ll.summary) + '</div>';
+      html += '</div>';
+    });
+    html += '</div>';
+  }
+
+  // ═══════════════════════════════════════
   // FOOTER
   // ═══════════════════════════════════════
   html += '<div class="secondary-links">';
