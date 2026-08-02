@@ -22,7 +22,7 @@
       "community": 0,
       "community_name": "Agent",
       "content_hash": "4a3bbde4169a",
-      "val": 12.0,
+      "val": 10.0,
       "color": "#e0a62a"
     },
     {
@@ -33,7 +33,7 @@
       "community": 0,
       "community_name": "Agent",
       "content_hash": "1d6779619ecd",
-      "val": 8.0,
+      "val": 6.0,
       "color": "#e0a62a"
     },
     {
@@ -103,6 +103,17 @@
       "color": "#e0a62a"
     },
     {
+      "id": "agent_trust_framework",
+      "label": "Trust Framework",
+      "file_type": "doc",
+      "source_file": "Agent/trust-framework.md",
+      "community": 0,
+      "community_name": "Agent",
+      "content_hash": "2724340158ee",
+      "val": 6.0,
+      "color": "#e0a62a"
+    },
+    {
       "id": "agent_vault_lint",
       "label": "Vault Lint",
       "file_type": "doc",
@@ -132,7 +143,7 @@
       "community": 1,
       "community_name": "Core",
       "content_hash": "9580f89ca3ed",
-      "val": 14.0,
+      "val": 12.0,
       "color": "#f0c040"
     },
     {
@@ -455,6 +466,61 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decisions_2026_08_02_atlas_trust_framework",
+      "label": "Atlas Trust Framework",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-02-atlas-trust-framework.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "36ccf979a886",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decisions_2026_08_02_complete_business_state",
+      "label": "Complete Business State",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-02-complete-business-state.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "7f02e2b7a3a1",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decisions_2026_08_02_founder_to_founder_sequence_frozen",
+      "label": "Founder To Founder Sequence Frozen",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-02-founder-to-founder-sequence-frozen.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "8127fe80ab23",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decisions_2026_08_02_headquarters_complete",
+      "label": "Headquarters Complete",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-02-headquarters-complete.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "2898fd62d49a",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decisions_2026_08_02_operational_phase",
+      "label": "Operational Phase",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-02-operational-phase.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "7df4c7ee9ea4",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decisions_index",
       "label": "Decisions / Index",
       "file_type": "doc",
@@ -484,6 +550,17 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "e698ace88b58",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_experiments_exp_2026_08_02_ff1_painter_wave_1",
+      "label": "EXP 2026 08 02 FF1 Painter Wave 1",
+      "file_type": "doc",
+      "source_file": "knowledge/experiments/EXP-2026-08-02-FF1-painter-wave-1.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "793f417a9e33",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -529,6 +606,17 @@
       "community_name": "Knowledge",
       "content_hash": "637f8a0751ca",
       "val": 8.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_experiments_travis_led_email_1_pilot",
+      "label": "Travis Led Email 1 Pilot",
+      "file_type": "doc",
+      "source_file": "knowledge/experiments/travis-led-email-1-pilot.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "8f1508ddd092",
+      "val": 6.0,
       "color": "#a78bfa"
     },
     {
@@ -708,6 +796,50 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_outreach_sequences_founder_to_founder_sequence",
+      "label": "Founder To Founder Sequence",
+      "file_type": "doc",
+      "source_file": "knowledge/outreach-sequences/founder-to-founder-sequence.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "fa10e25f8a27",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_outreach_sequences_qpaint_customer_journey_production_emails",
+      "label": "Qpaint Customer Journey Production Emails",
+      "file_type": "doc",
+      "source_file": "knowledge/outreach-sequences/qpaint-customer-journey-production-emails.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "908fc0cba2c6",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_outreach_sequences_qpaint_monday_send_plan",
+      "label": "Qpaint Monday Send Plan",
+      "file_type": "doc",
+      "source_file": "knowledge/outreach-sequences/qpaint-monday-send-plan.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "587007308e90",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_outreach_sequences_qpaint_recovery_sequence",
+      "label": "Outreach Sequences / Qpaint Recovery Sequence",
+      "file_type": "doc",
+      "source_file": "knowledge/outreach-sequences/qpaint-recovery-sequence.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "e73de579551e",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_people",
       "label": "People",
       "file_type": "doc",
@@ -726,7 +858,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "33e2000d2a76",
-      "val": 14.0,
+      "val": 12.0,
       "color": "#a78bfa"
     },
     {
@@ -764,7 +896,7 @@
     },
     {
       "id": "knowledge_qpaint_recovery_sequence",
-      "label": "Qpaint Recovery Sequence",
+      "label": "Knowledge / Qpaint Recovery Sequence",
       "file_type": "doc",
       "source_file": "knowledge/qpaint-recovery-sequence.md",
       "community": 4,
@@ -1104,6 +1236,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "learnings_2026_08_02_canonical_reproduction_failure",
+      "label": "Canonical Reproduction Failure",
+      "file_type": "doc",
+      "source_file": "learnings/2026-08-02-canonical-reproduction-failure.md",
+      "community": 5,
+      "community_name": "Learnings",
+      "content_hash": "2545dec6e7df",
+      "val": 6.0,
+      "color": "#f472b6"
+    },
+    {
       "id": "learnings_errors",
       "label": "Errors",
       "file_type": "doc",
@@ -1144,7 +1287,7 @@
       "community": 6,
       "community_name": "Memory",
       "content_hash": "63bb1b60ffa5",
-      "val": 12.0,
+      "val": 10.0,
       "color": "#f5b14c"
     }
   ],
@@ -1319,7 +1462,7 @@
     },
     {
       "source": "agent_registry",
-      "target": "soul",
+      "target": "agent_trust_framework",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
@@ -1738,6 +1881,90 @@
       "source_file": ""
     },
     {
+      "source": "agent_registry",
+      "target": "knowledge_outreach_sequences_founder_to_founder_sequence",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_experiments_exp_2026_08_02_ff1_painter_wave_1",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_experiments_travis_led_email_1_pilot",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_outreach_sequences_qpaint_recovery_sequence",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_outreach_sequences_qpaint_customer_journey_production_emails",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_outreach_sequences_qpaint_monday_send_plan",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_02_operational_phase",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_02_complete_business_state",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_02_headquarters_complete",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_02_atlas_trust_framework",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_02_founder_to_founder_sequence_frozen",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "learnings_2026_08_02_canonical_reproduction_failure",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
       "source": "agent_sops",
       "target": "agent_registry",
       "relation": "wikilink",
@@ -1761,34 +1988,6 @@
     {
       "source": "agent_sops",
       "target": "agent_infrastructure",
-      "relation": "wikilink",
-      "weight": 1.0,
-      "source_file": ""
-    },
-    {
-      "source": "agent_trust",
-      "target": "agent_registry",
-      "relation": "wikilink",
-      "weight": 1.0,
-      "source_file": ""
-    },
-    {
-      "source": "agent_trust",
-      "target": "agent_sops",
-      "relation": "wikilink",
-      "weight": 1.0,
-      "source_file": ""
-    },
-    {
-      "source": "agent_trust",
-      "target": "memory_memory",
-      "relation": "wikilink",
-      "weight": 1.0,
-      "source_file": ""
-    },
-    {
-      "source": "agent_trust",
-      "target": "knowledge_people_james_hardstaff",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

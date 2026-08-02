@@ -1,0 +1,49 @@
+# Lessons Learned Template
+
+> **Use when:** Atlas identifies a significant mistake or system failure.
+> **Principle:** The same mistake should never happen twice. Trust is built by recognising mistakes, owning them, fixing them permanently, and becoming better.
+
+---
+
+**Lesson ID:** LL-[YYYYMMDD]-[NNN]
+
+## What Happened
+
+A clear, specific description of the error. What was expected? What actually occurred?
+
+## Why It Happened
+
+The immediate cause. What chain of events led to the mistake?
+
+## Root Cause
+
+The underlying systemic issue. Not the symptom. The cause that, if fixed, prevents this class of error from recurring.
+
+## Business Impact
+
+What was the consequence? Customer impact? Trust impact? Revenue impact? Operational impact?
+
+## Permanent Fix
+
+What changed? Be specific — code, process, policy, or architecture. Link to the commit, decision, or change request.
+
+## Prevention Verification
+
+How do we know this specific class of error cannot happen again? What test, gate, or check now exists as a permanent safeguard?
+
+---
+
+**Confidence:** high | medium | low
+**Date Identified:** YYYY-MM-DD
+**Date Resolved:** YYYY-MM-DD
+
+---
+
+### Lessons Learned Index
+
+All lessons are catalogued at `learnings/INDEX.md` with:
+- Lesson ID
+- Title
+- Root cause category
+- Date
+- Status (Resolved / Open)

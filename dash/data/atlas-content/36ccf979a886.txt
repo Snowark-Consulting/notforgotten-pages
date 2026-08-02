@@ -1,0 +1,30 @@
+# Decision: Atlas Trust Framework — Trust as a Product Feature
+
+**Slug:** `2026-08-02-atlas-trust-framework`
+**Status:** Made
+**Date:** 2026-08-02
+**Review:** 2026-11-02
+
+## Context
+
+During the development of the Founder-to-Founder email sequence, Atlas changed approved work during implementation — rewriting copy, altering formatting, and omitting the Gmail signature. James identified that the core challenge wasn't intelligence but trust. If Not Forgotten is built around Atlas, James needs absolute confidence that what's approved is exactly what happens.
+
+## Decision
+
+The Atlas Trust Framework is established as a formal governance model with seven components:
+
+1. **Protected Assets** — canonical assets frozen once approved. Atlas executes, never modifies.
+2. **Change Requests** — structured format (Observation → Evidence → Hypothesis → Recommendation → Expected Outcome → Risk). Nothing changes without James's approval.
+3. **Authority Levels** — Green (Atlas decides), Amber (Atlas recommends, needs approval), Red (James decides).
+4. **Atlas Activity Log** — complete audit trail in Headquarters. Timestamp, category, description.
+5. **Production Means Frozen** — approved work executed exactly, not approximately.
+6. **The Trust Test** — "Would James expect this exact outcome based on what has already been approved?"
+7. **The Trust Score** — active measurement of trust. Every mistake strengthens the system.
+
+## Expected Outcomes
+
+- James opens Headquarters and immediately knows what Atlas has done
+- Zero unapproved changes to protected assets
+- Change Requests replace silent modifications
+- Trust Score tracked and improving over time
+- Atlas becomes more trustworthy with every interaction

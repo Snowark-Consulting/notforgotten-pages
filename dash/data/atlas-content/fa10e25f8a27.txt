@@ -1,0 +1,149 @@
+# Founder-to-Founder Outreach Sequence — v1.0 (FROZEN)
+
+**Status:** APPROVED — 2 August 2026
+**Version:** 1.0
+**Voice:** James Hardstaff
+**Sender:** james@notforgotten.com.au
+**Signature:** Canonical Gmail signature — appended at send time via `scripts/send-canonical.py`
+
+> ⚠️ **FROZEN.** No changes to wording, formatting, layout, punctuation, spacing, signature, subject lines or sending format without James's explicit approval. Improvements come from campaign data, not assumptions. One experiment at a time. Controlled tests only.
+
+## Rendering Rule
+
+Blank line in source = paragraph break. Consecutive non-blank lines = joined as one paragraph. The source text is the single source of truth. The renderer never reinterprets.
+
+---
+
+## Email 1 — The Pattern
+
+**Subject:** Something I've noticed
+
+Hi {{First Name}},
+
+Over the last few months I've spoken with a lot of painting business owners.
+
+Different businesses. Different sizes. Different parts of Australia.
+
+But one thing keeps coming up.
+
+Everyone knows they should follow up their quotes. Almost nobody does it consistently.
+
+Not because they don't care. Because they're busy.
+
+They're quoting the next job. Managing staff. Ordering materials. Trying to get home before dark.
+
+Follow-up ends up happening when someone remembers.
+
+Sometimes they do. Sometimes they don't.
+
+I've experienced exactly the same thing myself, and after talking with so many tradies, I've realised it isn't an individual problem. It's just what happens when you're running a busy business.
+
+I'm curious...
+
+Do you know what happens to the quotes you don't hear back about?
+
+---
+
+## Email 2 — The Conversation
+
+**Subject:** I didn't expect this
+
+Hi {{First Name}},
+
+One conversation from last week has been stuck in my head.
+
+A painter told me he thought he had a lead problem.
+
+After we talked for a while, it turned out he didn't. He had a follow-up problem.
+
+He was already quoting enough work. He just wasn't consistently hearing back from the people he'd already spent time quoting.
+
+That made me wonder...
+
+How many businesses think they need more leads...
+
+...when what they really need is to convert more of the opportunities they've already earned?
+
+Have you ever looked at it that way?
+
+---
+
+## Email 3 — The Evidence
+
+**Subject:** One conversation I keep coming back to
+
+Hi {{First Name}},
+
+There's one conversation I keep coming back to.
+
+Travis runs a painting business in Adelaide.
+
+He wasn't looking for more leads. He wasn't trying to grow faster.
+
+He simply wanted to stop wondering what happened to the quotes he'd already sent.
+
+Over four months...
+
+14 jobs came back. $177,555 in recovered work.
+
+That wasn't the interesting part.
+
+The interesting part was discovering those customers hadn't disappeared. Most of them had simply never been followed up.
+
+That changed the way I think about quoting businesses.
+
+Has anything similar ever happened in your business?
+
+---
+
+## Email 4 — The Reflection
+
+**Subject:** One final question
+
+Hi {{First Name}},
+
+I've enjoyed sharing a few observations with you over the past couple of weeks.
+
+Whether Not Forgotten is ever the right fit isn't actually the question I've been thinking about. The question I've been thinking about is this.
+
+If nothing changes over the next 12 months...
+
+Will you be happy with what happens to the quotes that never reply?
+
+Not whether your business survives. I'm sure it will. Your work speaks for itself.
+
+But will you ever wonder how many opportunities quietly disappeared simply because life got busy?
+
+Maybe you've already solved that problem. If you have, that's fantastic.
+
+But if not...
+
+I hope the next time you send a quote, you ask yourself one simple question.
+
+"What happens if I never hear back?"
+
+That question changed the way I think about running a business.
+
+If you'd ever like to have a conversation about it, I'd genuinely enjoy the chat.
+
+---
+
+## Sending Rules
+
+1. `{{First Name}}` replaced at send time. If no name, use business name.
+2. Body ends with final sentence. Nothing manual below it.
+3. Canonical Gmail signature appended as HTML via `scripts/send-canonical.py`.
+4. All sends use `scripts/send-canonical.py`. Faithful reproduction only.
+5. Technical Verification on every send — test or production. No exceptions.
+
+## Experiment Philosophy
+
+Improvements come from controlled experiments, not rewriting:
+
+1. **Observation** — What happened?
+2. **Evidence** — What data supports it?
+3. **Hypothesis** — Why do we think it happened?
+4. **Experiment** — What single change should we test?
+5. **Success metric** — How will we know if it worked?
+
+One experiment at a time. Measure. Learn. Repeat.

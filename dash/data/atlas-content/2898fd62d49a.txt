@@ -1,0 +1,46 @@
+# Decision: Headquarters Complete — Shift from Building to Living
+
+**Slug:** `2026-08-02-headquarters-complete`
+**Status:** Made
+**Date:** 2026-08-02
+**Review:** 2026-10-02
+
+## Context
+
+Headquarters v2 launched today as an Executive Operating System with five sections: Atlas's Brief, Business Health, Waiting For James, Atlas's Recommendation, and What Changed. James has declared it complete.
+
+## Decision
+
+1. **Headquarters is complete.** No further sections, widgets, or features unless they pass a single gate: "Will this materially improve James's ability to make better decisions?"
+
+2. **Focus shifts to execution.** Better recommendations, insights, and prioritisation — not more features.
+
+3. **Headquarters becomes the primary communication channel.** Routine updates, summaries, recommendations, campaign notifications, learnings, CEO Briefs and operational messages surface inside Headquarters. Telegram becomes exception-only:
+   - New client signs
+   - Payment fails
+   - Critical system failure
+   - Major opportunity created that cannot wait
+   - Urgent approval required before James next opens HQ
+
+4. **Small refinements are encouraged without approval.** Major redesigns require James's approval with a recommendation that explains why it matters.
+
+5. **Success metric:** Does Headquarters help James build a better company? Not how impressive it looks.
+
+## Atlas's Challenge
+
+None. This is the natural evolution from building to operating. The architecture is sound. The four-question framework holds. The Trust Test gates remain. Now we execute.
+
+## Expected Outcomes
+
+- James opens Headquarters daily as his single source of truth
+- Telegram traffic drops to exception-only (target: < 5 messages/week)
+- Atlas's daily data refresh becomes the heartbeat of the business
+- Recommendations improve in accuracy as Atlas learns patterns
+
+## Atlas's Commitments
+
+1. Daily Headquarters data refresh alongside CEO Brief
+2. Atlas's Brief and Recommendation regenerate with fresh analysis
+3. Small refinements proposed proactively, major changes only when genuinely warranted
+4. Telegram discipline: only exception-level notifications
+5. One source of truth: if it matters, it's in Headquarters

@@ -1,0 +1,28 @@
+# Decision: Founder-to-Founder Sequence v1.0 Frozen — Experiment-Led Growth Model
+
+**Slug:** `2026-08-02-founder-to-founder-sequence-frozen`
+**Status:** Made
+**Date:** 2026-08-02
+**Review:** 2026-11-02
+
+## Context
+
+After multiple rounds of development and QA, the Founder-to-Founder cold outreach sequence has been approved and frozen as v1.0. The sequence consists of 4 emails sent from James Hardstaff (james@notforgotten.com.au) that share patterns observed from industry conversations. The voice is founder-to-founder, not marketing.
+
+## Decision
+
+1. **Sequence frozen at v1.0.** No changes to wording, formatting, layout, punctuation, spacing, signature, subject lines or sending format without James's explicit approval.
+
+2. **Experiment-led growth model.** Improvements come from controlled experiments based on real campaign data, not assumptions or intuition. The five-step framework: Observation → Evidence → Hypothesis → Experiment → Success metric.
+
+3. **One experiment at a time.** Measure it. Learn from it. Repeat. No continual rewriting because something "might" perform better.
+
+4. **Campaign monitoring.** Atlas tracks: open rates, reply rates, positive reply rates, meetings booked, customers won, which email generated the first reply, time to first response, and any patterns discovered.
+
+5. **Sending infrastructure.** All sends use `scripts/send-canonical.py` which faithfully reproduces the approved text and appends the canonical Gmail signature from `james_signature.json`. Technical Verification runs on every send.
+
+## Expected Outcomes
+
+- Consistent, reliable outreach that sounds like James
+- Campaign data accumulates enabling evidence-based improvements
+- First experiment recommendation within 30 days of first campaign launch

@@ -26,7 +26,9 @@ Three hops max: Registry → Domain Index → Detail Card → Source.
 
 ## Agent & Operating System
 
-- `SOUL.md` — identity, safety rules, working style (loaded at boot)
+- `SOUL.md` — Atlas identity, philosophy, mission, working style, safety rules (loaded at boot)
+- `Agent/trust-framework.md` — Trust Operating System: Trust Test, Operational Trust Framework, Service Levels, Engineering Principles, Governance Review, Continuous Learning Framework (loaded at boot)
+- `Agent/Trust.md` — Atlas Trust Framework: Protected Assets, Change Requests, Authority Levels, Trust Score (loaded at boot)
 - [[SOPs Index]] (Agent/sops-index.md) — canonical SOP registry: one-liner per procedure, pointer to skill or file
 - [[SOPs]] (Agent/SOPs.md) — standing rules (session boot, comms, learnings loop) and channel routing
 - [[Trust]] (Agent/Trust.md) — contact tiers, outbound message tiers, Iron Gate Protocol
@@ -52,7 +54,7 @@ Three hops max: Registry → Domain Index → Detail Card → Source.
 - [[Decision Library]] (knowledge/decisions/INDEX.md) — every meaningful business decision recorded, reviewed, and learned from. Template: knowledge/decisions/TEMPLATE.md. Challenge protocol in SOUL.md.
 - [[Atlas Learning Framework]] (knowledge/atlas-learning-framework.md) — systematic self-improvement methodology: experimental cycle, variable isolation, evidence-based judgment updates. Established 2026-06-28.
 - [[Service Levels]] (knowledge/service-levels.md) — SL1-SL4 incident classification by service impact, not technology. Restoration gate criteria. Established 2026-07-24.
-- [[Trust Test]] (SOUL.md) — Five-question supreme principle. Pass before any implementation. Established 2026-07-25.
+- [[Trust Test]] (Agent/trust-framework.md) — Five-question supreme principle. Growth vs trust → trust wins. Pass before any implementation. Established 2026-07-25.
 - [[Operational Trust Framework]] (knowledge/trust/operational-trust-framework.md) — Four-gate release checklist (Security, Privacy, Reliability, Recoverability). No feature bypasses these checks. Established 2026-07-25.
 - [[Security Register]] (knowledge/trust/security-register.md) — Live register of all security issues, risks, remediations. Weekly review in Monday Command Centre.
 - [[Privacy Register]] (knowledge/trust/privacy-register.md) — Full inventory of all data collected, processed, stored. Updated before every feature launch.
@@ -130,8 +132,8 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 - [[CvC Reply Taxonomy]] (knowledge/experiments/context-vs-curiosity/taxonomy.md) — T0-T5 reply quality classification for CvC experiment.
 - [[Experiment Register]] (knowledge/experiments/INDEX.md) — Active and completed experiments register. EXP-001 running.
 - [[Client Probability Score Model]] (knowledge/client-probability-score-model.md) — 7-dimension scoring model for ranking painter prospects by probability of becoming a Not Forgotten client. Established 2026-07-27.
-- [[CvC Hypothesis]] (knowledge/experiments/context-vs-curiosity/hypothesis.md) — CvC experiment hypothesis: context sentence increases reply rate. 
-- [[CvC Email Variants]] (knowledge/experiments/context-vs-curiosity/email-variants.md) — Control vs Treatment email copy for CvC experiment.
+- [[CvC Hypothesis]] — REMOVED: file deleted 2026-07-26 (CVC experiment cleanup). Content merged into `knowledge/experiments/context-vs-curiosity/README.md` and `hypothesis-backlog.md`.
+- [[CvC Email Variants]] — REMOVED: file deleted 2026-07-26 (CVC experiment cleanup). Content merged into `knowledge/experiments/context-vs-curiosity/README.md`.
 - [[Tracking Verification Checklist]] (knowledge/tracking-verification-checklist.md) — MANDATORY pre-launch gate. GA4, Clarity, tracking pixel, test open, landing page events. No campaign launches without full pass. Established 2026-07-27.
 - [[SMS Communication Framework]] (knowledge/sms-communication-framework.md) — SMS as strategic platform capability. Design document. Governed by Six Principles + Trust Test.
 - [[SMS Integration Readiness]] (knowledge/sms-integration-readiness-report.md) — Interface design, schema recommendations, template library. Design frozen 2026-07-27.
@@ -154,8 +156,21 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 - [[Canonical Templates]] (knowledge/canonical-templates/INDEX.md) — Single Source of Truth for all client-facing email templates. No automation may contain its own copy of any email body. SHA256 checksum verification. Established 2026-08-01.
 - [[Decision: Single Source of Truth]] (knowledge/decisions/2026-08-01-single-source-of-truth.md) — Canonical templates, checksum verification, Canon Verification Gate, "Never trust a green tick." No script may contain email bodies.
 - [[Decision: Campaign Pulse Standard]] (knowledge/decisions/2026-08-01-campaign-pulse-reporting-standard.md) — Six permanent refinements: five-part structure, confidence ratings, risk/opportunity, challenge assumptions, one CEO Decision. Review: Oct 1.
-- [[Continuous Learning Framework]] (SOUL.md) — Four-tier classification: Observation → Pattern → Improvement → Standard. Weekly lessons in CEO Brief. Only Standards permanently change OS. Established 2026-08-01.
-- [[Engineering Principles]] (SOUL.md) — 3 permanent principles: Never trust a green tick, Send Evidence Record, Explainable automation. Gates return evidence with confidence. Established 2026-08-01.
+- [[Continuous Learning Framework]] (Agent/trust-framework.md) — Four-tier classification: Observation → Pattern → Improvement → Standard. Weekly lessons in CEO Brief. Only Standards permanently change OS. Established 2026-08-01.
+- [[Engineering Principles]] (Agent/trust-framework.md) — 3 permanent principles: Never trust a green tick, Send Evidence Record, Explainable automation. Gates return evidence with confidence. Established 2026-08-01.
+- [[Founder-to-Founder Sequence]] (knowledge/outreach-sequences/founder-to-founder-sequence.md) — 3-email cold outreach sequence, FROZEN. Protected Asset. Script: `scripts/send-canonical.py`. Decision: 2026-08-02-founder-to-founder-sequence-frozen.
+- [[FF1 Painter Wave 1]] (knowledge/experiments/EXP-2026-08-02-FF1-painter-wave-1.md) — 16 new painters, founder-to-founder sequence. Send: Aug 3. Frozen. Metrics: open/reply/conversion rates. Experiment ID: EXP-2026-08-02-FF1.
+- [[Travis-Led Email 1 Pilot]] (knowledge/experiments/travis-led-email-1-pilot.md) — 19 prospects. Testing Travis case study at Email 1 vs July curiosity-led baseline. Awaiting James approval.
+- [[QPaint Recovery Sequence]] (knowledge/outreach-sequences/qpaint-recovery-sequence.md) — 5-email sequence for QPaint (Tas Moulis). Protected Asset. v1.0 FROZEN. White-label, atlas@ sender.
+- [[QPaint Customer Journey]] (knowledge/outreach-sequences/qpaint-customer-journey-production-emails.md) — Five production emails v2. Customer: Sarah. Tas woven naturally. Awaiting James approval.
+- [[QPaint Monday Send Plan]] (knowledge/outreach-sequences/qpaint-monday-send-plan.md) — 156 customers, 3 batches. Bridge Email 2 (34) + Canonical Email 1 (119 new + 3 Dineo). Send: Aug 3.
+- [[Headquarters Skill]] (skills/snowark/headquarters/SKILL.md) — Five-tab Command Centre generation: War Room, Pipeline, Customers, Brain, Activity. Dual-source architecture. Decision: 2026-08-02-headquarters-complete.
+- [[Decision: Operational Phase]] (knowledge/decisions/2026-08-02-operational-phase.md) — Five permanent directives: Knowledge Preservation, HQ as OS, Telegram Exception-Only, Continuous Improvement, Focus on Not Forgotten.
+- [[Decision: Complete Business State]] (knowledge/decisions/2026-08-02-complete-business-state.md) — Six-gate task completion standard. Work + HQ + Airtable + Audit logs + Activity Log + Learnings.
+- [[Decision: Headquarters Complete]] (knowledge/decisions/2026-08-02-headquarters-complete.md) — Five-tab Command Centre completed. James runs business from here.
+- [[Decision: Atlas Trust Framework]] (knowledge/decisions/2026-08-02-atlas-trust-framework.md) — Trust OS extracted to `Agent/trust-framework.md` for load-at-boot modularity.
+- [[Decision: Founder-to-Founder Sequence]] (knowledge/decisions/2026-08-02-founder-to-founder-sequence-frozen.md) — Sequence frozen. Protected Asset. `send-canonical.py` renders faithfully.
+- [[Learning: Canonical Reproduction]] (learnings/2026-08-02-canonical-reproduction-failure.md) — Gmail API signature, blank-line rendering, base64 logo → Hotmail attachment. `send-canonical.py` fixes all three.
 
 ## Email Intelligence
 - `skills/email/email-intelligence-mining/SKILL.md` — historical deep-dive mining of Gmail mailboxes for patterns, contacts, objections, pricing, pipeline data. Not for real-time monitoring.

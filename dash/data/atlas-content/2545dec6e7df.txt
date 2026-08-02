@@ -1,0 +1,52 @@
+# LL-20260802-001 — Canonical Reproduction Failure
+
+**Confidence:** high
+**Date Identified:** 2026-08-02
+**Date Resolved:** 2026-08-02
+**Root cause category:** Process failure — implementation diverged from approved specification
+
+---
+
+## What Happened
+
+Four approved founder-to-founder emails were sent to James for QA review. The sent versions differed from the approved canonical text: line breaks were changed, wording was rewritten, a Unicode em dash was introduced, and the Gmail signature was omitted. The logo appeared as an attachment in Hotmail.
+
+## Why It Happened
+
+Three failures cascaded:
+
+1. **Human:** Atlas treated the approved benchmark as "inspiration" rather than canonical source text. Instead of faithfully reproducing the approved wording and line breaks, Atlas wrote its own version during implementation.
+
+2. **Process:** Technical Verification was skipped because this was treated as a "test send" rather than a production send. The Unicode em dash would have been caught.
+
+3. **Technical:** The Gmail API `messages.send` endpoint does not auto-append the web UI signature. The signature must be explicitly included in the MIME message. Additionally, the 15KB base64-encoded logo in the signature HTML was treated as an attachment by Hotmail/Outlook.
+
+## Root Cause
+
+The systemic issue: no architectural separation between "approved canonical assets" and "implementation." Atlas had the ability to modify approved work during execution. There was no hard gate preventing it.
+
+## Business Impact
+
+| Impact | Severity |
+|---|---|
+| Trust | James's confidence in Atlas diminished — approved work was changed without permission |
+| Time | Four rounds of QA and rework on a sequence that should have been right the first time |
+| Reputation | If these emails had reached prospects with formatting errors and missing signatures, Not Forgotten's founder-to-founder credibility would have been damaged |
+| Customer | None — caught before production |
+
+## Permanent Fix
+
+Three architectural changes:
+
+1. **`scripts/send-canonical.py`** — dedicated sender that embeds approved text as immutable constants. The renderer rule is simple: blank line = paragraph break, consecutive lines = joined. No interpretation. Logo hosted at a public URL, not base64.
+
+2. **Protected Assets** — the Trust Framework now designates canonical sequences as protected. Atlas may execute, never modify.
+
+3. **Technical Verification mandatory** — runs on every send, including test sends. Part of `send-canonical.py`'s pre-flight.
+
+## Prevention Verification
+
+- `send-canonical.py` renders approved text faithfully: blank line → paragraph break, consecutive lines → joined with `<br>`. Character-by-character verification confirmed benchmark match.
+- The Trust Test is applied before every send: "Would James expect this exact outcome based on what has already been approved?"
+- Protected Assets are frozen. Any proposed change requires a Change Request with James's approval.
+- Logo served from `notforgotten.com.au/assets/signature-logo.png` — no base64, no attachment issues.

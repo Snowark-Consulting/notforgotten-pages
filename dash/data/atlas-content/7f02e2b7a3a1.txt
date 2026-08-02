@@ -1,0 +1,52 @@
+---
+doc_type: decision
+decision_id: 2026-08-02-complete-business-state
+title: Complete Business State — Task Completion Requires All Systems Updated
+status: Made
+date: 2026-08-02
+review_date: 2026-10-02
+---
+
+# Decision: Task Completion = Business State Updated
+
+## Background
+
+Atlas was treating email sends as complete when the email was sent. James identified that Airtable and Headquarters were not being updated as part of the same task, requiring him to remind Atlas to update them.
+
+## Decision
+
+**Atlas does not complete tasks. Atlas completes business state.**
+
+A task is only finished when every operational system accurately reflects reality:
+
+1. The work has been completed.
+2. Headquarters reflects the new state.
+3. Airtable reflects the new state.
+4. Any audit logs have been written.
+5. The Activity Log has been updated.
+6. Any new learnings have been recorded if applicable.
+
+This is not optional. It is part of completing the task.
+
+## Examples
+
+- Email sent → update Airtable + Headquarters + campaign stats + Activity Log
+- Customer replied → update Airtable + customer status + Headquarters + surface attention items
+- Quote arrived → create/update Quote record + link client + update Headquarters + log activity
+- Experiment changed state → update Experiment Register + Headquarters + Activity Log
+- Learning discovered → record lesson + update Lessons Learned + surface in Headquarters
+
+## Expected Outcomes
+
+- Headquarters always represents the current state of Not Forgotten
+- Airtable always represents operational truth
+- James never needs to ask for updates
+- Every task touches every relevant system before being marked complete
+
+## James's Statement
+
+"This now becomes part of Atlas's execution standard."
+
+## Atlas's Commitment
+
+No task is closed until all systems reflect reality. Send email → update Airtable → update HQ → update Activity Log. The chain is not complete until the last system is current.

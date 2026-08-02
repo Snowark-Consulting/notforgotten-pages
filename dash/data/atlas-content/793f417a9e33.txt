@@ -1,0 +1,142 @@
+---
+doc_type: experiment
+owner: notforgotten
+tier: primary
+---
+
+# Experiment: Founder-to-Founder v1.0 — Painter Wave 1
+
+**Experiment ID:** EXP-2026-08-02-FF1
+**Status:** Approved — awaiting Monday send
+**Sequence:** Founder-to-Founder v1.0 (FROZEN)
+**Cohort:** 16 New painters with verified emails
+**Start:** Monday, 3 August 2026
+
+---
+
+## Experiment Design
+
+### Hypothesis
+
+A founder-to-founder outreach sequence — where James shares patterns observed from industry conversations rather than pitching software — will generate meaningful replies (T3+) from painting business owners, outperforming the July 2026 curiosity-led Email 1 approach (0/65 replies).
+
+### What We're Testing
+
+Not individual email variants. We're testing the entire sequence as a single unit. The voice, the rhythm, the paragraph grouping, the absence of a pitch — the complete founder-to-founder philosophy.
+
+### Baseline
+
+| Metric | July 2026 |
+|---|---|
+| Email 1 (curiosity-led) replies | 0/65 (0%) |
+| Email 2 (process questions) replies | 0/60 (0%) |
+| Email 3 (Travis case study) replies | 2/60 (3.3%) |
+| Conversions | 2 (Tas Moulis, Star Painters Adelaide) |
+| Meaningful reply rate | 3.3% (Email 3 only) |
+
+---
+
+## Frozen Sequence
+
+> ⚠️ **LOCKED.** No changes to wording, formatting, subject lines, timing, or sending format while the experiment is running. The purpose is to measure the sequence, not a moving target. If anything changes during the campaign, the data becomes unreliable.
+
+| Touch | Subject | Day |
+|---|---|---|
+| Email 1 | Something I've noticed | Day 0 (Mon 3 Aug) |
+| Email 2 | I didn't expect this | Day +5 (Sat 8 Aug → Mon 10 Aug) |
+| Email 3 | One conversation I keep coming back to | Day +8 (Wed 13 Aug) |
+| Email 4 | One final question | Day +15 (Wed 20 Aug) |
+
+Weekend adjustment: Email 2 falls on Saturday 8 Aug → pushed to Monday 10 Aug.
+
+---
+
+## Cohort
+
+16 New painters with verified emails. No prior contact from Not Forgotten. None in active sequences.
+
+| # | Business | Greeting | Email |
+|---|---|---|---|
+| 1 | Sydney Painting Experts | Sydney Painting Experts | info@sydneypaintingexperts.com.au |
+| 2 | Ron & Robin The Painters | Ron | ronandrobinpainter@gmail.com |
+| 3 | 1800 All Painting | 1800 All Painting | info@1800allpainting.com.au |
+| 4 | Superior Painters and Decorators | Superior Painters and Decorators | info@superiorpd.com |
+| 5 | Redefine Painting | Redefine Painting | admin@redfinepainting.com.au |
+| 6 | Ryan Painting | Ryan Painting | info@ryanpainting.com.au |
+| 7 | Upscale Painting & Decorating | Upscale Painting & Decorating | info@upscalepainting.com.au |
+| 8 | Vicpainter | Vicpainter | admin@vicpainter.com |
+| 9 | One Day Paint | One Day Paint | info@onedaypaint.com.au |
+| 10 | PSA Painting | PSA Painting | quotes@psapainting.com.au |
+| 11 | Brush Paint Wall | Brush Paint Wall | info@brushpaintwall.com.au |
+| 12 | CN Painters Melbourne | CN Painters Melbourne | info@cnpaintersmelbourne.com.au |
+| 13 | Newline Painting | Newline Painting | support@newlinepainting.com.au |
+| 14 | Harris and Co Painting Solutions | Harris and Co Painting Solutions | info@harrisandcopainting.com.au |
+| 15 | Southeast Painters | Southeast Painters | painters@southeastpainters.com.au |
+| 16 | Top Coat Painting Melbourne | Top Coat Painting Melbourne | enquiries@topcoatpaintingmelbourne.com.au |
+
+---
+
+## Metrics Tracked
+
+| Metric | How Measured |
+|---|---|
+| Open rate per email | Email tracking pixel |
+| Reply rate per email | Inbox monitoring |
+| Positive reply rate | Reply Quality Taxonomy (T3+) |
+| Meaningful conversations | T3+ replies |
+| Customers won | Airtable Won status |
+| Time to first reply | Timestamp delta |
+| Which email generated first response | Touchpoint tracking |
+| Common reply themes | Qualitative analysis |
+| Unexpected observations | Atlas notes |
+
+---
+
+## Operating Rules
+
+1. **Sequence is locked.** No changes while experiment runs.
+2. **Observe, don't interfere.** Let the data speak.
+3. **No optimisation mid-campaign.** No "small improvements."
+4. **Weekend send prohibition.** Push to Monday if cadence lands on weekend.
+5. **All sends via `scripts/send-canonical.py`.** Faithful reproduction only.
+6. **Technical Verification on every send.** No exceptions.
+7. **Airtable reconciled after every send.** Sequence Status, Current Touchpoint, Next Touchpoint Date.
+
+---
+
+## What Would Prove This Wrong
+
+If 0/16 prospects generate a T3+ reply across the entire 4-touch sequence, the founder-to-founder approach for cold outreach is challenged for the painter vertical. We would not conclude "the voice doesn't work" — we would conclude "this sequence at this length with this cohort did not outperform the July baseline." A second experiment (different vertical, different timing, or adapted sequence) would be warranted before drawing firm conclusions.
+
+---
+
+## Experiment Review Template
+
+At conclusion, deliver a review with:
+
+1. Executive summary
+2. Open rates by email
+3. Reply rates by email
+4. Positive reply rates
+5. Meaningful conversations started
+6. Customers won
+7. Time to first reply
+8. Which email generated first response
+9. Common themes from replies
+10. Unexpected observations
+11. What surprised Atlas
+12. Whether hypothesis was supported or disproved
+13. Confidence level (Low / Medium / High — with explanation)
+14. Recommended next experiment
+
+---
+
+## Confidence Level Framework
+
+| Level | Criteria |
+|---|---|
+| **Low** | Sample too small (<10 replies). No clear pattern. Directional only. |
+| **Medium** | Clear trend emerging (1-2 meaningful replies). Requires another cohort to confirm. |
+| **High** | Sufficient evidence (3+ meaningful replies, consistent pattern). Can recommend changes to canonical sequence. |
+
+Never confuse confidence with enthusiasm. If the evidence is weak, say so. If it's strong, explain why.
