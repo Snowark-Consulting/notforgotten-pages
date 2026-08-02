@@ -27,7 +27,7 @@
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "Operational. QPaint Monday approved (156 queued). Nicholas tender check-in Wed. Observation day active.",
+      "detail": "Operational. QPaint Monday approved (156 queued). Nicholas acknowledged (tender received, forwarded to team). Observation day active.",
       "icon": "\ud83d\udd04"
     },
     "outreach": {
@@ -103,6 +103,10 @@
   },
   "changes": {
     "today": [
+      {
+        "time": "3:15 PM",
+        "description": "Nicholas Zappacosta acknowledgement sent from atlas@. QAS Beenleigh tender confirmed received, forwarded to QPaint team. White-label, QPaint voice."
+      },
       {
         "time": "2:45 PM",
         "description": "NF campaign direction deprioritized \u2014 waits until after Monday QPaint observation data. Removed from Waiting For James."
