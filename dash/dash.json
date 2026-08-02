@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 119,
+    "tasks_completed": 120,
     "recent": [
+      {
+        "date": "2026-08-02 11:28",
+        "task": "Headquarters redesigned as Executive Operating System \u2014 Atlas's Brief, Business Health, Waiting For James, Atlas's Recommendation, What Changed. Telegram now alerts-only.",
+        "category": "task"
+      },
       {
         "date": "2026-08-01 17:33",
         "task": "CEO Brief generated for 1 August 2026",
@@ -135,11 +140,6 @@
         "date": "2026-07-23 07:44",
         "task": "Email 3 sent: 74 prospects across CvC (38), PDV (18), Wave 1 trades (12), Wave 1 non-trades (6). Email 4 sent: 12 prospects (Next&Co, Click Click Media, Performance Cleaning, 9 Wave 1 Group 2). CRM touchpoints fixed (Email 2\u2192Email 3 for 74 prospects). Sequence Status\u2192Completed for 12 Email 4 completions.",
         "category": "task"
-      },
-      {
-        "date": "2026-07-21 08:03",
-        "task": "CvC Day 7 checkpoint: 0 replies from 38 delivered (18 Control, 20 Treatment). Effective sample: 2 excluded (Distinct Painters \u2014 Unsubscribed Jul 13; SA Painter \u2014 Lost). Day 21 checkpoint due Aug 4.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-02T09:31:02.260791+09:30",
+  "last_updated": "2026-08-02T11:28:44.681885+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
