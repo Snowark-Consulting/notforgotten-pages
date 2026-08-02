@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 123,
+    "tasks_completed": 124,
     "recent": [
+      {
+        "date": "2026-08-02 17:36",
+        "task": "Published updated CEO Brief for 2 August 2026. FF1 experiment approved, launches Monday. Pipeline: 100 prospects, 55 Campaign Complete, 36 New, 1 Won. Corrected Airtable data from earlier stale run.",
+        "category": "task"
+      },
       {
         "date": "2026-08-02 17:27",
         "task": "Rebuilt Decision INDEX: 42 decisions now fully registered. 4 missing Aug 2 decisions indexed. Decision Registration Gate (4-gate process) established in decision-library skill and INDEX.md. SOUL.md refactored: 682\u2192518 lines, Trust Framework extracted to Agent/trust-framework.md (213 lines). Registry: 2 broken CVC links removed, 6 trust references migrated to new document.",
@@ -135,11 +140,6 @@
         "date": "2026-07-29 08:25",
         "task": "Email 4 (breakup): sent to 60 painters across CVC, PDV, Wave 1 campaigns. 60/60 reconciled. Pipeline \u2192 Campaign Complete.",
         "category": "task"
-      },
-      {
-        "date": "2026-07-28 17:29",
-        "task": "Campaign Pulse: 60 painters at Email 3, Next Jul 29 (breakup wave). 2 conversions (Tas Moulis + Star Painters) from Travis Email 3. 5 days of silence since Jul 23. 24 Campaign Complete.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-02T17:30:15.201294+09:30",
+  "last_updated": "2026-08-02T17:36:19.282681+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
