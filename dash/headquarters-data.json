@@ -2,7 +2,7 @@
   "generated_at": "2026-08-02T14:15:00+09:30",
   "atlas_brief": {
     "greeting": "Good afternoon James.",
-    "body": "The QPaint Monday plan is approved and locked. 156 customers across 3 batches — 34 Bridge Email 2, 119 canonical Email 1, 3 Dineo Ndala Email 1. Nicholas Zappacosta handled individually. All batches built, pre-flight passed, sender tested. Send window: Monday 9:00–10:30 AM ACST. Monday is an observation day — Atlas will track every reply, objection, delay, and signal. By end of week: we'll know what customers are worried about, which objections repeat, and which email generates the most conversations. The business is ready. Your highest-value work between now and Monday is reviewing the Nicholas individual reply and the Twilio SMS resubmission.",
+    "body": "The QPaint Monday plan is approved and locked. 156 customers across 3 batches \u2014 34 Bridge Email 2, 119 canonical Email 1, 3 Dineo Ndala Email 1. Nicholas Zappacosta handled individually. All batches built, pre-flight passed, sender tested. Send window: Monday 9:00\u201310:30 AM ACST. Monday is an observation day \u2014 Atlas will track every reply, objection, delay, and signal. By end of week: we'll know what customers are worried about, which objections repeat, and which email generates the most conversations. The business is ready. Your highest-value work between now and Monday is reviewing the Nicholas individual reply and the Twilio SMS resubmission.",
     "estimated_time": "15 minutes",
     "tone": "ready"
   },
@@ -10,67 +10,59 @@
     "score": 90,
     "change": 2,
     "reasons_positive": [
-      "QPaint Monday plan approved — 156 customers queued, 3 batches ready",
-      "All engineering systems stable — crons running, agent online",
+      "QPaint Monday plan approved \u2014 156 customers queued, 3 batches ready",
+      "All engineering systems stable \u2014 crons running, agent online",
       "2 active clients, $198 MRR, no escalations"
     ],
     "reasons_negative": [
-      "Twilio SMS bundle still blocked — resubmission needed"
+      "Twilio SMS bundle still blocked \u2014 resubmission needed"
     ]
   },
   "business_health": {
     "clients": {
       "status": "healthy",
       "detail": "2 active (QPaint + Star Painters), $198 MRR",
-      "icon": "👥"
+      "icon": "\ud83d\udc65"
     },
     "recovery_operations": {
       "status": "healthy",
       "detail": "QPaint Monday approved. 34 bridge + 119 new + 3 Dineo = 156 queued. Send Mon 9:00 AM.",
-      "icon": "🔄"
+      "icon": "\ud83d\udd04"
     },
     "outreach": {
       "status": "caution",
       "detail": "122 NF prospects idle. 84 Campaign Complete. 2 won. Next campaign direction needed.",
-      "icon": "📣"
+      "icon": "\ud83d\udce3"
     },
     "engineering": {
       "status": "healthy",
       "detail": "All crons passing. Agent online. DeepSeek v4 Pro. HQ deployed.",
-      "icon": "⚙️"
+      "icon": "\u2699\ufe0f"
     },
     "finance": {
       "status": "healthy",
       "detail": "2 paying clients. No overdue invoices.",
-      "icon": "💰"
+      "icon": "\ud83d\udcb0"
     },
     "atlas": {
       "status": "healthy",
       "detail": "All systems operational. Memory: 97%.",
-      "icon": "🤖"
+      "icon": "\ud83e\udd16"
     }
   },
   "waiting_for_james": [
     {
-      "title": "Nicholas Zappacosta — individual reply review",
-      "why_it_matters": "Nicholas is the only QPaint prospect who replied (positive signal — new QAS Beenleigh quote generated). His reply needs a personal touch, not batch automation. Atlas has drafted a response.",
-      "business_impact": "High — engaged prospect, government pipeline opportunity",
-      "estimated_time": "5 min",
-      "recommended_action": "Review the draft individual reply for Nicholas. Approve for Monday send alongside the batches.",
-      "impact_sort": 90
-    },
-    {
       "title": "Approve next outreach campaign direction (NF prospects)",
       "why_it_matters": "122 NF prospects are idle with no active sequences. July evidence: Travis case study at Email 3 converted 2/2. Moving it to Email 1 could compress conversion timeline.",
-      "business_impact": "High — unlocks the entire prospect pipeline",
+      "business_impact": "High \u2014 unlocks the entire prospect pipeline",
       "estimated_time": "15 min",
       "recommended_action": "Review the Travis-led Email 1 proposal. Approve to begin drafting.",
       "impact_sort": 85
     },
     {
-      "title": "Twilio SMS bundle — review and resubmit",
+      "title": "Twilio SMS bundle \u2014 review and resubmit",
       "why_it_matters": "Rejected July 30. SMS capability remains blocked. QPaint SMS integration cannot proceed without approved A2P bundle.",
-      "business_impact": "Medium — blocks SMS channel for all clients",
+      "business_impact": "Medium \u2014 blocks SMS channel for all clients",
       "estimated_time": "15 min",
       "recommended_action": "Check Twilio console for rejection reason, fix supporting documents, resubmit.",
       "impact_sort": 60
@@ -85,46 +77,50 @@
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "The QPaint Monday plan is locked and ready. Your two highest-value actions before Monday: (1) review Nicholas Zappacosta's individual reply — 5 minutes, preserves our only engaged QPaint prospect; (2) resubmit the Twilio SMS bundle — 15 minutes, unblocks SMS for all clients. The 122 NF prospects are the next strategic decision but can wait until after Monday's QPaint observation data starts flowing.",
+    "executive_summary": "The QPaint Monday plan is locked and ready. Your two highest-value actions before Monday: (1) review Nicholas Zappacosta's individual reply \u2014 5 minutes, preserves our only engaged QPaint prospect; (2) resubmit the Twilio SMS bundle \u2014 15 minutes, unblocks SMS for all clients. The 122 NF prospects are the next strategic decision but can wait until after Monday's QPaint observation data starts flowing.",
     "priorities": [
       {
         "action": "Review Nicholas Zappacosta individual reply",
-        "why_it_matters": "Nicholas is the only QPaint prospect who engaged — he replied positively and sent a new government quote. His experience from here sets the standard for every QPaint customer who engages from Monday's wave. A personal, thoughtful reply strengthens the relationship and signals to Tas that we handle his customers with care.",
+        "why_it_matters": "Nicholas is the only QPaint prospect who engaged \u2014 he replied positively and sent a new government quote. His experience from here sets the standard for every QPaint customer who engages from Monday's wave. A personal, thoughtful reply strengthens the relationship and signals to Tas that we handle his customers with care.",
         "expected_impact": "Preserves our warmest QPaint lead. Government pipeline opportunity.",
         "estimated_time": "5 minutes",
-        "confidence": "High (90%+) — draft is ready, based on Nicholas's actual reply context"
+        "confidence": "High (90%+) \u2014 draft is ready, based on Nicholas's actual reply context"
       },
       {
         "action": "Resubmit Twilio SMS bundle",
-        "why_it_matters": "SMS is blocked for all clients until this is resolved. QPaint SMS integration is pending. The rejection on July 30 is likely a supporting document issue — a quick review and resubmission unblocks the channel.",
+        "why_it_matters": "SMS is blocked for all clients until this is resolved. QPaint SMS integration is pending. The rejection on July 30 is likely a supporting document issue \u2014 a quick review and resubmission unblocks the channel.",
         "expected_impact": "Unblocks SMS channel. Enables QPaint SMS integration.",
         "estimated_time": "15 minutes",
-        "confidence": "Medium (75%) — depends on Twilio review after resubmission"
+        "confidence": "Medium (75%) \u2014 depends on Twilio review after resubmission"
       },
       {
-        "action": "Next NF outreach campaign — decision",
-        "why_it_matters": "122 prospects idle. Strong July evidence for Travis at Email 1. This decision can wait until Monday after QPaint sends — no urgency today, but it's the next strategic priority.",
+        "action": "Next NF outreach campaign \u2014 decision",
+        "why_it_matters": "122 prospects idle. Strong July evidence for Travis at Email 1. This decision can wait until Monday after QPaint sends \u2014 no urgency today, but it's the next strategic priority.",
         "expected_impact": "Unlocks NF prospect pipeline. 2-3 new clients at 2% conversion.",
         "estimated_time": "15 minutes",
-        "confidence": "High (90%+) — strong evidence, but can wait until Mon/Tue"
+        "confidence": "High (90%+) \u2014 strong evidence, but can wait until Mon/Tue"
       }
     ],
     "can_wait": [
-      "Founder re-engagement pilot — drafts due Aug 8, first sends Aug 11.",
-      "Governance Review — Monday. Atlas prepares, James reviews.",
-      "NF prospect campaign drafting — can begin after Monday's QPaint observation data starts flowing."
+      "Founder re-engagement pilot \u2014 drafts due Aug 8, first sends Aug 11.",
+      "Governance Review \u2014 Monday. Atlas prepares, James reviews.",
+      "NF prospect campaign drafting \u2014 can begin after Monday's QPaint observation data starts flowing."
     ],
-    "closing": "The business is in its strongest operational position yet. QPaint is queued. Systems are stable. Monday is execution day — your weekend is for thinking, not doing. Two small actions (Nicholas reply + Twilio) clear the deck. Everything else can wait."
+    "closing": "The business is in its strongest operational position yet. QPaint is queued. Systems are stable. Monday is execution day \u2014 your weekend is for thinking, not doing. Two small actions (Nicholas reply + Twilio) clear the deck. Everything else can wait."
   },
   "changes": {
     "today": [
+      {
+        "time": "2:20 PM",
+        "description": "Nicholas Zappacosta tender check-in approved and scheduled. Send Wed Aug 5 9:00 AM ACST to Dee (solutions@) and Leslie (admin@). QPaint delegation saved."
+      },
       {
         "time": "2:05 PM",
         "description": "QPaint Monday plan approved by James. 156 customers: 34 Bridge Email 2, 119 Email 1, 3 Dineo Ndala Email 1. Nicholas individual handling. Batches built, pre-flight passed, sender tested. Send Mon 9:00-10:30 AM ACST."
       },
       {
         "time": "2:05 PM",
-        "description": "Monday declared Observation Day — Atlas will track every reply, objection, delay, and positive signal. End-of-week synthesis due Fri Aug 7."
+        "description": "Monday declared Observation Day \u2014 Atlas will track every reply, objection, delay, and positive signal. End-of-week synthesis due Fri Aug 7."
       },
       {
         "time": "11:36 AM",
@@ -132,7 +128,7 @@
       },
       {
         "time": "11:28 AM",
-        "description": "Headquarters redesigned as Executive Operating System — Atlas's Brief, Business Health, Waiting For James, Atlas's Recommendation, What Changed."
+        "description": "Headquarters redesigned as Executive Operating System \u2014 Atlas's Brief, Business Health, Waiting For James, Atlas's Recommendation, What Changed."
       }
     ],
     "yesterday": [
@@ -142,7 +138,7 @@
       },
       {
         "time": "Morning",
-        "description": "QPaint voice standard violation caught — 3 follow-ups sent with wrong template. Root cause: autopilot script had hardcoded bodies. Fixed with canonical templates + checksum verification."
+        "description": "QPaint voice standard violation caught \u2014 3 follow-ups sent with wrong template. Root cause: autopilot script had hardcoded bodies. Fixed with canonical templates + checksum verification."
       }
     ],
     "this_week": [
@@ -160,7 +156,7 @@
       },
       {
         "day": "Thursday",
-        "description": "QPaint Wave 2 sent: 30 recovery emails. Nicholas Zappacosta replied — new government quote generated."
+        "description": "QPaint Wave 2 sent: 30 recovery emails. Nicholas Zappacosta replied \u2014 new government quote generated."
       },
       {
         "day": "Wednesday",
