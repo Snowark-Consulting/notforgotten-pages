@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 120,
+    "tasks_completed": 121,
     "recent": [
+      {
+        "date": "2026-08-02 11:36",
+        "task": "Headquarters declared complete. Shift from building to living. Telegram now exception-only. Decision recorded: 2026-08-02-headquarters-complete.",
+        "category": "task"
+      },
       {
         "date": "2026-08-02 11:28",
         "task": "Headquarters redesigned as Executive Operating System \u2014 Atlas's Brief, Business Health, Waiting For James, Atlas's Recommendation, What Changed. Telegram now alerts-only.",
@@ -135,11 +140,6 @@
         "date": "2026-07-23 19:04",
         "task": "Tas Moulis converted to client \u2014 called after Email 3 (Travis case study). Painter, Queensland. 11 opens over 10 days.",
         "category": "task"
-      },
-      {
-        "date": "2026-07-23 07:44",
-        "task": "Email 3 sent: 74 prospects across CvC (38), PDV (18), Wave 1 trades (12), Wave 1 non-trades (6). Email 4 sent: 12 prospects (Next&Co, Click Click Media, Performance Cleaning, 9 Wave 1 Group 2). CRM touchpoints fixed (Email 2\u2192Email 3 for 74 prospects). Sequence Status\u2192Completed for 12 Email 4 completions.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-02T11:30:04.370022+09:30",
+  "last_updated": "2026-08-02T11:36:56.722189+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
