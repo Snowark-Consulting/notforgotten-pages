@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 122,
+    "tasks_completed": 123,
     "recent": [
+      {
+        "date": "2026-08-02 17:27",
+        "task": "Rebuilt Decision INDEX: 42 decisions now fully registered. 4 missing Aug 2 decisions indexed. Decision Registration Gate (4-gate process) established in decision-library skill and INDEX.md. SOUL.md refactored: 682\u2192518 lines, Trust Framework extracted to Agent/trust-framework.md (213 lines). Registry: 2 broken CVC links removed, 6 trust references migrated to new document.",
+        "category": "task"
+      },
       {
         "date": "2026-08-02 15:30",
         "task": "Complete Business State standard established. Task completion now requires HQ + Airtable + Activity Log updated. Nicholas Airtable: Quote recvCW5j3PpfwNALq + Message reckSGFeocHHVacjN created.",
@@ -135,36 +140,6 @@
         "date": "2026-07-28 17:29",
         "task": "Campaign Pulse: 60 painters at Email 3, Next Jul 29 (breakup wave). 2 conversions (Tas Moulis + Star Painters) from Travis Email 3. 5 days of silence since Jul 23. 24 Campaign Complete.",
         "category": "task"
-      },
-      {
-        "date": "2026-07-28 15:50",
-        "task": "QPaint calibration: Nicholas Zappacosta (QBuild) replied positively to Logan Village email, then sent new government quote request for QAS Beenleigh. New opportunity generated from recovery conversation.",
-        "category": "task"
-      },
-      {
-        "date": "2026-07-25 10:26",
-        "task": "Site realigned: follow-up-first messaging, broadened language, two-path CTAs, health check section. Live at notforgotten.com.au",
-        "category": "task"
-      },
-      {
-        "date": "2026-07-25 08:23",
-        "task": "Repositioned homepage: quote follow-up \u2192 business intelligence. New hero, monthly insights report section, updated copy throughout. Live at notforgotten.com.au",
-        "category": "task"
-      },
-      {
-        "date": "2026-07-24 09:28",
-        "task": "First client payment received \u2014 Tas Moulis (QPAINT). Onboarding 9 paid, subscription Active at 99/mo MRR.",
-        "category": "task"
-      },
-      {
-        "date": "2026-07-23 20:00",
-        "task": "System check complete \u2014 Stale Prospect Alert fixed, quotes@ pipeline end-to-end verified. 2 clients active.",
-        "category": "task"
-      },
-      {
-        "date": "2026-07-23 19:16",
-        "task": "Star Painters Adelaide converted to client \u2014 Ahmad replied to Email 3 (Travis case study) with buying questions. Painter, SA.",
-        "category": "task"
       }
     ]
   },
@@ -189,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-02T15:30:10.462880+09:30",
+  "last_updated": "2026-08-02T17:27:55.796343+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
