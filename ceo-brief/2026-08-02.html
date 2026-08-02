@@ -90,6 +90,7 @@
   .alert-warn { background: #fef3c7; border-left: 4px solid var(--warn); }
   .alert-danger { background: #fee2e2; border-left: 4px solid var(--danger); }
   .alert-info { background: #dbeafe; border-left: 4px solid var(--info); }
+  .alert-success { background: #d1fae5; border-left: 4px solid var(--success); }
   ul { padding-left: 1.5rem; }
   li { margin-bottom: 0.3rem; font-size: 0.92rem; }
   footer {
@@ -118,7 +119,7 @@
 <header>
   <h1>CEO Brief — Sunday, 2 August 2026</h1>
   <div class="date">Not Forgotten Systems</div>
-  <div class="subtitle">Weekend edition. Monday is busy: Governance Review, QPaint Email 2 sends, and campaign direction decisions. Today is quiet — prep day.</div>
+  <div class="subtitle">Quiet Sunday. Tomorrow is the inflection point: Founder-to-Founder v1.0 launches, Governance Review, and QPaint Email 2 sends.</div>
 </header>
 
 <div class="container">
@@ -138,24 +139,24 @@
     </tr>
     <tr>
       <td>1</td>
-      <td><strong>Approve next outreach campaign direction</strong></td>
-      <td>Pipeline is idle: 122 New prospects, 0 active sequences. Travis-led Email 1 for painters is the highest-evidence path. Approve today so drafting can start Monday.</td>
-      <td>~15 min</td>
+      <td><strong>Quick check: FF1 experiment ready for Monday</strong></td>
+      <td>Founder-to-Founder v1.0 is approved and launches tomorrow (16 painters). One final look to confirm everything is in order: sequence frozen, tracking verified, sends prepared.</td>
+      <td>~5 min</td>
       <td><span class="priority-badge priority-med">Medium</span></td>
     </tr>
     <tr>
       <td>2</td>
-      <td><strong>Twilio SMS bundle — review and resubmit</strong></td>
-      <td>Rejected Jul 30. SMS capability remains blocked. QPaint SMS integration stalled. Supporting document issue per Twilio.</td>
-      <td>~15 min</td>
-      <td><span class="priority-badge priority-med">Medium</span></td>
+      <td><strong>Reserve 30 min Monday for Governance Review</strong></td>
+      <td>First monthly Trust OS audit. Atlas leads. James reviews recommendations. Baseline scores: Security 41/100, Privacy 35/100, Ops Maturity 38/100.</td>
+      <td>0 min today</td>
+      <td><span class="priority-badge priority-low">Low</span></td>
     </tr>
     <tr>
       <td>3</td>
-      <td><strong>Reserve 30 min Monday for Governance Review</strong></td>
-      <td>First monthly Trust OS audit due tomorrow. Atlas will lead and present findings. James needs to review recommendations and approve changes.</td>
-      <td>0 min today (Mon)</td>
-      <td><span class="priority-badge priority-low">Low</span></td>
+      <td><strong>Twilio SMS bundle: review rejection and resubmit</strong></td>
+      <td>Rejected Jul 30. QPaint SMS integration blocked. Supporting document issue per Twilio.</td>
+      <td>~15 min</td>
+      <td><span class="priority-badge priority-med">Medium</span></td>
     </tr>
   </table>
 </div>
@@ -164,7 +165,7 @@
 <div class="section">
   <h2>2. Executive Summary</h2>
   <div class="summary">
-    <p>Sunday. No activity since yesterday's briefing. The inbox is clean, all outreach campaigns are complete, and systems are quiet. Monday is the inflection point: Governance Review, QPaint Email 2 sends (17 contacts, drafts ready), and the campaign direction decision. 86% of prospects are in terminal states (New or Campaign Complete). The engine is primed but idle — the next campaign decision unlocks the pipeline.</p>
+    <p>Sunday. All quiet. Inbox is clean, no active campaigns. The Founder-to-Founder v1.0 experiment (EXP-2026-08-02-FF1) has been approved and launches tomorrow: 16 painters, James's voice, pattern-sharing approach. QPaint Email 2 sends (17 contacts) also go Monday, pushed from the weekend per the send prohibition rule. The Governance Review — our first monthly Trust OS audit — runs tomorrow. 100 prospects in CRM: 55 Campaign Complete, 36 New, 1 Won (Tas Moulis). Star Painters Adelaide is a Client with 4 active Quotes in follow-up. Disk at 86% — monitor. Dashboard refresh script has a bug. The Campaign Intel Monitor cron path needs fixing (doubled path).</p>
   </div>
 </div>
 
@@ -180,25 +181,18 @@
       <th>Context</th>
     </tr>
     <tr>
-      <td>Next outreach campaign</td>
-      <td>Travis-led Email 1 for 20-25 painters from New prospects list. Same structure confirmed yesterday.</td>
-      <td><span class="badge badge-warn">Medium (85%)</span></td>
-      <td><span class="priority-badge priority-med">Medium</span> — idle this week</td>
-      <td>July evidence: Travis at Email 3 = 2/2 conversions. 0/125 Emails 1-2 generated replies. Moving Travis to Email 1 tests whether we compress the conversion timeline from 10-14 days to 1-5 days.</td>
-    </tr>
-    <tr>
       <td>Twilio SMS resubmission</td>
       <td>Review rejection reason in Twilio console, fix supporting documents, resubmit.</td>
       <td><span class="badge badge-success">High (90%+)</span></td>
       <td><span class="priority-badge priority-med">Medium</span></td>
-      <td>Rejected Jul 30. Bundle ID: BUde46f82095d0f2220219da093246b7c4.</td>
+      <td>Rejected Jul 30. Bundle ID: BUde46f82095d0f2220219da093246b7c4. SMS remains blocked.</td>
     </tr>
     <tr>
-      <td>Founder re-engagement pilot</td>
-      <td>Personalised drafts due Aug 8. First sends Aug 11. Decision already approved — execution only.</td>
-      <td><span class="badge badge-success">High (90%+)</span></td>
+      <td>Dashboard refresh fix</td>
+      <td>Atlas can fix the <code>bufsize</code> TypeError in <code>dashboard-update.py</code> line 202. Tier 1 operational. No James approval needed.</td>
+      <td><span class="badge badge-success">High (95%+)</span></td>
       <td><span class="priority-badge priority-low">Low</span></td>
-      <td>Decision 2026-07-29-founder-reengagement-strategy. 15-prospect pilot. First cohort exits 14-day window Aug 11.</td>
+      <td>Hourly refresh has been failing. Dashboard data may be stale. Quick fix: change bufsize param.</td>
     </tr>
   </table>
 </div>
@@ -215,16 +209,22 @@
       <th>Expected Impact</th>
     </tr>
     <tr>
-      <td><strong>Approve Travis-led Email 1 painter campaign today</strong></td>
-      <td><span class="badge badge-warn">Medium (85%)</span></td>
-      <td>Pipeline idle since Jul 28. 102 New prospects. 131 painters total in CRM. Evidence is clear: Travis converts painters. The question is whether Email 1 Travis compresses the timeline. Only way to find out is to run it.</td>
-      <td>If approved today, I can draft the complete sequence tomorrow (Monday), run Voice Review + Technical Verification, and have Email 1 ready by Tuesday. 20-25 painter prospects. Could validate within 2 weeks.</td>
+      <td><strong>Final pre-flight for FF1 experiment</strong></td>
+      <td><span class="badge badge-success">High (90%+)</span></td>
+      <td>Experiment launches tomorrow. Pre-flight checklist, tracking verification, batch JSON validation, and send-canonical.py dry-run should all be confirmed. This is the most important launch since July's campaigns.</td>
+      <td>Prevents launch-day issues. 16 painter emails at stake. Catching a problem today is a 5-minute fix; catching it during Monday's send is a delay.</td>
     </tr>
     <tr>
       <td><strong>Fix Campaign Intel Monitor cron path</strong></td>
       <td><span class="badge badge-success">High (95%+)</span></td>
-      <td>Script exists but cron path is doubled (<code>scripts/scripts/...</code> — Pitfall 18). 30-day post-campaign monitoring is blind. Late replies from the Jul 28 breakup wave (60 emails) won't be detected automatically.</td>
-      <td>Low-effort fix: update cron job path to absolute. Restores monitoring for delayed conversions. I can execute this without James — it's Tier 1 operational.</td>
+      <td>Script at <code>/root/.hermes/scripts/campaign-intel-monitor.py</code>. Cron path doubled to <code>scripts/scripts/...</code> (Pitfall 18). 30-day post-campaign monitoring is blind since the Jul 28 breakup wave.</td>
+      <td>Tier 1 operational fix. Restores late-reply detection for 55 Campaign Complete prospects. I'll execute today.</td>
+    </tr>
+    <tr>
+      <td><strong>Fix dashboard-update.py bufsize bug</strong></td>
+      <td><span class="badge badge-success">High (95%+)</span></td>
+      <td><code>TypeError: bufsize must be an integer</code> at line 202. Hourly refresh failing since at least this morning. Dashboard data may be stale.</td>
+      <td>Tier 1 operational fix. Restores hourly data freshness to the public dashboard.</td>
     </tr>
   </table>
 </div>
@@ -232,7 +232,7 @@
 <!-- 5. Inbox Summary -->
 <div class="section">
   <h2>5. Inbox Summary</h2>
-  <p><strong>Inbox is clear.</strong> Zero unread messages in atlas@notforgotten.com.au. No new prospect replies, no bounces, no customer activity since yesterday's briefing.</p>
+  <p><strong>Inbox is clear.</strong> Zero unread messages in atlas@notforgotten.com.au. No new prospect replies, no bounces, no quote intake activity since yesterday. Quotes@ inbox also clean.</p>
 </div>
 
 <!-- 6. Pipeline Summary -->
@@ -241,20 +241,20 @@
 
   <div class="metric-grid">
     <div class="metric-card">
-      <div class="value">200</div>
+      <div class="value">100</div>
       <div class="label">Total Prospects</div>
     </div>
     <div class="metric-card">
-      <div class="value">102</div>
+      <div class="value">36</div>
       <div class="label">New (Uncontacted)</div>
     </div>
     <div class="metric-card">
-      <div class="value">84</div>
+      <div class="value">55</div>
       <div class="label">Campaign Complete</div>
     </div>
     <div class="metric-card">
-      <div class="value">2</div>
-      <div class="label">Won</div>
+      <div class="value">1</div>
+      <div class="label">Won (Tas Moulis)</div>
     </div>
   </div>
 
@@ -264,23 +264,22 @@
       <th>Count</th>
       <th>Next Action</th>
     </tr>
-    <tr><td>New</td><td>102</td><td>Awaiting campaign design decision</td></tr>
-    <tr><td>Campaign Complete</td><td>84</td><td>30-day monitoring; re-engagement eligible from Aug 11</td></tr>
-    <tr><td>Lost</td><td>7</td><td>No further action</td></tr>
-    <tr><td>Not a fit</td><td>5</td><td>No further action</td></tr>
-    <tr><td>Won</td><td>2</td><td>Tas Moulis, Star Painters Adelaide</td></tr>
-    <tr><td>Design Partner</td><td>1</td><td>QPaint — active recovery operations</td></tr>
-    <tr><td>Active</td><td>0</td><td>No sequences running</td></tr>
+    <tr><td>New</td><td>36</td><td>16 selected for FF1 experiment (starts Mon)</td></tr>
+    <tr><td>Campaign Complete</td><td>55</td><td>30-day monitoring; re-engagement eligible from Aug 11</td></tr>
+    <tr><td>Lost</td><td>5</td><td>No further action</td></tr>
+    <tr><td>Not a fit</td><td>3</td><td>No further action</td></tr>
+    <tr><td>Won</td><td>1</td><td>Tas Moulis (QPaint) — active client</td></tr>
+    <tr><td>Outreach Active / Engaged</td><td>0</td><td>No sequences running (FF1 changes this tomorrow)</td></tr>
   </table>
 
   <div class="alert alert-info" style="margin-top:1rem;">
-    <strong>Pipeline idle since Jul 28</strong> — 86% of prospects in terminal states. The next campaign decision is the unlock.
+    <strong>Clients:</strong> 2 — QPaint (Design Partner, active recovery) and Star Painters Adelaide (4 Quotes in follow-up). Star Painters has 4 active customer quotes: $12,331, $14,890, $17,424, and 1 awaiting review. All at Follow-up 1 Sent stage.
   </div>
 </div>
 
-<!-- 7. QPaint Recovery -->
+<!-- 7. FF1 Experiment Status -->
 <div class="section">
-  <h2>7. QPaint Recovery Operations</h2>
+  <h2>7. Founder-to-Founder v1.0 — Status</h2>
   <table>
     <tr>
       <th>Item</th>
@@ -288,58 +287,107 @@
       <th>Detail</th>
     </tr>
     <tr>
-      <td>Pipeline records</td>
-      <td><span class="badge badge-info">30 total</span></td>
-      <td>1 Lost (Andres Sillet), 5 Contacted, 24 Not Contacted</td>
+      <td>Experiment approval</td>
+      <td><span class="badge badge-success">Approved</span></td>
+      <td>EXP-2026-08-02-FF1. 16 New painters. Sequence frozen v1.0.</td>
     </tr>
     <tr>
-      <td>Customer follow-ups</td>
-      <td><span class="badge badge-success">Active</span></td>
-      <td>3 sent Aug 1: Deb Brown, Lee Wright, Brian Mitchell. Monitoring for replies.</td>
+      <td>Email 1</td>
+      <td><span class="badge badge-info">Monday 3 Aug</span></td>
+      <td>Subject: "Something I've noticed." Pattern-sharing opening. No pitch.</td>
     </tr>
     <tr>
-      <td>Email 2 drafts</td>
-      <td><span class="badge badge-success">Ready</span></td>
-      <td>17 contacts, Voice Review 9/9, batch JSON built. Window opens Monday Aug 4 (pushed from Sunday per weekend prohibition).</td>
+      <td>Email 2</td>
+      <td><span class="badge badge-neutral">Mon 10 Aug</span></td>
+      <td>Subject: "I didn't expect this." Pushed from Sat 8 Aug (weekend prohibition).</td>
     </tr>
     <tr>
-      <td>Nicholas Zappacosta (QBuild)</td>
-      <td><span class="badge badge-success">Engaged</span></td>
-      <td>Two government projects: Logan Village State School ($145k) + QAS Beenleigh (new).</td>
+      <td>Email 3</td>
+      <td><span class="badge badge-neutral">Wed 13 Aug</span></td>
+      <td>Subject: "One conversation I keep coming back to." Travis evidence.</td>
+    </tr>
+    <tr>
+      <td>Email 4</td>
+      <td><span class="badge badge-neutral">Wed 20 Aug</span></td>
+      <td>Subject: "One final question." Reflection close.</td>
+    </tr>
+    <tr>
+      <td>Null-result threshold</td>
+      <td><span class="badge badge-warn">0/16 T3+ replies</span></td>
+      <td>If zero meaningful replies across full 4-touch sequence, founder-to-founder approach is challenged for painter vertical.</td>
+    </tr>
+    <tr>
+      <td>Sending method</td>
+      <td><span class="badge badge-info">send-canonical.py</span></td>
+      <td>Faithful reproduction. James's Gmail signature. No reinterpretation.</td>
     </tr>
   </table>
 </div>
 
-<!-- 8. Business Impact -->
+<!-- 8. QPaint Recovery -->
 <div class="section">
-  <h2>8. Business Impact</h2>
+  <h2>8. QPaint Recovery Operations</h2>
+  <table>
+    <tr>
+      <th>Item</th>
+      <th>Status</th>
+      <th>Detail</th>
+    </tr>
+    <tr>
+      <td>Email 2 sends</td>
+      <td><span class="badge badge-info">Monday 4 Aug</span></td>
+      <td>17 contacts. Drafts ready (Voice Review 9/9). Batch JSON built. Pushed from Sunday per weekend prohibition.</td>
+    </tr>
+    <tr>
+      <td>Customer follow-ups (Aug 1)</td>
+      <td><span class="badge badge-success">Sent</span></td>
+      <td>3 sent: Deb Brown, Lee Wright, Brian Mitchell. Monitoring for replies.</td>
+    </tr>
+    <tr>
+      <td>Nicholas Zappacosta (QBuild)</td>
+      <td><span class="badge badge-success">Engaged</span></td>
+      <td>Two government projects active: Logan Village State School ($145k) + QAS Beenleigh.</td>
+    </tr>
+    <tr>
+      <td>Pipeline records</td>
+      <td><span class="badge badge-info">30 total</span></td>
+      <td>1 Lost (Andres Sillet), 5 Contacted, 24 Not Contacted.</td>
+    </tr>
+  </table>
+</div>
+
+<!-- 9. Business Impact -->
+<div class="section">
+  <h2>9. Business Impact</h2>
   <div class="metric-grid">
     <div class="metric-card">
-      <div class="value">$0</div>
-      <div class="label">Recovered (this period)</div>
+      <div class="value">2</div>
+      <div class="label">Clients Won</div>
     </div>
     <div class="metric-card">
-      <div class="value">2</div>
-      <div class="label">Opportunities Generated (Won)</div>
+      <div class="value">$46,644</div>
+      <div class="label">Quotes Under Management</div>
     </div>
     <div class="metric-card">
       <div class="value">3</div>
-      <div class="label">Relationships Managed</div>
+      <div class="label">Active Relationships</div>
     </div>
     <div class="metric-card">
-      <div class="value">Travis-led</div>
-      <div class="label">Top Intelligence</div>
+      <div class="value">FF1</div>
+      <div class="label">Next Growth Engine</div>
     </div>
   </div>
   <p style="margin-top:1rem; font-size:0.92rem; color: var(--muted);">
-    <strong>Relationships:</strong> QPaint (Design Partner), Tas Moulis (Won), Star Painters Adelaide (Won).<br>
-    <strong>Email engagement:</strong> 43 deliveries confirmed, 58 prospects opened, 238 total opens, 4.1 avg opens/prospect.
+    <strong>Clients:</strong> QPaint (Design Partner), Star Painters Adelaide.<br>
+    <strong>Quotes under management:</strong> 4 active (Star Painters Adelaide), $46,644 total value. 3 at Follow-up 1 Sent, 1 awaiting review.<br>
+    <strong>July campaign evidence:</strong> 2/2 painter conversions at Email 3 (Travis case study). 0/125 Email 1-2 replies. This evidence drove the FF1 design.<br>
+    <strong>July campaigns delivered:</strong> ~176 emails across 65 prospects. 84 Campaign Complete with 30-day monitoring active.
   </p>
 </div>
 
-<!-- 9. System Health -->
+<!-- 10. System Health -->
 <div class="section">
-  <h2>9. System Health</h2>
+  <h2>10. System Health</h2>
   <table>
     <tr>
       <th>System</th>
@@ -347,38 +395,41 @@
       <th>Notes</th>
     </tr>
     <tr><td>Atlas</td><td><span class="badge badge-success">Online</span></td><td>Operating normally</td></tr>
-    <tr><td>Airtable</td><td><span class="badge badge-success">Connected</span></td><td>200 prospects, API healthy</td></tr>
-    <tr><td>Dashboard</td><td><span class="badge badge-success">Live</span></td><td>Refreshed Aug 1 22:00 UTC</td></tr>
-    <tr><td>Inbox (atlas@)</td><td><span class="badge badge-success">Monitoring</span></td><td>Pulse active, no unread</td></tr>
-    <tr><td>Inbox (quotes@)</td><td><span class="badge badge-success">Monitoring</span></td><td>No new quotes</td></tr>
-    <tr><td>Campaign Intel Monitor</td><td><span class="badge badge-danger">Failed</span></td><td>Cron path doubled. 30-day monitoring blind.</td></tr>
+    <tr><td>Airtable</td><td><span class="badge badge-success">Connected</span></td><td>100 prospects, API healthy</td></tr>
+    <tr><td>Dashboard</td><td><span class="badge badge-warn">Stale</span></td><td>Hourly refresh failing — bufsize TypeError in dashboard-update.py line 202</td></tr>
+    <tr><td>Command Centre</td><td><span class="badge badge-success">Live</span></td><td>GitHub Pages healthy, archive indexed</td></tr>
+    <tr><td>Inbox (atlas@)</td><td><span class="badge badge-success">Monitoring</span></td><td>Pulse active, 0 unread</td></tr>
+    <tr><td>Inbox (quotes@)</td><td><span class="badge badge-success">Monitoring</span></td><td>0 unread</td></tr>
+    <tr><td>Campaign Intel Monitor</td><td><span class="badge badge-danger">Failed</span></td><td>Cron path doubled: <code>scripts/scripts/...</code>. 30-day blind.</td></tr>
     <tr><td>Twilio SMS</td><td><span class="badge badge-danger">Blocked</span></td><td>Regulatory bundle rejected Jul 30</td></tr>
-    <tr><td>QPaint Recovery</td><td><span class="badge badge-success">Active</span></td><td>Email 2 drafts ready for Monday</td></tr>
+    <tr><td>Disk</td><td><span class="badge badge-warn">86% used</span></td><td>2.8G free of 20G. Monitor — not critical yet.</td></tr>
   </table>
 </div>
 
-<!-- 10. Upcoming Events -->
+<!-- 11. Upcoming Events -->
 <div class="section">
-  <h2>10. Upcoming Events</h2>
+  <h2>11. Upcoming Events</h2>
   <table>
     <tr>
       <th>Date</th>
       <th>Event</th>
       <th>Action</th>
     </tr>
-    <tr><td><strong>Mon, Aug 3</strong></td><td><strong>First Governance Review</strong></td><td>Atlas-led Trust OS audit. James: 30 min review. Baseline scores: Security 41, Privacy 35, Ops Maturity 38.</td></tr>
-    <tr><td><strong>Mon, Aug 3</strong></td><td><strong>QPaint Email 2 sends</strong></td><td>17 contacts. Drafts ready (9/9 Voice Review). Batch JSON built. Weekend push from Sunday.</td></tr>
-    <tr><td>Wed, Aug 5</td><td>CvC experiment results window</td><td>40-painter A/B test. Final reply data by Aug 6-7. Formal review to follow.</td></tr>
+    <tr><td><strong>Mon, Aug 3</strong></td><td><strong>FF1 Email 1 sends</strong></td><td>16 painters. Founder-to-Founder v1.0. First new outreach since Jul 14.</td></tr>
+    <tr><td><strong>Mon, Aug 3</strong></td><td><strong>First Governance Review</strong></td><td>Atlas-led Trust OS audit. Baseline: Security 41, Privacy 35, Ops 38. James: 30 min review.</td></tr>
+    <tr><td><strong>Mon, Aug 3</strong></td><td><strong>QPaint Email 2 sends</strong></td><td>17 contacts. Drafts ready. Weekend push.</td></tr>
+    <tr><td>Tue, Aug 4</td><td>CvC Experiment Day 21 checkpoint</td><td>40-painter A/B test final analysis. Formal review to follow.</td></tr>
     <tr><td>Fri, Aug 8</td><td>Founder re-engagement drafts due</td><td>Personalised drafts for 15-painter pilot.</td></tr>
+    <tr><td>Mon, Aug 10</td><td>FF1 Email 2 sends</td><td>Pushed from Sat Aug 8 (weekend prohibition).</td></tr>
     <tr><td>Mon, Aug 11</td><td>Founder re-engagement first sends</td><td>First 5 painters hit 14-day post-Email-4 mark.</td></tr>
     <tr><td>Thu, Aug 28</td><td>Campaign Intelligence Report</td><td>30-day monitoring completes.</td></tr>
     <tr><td>Thu, Aug 28</td><td>Atlas Communication Layer review</td><td>Decision 2026-07-28 30-day review.</td></tr>
   </table>
 </div>
 
-<!-- 11. Risks & Watch List -->
+<!-- 12. Risks & Watch List -->
 <div class="section">
-  <h2>11. Risks & Watch List</h2>
+  <h2>12. Risks & Watch List</h2>
   <table>
     <tr>
       <th>Risk</th>
@@ -386,59 +437,29 @@
       <th>Status</th>
     </tr>
     <tr>
-      <td><strong>Pipeline idle — no active campaigns</strong></td>
+      <td><strong>FF1 launch readiness</strong></td>
       <td><span class="badge badge-warn">Medium</span></td>
-      <td>No sequences running since Jul 28. 102 New prospects. Decision needed this week to restart momentum.</td>
+      <td>Sequence approved and frozen. Pre-flight checklist, tracking verification, and batch validation must complete before Monday's send. No issues flagged yet — but the launch is tomorrow.</td>
     </tr>
     <tr>
       <td><strong>Campaign Intel Monitor offline</strong></td>
       <td><span class="badge badge-warn">Medium</span></td>
-      <td>Late replies from breakup wave undetected. Fix before Monday.</td>
+      <td>30-day monitoring for 55 Campaign Complete prospects is blind. Late replies from the Jul 28 breakup wave are undetected. Fix today.</td>
+    </tr>
+    <tr>
+      <td><strong>Dashboard hourly refresh failing</strong></td>
+      <td><span class="badge badge-warn">Medium</span></td>
+      <td><code>TypeError: bufsize must be an integer</code>. Dashboard data may be hours stale. Fix is simple — one line change.</td>
     </tr>
     <tr>
       <td><strong>Twilio SMS blocked</strong></td>
       <td><span class="badge badge-warn">Medium</span></td>
-      <td>SMS capability stalled. QPaint integration on hold.</td>
+      <td>SMS capability stalled. QPaint integration on hold. Regulatory bundle needs resubmission.</td>
     </tr>
     <tr>
-      <td><strong>Privacy policy unpublished</strong></td>
+      <td><strong>Disk usage at 86%</strong></td>
       <td><span class="badge badge-warn">Medium</span></td>
-      <td>7 blockers from Jul 25 audit. To be addressed in Governance Review.</td>
-    </tr>
-  </table>
-</div>
-
-<!-- 12. Actions Requiring My Decision -->
-<div class="section">
-  <h2>12. Actions Requiring My Decision</h2>
-  <table>
-    <tr>
-      <th>Action</th>
-      <th>Recommendation</th>
-      <th>Confidence</th>
-      <th>Delay Impact</th>
-      <th>Deadline</th>
-    </tr>
-    <tr>
-      <td>Approve next campaign</td>
-      <td>Travis-led Email 1 for 20-25 painters</td>
-      <td><span class="badge badge-warn">Med (85%)</span></td>
-      <td><span class="priority-badge priority-med">Medium</span></td>
-      <td>Today (Sun)</td>
-    </tr>
-    <tr>
-      <td>Fix Twilio bundle</td>
-      <td>Review rejection, resubmit</td>
-      <td><span class="badge badge-success">High</span></td>
-      <td><span class="priority-badge priority-med">Medium</span></td>
-      <td>This week</td>
-    </tr>
-    <tr>
-      <td>Governance Review time</td>
-      <td>Reserve 30 min Monday</td>
-      <td><span class="badge badge-success">High</span></td>
-      <td><span class="priority-badge priority-low">Low</span></td>
-      <td>Aug 3</td>
+      <td>2.8G free. Not critical yet but trending. Session logs and cache may need pruning.</td>
     </tr>
   </table>
 </div>
@@ -447,18 +468,19 @@
 <div class="section">
   <h2>13. What to Ignore</h2>
   <ul>
-    <li><strong>QPaint follow-ups:</strong> Running smoothly. 3 sent Aug 1. Monitoring for replies. No attention needed.</li>
-    <li><strong>84 Campaign Complete prospects:</strong> In 30-day monitoring window. No action needed until re-engagement (Aug 11+).</li>
-    <li><strong>Inbox pulses:</strong> Both atlas@ and quotes@ monitoring running. No unread customer mail.</li>
-    <li><strong>Dashboard:</strong> Refreshed and healthy. Pipeline data current.</li>
-    <li><strong>Cron jobs (except campaign-intel-monitor):</strong> All running normally.</li>
+    <li><strong>Star Painters Adelaide follow-ups:</strong> 4 active quotes in automated follow-up. Running smoothly. No attention needed.</li>
+    <li><strong>55 Campaign Complete prospects:</strong> In 30-day monitoring window. No action until re-engagement (Aug 11+).</li>
+    <li><strong>Inbox pulses:</strong> Both atlas@ and quotes@ monitoring running. No unread mail.</li>
+    <li><strong>QPaint customer follow-ups:</strong> 3 sent Aug 1. Monitoring for replies. No issues.</li>
+    <li><strong>Cron jobs (except campaign-intel-monitor and dashboard-update):</strong> All running normally.</li>
+    <li><strong>36 New prospects (not in FF1):</strong> 20 remain unselected. Address after FF1 early results.</li>
   </ul>
 </div>
 
 </div>
 
 <footer>
-  Generated by Atlas · Not Forgotten Systems · 2 August 2026 · <a href="https://snowark-consulting.github.io/notforgotten-pages/ceo-brief/">Archive</a>
+  Generated by Atlas · Not Forgotten Systems · 2 August 2026 (Updated 22:30 UTC) · <a href="https://snowark-consulting.github.io/notforgotten-pages/ceo-brief/">Archive</a>
 </footer>
 
 </body>
