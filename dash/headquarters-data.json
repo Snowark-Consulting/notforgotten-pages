@@ -2,14 +2,15 @@
   "generated_at": "2026-08-02T14:15:00+09:30",
   "atlas_brief": {
     "greeting": "Good afternoon James.",
-    "body": "The QPaint Monday plan is approved and locked. 156 customers across 3 batches \u2014 34 Bridge Email 2, 119 canonical Email 1, 3 Dineo Ndala Email 1. Nicholas Zappacosta handled individually. All batches built, pre-flight passed, sender tested. Send window: Monday 9:00\u201310:30 AM ACST. Monday is an observation day \u2014 Atlas will track every reply, objection, delay, and signal. By end of week: we'll know what customers are worried about, which objections repeat, and which email generates the most conversations. The business is ready. Your highest-value work between now and Monday is reviewing the Nicholas individual reply and the Twilio SMS resubmission.",
-    "estimated_time": "15 minutes",
-    "tone": "ready"
+    "body": "The operational phase has begun. Headquarters is now the operating system \u2014 updated proactively, always current. Telegram is exception-only. Every task from this point forward is measured against one question: does this help build Not Forgotten? The QPaint Monday plan is locked. 156 customers queued. Nicholas tender check-in scheduled for Wednesday. Knowledge will compound. Nothing will be forgotten.",
+    "estimated_time": "\u2014",
+    "tone": "focused"
   },
   "business_score": {
-    "score": 90,
+    "score": 92,
     "change": 2,
     "reasons_positive": [
+      "Operational phase declared \u2014 Headquarters as OS, Telegram exception-only, continuous improvement standard set",
       "QPaint Monday plan approved \u2014 156 customers queued, 3 batches ready",
       "All engineering systems stable \u2014 crons running, agent online",
       "2 active clients, $198 MRR, no escalations"
@@ -26,7 +27,7 @@
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "QPaint Monday approved. 34 bridge + 119 new + 3 Dineo = 156 queued. Send Mon 9:00 AM.",
+      "detail": "Operational. QPaint Monday approved (156 queued). Nicholas tender check-in Wed. Observation day active.",
       "icon": "\ud83d\udd04"
     },
     "outreach": {
@@ -110,6 +111,10 @@
   },
   "changes": {
     "today": [
+      {
+        "time": "2:40 PM",
+        "description": "Operational phase declared by James. Headquarters is now the operating system. Telegram exception-only. Knowledge preservation. Continuous improvement. Focus on building Not Forgotten."
+      },
       {
         "time": "2:20 PM",
         "description": "Nicholas Zappacosta tender check-in approved and scheduled. Send Wed Aug 5 9:00 AM ACST to Dee (solutions@) and Leslie (admin@). QPaint delegation saved."
