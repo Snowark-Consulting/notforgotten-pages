@@ -207,12 +207,16 @@ function render() {
   
   // Drafts for review
   const drafts = D.drafts;
-  if (drafts && drafts.total_prospects > 0) {
-    attn += '<div class="attention-item">' +
+  if (drafts && (drafts.total_prospects > 0 || drafts.files?.length > 0)) {
+    const count = drafts.total_prospects || drafts.files.length;
+    const files = drafts.total_files || (drafts.files ? drafts.files.length : 0);
+    const clients = drafts.clients ? Object.keys(drafts.clients).length : 0;
+    attn += '<a href="../ceo-brief/" style="text-decoration:none;color:inherit;">' +
+      '<div class="attention-item" style="cursor:pointer;">' +
       '<div class="attention-icon">✉️</div>' +
-      '<div class="attention-body"><div class="att-title">' + drafts.total_prospects + ' drafts awaiting review</div>' +
-      '<div class="att-desc">' + drafts.total_files + ' files across ' + (drafts.clients ? Object.keys(drafts.clients).length : 0) + ' clients</div></div>' +
-      '<span class="attention-tag tag-review">Review</span></div>';
+      '<div class="attention-body"><div class="att-title">' + count + ' draft' + (count !== 1 ? 's' : '') + ' awaiting review</div>' +
+      '<div class="att-desc">' + files + ' file' + (files !== 1 ? 's' : '') + (clients > 0 ? ' across ' + clients + ' client' + (clients !== 1 ? 's' : '') : '') + '</div></div>' +
+      '<span class="attention-tag tag-review">Review →</span></div></a>';
   }
   
   // PandaDoc quotes needing enrichment
