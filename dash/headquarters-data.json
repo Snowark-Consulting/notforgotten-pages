@@ -1,0 +1,169 @@
+{
+  "generated_at": "2026-08-02T10:15:00+09:30",
+  "atlas_brief": {
+    "greeting": "Good morning James.",
+    "body": "The business is healthy. No client issues have been detected. Atlas is running normally and all systems are operational. QPaint recovery is progressing — 17 contacts received Email 1 and Email 2 drafts are ready for your review. The outreach pipeline is primed but idle: 122 new prospects are waiting for the next campaign direction. Today I recommend you approve the QPaint Email 2 sequence and the next outreach campaign direction. Everything else can wait until Monday.",
+    "estimated_time": "15–20 minutes",
+    "tone": "calm"
+  },
+  "business_score": {
+    "score": 88,
+    "change": 0,
+    "reasons_positive": [
+      "Engineering systems stable — all crons running, agent online",
+      "Client operations healthy — 2 active clients, no escalations",
+      "QPaint recovery progressing — 17 contacted, pipeline active"
+    ],
+    "reasons_negative": [
+      "Outreach pipeline idle — 122 prospects awaiting campaign direction",
+      "3 QPaint prospects blocked awaiting email enrichment"
+    ]
+  },
+  "business_health": {
+    "clients": {
+      "status": "healthy",
+      "detail": "2 active (QPaint + Star Painters), $198 MRR",
+      "icon": "👥"
+    },
+    "recovery_operations": {
+      "status": "caution",
+      "detail": "QPaint running. 3 Dineo Ndala quotes need enrichment. Email 2 drafts pending approval.",
+      "icon": "🔄"
+    },
+    "outreach": {
+      "status": "caution",
+      "detail": "122 prospects idle. 84 Campaign Complete. 2 won. Next campaign direction needed.",
+      "icon": "📣"
+    },
+    "engineering": {
+      "status": "healthy",
+      "detail": "All crons passing. Agent online. DeepSeek v4 Pro. HQ deployed.",
+      "icon": "⚙️"
+    },
+    "finance": {
+      "status": "healthy",
+      "detail": "2 paying clients. No overdue invoices.",
+      "icon": "💰"
+    },
+    "atlas": {
+      "status": "healthy",
+      "detail": "All systems operational. Memory: 97% (2,153/2,200 chars).",
+      "icon": "🤖"
+    }
+  },
+  "waiting_for_james": [
+    {
+      "title": "Approve next outreach campaign direction",
+      "why_it_matters": "122 new prospects are idle with no active sequences. The pipeline has been static since July 30. Evidence from July shows Travis case study at Email 3 converted 2/2 — moving it to Email 1 could compress the conversion timeline.",
+      "business_impact": "High — unlocks the entire prospect pipeline",
+      "estimated_time": "15 min",
+      "recommended_action": "Review the Travis-led Email 1 proposal for 20–25 painters. Approve to begin drafting Monday.",
+      "impact_sort": 95
+    },
+    {
+      "title": "Approve QPaint Email 2 sequence",
+      "why_it_matters": "17 QPaint contacts received Email 1 and are due for Email 2 (Value & Discovery). Drafts are ready. Sending window opens tomorrow (Monday Aug 3).",
+      "business_impact": "High — progresses $570K recovery pipeline",
+      "estimated_time": "10 min",
+      "recommended_action": "Review and approve the Email 2 draft sequence. Sends begin Monday morning.",
+      "impact_sort": 90
+    },
+    {
+      "title": "Review 3 QPaint replacement emails (Dineo Ndala quotes)",
+      "why_it_matters": "Lee Wright ($14.9K exterior), Brian Mitchell ($12.3K interior), and Deb Brown ($17.4K interior/virtual) received defective Email 1. Replacement drafts are ready. These are warm prospects with active PandaDoc quotes.",
+      "business_impact": "Medium — $44.6K in active quotes at risk if delayed",
+      "estimated_time": "10 min",
+      "recommended_action": "Review the three personalised replacement drafts. Approve for Monday morning send (9:00–10:30am).",
+      "impact_sort": 75
+    },
+    {
+      "title": "Twilio SMS bundle — review and resubmit",
+      "why_it_matters": "Rejected July 30. SMS capability remains blocked. QPaint SMS integration cannot proceed without approved A2P bundle.",
+      "business_impact": "Medium — blocks SMS channel for all clients",
+      "estimated_time": "15 min",
+      "recommended_action": "Check Twilio console for rejection reason, fix supporting documents, resubmit.",
+      "impact_sort": 60
+    },
+    {
+      "title": "Monday: Governance Review (first monthly audit)",
+      "why_it_matters": "First Trust OS audit due. Atlas will present findings. Requires James review and approval of any recommended changes.",
+      "business_impact": "Low today (Monday) — important but not urgent Sunday",
+      "estimated_time": "30 min (Monday)",
+      "recommended_action": "Reserve 30 minutes Monday. Atlas will lead and present conclusions.",
+      "impact_sort": 40
+    }
+  ],
+  "atlas_recommendation": {
+    "executive_summary": "The business is healthy but the pipeline is idle. Your highest-value hour today is spent on two decisions: approving the next outreach campaign direction (unlocking 122 prospects) and signing off on QPaint Email 2 (progressing a $570K recovery pipeline). Together they take under 30 minutes. The three QPaint replacement emails are a quick third priority — 10 minutes to review, then Atlas handles the scheduling.",
+    "priorities": [
+      {
+        "action": "Approve the next outreach campaign direction",
+        "why_it_matters": "122 new prospects have been sitting idle since July 30. Every day without a campaign is a day the pipeline doesn't move. The Travis case study is our highest-evidence asset — it converted 2 out of 2 prospects who reached Email 3. Moving it to Email 1 tests whether we can compress the conversion window from 10–14 days down to 1–5 days.",
+        "expected_impact": "Unlocks the entire prospect pipeline. New experiments generate learning velocity. Even a 2% conversion rate on 122 prospects = 2–3 new clients.",
+        "estimated_time": "15 minutes",
+        "confidence": "High (90%+) — strong July evidence supports Travis at Email 1"
+      },
+      {
+        "action": "Approve QPaint Email 2 and the three Dineo Ndala replacement emails",
+        "why_it_matters": "QPaint is our first paying client and the largest active pipeline ($570K in recovery quotes). 17 contacts received Email 1 and are due for Email 2 tomorrow. Three additional prospects (Lee, Brian, Deb — $44.6K combined) need replacement emails after a defective first send. Approving both today means Atlas can schedule all sends for Monday morning.",
+        "expected_impact": "Progresses our largest client pipeline. Maintains QPaint trust. $44.6K in active quotes with warm PandaDoc prospects.",
+        "estimated_time": "20 minutes (Email 2: 10 min + replacements: 10 min)",
+        "confidence": "High (90%+) — drafts are ready, templates are canonical, voice review gates are in place"
+      },
+      {
+        "action": "Twilio SMS bundle resubmission",
+        "why_it_matters": "SMS is the next channel. Without it, QPaint SMS integration is blocked. Twilio rejected the bundle on July 30 — likely a supporting document issue. A quick review and resubmission unblocks the channel for all future clients.",
+        "expected_impact": "Unblocks SMS channel. Enables QPaint SMS integration. Future-proofs Not Forgotten's multi-channel capability.",
+        "estimated_time": "15 minutes",
+        "confidence": "Medium (80%) — depends on Twilio's review process after resubmission"
+      }
+    ],
+    "can_wait": [
+      "Founder re-engagement pilot — drafts due Aug 8, first sends Aug 11. No urgency today.",
+      "Governance Review — first monthly audit due Monday. Atlas will prepare. James reviews then.",
+      "Command Centre refinements — any further UI polish can happen during the week.",
+      "PandaDoc browser extraction pipeline — manual extraction works for now. Automate when volume demands it."
+    ],
+    "closing": "If these three things are completed today, I believe you've spent your time on the highest-value work available. The pipeline unlocks, QPaint progresses, and the SMS channel gets unblocked — all before Monday morning."
+  },
+  "changes": {
+    "today": [
+      {
+        "time": "10:15 AM",
+        "description": "Headquarters redesigned as Executive Operating System — Atlas's Brief, Business Health, Waiting For James, Atlas's Recommendation, and What Changed sections added."
+      },
+      {
+        "time": "09:45 AM",
+        "description": "Draft review item made clickable in Headquarters — now links to CEO Brief for review."
+      }
+    ],
+    "yesterday": [
+      {
+        "time": "5:33 PM",
+        "description": "CEO Brief published for 1 August 2026."
+      },
+      {
+        "time": "Morning",
+        "description": "QPaint Wave 2 analysis completed — 17 contacted, 81 queued. Weekend date issue flagged."
+      }
+    ],
+    "this_week": [
+      {
+        "day": "Thursday",
+        "description": "Post-campaign reconciliation: verified 74 Email 2 sends + 75 Email 3 sends fully reconciled in Airtable. Tracer bullet found Tas Moulis data-entry error."
+      },
+      {
+        "day": "Wednesday",
+        "description": "QPaint Wave 2 sent: 30 recovery emails. Pipeline reached 37 contacted, 119 remaining. Nicholas Zappacosta replied — new government quote (QAS Beenleigh) generated."
+      },
+      {
+        "day": "Tuesday",
+        "description": "CEO Brief refinements finalised — 13 sections, confidence ratings, delay impact ratings."
+      },
+      {
+        "day": "Monday",
+        "description": "Email 4 (breakup) sent to 60 painters. CVC, PDV, Wave 1 campaigns marked Campaign Complete."
+      }
+    ]
+  }
+}

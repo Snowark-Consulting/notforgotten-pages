@@ -10,155 +10,166 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
     --navy: #0b2c4d; --navy-rgb: 11,44,77;
-    --near-black: #0a0a0a; --gold: #e0a62a; --gold-rgb: 224,166,42;
-    --white: #ffffff; --light: #f7fbff; --muted: #666666; --royal: #1f5891;
+    --gold: #e0a62a; --gold-rgb: 224,166,42;
+    --white: #ffffff; --light: #f7fbff; --muted: #6b7280;
+    --text: #0a0a0a; --surface: #ffffff;
+    --border: rgba(0,0,0,0.06);
+    --healthy: #16a34a; --caution: #d97706; --critical: #dc2626;
     --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --text-xs: 12px; --text-sm: 14px; --text-base: 16px;
-    --text-lg: 20px; --text-xl: 24px; --text-2xl: 32px; --text-3xl: 40px;
-    --radius-sm: 4px; --radius-lg: 8px; --radius-xl: 12px;
-    --space-xs: 4px; --space-sm: 8px; --space-md: 16px; --space-lg: 24px;
-    --space-xl: 32px; --space-2xl: 48px; --space-3xl: 64px;
+    --text-lg: 20px; --text-xl: 24px; --text-2xl: 32px;
+    --radius-sm: 6px; --radius-md: 10px; --radius-lg: 14px;
+    --space-xs: 4px; --space-sm: 8px; --space-md: 16px;
+    --space-lg: 24px; --space-xl: 32px; --space-2xl: 48px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+    --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
   }
-  body { font-family: var(--font); background: var(--light); color: var(--near-black); font-size: var(--text-base); line-height: 1.5; }
-  
-  /* Header */
-  .header { background: var(--navy); padding: var(--space-lg) var(--space-xl); display: flex; align-items: center; justify-content: space-between; }
+  body { font-family: var(--font); background: var(--light); color: var(--text); font-size: var(--text-base); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  /* ── Header ── */
+  .header { background: var(--navy); padding: var(--space-md) var(--space-xl); display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
   .header-left { display: flex; align-items: center; gap: var(--space-md); }
-  .header-logo { height: 28px; width: auto; }
-  .header h1 { color: var(--white); font-size: var(--text-lg); font-weight: 600; }
-  .header-right { display: flex; align-items: center; gap: var(--space-md); }
-  .pulse { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px rgba(34,197,94,0.5); }
-  .pulse.offline { background: #ef4444; box-shadow: 0 0 8px rgba(239,68,68,0.3); }
-  .last-updated { color: rgba(255,255,255,0.5); font-size: var(--text-xs); }
-  .header-nav { display: flex; gap: var(--space-sm); }
-  .header-nav a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: var(--text-sm); padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm); transition: all 0.15s; }
-  .header-nav a:hover, .header-nav a.active { color: var(--gold); background: rgba(255,255,255,0.06); }
-  
-  /* Layout */
-  .container { max-width: 1280px; margin: 0 auto; padding: var(--space-xl); }
-  
-  /* Section headers */
-  .section-title { font-size: var(--text-sm); font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: var(--space-lg); padding-bottom: var(--space-sm); border-bottom: 1px solid rgba(0,0,0,0.06); }
-  
-  /* Stat row */
-  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); margin-bottom: var(--space-2xl); }
-  @media (max-width: 900px) { .stat-row { grid-template-columns: repeat(2, 1fr); } }
-  .stat-card { background: var(--white); border-radius: var(--radius-xl); padding: var(--space-xl); box-shadow: 0 1px 3px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.04); }
-  .stat-card .num { font-size: var(--text-2xl); font-weight: 700; color: var(--navy); line-height: 1.1; }
-  .stat-card .num.gold { color: var(--gold); }
-  .stat-card .label { font-size: var(--text-xs); color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: var(--space-xs); }
-  .stat-card .delta { font-size: var(--text-xs); margin-top: var(--space-xs); }
-  .stat-card .delta.up { color: #16a34a; }
-  .stat-card .delta.down { color: #dc2626; }
-  
-  /* Attention items */
-  .attention-list { display: flex; flex-direction: column; gap: var(--space-sm); margin-bottom: var(--space-2xl); }
-  .attention-item { background: var(--white); border-radius: var(--radius-lg); padding: var(--space-lg); border: 1px solid rgba(0,0,0,0.04); display: flex; align-items: center; gap: var(--space-lg); transition: box-shadow 0.15s; }
-  .attention-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-  .attention-item.urgent { border-left: 3px solid var(--gold); }
-  .attention-icon { font-size: var(--text-xl); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-lg); background: var(--light); flex-shrink: 0; }
-  .attention-body { flex: 1; }
-  .attention-body .att-title { font-weight: 600; font-size: var(--text-sm); color: var(--navy); }
-  .attention-body .att-desc { font-size: var(--text-xs); color: var(--muted); margin-top: 2px; }
-  .attention-tag { font-size: var(--text-xs); padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm); font-weight: 500; white-space: nowrap; }
-  .tag-decision { background: rgba(224,166,42,0.1); color: #b8860b; }
-  .tag-review { background: rgba(31,88,145,0.08); color: var(--royal); }
-  .tag-alert { background: rgba(239,68,68,0.08); color: #dc2626; }
-  .tag-info { background: rgba(0,0,0,0.04); color: var(--muted); }
-  
-  /* Priorities */
-  .priority-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); margin-bottom: var(--space-2xl); }
-  @media (max-width: 900px) { .priority-row { grid-template-columns: 1fr; } }
-  .priority-card { background: var(--white); border-radius: var(--radius-xl); padding: var(--space-xl); border: 1px solid rgba(0,0,0,0.04); }
-  .priority-num { font-size: var(--text-xs); color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-sm); }
-  .priority-card h3 { font-size: var(--text-base); font-weight: 600; color: var(--navy); margin-bottom: var(--space-sm); }
-  .priority-card p { font-size: var(--text-sm); color: var(--muted); margin-bottom: var(--space-md); }
-  .priority-meta { font-size: var(--text-xs); color: var(--muted); display: flex; gap: var(--space-lg); }
-  
-  /* Changes feed */
-  .changes-feed { display: flex; flex-direction: column; gap: var(--space-xs); margin-bottom: var(--space-2xl); }
-  .change-item { display: flex; align-items: baseline; gap: var(--space-md); padding: var(--space-sm) 0; font-size: var(--text-sm); }
-  .change-time { color: var(--muted); font-size: var(--text-xs); min-width: 60px; }
+  .header-logo { height: 24px; width: auto; }
+  .header h1 { color: var(--white); font-size: var(--text-lg); font-weight: 600; letter-spacing: -0.01em; }
+  .header-right { display: flex; align-items: center; gap: var(--space-lg); }
+  .header-score { display: flex; align-items: center; gap: var(--space-sm); background: rgba(255,255,255,0.08); padding: 6px 14px; border-radius: 20px; }
+  .header-score .score-num { color: var(--gold); font-size: var(--text-lg); font-weight: 700; }
+  .header-score .score-change { font-size: var(--text-xs); font-weight: 600; }
+  .score-up { color: #4ade80; } .score-down { color: #f87171; } .score-flat { color: rgba(255,255,255,0.4); }
+  .header-updated { color: rgba(255,255,255,0.4); font-size: var(--text-xs); }
+  .pulse { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 6px rgba(34,197,94,0.4); flex-shrink: 0; }
+  .pulse.offline { background: #ef4444; box-shadow: 0 0 6px rgba(239,68,68,0.3); }
+
+  /* ── Layout ── */
+  .container { max-width: 900px; margin: 0 auto; padding: var(--space-xl) var(--space-lg); }
+
+  /* ── Section ── */
+  .section { margin-bottom: var(--space-2xl); }
+  .section-header { display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md); }
+  .section-header h2 { font-size: var(--text-sm); font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .section-header .line { flex: 1; height: 1px; background: var(--border); }
+
+  /* ── Atlas's Brief ── */
+  .brief-card { background: var(--surface); border-radius: var(--radius-lg); padding: var(--space-xl); box-shadow: var(--shadow-sm); border: 1px solid var(--border); border-left: 3px solid var(--navy); }
+  .brief-greeting { font-size: var(--text-lg); font-weight: 700; color: var(--navy); margin-bottom: var(--space-sm); }
+  .brief-body { font-size: var(--text-base); color: var(--text); line-height: 1.8; }
+  .brief-footer { margin-top: var(--space-md); padding-top: var(--space-md); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: var(--text-xs); color: var(--muted); }
+  .brief-time { display: flex; align-items: center; gap: var(--space-xs); }
+
+  /* ── Business Health ── */
+  .health-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
+  @media (max-width: 700px) { .health-grid { grid-template-columns: repeat(2, 1fr); } }
+  .health-card { background: var(--surface); border-radius: var(--radius-md); padding: var(--space-lg); box-shadow: var(--shadow-sm); border: 1px solid var(--border); display: flex; align-items: flex-start; gap: var(--space-md); }
+  .health-icon { font-size: 24px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); background: var(--light); flex-shrink: 0; }
+  .health-body { flex: 1; min-width: 0; }
+  .health-body .health-name { font-weight: 600; font-size: var(--text-sm); color: var(--navy); display: flex; align-items: center; gap: var(--space-sm); }
+  .health-body .health-detail { font-size: var(--text-xs); color: var(--muted); margin-top: 2px; line-height: 1.4; }
+  .health-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .dot-healthy { background: var(--healthy); box-shadow: 0 0 6px rgba(22,163,74,0.3); }
+  .dot-caution { background: var(--caution); box-shadow: 0 0 6px rgba(217,119,6,0.3); }
+  .dot-critical { background: var(--critical); box-shadow: 0 0 6px rgba(220,38,38,0.3); }
+
+  /* ── Waiting For James ── */
+  .waiting-list { display: flex; flex-direction: column; gap: var(--space-sm); }
+  .waiting-item { background: var(--surface); border-radius: var(--radius-md); padding: var(--space-lg); box-shadow: var(--shadow-sm); border: 1px solid var(--border); transition: box-shadow 0.15s; }
+  .waiting-item:hover { box-shadow: var(--shadow-md); }
+  .waiting-item.high-impact { border-left: 3px solid var(--gold); }
+  .waiting-top { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-md); margin-bottom: var(--space-sm); }
+  .waiting-top h3 { font-size: var(--text-base); font-weight: 600; color: var(--navy); }
+  .waiting-impact { font-size: var(--text-xs); font-weight: 600; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+  .impact-high { background: rgba(224,166,42,0.12); color: #b8860b; }
+  .impact-medium { background: rgba(107,114,128,0.1); color: var(--muted); }
+  .impact-low { background: rgba(107,114,128,0.05); color: var(--muted); }
+  .waiting-meta { display: flex; gap: var(--space-lg); font-size: var(--text-xs); color: var(--muted); margin-top: var(--space-sm); flex-wrap: wrap; }
+  .waiting-recommendation { margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--text); padding: var(--space-sm) var(--space-md); background: var(--light); border-radius: var(--radius-sm); }
+
+  /* ── Atlas's Recommendation ── */
+  .rec-card { background: var(--surface); border-radius: var(--radius-lg); padding: var(--space-xl); box-shadow: var(--shadow-sm); border: 1px solid var(--border); border-left: 3px solid var(--gold); }
+  .rec-summary { font-size: var(--text-base); line-height: 1.7; margin-bottom: var(--space-xl); color: var(--text); }
+  .rec-priority { margin-bottom: var(--space-lg); padding-bottom: var(--space-lg); border-bottom: 1px solid var(--border); }
+  .rec-priority:last-of-type { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .rec-priority .rec-num { font-size: var(--text-xs); font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: var(--space-xs); }
+  .rec-priority h3 { font-size: var(--text-base); font-weight: 600; color: var(--navy); margin-bottom: var(--space-sm); }
+  .rec-priority p { font-size: var(--text-sm); color: var(--text); line-height: 1.6; margin-bottom: var(--space-sm); }
+  .rec-meta { display: flex; gap: var(--space-xl); font-size: var(--text-xs); color: var(--muted); flex-wrap: wrap; }
+  .rec-meta span { display: flex; align-items: center; gap: var(--space-xs); }
+  .rec-confidence { font-weight: 600; }
+  .conf-high { color: var(--healthy); } .conf-medium { color: var(--caution); } .conf-low { color: var(--critical); }
+  .can-wait { margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: 1px solid var(--border); }
+  .can-wait h4 { font-size: var(--text-sm); font-weight: 600; color: var(--muted); margin-bottom: var(--space-sm); }
+  .can-wait ul { list-style: none; padding: 0; }
+  .can-wait li { font-size: var(--text-sm); color: var(--muted); padding: var(--space-xs) 0; padding-left: var(--space-lg); position: relative; }
+  .can-wait li::before { content: '—'; position: absolute; left: 0; color: var(--muted); }
+  .rec-closing { margin-top: var(--space-lg); font-size: var(--text-sm); color: var(--muted); font-style: italic; }
+
+  /* ── What Changed ── */
+  .changes-tabs { display: flex; gap: var(--space-xs); margin-bottom: var(--space-md); }
+  .changes-tab { font-size: var(--text-xs); font-weight: 600; padding: 6px 16px; border-radius: 20px; cursor: pointer; border: 1px solid var(--border); background: var(--surface); color: var(--muted); transition: all 0.15s; }
+  .changes-tab.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+  .changes-list { display: flex; flex-direction: column; }
+  .change-item { display: flex; gap: var(--space-md); padding: var(--space-sm) 0; font-size: var(--text-sm); border-bottom: 1px solid var(--border); }
+  .change-item:last-child { border-bottom: none; }
+  .change-time { color: var(--muted); font-size: var(--text-xs); min-width: 80px; flex-shrink: 0; }
   .change-desc { flex: 1; }
-  .change-tag { font-size: var(--text-xs); padding: 1px 6px; border-radius: var(--radius-sm); font-weight: 500; }
-  .ct-new { background: rgba(34,197,94,0.1); color: #16a34a; }
-  .ct-update { background: rgba(31,88,145,0.08); color: var(--royal); }
-  .ct-reply { background: rgba(224,166,42,0.1); color: #b8860b; }
-  
-  /* Empty state */
-  .empty-state { text-align: center; padding: var(--space-2xl); color: var(--muted); font-size: var(--text-sm); }
-  
-  /* Secondary nav */
-  .secondary-links { display: flex; gap: var(--space-md); flex-wrap: wrap; margin-top: var(--space-xl); padding-top: var(--space-xl); border-top: 1px solid rgba(0,0,0,0.06); }
+
+  /* ── Empty states ── */
+  .empty-state { text-align: center; padding: var(--space-xl); color: var(--muted); font-size: var(--text-sm); }
+
+  /* ── Secondary nav ── */
+  .secondary-links { display: flex; gap: var(--space-md); flex-wrap: wrap; margin-top: var(--space-xl); padding-top: var(--space-xl); border-top: 1px solid var(--border); }
   .secondary-links a { color: var(--muted); text-decoration: none; font-size: var(--text-sm); padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm); transition: all 0.15s; }
-  .secondary-links a:hover { color: var(--royal); background: rgba(31,88,145,0.04); }
+  .secondary-links a:hover { color: var(--navy); background: rgba(11,44,77,0.04); }
+
+  /* ── Loading ── */
+  .loading { text-align: center; padding: var(--space-3xl); color: var(--muted); }
+  .loading-spinner { display: inline-block; width: 24px; height: 24px; border: 2px solid var(--border); border-top: 2px solid var(--gold); border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: var(--space-md); }
+  @keyframes spin { to { transform: rotate(360deg); } }
 </style>
 </head>
 <body>
 
-<!-- Header -->
+<!-- ── Header ── -->
 <div class="header">
   <div class="header-left">
     <img src="../assets/favicon.png" alt="NF" class="header-logo">
     <h1>Headquarters</h1>
   </div>
   <div class="header-right">
-    <nav class="header-nav">
-      <a href="../ceo-brief/">Today's Brief</a>
-      <a href="followup/">Follow-Up Queue</a>
-      <a href="brain/">System</a>
-      <a href="calendar/">Calendar</a>
-    </nav>
+    <div class="header-score" id="score-badge">
+      <span class="score-num" id="score-num">—</span>
+      <span class="score-change" id="score-change"></span>
+    </div>
     <span class="pulse" id="pulse"></span>
-    <span class="last-updated" id="updated">Loading...</span>
+    <span class="header-updated" id="updated">Loading…</span>
   </div>
 </div>
 
 <div class="container" id="app">
-
-  <!-- Section 1: How is the business? -->
-  <div class="section-title">How is the business?</div>
-  <div class="stat-row" id="stat-row"></div>
-
-  <!-- Section 2: What needs my attention? -->
-  <div class="section-title">What needs my attention?</div>
-  <div class="attention-list" id="attention-list"></div>
-
-  <!-- Section 3: What should I do next? -->
-  <div class="section-title">What should I do next?</div>
-  <div class="priority-row" id="priority-row"></div>
-
-  <!-- Section 4: What changed since I last looked? -->
-  <div class="section-title">What changed since I last looked?</div>
-  <div class="changes-feed" id="changes-feed"></div>
-
-  <!-- Secondary pages -->
-  <div class="secondary-links">
-    <span style="font-size:var(--text-xs);color:var(--muted);margin-right:var(--space-md);">More →</span>
-    <a href="pipeline/">Pipeline Detail</a>
-    <a href="qpaint/">QPaint Recovery</a>
-    <a href="learnings/">Learnings</a>
-    <a href="../vault-lint/">Vault Health</a>
+  <div class="loading">
+    <div class="loading-spinner"></div>
+    <div>Loading Headquarters…</div>
   </div>
-
 </div>
 
+<!-- ── Script ── -->
 <script>
-// ── Data ──
-let D = null;
+let H = null;  // headquarters data
+let D = null;  // raw dash data
+
 async function load() {
   try {
-    const r = await fetch('dash.json?' + Date.now());
-    D = await r.json();
-  } catch(e) { D = null; }
+    const [hr, dr] = await Promise.all([
+      fetch('headquarters-data.json?' + Date.now()),
+      fetch('dash.json?' + Date.now())
+    ]);
+    H = await hr.json();
+    D = await dr.json();
+  } catch(e) {
+    H = null; D = null;
+  }
   render();
 }
 
-// ── Helpers ──
-function statCard(num, label, gold) {
-  return '<div class="stat-card"><div class="num' + (gold ? ' gold' : '') + '">' + num + '</div><div class="label">' + label + '</div></div>';
-}
-function fmt(n) { return n != null ? Number(n).toLocaleString() : '—'; }
 function ago(ts) {
   if (!ts) return '';
   const d = new Date(ts);
@@ -171,133 +182,229 @@ function ago(ts) {
   return Math.floor(hrs / 24) + 'd ago';
 }
 
-// ── Render ──
-function render() {
-  if (!D) {
-    document.getElementById('app').innerHTML = '<div class="empty-state">Loading data...</div>';
-    return;
-  }
-  
-  // Header
-  const agentUp = D.health?.agent === 'online';
-  document.getElementById('pulse').className = 'pulse' + (agentUp ? '' : ' offline');
-  document.getElementById('updated').textContent = 'Updated ' + ago(D.last_updated);
-  
-  // ── Q1: How is the business? ──
-  let stats = '';
-  const p = D.pipeline || {};
-  stats += statCard(fmt(p.active_quotes || 0), 'Active Quotes');
-  stats += statCard('$' + fmt(p.recovery_value || 0), 'Recovery Pipeline');
-  stats += statCard(fmt(p.recent_wins || 0), 'Recent Wins');
-  stats += statCard(fmt(D.learning_velocity?.learnings_documented || 0), 'Learnings Captured');
-  document.getElementById('stat-row').innerHTML = stats;
-  
-  // ── Q2: What needs my attention? ──
-  let attn = '';
-  
-  // Decisions awaiting approval
-  const decisions = D.decisions?.pending || [];
-  decisions.forEach(d => {
-    attn += '<div class="attention-item urgent">' +
-      '<div class="attention-icon">📋</div>' +
-      '<div class="attention-body"><div class="att-title">' + (d.title || d.slug || 'Decision') + '</div>' +
-      '<div class="att-desc">' + (d.summary || 'Awaiting your approval') + '</div></div>' +
-      '<span class="attention-tag tag-decision">Decision</span></div>';
-  });
-  
-  // Drafts for review
-  const drafts = D.drafts;
-  if (drafts && (drafts.total_prospects > 0 || drafts.files?.length > 0)) {
-    const count = drafts.total_prospects || drafts.files.length;
-    const files = drafts.total_files || (drafts.files ? drafts.files.length : 0);
-    const clients = drafts.clients ? Object.keys(drafts.clients).length : 0;
-    attn += '<a href="../ceo-brief/" style="text-decoration:none;color:inherit;">' +
-      '<div class="attention-item" style="cursor:pointer;">' +
-      '<div class="attention-icon">✉️</div>' +
-      '<div class="attention-body"><div class="att-title">' + count + ' draft' + (count !== 1 ? 's' : '') + ' awaiting review</div>' +
-      '<div class="att-desc">' + files + ' file' + (files !== 1 ? 's' : '') + (clients > 0 ? ' across ' + clients + ' client' + (clients !== 1 ? 's' : '') : '') + '</div></div>' +
-      '<span class="attention-tag tag-review">Review →</span></div></a>';
-  }
-  
-  // PandaDoc quotes needing enrichment
-  if (p.quotes_needing_enrichment > 0) {
-    attn += '<div class="attention-item urgent">' +
-      '<div class="attention-icon">🔍</div>' +
-      '<div class="attention-body"><div class="att-title">' + p.quotes_needing_enrichment + ' PandaDoc quote(s) need enrichment</div>' +
-      '<div class="att-desc">Open in browser to extract customer details before follow-ups can send</div></div>' +
-      '<span class="attention-tag tag-alert">Action needed</span></div>';
-  }
-  
-  // System health issues
-  if (!agentUp) {
-    attn += '<div class="attention-item urgent">' +
-      '<div class="attention-icon">⚠️</div>' +
-      '<div class="attention-body"><div class="att-title">Agent is offline</div>' +
-      '<div class="att-desc">Cron jobs may not be processing</div></div>' +
-      '<span class="attention-tag tag-alert">System</span></div>';
-  }
-  
-  if (!attn) {
-    attn = '<div class="empty-state" style="text-align:left;padding:var(--space-lg);">Nothing needs your attention right now. The system is running smoothly.</div>';
-  }
-  document.getElementById('attention-list').innerHTML = attn;
-  
-  // ── Q3: What should I do next? ──
-  let priorities = '';
-  const brief = D.ceo_brief || {};
-  const topPrios = brief.top_priorities || [];
-  
-  if (topPrios.length > 0) {
-    topPrios.forEach((p, i) => {
-      priorities += '<div class="priority-card">' +
-        '<div class="priority-num">Priority ' + (i + 1) + '</div>' +
-        '<h3>' + (p.title || 'Untitled') + '</h3>' +
-        '<p>' + (p.description || '') + '</p>' +
-        '<div class="priority-meta"><span>⏱ ' + (p.estimated_time || '—') + '</span><span>📊 Impact: ' + (p.impact || '—') + '</span></div>' +
-        '</div>';
-    });
-  } else {
-    priorities = '<div class="empty-state" style="grid-column:1/-1;">No priorities set for today. Check the <a href="../ceo-brief/">CEO Brief</a>.</div>';
-  }
-  document.getElementById('priority-row').innerHTML = priorities;
-  
-  // ── Q4: What changed? ──
-  let changes = '';
-  const activity = D.activity?.recent || [];
-  if (activity.length > 0) {
-    activity.slice(0, 12).forEach(a => {
-      let tagClass = 'ct-update';
-      if (a.type === 'new_quote') tagClass = 'ct-new';
-      if (a.type === 'reply') tagClass = 'ct-reply';
-      changes += '<div class="change-item">' +
-        '<span class="change-time">' + ago(a.timestamp || a.time) + '</span>' +
-        '<span class="change-desc">' + (a.description || a.summary || JSON.stringify(a)) + '</span>' +
-        '<span class="change-tag ' + tagClass + '">' + (a.type || 'update') + '</span>' +
-        '</div>';
-    });
-  }
-  
-  // QPaint specific: recent recovery activity
-  const qpaint = D.pipeline?.qpaint || {};
-  if (qpaint.recent_activity && qpaint.recent_activity.length > 0) {
-    qpaint.recent_activity.slice(0, 5).forEach(a => {
-      changes += '<div class="change-item">' +
-        '<span class="change-time">' + ago(a.time) + '</span>' +
-        '<span class="change-desc">QPaint: ' + (a.desc || a.description || '') + '</span>' +
-        '<span class="change-tag ct-reply">QPaint</span></div>';
-    });
-  }
-  
-  if (!changes) {
-    changes = '<div class="empty-state" style="text-align:left;padding:var(--space-lg);">No recent changes. Activity will appear here as it happens.</div>';
-  }
-  document.getElementById('changes-feed').innerHTML = changes;
+function healthDot(status) {
+  const cls = status === 'healthy' ? 'dot-healthy' : status === 'caution' ? 'dot-caution' : 'dot-critical';
+  return '<span class="health-dot ' + cls + '"></span>';
 }
 
-// ── Boot ──
+function statusLabel(status) {
+  if (status === 'healthy') return 'Healthy';
+  if (status === 'caution') return 'Needs attention';
+  return 'Critical';
+}
+
+function render() {
+  const app = document.getElementById('app');
+
+  if (!H && !D) {
+    app.innerHTML = '<div class="empty-state">Unable to load Headquarters data. Check back shortly.</div>';
+    return;
+  }
+
+  // ── Header ──
+  const agentUp = D?.health?.agent === 'online';
+  document.getElementById('pulse').className = 'pulse' + (agentUp ? '' : ' offline');
+  document.getElementById('updated').textContent = 'Updated ' + ago(H?.generated_at || D?.last_updated);
+
+  // Business Score
+  const score = H?.business_score;
+  if (score) {
+    document.getElementById('score-num').textContent = score.score + '/100';
+    const ch = score.change || 0;
+    const changeEl = document.getElementById('score-change');
+    if (ch > 0) { changeEl.textContent = '+' + ch; changeEl.className = 'score-change score-up'; }
+    else if (ch < 0) { changeEl.textContent = ch; changeEl.className = 'score-change score-down'; }
+    else { changeEl.textContent = '—'; changeEl.className = 'score-change score-flat'; }
+  }
+
+  let html = '';
+
+  // ═══════════════════════════════════════
+  // 1. ATLAS'S BRIEF
+  // ═══════════════════════════════════════
+  const brief = H?.atlas_brief;
+  if (brief) {
+    html += '<div class="section">';
+    html += '<div class="section-header"><h2>Atlas\'s Brief</h2><span class="line"></span></div>';
+    html += '<div class="brief-card">';
+    html += '<div class="brief-greeting">' + esc(brief.greeting) + '</div>';
+    html += '<div class="brief-body">' + esc(brief.body) + '</div>';
+    html += '<div class="brief-footer">';
+    html += '<span>Est. reading time: 30 seconds</span>';
+    html += '<span class="brief-time">⏱ Review time: ' + esc(brief.estimated_time || '—') + '</span>';
+    html += '</div></div></div>';
+  }
+
+  // ═══════════════════════════════════════
+  // 2. BUSINESS HEALTH
+  // ═══════════════════════════════════════
+  const health = H?.business_health;
+  if (health) {
+    html += '<div class="section">';
+    html += '<div class="section-header"><h2>Business Health</h2><span class="line"></span></div>';
+    html += '<div class="health-grid">';
+    for (const [key, h] of Object.entries(health)) {
+      const name = key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+      html += '<div class="health-card">';
+      html += '<div class="health-icon">' + (h.icon || '📊') + '</div>';
+      html += '<div class="health-body">';
+      html += '<div class="health-name">' + healthDot(h.status) + ' ' + name + '</div>';
+      html += '<div class="health-detail">' + esc(h.detail || '') + '</div>';
+      html += '</div></div>';
+    }
+    html += '</div></div>';
+  }
+
+  // ═══════════════════════════════════════
+  // 3. WAITING FOR JAMES
+  // ═══════════════════════════════════════
+  const waiting = H?.waiting_for_james;
+  if (waiting && waiting.length > 0) {
+    // Sort by impact_sort descending
+    const sorted = [...waiting].sort((a, b) => (b.impact_sort || 0) - (a.impact_sort || 0));
+    html += '<div class="section">';
+    html += '<div class="section-header"><h2>Waiting For James</h2><span class="line"></span></div>';
+    html += '<div class="waiting-list">';
+    sorted.forEach(w => {
+      const impactClass = w.impact_sort >= 80 ? 'high-impact' : '';
+      const impactLabel = w.impact_sort >= 80 ? 'High' : w.impact_sort >= 50 ? 'Medium' : 'Low';
+      const impactTagClass = w.impact_sort >= 80 ? 'impact-high' : w.impact_sort >= 50 ? 'impact-medium' : 'impact-low';
+      html += '<div class="waiting-item ' + impactClass + '">';
+      html += '<div class="waiting-top">';
+      html += '<h3>' + esc(w.title) + '</h3>';
+      html += '<span class="waiting-impact ' + impactTagClass + '">' + impactLabel + ' impact</span>';
+      html += '</div>';
+      html += '<div style="font-size:var(--text-sm);color:var(--text);line-height:1.5;">' + esc(w.why_it_matters) + '</div>';
+      html += '<div class="waiting-meta">';
+      html += '<span>📊 ' + esc(w.business_impact) + '</span>';
+      html += '<span>⏱ ' + esc(w.estimated_time) + '</span>';
+      html += '</div>';
+      html += '<div class="waiting-recommendation">💡 <strong>Recommended:</strong> ' + esc(w.recommended_action) + '</div>';
+      html += '</div>';
+    });
+    html += '</div></div>';
+  }
+
+  // ═══════════════════════════════════════
+  // 4. ATLAS'S RECOMMENDATION
+  // ═══════════════════════════════════════
+  const rec = H?.atlas_recommendation;
+  if (rec) {
+    html += '<div class="section">';
+    html += '<div class="section-header"><h2>🎯 Atlas\'s Recommendation</h2><span class="line"></span></div>';
+    html += '<div class="rec-card">';
+    html += '<div class="rec-summary">' + esc(rec.executive_summary) + '</div>';
+
+    const priorities = rec.priorities || [];
+    priorities.forEach((p, i) => {
+      html += '<div class="rec-priority">';
+      html += '<div class="rec-num">Priority ' + (i + 1) + '</div>';
+      html += '<h3>' + esc(p.action) + '</h3>';
+      html += '<p>' + esc(p.why_it_matters) + '</p>';
+      html += '<p style="color:var(--muted);">' + esc(p.expected_impact) + '</p>';
+      html += '<div class="rec-meta">';
+      html += '<span>⏱ ' + esc(p.estimated_time) + '</span>';
+      const confClass = (p.confidence || '').toLowerCase().includes('high') ? 'conf-high' : (p.confidence || '').toLowerCase().includes('medium') ? 'conf-medium' : 'conf-low';
+      html += '<span class="rec-confidence ' + confClass + '">🎯 Confidence: ' + esc(p.confidence || '—') + '</span>';
+      html += '</div></div>';
+    });
+
+    // Things That Can Wait
+    const canWait = rec.can_wait || [];
+    if (canWait.length > 0) {
+      html += '<div class="can-wait">';
+      html += '<h4>Things That Can Wait</h4>';
+      html += '<ul>';
+      canWait.forEach(cw => { html += '<li>' + esc(cw) + '</li>'; });
+      html += '</ul></div>';
+    }
+
+    if (rec.closing) {
+      html += '<div class="rec-closing">' + esc(rec.closing) + '</div>';
+    }
+    html += '</div></div>';
+  }
+
+  // ═══════════════════════════════════════
+  // 5. WHAT CHANGED
+  // ═══════════════════════════════════════
+  const changes = H?.changes;
+  if (changes) {
+    html += '<div class="section">';
+    html += '<div class="section-header"><h2>What Changed</h2><span class="line"></span></div>';
+    html += '<div class="changes-tabs">';
+    html += '<span class="changes-tab active" onclick="showChanges(\'today\')">Today</span>';
+    html += '<span class="changes-tab" onclick="showChanges(\'yesterday\')">Yesterday</span>';
+    html += '<span class="changes-tab" onclick="showChanges(\'this_week\')">This Week</span>';
+    html += '</div>';
+
+    // All change groups as hidden divs
+    for (const [key, items] of Object.entries(changes)) {
+      const display = key === 'today' ? 'block' : 'none';
+      html += '<div class="changes-list" id="changes-' + key + '" style="display:' + display + ';">';
+      if (items && items.length > 0) {
+        items.forEach(c => {
+          html += '<div class="change-item">';
+          html += '<span class="change-time">' + esc(c.time || c.day || '') + '</span>';
+          html += '<span class="change-desc">' + esc(c.description || '') + '</span>';
+          html += '</div>';
+        });
+      } else {
+        html += '<div class="empty-state" style="text-align:left;padding:var(--space-md);">No changes for this period.</div>';
+      }
+      html += '</div>';
+    }
+    html += '</div>';
+  }
+
+  // ═══════════════════════════════════════
+  // FOOTER
+  // ═══════════════════════════════════════
+  html += '<div class="secondary-links">';
+  html += '<span style="font-size:var(--text-xs);color:var(--muted);margin-right:var(--space-md);">More →</span>';
+  html += '<a href="../ceo-brief/">CEO Brief</a>';
+  html += '<a href="followup/">Follow-Up Queue</a>';
+  html += '<a href="qpaint-recovery/">QPaint Recovery</a>';
+  html += '<a href="../vault-lint/">Vault Health</a>';
+  html += '<a href="brain/">System</a>';
+  html += '<a href="calendar/">Calendar</a>';
+  html += '</div>';
+
+  app.innerHTML = html;
+}
+
+function showChanges(key) {
+  // Update tabs
+  document.querySelectorAll('.changes-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.changes-tab').forEach(t => {
+    if (t.textContent.toLowerCase().replace(' ', '_') === key || 
+        (key === 'this_week' && t.textContent === 'This Week')) {
+      t.classList.add('active');
+    }
+  });
+  // Fallback: find by onclick
+  const tabs = document.querySelectorAll('.changes-tab');
+  const map = {'today': 0, 'yesterday': 1, 'this_week': 2};
+  if (map[key] !== undefined && tabs[map[key]]) tabs[map[key]].classList.add('active');
+
+  // Show/hide change lists
+  ['today', 'yesterday', 'this_week'].forEach(k => {
+    const el = document.getElementById('changes-' + k);
+    if (el) el.style.display = k === key ? 'block' : 'none';
+  });
+}
+
+function esc(s) {
+  if (!s) return '';
+  const div = document.createElement('div');
+  div.textContent = s;
+  return div.innerHTML;
+}
+
+// Boot
 load();
-// Refresh every 2 minutes
-setInterval(load, 120000);
+// Refresh every 5 minutes
+setInterval(load, 300000);
 </script>
 </body>
 </html>
