@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 127,
+    "tasks_completed": 128,
     "recent": [
+      {
+        "date": "2026-08-03 19:32",
+        "task": "Log Retention Standard established. Tiered retention: routine >48h deleted, failures preserved 90 days, protected records never touched. Daily summaries at logs/daily-summaries/. Storage health monitoring every 6h. Cron: c68ae5970e89 (daily) + 506c5b3ae6bf (6h). Decision: 2026-08-03-log-retention-standard.",
+        "category": "task"
+      },
       {
         "date": "2026-08-03 19:23",
         "task": "Disk pruned: 17,414 cron output files (>36h old) removed, pip cache purged, apt cache cleaned. Disk freed from 93% (1.5G) to 89% (2.2G). System outage risk resolved. Cron output cleanup should be added as recurring maintenance.",
@@ -135,11 +140,6 @@
         "date": "2026-07-29 17:40",
         "task": "CEO Brief 29 July 2026 published. QPaint Wave 2: 17 contacted, 81 queued, .57M pipeline. Weekend date issue flagged (19 records). Campaign Intel Monitor cron path bug identified.",
         "category": "task"
-      },
-      {
-        "date": "2026-07-29 10:42",
-        "task": "Built Personal Follow-Up Queue \u2014 84 businesses ranked, new tab in Command Centre",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-03T19:30:04.091071+09:30",
+  "last_updated": "2026-08-03T19:32:17.680700+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
@@ -4644,5 +4644,14 @@
       "called_count": 0,
       "generated": "2026-07-29T10:48:17.487669+09:30"
     }
+  },
+  "storage_health": {
+    "disk_pct": 88.9,
+    "free_gb": 2.2,
+    "status": "warning",
+    "cron_output_mb": 299.4,
+    "abnormal_growth": false,
+    "daily_growth_pct": 0,
+    "last_checked": "2026-08-03T19:31:26+0930"
   }
 }
