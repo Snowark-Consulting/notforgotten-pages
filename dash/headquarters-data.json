@@ -2,7 +2,7 @@
   "generated_at": "2026-08-03T19:23:00+09:30",
   "atlas_brief": {
     "greeting": "Good evening James.",
-    "body": "Monday's work is done. FF1 launched — 16 painters received the founder-to-founder Email 1. QPaint's 156-customer wave deployed. The Governance Review was completed. Disk pruned: 17,414 cron files cleared, 700MB freed (93% \u2192 89%). One remaining system issue: the dashboard refresh cron is erroring. Tomorrow: CvC Day 21 checkpoint analysis, Governance Review findings review, and the first FF1 reply window opens. Nicholas tender check-in Wednesday.",
+    "body": "Monday's work is done. FF1 launched — 16 painters received the founder-to-founder Email 1. QPaint's 156-customer wave deployed. The Governance Review was completed. Disk pruned (93% \u2192 89%) and the permanent Log Retention Standard is now active — routine logs auto-cleaned, failures preserved 90 days, protected records never touched. One remaining system issue: the dashboard refresh cron. Tomorrow: CvC Day 21 checkpoint analysis, Governance Review findings review, and the first FF1 reply window opens. Nicholas tender check-in Wednesday.",
     "estimated_time": "—",
     "tone": "confident"
   },
@@ -39,7 +39,7 @@
     },
     "engineering": {
       "status": "caution",
-      "detail": "Dashboard refresh cron erroring (TypeError). Campaign Intel Monitor cron path doubled. Disk now healthy (89%, 2.2G free). All other crons passing.",
+      "detail": "Dashboard refresh cron erroring (TypeError). Campaign Intel Monitor cron path doubled. Disk healthy (89%). Log Retention Standard active. Storage monitoring every 6h.",
       "icon": "⚙️"
     },
     "finance": {
