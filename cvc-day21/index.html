@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CvC Day 21 Final Analysis — Not Forgotten Systems</title>
+<style>
+  :root {
+    --navy: #0a1628; --gold: #c8963e; --light: #f8f6f2;
+    --surface: #ffffff; --text: #1a1a2e; --muted: #6b7280;
+    --border: #e5e7eb; --success: #059669; --warn: #d97706; --danger: #dc2626;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--light); color: var(--text); line-height: 1.7; }
+  header { background: var(--navy); color: white; padding: 2rem 2.5rem; border-bottom: 3px solid var(--gold); }
+  header h1 { font-size: 1.75rem; font-weight: 700; }
+  header .date { color: var(--gold); font-size: 0.95rem; margin-top: 0.25rem; }
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+  .section { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem 2rem; margin-bottom: 1.5rem; }
+  .section h2 { font-size: 1.2rem; color: var(--navy); border-bottom: 2px solid var(--gold); padding-bottom: 0.5rem; margin-bottom: 1rem; }
+  table { width: 100%; border-collapse: collapse; margin: 0.5rem 0 1rem; }
+  th, td { padding: 0.6rem 0.8rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.92rem; }
+  th { background: var(--navy); color: white; font-weight: 600; }
+  .big-number { font-size: 3rem; font-weight: 800; color: var(--navy); line-height: 1; }
+  .big-label { font-size: 0.85rem; color: var(--muted); margin-top: 0.25rem; }
+  .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 1rem 0; }
+  .metric-card { background: var(--light); border-radius: 6px; padding: 1.2rem; text-align: center; }
+  .verdict { background: var(--navy); color: white; border-radius: 8px; padding: 1.5rem 2rem; margin-bottom: 1.5rem; }
+  .verdict h2 { color: var(--gold); border: none; }
+  .verdict p { font-size: 1.05rem; }
+  .highlight { background: rgba(200,150,62,0.1); border-left: 4px solid var(--gold); padding: 1rem 1.5rem; margin: 1rem 0; border-radius: 0 6px 6px 0; }
+  .fail { color: var(--danger); font-weight: 600; }
+  footer { text-align: center; padding: 1.5rem; color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>CvC Experiment — Day 21 Final Analysis</h1>
+  <div class="date">Tuesday, 4 August 2026 · 21 days post-send (14 July 2026)</div>
+</header>
+
+<div class="container">
+
+<!-- VERDICT -->
+<div class="verdict">
+  <h2>Verdict</h2>
+  <p><strong>The context sentence did not improve meaningful reply rate.</strong> Across 40 painters, neither group produced a single meaningful reply (T3+). The Control group (curiosity-only) produced one T1 dismissal. The Treatment group (with woven context sentence) produced zero replies of any kind. Open rates were <em>lower</em> in the Treatment group (50% vs 70%). Adding a context sentence may have actually reduced engagement.</p>
+</div>
+
+<!-- KEY METRICS -->
+<div class="section">
+  <h2>1. What Happened</h2>
+
+  <div class="metric-grid">
+    <div class="metric-card">
+      <div class="big-number">0</div>
+      <div class="big-label">Meaningful replies (T3+) across both groups</div>
+    </div>
+    <div class="metric-card">
+      <div class="big-number">1</div>
+      <div class="big-label">Raw reply — T1 dismissal (unsubscribe)</div>
+    </div>
+    <div class="metric-card">
+      <div class="big-number">40</div>
+      <div class="big-label">Emails delivered across 4-touchpoint sequence</div>
+    </div>
+    <div class="metric-card">
+      <div class="big-number">70%</div>
+      <div class="big-label">Control open rate vs 50% Treatment</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top: 1.5rem;">Group Comparison</h3>
+  <table>
+    <thead>
+      <tr><th>Metric</th><th>Control (Curiosity Only)</th><th>Treatment (+Context)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Prospects</td><td>20</td><td>20</td></tr>
+      <tr><td>Raw replies</td><td>1 (5.0%)</td><td>0 (0.0%)</td></tr>
+      <tr><td>Meaningful replies (T3+)</td><td>0 (0.0%)</td><td>0 (0.0%)</td></tr>
+      <tr><td>Reply classification</td><td>1× T1 (unsubscribe)</td><td>—</td></tr>
+      <tr><td>Open rate (any opens)</td><td>14/20 (70%)</td><td>10/20 (50%)</td></tr>
+      <tr><td>Average opens per prospect</td><td>2.8</td><td>1.9</td></tr>
+      <tr><td>Campaign Complete</td><td>17</td><td>20</td></tr>
+      <tr><td>Lost</td><td>2 (1 unsubscribe, 1 no reply)</td><td>0</td></tr>
+      <tr><td>Won</td><td>1*</td><td>0</td></tr>
+    </tbody>
+  </table>
+
+  <div class="highlight">
+    <strong>* Star Painters Adelaide</strong> (Control group) was marked Won but <em>did not convert through the CvC experiment</em>. Notes show: "Removed from Email 3 batch 2026-07-27: already converted/client." Ahmad converted through a separate engagement and was retroactively removed from the experiment. This is not a CvC conversion.
+  </div>
+
+  <h3>Reply Classification</h3>
+  <table>
+    <thead><tr><th>Prospect</th><th>Group</th><th>Tier</th><th>Classification</th><th>Details</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Distinct Painters</td>
+        <td>Control</td>
+        <td><strong>T1</strong></td>
+        <td>Dismissal</td>
+        <td>Unsubscribe request: "Unsubscribe -- Gareth Smith"</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="color: var(--muted); font-size: 0.9rem; margin-top: 0.5rem;">Zero T3-T5 meaningful replies across either group. The sole reply was a clear dismissal.</p>
+</div>
+
+<!-- WHAT WE LEARNED -->
+<div class="section">
+  <h2>2. What We Learned</h2>
+
+  <h3>Patterns</h3>
+  <ul>
+    <li><strong>No reply is itself a strong signal.</strong> 40 painters, 4 touchpoints each (~160 emails), 21 days — zero meaningful replies. This is not a sample-size problem. Cold email to painters is a low-reply channel regardless of copy variations.</li>
+    <li><strong>Open rates were lower with context.</strong> Treatment group showed 50% open rate vs Control's 70%. Average opens: 1.9 vs 2.8. The context sentence may have made emails feel longer or more marketing-like, reducing open behaviour.</li>
+    <li><strong>Unsubscribe was immediate.</strong> The sole reply (Distinct Painters) unsubscribed on July 13 — <em>before</em> Email 1 was sent on July 14. This was a pre-existing disengagement, not a reaction to the experiment.</li>
+  </ul>
+
+  <h3>What This Doesn't Mean</h3>
+  <ul>
+    <li>It does NOT mean context is harmful. The sample is too small to conclude directionality with confidence. But it provides zero evidence that context helps.</li>
+    <li>It does NOT mean cold email to painters is dead. The July campaigns had 0/65 Email 1 replies. This is consistent with a channel where engagement comes through sustained presence, not first-contact conversion.</li>
+    <li>It does NOT invalidate the broader outreach philosophy. FF1 is testing a fundamentally different approach (founder observations, not curiosity prompts).</li>
+  </ul>
+
+  <h3>Confidence Assessment</h3>
+  <table>
+    <thead><tr><th>Belief</th><th>Evidence</th><th>Confidence</th></tr></thead>
+    <tbody>
+      <tr><td>Context sentence improves reply rate</td><td>Treatment 0% vs Control 0% meaningful</td><td><strong>Refuted</strong> — no evidence of benefit</td></tr>
+      <tr><td>Curiosity-only is sufficient for painter cold outreach</td><td>Control also produced 0 meaningful replies</td><td><strong>Neither approach worked</strong></td></tr>
+      <tr><td>Painters are a low-reply cold email vertical</td><td>0/40 meaningful across both groups, 0/65 July Email 1</td><td><strong>Strong</strong> — consistent across 105 prospects</td></tr>
+      <tr><td>Open tracking shows engagement difference</td><td>70% vs 50% open rate</td><td><strong>Moderate</strong> — small sample, direction consistent</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- WHAT SHOULD CHANGE -->
+<div class="section">
+  <h2>3. What Should Change</h2>
+
+  <ol>
+    <li><strong>Do not use the woven context sentence in future outreach.</strong> Evidence: zero benefit in Treatment group, lower open rates. The sentence "I've been asking painting business owners about this lately..." added length without adding value.</li>
+    <li><strong>Do not run curiosity-only painter campaigns again.</strong> Evidence: 0/40 meaningful replies across both groups, plus 0/65 July Email 1 replies. The curiosity prompt format has been tested to exhaustion with no result.</li>
+    <li><strong>FF1's founder-to-founder approach is the correct pivot.</strong> Evidence: curiosity-based approaches produced zero meaningful engagement across 105 painter prospects. FF1 tests a fundamentally different mechanism — James sharing observations as a peer, not prompting curiosity as a stranger.</li>
+  </ol>
+</div>
+
+<!-- WHAT SHOULD STAY -->
+<div class="section">
+  <h2>4. What Should Remain Exactly the Same</h2>
+  <ul>
+    <li><strong>Experiment methodology.</strong> The CvC design (random assignment, stratified, pre-registered hypothesis, taxonomy-based classification) is sound. The result was negative, but the process produced a clear answer. This methodology should be reused for future experiments.</li>
+    <li><strong>Reply taxonomy (T0-T5).</strong> Worked perfectly for this analysis — the distinction between T1 dismissal and T3+ meaningful reply prevented over-interpreting the one reply.</li>
+    <li><strong>21-day checkpoint window.</strong> Sufficient time for all 4 touchpoints to complete. No late replies emerged.</li>
+  </ul>
+</div>
+
+<!-- FF1 IMPLICATIONS -->
+<div class="section">
+  <h2>5. Implications for FF1</h2>
+
+  <p>The CvC result strengthens the case for FF1's approach in two ways:</p>
+
+  <ol>
+    <li><strong>It eliminates the curiosity-prompt format as a viable strategy.</strong> We now have evidence across 105 painter prospects that "Have you noticed X? I'm curious how you handle it" does not generate meaningful replies. This is no longer a hypothesis — it's a finding.</li>
+    <li><strong>It makes FF1 the cleanest test possible.</strong> FF1's "Something I've noticed" approach — where James shares a genuine observation about a specific business, without asking a curiosity question — is structurally different from everything we've tested. There's no confound from the CvC format. FF1 is a genuinely new variable.</li>
+  </ol>
+
+  <div class="highlight">
+    <strong>Bottom line:</strong> CvC closed the book on curiosity-based cold outreach to painters. FF1 opens a new chapter with a fundamentally different mechanism. The CvC result makes FF1 <em>more</em> important, not less — it's now the active experiment that matters.
+  </div>
+</div>
+
+<!-- NEXT STEPS -->
+<div class="section">
+  <h2>6. Next Steps</h2>
+  <table>
+    <thead><tr><th>Action</th><th>Timing</th></tr></thead>
+    <tbody>
+      <tr><td>Close CvC experiment formally — mark complete in experiment index</td><td>Today</td></tr>
+      <tr><td>Record CvC result as formal learning in Learning Framework</td><td>Today</td></tr>
+      <tr><td>Archive CvC experiment files</td><td>Today</td></tr>
+      <tr><td>Focus all attention on FF1 Email 1 reply window (next 7 days)</td><td>Now</td></tr>
+      <tr><td>FF1 Email 2 sends</td><td>Monday 10 August</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+
+<footer>
+  CvC Day 21 Final Analysis · Generated by Atlas · Not Forgotten Systems · 4 August 2026
+</footer>
+
+</body>
+</html>
