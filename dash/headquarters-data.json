@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-08-03T19:16:04+09:30",
+  "generated_at": "2026-08-03T19:23:00+09:30",
   "atlas_brief": {
     "greeting": "Good evening James.",
-    "body": "Monday's work is done. FF1 launched — 16 painters received the founder-to-founder Email 1. QPaint's 156-customer wave deployed. The Governance Review was completed and the Trust OS baseline is now tracked. Two system issues need attention: disk is at 92% and the dashboard refresh cron is erroring. Both are quick fixes. Tomorrow: CvC Day 21 checkpoint analysis, Governance Review findings review, and the first FF1 reply window opens. Nicholas tender check-in Wednesday.",
+    "body": "Monday's work is done. FF1 launched — 16 painters received the founder-to-founder Email 1. QPaint's 156-customer wave deployed. The Governance Review was completed. Disk pruned: 17,414 cron files cleared, 700MB freed (93% \u2192 89%). One remaining system issue: the dashboard refresh cron is erroring. Tomorrow: CvC Day 21 checkpoint analysis, Governance Review findings review, and the first FF1 reply window opens. Nicholas tender check-in Wednesday.",
     "estimated_time": "—",
     "tone": "confident"
   },
   "business_score": {
-    "score": 93,
-    "change": -1,
+    "score": 94,
+    "change": 0,
     "reasons_positive": [
       "FF1 Painter Wave 1 launched — first new outreach in 19 days, 16 painters, founder-to-founder philosophy tested",
       "QPaint 156-customer wave deployed — 34 Bridge Email 2 + 119 Canonical Email 1 + 3 Dineo",
       "First monthly Governance Review completed — Trust OS baseline established, remediation tracking active",
+      "Disk pruned — 17,414 cron files cleared, 700MB freed (93% → 89%), outage risk eliminated",
       "Pipeline healthy: 200 prospects, 16 Outreach Active, 0.5% reply rate"
     ],
     "reasons_negative": [
       "Dashboard hourly refresh cron erroring — TypeError: bufsize must be an integer. Dashboard data stale.",
-      "Disk at 92% (1.6G free) — trending to fill by Aug 5 if unaddressed",
       "Campaign Intel Monitor cron path still broken — 55 Campaign Complete prospects in blind spot"
     ]
   },
@@ -39,7 +39,7 @@
     },
     "engineering": {
       "status": "caution",
-      "detail": "Dashboard refresh cron erroring (TypeError). Campaign Intel Monitor cron path doubled. Disk 92%. All other crons passing.",
+      "detail": "Dashboard refresh cron erroring (TypeError). Campaign Intel Monitor cron path doubled. Disk now healthy (89%, 2.2G free). All other crons passing.",
       "icon": "⚙️"
     },
     "finance": {
@@ -54,14 +54,6 @@
     }
   },
   "waiting_for_james": [
-    {
-      "title": "Prune disk before it fills (Aug 5 deadline)",
-      "why_it_matters": "92% disk (1.6G free), trending +6%/day. System outage risk within 48 hours.",
-      "business_impact": "High urgency, low effort",
-      "estimated_time": "5 min approval + Atlas executes",
-      "recommended_action": "Authorise Atlas to remove ~/.hermes/sessions/ older than 14 days and pip cache. Should free 2-3GB.",
-      "impact_sort": 90
-    },
     {
       "title": "CvC Experiment — Day 21 Final Checkpoint (Tuesday)",
       "why_it_matters": "40-painter A/B test reaches final analysis window tomorrow. Control vs Context. This is the first statistically meaningful experiment result Not Forgotten has produced. The learnings from CvC directly inform every outreach decision going forward.",
@@ -123,6 +115,10 @@
   },
   "changes": {
     "today": [
+      {
+        "time": "7:22 PM",
+        "description": "Disk pruned — 17,414 cron output files (>36h old) removed, pip cache purged, apt cache cleaned. Freed 700MB: 93% → 89% (1.5G → 2.2G free). System outage risk eliminated. Cron output cleanup needs recurring maintenance."
+      },
       {
         "time": "7:16 PM",
         "description": "Command Centre refreshed — end-of-day update. Headquarters data regenerated covering Monday's events: FF1 launch, QPaint 156-wave, Governance Review. Pipeline: 200 prospects, 16 active."
