@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 125,
+    "tasks_completed": 126,
     "recent": [
+      {
+        "date": "2026-08-03 19:15",
+        "task": "Command Centre refreshed \u2014 end-of-day update. Generated fresh headquarters-data.json covering Monday's events: FF1 launch, QPaint 156-wave, Governance Review. Pipeline: 200 prospects, 16 active. System health snapshot: disk 92%, dashboard cron erroring, campaign-intel-monitor path needs fix.",
+        "category": "task"
+      },
       {
         "date": "2026-08-03 13:25",
         "task": "48-hour quote follow-up delay established. follow-up-autopilot.py now waits 48 hours from quote date before sending Email 1. Decision recorded.",
@@ -135,21 +140,6 @@
         "date": "2026-07-29 10:06",
         "task": "QPaint: Andres Sillet (3K, Russell Island) replied \u2014 not proceeding. Marked Lost. Atlas asked for reason. Weekly loss consolidation process established.",
         "category": "task"
-      },
-      {
-        "date": "2026-07-29 09:14",
-        "task": "Wave 2 sent: 30 QPaint recovery emails. Pipeline: 37 contacted (8 cal + 30 wave), 1 replied (Nicholas), 119 remaining. 156/156 Pipedrive deals imported. Inclusion principle established \u2014 P3 deals reinstated.",
-        "category": "task"
-      },
-      {
-        "date": "2026-07-29 08:41",
-        "task": "QPaint: Joy Ryan replied (Day +1) \u2014 wants separate external/internal quotes for Warenda Close (7.5K). Atlas replied, Tas flagged. 2nd calibration reply.",
-        "category": "task"
-      },
-      {
-        "date": "2026-07-29 08:30",
-        "task": "Processed QPaint customer reply: Joy Ryan (Warenda Close) requests separate internal/external quotes. Positive Buying Signal. Flagged to James.",
-        "category": "task"
       }
     ]
   },
@@ -174,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-03T19:14:35.550932+09:30",
+  "last_updated": "2026-08-03T19:15:22.479534+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
