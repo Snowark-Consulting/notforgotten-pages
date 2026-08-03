@@ -1,0 +1,35 @@
+---
+doc_type: decision
+decision_id: 2026-08-03-quote-follow-up-delay
+title: 48-Hour Quote Follow-Up Delay — Don't Follow Up Immediately
+status: Made
+date: 2026-08-03
+review_date: 2026-09-03
+---
+
+# Decision: 48-Hour Quote Follow-Up Delay
+
+## Background
+
+The follow-up-autopilot was sending Email 1 immediately when a quote arrived in quotes@. James identified this is too fast — customers need time to review the quote before being contacted.
+
+## Decision
+
+Quote follow-ups wait 48 hours from quote receipt before Email 1 is sent. This applies to all QPaint and future client quote intake.
+
+The follow-up-autopilot now checks: `Quote date >= 48 hours ago` before processing.
+
+## Rationale
+
+- Gives customers time to read and process the quote
+- Prevents appearing overeager or pushy
+- Better customer experience — follow-up feels helpful, not impatient
+- Still timely enough to stay top-of-mind
+
+## Implementation
+
+`scripts/follow-up-autopilot.py` updated to filter Quotes where `Quote date` is at least 48 hours old. Quotes less than 48 hours old are skipped (logged, not processed).
+
+## Existing Quotes
+
+Carol Beardsall's follow-up was sent today (within minutes of receipt). This decision applies to all future quotes. Existing in-progress follow-ups continue on their current schedule.

@@ -1,0 +1,80 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# Storage Health Policy
+
+> Storage is an operational health metric, not an infrastructure metric. Four-tier system: Green/Amber/Red/Critical. Explanatory standard: current, why, trend, forecast, action.
+
+**Established:** 2026-08-03
+**Status:** Active
+**Supersedes:** Original 85%/92% threshold system
+
+## Purpose
+
+Storage is not an infrastructure metric. It is an operational health metric. Atlas actively manages system capacity before it becomes a problem. Prevention is part of good judgement.
+
+## Four-Tier System
+
+### 🟢 Green — Below 80%
+
+- **Action:** None required.
+- **Reporting:** Data written to HQ data layer. Not surfaced in Headquarters UI.
+- **Alerting:** None.
+
+### 🟡 Amber — 80% to 90%
+
+- **Action:** Monitor closely. Look for opportunities to reclaim space.
+- **Reporting:** Surfaced in Headquarters only.
+- **Alerting:** None via Telegram. Visible in HQ.
+
+### 🔴 Red — 90% to 95%
+
+- **Action:** Treat as a business risk. Immediately investigate what is consuming space. Recommend corrective actions before execution is affected.
+- **Reporting:** Surfaced in Headquarters with full breakdown.
+- **Alerting:** Telegram alert sent with explanation and recommendation.
+
+### 🚨 Critical — Above 95%
+
+- **Action:** Escalate immediately via Telegram. Execution reliability takes priority over normal operations.
+- **Reporting:** Full breakdown in HQ + urgent Telegram notification.
+- **Alerting:** Immediate Telegram escalation with top consumers, trend, and required action.
+
+## Explanatory Standard
+
+Atlas does not simply report storage. Atlas explains it. Every health check includes:
+
+| Field | Description |
+|---|---|
+| **Current usage** | Percentage and free GB |
+| **Why** | Plain-English breakdown of what's consuming space (top 3 consumers) |
+| **Trend** | Stable / Increasing / Rapidly increasing / Decreasing |
+| **Forecast** | Estimated days until 95% capacity (or "stable") |
+| **Recommended action** | None / Monitor / Investigate / Prune / Expand |
+
+## Escalation Path
+
+```
+Green → No action
+Amber → HQ only
+Red → HQ + Telegram alert
+Critical → HQ + Immediate Telegram escalation
+```
+
+## Technical Implementation
+
+| Component | Detail |
+|---|---|
+| **Health check** | `bin/storage-health.py` — every 6 hours (cron `506c5b3ae6bf`) |
+| **Escalation** | `48982944ea6e` — agent cron, fires 1 min after health check, reads context, sends Telegram only when red/critical |
+| **HQ data** | Written to `dash.json` → `storage_health` key |
+| **State history** | `logs/storage-state.json` — rolling 30-day history for trend analysis |
+| **Critical flag** | `logs/.storage-critical` — written when critical, triggers escalation |
+
+## Related
+
+- Script: `bin/storage-health.py`
+- Log Retention Standard: `knowledge/log-retention-standard.md`
+- Decision: `knowledge/decisions/2026-08-03-storage-health-policy.md`

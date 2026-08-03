@@ -171,6 +171,14 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 - [[Decision: Atlas Trust Framework]] (knowledge/decisions/2026-08-02-atlas-trust-framework.md) — Trust OS extracted to `Agent/trust-framework.md` for load-at-boot modularity.
 - [[Decision: Founder-to-Founder Sequence]] (knowledge/decisions/2026-08-02-founder-to-founder-sequence-frozen.md) — Sequence frozen. Protected Asset. `send-canonical.py` renders faithfully.
 - [[Learning: Canonical Reproduction]] (learnings/2026-08-02-canonical-reproduction-failure.md) — Gmail API signature, blank-line rendering, base64 logo → Hotmail attachment. `send-canonical.py` fixes all three.
+- [[Decision: Foundation Complete]] (knowledge/decisions/2026-08-03-foundation-complete.md) — Foundation phase complete. Shift to execution from Aug 4. Atlas measured by business outcomes.
+- [[Decision: Log Retention Standard]] (knowledge/decisions/2026-08-03-log-retention-standard.md) — Tiered retention: routine >48h deleted, failures 90 days, protected never touched. 17,414 files freed.
+- [[Decision: Quote Follow-Up Delay]] (knowledge/decisions/2026-08-03-quote-follow-up-delay.md) — 48-hour delay before follow-up Email 1. Respect customer time to read quotes.
+- [[How Not Forgotten Learns]] (knowledge/how-notforgotten-learns.md) — Learning philosophy: celebrate confidence, not outcomes. Three questions. Business Knowledge section.
+- [[Log Retention Standard]] (knowledge/log-retention-standard.md) — Governance standard for operational logs. Six policies. Scripts: `bin/log-retention.py`, `bin/storage-health.py`.
+- [[Storage Health Policy]] (knowledge/storage-health-policy.md) — Four-tier system: Green/Amber/Red/Critical. Explanatory standard with trend/forecast/action.
+- [[Client Consent Acknowledgement]] (knowledge/onboarding/client-consent-acknowledgement.md) — Mandatory onboarding form: email + SMS consent, 10-point acknowledgement.
+- [[Learning: CvC Retired]] (learnings/LL-20260804-005.md) — Curiosity-led outreach permanently retired for painter acquisition. 105 prospects, 0 meaningful replies. FF1 now primary hypothesis.
 
 ## Email Intelligence
 - `skills/email/email-intelligence-mining/SKILL.md` — historical deep-dive mining of Gmail mailboxes for patterns, contacts, objections, pricing, pipeline data. Not for real-time monitoring.

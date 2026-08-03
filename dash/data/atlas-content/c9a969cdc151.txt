@@ -6,13 +6,31 @@ tier: primary
 
 # Context vs Curiosity — Experiment Manifest
 
-> **Status:** LIVE — Send: 2026-07-14
+> **Status:** CLOSED — Day 21 Final: 2026-08-04
 > 
-> **Locked:** No changes to copy, structure, subject lines, or methodology while experiment is running.
+> **Verdict:** Context sentence did not improve meaningful reply rate. 0/40 T3+ replies. Curiosity-led outreach retired for painter acquisition.
+>
+> **Full analysis:** `pages/cvc-day21/index.html`
 
 ## Hypothesis
 
 Adding one woven context sentence ("I've been asking painting business owners about this lately...") changes meaningful reply rate compared to curiosity-only emails.
+
+**Result: Refuted.** No evidence of benefit. Treatment underperformed Control on opens (50% vs 70%).
+
+## Three Questions
+
+### 1. What did we prove?
+
+We proved that the experiment methodology works. Random assignment, stratified sampling, pre-registered hypothesis, taxonomy-based classification — the process produced a clear, unambiguous answer. The null result is a feature, not a bug.
+
+### 2. What did we disprove?
+
+We disproved the hypothesis that adding a woven context sentence to curiosity-prompt emails improves meaningful reply rates from painters. Across 105 total painter prospects (40 CvC + 65 July campaigns), the curiosity-led approach produced zero meaningful engagement.
+
+### 3. What changes because of this?
+
+The curiosity-led outreach philosophy is permanently retired for painter acquisition. The Founder-to-Founder approach (FF1) is now the primary acquisition hypothesis. All attention shifts to FF1 evidence — every reply, objection, and conversation is high-value data. Cold outreach to painters requires a fundamentally different mechanism than prompting curiosity about an already-known problem.
 
 ## Design
 

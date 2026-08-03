@@ -1,0 +1,66 @@
+# Decision Record: Log Retention Standard
+
+**Slug:** `2026-08-03-log-retention-standard`
+**Date:** 2026-08-03
+**Status:** Made
+**Author:** James Hardstaff (direction), Atlas (implementation)
+**Review Date:** 2026-09-03
+
+## Context
+
+High-frequency cron jobs (quotes-pulse, inbox-pulse, follow-up-autopilot) generate ~195MB/day of operational logs with no lifecycle management. On 2026-08-03, disk reached 93% (1.5G free), trending toward system outage by Aug 5.
+
+Root cause: 25,628 markdown log files accumulating since July 29 with zero cleanup.
+
+## Options Considered
+
+1. **Manual cleanup only** — Reactive, doesn't prevent recurrence
+2. **Blanket purge (all logs >48h)** — Simple but loses failure records
+3. **Tiered retention with failure preservation** — Routine logs >48h deleted, failures retained 90 days, daily summaries, protected records never touched
+
+## Decision
+
+Option 3: Tiered Log Retention Standard.
+
+### What was implemented
+
+1. **Routine logs** (>48h, no errors) — auto-deleted daily at 20:30 ACST
+2. **Failure logs** — preserved 90 days minimum
+3. **Protected records** — never auto-purged (decisions, learnings, memory, trust docs, experiments, drafts)
+4. **Daily summaries** — consolidated stats per cron job, written to `logs/daily-summaries/`
+5. **Storage monitoring** — every 6h, surfaces to HQ at >85% warning, >92% critical
+6. **Dry-run mode** — `--dry-run` flag for verification before live execution
+
+### Scope
+
+Five high-frequency operational cron output directories only. All other paths are protected.
+
+### Immediate result
+
+- 17,414 routine files >36h deleted (immediate cleanup before standard activated)
+- Disk: 93% → 89% (1.5G → 2.2G free)
+- 2 failure files identified and preserved
+- Protected records verified untouched
+
+## Expected Outcomes
+
+- Disk never exceeds 90% under normal operation
+- Failure records available for incident investigation up to 90 days
+- Daily summaries provide long-term operational visibility without raw log retention
+- Storage health surfaced proactively before reaching critical levels
+
+## James's Direction
+
+James specified six requirements: (1) routine auto-delete >48h, (2) failure retention 90 days, (3) never purge protected records, (4) daily summaries, (5) HQ storage monitoring with thresholds, (6) safe failure with dry-run first.
+
+## Atlas's Challenge
+
+None. This was a clear operational gap that James correctly identified and specified. The implementation is straightforward and aligns with all Six Principles — particularly Security Before Convenience (safe failure design) and Continuous Learning (daily summaries feed operational awareness).
+
+## Related
+
+- Standard: `knowledge/log-retention-standard.md`
+- Script: `bin/log-retention.py`
+- Script: `bin/storage-health.py`
+- Cron: `c68ae5970e89` (daily retention)
+- Cron: `506c5b3ae6bf` (storage health every 6h)

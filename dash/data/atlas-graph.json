@@ -158,17 +158,6 @@
       "color": "#d4951f"
     },
     {
-      "id": "integrations_readme",
-      "label": "Integrations / Readme",
-      "file_type": "doc",
-      "source_file": "integrations/README.md",
-      "community": 3,
-      "community_name": "Integrations",
-      "content_hash": "e641d6bf2207",
-      "val": 6.0,
-      "color": "#60a5fa"
-    },
-    {
       "id": "integrations_email",
       "label": "Email",
       "file_type": "doc",
@@ -521,6 +510,39 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decisions_2026_08_03_foundation_complete",
+      "label": "Foundation Complete",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-03-foundation-complete.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "6fb92e394f65",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decisions_2026_08_03_log_retention_standard",
+      "label": "Decisions / Log Retention Standard",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-03-log-retention-standard.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "78fcd26ba1bb",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decisions_2026_08_03_quote_follow_up_delay",
+      "label": "Quote Follow Up Delay",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-03-quote-follow-up-delay.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "27793a781393",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decisions_index",
       "label": "Decisions / Index",
       "file_type": "doc",
@@ -577,7 +599,7 @@
     },
     {
       "id": "knowledge_experiments_context_vs_curiosity_readme",
-      "label": "Context Vs Curiosity / Readme",
+      "label": "Readme",
       "file_type": "doc",
       "source_file": "knowledge/experiments/context-vs-curiosity/README.md",
       "community": 4,
@@ -594,7 +616,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "15b31ee3cee2",
-      "val": 8.0,
+      "val": 6.0,
       "color": "#a78bfa"
     },
     {
@@ -605,7 +627,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "637f8a0751ca",
-      "val": 8.0,
+      "val": 6.0,
       "color": "#a78bfa"
     },
     {
@@ -660,6 +682,17 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "62f421c22c76",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_how_notforgotten_learns",
+      "label": "How Notforgotten Learns",
+      "file_type": "doc",
+      "source_file": "knowledge/how-notforgotten-learns.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "934fdc0bf884",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -741,6 +774,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_log_retention_standard",
+      "label": "Knowledge / Log Retention Standard",
+      "file_type": "doc",
+      "source_file": "knowledge/log-retention-standard.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "e16091581643",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_loss_intelligence_framework",
       "label": "Loss Intelligence Framework",
       "file_type": "doc",
@@ -759,6 +803,17 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "60de02e5e8e1",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_onboarding_client_consent_acknowledgement",
+      "label": "Client Consent Acknowledgement",
+      "file_type": "doc",
+      "source_file": "knowledge/onboarding/client-consent-acknowledgement.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "b8add5c2528b",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -1082,6 +1137,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_storage_health_policy",
+      "label": "Storage Health Policy",
+      "file_type": "doc",
+      "source_file": "knowledge/storage-health-policy.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "9a4b8860a889",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_systems",
       "label": "Systems",
       "file_type": "doc",
@@ -1266,6 +1332,17 @@
       "community_name": "Learnings",
       "content_hash": "d5d6365794d4",
       "val": 14.0,
+      "color": "#f472b6"
+    },
+    {
+      "id": "learnings_ll_20260804_005",
+      "label": "LL 20260804 005",
+      "file_type": "doc",
+      "source_file": "learnings/LL-20260804-005.md",
+      "community": 5,
+      "community_name": "Learnings",
+      "content_hash": "2b20258f47c1",
+      "val": 6.0,
       "color": "#f472b6"
     },
     {
@@ -1965,6 +2042,62 @@
       "source_file": ""
     },
     {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_03_foundation_complete",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_03_log_retention_standard",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_03_quote_follow_up_delay",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_how_notforgotten_learns",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_log_retention_standard",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_storage_health_policy",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_onboarding_client_consent_acknowledgement",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "learnings_ll_20260804_005",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
       "source": "agent_sops",
       "target": "agent_registry",
       "relation": "wikilink",
@@ -2233,27 +2366,6 @@
     {
       "source": "knowledge_decisions_2026_07_24_provider_failover_gemini_fallback",
       "target": "knowledge_service_levels",
-      "relation": "wikilink",
-      "weight": 1.0,
-      "source_file": ""
-    },
-    {
-      "source": "knowledge_experiments_index",
-      "target": "integrations_readme",
-      "relation": "wikilink",
-      "weight": 1.0,
-      "source_file": ""
-    },
-    {
-      "source": "knowledge_experiments_index",
-      "target": "knowledge_experiments_context_vs_curiosity_hypothesis_backlog",
-      "relation": "wikilink",
-      "weight": 1.0,
-      "source_file": ""
-    },
-    {
-      "source": "knowledge_experiments_index",
-      "target": "knowledge_experiments_context_vs_curiosity_taxonomy",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
