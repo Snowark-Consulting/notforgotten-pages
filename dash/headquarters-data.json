@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-03T19:38:56+09:30",
+  "generated_at": "2026-08-03T19:52:16+09:30",
   "atlas_brief": {
     "greeting": "Good evening James.",
-    "body": "Monday complete. An exceptional execution day. FF1 launched — 16 painters, first new outreach in 19 days. QPaint 156-customer wave deployed. First Governance Review completed. The disk crisis was averted (93% \u2192 89%) and two permanent policies are now active: Log Retention Standard (tiered cleanup, daily summaries, protected records) and Storage Health Policy (four-tier monitoring, explanatory reporting, Telegram escalation). Three new crons deployed. The operating system is materially stronger tonight than it was this morning. Tomorrow: CvC Day 21 checkpoint at 8AM — the most important learning event this month. Nicholas tender check-in Wednesday. FF1 Email 2 Aug 10.",
+    "body": "Monday complete and CvC is closed. FF1 launched — 16 painters, first new outreach in 19 days. QPaint 156-customer wave deployed. Governance Review completed. Disk crisis averted (93% \u2192 89%). Two permanent operational policies active (Log Retention + Storage Health). And tonight: the CvC experiment was formally retired. 105 painter prospects, zero meaningful replies. Curiosity-led outreach does not work for painter acquisition. FF1 is now the primary hypothesis — every reply from Monday's wave is evidence that matters. Nicholas tender check-in Wednesday. FF1 Email 2 Aug 10.",
     "estimated_time": "\u2014",
     "tone": "confident"
   },
@@ -56,14 +56,6 @@
   },
   "waiting_for_james": [
     {
-      "title": "CvC Experiment — Day 21 Final Checkpoint (Tuesday)",
-      "why_it_matters": "40-painter A/B test reaches final analysis window tomorrow. Control vs Context. This is the first statistically meaningful experiment result Not Forgotten has produced. The learnings from CvC directly inform every outreach decision going forward.",
-      "business_impact": "High — shapes outreach philosophy for all future campaigns",
-      "estimated_time": "30 min (Tuesday)",
-      "recommended_action": "Atlas will present the Day 21 analysis tomorrow morning. Review the findings with fresh eyes. Key question: does Context outperform Control at 21 days, and what does that mean for FF1's approach?",
-      "impact_sort": 85
-    },
-    {
       "title": "Governance Review findings — review and approve",
       "why_it_matters": "First monthly Trust OS audit completed. Baseline scores: Security 41/100, Privacy 35/100, Operational Maturity 38/100. Six critical findings from July 25 audit need progress decisions.",
       "business_impact": "Medium — sets remediation priorities for August",
@@ -81,14 +73,14 @@
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Monday was an exceptional execution day. FF1 launched, QPaint deployed, Governance Review done, disk crisis averted, and two permanent operational policies are now active (Log Retention + Storage Health). Three new crons deployed. Tuesday is analysis day: CvC Day 21 results will tell us whether Context beats Control — the most important piece of evidence this month. The operating system is materially stronger than it was 12 hours ago.",
+    "executive_summary": "CvC is closed. The curiosity-led outreach philosophy is permanently retired for painter acquisition — 105 prospects, zero meaningful replies. FF1 is now the primary acquisition hypothesis and all attention shifts to its evidence stream. Governance Review findings and two quick system fixes complete the remaining agenda.",
     "priorities": [
       {
-        "action": "Review CvC Day 21 final analysis (Tuesday 8AM)",
-        "why_it_matters": "First statistically meaningful experiment result. 40-painter A/B test, Control vs Context at 21 days. These learnings shape every outreach decision from FF1 onward. Cron fires at 8:00 AM ACST.",
-        "expected_impact": "Evidence-based direction for all future outreach. Either validates or challenges the Context hypothesis.",
-        "estimated_time": "30 minutes",
-        "confidence": "High (90%+) — experiment is complete, analysis is automated, just needs review"
+        "action": "FF1 — monitor reply window closely",
+        "why_it_matters": "FF1 is now the primary painter acquisition hypothesis. Every reply, objection, and conversation from the 16-painter wave is high-value evidence. The CvC result makes FF1 more important, not less — it's the active experiment that matters.",
+        "expected_impact": "First evidence of whether founder-to-founder observations generate meaningful painter engagement. Reply window: next 7 days.",
+        "estimated_time": "Ongoing — check daily",
+        "confidence": "High (95%+) — 16 emails sent Monday, reply window now open"
       },
       {
         "action": "Review Governance Review findings",
@@ -112,10 +104,14 @@
       "Nicholas tender check-in — scheduled Wednesday, draft ready.",
       "Founder re-engagement pilot — drafts due Aug 8, first sends Aug 11."
     ],
-    "closing": "Today the business executed, the system strengthened, and the foundation hardened. Tomorrow the evidence arrives. The CvC results are the most important learning event this month — they either validate or challenge our outreach philosophy. The operating system is ready."
+    "closing": "CvC is closed. The book on curiosity-led painter outreach is shut. FF1 is now the active experiment — every reply from Monday's 16 painters is evidence that matters. The system learned today, and the learning is permanent."
   },
   "changes": {
     "today": [
+      {
+        "time": "8:00 AM",
+        "description": "CvC experiment formally closed. Curiosity-led outreach permanently retired for painter acquisition (105 prospects, 0 meaningful replies). Three questions answered. Experiment INDEX updated. Learning LL-20260804-005 recorded. FF1 is now the primary acquisition hypothesis."
+      },
       {
         "time": "7:38 PM",
         "description": "Command Centre refreshed — final EOD update. Score: 95 (+1). All Monday objectives complete. Log Retention Standard + Storage Health Policy active. Three new crons deployed. Pipeline: 200 prospects, 16 active."
@@ -191,8 +187,16 @@
     ]
   },
   "lessons_learned": {
-    "total": 4,
+    "total": 5,
     "recent": [
+      {
+        "id": "LL-20260804-005",
+        "title": "Curiosity-Led Outreach Retired for Painter Acquisition",
+        "summary": "CvC experiment closed: 105 painter prospects, zero meaningful replies. Curiosity about an already-known problem is not enough to start conversations with painting business owners. Permanently retired. FF1 is now the primary acquisition hypothesis. Full analysis at cvc-day21/.",
+        "category": "Outreach Philosophy",
+        "date": "2026-08-04",
+        "status": "Resolved"
+      },
       {
         "id": "LL-20260802-004",
         "title": "Lint Prioritisation — Not Every Warning Needs a Fix",
