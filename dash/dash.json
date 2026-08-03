@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 129,
+    "tasks_completed": 130,
     "recent": [
+      {
+        "date": "2026-08-03 19:48",
+        "task": "CvC Day 21 Final Analysis complete. Verdict: context sentence did not improve meaningful reply rate. 0/40 meaningful replies across both groups. Control: 1 T1 dismissal, 70% open rate. Treatment: 0 replies, 50% open rate. Analysis published at cvc-day21/ \u2014 closes the book on curiosity-based painter outreach.",
+        "category": "task"
+      },
       {
         "date": "2026-08-03 19:36",
         "task": "Storage Health Policy active \u2014 four-tier system (Green/Amber/Red/Critical). Current: Amber (89%, stable). Explanatory reporting: why, trend, forecast, recommendation. Telegram escalation at Red/Critical. Cron: 506c5b3ae6bf (6h) + 48982944ea6e (alert).",
@@ -135,11 +140,6 @@
         "date": "2026-07-30 17:40",
         "task": "CEO Brief for 30 July 2026 published. 84 Campaign Complete, 2 Won. QPaint Email 2 due Aug 3. Governance Review due Aug 3.",
         "category": "task"
-      },
-      {
-        "date": "2026-07-30 09:50",
-        "task": "Post-campaign reconciliation: verified 74 Email 2 sends + 75 Email 3 sends fully reconciled in Airtable. Tracer bullet found Tas Moulis data-entry error \u2014 4 suspect Messages records identified for deletion, full cold outreach sequence misdirected to phantom tas@tradiematepro.com.au. send-outreach.py recipient validation safeguard now prevents this class of error.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-03T19:38:58.625351+09:30",
+  "last_updated": "2026-08-03T19:48:02.569360+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
