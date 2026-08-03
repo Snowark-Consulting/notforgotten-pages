@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 128,
+    "tasks_completed": 129,
     "recent": [
+      {
+        "date": "2026-08-03 19:36",
+        "task": "Storage Health Policy active \u2014 four-tier system (Green/Amber/Red/Critical). Current: Amber (89%, stable). Explanatory reporting: why, trend, forecast, recommendation. Telegram escalation at Red/Critical. Cron: 506c5b3ae6bf (6h) + 48982944ea6e (alert).",
+        "category": "task"
+      },
       {
         "date": "2026-08-03 19:32",
         "task": "Log Retention Standard established. Tiered retention: routine >48h deleted, failures preserved 90 days, protected records never touched. Daily summaries at logs/daily-summaries/. Storage health monitoring every 6h. Cron: c68ae5970e89 (daily) + 506c5b3ae6bf (6h). Decision: 2026-08-03-log-retention-standard.",
@@ -135,11 +140,6 @@
         "date": "2026-07-30 09:50",
         "task": "Post-campaign reconciliation: verified 74 Email 2 sends + 75 Email 3 sends fully reconciled in Airtable. Tracer bullet found Tas Moulis data-entry error \u2014 4 suspect Messages records identified for deletion, full cold outreach sequence misdirected to phantom tas@tradiematepro.com.au. send-outreach.py recipient validation safeguard now prevents this class of error.",
         "category": "task"
-      },
-      {
-        "date": "2026-07-29 17:40",
-        "task": "CEO Brief 29 July 2026 published. QPaint Wave 2: 17 contacted, 81 queued, .57M pipeline. Weekend date issue flagged (19 records). Campaign Intel Monitor cron path bug identified.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-03T19:32:17.680700+09:30",
+  "last_updated": "2026-08-03T19:36:25.964803+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
@@ -4646,12 +4646,19 @@
     }
   },
   "storage_health": {
-    "disk_pct": 88.9,
+    "tier": "amber",
+    "disk_pct": 89.0,
     "free_gb": 2.2,
-    "status": "warning",
-    "cron_output_mb": 299.4,
-    "abnormal_growth": false,
-    "daily_growth_pct": 0,
-    "last_checked": "2026-08-03T19:31:26+0930"
+    "why": "other hermes (11502MB), cron outputs (300MB), chrome profile (272MB). Normal system overhead.",
+    "trend": "stable",
+    "daily_rate_pct": 0.0,
+    "forecast_days_to_95": null,
+    "recommendation": "Monitor. No immediate action needed.",
+    "largest_consumers": {
+      "other_hermes": 11501.8,
+      "cron_outputs": 299.7,
+      "chrome_profile": 272.4
+    },
+    "last_checked": "2026-08-03T19:35:48+0930"
   }
 }
