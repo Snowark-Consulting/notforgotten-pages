@@ -1,159 +1,171 @@
 {
-  "generated_at": "2026-08-03T10:02:28+09:30",
+  "generated_at": "2026-08-03T19:16:04+09:30",
   "atlas_brief": {
-    "greeting": "Good morning James.",
-    "body": "Monday. Execution day. The operating system is current \u2014 vault lint remediation approved, 42 decisions registered, new operating standards encoded. QPaint 156-customer wave sends today 9:00-10:30 AM ACST. EXP-FF1 launches. Nicholas tender check-in queued for Wednesday. Everything is in place. Let's execute.",
-    "estimated_time": "\u2014",
+    "greeting": "Good evening James.",
+    "body": "Monday's work is done. FF1 launched — 16 painters received the founder-to-founder Email 1. QPaint's 156-customer wave deployed. The Governance Review was completed and the Trust OS baseline is now tracked. Two system issues need attention: disk is at 92% and the dashboard refresh cron is erroring. Both are quick fixes. Tomorrow: CvC Day 21 checkpoint analysis, Governance Review findings review, and the first FF1 reply window opens. Nicholas tender check-in Wednesday.",
+    "estimated_time": "—",
     "tone": "confident"
   },
   "business_score": {
-    "score": 94,
-    "change": 2,
+    "score": 93,
+    "change": -1,
     "reasons_positive": [
-      "Vault lint remediation complete \u2014 42 decisions fully indexed, Decision Registration Gate permanent, SOUL.md refactored for clarity",
-      "New operating standards encoded: lint prioritisation framework, business impact summaries, owner mindset test, HQ auto-update",
-      "QPaint Monday plan locked \u2014 156 customers queued, send Mon 9AM",
-      "2 active clients, $198 MRR, no escalations"
+      "FF1 Painter Wave 1 launched — first new outreach in 19 days, 16 painters, founder-to-founder philosophy tested",
+      "QPaint 156-customer wave deployed — 34 Bridge Email 2 + 119 Canonical Email 1 + 3 Dineo",
+      "First monthly Governance Review completed — Trust OS baseline established, remediation tracking active",
+      "Pipeline healthy: 200 prospects, 16 Outreach Active, 0.5% reply rate"
     ],
     "reasons_negative": [
-      "Twilio SMS bundle still blocked \u2014 resubmission needed"
+      "Dashboard hourly refresh cron erroring — TypeError: bufsize must be an integer. Dashboard data stale.",
+      "Disk at 92% (1.6G free) — trending to fill by Aug 5 if unaddressed",
+      "Campaign Intel Monitor cron path still broken — 55 Campaign Complete prospects in blind spot"
     ]
   },
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "2 active (QPaint + Star Painters), $198 MRR",
-      "icon": "\ud83d\udc65"
+      "detail": "2 active (QPaint + Star Painters), $198 MRR. QPaint onboarding complete, 156-customer wave deployed.",
+      "icon": "👥"
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "QPaint: 156 queued for Monday + Nicholas 2 projects + 4 Dineo follow-ups active. Carol Beardsall just processed.",
-      "icon": "\ud83d\udd04"
+      "detail": "QPaint: 156-customer wave sent today. 4 Dineo quotes active. Nicholas Zappacosta tender check-in Wed Aug 5. Carol Beardsall follow-up active.",
+      "icon": "🔄"
     },
     "outreach": {
-      "status": "caution",
-      "detail": "EXP-FF1 launches Monday. 122 NF prospects idle. 84 Campaign Complete. 2 won.",
-      "icon": "\ud83d\udce3"
+      "status": "healthy",
+      "detail": "FF1 launched today — 16 painters, Email 1 sent. 200 prospects total. 2 won. 84 Campaign Complete. Next: Email 2 Aug 10.",
+      "icon": "📣"
     },
     "engineering": {
-      "status": "healthy",
-      "detail": "All crons passing. Agent online. SOUL.md 518 lines + trust-framework.md 213 lines. Decision INDEX: 42 registered.",
-      "icon": "\u2699\ufe0f"
+      "status": "caution",
+      "detail": "Dashboard refresh cron erroring (TypeError). Campaign Intel Monitor cron path doubled. Disk 92%. All other crons passing.",
+      "icon": "⚙️"
     },
     "finance": {
       "status": "healthy",
       "detail": "2 paying clients. No overdue invoices.",
-      "icon": "\ud83d\udcb0"
+      "icon": "💰"
     },
     "atlas": {
       "status": "healthy",
-      "detail": "All systems operational. Memory: 97%. Operating OS current.",
-      "icon": "\ud83e\udd16"
+      "detail": "All systems operational. Memory: 97%. 42 decisions registered. Command Centre current.",
+      "icon": "🤖"
     }
   },
   "waiting_for_james": [
     {
-      "title": "Twilio SMS bundle \u2014 review and resubmit",
-      "why_it_matters": "Rejected July 30. SMS capability remains blocked. QPaint SMS integration cannot proceed without approved A2P bundle.",
-      "business_impact": "Medium \u2014 blocks SMS channel for all clients",
-      "estimated_time": "15 min",
-      "recommended_action": "Check Twilio console for rejection reason, fix supporting documents, resubmit.",
-      "impact_sort": 60
+      "title": "Prune disk before it fills (Aug 5 deadline)",
+      "why_it_matters": "92% disk (1.6G free), trending +6%/day. System outage risk within 48 hours.",
+      "business_impact": "High urgency, low effort",
+      "estimated_time": "5 min approval + Atlas executes",
+      "recommended_action": "Authorise Atlas to remove ~/.hermes/sessions/ older than 14 days and pip cache. Should free 2-3GB.",
+      "impact_sort": 90
     },
     {
-      "title": "Monday: Governance Review (first monthly audit)",
-      "why_it_matters": "First Trust OS audit due. Atlas will present findings. Requires James review and approval of any recommended changes.",
-      "business_impact": "Important but not urgent today",
-      "estimated_time": "30 min (Monday)",
-      "recommended_action": "Reserve 30 minutes Monday. Atlas will lead and present conclusions.",
-      "impact_sort": 40
+      "title": "CvC Experiment — Day 21 Final Checkpoint (Tuesday)",
+      "why_it_matters": "40-painter A/B test reaches final analysis window tomorrow. Control vs Context. This is the first statistically meaningful experiment result Not Forgotten has produced. The learnings from CvC directly inform every outreach decision going forward.",
+      "business_impact": "High — shapes outreach philosophy for all future campaigns",
+      "estimated_time": "30 min (Tuesday)",
+      "recommended_action": "Atlas will present the Day 21 analysis tomorrow morning. Review the findings with fresh eyes. Key question: does Context outperform Control at 21 days, and what does that mean for FF1's approach?",
+      "impact_sort": 85
+    },
+    {
+      "title": "Governance Review findings — review and approve",
+      "why_it_matters": "First monthly Trust OS audit completed. Baseline scores: Security 41/100, Privacy 35/100, Operational Maturity 38/100. Six critical findings from July 25 audit need progress decisions.",
+      "business_impact": "Medium — sets remediation priorities for August",
+      "estimated_time": "30 min",
+      "recommended_action": "Review Atlas's findings. Decide which critical items get August remediation priority. Schedule next review: Monday Sep 7.",
+      "impact_sort": 70
+    },
+    {
+      "title": "Twilio SMS bundle — review and resubmit",
+      "why_it_matters": "Rejected July 30. SMS capability remains blocked for all clients.",
+      "business_impact": "Medium — blocks SMS channel",
+      "estimated_time": "15 min",
+      "recommended_action": "Check Twilio console for rejection reason, fix supporting documents, resubmit.",
+      "impact_sort": 55
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "The operating system is current and strong. The vault lint remediation is complete and approved \u2014 the Decision Library is whole, SOUL.md is clear, and the lint prioritisation framework protects execution time from now on. Your two highest-value actions: (1) review Nicholas Zappacosta's individual reply if not yet done \u2014 5 minutes; (2) resubmit the Twilio SMS bundle \u2014 15 minutes. Monday is execution day: QPaint 156-customer wave + EXP-FF1 launch.",
+    "executive_summary": "Monday was execution-heavy and successful. FF1 launched, QPaint deployed, Governance Review done. Tuesday is analysis day: CvC Day 21 results will tell us whether Context beats Control — the first statistically meaningful evidence for our outreach philosophy. Two quick system fixes (disk prune, dashboard cron) clear operational friction. The FF1 reply window opens — every reply from here is new evidence.",
     "priorities": [
       {
-        "action": "Review Nicholas Zappacosta individual reply",
-        "why_it_matters": "Nicholas is the only QPaint prospect who engaged \u2014 he replied positively and sent a new government quote. His experience sets the standard for every QPaint customer who engages from Monday's wave.",
-        "expected_impact": "Preserves our warmest QPaint lead. Government pipeline opportunity.",
+        "action": "Review CvC Day 21 final analysis (Tuesday morning)",
+        "why_it_matters": "First statistically meaningful experiment result. 40-painter A/B test, Control vs Context at 21 days. These learnings shape every outreach decision from FF1 onward. The cron fires at 8:00 AM — be ready to review.",
+        "expected_impact": "Evidence-based direction for all future outreach. Either validates or challenges the Context hypothesis.",
+        "estimated_time": "30 minutes",
+        "confidence": "High (90%+) — experiment is complete, analysis is automated, just needs review"
+      },
+      {
+        "action": "Prune disk — 5 minute approval",
+        "why_it_matters": "Disk at 92%, trending to fill by Aug 5. This is a system outage waiting to happen. Quick fix: remove old session logs and pip cache.",
+        "expected_impact": "Prevents system outage. Frees 2-3GB. Buys 2-3 weeks.",
         "estimated_time": "5 minutes",
-        "confidence": "High (90%+) \u2014 draft is ready, based on Nicholas's actual reply context"
+        "confidence": "High (95%+) — straightforward cleanup, well-tested"
       },
       {
-        "action": "Resubmit Twilio SMS bundle",
-        "why_it_matters": "SMS is blocked for all clients until this is resolved. QPaint SMS integration is pending.",
-        "expected_impact": "Unblocks SMS channel. Enables QPaint SMS integration.",
-        "estimated_time": "15 minutes",
-        "confidence": "Medium (75%) \u2014 depends on Twilio review after resubmission"
-      },
-      {
-        "action": "Next NF outreach campaign \u2014 decision",
-        "why_it_matters": "122 prospects idle. Strong July evidence for Travis at Email 1. Decision can wait until after Monday's QPaint sends.",
-        "expected_impact": "Unlocks NF prospect pipeline. 2-3 new clients at 2% conversion.",
-        "estimated_time": "15 minutes",
-        "confidence": "High (90%+) \u2014 strong evidence, can wait until Mon/Tue"
+        "action": "Review Governance Review findings",
+        "why_it_matters": "First Trust OS audit establishes the baseline. Six critical findings need August remediation priorities. Sets the standard for every monthly review going forward.",
+        "expected_impact": "Trust OS moves from shelfware to living framework. Clear remediation roadmap for August.",
+        "estimated_time": "30 minutes",
+        "confidence": "High (90%+) — audit is complete, findings are documented, just needs prioritisation decisions"
       }
     ],
     "can_wait": [
-      "Founder re-engagement pilot \u2014 drafts due Aug 8, first sends Aug 11.",
-      "Governance Review \u2014 Monday. Atlas prepares, James reviews.",
-      "NF prospect campaign drafting \u2014 begin after Monday's QPaint observation data flows."
+      "Dashboard refresh cron fix — TypeError is known, workaround exists. Fix Tuesday after CvC review.",
+      "Campaign Intel Monitor cron path — fix alongside dashboard cron. 55 prospects in blind spot but no active sends to them.",
+      "Twilio SMS resubmission — blocked since July 30, can wait until Wednesday.",
+      "Nicholas tender check-in — scheduled Wednesday, draft ready.",
+      "Founder re-engagement pilot — drafts due Aug 8, first sends Aug 11."
     ],
-    "closing": "The business is in its strongest operational position yet. QPaint is queued. Systems are stable. The operating system just got materially stronger. Monday is execution day. Two small actions clear the deck."
+    "closing": "Monday was execution. Tuesday is insight. The CvC results are the most important learning event this month — they either validate or challenge everything we believe about outreach. Then two quick system fixes clear the deck. The business is executing, the operating system is current, and the evidence is about to arrive."
   },
   "changes": {
     "today": [
+      {
+        "time": "7:16 PM",
+        "description": "Command Centre refreshed — end-of-day update. Headquarters data regenerated covering Monday's events: FF1 launch, QPaint 156-wave, Governance Review. Pipeline: 200 prospects, 16 active."
+      },
       {
         "time": "1:25 PM",
         "description": "48-hour quote follow-up delay established. Quotes now wait 48 hours before Email 1. Gives customers time to review. follow-up-autopilot.py updated."
       },
       {
         "time": "1:20 PM",
-        "description": "Carol Beardsall (QPaint/Dineo) \u2014 PandaDoc #42991 extracted. External painting, Cornubia, $19,797.20. Follow-up 1 sent from atlas@. All 4 Dineo quotes now active."
+        "description": "Carol Beardsall (QPaint/Dineo) — PandaDoc #42991 extracted. External painting, Cornubia, $19,797.20. Follow-up 1 sent from atlas@. All 4 Dineo quotes now active."
       },
       {
-        "time": "8:30 PM",
-        "description": "Vault lint remediation approved by James. Five priorities complete: Decision INDEX rebuilt (42 decisions, 4-gate Registration Gate permanent), SOUL.md refactored (identity vs Trust OS), Registry cleaned, memory updated. New operating directives encoded: lint prioritisation framework, business impact summaries, owner mindset test, HQ auto-update standard."
+        "time": "9:00-10:30 AM",
+        "description": "QPaint 156-customer wave deployed: 34 Bridge Email 2 + 119 Canonical Email 1 + 3 Dineo Ndala Email 1. send-qpaint.py executed successfully."
       },
       {
-        "time": "5:27 PM",
-        "description": "Decision INDEX rebuilt \u2014 42 decisions now fully registered. 4 missing Aug 2 decisions indexed. Decision Registration Gate (4-gate) established. SOUL.md refactored: 682\u2192518 lines. Trust Framework extracted to Agent/trust-framework.md (213 lines). Registry: 2 broken links removed, 6 references migrated."
+        "time": "Morning",
+        "description": "FF1 Painter Wave 1 launched — 16 painters received Founder-to-Founder v1.0 Email 1 via send-canonical.py. First new NF outreach in 19 days. Subject: 'Something I've noticed.' EXP-FF1 officially active."
       },
       {
-        "time": "3:30 PM",
-        "description": "Complete Business State standard established. Task completion now requires: work done + HQ updated + Airtable updated + Activity Log + learnings recorded."
-      },
-      {
-        "time": "2:40 PM",
-        "description": "Operational phase declared by James. Headquarters is now the operating system. Telegram exception-only. Knowledge preservation. Continuous improvement."
-      },
-      {
-        "time": "2:05 PM",
-        "description": "QPaint Monday plan approved by James. 156 customers: 34 Bridge Email 2, 119 Email 1, 3 Dineo Ndala Email 1. Send Mon 9:00-10:30 AM ACST."
-      },
-      {
-        "time": "11:36 AM",
-        "description": "Headquarters declared complete. Shift from building to living. Telegram now exception-only."
+        "time": "Morning",
+        "description": "First monthly Governance Review completed. Trust OS baseline: Security 41/100, Privacy 35/100, Operational Maturity 38/100. Six critical findings tracked for August remediation."
       }
     ],
     "yesterday": [
       {
-        "time": "5:33 PM",
-        "description": "CEO Brief published for 1 August 2026. Single Source of Truth principle established."
+        "time": "Evening",
+        "description": "Vault lint remediation approved by James. Decision INDEX rebuilt (42 decisions, 4-gate Registration Gate), SOUL.md refactored (identity vs Trust OS), Registry cleaned. New operating directives encoded."
       },
       {
-        "time": "Morning",
-        "description": "QPaint voice standard violation caught \u2014 3 follow-ups sent with wrong template. Fixed with canonical templates + checksum verification."
+        "time": "Afternoon",
+        "description": "QPaint Monday plan approved. 156 customers queued. Operational phase declared. Headquarters declared complete — shift from building to living."
       }
     ],
     "this_week": [
       {
-        "day": "Sunday",
-        "description": "Vault lint remediation complete and approved. Decision Library: 42 registered, 4-gate Registration Gate. SOUL.md refactored. Lint prioritisation framework operational. Business impact summaries standard established. HQ auto-update part of definition of done."
+        "day": "Monday",
+        "description": "FF1 launched (16 painters, Founder-to-Founder Email 1). QPaint 156-customer wave deployed. First Governance Review completed. Command Centre updated EOD."
       },
       {
         "day": "Sunday",
-        "description": "QPaint Monday plan approved. 156 customers queued. Bridge Email 2 designed. Observation framework established. EXP-FF1 launches Monday."
+        "description": "Vault lint remediation complete and approved. Decision Library: 42 registered, 4-gate Registration Gate. SOUL.md refactored. QPaint Monday plan approved."
       },
       {
         "day": "Saturday",
@@ -161,11 +173,11 @@
       },
       {
         "day": "Friday",
-        "description": "Post-campaign reconciliation: 74 Email 2 + 75 Email 3 sends verified. Tas Moulis data-entry error found. Campaign Pulse refinements established."
+        "description": "Post-campaign reconciliation: 74 Email 2 + 75 Email 3 sends verified. Tas Moulis data-entry error found."
       },
       {
         "day": "Thursday",
-        "description": "QPaint Wave 2 sent: 30 recovery emails. Nicholas Zappacosta replied \u2014 new government quote generated."
+        "description": "QPaint Wave 2 sent: 30 recovery emails. Nicholas Zappacosta replied — new government quote generated."
       }
     ]
   },
@@ -174,7 +186,7 @@
     "recent": [
       {
         "id": "LL-20260802-004",
-        "title": "Lint Prioritisation \u2014 Not Every Warning Needs a Fix",
+        "title": "Lint Prioritisation — Not Every Warning Needs a Fix",
         "summary": "James directed that lint findings be prioritised by business impact, not fixed blindly. Four-question test: customers? memory/reasoning? execution? trust? No to all = log, schedule, move on. The 5 placeholder path warnings (6th consecutive lint) deferred indefinitely. Engineering work never takes priority over customer outcomes unless materially improving reliability.",
         "category": "Process",
         "date": "2026-08-02",
@@ -182,7 +194,7 @@
       },
       {
         "id": "LL-20260802-003",
-        "title": "Complete Business State \u2014 Task Is Not Complete Until All Systems Updated",
+        "title": "Complete Business State — Task Is Not Complete Until All Systems Updated",
         "summary": "Atlas was treating email sends as complete when the email was sent. James: 'Airtable should never be forgotten to update.' New standard: task completion requires all operational systems (HQ, Airtable, Activity Log, audit logs, learnings) to reflect reality before the task is marked done.",
         "category": "Process",
         "date": "2026-08-02",
