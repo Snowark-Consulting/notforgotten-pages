@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 130,
+    "tasks_completed": 131,
     "recent": [
+      {
+        "date": "2026-08-03 19:50",
+        "task": "CvC experiment formally closed. Curiosity-led outreach permanently retired for painter acquisition (105 prospects, 0 meaningful replies). FF1 now primary acquisition hypothesis. Three questions answered: proved methodology works, disproved context hypothesis, changed outreach philosophy. Learning LL-20260804-005 recorded. Experiment INDEX updated.",
+        "category": "task"
+      },
       {
         "date": "2026-08-03 19:48",
         "task": "CvC Day 21 Final Analysis complete. Verdict: context sentence did not improve meaningful reply rate. 0/40 meaningful replies across both groups. Control: 1 T1 dismissal, 70% open rate. Treatment: 0 replies, 50% open rate. Analysis published at cvc-day21/ \u2014 closes the book on curiosity-based painter outreach.",
@@ -135,11 +140,6 @@
         "date": "2026-08-01 17:33",
         "task": "CEO Brief generated for 1 August 2026",
         "category": "task"
-      },
-      {
-        "date": "2026-07-30 17:40",
-        "task": "CEO Brief for 30 July 2026 published. 84 Campaign Complete, 2 Won. QPaint Email 2 due Aug 3. Governance Review due Aug 3.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-03T19:48:02.569360+09:30",
+  "last_updated": "2026-08-03T19:50:53.690933+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
