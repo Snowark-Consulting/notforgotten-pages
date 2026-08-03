@@ -1,19 +1,20 @@
 {
-  "generated_at": "2026-08-03T19:23:00+09:30",
+  "generated_at": "2026-08-03T19:38:56+09:30",
   "atlas_brief": {
     "greeting": "Good evening James.",
-    "body": "Monday's work is done. FF1 launched — 16 painters received the founder-to-founder Email 1. QPaint's 156-customer wave deployed. The Governance Review was completed. Disk pruned (93% \u2192 89%) and the permanent Log Retention Standard is now active — routine logs auto-cleaned, failures preserved 90 days, protected records never touched. One remaining system issue: the dashboard refresh cron. Tomorrow: CvC Day 21 checkpoint analysis, Governance Review findings review, and the first FF1 reply window opens. Nicholas tender check-in Wednesday.",
-    "estimated_time": "—",
+    "body": "Monday complete. An exceptional execution day. FF1 launched — 16 painters, first new outreach in 19 days. QPaint 156-customer wave deployed. First Governance Review completed. The disk crisis was averted (93% \u2192 89%) and two permanent policies are now active: Log Retention Standard (tiered cleanup, daily summaries, protected records) and Storage Health Policy (four-tier monitoring, explanatory reporting, Telegram escalation). Three new crons deployed. The operating system is materially stronger tonight than it was this morning. Tomorrow: CvC Day 21 checkpoint at 8AM — the most important learning event this month. Nicholas tender check-in Wednesday. FF1 Email 2 Aug 10.",
+    "estimated_time": "\u2014",
     "tone": "confident"
   },
   "business_score": {
-    "score": 94,
-    "change": 0,
+    "score": 95,
+    "change": 1,
     "reasons_positive": [
       "FF1 Painter Wave 1 launched — first new outreach in 19 days, 16 painters, founder-to-founder philosophy tested",
       "QPaint 156-customer wave deployed — 34 Bridge Email 2 + 119 Canonical Email 1 + 3 Dineo",
       "First monthly Governance Review completed — Trust OS baseline established, remediation tracking active",
-      "Disk pruned — 17,414 cron files cleared, 700MB freed (93% → 89%), outage risk eliminated",
+      "Disk crisis averted — 93% → 89%, Log Retention Standard + Storage Health Policy permanently active",
+      "Three new operational crons deployed — daily log retention, 6h storage monitoring, Telegram escalation",
       "Pipeline healthy: 200 prospects, 16 Outreach Active, 0.5% reply rate"
     ],
     "reasons_negative": [
@@ -80,21 +81,14 @@
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Monday was execution-heavy and successful. FF1 launched, QPaint deployed, Governance Review done. Tuesday is analysis day: CvC Day 21 results will tell us whether Context beats Control — the first statistically meaningful evidence for our outreach philosophy. Two quick system fixes (disk prune, dashboard cron) clear operational friction. The FF1 reply window opens — every reply from here is new evidence.",
+    "executive_summary": "Monday was an exceptional execution day. FF1 launched, QPaint deployed, Governance Review done, disk crisis averted, and two permanent operational policies are now active (Log Retention + Storage Health). Three new crons deployed. Tuesday is analysis day: CvC Day 21 results will tell us whether Context beats Control — the most important piece of evidence this month. The operating system is materially stronger than it was 12 hours ago.",
     "priorities": [
       {
-        "action": "Review CvC Day 21 final analysis (Tuesday morning)",
-        "why_it_matters": "First statistically meaningful experiment result. 40-painter A/B test, Control vs Context at 21 days. These learnings shape every outreach decision from FF1 onward. The cron fires at 8:00 AM — be ready to review.",
+        "action": "Review CvC Day 21 final analysis (Tuesday 8AM)",
+        "why_it_matters": "First statistically meaningful experiment result. 40-painter A/B test, Control vs Context at 21 days. These learnings shape every outreach decision from FF1 onward. Cron fires at 8:00 AM ACST.",
         "expected_impact": "Evidence-based direction for all future outreach. Either validates or challenges the Context hypothesis.",
         "estimated_time": "30 minutes",
         "confidence": "High (90%+) — experiment is complete, analysis is automated, just needs review"
-      },
-      {
-        "action": "Prune disk — 5 minute approval",
-        "why_it_matters": "Disk at 92%, trending to fill by Aug 5. This is a system outage waiting to happen. Quick fix: remove old session logs and pip cache.",
-        "expected_impact": "Prevents system outage. Frees 2-3GB. Buys 2-3 weeks.",
-        "estimated_time": "5 minutes",
-        "confidence": "High (95%+) — straightforward cleanup, well-tested"
       },
       {
         "action": "Review Governance Review findings",
@@ -102,6 +96,13 @@
         "expected_impact": "Trust OS moves from shelfware to living framework. Clear remediation roadmap for August.",
         "estimated_time": "30 minutes",
         "confidence": "High (90%+) — audit is complete, findings are documented, just needs prioritisation decisions"
+      },
+      {
+        "action": "Fix dashboard refresh cron + Campaign Intel Monitor path",
+        "why_it_matters": "Two known bugs with straightforward fixes. Dashboard data stale, 55 Campaign Complete prospects in blind spot. Neither is urgent but both should be resolved this week.",
+        "expected_impact": "Dashboard data freshness restored. Reply monitoring re-enabled for 55 prospects.",
+        "estimated_time": "10 minutes",
+        "confidence": "High (95%+) — both are one-line fixes with known root causes"
       }
     ],
     "can_wait": [
@@ -111,37 +112,49 @@
       "Nicholas tender check-in — scheduled Wednesday, draft ready.",
       "Founder re-engagement pilot — drafts due Aug 8, first sends Aug 11."
     ],
-    "closing": "Monday was execution. Tuesday is insight. The CvC results are the most important learning event this month — they either validate or challenge everything we believe about outreach. Then two quick system fixes clear the deck. The business is executing, the operating system is current, and the evidence is about to arrive."
+    "closing": "Today the business executed, the system strengthened, and the foundation hardened. Tomorrow the evidence arrives. The CvC results are the most important learning event this month — they either validate or challenge our outreach philosophy. The operating system is ready."
   },
   "changes": {
     "today": [
       {
+        "time": "7:38 PM",
+        "description": "Command Centre refreshed — final EOD update. Score: 95 (+1). All Monday objectives complete. Log Retention Standard + Storage Health Policy active. Three new crons deployed. Pipeline: 200 prospects, 16 active."
+      },
+      {
+        "time": "7:30 PM",
+        "description": "Storage Health Policy activated — four-tier system (Green <80%, Amber 80-90%, Red 90-95%, Critical >95%). Explanatory reporting: why, trend, forecast, recommendation. Telegram escalation at Red/Critical. Cron: 506c5b3ae6bf (6h) + 48982944ea6e (alert)."
+      },
+      {
+        "time": "7:25 PM",
+        "description": "Log Retention Standard permanently active. Tiered retention: routine >48h deleted (5 HF crons), failures preserved 90 days, protected records never touched. Daily summaries at logs/daily-summaries/. Cron: c68ae5970e89 (daily 20:30 ACST)."
+      },
+      {
         "time": "7:22 PM",
-        "description": "Disk pruned — 17,414 cron output files (>36h old) removed, pip cache purged, apt cache cleaned. Freed 700MB: 93% → 89% (1.5G → 2.2G free). System outage risk eliminated. Cron output cleanup needs recurring maintenance."
+        "description": "Disk pruned — 17,414 cron output files (>36h old) removed, pip cache purged, apt cache cleaned. Freed 700MB: 93% → 89% (1.5G → 2.2G free). System outage risk eliminated."
       },
       {
         "time": "7:16 PM",
-        "description": "Command Centre refreshed — end-of-day update. Headquarters data regenerated covering Monday's events: FF1 launch, QPaint 156-wave, Governance Review. Pipeline: 200 prospects, 16 active."
+        "description": "Command Centre refreshed — EOD update covering Monday's execution: FF1 launch, QPaint 156-wave, Governance Review."
       },
       {
         "time": "1:25 PM",
-        "description": "48-hour quote follow-up delay established. Quotes now wait 48 hours before Email 1. Gives customers time to review. follow-up-autopilot.py updated."
+        "description": "48-hour quote follow-up delay established. Quotes now wait 48 hours before Email 1. follow-up-autopilot.py updated."
       },
       {
         "time": "1:20 PM",
-        "description": "Carol Beardsall (QPaint/Dineo) — PandaDoc #42991 extracted. External painting, Cornubia, $19,797.20. Follow-up 1 sent from atlas@. All 4 Dineo quotes now active."
+        "description": "Carol Beardsall (QPaint/Dineo) — PandaDoc #42991 extracted. External painting, Cornubia, $19,797.20. Follow-up 1 sent. All 4 Dineo quotes now active."
       },
       {
         "time": "9:00-10:30 AM",
-        "description": "QPaint 156-customer wave deployed: 34 Bridge Email 2 + 119 Canonical Email 1 + 3 Dineo Ndala Email 1. send-qpaint.py executed successfully."
+        "description": "QPaint 156-customer wave deployed: 34 Bridge Email 2 + 119 Canonical Email 1 + 3 Dineo Ndala Email 1."
       },
       {
         "time": "Morning",
-        "description": "FF1 Painter Wave 1 launched — 16 painters received Founder-to-Founder v1.0 Email 1 via send-canonical.py. First new NF outreach in 19 days. Subject: 'Something I've noticed.' EXP-FF1 officially active."
+        "description": "FF1 Painter Wave 1 launched — 16 painters, Founder-to-Founder v1.0 Email 1. First new NF outreach in 19 days. EXP-FF1 active."
       },
       {
         "time": "Morning",
-        "description": "First monthly Governance Review completed. Trust OS baseline: Security 41/100, Privacy 35/100, Operational Maturity 38/100. Six critical findings tracked for August remediation."
+        "description": "First monthly Governance Review completed. Trust OS baseline: Security 41/100, Privacy 35/100, Ops 38/100."
       }
     ],
     "yesterday": [
@@ -157,7 +170,7 @@
     "this_week": [
       {
         "day": "Monday",
-        "description": "FF1 launched (16 painters, Founder-to-Founder Email 1). QPaint 156-customer wave deployed. First Governance Review completed. Command Centre updated EOD."
+        "description": "FF1 launched (16 painters, Email 1). QPaint 156-customer wave deployed. Governance Review completed. Disk crisis averted (93%→89%). Log Retention Standard + Storage Health Policy active. 3 new crons. 2 operational policies. Score: 95."
       },
       {
         "day": "Sunday",

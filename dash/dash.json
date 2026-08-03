@@ -4645,18 +4645,18 @@
   },
   "storage_health": {
     "tier": "amber",
-    "disk_pct": 89.0,
-    "free_gb": 2.2,
+    "disk_pct": 89.1,
+    "free_gb": 2.1,
     "why": "other hermes (11502MB), cron outputs (300MB), chrome profile (272MB). Normal system overhead.",
     "trend": "stable",
     "daily_rate_pct": 0.0,
     "forecast_days_to_95": null,
     "recommendation": "Monitor. No immediate action needed.",
     "largest_consumers": {
-      "other_hermes": 11501.8,
-      "cron_outputs": 299.7,
+      "other_hermes": 11502.0,
+      "cron_outputs": 300.4,
       "chrome_profile": 272.4
     },
-    "last_checked": "2026-08-03T19:35:48+0930"
+    "last_checked": "2026-08-03T19:39:30+0930"
   }
 }
