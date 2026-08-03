@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-03T19:52:16+09:30",
+  "generated_at": "2026-08-03T19:57:39+09:30",
   "atlas_brief": {
     "greeting": "Good evening James.",
-    "body": "Monday complete and CvC is closed. FF1 launched — 16 painters, first new outreach in 19 days. QPaint 156-customer wave deployed. Governance Review completed. Disk crisis averted (93% \u2192 89%). Two permanent operational policies active (Log Retention + Storage Health). And tonight: the CvC experiment was formally retired. 105 painter prospects, zero meaningful replies. Curiosity-led outreach does not work for painter acquisition. FF1 is now the primary hypothesis — every reply from Monday's wave is evidence that matters. Nicholas tender check-in Wednesday. FF1 Email 2 Aug 10.",
-    "estimated_time": "\u2014",
+    "body": "The foundation is complete. Tonight you declared the end of the build phase. From tomorrow, the measure of Atlas is no longer documentation — it is business outcomes. Recovered revenue. Conversations created. Customers won. Time saved. Knowledge accumulated. Better decisions made. Monday was proof the system works: FF1 launched, QPaint deployed, Governance Review done, disk crisis averted, CvC experiment closed with permanent learning, Business Knowledge established. The operating system is ready. Now we prove it. Nicholas tender check-in Wednesday. FF1 reply window open. Let's execute.",
+    "estimated_time": "—",
     "tone": "confident"
   },
   "business_score": {
@@ -108,6 +108,10 @@
   },
   "changes": {
     "today": [
+      {
+        "time": "8:00 PM",
+        "description": "Foundation phase declared complete by James. Shift to execution. Atlas measured by business outcomes, not documentation. Decision: 2026-08-03-foundation-complete."
+      },
       {
         "time": "8:00 AM",
         "description": "CvC experiment formally closed. Curiosity-led outreach permanently retired for painter acquisition (105 prospects, 0 meaningful replies). Three questions answered. Experiment INDEX updated. Learning LL-20260804-005 recorded. FF1 is now the primary acquisition hypothesis."
@@ -228,6 +232,29 @@
         "category": "Process",
         "date": "2026-08-02",
         "status": "Resolved"
+      }
+    ]
+  },
+  "business_knowledge": {
+    "description": "Permanent business principles. Every completed experiment contributes one. Not documents — knowledge that defines how Not Forgotten operates.",
+    "principles": [
+      {
+        "id": "BK-001",
+        "principle": "Painters do not respond meaningfully to curiosity-led outreach about quote follow-up.",
+        "source": "CvC Experiment (2026-08-04)",
+        "evidence": "105 prospects, zero meaningful replies across curiosity-only and context-enhanced variants."
+      },
+      {
+        "id": "BK-002",
+        "principle": "Trust and shared experience are stronger opening mechanisms than curiosity for trade business owners.",
+        "source": "CvC Experiment + FF1 Design (2026-08-04)",
+        "evidence": "CvC null result (curiosity failed). FF1 tests the alternative: founder observations as peer. Active experiment."
+      },
+      {
+        "id": "BK-003",
+        "principle": "Customers do not buy because we follow up. They buy because they become more confident.",
+        "source": "QPaint Recovery Operations (2026-07-30)",
+        "evidence": "Nicholas Zappacosta engaged after receiving personalised acknowledgment of his government tender — not from a follow-up sequence. Star Painters Adelaide converted through relationship, not cold email."
       }
     ]
   }
