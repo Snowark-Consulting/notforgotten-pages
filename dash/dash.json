@@ -174,7 +174,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-03T17:31:01.089299+09:30",
+  "last_updated": "2026-08-03T19:14:35.550932+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
@@ -345,13 +345,11 @@
         "inbound": 0
       }
     },
-    "opens": {
-      "deliveries": 43,
-      "prospects_opened": 58,
-      "total_opens": 238,
-      "avg_opens": 4.1
-    },
-    "last_refreshed": "2026-08-03T08:01:01.087565+00:00"
+    "last_refreshed": "2026-08-03T09:44:35.440858+00:00",
+    "active_quotes": 5,
+    "recovery_value": 64441,
+    "recent_wins": 0,
+    "quotes_needing_enrichment": 0
   },
   "decisions": {
     "total": 42,
