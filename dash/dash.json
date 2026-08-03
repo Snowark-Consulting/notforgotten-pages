@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 131,
+    "tasks_completed": 132,
     "recent": [
+      {
+        "date": "2026-08-03 19:55",
+        "task": "Business Knowledge section added to Headquarters. Three permanent principles from CvC + QPaint. Learning philosophy codified (how-notforgotten-learns.md). Experiment template updated with Three Questions + BK contribution. FF1 evidence standard established.",
+        "category": "task"
+      },
       {
         "date": "2026-08-03 19:50",
         "task": "CvC experiment formally closed. Curiosity-led outreach permanently retired for painter acquisition (105 prospects, 0 meaningful replies). FF1 now primary acquisition hypothesis. Three questions answered: proved methodology works, disproved context hypothesis, changed outreach philosophy. Learning LL-20260804-005 recorded. Experiment INDEX updated.",
@@ -135,11 +140,6 @@
         "date": "2026-08-02 11:28",
         "task": "Headquarters redesigned as Executive Operating System \u2014 Atlas's Brief, Business Health, Waiting For James, Atlas's Recommendation, What Changed. Telegram now alerts-only.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-01 17:33",
-        "task": "CEO Brief generated for 1 August 2026",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-03T19:50:53.690933+09:30",
+  "last_updated": "2026-08-03T19:55:01.474332+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
