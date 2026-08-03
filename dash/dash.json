@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 126,
+    "tasks_completed": 127,
     "recent": [
+      {
+        "date": "2026-08-03 19:23",
+        "task": "Disk pruned: 17,414 cron output files (>36h old) removed, pip cache purged, apt cache cleaned. Disk freed from 93% (1.5G) to 89% (2.2G). System outage risk resolved. Cron output cleanup should be added as recurring maintenance.",
+        "category": "task"
+      },
       {
         "date": "2026-08-03 19:15",
         "task": "Command Centre refreshed \u2014 end-of-day update. Generated fresh headquarters-data.json covering Monday's events: FF1 launch, QPaint 156-wave, Governance Review. Pipeline: 200 prospects, 16 active. System health snapshot: disk 92%, dashboard cron erroring, campaign-intel-monitor path needs fix.",
@@ -135,11 +140,6 @@
         "date": "2026-07-29 10:42",
         "task": "Built Personal Follow-Up Queue \u2014 84 businesses ranked, new tab in Command Centre",
         "category": "task"
-      },
-      {
-        "date": "2026-07-29 10:06",
-        "task": "QPaint: Andres Sillet (3K, Russell Island) replied \u2014 not proceeding. Marked Lost. Atlas asked for reason. Weekly loss consolidation process established.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-03T19:15:22.479534+09:30",
+  "last_updated": "2026-08-03T19:23:23.792706+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
