@@ -39,7 +39,7 @@
     },
     "engineering": {
       "status": "caution",
-      "detail": "Dashboard refresh cron erroring (TypeError). Campaign Intel Monitor cron path doubled. Disk healthy (89%). Log Retention Standard active. Storage monitoring every 6h.",
+      "detail": "Dashboard refresh cron erroring (TypeError). Campaign Intel Monitor cron path doubled. Disk: Amber (89%, stable). Log Retention + Storage Health policies active.",
       "icon": "⚙️"
     },
     "finance": {
