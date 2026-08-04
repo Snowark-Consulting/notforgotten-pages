@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 137,
+    "tasks_completed": 138,
     "recent": [
+      {
+        "date": "2026-08-05 08:30",
+        "task": "FF1 Day 0: First verified production email sent from james@notforgotten.com.au to Sydney Painting Experts (info@sydneypaintingexperts.com.au). Founder-to-Founder v1.0 Email 1. Gmail ID: 19fcf010f028b095. VERIFIED in Sent. Evidence: SEND-2026-08-05T082942-19fcf010f028.json.",
+        "category": "task"
+      },
       {
         "date": "2026-08-05 07:23",
         "task": "Production Incident INC-2026-08-05-001 resolved. QPaint Pipeline: 205\u2192144 records, 61 duplicates merged, 34 stages corrected, 0 remaining conflicts. Pipeline certified safe for production. Production Incident Review capability created. Learning recorded.",
@@ -135,11 +140,6 @@
         "date": "2026-08-02 15:15",
         "task": "Nicholas Zappacosta acknowledged \u2014 QAS Beenleigh tender received, forwarded to QPaint team. Sent from atlas@ (white-label, QPaint voice).",
         "category": "task"
-      },
-      {
-        "date": "2026-08-02 14:45",
-        "task": "NF campaign direction intentionally deprioritized \u2014 waits until after Monday QPaint observation data flows.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-05T07:30:53.820141+09:30",
+  "last_updated": "2026-08-05T08:30:35.794521+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
