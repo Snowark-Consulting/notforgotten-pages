@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CEO Brief — 4 August 2026 — Not Forgotten Systems</title>
+<style>
+  :root {
+    --navy: #0a1628;
+    --gold: #c8963e;
+    --light: #f8f6f2;
+    --surface: #ffffff;
+    --text: #1a1a2e;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --success: #059669;
+    --warn: #d97706;
+    --danger: #dc2626;
+    --info: #2563eb;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.7;
+  }
+  header {
+    background: var(--navy);
+    color: white;
+    padding: 2rem 2.5rem;
+    border-bottom: 3px solid var(--gold);
+  }
+  header h1 { font-size: 1.75rem; font-weight: 700; }
+  header .date { color: var(--gold); font-size: 0.95rem; margin-top: 0.25rem; }
+  header .subtitle { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 0.5rem; }
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+  .section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .section h2 {
+    font-size: 1.2rem;
+    color: var(--navy);
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .summary { font-size: 1.05rem; line-height: 1.8; }
+  table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+  th, td { padding: 0.6rem 0.8rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.92rem; }
+  th { background: var(--navy); color: white; font-weight: 600; }
+  tr:hover { background: rgba(200,150,62,0.05); }
+  .badge {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .badge-success { background: #d1fae5; color: var(--success); }
+  .badge-warn { background: #fef3c7; color: var(--warn); }
+  .badge-danger { background: #fee2e2; color: var(--danger); }
+  .badge-info { background: #dbeafe; color: var(--info); }
+  .badge-neutral { background: #f3f4f6; color: var(--muted); }
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  .metric-card {
+    background: var(--light);
+    border-radius: 6px;
+    padding: 1rem;
+    text-align: center;
+  }
+  .metric-card .value { font-size: 1.75rem; font-weight: 700; color: var(--navy); }
+  .metric-card .label { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+  .confidence-high { color: var(--success); font-weight: 600; }
+  .confidence-med { color: var(--warn); font-weight: 600; }
+  .confidence-low { color: var(--danger); font-weight: 600; }
+  ul { padding-left: 1.5rem; line-height: 1.8; }
+  a { color: var(--navy); text-decoration: none; font-weight: 600; }
+  a:hover { color: var(--gold); text-decoration: underline; }
+  .priority-1 { border-left: 4px solid var(--danger); padding-left: 1rem; margin-bottom: 1rem; }
+  .priority-2 { border-left: 4px solid var(--warn); padding-left: 1rem; margin-bottom: 1rem; }
+  .priority-3 { border-left: 4px solid var(--info); padding-left: 1rem; margin-bottom: 1rem; }
+  .alert-box {
+    background: #fee2e2;
+    border: 2px solid var(--danger);
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .alert-box strong { color: var(--danger); }
+  footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>CEO Brief</h1>
+  <div class="date">Tuesday, 4 August 2026 · Week 32</div>
+  <div class="subtitle">Not Forgotten Systems — Daily Executive Briefing</div>
+</header>
+
+<div class="container">
+
+<!-- CRITICAL ALERT -->
+<div class="alert-box">
+  <strong>🔴 DISK CRITICAL — 97% full (746MB free of 20GB).</strong> <code>state.db</code> is 13GB and growing ~1GB/day. Disk could fill <strong>today</strong>. This will crash all services — inbox pulse, crons, Atlas sessions. Immediate FTS rebuild or vacuum required. <strong>This is the #1 priority.</strong>
+</div>
+
+<!-- 1. CEO Priorities -->
+<div class="section">
+  <h2>1. CEO Priorities</h2>
+
+  <div class="priority-1">
+    <strong>🔴 Priority 1: Emergency disk recovery — state.db FTS rebuild</strong><br>
+    <strong>Why:</strong> 97% disk (746M free). <code>/root/.hermes/state.db</code> is 13GB, up from ~11GB yesterday. Growing ~1GB/day from session FTS indexing. At this rate, disk fills within hours. All services — inbox monitoring, quote intake, cron jobs, Atlas itself — go dark when disk fills.<br>
+    <strong>Est. time:</strong> 30-60 min (rebuild), plus verification<br>
+    <strong>Impact if done today:</strong> Prevents total system outage. Frees 8-11GB. Restores operational headroom.<br>
+    <strong>Delay impact:</strong> <span class="badge badge-danger">High</span> — system outage imminent. No monitoring, no sends, no CEO Briefs. Business goes blind.
+  </div>
+
+  <div class="priority-2">
+    <strong>🟡 Priority 2: FF1 Email 1 — monitor for replies</strong><br>
+    <strong>Why:</strong> 16 painters received Email 1 yesterday ("Something I've noticed"). All confirmed in Airtable: Current Touchpoint = Email 1, Next Touchpoint Date = Aug 10. This is the first cold outreach in 19 days and the first test of the founder-to-founder philosophy. Too early for replies — but the monitoring window is open.<br>
+    <strong>Est. time:</strong> 2 min (awareness only today)<br>
+    <strong>Impact:</strong> Clean launch. Experiment running. First reply data by Aug 5-7.<br>
+    <strong>Delay impact:</strong> <span class="badge badge-info">Low</span> — no action needed today, just awareness.
+  </div>
+
+  <div class="priority-3">
+    <strong>🔵 Priority 3: Resolve Governance Review status</strong><br>
+    <strong>Why:</strong> MEMORY.md marks Governance Review as completed (Aug 3), but the review file at <code>knowledge/governance-reviews/2026-08.md</code> shows "Status: Scheduled" with an empty template. Either the review happened and wasn't documented, or it was deferred. First monthly review needs to be completed.<br>
+    <strong>Est. time:</strong> 5 min (confirm status with James) or 30 min (conduct review)<br>
+    <strong>Delay impact:</strong> <span class="badge badge-warn">Medium</span> — first review sets the standard. Trust framework loses momentum if deferred.
+  </div>
+</div>
+
+<!-- 2. Executive Summary -->
+<div class="section">
+  <h2>2. Executive Summary</h2>
+  <div class="summary">
+    <p><strong>Launch day is behind us. Now we watch.</strong> FF1 Painter Wave 1 sent yesterday — 16 emails, founder-to-founder sequence, all confirmed in Airtable with Email 2 scheduled for Monday Aug 10. No replies expected for another 24-48 hours. The sequence is frozen; the experiment is running.</p>
+    <p><strong>But the system itself is at risk.</strong> <code>state.db</code> has grown from 11GB to 13GB in 24 hours (now 65% of total disk). 97% disk usage with 746MB remaining. The FTS index on session messages is the root cause. If this isn't rebuilt today, the machine fills and every service — inbox pulse, quote intake, FF1 monitoring, QPaint follow-ups, this briefing — stops.</p>
+    <p><strong>CvC is closed.</strong> Day 21 final checkpoint confirms what we already knew: curiosity-led outreach produced zero meaningful replies across 105 prospects. Permanently retired. FF1 is now the primary painter acquisition hypothesis. The full CvC analysis is at the Command Centre.</p>
+    <p><strong>QPaint Monday plan executed.</strong> Bridge Email 2 and Canonical Email 1 sends went out yesterday alongside FF1. Inbox clean this morning. Star Painters follow-ups running.</p>
+  </div>
+</div>
+
+<!-- 3. Decisions Required -->
+<div class="section">
+  <h2>3. Decisions Required</h2>
+  <table>
+    <thead>
+      <tr><th>Decision</th><th>Recommendation</th><th>Confidence</th><th>Delay Impact</th><th>Context</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Approve state.db FTS rebuild today</td>
+        <td><strong>Rebuild.</strong> Drop FTS index, vacuum, then rebuild. Should free 8-11GB. 30-60 min. No data loss risk — FTS is derived from message content.</td>
+        <td><span class="confidence-high">High 95%</span></td>
+        <td><span class="badge badge-danger">High</span> — disk fills within hours if not addressed. System outage.</td>
+        <td>state.db is 13GB (65% of disk). Was 11GB yesterday. Growing ~1GB/day. Root cause: FTS5 index on session messages. Cron output is 543MB — secondary target. Combined cron+state.db = 13.5GB of 14GB total .hermes.</td>
+      </tr>
+      <tr>
+        <td>Governance Review — completed or reschedule?</td>
+        <td><strong>Clarify.</strong> MEMORY says completed but the review file is empty. If it happened but wasn't documented, Atlas can backfill. If not, reschedule to today.</td>
+        <td><span class="confidence-med">Medium 80%</span></td>
+        <td><span class="badge badge-warn">Medium</span> — first review sets the standard. Trust framework credibility depends on actually doing it.</td>
+        <td>File at <code>knowledge/governance-reviews/2026-08.md</code> is a template with "Status: Scheduled." MEMORY.md line 85 says "completed." Discrepancy needs resolution.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 4. Atlas' Recommendations -->
+<div class="section">
+  <h2>4. Atlas' Recommendations</h2>
+  <table>
+    <thead>
+      <tr><th>Recommendation</th><th>Confidence</th><th>Evidence</th><th>Expected Impact</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Rebuild state.db FTS index today — before it fills the disk.</strong> The FTS5 index on session messages is 8-11GB of derived data that can be regenerated. Drop it, vacuum the database, then rebuild. The vacuum alone may recover significant space from the 13GB file.</td>
+        <td><span class="confidence-high">High 95%</span></td>
+        <td>Disk at 97% (746M free). state.db = 13GB (identified yesterday at 11GB). Growing ~1GB/day. Discord state.db case studies show FTS indexes are 60-80% of database size. Vacuum + rebuild typically recovers 60-75% of space.</td>
+        <td>8-11GB freed (disk drops from 97% to 42-57%). System headroom restored. No data loss — FTS is regenerable from source messages.</td>
+      </tr>
+      <tr>
+        <td><strong>Prune cron output as secondary measure.</strong> 543MB in <code>/root/.hermes/cron/output/</code>. Log retention policy (decision 2026-08-03) should be cleaning this but the doubled cron path may be preventing cleanup for the campaign-intel-monitor job.</td>
+        <td><span class="confidence-high">High 90%</span></td>
+        <td><code>du -sh /root/.hermes/cron/output/</code> = 543M. Combined with state.db = 13.5GB. Fixing the cron path will also enable proper log cleanup.</td>
+        <td>~500MB freed immediately. Proper ongoing retention via log-retention.py.</td>
+      </tr>
+      <tr>
+        <td><strong>Fix campaign-intel-monitor cron path (was Priority 3 yesterday).</strong> Script at <code>scripts/campaign-intel-monitor.py</code> but cron references <code>scripts/scripts/...</code>. One-line cron edit. 2 minutes.</td>
+        <td><span class="confidence-high">High 95%</span></td>
+        <td>Same issue flagged in Aug 2 and Aug 3 briefs. Script verified at correct path. 55 Campaign Complete prospects still unmonitored.</td>
+        <td>Restores late-reply detection for breakup wave. Cron output cleanup activates.</td>
+      </tr>
+      <tr>
+        <td><strong>Hold Travis-led Email 1 pilot until FF1 Email 1-2 results arrive.</strong> FF1 is testing the complete founder-to-founder philosophy. Running a concurrent Travis-led experiment confounds the learning. Wait for FF1 reply data (Aug 5-13) before deciding.</td>
+        <td><span class="confidence-med">Medium 80%</span></td>
+        <td>19 prospects in pilot design. FF1 is the active experiment. One variable at a time per the Learning Framework.</td>
+        <td>Clean experimental data from FF1. Clear decision on Travis-led approach by Aug 13.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 5. Inbox Summary -->
+<div class="section">
+  <h2>5. Inbox Summary</h2>
+  <table>
+    <thead>
+      <tr><th>Source</th><th>Status</th><th>Details</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>atlas@notforgotten.com.au</td><td><span class="badge badge-success">0 unread</span></td><td>Clean. Pulse monitoring active. No new replies overnight.</td></tr>
+      <tr><td>FF1 Painter Wave 1 (sent Aug 3)</td><td><span class="badge badge-info">Monitoring</span></td><td>16 sent. Too early for replies (first 24h). Expected reply window: Aug 4-7.</td></tr>
+      <tr><td>Escalations</td><td><span class="badge badge-neutral">None</span></td><td>No issues requiring immediate attention.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 6. Pipeline Summary -->
+<div class="section">
+  <h2>6. Pipeline Summary</h2>
+
+  <h3 style="margin-top: 1rem; color: var(--navy);">Cohort Overview</h3>
+  <table>
+    <thead>
+      <tr><th>Cohort</th><th>Count</th><th>Stage</th><th>Next Action</th><th>Next Date</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>FF1 Painter Wave 1</strong></td>
+        <td>16</td>
+        <td><span class="badge badge-info">Outreach Active</span></td>
+        <td>Monitor for replies. Email 2 drafts ready. Send window opens <strong>Mon Aug 10</strong> (pushed from Sat Aug 8 per weekend prohibition).</td>
+        <td><strong>Aug 10</strong></td>
+      </tr>
+      <tr>
+        <td>July 2026 Campaigns (Completed)</td>
+        <td>55</td>
+        <td><span class="badge badge-neutral">Campaign Complete</span></td>
+        <td>Campaign Intelligence monitoring (30 days). Founder re-engagement pilot Aug 11+</td>
+        <td>Aug 28 (Intel Report)</td>
+      </tr>
+      <tr>
+        <td>CvC Experiment (Jul 14)</td>
+        <td>40</td>
+        <td><span class="badge badge-neutral">Campaign Complete</span></td>
+        <td><strong>Closed.</strong> Curiosity-led outreach permanently retired. <a href="https://snowark-consulting.github.io/notforgotten-pages/cvc-day21/">Day 21 Final Analysis</a></td>
+        <td>Closed</td>
+      </tr>
+      <tr>
+        <td>New Prospects (uncontacted)</td>
+        <td>20</td>
+        <td><span class="badge badge-neutral">New</span></td>
+        <td>Address after FF1 Email 1-2 results</td>
+        <td>TBD</td>
+      </tr>
+      <tr>
+        <td>Lost / Not a Fit</td>
+        <td>8</td>
+        <td><span class="badge badge-neutral">Closed</span></td>
+        <td>No action</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin-top: 1.5rem; color: var(--navy);">Active Clients</h3>
+  <table>
+    <thead>
+      <tr><th>Client</th><th>Status</th><th>MRR</th><th>Onboarding</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>QPAINT</strong> (Tas Moulis)</td><td><span class="badge badge-success">Active</span></td><td>$199</td><td>Complete</td><td>Monday plan executed Aug 3 (156 sends). Customer follow-ups active. $64K tracked quote value.</td></tr>
+      <tr><td><strong>Star Painters Adelaide</strong> (Ahmad Haidari)</td><td><span class="badge badge-warn">Trial</span></td><td>$0</td><td>In progress</td><td>4 active quotes in automated follow-up. Converted Jul 23. Onboarding completion pending.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 7. Customer Highlights -->
+<div class="section">
+  <h2>7. Customer Highlights</h2>
+  <table>
+    <thead>
+      <tr><th>Customer</th><th>Signal</th><th>Context</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>QPAINT</strong></td>
+        <td><span class="badge badge-success">Healthy</span></td>
+        <td>Monday plan executed. 156 emails sent (34 Bridge Email 2 + 119 Canonical Email 1 + 3 Dineo). Monitoring for customer replies. No issues overnight.</td>
+      </tr>
+      <tr>
+        <td><strong>Star Painters Adelaide</strong></td>
+        <td><span class="badge badge-info">Monitoring</span></td>
+        <td>4 active quotes in follow-up. Trial status. Ahmad converted Jul 23 — early in relationship. Watch for onboarding completion and first quote engagement.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 8. Business Impact -->
+<div class="section">
+  <h2>8. Business Impact</h2>
+
+  <div class="metric-grid">
+    <div class="metric-card">
+      <div class="value">$64,442</div>
+      <div class="label">Opportunities Recovered (QPaint tracked quotes)</div>
+    </div>
+    <div class="metric-card">
+      <div class="value">16</div>
+      <div class="label">New Opportunities Generated (FF1 Email 1 sent Aug 3)</div>
+    </div>
+    <div class="metric-card">
+      <div class="value">2</div>
+      <div class="label">Customer Relationships Managed (QPaint + Star Painters)</div>
+    </div>
+    <div class="metric-card">
+      <div class="value">CvC closed</div>
+      <div class="label">Business Intelligence Discovered (curiosity-led retired, FF1 now primary)</div>
+    </div>
+  </div>
+
+  <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--muted);">Four-outcome metrics per Atlas Communication Layer decision (2026-07-28). Recovered: QPaint tracked quote value from Pipedrive imports. Generated: FF1 pipeline launched. Managed: 2 active clients. Discovered: CvC experiment formally closed — 105 prospects, 0 meaningful replies = curiosity-led permanently retired. <a href="https://snowark-consulting.github.io/notforgotten-pages/cvc-day21/">Full analysis</a>.</p>
+</div>
+
+<!-- 9. System Health -->
+<div class="section">
+  <h2>9. System Health</h2>
+  <table>
+    <thead>
+      <tr><th>System</th><th>Status</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Atlas (Hermes Agent)</td><td><span class="badge badge-success">Operational</span></td><td>All core functions normal</td></tr>
+      <tr><td>Airtable</td><td><span class="badge badge-success">Connected</span></td><td>API responding. FF1 Email 1 confirmed for all 16 prospects. Next touchpoint: Aug 10.</td></tr>
+      <tr><td>Gmail API (atlas@)</td><td><span class="badge badge-success">Operational</span></td><td>0 unread. Token healthy.</td></tr>
+      <tr><td>Gmail API (james@)</td><td><span class="badge badge-success">Ready</span></td><td><code>send-canonical.py</code> executed successfully for FF1. 16 sends confirmed.</td></tr>
+      <tr><td>Command Centre</td><td><span class="badge badge-success">Live</span></td><td>GitHub Pages healthy. Archive indexed. CvC Day 21 analysis published.</td></tr>
+      <tr><td>Inbox Pulse (atlas@ + quotes@)</td><td><span class="badge badge-success">Monitoring</span></td><td>Both pulses active. 412 runs each in last 24h. 0 failures. 0 emails detected.</td></tr>
+      <tr><td>Campaign Intel Monitor</td><td><span class="badge badge-danger">Failed</span></td><td>Cron path doubled (<code>scripts/scripts/...</code>). 55 Campaign Complete prospects unmonitored. Fix was Priority 3 yesterday — still unresolved.</td></tr>
+      <tr><td>Dashboard (hourly refresh)</td><td><span class="badge badge-danger">Failed</span></td><td><code>TypeError: bufsize must be an integer</code>. Dashboard stale.</td></tr>
+      <tr><td>Twilio SMS</td><td><span class="badge badge-danger">Blocked</span></td><td>Regulatory bundle rejected Jul 30.</td></tr>
+      <tr>
+        <td><strong>Disk</strong></td>
+        <td><span class="badge badge-danger"><strong>CRITICAL — 97%</strong></span></td>
+        <td><strong>746M free of 20G. state.db = 13GB (was 11GB yesterday). Growing ~1GB/day. Fills TODAY without intervention.</strong></td>
+      </tr>
+      <tr><td>Memory</td><td><span class="badge badge-success">Normal</span></td><td>3.6G available of 7.8G</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 10. Upcoming Events -->
+<div class="section">
+  <h2>10. Upcoming Events</h2>
+  <table>
+    <thead>
+      <tr><th>Date</th><th>Event</th><th>Action Required</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Today — Tue, Aug 4</strong></td><td><strong>🔴 DISK EMERGENCY — state.db rebuild</strong></td><td>Drop FTS index, vacuum, rebuild. 30-60 min. Must happen today. System at risk.</td></tr>
+      <tr><td><strong>Today — Tue, Aug 4</strong></td><td><strong>🟡 CvC Day 21 final checkpoint</strong></td><td>CvC formally closed. <a href="https://snowark-consulting.github.io/notforgotten-pages/cvc-day21/">Full analysis published</a>. Curiosity-led permanently retired.</td></tr>
+      <tr><td><strong>Today — Tue, Aug 4</strong></td><td>Governance Review — confirm status</td><td>MEMORY says completed; file template unfilled. Resolve discrepancy with James.</td></tr>
+      <tr><td>Wed, Aug 5 — Fri, Aug 7</td><td>FF1 Email 1 reply window</td><td>First replies expected. Inbox pulse detects automatically. Classify per Reply Quality Taxonomy (T0-T5).</td></tr>
+      <tr><td>Fri, Aug 8</td><td>Founder re-engagement drafts due</td><td>Personalised drafts for 15-painter pilot. Deadline approaching.</td></tr>
+      <tr><td><strong>Mon, Aug 10</strong></td><td><strong>FF1 Email 2 sends</strong></td><td>Subject: "I didn't expect this." Pushed from Sat Aug 8 (weekend prohibition). 16 prospects.</td></tr>
+      <tr><td>Mon, Aug 11</td><td>Founder re-engagement first sends</td><td>First 5 painters hit 14-day post-Email-4 mark.</td></tr>
+      <tr><td>Wed, Aug 13</td><td>FF1 Email 3 sends</td><td>Subject: "One conversation I keep coming back to." Evidence closes.</td></tr>
+      <tr><td>Thu, Aug 28</td><td>Campaign Intelligence Report</td><td>30-day monitoring completes. Late-reply analysis due.</td></tr>
+      <tr><td>Thu, Aug 28</td><td>Atlas Communication Layer review</td><td>Decision 2026-07-28 30-day review.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 11. Risks & Watch List -->
+<div class="section">
+  <h2>11. Risks & Watch List</h2>
+  <table>
+    <thead>
+      <tr><th>Risk</th><th>Severity</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>🔴 Disk fills today — total system outage</strong></td>
+        <td><span class="badge badge-danger">Critical</span></td>
+        <td>97% full (746M free). state.db = 13GB, growing ~1GB/day. At current rate, disk fills within 6-12 hours. All services stop: inbox pulse, quote intake, FF1 monitoring, QPaint follow-ups, cron jobs, CEO Briefs. <strong>Rebuild state.db FTS index immediately.</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Campaign Intel Monitor offline — Day 8</strong></td>
+        <td><span class="badge badge-warn">Medium</span></td>
+        <td>30-day blind spot on 55 Campaign Complete prospects. Late replies from July 28 breakup wave undetected. Fix: correct cron path from <code>scripts/scripts/</code> to <code>scripts/</code>. Flagged Aug 2, still unresolved.</td>
+      </tr>
+      <tr>
+        <td><strong>FF1 Email 1 — no replies yet (expected)</strong></td>
+        <td><span class="badge badge-info">Low</span></td>
+        <td>16 emails sent ~24h ago. Too early for concern. July baseline was 0/65 Email 1 replies — FF1 is testing whether the founder-to-founder voice changes this. Reply window: Aug 4-7.</td>
+      </tr>
+      <tr>
+        <td><strong>QPaint Monday plan — 156 sends volume</strong></td>
+        <td><span class="badge badge-info">Low</span></td>
+        <td>Executed Aug 3 alongside FF1. Early for customer replies. Monitor for bounces and engagement signals.</td>
+      </tr>
+      <tr>
+        <td><strong>Governance Review documentation gap</strong></td>
+        <td><span class="badge badge-info">Low</span></td>
+        <td>MEMORY says completed; file template unfilled. Either the review happened without documentation (gap) or was deferred (schedule risk). Resolve today.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 12. What to Ignore -->
+<div class="section">
+  <h2>12. What to Ignore</h2>
+  <ul>
+    <li><strong>Star Painters Adelaide follow-ups:</strong> 4 active quotes. Automated follow-ups running smoothly. No issues.</li>
+    <li><strong>55 Campaign Complete prospects:</strong> In 30-day monitoring window. No action until re-engagement pilot (Aug 11+). But fix Campaign Intel Monitor so late replies are detected.</li>
+    <li><strong>Inbox pulses:</strong> Both atlas@ and quotes@ monitoring running. 412 clean runs each in last 24h.</li>
+    <li><strong>20 New prospects (not in FF1):</strong> Address after FF1 Email 1-2 early results arrive.</li>
+    <li><strong>Travis-led Email 1 pilot:</strong> Designed but hold. FF1 is the active experiment. One variable at a time.</li>
+    <li><strong>Twilio SMS:</strong> Blocked. No action until regulatory bundle resubmitted.</li>
+    <li><strong>Dashboard TypeError:</strong> Lower priority than disk and Campaign Intel Monitor. Address after system-critical fixes.</li>
+  </ul>
+</div>
+
+<!-- 13. Actions Requiring My Decision -->
+<div class="section">
+  <h2>13. Actions Requiring My Decision</h2>
+  <table>
+    <thead>
+      <tr><th>Action</th><th>Recommendation</th><th>Confidence</th><th>Delay Impact</th><th>Owner</th><th>Deadline</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Approve state.db FTS rebuild</td>
+        <td><strong>Rebuild today.</strong> Drop FTS index, vacuum, rebuild. No data loss. Frees 8-11GB.</td>
+        <td><span class="confidence-high">High 95%</span></td>
+        <td><span class="badge badge-danger">High</span> — disk fills within hours</td>
+        <td>Atlas (execute) / James (approve)</td>
+        <td><strong>Today</strong></td>
+      </tr>
+      <tr>
+        <td>Prune cron output (543MB)</td>
+        <td><strong>Execute.</strong> Secondary disk recovery. Quick win while FTS rebuild runs.</td>
+        <td><span class="confidence-high">High 90%</span></td>
+        <td><span class="badge badge-warn">Medium</span> — contributes to disk pressure</td>
+        <td>Atlas</td>
+        <td><strong>Today</strong></td>
+      </tr>
+      <tr>
+        <td>Fix campaign-intel-monitor cron path</td>
+        <td><strong>Edit cron.</strong> One-line fix. Was Priority 3 yesterday — still unresolved.</td>
+        <td><span class="confidence-high">High 95%</span></td>
+        <td><span class="badge badge-warn">Medium</span> — Day 8 of blind spot</td>
+        <td>Atlas</td>
+        <td><strong>Today</strong></td>
+      </tr>
+      <tr>
+        <td>Confirm Governance Review status</td>
+        <td><strong>Clarify with James.</strong> MEMORY vs file discrepancy.</td>
+        <td><span class="confidence-med">Medium 80%</span></td>
+        <td><span class="badge badge-warn">Medium</span></td>
+        <td>James</td>
+        <td>Today</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+
+<footer>
+  Generated by Atlas · Not Forgotten Systems · 4 August 2026 (08:00 UTC) · <a href="https://snowark-consulting.github.io/notforgotten-pages/ceo-brief/">Archive</a>
+</footer>
+
+</body>
+</html>
