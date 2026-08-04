@@ -250,5 +250,21 @@
         "evidence": "Nicholas Zappacosta engaged after receiving personalised acknowledgment of his government tender — not from a follow-up sequence. Star Painters Adelaide converted through relationship, not cold email."
       }
     ]
+  },
+  "production_incidents": {
+    "description": "Every incident strengthens the operating system. Never hide mistakes — surface, fix, learn, improve.",
+    "total": 1,
+    "recent": [
+      {
+        "id": "INC-2026-08-05-001",
+        "title": "QPaint Pipeline — 61 Duplicate Records from Partial Dataset Import",
+        "date": "2026-08-05",
+        "severity": "S1",
+        "root_cause": "Atlas imported 49 records from cached partial view (100 of 205). Created 61 duplicates. Presented hypotheses instead of resolving pagination.",
+        "resolution": "Full pagination, scored merge plan, 61 merged/deleted, 34 stages corrected. Final: 144 records, 0 duplicates.",
+        "learning": "No import, reconciliation, or deduplication may rely on partial exports. Always paginate to the complete dataset.",
+        "status": "Resolved"
+      }
+    ]
   }
 }
