@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 142,
+    "tasks_completed": 143,
     "recent": [
+      {
+        "date": "2026-08-05 09:10",
+        "task": "QPaint: Darren Harper (FE Sports) opted out \u2014 'Please stop email contact.' Marked Lost \u2014 Not Proceeding. Airtable updated. No duplicates. Isolated from all automations.",
+        "category": "task"
+      },
       {
         "date": "2026-08-05 08:59",
         "task": "Production Skill Certification COMPLETE. 19/19 production skills reviewed. 6 updated, 1 new (production-standards), 8 unchanged, 4 queued. INC-2026-08-05-002 fully closed. Normal Operations. Infrastructure phase complete \u2014 focus shifts to customers, conversations, learning, revenue.",
@@ -135,11 +140,6 @@
         "date": "2026-08-03 13:20",
         "task": "Carol Beardsall (QPaint) \u2014 PandaDoc #42991 extracted via browser. $19,797.20 external painting, Cornubia. Follow-up 1 sent from atlas@. All 4 Dineo quotes now in active follow-up.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-02 17:59",
-        "task": "Processed Nicholas Zappacosta (QBuild) reaction to QAS Beenleigh tender confirmation \u2014 customer engagement for QPaint",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-05T08:59:47.075568+09:30",
+  "last_updated": "2026-08-05T09:10:33.029759+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
