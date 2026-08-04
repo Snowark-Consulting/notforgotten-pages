@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 143,
+    "tasks_completed": 144,
     "recent": [
+      {
+        "date": "2026-08-05 09:17",
+        "task": "QPaint: Cathryn Cochrane replied (T3 Engaged). Quote with insurer. Atlas replied \u2014 no pressure, offered doc support, committed to 2-week check-in. Gmail: 19fcf2ce815e578a. VERIFIED. Next touchpoint: Aug 19.",
+        "category": "task"
+      },
       {
         "date": "2026-08-05 09:10",
         "task": "QPaint: Darren Harper (FE Sports) opted out \u2014 'Please stop email contact.' Marked Lost \u2014 Not Proceeding. Airtable updated. No duplicates. Isolated from all automations.",
@@ -135,11 +140,6 @@
         "date": "2026-08-03 13:25",
         "task": "48-hour quote follow-up delay established. follow-up-autopilot.py now waits 48 hours from quote date before sending Email 1. Decision recorded.",
         "category": "milestone"
-      },
-      {
-        "date": "2026-08-03 13:20",
-        "task": "Carol Beardsall (QPaint) \u2014 PandaDoc #42991 extracted via browser. $19,797.20 external painting, Cornubia. Follow-up 1 sent from atlas@. All 4 Dineo quotes now in active follow-up.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-05T09:10:33.029759+09:30",
+  "last_updated": "2026-08-05T09:17:51.923387+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
