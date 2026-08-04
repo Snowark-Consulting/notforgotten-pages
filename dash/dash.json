@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 144,
+    "tasks_completed": 145,
     "recent": [
+      {
+        "date": "2026-08-05 09:18",
+        "task": "Business Knowledge BK-005: When customer waits on third party (insurer, strata, council), tell them you will check back. Remove the burden from them. QPaint won't forget. Cathryn Cochrane: insurance pending, 2-week follow-up scheduled Aug 19.",
+        "category": "task"
+      },
       {
         "date": "2026-08-05 09:17",
         "task": "QPaint: Cathryn Cochrane replied (T3 Engaged). Quote with insurer. Atlas replied \u2014 no pressure, offered doc support, committed to 2-week check-in. Gmail: 19fcf2ce815e578a. VERIFIED. Next touchpoint: Aug 19.",
@@ -135,11 +140,6 @@
         "date": "2026-08-03 19:15",
         "task": "Command Centre refreshed \u2014 end-of-day update. Generated fresh headquarters-data.json covering Monday's events: FF1 launch, QPaint 156-wave, Governance Review. Pipeline: 200 prospects, 16 active. System health snapshot: disk 92%, dashboard cron erroring, campaign-intel-monitor path needs fix.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-03 13:25",
-        "task": "48-hour quote follow-up delay established. follow-up-autopilot.py now waits 48 hours from quote date before sending Email 1. Decision recorded.",
-        "category": "milestone"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-05T09:17:51.923387+09:30",
+  "last_updated": "2026-08-05T09:18:18.241519+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
