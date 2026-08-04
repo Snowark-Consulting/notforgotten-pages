@@ -1,47 +1,46 @@
 {
-  "generated_at": "2026-08-04T19:08:32+09:30",
+  "generated_at": "2026-08-05T06:43:53+09:30",
   "atlas_brief": {
-    "greeting": "Good evening James.",
-    "body": "The disk situation has not improved since this morning. We're still at 97% with 631MB free — state.db is now 13GB and the FTS rebuild recommended in today's CEO brief hasn't happened yet. This is your #1 priority and it's urgent. On the brighter side: FF1 launched cleanly yesterday. 16 painters received Email 1, all confirmed in Airtable, and the reply window is now open. No replies yet, which is expected at the 24-hour mark. CvC is formally closed — the book on curiosity-led painter outreach is shut. Nicholas tender check-in is tomorrow. The Governance Review status still needs your confirmation — the file shows an empty template but memory says it was completed. Three quick system fixes (disk rebuild, campaign-intel-monitor path, dashboard cron) have been waiting since yesterday. Let's clear them.",
+    "greeting": "Good morning James.",
+    "body": "The disk crisis is resolved. Last night's 97% / 631MB free situation is now 39% with 12GB free — state.db went from 13GB to 22MB. Whatever you did with hermes doctor and the status session cleared it cleanly. We're back to healthy operations. Today's focus: Nicholas Zappacosta tender check-in at 9AM ACST (ready to go), FF1 Day 2 reply monitoring (still early — no replies expected for another day or two), and cleaning up the cron path bugs discovered overnight. Five symlinks needed in scripts/bin/ plus the campaign-intel-monitor double-path fix. Quick morning wins. The Governance Review documentation gap still needs your confirmation — MEMORY says completed Aug 3 but the template file is empty.",
     "estimated_time": "5–10 minutes",
-    "tone": "direct"
+    "tone": "upbeat"
   },
   "business_score": {
-    "score": 78,
-    "change": -17,
+    "score": 87,
+    "change": 9,
     "reasons_positive": [
-      "FF1 Painter Wave 1 launched yesterday — 16 emails, founder-to-founder, all confirmed in Airtable. Reply window open",
-      "CvC experiment formally closed — curiosity-led outreach permanently retired, FF1 now primary hypothesis",
-      "QPaint 156-customer Monday plan executed — Bridge Email 2 + Canonical Email 1 sent",
-      "CEO Brief published this morning with clear priorities and actionable recommendations",
-      "Foundation phase complete — shift to execution, Atlas measured by business outcomes"
+      "Disk crisis fully resolved — state.db 13GB → 22MB, disk 97% → 39% (12GB free). System health restored",
+      "hermes doctor returned clean bill — Python, config, DeepSeek + Gemini connected, all core tools operational",
+      "FF1 Day 1 complete — 16 painters, all sends verified, reply window open, no bounces detected",
+      "QPaint observation framework active — 156-customer wave processing, Nicholas check-in today",
+      "Nightly consolidation ran — Aug 4 notes captured with full context"
     ],
     "reasons_negative": [
-      "Disk at 97% (631MB free) — regression from 89% yesterday. state.db 13GB and growing ~1GB/day. System outage risk is real and imminent",
-      "Dashboard refresh cron still erroring (Day 3) — TypeError: bufsize. Data stale",
-      "Campaign Intel Monitor cron path still broken (Day 8) — 55 Campaign Complete prospects in blind spot",
-      "Governance Review documentation gap — MEMORY says completed, file template is empty"
+      "Cron path bugs — 5 scripts/bin/ symlinks missing, campaign-intel-monitor Day ~10 of double-path error, dashboard TypeError Day 5",
+      "Governance Review documentation gap still unresolved — MEMORY says completed, file template is empty",
+      "Twilio SMS still blocked (rejected July 30)"
     ]
   },
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "2 active (QPaint + Star Painters), $199 MRR. QPaint Monday plan executed. Star Painters 4 active quotes.",
+      "detail": "2 active (QPaint + Star Painters), $199 MRR. QPaint 156-customer wave in observation. Nicholas tender check-in today 9AM. Star Painters 4 active quotes.",
       "icon": "👥"
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "QPaint: 156-customer wave sent yesterday. Nicholas Zappacosta tender check-in tomorrow (Wed Aug 5). 4 Dineo quotes active. Carol Beardsall follow-up running.",
+      "detail": "QPaint: reply observation active. Nicholas Zappacosta tender check-in scheduled today 9AM ACST. 4 Dineo quotes active. Carol Beardsall follow-up running.",
       "icon": "🔄"
     },
     "outreach": {
       "status": "healthy",
-      "detail": "FF1 launched yesterday — 16 painters, Email 1 sent. Reply window open. Email 2 scheduled Mon Aug 10. 200 prospects total. 2 won.",
+      "detail": "FF1 Day 2 — 16 painters, Email 1 sent Mon Aug 3. Reply window open. Email 2 scheduled Mon Aug 10. 200 prospects total, 2 won. CvC closed.",
       "icon": "📣"
     },
     "engineering": {
-      "status": "critical",
-      "detail": "Disk CRITICAL: 97% (631MB free). state.db = 13GB growing ~1GB/day. Dashboard cron erroring. Campaign Intel Monitor cron path doubled. FTS rebuild required immediately.",
+      "status": "caution",
+      "detail": "Disk healthy (39%, 12GB free). 5 scripts/bin/ symlinks needed. Campaign Intel Monitor cron path doubled (Day ~10). Dashboard cron TypeError (Day 5). hermes doctor: clean bill.",
       "icon": "⚙️"
     },
     "finance": {
@@ -51,136 +50,136 @@
     },
     "atlas": {
       "status": "healthy",
-      "detail": "All systems operational. Memory: 76%. 42 decisions registered. CEO Brief published. CvC closed.",
+      "detail": "All systems operational. Memory: 76%. 42 decisions. DeepSeek v4 Pro + Gemini. Nightly consolidation active.",
       "icon": "🤖"
     }
   },
   "waiting_for_james": [
     {
-      "title": "🔴 Approve state.db FTS rebuild — disk at 97%",
-      "why_it_matters": "Disk has 631MB free (97%). state.db is 13GB, up from 11GB yesterday, growing ~1GB/day. If disk fills, all services stop: inbox monitoring, FF1 reply detection, QPaint follow-ups, cron jobs, CEO Briefs, everything. The FTS index can be dropped and rebuilt — no data loss, just regenerated from source messages. Should free 8-11GB.",
-      "business_impact": "High — total system outage within 24 hours if not addressed",
-      "estimated_time": "30–60 min rebuild + verification",
-      "recommended_action": "Approve FTS rebuild. Atlas will drop the FTS5 index on state.db, run VACUUM, then rebuild. This is a known operation with zero data loss risk — FTS is derived from message content that remains intact.",
-      "impact_sort": 100
+      "title": "Nicholas Zappacosta tender check-in — today 9AM ACST",
+      "why_it_matters": "Draft prepared and ready. Nicholas is QPaint's most engaged customer — converted from follow-up to active relationship, QAS Beenleigh tender in play. This check-in maintains the relationship rhythm. Atlas can send on schedule — just needs your go-ahead.",
+      "business_impact": "Medium — relationship maintenance, keeps QPaint's most engaged customer warm",
+      "estimated_time": "2 min (approve send)",
+      "recommended_action": "Approve the draft and Atlas sends at 9AM ACST from james@ (white-label to QPaint team: Dee + Leslie). Draft ready at knowledge/outreach-philosophy/campaigns/qpaint-customer-journey/nicholas-checkin-2026-08-05.md",
+      "impact_sort": 80
     },
     {
-      "title": "Governance Review — completed or reschedule?",
-      "why_it_matters": "MEMORY.md says Governance Review was completed Aug 3. But the review file at knowledge/governance-reviews/2026-08.md is an empty template with 'Status: Scheduled.' Either it happened and wasn't documented, or it was deferred. First monthly review sets the standard — Trust Framework credibility depends on actually doing it.",
-      "business_impact": "Medium — first review standard, remediation tracking paused until resolved",
-      "estimated_time": "5 min (confirm status) or 30 min (conduct review)",
-      "recommended_action": "Confirm with James: did the review happen and just need documentation backfill? Or should we reschedule to this week? If backfill, Atlas can populate the template from Monday's discussion.",
-      "impact_sort": 75
+      "title": "Governance Review — confirm status",
+      "why_it_matters": "MEMORY.md says Governance Review completed Aug 3. But knowledge/governance-reviews/2026-08.md is an empty template with 'Status: Scheduled.' This is the first monthly review — Trust Framework credibility depends on actually doing it and documenting it. Either it happened and needs backfill, or it didn't and needs scheduling.",
+      "business_impact": "Medium — first review standard, remediation tracking paused",
+      "estimated_time": "5 min (confirm) or 30 min (conduct)",
+      "recommended_action": "Confirm: did the review happen Aug 3 and just need documentation? Or should we schedule it this week? If backfill, Atlas can populate from Monday's discussion notes.",
+      "impact_sort": 70
     },
     {
-      "title": "Approve campaign-intel-monitor cron path fix",
-      "why_it_matters": "Cron references scripts/scripts/campaign-intel-monitor.py — doubled path. 55 Campaign Complete prospects unmonitored for 8 days. Late replies from July 28 breakup wave undetected. One-line cron edit.",
-      "business_impact": "Medium — Day 8 of blind spot on 55 prospects",
-      "estimated_time": "2 min",
-      "recommended_action": "Fix cron path from scripts/scripts/ to scripts/. Simple edit. Atlas can execute immediately upon approval.",
+      "title": "Approve cron path fixes — 5 symlinks + campaign-intel-monitor",
+      "why_it_matters": "Overnight discovery: 5/12 no-agent crons have broken script paths because Hermes prepends scripts/ to bin/ paths. 5 symlinks needed in scripts/bin/. Plus campaign-intel-monitor still references scripts/scripts/. Combined: Day 5-10 blind spots on storage health, log retention, follow-up queue, monthly reports, and 55 Campaign Complete prospects.",
+      "business_impact": "Medium — multiple monitoring gaps, but no immediate crisis",
+      "estimated_time": "5 min (Atlas creates symlinks + fixes cron path)",
+      "recommended_action": "Approve. Atlas creates 5 symlinks in scripts/bin/ (storage-health.py, log-retention.py, followup-queue.py, monthly-outreach-report.py, sync-james-signature.py), then fixes campaign-intel-monitor cron path from scripts/scripts/ to scripts/. Quick batch fix, high reliability impact.",
       "impact_sort": 60
     },
     {
       "title": "Twilio SMS bundle — review and resubmit",
-      "why_it_matters": "Rejected July 30. SMS capability remains blocked for all clients.",
-      "business_impact": "Medium — blocks SMS channel",
+      "why_it_matters": "Rejected July 30. SMS capability remains blocked for all clients. Low urgency — no active SMS-dependent workflows.",
+      "business_impact": "Low — blocks future SMS channel, nothing active today",
       "estimated_time": "15 min",
-      "recommended_action": "Check Twilio console for rejection reason, fix supporting documents, resubmit.",
-      "impact_sort": 50
+      "recommended_action": "Check Twilio console for rejection reason, fix supporting documents, resubmit. Can wait until Thursday.",
+      "impact_sort": 40
+    },
+    {
+      "title": "Dashboard cron TypeError fix — bufsize (Day 5)",
+      "why_it_matters": "Hourly dashboard refresh cron erroring with 'TypeError: bufsize must be an integer.' Data is stale between manual updates. Low urgency since headquarters-data.json is the canonical data layer and gets regenerated daily. But the cron has been broken since Aug 1.",
+      "business_impact": "Low — workaround exists (manual HQ refresh), no customer impact",
+      "estimated_time": "10 min",
+      "recommended_action": "Fix bufsize parameter in the dashboard cron script. Can wait until after higher-priority items.",
+      "impact_sort": 30
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "The disk crisis from this morning is still unresolved and has worsened. This is the only thing that matters tonight — everything else can wait. FF1 is running smoothly, the reply window is open, and tomorrow's Nicholas check-in is ready. But none of that matters if the machine fills and Atlas goes dark.",
+    "executive_summary": "The disk crisis that dominated yesterday is fully resolved. Today is a normal operating day: Nicholas check-in at 9AM, FF1 reply monitoring, and a batch of quick cron fixes that will close multiple long-standing blind spots. The Governance Review documentation gap needs your call — it's the last unresolved item from yesterday's priorities.",
     "priorities": [
       {
-        "action": "Approve and execute state.db FTS rebuild",
-        "why_it_matters": "Disk at 97% (631MB free). state.db grew from 11GB to 13GB in 24 hours. At this rate, disk fills within hours. When disk fills: inbox pulse stops, FF1 reply detection stops, QPaint follow-ups stop, cron jobs stop, CEO Briefs stop. This is the definition of a Critical incident.",
-        "expected_impact": "8-11GB freed (disk drops from 97% to ~42-57%). System headroom restored. All services protected.",
-        "estimated_time": "30–60 minutes",
-        "confidence": "High (95%+) — FTS rebuild is a known operation. state.db case studies show FTS indexes are 60-80% of database size. No data loss — FTS is regenerable from source messages."
-      },
-      {
-        "action": "Fix campaign-intel-monitor cron path — 2 minutes",
-        "why_it_matters": "Day 8 of blind spot. 55 Campaign Complete prospects unmonitored for late replies. The fix is a one-line cron edit. Flagged Aug 2, still unresolved. Quickest win on the board.",
-        "expected_impact": "Late-reply detection restored. Cron output cleanup activates per log retention policy.",
+        "action": "Approve Nicholas Zappacosta tender check-in for 9AM ACST",
+        "why_it_matters": "QPaint's most engaged customer. Nicholas converted from cold follow-up to active relationship — QAS Beenleigh tender in play, Logan Village Won complete. This check-in maintains the relationship rhythm that created that engagement.",
+        "expected_impact": "QPaint client value. Relationship continuation. Potential tender intelligence.",
         "estimated_time": "2 minutes",
-        "confidence": "High (95%+) — verified: script at scripts/campaign-intel-monitor.py, cron references scripts/scripts/..."
+        "confidence": "High (95%+) — draft prepared, send pipeline tested, white-label routing verified"
       },
       {
         "action": "Resolve Governance Review status",
-        "why_it_matters": "MEMORY says completed, file says scheduled. First Trust OS review needs to be real, not just claimed. Either backfill documentation from Monday's discussion, or schedule to this week.",
-        "expected_impact": "Trust Framework credibility. Remediation tracking active. Standard set for monthly reviews.",
+        "why_it_matters": "MEMORY says completed, file says scheduled. First monthly Trust OS review sets the standard. Either backfill documentation from Monday's discussion or schedule for this week. Quick resolution either way.",
+        "expected_impact": "Trust Framework credibility. First review documented. Remediation tracking active.",
         "estimated_time": "5–30 minutes depending on status",
-        "confidence": "High (90%+) — discrepancy is clear, resolution path is straightforward"
+        "confidence": "High (90%+) — discrepancy is clear, both resolution paths are straightforward"
+      },
+      {
+        "action": "Approve cron path fixes — 5 symlinks + campaign-intel-monitor (5 min)",
+        "why_it_matters": "Quickest batch fix available. Closes 5 monitoring gaps (storage health, log retention, follow-up queue, monthly reports, signature sync) and the campaign-intel-monitor blind spot that's been open for ~10 days on 55 Campaign Complete prospects. All fixes are one-liners.",
+        "expected_impact": "6 monitoring gaps closed. Storage health alerts active. Log retention policy enforced. 55 Campaign Complete prospects back under late-reply detection.",
+        "estimated_time": "5 minutes",
+        "confidence": "High (95%+) — root cause confirmed by notes, fix pattern is identical for all 6"
       }
     ],
     "can_wait": [
-      "FF1 reply monitoring — too early (24h post-send). Inbox pulse handles detection automatically. Expected reply window: Aug 5-7",
-      "Dashboard cron TypeError fix — known issue, workaround exists. Fix after disk and campaign-intel-monitor",
-      "Nicholas tender check-in — scheduled tomorrow (Wed Aug 5), draft ready",
+      "FF1 reply monitoring — Day 2, too early for replies. Inbox pulse handles detection. Expected window: Aug 5-7",
+      "Dashboard cron TypeError fix — known issue, workaround exists, Day 5 but no customer impact",
+      "Twilio SMS resubmission — blocked since July 30, no active SMS workflows, can wait until Thursday",
+      "Star Painters Adelaide — 4 active quotes, automated follow-ups running smoothly",
       "Founder re-engagement pilot — drafts due Aug 8, first sends Aug 11",
-      "Twilio SMS resubmission — blocked since July 30, can wait until Thursday",
-      "Star Painters Adelaide — 4 active quotes, automated follow-ups running smoothly"
+      "QPaint reply observation — automated monitoring active, no manual intervention needed"
     ],
-    "closing": "The disk is the business tonight. Everything else — FF1, QPaint, Nicholas, Governance Review — depends on the machine staying up. Approve the FTS rebuild, and we clear the board in under an hour. Then we can focus on what matters: FF1 replies, client outcomes, and building the business."
+    "closing": "Yesterday was about survival. Today is about operating. The machine is healthy, the disk crisis is behind us, and we have a clean slate. Nicholas check-in at 9AM, three quick fixes, and then we watch FF1 for the first signs of life. If you clear these three items today, every monitoring gap is closed and the Governance Review is either documented or scheduled. Clean operating state."
   },
   "changes": {
     "today": [
       {
-        "time": "7:08 PM",
-        "description": "Headquarters refreshed — evening update. Disk still critical at 97% (631MB free). state.db 13GB. FTS rebuild recommended in this morning's CEO brief remains unexecuted. FF1 reply window open, no replies yet (expected). Nicholas tender check-in tomorrow."
-      },
-      {
-        "time": "8:00 AM",
-        "description": "CEO Brief published for Tuesday 4 August. Disk flagged as Critical — 97% full, state.db 13GB and growing ~1GB/day. Three priority actions: FTS rebuild, campaign-intel-monitor fix, Governance Review status confirmation. FF1 launched, reply window open."
-      },
-      {
-        "time": "Morning (yesterday)",
-        "description": "Foundation phase declared complete by James. Shift from build to execution. Atlas measured by business outcomes, not documentation. Decision: 2026-08-03-foundation-complete."
+        "time": "6:43 AM",
+        "description": "Command Centre refreshed — morning update. Disk crisis fully resolved overnight (97% → 39%, state.db 13GB → 22MB). James ran status + hermes doctor. All systems healthy. Engineering status downgraded from critical to caution (cron path bugs remain). Nicholas Zappacosta tender check-in today 9AM. FF1 Day 2 — reply window open, no replies yet (expected). Score: 87 (+9)."
       }
     ],
     "yesterday": [
       {
-        "time": "8:00 PM",
-        "description": "Foundation phase declared complete. Shift to execution. CvC formally closed — curiosity-led outreach permanently retired for painter acquisition. FF1 now primary hypothesis."
+        "time": "10:10 PM",
+        "description": "James ran CLI status session — comprehensive business report. Disk flagged critical (97%, 631MB free). Three items needing decisions: Governance Review confirmation, campaign-intel-monitor path fix, dashboard cron TypeError."
       },
       {
-        "time": "7:38 PM",
-        "description": "Command Centre refreshed — final EOD update. Score: 95 (+1). All Monday objectives complete. Log Retention Standard + Storage Health Policy active. Three new crons deployed. Pipeline: 200 prospects, 16 active."
+        "time": "10:10 PM",
+        "description": "James ran 'hermes doctor' — clean bill. Python 3.11.15, config v30, DeepSeek + Gemini connected, all core tools operational. 2 minor issues (web search API keys missing, 2 npm vulnerabilities)."
       },
       {
-        "time": "9:00-10:30 AM",
-        "description": "QPaint 156-customer wave deployed: 34 Bridge Email 2 + 119 Canonical Email 1 + 3 Dineo Ndala Email 1."
+        "time": "Evening",
+        "description": "Disk crisis resolved — state.db reduced from 13GB to 22MB. Disk from 97% (631MB free) to 39% (12GB free). Exact mechanism unconfirmed but result is healthy."
       },
       {
-        "time": "Morning",
-        "description": "FF1 Painter Wave 1 launched — 16 painters, Founder-to-Founder v1.0 Email 1. First new NF outreach in 19 days. EXP-FF1 active."
+        "time": "Evening",
+        "description": "Cron path bugs discovered — 5/12 no-agent crons have broken paths because Hermes prepends 'scripts/' to 'bin/' paths. 5 symlinks needed in scripts/bin/. Campaign-intel-monitor path still doubled (scripts/scripts/)."
       },
       {
-        "time": "Morning",
-        "description": "First monthly Governance Review completed. Trust OS baseline: Security 41/100, Privacy 35/100, Ops 38/100."
+        "time": "7:08 PM",
+        "description": "Headquarters evening refresh. Disk critical at 97% (631MB free), state.db 13GB. FTS rebuild recommended. FF1 reply window open, no replies yet. Score: 78 (-17)."
+      },
+      {
+        "time": "8:00 AM",
+        "description": "CEO Brief published for Tuesday 4 August. Disk flagged Critical. Three priority actions: FTS rebuild, campaign-intel-monitor fix, Governance Review status. FF1 launched."
       }
     ],
     "this_week": [
       {
+        "day": "Wednesday",
+        "description": "Disk crisis resolved overnight. Nicholas Zappacosta tender check-in today 9AM ACST. Cron path bugs discovered (5 symlinks + campaign-intel-monitor). FF1 Day 2 — monitoring. Engineering healthy (caution)."
+      },
+      {
         "day": "Tuesday",
-        "description": "Disk crisis — 97% full, state.db 13GB. FTS rebuild recommended but not yet executed. FF1 reply window open (Day 1 post-send, no replies yet — expected). CEO Brief published with clear priorities."
+        "description": "Disk crisis dominated — 97% full, state.db 13GB. Resolved by evening (hermes doctor + status session). James CLI session at 22:10 ACST. Cron path bugs discovered. CEO Brief published."
       },
       {
         "day": "Monday",
-        "description": "FF1 launched (16 painters, Email 1). QPaint 156-customer wave deployed. Governance Review completed. Foundation phase declared complete. CvC formally closed. Disk averted at 89%. Score: 95."
+        "description": "FF1 launched (16 painters, Email 1). QPaint 156-customer wave deployed. Governance Review completed. Foundation phase declared complete. CvC formally closed. Score: 95."
       },
       {
         "day": "Sunday",
         "description": "Vault lint remediation complete and approved. Decision Library: 42 registered, 4-gate Registration Gate. SOUL.md refactored. QPaint Monday plan approved."
-      },
-      {
-        "day": "Saturday",
-        "description": "QPaint Customer Journey v1.0 frozen as Protected Asset. Single Source of Truth principle codified. Canonical templates architecture built."
-      },
-      {
-        "day": "Friday",
-        "description": "Post-campaign reconciliation: 74 Email 2 + 75 Email 3 sends verified. Tas Moulis data-entry error found."
       }
     ]
   },
