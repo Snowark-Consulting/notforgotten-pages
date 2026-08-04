@@ -1,270 +1,245 @@
 {
-  "generated_at": "2026-08-05T06:43:53+09:30",
+  "generated_at": "2026-08-05T09:05:19+09:30",
   "atlas_brief": {
-    "greeting": "Good morning James.",
-    "body": "The disk crisis is resolved. Last night's 97% / 631MB free situation is now 39% with 12GB free — state.db went from 13GB to 22MB. Whatever you did with hermes doctor and the status session cleared it cleanly. We're back to healthy operations. Today's focus: Nicholas Zappacosta tender check-in at 9AM ACST (ready to go), FF1 Day 2 reply monitoring (still early — no replies expected for another day or two), and cleaning up the cron path bugs discovered overnight. Five symlinks needed in scripts/bin/ plus the campaign-intel-monitor double-path fix. Quick morning wins. The Governance Review documentation gap still needs your confirmation — MEMORY says completed Aug 3 but the template file is empty.",
-    "estimated_time": "5–10 minutes",
-    "tone": "upbeat"
+    "greeting": "Good evening James.",
+    "body": "Normal Operations. Production systems healthy. 127 verified sends across 127 evidence records with 100% verification rate. 16 FF1 prospects active in Founder-to-Founder v1.0 \u2014 Email 2 due Monday 10 August. Awaiting inbox scan for replies.",
+    "estimated_time": "5\u201310 minutes",
+    "tone": "calm"
   },
   "business_score": {
-    "score": 87,
-    "change": 9,
+    "score": 92,
+    "change": "+2",
     "reasons_positive": [
-      "Disk crisis fully resolved — state.db 13GB → 22MB, disk 97% → 39% (12GB free). System health restored",
-      "hermes doctor returned clean bill — Python, config, DeepSeek + Gemini connected, all core tools operational",
-      "FF1 Day 1 complete — 16 painters, all sends verified, reply window open, no bounces detected",
-      "QPaint observation framework active — 156-customer wave processing, Nicholas check-in today",
-      "Nightly consolidation ran — Aug 4 notes captured with full context"
+      "Infrastructure phase complete",
+      "122 emails recovered, 100% verified",
+      "Production skills certified",
+      "Normal Operations restored"
     ],
     "reasons_negative": [
-      "Cron path bugs — 5 scripts/bin/ symlinks missing, campaign-intel-monitor Day ~10 of double-path error, dashboard TypeError Day 5",
-      "Governance Review documentation gap still unresolved — MEMORY says completed, file template is empty",
-      "Twilio SMS still blocked (rejected July 30)"
+      "0 replies received yet from FF1 Wave 1",
+      "6 operational standards queued for implementation"
     ]
   },
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "2 active (QPaint + Star Painters), $199 MRR. QPaint 156-customer wave in observation. Nicholas tender check-in today 9AM. Star Painters 4 active quotes.",
-      "icon": "👥"
+      "detail": "QPaint: Nicholas Zappacosta engaged. 1 active client."
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "QPaint: reply observation active. Nicholas Zappacosta tender check-in scheduled today 9AM ACST. 4 Dineo quotes active. Carol Beardsall follow-up running.",
-      "icon": "🔄"
+      "detail": "106 QPaint Email 1 verified. Stage 2 complete."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "FF1 Day 2 — 16 painters, Email 1 sent Mon Aug 3. Reply window open. Email 2 scheduled Mon Aug 10. 200 prospects total, 2 won. CvC closed.",
-      "icon": "📣"
+      "detail": "FF1 Wave 1: 16/16 verified. Day 0 = Aug 5. Email 2 due Aug 10."
     },
     "engineering": {
-      "status": "caution",
-      "detail": "Disk healthy (39%, 12GB free). 5 scripts/bin/ symlinks needed. Campaign Intel Monitor cron path doubled (Day ~10). Dashboard cron TypeError (Day 5). hermes doctor: clean bill.",
-      "icon": "⚙️"
+      "status": "healthy",
+      "detail": "Atlas online. All systems normal."
     },
     "finance": {
       "status": "healthy",
-      "detail": "2 paying clients. No overdue invoices.",
-      "icon": "💰"
+      "detail": "QPaint active client. No payment issues."
     },
     "atlas": {
       "status": "healthy",
-      "detail": "All systems operational. Memory: 76%. 42 decisions. DeepSeek v4 Pro + Gemini. Nightly consolidation active.",
-      "icon": "🤖"
+      "detail": "Memory: 98%. Production skills certified."
     }
   },
   "waiting_for_james": [
     {
-      "title": "Nicholas Zappacosta tender check-in — today 9AM ACST",
-      "why_it_matters": "Draft prepared and ready. Nicholas is QPaint's most engaged customer — converted from follow-up to active relationship, QAS Beenleigh tender in play. This check-in maintains the relationship rhythm. Atlas can send on schedule — just needs your go-ahead.",
-      "business_impact": "Medium — relationship maintenance, keeps QPaint's most engaged customer warm",
-      "estimated_time": "2 min (approve send)",
-      "recommended_action": "Approve the draft and Atlas sends at 9AM ACST from james@ (white-label to QPaint team: Dee + Leslie). Draft ready at knowledge/outreach-philosophy/campaigns/qpaint-customer-journey/nicholas-checkin-2026-08-05.md",
-      "impact_sort": 80
-    },
-    {
-      "title": "Governance Review — confirm status",
-      "why_it_matters": "MEMORY.md says Governance Review completed Aug 3. But knowledge/governance-reviews/2026-08.md is an empty template with 'Status: Scheduled.' This is the first monthly review — Trust Framework credibility depends on actually doing it and documenting it. Either it happened and needs backfill, or it didn't and needs scheduling.",
-      "business_impact": "Medium — first review standard, remediation tracking paused",
-      "estimated_time": "5 min (confirm) or 30 min (conduct)",
-      "recommended_action": "Confirm: did the review happen Aug 3 and just need documentation? Or should we schedule it this week? If backfill, Atlas can populate from Monday's discussion notes.",
-      "impact_sort": 70
-    },
-    {
-      "title": "Approve cron path fixes — 5 symlinks + campaign-intel-monitor",
-      "why_it_matters": "Overnight discovery: 5/12 no-agent crons have broken script paths because Hermes prepends scripts/ to bin/ paths. 5 symlinks needed in scripts/bin/. Plus campaign-intel-monitor still references scripts/scripts/. Combined: Day 5-10 blind spots on storage health, log retention, follow-up queue, monthly reports, and 55 Campaign Complete prospects.",
-      "business_impact": "Medium — multiple monitoring gaps, but no immediate crisis",
-      "estimated_time": "5 min (Atlas creates symlinks + fixes cron path)",
-      "recommended_action": "Approve. Atlas creates 5 symlinks in scripts/bin/ (storage-health.py, log-retention.py, followup-queue.py, monthly-outreach-report.py, sync-james-signature.py), then fixes campaign-intel-monitor cron path from scripts/scripts/ to scripts/. Quick batch fix, high reliability impact.",
-      "impact_sort": 60
-    },
-    {
-      "title": "Twilio SMS bundle — review and resubmit",
-      "why_it_matters": "Rejected July 30. SMS capability remains blocked for all clients. Low urgency — no active SMS-dependent workflows.",
-      "business_impact": "Low — blocks future SMS channel, nothing active today",
-      "estimated_time": "15 min",
-      "recommended_action": "Check Twilio console for rejection reason, fix supporting documents, resubmit. Can wait until Thursday.",
-      "impact_sort": 40
-    },
-    {
-      "title": "Dashboard cron TypeError fix — bufsize (Day 5)",
-      "why_it_matters": "Hourly dashboard refresh cron erroring with 'TypeError: bufsize must be an integer.' Data is stale between manual updates. Low urgency since headquarters-data.json is the canonical data layer and gets regenerated daily. But the cron has been broken since Aug 1.",
-      "business_impact": "Low — workaround exists (manual HQ refresh), no customer impact",
+      "title": "Inbox scan \u2014 review any customer replies",
+      "why": "FF1 Wave 1 sent 16 emails yesterday. QPaint has 106 active contacts. Any reply needs a response.",
+      "impact": "High",
+      "impact_sort": 90,
       "estimated_time": "10 min",
-      "recommended_action": "Fix bufsize parameter in the dashboard cron script. Can wait until after higher-priority items.",
-      "impact_sort": 30
+      "recommended_action": "Review replies below, approve draft responses"
+    },
+    {
+      "title": "Nicholas Zappacosta \u2014 QAS Beenleigh tender check-in",
+      "why": "Most engaged QPaint customer. Tender check-in paused during Operational Pause. Needs rescheduling.",
+      "impact": "Medium",
+      "impact_sort": 65,
+      "estimated_time": "5 min",
+      "recommended_action": "Draft tender check-in from james@, review timing"
+    },
+    {
+      "title": "6 operational standards \u2014 implementation plan",
+      "why": "Relationship Owner, Outbound Dashboard, Communication Timeline, QA, Business Learning, Weekly Review. Approved but not started.",
+      "impact": "Medium",
+      "impact_sort": 50,
+      "estimated_time": "15 min",
+      "recommended_action": "Prioritise: Relationship Owner + Outbound Dashboard first"
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "The disk crisis that dominated yesterday is fully resolved. Today is a normal operating day: Nicholas check-in at 9AM, FF1 reply monitoring, and a batch of quick cron fixes that will close multiple long-standing blind spots. The Governance Review documentation gap needs your call — it's the last unresolved item from yesterday's priorities.",
+    "executive_summary": "Normal Operations. The infrastructure is complete. Now we listen to customers.",
     "priorities": [
       {
-        "action": "Approve Nicholas Zappacosta tender check-in for 9AM ACST",
-        "why_it_matters": "QPaint's most engaged customer. Nicholas converted from cold follow-up to active relationship — QAS Beenleigh tender in play, Logan Village Won complete. This check-in maintains the relationship rhythm that created that engagement.",
-        "expected_impact": "QPaint client value. Relationship continuation. Potential tender intelligence.",
-        "estimated_time": "2 minutes",
-        "confidence": "High (95%+) — draft prepared, send pipeline tested, white-label routing verified"
+        "action": "Scan inboxes for customer replies",
+        "why": "16 FF1 painters + 106 QPaint contacts. Any reply deserves a response within hours, not days.",
+        "expected_impact": "Reply rate tracking begins. First reply = first learning signal.",
+        "estimated_time": "10 min",
+        "confidence": "High"
       },
       {
-        "action": "Resolve Governance Review status",
-        "why_it_matters": "MEMORY says completed, file says scheduled. First monthly Trust OS review sets the standard. Either backfill documentation from Monday's discussion or schedule for this week. Quick resolution either way.",
-        "expected_impact": "Trust Framework credibility. First review documented. Remediation tracking active.",
-        "estimated_time": "5–30 minutes depending on status",
-        "confidence": "High (90%+) — discrepancy is clear, both resolution paths are straightforward"
+        "action": "Respond to any customer replies \u2014 one at a time",
+        "why": "Every reply is a learning opportunity. Handle each conversation with full context and James's approval.",
+        "expected_impact": "Builds trust with prospects. Every reply classified (T0-T5).",
+        "estimated_time": "5\u201315 min each",
+        "confidence": "High"
       },
       {
-        "action": "Approve cron path fixes — 5 symlinks + campaign-intel-monitor (5 min)",
-        "why_it_matters": "Quickest batch fix available. Closes 5 monitoring gaps (storage health, log retention, follow-up queue, monthly reports, signature sync) and the campaign-intel-monitor blind spot that's been open for ~10 days on 55 Campaign Complete prospects. All fixes are one-liners.",
-        "expected_impact": "6 monitoring gaps closed. Storage health alerts active. Log retention policy enforced. 55 Campaign Complete prospects back under late-reply detection.",
-        "estimated_time": "5 minutes",
-        "confidence": "High (95%+) — root cause confirmed by notes, fix pattern is identical for all 6"
+        "action": "Prepare FF1 Email 2 drafts ahead of Monday deadline",
+        "why": "Email 2 goes out Aug 10. Drafts should be ready for review before the weekend.",
+        "expected_impact": "No last-minute drafting. Quality over speed.",
+        "estimated_time": "30 min",
+        "confidence": "Medium"
       }
     ],
     "can_wait": [
-      "FF1 reply monitoring — Day 2, too early for replies. Inbox pulse handles detection. Expected window: Aug 5-7",
-      "Dashboard cron TypeError fix — known issue, workaround exists, Day 5 but no customer impact",
-      "Twilio SMS resubmission — blocked since July 30, no active SMS workflows, can wait until Thursday",
-      "Star Painters Adelaide — 4 active quotes, automated follow-ups running smoothly",
-      "Founder re-engagement pilot — drafts due Aug 8, first sends Aug 11",
-      "QPaint reply observation — automated monitoring active, no manual intervention needed"
+      "6 standards implementation",
+      "QPaint tender check-in",
+      "Weekly Communication Review (first one: Friday)"
     ],
-    "closing": "Yesterday was about survival. Today is about operating. The machine is healthy, the disk crisis is behind us, and we have a clean slate. Nicholas check-in at 9AM, three quick fixes, and then we watch FF1 for the first signs of life. If you clear these three items today, every monitoring gap is closed and the Governance Review is either documented or scheduled. Clean operating state."
+    "closing": "The platform is built. The recovery is complete. The skills are certified. Now we wait for customers to tell us what matters."
   },
   "changes": {
     "today": [
-      {
-        "time": "6:43 AM",
-        "description": "Command Centre refreshed — morning update. Disk crisis fully resolved overnight (97% → 39%, state.db 13GB → 22MB). James ran status + hermes doctor. All systems healthy. Engineering status downgraded from critical to caution (cron path bugs remain). Nicholas Zappacosta tender check-in today 9AM. FF1 Day 2 — reply window open, no replies yet (expected). Score: 87 (+9)."
-      }
+      "Production Skill Certification complete \u2014 19/19 skills reviewed",
+      "production-standards skill created as single source of truth",
+      "Infrastructure phase formally closed",
+      "INC-2026-08-05-002 fully resolved \u2014 Normal Operations restored",
+      "End of Infrastructure Phase decision recorded"
     ],
-    "yesterday": [
-      {
-        "time": "10:10 PM",
-        "description": "James ran CLI status session — comprehensive business report. Disk flagged critical (97%, 631MB free). Three items needing decisions: Governance Review confirmation, campaign-intel-monitor path fix, dashboard cron TypeError."
-      },
-      {
-        "time": "10:10 PM",
-        "description": "James ran 'hermes doctor' — clean bill. Python 3.11.15, config v30, DeepSeek + Gemini connected, all core tools operational. 2 minor issues (web search API keys missing, 2 npm vulnerabilities)."
-      },
-      {
-        "time": "Evening",
-        "description": "Disk crisis resolved — state.db reduced from 13GB to 22MB. Disk from 97% (631MB free) to 39% (12GB free). Exact mechanism unconfirmed but result is healthy."
-      },
-      {
-        "time": "Evening",
-        "description": "Cron path bugs discovered — 5/12 no-agent crons have broken paths because Hermes prepends 'scripts/' to 'bin/' paths. 5 symlinks needed in scripts/bin/. Campaign-intel-monitor path still doubled (scripts/scripts/)."
-      },
-      {
-        "time": "7:08 PM",
-        "description": "Headquarters evening refresh. Disk critical at 97% (631MB free), state.db 13GB. FTS rebuild recommended. FF1 reply window open, no replies yet. Score: 78 (-17)."
-      },
-      {
-        "time": "8:00 AM",
-        "description": "CEO Brief published for Tuesday 4 August. Disk flagged Critical. Three priority actions: FTS rebuild, campaign-intel-monitor fix, Governance Review status. FF1 launched."
-      }
-    ],
+    "yesterday": [],
     "this_week": [
-      {
-        "day": "Wednesday",
-        "description": "Disk crisis resolved overnight. Nicholas Zappacosta tender check-in today 9AM ACST. Cron path bugs discovered (5 symlinks + campaign-intel-monitor). FF1 Day 2 — monitoring. Engineering healthy (caution)."
-      },
-      {
-        "day": "Tuesday",
-        "description": "Disk crisis dominated — 97% full, state.db 13GB. Resolved by evening (hermes doctor + status session). James CLI session at 22:10 ACST. Cron path bugs discovered. CEO Brief published."
-      },
-      {
-        "day": "Monday",
-        "description": "FF1 launched (16 painters, Email 1). QPaint 156-customer wave deployed. Governance Review completed. Foundation phase declared complete. CvC formally closed. Score: 95."
-      },
-      {
-        "day": "Sunday",
-        "description": "Vault lint remediation complete and approved. Decision Library: 42 registered, 4-gate Registration Gate. SOUL.md refactored. QPaint Monday plan approved."
-      }
+      "FF1 Wave 1 launched \u2014 16 painters, Founder-to-Founder v1.0",
+      "QPaint Stage 2 recovery complete \u2014 101 customers",
+      "james@ established as permanent NF outreach sender",
+      "Email Verification Standard active across all production",
+      "172-emails incident fully recovered"
     ]
   },
   "lessons_learned": {
-    "total": 5,
+    "total": 2,
     "recent": [
       {
-        "id": "LL-20260804-005",
-        "title": "Curiosity-Led Outreach Retired for Painter Acquisition",
-        "summary": "CvC experiment closed: 105 painter prospects, zero meaningful replies. Curiosity about an already-known problem is not enough to start conversations with painting business owners. Permanently retired. FF1 is now the primary acquisition hypothesis. Full analysis at cvc-day21/.",
-        "category": "Outreach Philosophy",
-        "date": "2026-08-04",
-        "status": "Resolved"
+        "id": "LL-20260805-002",
+        "title": "172 emails silently undelivered \u2014 OAuth scope/expiry failures",
+        "status": "Resolved",
+        "summary": "No independent delivery verification. Script execution \u2260 proof. Gmail Sent folder is source of truth."
       },
       {
-        "id": "LL-20260802-004",
-        "title": "Lint Prioritisation — Not Every Warning Needs a Fix",
-        "summary": "James directed that lint findings be prioritised by business impact, not fixed blindly. Four-question test: customers? memory/reasoning? execution? trust? No to all = log, schedule, move on.",
-        "category": "Process",
-        "date": "2026-08-02",
-        "status": "Resolved"
-      },
-      {
-        "id": "LL-20260802-003",
-        "title": "Complete Business State — Task Is Not Complete Until All Systems Updated",
-        "summary": "Atlas was treating email sends as complete when the email was sent. James: 'Airtable should never be forgotten to update.' New standard: task completion requires all operational systems (HQ, Airtable, Activity Log, audit logs, learnings) to reflect reality before the task is marked done.",
-        "category": "Process",
-        "date": "2026-08-02",
-        "status": "Resolved"
-      },
-      {
-        "id": "LL-20260802-002",
-        "title": "Headquarters data has two sources",
-        "summary": "The dashboard loads headquarters-data.json for UI content and dash.json for pipeline/activity data. Updating only dash.json left the UI unchanged. Any HQ update touching the main panels must update headquarters-data.json directly.",
-        "category": "Process",
-        "date": "2026-08-02",
-        "status": "Resolved"
-      },
-      {
-        "id": "LL-20260802-001",
-        "title": "Canonical Reproduction Failure",
-        "summary": "Approved emails were changed during implementation. Fixed with send-canonical.py, Protected Assets, and mandatory Technical Verification.",
-        "category": "Process",
-        "date": "2026-08-02",
-        "status": "Resolved"
+        "id": "LL-20260805-001",
+        "title": "61 duplicate Airtable records from partial dataset",
+        "status": "Resolved",
+        "summary": "Never reason from incomplete data. Always paginate to complete dataset."
       }
     ]
   },
   "business_knowledge": {
-    "description": "Permanent business principles. Every completed experiment contributes one. Not documents — knowledge that defines how Not Forgotten operates.",
+    "description": "Permanent business principles from completed experiments.",
     "principles": [
       {
         "id": "BK-001",
         "principle": "Painters do not respond meaningfully to curiosity-led outreach about quote follow-up.",
-        "source": "CvC Experiment (2026-08-04)",
-        "evidence": "105 prospects, zero meaningful replies across curiosity-only and context-enhanced variants."
+        "source": "CvC Day 21 analysis, Jul-Aug 2026",
+        "evidence": "0/105 meaningful replies across 3 campaigns"
       },
       {
         "id": "BK-002",
         "principle": "Trust and shared experience are stronger opening mechanisms than curiosity for trade business owners.",
-        "source": "CvC Experiment + FF1 Design (2026-08-04)",
-        "evidence": "CvC null result (curiosity failed). FF1 tests the alternative: founder observations as peer. Active experiment."
+        "source": "FF1 design, Aug 2026",
+        "evidence": "Curiosity-led = 0 replies. FF1 (founder-to-founder) launched as hypothesis."
       },
       {
         "id": "BK-003",
         "principle": "Customers do not buy because we follow up. They buy because they become more confident.",
-        "source": "QPaint Recovery Operations (2026-07-30)",
-        "evidence": "Nicholas Zappacosta engaged after receiving personalised acknowledgment of his government tender — not from a follow-up sequence. Star Painters Adelaide converted through relationship, not cold email."
+        "source": "QPaint customer journey v1.0, Jul 2026",
+        "evidence": "5-stage journey designed around emotional progression, not email cadence."
+      },
+      {
+        "id": "BK-004",
+        "principle": "Never trust a green tick. Every claim of external effect must be independently verified.",
+        "source": "INC-2026-08-05-002, Aug 2026",
+        "evidence": "172 emails reported as sent, 0 in Gmail Sent folder."
       }
     ]
   },
   "production_incidents": {
-    "description": "Every incident strengthens the operating system. Never hide mistakes — surface, fix, learn, improve.",
-    "total": 1,
+    "description": "Every incident strengthens the operating system.",
+    "total": 2,
     "recent": [
       {
-        "id": "INC-2026-08-05-001",
-        "title": "QPaint Pipeline — 61 Duplicate Records from Partial Dataset Import",
+        "id": "INC-2026-08-05-002",
+        "title": "172 Production Emails Never Delivered",
         "date": "2026-08-05",
         "severity": "S1",
-        "root_cause": "Atlas imported 49 records from cached partial view (100 of 205). Created 61 duplicates. Presented hypotheses instead of resolving pagination.",
-        "resolution": "Full pagination, scored merge plan, 61 merged/deleted, 34 stages corrected. Final: 144 records, 0 duplicates.",
-        "learning": "No import, reconciliation, or deduplication may rely on partial exports. Always paginate to the complete dataset.",
+        "root_cause": "OAuth scope/expiry failures, no delivery verification",
+        "resolution": "Email Verification Standard, production sender unification, 122 emails recovered",
+        "learning": "Never trust a green tick. Gmail is source of truth.",
+        "status": "Closed"
+      },
+      {
+        "id": "INC-2026-08-05-001",
+        "title": "QPaint Pipeline \u2014 61 Duplicate Records",
+        "date": "2026-08-05",
+        "severity": "S1",
+        "root_cause": "Partial dataset import from incomplete Airtable pagination",
+        "resolution": "Full pagination, scored merge, certification",
+        "learning": "Never reason from partial data. Paginate to completion.",
         "status": "Resolved"
       }
     ]
+  },
+  "production_sender": {
+    "status": "healthy",
+    "senders": {
+      "nf_outreach": {
+        "account": "james@notforgotten.com.au",
+        "script": "ff1-test-send.py",
+        "token": "james_token.json",
+        "scope": "gmail.send+gmail.modify"
+      },
+      "white_label": {
+        "account": "atlas@notforgotten.com.au",
+        "script": "send-email.py",
+        "token": "google_token.json",
+        "scope": "gmail.modify"
+      }
+    },
+    "last_verified_send": {
+      "timestamp": "2026-08-05T09:29+09:30",
+      "gmail_message_id": "19fcf010f028b095",
+      "recipient": "info@sydneypaintingexperts.com.au",
+      "campaign": "Founder-to-Founder v1.0",
+      "stage": "Email 1",
+      "sender": "james@notforgotten.com.au"
+    },
+    "verification_stats": {
+      "total_verified": 127,
+      "total_failed": 0,
+      "success_rate": "100%"
+    },
+    "oauth_health": "ok"
+  },
+  "operational_status": {
+    "status": "NORMAL OPERATIONS",
+    "incident_status": "CLOSED \u2014 INC-2026-08-05-002",
+    "recovery_actions_outstanding": "NONE",
+    "active_campaigns": [
+      {
+        "name": "Founder-to-Founder v1.0 (FF1)",
+        "prospects": 16,
+        "stage": "Email 1 complete",
+        "next": "Email 2 \u2014 Mon 10 Aug"
+      }
+    ],
+    "email_verification": {
+      "total": 127,
+      "verified": 127,
+      "rate": "100%"
+    }
   }
 }
