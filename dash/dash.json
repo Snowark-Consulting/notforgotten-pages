@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 135,
+    "tasks_completed": 136,
     "recent": [
+      {
+        "date": "2026-08-05 06:44",
+        "task": "Command Centre refreshed \u2014 Wed 5 Aug 06:43 ACST morning update. Disk crisis fully resolved overnight (97%\u219239%, state.db 13GB\u219222MB). James ran status + hermes doctor. Engineering healthy (caution \u2014 cron bugs remain). Nicholas tender check-in today 9AM. FF1 Day 2. Score: 87 (+9).",
+        "category": "task"
+      },
       {
         "date": "2026-08-04 19:09",
         "task": "Headquarters refreshed \u2014 evening update. Disk critical at 97% (631MB), state.db 13GB. FTS rebuild recommended but unexecuted. FF1 reply window open (no replies yet). Score: 78 (-17). Engineering status: critical. Nicholas check-in tomorrow.",
@@ -135,11 +140,6 @@
         "date": "2026-08-02 14:40",
         "task": "Operational phase declared. Five directives: Knowledge Preservation, Headquarters as OS, Telegram Exception-Only, Continuous Improvement, Focus on Not Forgotten. Decision recorded.",
         "category": "milestone"
-      },
-      {
-        "date": "2026-08-02 14:20",
-        "task": "Nicholas Zappacosta tender check-in approved. Scheduled Wed Aug 5, 9AM ACST. From james@ to Dee + Leslie at QPaint.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-05T05:30:52.629954+09:30",
+  "last_updated": "2026-08-05T06:44:58.419815+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
