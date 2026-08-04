@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 133,
+    "tasks_completed": 134,
     "recent": [
+      {
+        "date": "2026-08-04 19:07",
+        "task": "HQ refresh \u2014 checking current state before update",
+        "category": "task"
+      },
       {
         "date": "2026-08-03 19:58",
         "task": "Foundation phase declared complete by James. Shift from build to execution. Atlas now measured by business outcomes: recovered revenue, conversations created, customers won, time saved, knowledge accumulated, better decisions. Decision recorded.",
@@ -135,11 +140,6 @@
         "date": "2026-08-02 14:05",
         "task": "QPaint Monday plan approved. 156 customers: 34 Bridge Email 2 (existing), 119 Email 1 (new), 3 Dineo Ndala Email 1. Nicholas individual handling. Send Mon 9:00-10:30 AM ACST.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-02 11:36",
-        "task": "Headquarters declared complete. Shift from building to living. Telegram now exception-only. Decision recorded: 2026-08-02-headquarters-complete.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-04T17:30:34.356952+09:30",
+  "last_updated": "2026-08-04T19:07:21.073395+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
