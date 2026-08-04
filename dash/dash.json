@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 141,
+    "tasks_completed": 142,
     "recent": [
+      {
+        "date": "2026-08-05 08:59",
+        "task": "Production Skill Certification COMPLETE. 19/19 production skills reviewed. 6 updated, 1 new (production-standards), 8 unchanged, 4 queued. INC-2026-08-05-002 fully closed. Normal Operations. Infrastructure phase complete \u2014 focus shifts to customers, conversations, learning, revenue.",
+        "category": "task"
+      },
       {
         "date": "2026-08-05 08:45",
         "task": "RECOVERY CERTIFIED: INC-2026-08-05-002 CLOSED. System: NORMAL OPERATIONS. Production Sender: HEALTHY. 122 emails recovered + 127 evidence records. 0 failures. 0 outstanding recovery actions. Email Verification Standard active. james@ = all NF outreach. Incident review complete. Learnings recorded. Trust Framework updated.",
@@ -135,11 +140,6 @@
         "date": "2026-08-02 17:59",
         "task": "Processed Nicholas Zappacosta (QBuild) reaction to QAS Beenleigh tender confirmation \u2014 customer engagement for QPaint",
         "category": "task"
-      },
-      {
-        "date": "2026-08-02 17:36",
-        "task": "Published updated CEO Brief for 2 August 2026. FF1 experiment approved, launches Monday. Pipeline: 100 prospects, 55 Campaign Complete, 36 New, 1 Won. Corrected Airtable data from earlier stale run.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-05T08:45:10.724086+09:30",
+  "last_updated": "2026-08-05T08:59:47.075568+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
