@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 147,
+    "tasks_completed": 148,
     "recent": [
+      {
+        "date": "2026-08-05 10:25",
+        "task": "QPaint: Chass Matters \u2014 lost to delayed follow-up. Sincere apology sent, owned the failure, committed to improvement. Gmail: 19fcf6b1cd4ce875. VERIFIED. BK-007: Honest acknowledgment when business falls short preserves trust.",
+        "category": "task"
+      },
       {
         "date": "2026-08-05 10:23",
         "task": "Customer Care Principles established: BK-005 (Third-party wait \u2014 remove burden), BK-006 (Lost job \u2260 lost customer \u2014 preserve relationship, thank honesty), BK-007 (Every reply leaves customer feeling better). These are now Not Forgotten-wide, not QPaint-specific. Discovered through real customer interactions today.",
@@ -135,11 +140,6 @@
         "date": "2026-08-03 19:36",
         "task": "Storage Health Policy active \u2014 four-tier system (Green/Amber/Red/Critical). Current: Amber (89%, stable). Explanatory reporting: why, trend, forecast, recommendation. Telegram escalation at Red/Critical. Cron: 506c5b3ae6bf (6h) + 48982944ea6e (alert).",
         "category": "task"
-      },
-      {
-        "date": "2026-08-03 19:32",
-        "task": "Log Retention Standard established. Tiered retention: routine >48h deleted, failures preserved 90 days, protected records never touched. Daily summaries at logs/daily-summaries/. Storage health monitoring every 6h. Cron: c68ae5970e89 (daily) + 506c5b3ae6bf (6h). Decision: 2026-08-03-log-retention-standard.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-05T10:23:04.575659+09:30",
+  "last_updated": "2026-08-05T10:25:49.961277+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
