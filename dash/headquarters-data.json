@@ -224,9 +224,9 @@
       },
       {
         "id": "BK-012",
-        "principle": "Intelligence Escalation Framework: Escalate information based on operational importance, not its existence. Level 1: Immediate Operational Escalation (action required). Level 2: Significant Business Intelligence (prompt notification — strategic). Level 3: Monthly Business Intelligence (aggregate trends). Every lost opportunity: Did we learn something today that we didn't know yesterday?",
-        "source": "Janis Tham / Civium QPaint loss, refined by James, Aug 2026",
-        "evidence": "Three-level escalation framework replaces binary forward/don't-forward. Learning question distinguishes signal from noise."
+        "principle": "Intelligence Escalation Framework: Escalate information based on operational importance. Level 1: Immediate (never disabled). Level 2: Same-day strategic. Level 3: Monthly aggregate. Per-client Intelligence Preferences configurable in Airtable. Learning question: Did we learn something today that we didn't know yesterday?",
+        "source": "Janis Tham / Civium QPaint loss, refined by James (three levels + client preferences), Aug 2026",
+        "evidence": "Three-level framework with per-client customisation. Client preferences may refine but never weaken. Level 1 never disabled."
       }
     ]
   },
