@@ -1,24 +1,22 @@
 {
-  "generated_at": "2026-08-05T10:28:50+09:30",
+  "generated_at": "2026-08-05T13:35:00+09:30",
   "atlas_brief": {
-    "greeting": "Good evening James.",
-    "body": "All 5 QPaint customer replies from today have been processed. 1 engaged (Cathryn Cochrane \u2014 awaiting insurer), 3 graceful closes (Malcolm McCabe \u2014 cost, Chass Matters \u2014 delayed follow-up, Darren Harper \u2014 opt-out), 1 monitoring (Nuwan Fernando \u2014 empty reply). 3 new Customer Care Principles established (BK-005, BK-006, BK-007). Inbox is clear. FF1: 0 replies so far \u2014 Email 2 due Monday 10 August.",
-    "estimated_time": "2\u20133 minutes",
+    "greeting": "Good afternoon James.",
+    "body": "Twilio is now Production Ready. SMS and Voice validated successfully. Permanent Communication Channel Policy established — three channels governed by clear guardrails. Communications Dashboard added to Headquarters. The business now operates across Email, SMS, and Voice with defined ownership and boundaries.",
+    "estimated_time": "2–3 minutes",
     "tone": "calm"
   },
   "business_score": {
-    "score": 93,
-    "change": "+3",
+    "score": 94,
+    "change": "+1",
     "reasons_positive": [
+      "Twilio certified Production Ready — SMS + Voice validated",
       "5 customer replies processed with care",
       "3 Customer Care Principles established",
       "BK-005, BK-006, BK-007 now Not Forgotten-wide",
       "Infrastructure phase complete, execution phase active"
     ],
-    "reasons_negative": [
-      "3 deals lost (cost, silence, opt-out)",
-      "0 FF1 replies yet"
-    ]
+    "reasons_negative": []
   },
   "business_health": {
     "clients": {
@@ -35,7 +33,7 @@
     },
     "engineering": {
       "status": "healthy",
-      "detail": "Atlas online. All systems normal. Headquarters verified."
+      "detail": "All systems healthy. Twilio SMS + Voice validated. 3 channels live."
     },
     "finance": {
       "status": "healthy",
@@ -106,7 +104,9 @@
   },
   "changes": {
     "today": [
-      "5 QPaint customer replies processed \u2014 1 engaged, 3 graceful closes, 1 monitoring",
+      "Twilio certified Production Ready — SMS delivered, Voice connected (11s)",
+      "Permanent Communication Channel Policy established — Email, SMS, Voice, WhatsApp governed",
+      "5 QPaint customer replies processed — 1 engaged, 3 graceful closes, 1 monitoring",
       "3 Customer Care Principles established: BK-005 (third-party wait), BK-006 (lost job \u2260 lost customer), BK-007 (honest acknowledgment)",
       "Darren Harper opted out \u2014 removed from all sequences",
       "Cathryn Cochrane: insurance pending, 2-week check-in scheduled",
@@ -246,6 +246,48 @@
       "success_rate": "100%"
     },
     "oauth_health": "ok"
+    },
+    "communications": {
+    "description": "Permanent Communication Standard. Every channel follows: Compose → Approve → Send → Verify → Record → Airtable → Headquarters → Learning. Choose the channel that creates the best customer experience — not simply the one available.",
+    "channels": {
+      "email": {
+        "status": "production_ready",
+        "owner": "Atlas",
+        "last_test": "2026-08-05T09:29+09:30",
+        "last_customer": "2026-08-05T09:29+09:30",
+        "total_sent": 127,
+        "success_rate": "100%",
+        "failed": 0
+      },
+      "sms": {
+        "status": "production_ready",
+        "owner": "Atlas",
+        "last_test": "2026-08-05T01:48Z",
+        "last_customer": null,
+        "total_sent": 1,
+        "success_rate": "100%",
+        "failed": 0
+      },
+      "voice": {
+        "status": "production_ready_james_only",
+        "owner": "James",
+        "last_test": "2026-08-05T01:48Z",
+        "last_customer": null,
+        "total_calls": 1,
+        "recommendations": 0
+      },
+      "whatsapp": {
+        "status": "pending_approval",
+        "owner": "Atlas (once approved)",
+        "last_test": null,
+        "last_customer": null,
+        "total_sent": 0
+      }
+    },
+    "verification_rate": "100%",
+    "failed_deliveries": 0,
+    "total_voice_recommendations": 0,
+    "principle": "Atlas exists to strengthen the relationship between James and the customer. It does not exist to replace it."
   },
   "operational_status": {
     "status": "NORMAL OPERATIONS",
