@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 150,
+    "tasks_completed": 151,
     "recent": [
+      {
+        "date": "2026-08-05 11:28",
+        "task": "Twilio certified Production Ready \u2014 SMS + Voice validated. Communication Channel Policy established (Email, SMS, Voice, WhatsApp governed). Communications Dashboard added to Headquarters.",
+        "category": "task"
+      },
       {
         "date": "2026-08-05 10:56",
         "task": "Operating principles codified: 3 daily questions, Morning Operations order, pattern detection mandate, quiet OS. INC-2026-08-05-002 fully closed. Infrastructure serves customers. Focus: conversations, learning, revenue.",
@@ -135,11 +140,6 @@
         "date": "2026-08-03 19:55",
         "task": "Business Knowledge section added to Headquarters. Three permanent principles from CvC + QPaint. Learning philosophy codified (how-notforgotten-learns.md). Experiment template updated with Three Questions + BK contribution. FF1 evidence standard established.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-03 19:50",
-        "task": "CvC experiment formally closed. Curiosity-led outreach permanently retired for painter acquisition (105 prospects, 0 meaningful replies). FF1 now primary acquisition hypothesis. Three questions answered: proved methodology works, disproved context hypothesis, changed outreach philosophy. Learning LL-20260804-005 recorded. Experiment INDEX updated.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-05T10:56:32.658159+09:30",
+  "last_updated": "2026-08-05T11:28:25.791157+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
