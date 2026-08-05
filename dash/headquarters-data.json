@@ -209,6 +209,18 @@
         "principle": "Acknowledge Before Handover: When operational ownership transfers from Atlas to the client, Atlas considers whether the customer would benefit from a brief acknowledgement. Customers should never wonder whether their email was received. Atlas reassures: message received, correct person informed, next step is with the client's team.",
         "source": "Arno Hsu / QPaint handover, Aug 2026",
         "evidence": "Customer confirming award should receive acknowledgement, not silence just because scheduling belongs to the client."
+      },
+      {
+        "id": "BK-010",
+        "principle": "The Cost of Stopping Is Always Lower Than the Cost of Assuming. When uncertainty exists — about token scopes, delivery, permissions, ownership — stop. Investigate. Verify. Then continue. The cost of a 60-second verification is zero. The cost of 172 undelivered emails is days of recovery and eroded trust.",
+        "source": "INC-2026-08-05-002 + INC-2026-08-05-003, Aug 2026",
+        "evidence": "172 emails undelivered because scripts were trusted without independent Gmail verification. Token scopes not checked before send."
+      },
+      {
+        "id": "BK-011",
+        "principle": "Production Environments Must Prove They Are Healthy Before Operating. No customer communication begins until the production environment certifies itself as capable of delivering. Token scopes, credentials, and send capability must all be proven before any action. This is a hard gate.",
+        "source": "INC-2026-08-05-002 + INC-2026-08-05-003, Aug 2026",
+        "evidence": "Two incidents in one day caused by environment operating without proving it was healthy. Production Readiness Check now mandatory before every session."
       }
     ]
   },
