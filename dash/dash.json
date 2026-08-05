@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 163,
+    "tasks_completed": 164,
     "recent": [
+      {
+        "date": "2026-08-05 18:54",
+        "task": "A/B test live: dev.notforgotten.com.au (A) vs dev.notforgotten.com.au/b (B). Belief Architecture v4 frozen. Validation plan finalised. Q1 litmus test: 'What do you think this company does?'",
+        "category": "task"
+      },
       {
         "date": "2026-08-05 18:40",
         "task": "Dev site v4 deployed to dev.notforgotten.com.au. 7-section belief chain: Awakening\u2192Insight\u2192Proof\u2192How\u2192Care\u2192Value\u2192Action. Ready for business owner validation.",
@@ -135,11 +140,6 @@
         "date": "2026-08-05 09:18",
         "task": "Business Knowledge BK-005: When customer waits on third party (insurer, strata, council), tell them you will check back. Remove the burden from them. QPaint won't forget. Cathryn Cochrane: insurance pending, 2-week follow-up scheduled Aug 19.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-05 09:17",
-        "task": "QPaint: Cathryn Cochrane replied (T3 Engaged). Quote with insurer. Atlas replied \u2014 no pressure, offered doc support, committed to 2-week check-in. Gmail: 19fcf2ce815e578a. VERIFIED. Next touchpoint: Aug 19.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-05T18:40:16.525514+09:30",
+  "last_updated": "2026-08-05T18:54:08.267269+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
