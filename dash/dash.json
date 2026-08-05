@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 146,
+    "tasks_completed": 147,
     "recent": [
+      {
+        "date": "2026-08-05 10:23",
+        "task": "Customer Care Principles established: BK-005 (Third-party wait \u2014 remove burden), BK-006 (Lost job \u2260 lost customer \u2014 preserve relationship, thank honesty), BK-007 (Every reply leaves customer feeling better). These are now Not Forgotten-wide, not QPaint-specific. Discovered through real customer interactions today.",
+        "category": "task"
+      },
       {
         "date": "2026-08-05 10:20",
         "task": "QPaint: Malcolm McCabe (UnitingCare) \u2014 Lost on cost. Graceful close sent. Previous client, positive about QPaint work. Gmail: 19fcf663df5a0189. VERIFIED. BK-006: Lost Job Not Lost Customer + Honest Feedback Principle.",
@@ -135,11 +140,6 @@
         "date": "2026-08-03 19:32",
         "task": "Log Retention Standard established. Tiered retention: routine >48h deleted, failures preserved 90 days, protected records never touched. Daily summaries at logs/daily-summaries/. Storage health monitoring every 6h. Cron: c68ae5970e89 (daily) + 506c5b3ae6bf (6h). Decision: 2026-08-03-log-retention-standard.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-03 19:23",
-        "task": "Disk pruned: 17,414 cron output files (>36h old) removed, pip cache purged, apt cache cleaned. Disk freed from 93% (1.5G) to 89% (2.2G). System outage risk resolved. Cron output cleanup should be added as recurring maintenance.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-05T10:20:29.161984+09:30",
+  "last_updated": "2026-08-05T10:23:04.575659+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
