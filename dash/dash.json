@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 145,
+    "tasks_completed": 146,
     "recent": [
+      {
+        "date": "2026-08-05 10:20",
+        "task": "QPaint: Malcolm McCabe (UnitingCare) \u2014 Lost on cost. Graceful close sent. Previous client, positive about QPaint work. Gmail: 19fcf663df5a0189. VERIFIED. BK-006: Lost Job Not Lost Customer + Honest Feedback Principle.",
+        "category": "task"
+      },
       {
         "date": "2026-08-05 09:18",
         "task": "Business Knowledge BK-005: When customer waits on third party (insurer, strata, council), tell them you will check back. Remove the burden from them. QPaint won't forget. Cathryn Cochrane: insurance pending, 2-week follow-up scheduled Aug 19.",
@@ -135,11 +140,6 @@
         "date": "2026-08-03 19:23",
         "task": "Disk pruned: 17,414 cron output files (>36h old) removed, pip cache purged, apt cache cleaned. Disk freed from 93% (1.5G) to 89% (2.2G). System outage risk resolved. Cron output cleanup should be added as recurring maintenance.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-03 19:15",
-        "task": "Command Centre refreshed \u2014 end-of-day update. Generated fresh headquarters-data.json covering Monday's events: FF1 launch, QPaint 156-wave, Governance Review. Pipeline: 200 prospects, 16 active. System health snapshot: disk 92%, dashboard cron erroring, campaign-intel-monitor path needs fix.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-05T09:30:56.179859+09:30",
+  "last_updated": "2026-08-05T10:20:29.161984+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
