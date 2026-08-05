@@ -221,6 +221,12 @@
         "principle": "Production Environments Must Prove They Are Healthy Before Operating. No customer communication begins until the production environment certifies itself as capable of delivering. Token scopes, credentials, and send capability must all be proven before any action. This is a hard gate.",
         "source": "INC-2026-08-05-002 + INC-2026-08-05-003, Aug 2026",
         "evidence": "Two incidents in one day caused by environment operating without proving it was healthy. Production Readiness Check now mandatory before every session."
+      },
+      {
+        "id": "BK-012",
+        "principle": "Intelligence Over Noise: Clients should receive information that helps them make better decisions, not every individual event. Operational actions are escalated immediately. Lost opportunities are aggregated into monthly Business Intelligence reports rather than forwarded individually. Exceptions: VIP, strategic, complaints, legal/reputational.",
+        "source": "Janis Tham / Civium QPaint loss, Aug 2026",
+        "evidence": "Lost deal notification. James directed: not every loss needs immediate client escalation. Aggregate into monthly intelligence."
       }
     ]
   },
