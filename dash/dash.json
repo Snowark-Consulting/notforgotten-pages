@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 160,
+    "tasks_completed": 161,
     "recent": [
+      {
+        "date": "2026-08-05 18:09",
+        "task": "ED-2026-08 Evidence Dossier opened. QPaint Revenue Recovery. Living document with Friday review cadence. Case studies now sourced from evidence dossiers.",
+        "category": "task"
+      },
       {
         "date": "2026-08-05 18:04",
         "task": "Evening HQ refresh. CS-2026-001 opened. QPaint Deal link active. V3 architecture designed. Score: 99. End of day.",
@@ -135,11 +140,6 @@
         "date": "2026-08-05 08:59",
         "task": "Production Skill Certification COMPLETE. 19/19 production skills reviewed. 6 updated, 1 new (production-standards), 8 unchanged, 4 queued. INC-2026-08-05-002 fully closed. Normal Operations. Infrastructure phase complete \u2014 focus shifts to customers, conversations, learning, revenue.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-05 08:45",
-        "task": "RECOVERY CERTIFIED: INC-2026-08-05-002 CLOSED. System: NORMAL OPERATIONS. Production Sender: HEALTHY. 122 emails recovered + 127 evidence records. 0 failures. 0 outstanding recovery actions. Email Verification Standard active. james@ = all NF outreach. Incident review complete. Learnings recorded. Trust Framework updated.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-05T18:04:15.891013+09:30",
+  "last_updated": "2026-08-05T18:09:08.435111+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
