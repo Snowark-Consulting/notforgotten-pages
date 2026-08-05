@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-05T12:49:07+09:30",
+  "generated_at": "2026-08-05T13:07:33+09:30",
   "atlas_brief": {
     "greeting": "Good afternoon James.",
-    "body": "Twilio is Production Ready. Communication Ownership established. Legacy Re-engagement Pilot live (3/3 verified). QPaint: 2 replies today \u2014 1 won (Arno Hsu, awaiting Tas scheduling), 1 lost (Kate Quinn, different quote). All systems healthy.",
+    "body": "\ud83d\udd34 PRODUCTION HALTED \u2014 atlas@ send blocked. INC-2026-08-05-003: atlas@ token lacks gmail.send scope. QPaint replies to Arno Hsu and Kate Quinn not delivered. Production Readiness Check established as permanent standard. james@ healthy. Awaiting token re-authorisation.",
     "estimated_time": "2\u20133 minutes",
     "tone": "calm"
   },
@@ -202,8 +202,18 @@
   },
   "production_incidents": {
     "description": "Every incident strengthens the operating system.",
-    "total": 2,
+    "total": 3,
     "recent": [
+      {
+        "id": "INC-2026-08-05-003",
+        "title": "atlas@ Lacked gmail.send \u2014 QPaint Replies Undelivered",
+        "date": "2026-08-05",
+        "severity": "S1",
+        "root_cause": "atlas@ token authorised for gmail.modify only. API silently accepted send requests without delivering.",
+        "resolution": "Production Readiness Check standard. Token re-authorisation pending.",
+        "learning": "Never trust send success. Verify token scopes before production. Independent delivery verification mandatory.",
+        "status": "Resolved \u2014 fix pending"
+      },
       {
         "id": "INC-2026-08-05-002",
         "title": "172 Production Emails Never Delivered",
@@ -300,8 +310,8 @@
     "principle": "Atlas exists to strengthen the relationship between James and the customer. It does not exist to replace it."
   },
   "operational_status": {
-    "status": "NORMAL OPERATIONS",
-    "incident_status": "CLOSED \u2014 INC-2026-08-05-002",
+    "status": "DEGRADED \u2014 atlas@ send blocked",
+    "incident_status": "ACTIVE \u2014 INC-2026-08-05-003 (atlas@ send), INC-2026-08-05-002 (CLOSED)",
     "recovery_actions_outstanding": "NONE",
     "active_campaigns": [
       {
