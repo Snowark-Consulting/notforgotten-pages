@@ -1,19 +1,20 @@
 {
-  "generated_at": "2026-08-05T17:17:00+09:30",
+  "generated_at": "2026-08-05T17:32:45+09:30",
   "atlas_brief": {
     "greeting": "Good evening James",
-    "body": "Arno Hsu is now Won in Airtable \u2014 Current Stage: Won, Recovery Status: Won. 4 Messages backfilled for complete audit trail. Permanent Communication Standard established. QPaint Pipeline audit complete: 144 records, 1 Won, pipeline clean. One schema gap identified: Messages table links to Prospects only, not QPaint Pipeline \u2014 needs a linked field.",
+    "body": "Reconciliation complete. 1,666 records audited across Gmail, Send Evidence, and Airtable. 4 stage corrections applied. 9 Messages backfilled. 5 Quotes migrated to QPaint workspace. Airtable is now the operational CRM. Two permanent decisions recorded tonight. Score: 99. Pipeline: 145 QPaint records, 410 Messages. All systems agree.",
     "estimated_time": "2\u20133 minutes",
     "tone": "calm"
   },
   "business_score": {
-    "score": 98,
+    "score": 99,
     "change": "+1",
     "reasons_positive": [
-      "First Won in QPaint Pipeline \u2014 Arno Hsu ($129,750)",
-      "4 Messages backfilled for complete audit trail",
+      "Airtable reconciled as operational CRM \u2014 4 stage corrections, 9 Messages, 5 Quotes migrated",
+      "First Won in QPaint Pipeline: Arno Hsu ($129,750)",
       "Permanent Communication Standard established",
-      "Won definition codified: customer commitment = won"
+      "Permanent Reconciliation Standard established",
+      "Quotes table migrated \u2014 0 data lost"
     ],
     "reasons_negative": []
   },
@@ -24,7 +25,7 @@
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "144 records. 1 Won (Arno Hsu, $129,750). 4 Messages backfilled. Pipeline clean."
+      "detail": "145 QPaint records. 1 Won. 8 Lost. 410 Messages. 5 Quotes migrated. Pipeline reconciled."
     },
     "outreach": {
       "status": "healthy",
@@ -46,27 +47,27 @@
   "waiting_for_james": [
     {
       "title": "Messages schema gap \u2014 add QPaint Pipeline link to Messages table",
-      "why": "Messages currently link to Prospects only. QPaint Pipeline records (like Arno Hsu) cannot have linked Messages. Needs a linked field or unified table.",
+      "why": "Messages link to Prospects only. QPaint Pipeline Messages cannot be linked. 13 unlinked QPaint Messages now exist.",
       "impact": "Medium",
       "impact_sort": 60,
       "estimated_time": "10 min",
-      "recommended_action": "Add linked record field from Messages to QPaint Pipeline, then link Arno's 4 messages"
+      "recommended_action": "Add linked record field from Messages to QPaint Pipeline"
     },
     {
       "title": "FF1 Email 2 \u2014 prepare drafts before Monday deadline",
-      "why": "16 FF1 prospects. Email 2 due Aug 10. No replies to Email 1 yet. Drafts should be ready for review before weekend.",
+      "why": "16 FF1 prospects. Email 2 due Aug 10. No replies to Email 1 yet.",
       "impact": "Medium",
       "impact_sort": 55,
       "estimated_time": "30 min",
       "recommended_action": "Draft Email 2 for all 16 prospects"
     },
     {
-      "title": "Nicholas Zappacosta tender check-in",
-      "why": "Most engaged QPaint customer. Tender paused. Logan Village confirmed Sep 2026.",
+      "title": "Weekly Communication Review (Friday Aug 7)",
+      "why": "First review. Cover reconciliation findings, Won deal, and new standards.",
       "impact": "Medium",
-      "impact_sort": 50,
-      "estimated_time": "5 min",
-      "recommended_action": "Draft tender check-in from james@"
+      "impact_sort": 45,
+      "estimated_time": "20 min",
+      "recommended_action": "Schedule for Friday"
     }
   ],
   "atlas_recommendation": {
@@ -103,6 +104,9 @@
   },
   "changes": {
     "today": [
+      "Airtable operational source of truth decision recorded. Permanent reconciliation workflow established.",
+      "Quotes table migrated to QPaint workspace. Carol Beardsall created. 5 duplicates resolved. 0 data lost.",
+      "Reconciliation complete: 1,666 records audited. 4 stage corrections (Danielle Gibney\u2192Lost, Margaret Luscombe\u2192Lost, Joy Ryan\u2192Awaiting Reply, Nuwan Fernando\u2192Awaiting Reply). 9 Messages backfilled.",
       "Arno Hsu marked Won in Airtable \u2014 Current Stage: Won, Recovery Status: Won. 4 Messages backfilled for permanent audit trail.",
       "Won stage added to QPaint Pipeline. Won definition codified: customer commitment = won, scheduling is operational.",
       "Permanent Communication Standard established \u2014 every communication in Gmail + Airtable Messages + Send Evidence.",
