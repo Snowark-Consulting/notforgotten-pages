@@ -1,60 +1,52 @@
 {
-  "generated_at": "2026-08-05T09:05:19+09:30",
+  "generated_at": "2026-08-05T10:28:50+09:30",
   "atlas_brief": {
     "greeting": "Good evening James.",
-    "body": "Normal Operations. Production systems healthy. 127 verified sends across 127 evidence records with 100% verification rate. 16 FF1 prospects active in Founder-to-Founder v1.0 \u2014 Email 2 due Monday 10 August. Awaiting inbox scan for replies.",
-    "estimated_time": "5\u201310 minutes",
+    "body": "All 5 QPaint customer replies from today have been processed. 1 engaged (Cathryn Cochrane \u2014 awaiting insurer), 3 graceful closes (Malcolm McCabe \u2014 cost, Chass Matters \u2014 delayed follow-up, Darren Harper \u2014 opt-out), 1 monitoring (Nuwan Fernando \u2014 empty reply). 3 new Customer Care Principles established (BK-005, BK-006, BK-007). Inbox is clear. FF1: 0 replies so far \u2014 Email 2 due Monday 10 August.",
+    "estimated_time": "2\u20133 minutes",
     "tone": "calm"
   },
   "business_score": {
-    "score": 92,
-    "change": "+2",
+    "score": 93,
+    "change": "+3",
     "reasons_positive": [
-      "Infrastructure phase complete",
-      "122 emails recovered, 100% verified",
-      "Production skills certified",
-      "Normal Operations restored"
+      "5 customer replies processed with care",
+      "3 Customer Care Principles established",
+      "BK-005, BK-006, BK-007 now Not Forgotten-wide",
+      "Infrastructure phase complete, execution phase active"
     ],
     "reasons_negative": [
-      "0 replies received yet from FF1 Wave 1",
-      "6 operational standards queued for implementation"
+      "3 deals lost (cost, silence, opt-out)",
+      "0 FF1 replies yet"
     ]
   },
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "QPaint: Nicholas Zappacosta engaged. 1 active client."
+      "detail": "QPaint: 5 replies processed today. 1 engaged (insurance pending)."
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "106 QPaint Email 1 verified. Stage 2 complete."
+      "detail": "106 QPaint Email 1 verified. 5 replies handled. 3 losses recorded."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "FF1 Wave 1: 16/16 verified. Day 0 = Aug 5. Email 2 due Aug 10."
+      "detail": "FF1 Wave 1: 16/16 verified. 0 replies. Email 2 due Mon 10 Aug."
     },
     "engineering": {
       "status": "healthy",
-      "detail": "Atlas online. All systems normal."
+      "detail": "Atlas online. All systems normal. Headquarters verified."
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint active client. No payment issues."
+      "detail": "QPaint active. No payment issues."
     },
     "atlas": {
       "status": "healthy",
-      "detail": "Memory: 98%. Production skills certified."
+      "detail": "Memory: 98%. 3 Customer Care Principles learned today."
     }
   },
   "waiting_for_james": [
-    {
-      "title": "Inbox scan \u2014 review any customer replies",
-      "why": "FF1 Wave 1 sent 16 emails yesterday. QPaint has 106 active contacts. Any reply needs a response.",
-      "impact": "High",
-      "impact_sort": 90,
-      "estimated_time": "10 min",
-      "recommended_action": "Review replies below, approve draft responses"
-    },
     {
       "title": "Nicholas Zappacosta \u2014 QAS Beenleigh tender check-in",
       "why": "Most engaged QPaint customer. Tender check-in paused during Operational Pause. Needs rescheduling.",
@@ -64,61 +56,74 @@
       "recommended_action": "Draft tender check-in from james@, review timing"
     },
     {
-      "title": "6 operational standards \u2014 implementation plan",
+      "title": "FF1 Email 2 \u2014 prepare drafts before Monday deadline",
+      "why": "16 FF1 prospects. Email 2 due Aug 10. No replies to Email 1 yet. Drafts should be ready for review before weekend.",
+      "impact": "Medium",
+      "impact_sort": 60,
+      "estimated_time": "30 min",
+      "recommended_action": "Draft Email 2 for all 16 prospects"
+    },
+    {
+      "title": "6 operational standards \u2014 prioritise implementation",
       "why": "Relationship Owner, Outbound Dashboard, Communication Timeline, QA, Business Learning, Weekly Review. Approved but not started.",
       "impact": "Medium",
       "impact_sort": 50,
       "estimated_time": "15 min",
-      "recommended_action": "Prioritise: Relationship Owner + Outbound Dashboard first"
+      "recommended_action": "Start with Relationship Owner field + Outbound Dashboard"
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Normal Operations. The infrastructure is complete. Now we listen to customers.",
+    "executive_summary": "Today proved the model. 5 real customer replies. 4 handled with care. 3 permanent principles discovered through real interactions. The system is working.",
     "priorities": [
       {
-        "action": "Scan inboxes for customer replies",
-        "why": "16 FF1 painters + 106 QPaint contacts. Any reply deserves a response within hours, not days.",
-        "expected_impact": "Reply rate tracking begins. First reply = first learning signal.",
-        "estimated_time": "10 min",
-        "confidence": "High"
-      },
-      {
-        "action": "Respond to any customer replies \u2014 one at a time",
-        "why": "Every reply is a learning opportunity. Handle each conversation with full context and James's approval.",
-        "expected_impact": "Builds trust with prospects. Every reply classified (T0-T5).",
-        "estimated_time": "5\u201315 min each",
-        "confidence": "High"
-      },
-      {
-        "action": "Prepare FF1 Email 2 drafts ahead of Monday deadline",
-        "why": "Email 2 goes out Aug 10. Drafts should be ready for review before the weekend.",
+        "action": "Prepare FF1 Email 2 drafts",
+        "why": "16 prospects. Due Monday. Drafts ready for review before weekend.",
         "expected_impact": "No last-minute drafting. Quality over speed.",
         "estimated_time": "30 min",
+        "confidence": "High"
+      },
+      {
+        "action": "Nicholas Zappacosta tender check-in",
+        "why": "Most engaged QPaint customer. Tender paused during Operational Pause.",
+        "expected_impact": "Protects active $145K+ deal relationship.",
+        "estimated_time": "5 min",
+        "confidence": "High"
+      },
+      {
+        "action": "Weekly Communication Review (first: Friday Aug 7)",
+        "why": "New permanent standard. First review should cover today's replies and learnings.",
+        "expected_impact": "Establishes rhythm. Captures learnings while fresh.",
+        "estimated_time": "20 min",
         "confidence": "Medium"
       }
     ],
     "can_wait": [
       "6 standards implementation",
-      "QPaint tender check-in",
-      "Weekly Communication Review (first one: Friday)"
+      "Nuwan Fernando monitoring",
+      "FF1 reply monitoring (no replies yet)"
     ],
-    "closing": "The platform is built. The recovery is complete. The skills are certified. Now we wait for customers to tell us what matters."
+    "closing": "We learned more from 5 real customer replies today than from 3 weeks of architecture. That is how Not Forgotten evolves now."
   },
   "changes": {
     "today": [
-      "Production Skill Certification complete \u2014 19/19 skills reviewed",
-      "production-standards skill created as single source of truth",
-      "Infrastructure phase formally closed",
-      "INC-2026-08-05-002 fully resolved \u2014 Normal Operations restored",
-      "End of Infrastructure Phase decision recorded"
+      "5 QPaint customer replies processed \u2014 1 engaged, 3 graceful closes, 1 monitoring",
+      "3 Customer Care Principles established: BK-005 (third-party wait), BK-006 (lost job \u2260 lost customer), BK-007 (honest acknowledgment)",
+      "Darren Harper opted out \u2014 removed from all sequences",
+      "Cathryn Cochrane: insurance pending, 2-week check-in scheduled",
+      "Malcolm McCabe: lost on cost, relationship preserved",
+      "Chass Matters: lost to delayed follow-up, failure honestly owned",
+      "BK-005/006/007 elevated to Not Forgotten-wide Customer Care Principles"
     ],
-    "yesterday": [],
+    "yesterday": [
+      "FF1 Wave 1 launched \u2014 16 painters, Founder-to-Founder v1.0"
+    ],
     "this_week": [
-      "FF1 Wave 1 launched \u2014 16 painters, Founder-to-Founder v1.0",
+      "FF1 Wave 1 launched \u2014 16 painters",
       "QPaint Stage 2 recovery complete \u2014 101 customers",
       "james@ established as permanent NF outreach sender",
-      "Email Verification Standard active across all production",
-      "172-emails incident fully recovered"
+      "172-emails incident fully recovered \u2014 INC-2026-08-05-002 closed",
+      "Infrastructure phase formally closed",
+      "Production Skill Certification complete"
     ]
   },
   "lessons_learned": {
@@ -139,31 +144,49 @@
     ]
   },
   "business_knowledge": {
-    "description": "Permanent business principles from completed experiments.",
+    "description": "Permanent business principles from completed experiments and customer interactions.",
     "principles": [
       {
         "id": "BK-001",
         "principle": "Painters do not respond meaningfully to curiosity-led outreach about quote follow-up.",
-        "source": "CvC Day 21 analysis, Jul-Aug 2026",
+        "source": "CvC Day 21, Jul-Aug 2026",
         "evidence": "0/105 meaningful replies across 3 campaigns"
       },
       {
         "id": "BK-002",
         "principle": "Trust and shared experience are stronger opening mechanisms than curiosity for trade business owners.",
         "source": "FF1 design, Aug 2026",
-        "evidence": "Curiosity-led = 0 replies. FF1 (founder-to-founder) launched as hypothesis."
+        "evidence": "Curiosity-led = 0 replies. FF1 launched as hypothesis."
       },
       {
         "id": "BK-003",
         "principle": "Customers do not buy because we follow up. They buy because they become more confident.",
         "source": "QPaint customer journey v1.0, Jul 2026",
-        "evidence": "5-stage journey designed around emotional progression, not email cadence."
+        "evidence": "5-stage journey designed around emotional progression."
       },
       {
         "id": "BK-004",
         "principle": "Never trust a green tick. Every claim of external effect must be independently verified.",
         "source": "INC-2026-08-05-002, Aug 2026",
-        "evidence": "172 emails reported as sent, 0 in Gmail Sent folder."
+        "evidence": "172 emails reported sent, 0 in Gmail Sent folder."
+      },
+      {
+        "id": "BK-005",
+        "principle": "When a customer is waiting on a third party (insurer, strata, council), remove the burden from them. Offer to check back after a reasonable period. The timeframe should reflect their circumstances.",
+        "source": "Cathryn Cochrane \u2014 QPaint, Aug 2026",
+        "evidence": "Customer stuck waiting on insurer. 2-week check-in offered. Customer appreciated the proactive support."
+      },
+      {
+        "id": "BK-006",
+        "principle": "A lost job is not necessarily a lost customer. Never argue or become defensive. Thank them for honest feedback. Preserve the relationship. Leave the door genuinely open. Customers who explain why they chose another company are helping us improve.",
+        "source": "Malcolm McCabe \u2014 QPaint, Aug 2026",
+        "evidence": "Previous client lost on cost. Graceful close preserved relationship. Positive about QPaint work."
+      },
+      {
+        "id": "BK-007",
+        "principle": "When the business has genuinely let a customer down, acknowledge it honestly. A sincere apology, ownership of the mistake, and commitment to improve preserves trust far better than excuses or silence.",
+        "source": "Chass Matters \u2014 QPaint, Aug 2026",
+        "evidence": "Customer lost to delayed follow-up. Honest apology and commitment to improve. Customer left with goodwill."
       }
     ]
   },
