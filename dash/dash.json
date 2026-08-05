@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 164,
+    "tasks_completed": 165,
     "recent": [
+      {
+        "date": "2026-08-05 19:02",
+        "task": "Website v4 deployed to production. Belief Architecture live at notforgotten.com.au. 18/18 verification checks passed. Variant A. Validation continues on live site.",
+        "category": "task"
+      },
       {
         "date": "2026-08-05 18:54",
         "task": "A/B test live: dev.notforgotten.com.au (A) vs dev.notforgotten.com.au/b (B). Belief Architecture v4 frozen. Validation plan finalised. Q1 litmus test: 'What do you think this company does?'",
@@ -135,11 +140,6 @@
         "date": "2026-08-05 10:20",
         "task": "QPaint: Malcolm McCabe (UnitingCare) \u2014 Lost on cost. Graceful close sent. Previous client, positive about QPaint work. Gmail: 19fcf663df5a0189. VERIFIED. BK-006: Lost Job Not Lost Customer + Honest Feedback Principle.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-05 09:18",
-        "task": "Business Knowledge BK-005: When customer waits on third party (insurer, strata, council), tell them you will check back. Remove the burden from them. QPaint won't forget. Cathryn Cochrane: insurance pending, 2-week follow-up scheduled Aug 19.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-05T18:54:08.267269+09:30",
+  "last_updated": "2026-08-05T19:02:58.610391+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
