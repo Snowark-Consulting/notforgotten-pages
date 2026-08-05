@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 159,
+    "tasks_completed": 160,
     "recent": [
+      {
+        "date": "2026-08-05 18:04",
+        "task": "Evening HQ refresh. CS-2026-001 opened. QPaint Deal link active. V3 architecture designed. Score: 99. End of day.",
+        "category": "task"
+      },
       {
         "date": "2026-08-05 17:38",
         "task": "BK-013: Reality Always Wins. Hierarchy of Truth established. Continuous reconciliation now permanent operating standard.",
@@ -135,11 +140,6 @@
         "date": "2026-08-05 08:45",
         "task": "RECOVERY CERTIFIED: INC-2026-08-05-002 CLOSED. System: NORMAL OPERATIONS. Production Sender: HEALTHY. 122 emails recovered + 127 evidence records. 0 failures. 0 outstanding recovery actions. Email Verification Standard active. james@ = all NF outreach. Incident review complete. Learnings recorded. Trust Framework updated.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-05 08:44",
-        "task": "INCIDENT CLOSED: INC-2026-08-05-002 fully resolved. 122 emails recovered (106 QPaint + 16 FF1). 100% verified. Production sender healthy. Email Verification Standard active. Normal Operations restored. Incident review: knowledge/incident-reviews/INC-2026-08-05-002.md",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-05T17:38:53.890220+09:30",
+  "last_updated": "2026-08-05T18:04:15.891013+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
