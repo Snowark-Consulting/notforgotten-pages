@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-05T21:24:02.769309+09:30",
+  "last_updated": "2026-08-05T21:30:27.566018+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
@@ -344,22 +344,22 @@
       "Painter": 19
     },
     "messages": {
-      "outbound_total": 193,
-      "inbound_total": 7,
+      "outbound_total": 191,
+      "inbound_total": 9,
       "total": 200,
-      "reply_rate": 3.6,
+      "reply_rate": 4.7,
       "last_7_days": {
-        "outbound": 10,
-        "inbound": 5
+        "outbound": 13,
+        "inbound": 7
       }
     },
     "opens": {
       "deliveries": 43,
       "prospects_opened": 58,
-      "total_opens": 239,
+      "total_opens": 240,
       "avg_opens": 4.1
     },
-    "last_refreshed": "2026-08-05T10:00:13.560997+00:00"
+    "last_refreshed": "2026-08-05T12:00:27.564843+00:00"
   },
   "decisions": {
     "total": 42,
