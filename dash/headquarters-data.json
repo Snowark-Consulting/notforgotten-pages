@@ -2,7 +2,7 @@
   "generated_at": "2026-08-05T13:07:33+09:30",
   "atlas_brief": {
     "greeting": "Good afternoon James.",
-    "body": "\ud83d\udd34 PRODUCTION HALTED \u2014 atlas@ send blocked. INC-2026-08-05-003: atlas@ token lacks gmail.send scope. QPaint replies to Arno Hsu and Kate Quinn not delivered. Production Readiness Check established as permanent standard. james@ healthy. Awaiting token re-authorisation.",
+    "body": "🟡 PRODUCTION DEGRADED — quotes@ send blocked pending gmail.send re-authorisation. atlas@: Production Ready (certified gmail.send + gmail.modify). james@: Production Ready. INC-2026-08-05-002 CLOSED. INC-2026-08-05-003 RESOLVED (atlas@ re-authorised). Production Readiness Check, Silent Self-Check, and Confidence Score now permanent production law.",
     "estimated_time": "2\u20133 minutes",
     "tone": "calm"
   },
@@ -234,9 +234,9 @@
         "date": "2026-08-05",
         "severity": "S1",
         "root_cause": "atlas@ token authorised for gmail.modify only. API silently accepted send requests without delivering.",
-        "resolution": "Production Readiness Check standard. Token re-authorisation pending.",
+        "resolution": "Production Readiness Check standard. Token re-authorised — atlas@ now certified with gmail.send + gmail.modify. Verified via independent Gmail Sent delivery test.",
         "learning": "Never trust send success. Verify token scopes before production. Independent delivery verification mandatory.",
-        "status": "Resolved \u2014 fix pending"
+        "status": "Resolved"
       },
       {
         "id": "INC-2026-08-05-002",
@@ -334,8 +334,8 @@
     "principle": "Atlas exists to strengthen the relationship between James and the customer. It does not exist to replace it."
   },
   "operational_status": {
-    "status": "DEGRADED \u2014 atlas@ send blocked",
-    "incident_status": "ACTIVE \u2014 INC-2026-08-05-003 (atlas@ send), INC-2026-08-05-002 (CLOSED)",
+    "status": "DEGRADED — quotes@ send blocked (gmail.send pending)",
+    "incident_status": "INC-2026-08-05-003 RESOLVED (atlas@ re-authorised). INC-2026-08-05-002 CLOSED. quotes@ pending re-auth.",
     "recovery_actions_outstanding": "NONE",
     "active_campaigns": [
       {
