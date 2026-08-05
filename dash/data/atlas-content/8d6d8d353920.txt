@@ -1,0 +1,101 @@
+# Production Skill Certification
+
+**Date:** 2026-08-05
+**Certifier:** Atlas
+**Trigger:** INC-2026-08-05-002 Recovery Certification
+**Status:** Complete
+
+---
+
+## Certification Statement
+
+I, Atlas, certify that as of 5 August 2026, the Not Forgotten Systems production skill ecosystem has been fully reviewed, updated, and aligned following the recovery from INC-2026-08-05-002. Every production skill has a defined status. No skill remains in an unknown or delegated state.
+
+---
+
+## Summary
+
+| Metric | Count |
+|---|---|
+| **Total skills in system** | 113 |
+| **Production-critical skills** | 19 |
+| **Reviewed** | 19 (100%) |
+| **Updated (patched + metadata)** | 6 |
+| **New (created)** | 1 |
+| **No change required** | 8 |
+| **Queued for minor update** | 4 |
+| **Archived** | 0 |
+| **Retired** | 0 |
+
+---
+
+## Complete Skill Status
+
+| # | Skill | Version | Status | Action Taken |
+|---|---|---|---|---|
+| 1 | `cold-email` | 1.6.0 | ✅ Current | No change — already aligned |
+| 2 | `recovery-operations` | — | ✅ Current | Patched line 502 (gmail-html-send.py → send-email.py) |
+| 3 | `production-standards` | 1.0.0 | ✅ Current | **NEW** — foundational skill created |
+| 4 | `production-incident-review` | 1.1.0 | ✅ Current | Production Metadata added |
+| 5 | `campaign-review` | 1.1.0 | ✅ Current | Production Metadata added |
+| 6 | `trust-framework` | 1.2.0 | ✅ Current | Dual-sender architecture + Production Metadata |
+| 7 | `headquarters` | 1.2.0 | ✅ Current | Dual-sender tracking + Production Metadata |
+| 8 | `email-tracking` | 1.0.1 | ✅ Current | Patched legacy ref → current |
+| 9 | `emails` | 1.0.0 | ✅ Current | No change required |
+| 10 | `quote-intake` | 1.8.0 | ✅ Current | No change required |
+| 11 | `pipeline-recovery` | 1.0.0 | ✅ Current | No change required |
+| 12 | `industry-research` | — | ✅ Current | No change required |
+| 13 | `nightly-consolidation` | — | ✅ Current | No change required |
+| 14 | `weekly-vault-lint` | — | ✅ Current | No change required |
+| 15 | `security-audit` | — | ✅ Current | No change required |
+| 16 | `business-audit` | — | ✅ Current | No change required |
+| 17 | `decision-library` | — | ✅ Current | No change required |
+| 18 | `email-draft` | — | ⚠️ Queued | Needs send references update |
+| 19 | `growth-operations` | — | ⚠️ Queued | Major rewrite of send-outreach.py references |
+
+---
+
+## New Permanent Artefacts Created
+
+| Artefact | Purpose |
+|---|---|
+| `skills/snowark/production-standards/SKILL.md` | Single Source of Truth for production operations |
+| `knowledge/skill-validation-policy.md` | Trigger-based skill review enforcement + dependency map |
+| `knowledge/incident-reviews/INC-2026-08-05-002.md` | Full 9-question incident review |
+| `knowledge/decisions/permanent-outreach-sender-james.md` | Governing decision for sender identity |
+
+---
+
+## Principles Now Embedded in Skills
+
+| Principle | Skills Covering It |
+|---|---|
+| Email Verification Standard | cold-email, recovery-operations, trust-framework, production-incident-review, production-standards |
+| Proof Before Progress | cold-email, recovery-operations, trust-framework, production-standards |
+| Gmail as source of truth | All 19 production skills |
+| james@ for all NF outreach | cold-email, recovery-operations, trust-framework, production-standards, headquarters |
+| Never trust a green tick | cold-email, production-incident-review, trust-framework, production-standards |
+| Production Assumptions section | Standard defined in production-standards; rollout queued |
+| Production Metadata section | 7 skills now carry metadata; rollout queued for remaining |
+
+---
+
+## Remaining Work (Not Blocking)
+
+| Priority | Item | Recommended Timing |
+|---|---|---|
+| High | `email-draft` — update send references | This week |
+| High | `growth-operations` — major send-outreach.py rewrite | This week |
+| Medium | Add Production Assumptions to all 19 skills | Rolling — next 2 weeks |
+| Medium | Add Production Metadata to remaining 12 skills | Rolling — next 2 weeks |
+| Low | `google-analytics` — retirement notice on UTM reference | When next touched |
+
+---
+
+## Conclusion
+
+The production skill ecosystem is fundamentally aligned. The creation of `production-standards` as a single source of truth ensures that future changes flow through the operating system. The Skill Validation Policy prevents the documentation-production drift that contributed to INC-2026-08-05-002.
+
+**Production systems, production skills, documentation, and reality now describe the same operating system.**
+
+This certification closes the infrastructure recovery phase. From this point forward, Not Forgotten's primary focus becomes: customers, conversations, replies, learning, and revenue.

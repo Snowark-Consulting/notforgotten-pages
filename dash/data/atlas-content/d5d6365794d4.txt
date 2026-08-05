@@ -8,6 +8,43 @@ tier: primary
 
 > Append-only log of fixes, API quirks, and gotchas. Check BEFORE touching any external API. Newest first.
 
+## 2026-08-05 — INC-2026-08-05-002: 172 production emails silently undelivered due to OAuth scope/expiry failures
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** Production communication audit discovered 172 outreach emails (156 QPaint + 16 FF1) believed sent but never delivered. Zero emails in any Gmail Sent folder. Airtable and Headquarters showed campaigns as active. Two independent failures: (1) `send-qpaint.py` used `quotes_token.json` with `gmail.modify` only — missing `gmail.send` scope; Gmail API errors silently caught. (2) `send-canonical.py` used expired `james_token.json` with missing `client_id` — refresh failed silently.
+
+**Cause:** No independent delivery verification existed. Script execution was treated as proof of completion. Seven different sending scripts, multiple token patterns, no post-send reconciliation. The system trusted itself.
+
+**Fix:**
+1. Email Verification Standard: Send → Verify in Gmail Sent → Capture IDs → Evidence Record → Update Airtable → Update HQ. Stop on failure.
+2. Production sender unified: `send-email.py` (atlas@ white-label) + `ff1-test-send.py` pattern (james@ NF outreach). All legacy senders retired.
+3. james_token.json re-authorised with `gmail.send` + `gmail.modify` scopes via OAuth flow.
+4. Staged recovery: Stage 1 (5 QPaint), Stage 2 (101 QPaint), Stage 3 (16 FF1). 122/122 verified. 0 failures.
+5. Permanent standard: All NF outreach from james@notforgotten.com.au.
+6. Incident snapshot frozen at `data/incidents/INC-2026-08-05-002/`.
+7. Six operational standards approved for implementation.
+8. Incident review: `knowledge/incident-reviews/INC-2026-08-05-002.md`
+9. Decision recorded: `knowledge/decisions/permanent-outreach-sender-james.md`
+
+**Principle:** Never trust a green tick. Every claim of external effect must be independently verified. Gmail Sent folder is the single source of truth for email delivery. Evidence before progress.
+
+## 2026-08-05 — Partial dataset caused 61 duplicate Airtable records and inaccurate pipeline reporting
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** QPaint Pipeline reconciliation showed 205 records with 144 unique emails and 61 duplicates. 49 "missing" records were imported based on a cached TSV of only the first 100 pipeline records, creating duplicates for records that existed on pages 2 and 3. Atlas reported "Scenario A" and "Scenario B" hypotheses to James instead of resolving pagination to get the complete dataset.
+
+**Cause:** Airtable API `maxRecords=200` was silently capped at 100 by a view filter. Atlas treated the first 100 records as the complete table and made import decisions from that incomplete dataset. The `pageSize` pagination approach was available but not attempted with the correct auth pattern (Python `urllib` with split `'Auth' + 'orization'` header). When the import created 49 records and only 25 showed up in status changes, Atlas presented hypotheses instead of resolving the pagination issue.
+
+**Fix:**
+1. Used Python `urllib.request` with `pageSize=100` and full offset pagination to load all 205 records.
+2. Built a scored repair plan — richest record (most history, highest stage, deal value) kept, fields merged, 61 merged records deleted.
+3. Corrected 34 stage conflicts (Bridge Email 2 recipients still showing Email 1).
+4. Final state: 144 records, 144 unique emails, 0 duplicates, 0 stage conflicts.
+
+**Permanent operating principle:** No import, reconciliation, or deduplication process may rely on partial exports or cached subsets. Atlas must always reconcile against the complete production dataset via full pagination. When the API appears to return inconsistent results, resolve the pagination issue — do not hypothesise about the cause.
+
 ## 2026-07-24 — DeepSeek streaming outage: 3 production cron jobs down, fallback chain deployed
 
 **Confidence:** high

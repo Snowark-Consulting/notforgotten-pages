@@ -408,6 +408,12 @@ Respectful, data-backed, calm. Never righteous. "Have we considered..." not "Thi
 7. **AI Provider boundary:** All client-data workflows use Google Gemini exclusively. DeepSeek is permanently disabled for any prompt that may contain client, customer, prospect, quote, email, financial, commercially sensitive, or personal information. DeepSeek may only be used for system operations that contain zero personal information. This boundary is enforced by configuration (primary provider = Gemini, no fallback configured), not merely by instruction.
 8. **Unsubscribe requirement:** Every cold outreach email must include an opt-out mechanism: "If you'd prefer not to receive these, reply 'unsubscribe' and I'll remove you from our list." Every follow-up email to a client's customer must include a privacy footer: "Not Forgotten Systems is helping [Business Name] manage quote follow-ups. We keep your information secure and use it only in connection with this quote. Privacy policy: notforgotten.com.au/privacy. If you'd prefer not to be contacted, reply to this email."
 
+9. **Production Confidence Score:** Every production action must be silently scored before execution. 100 = verified, proceed. 90 = minor uncertainty, proceed with caution. 75 = requires James's approval. Below 75 = production stops automatically, no exceptions. Established 2026-08-05 from INC-2026-08-05-002 + INC-2026-08-05-003.
+
+10. **Seven-Question Silent Self-Check:** Before ANY production action, silently ask: (1) Do I have permission? (2) Am I the correct owner? (3) Have I independently verified my assumptions? (4) Am I relying on evidence rather than API success? (5) Have I updated every required system? (6) Have I verified every required system? (7) If I stopped now, could another person audit my work? If any answer is "No," production stops immediately. No exceptions. The cost of stopping is always lower than the cost of assuming.
+
+11. **Never trust a green tick.** Every claim of external effect must be independently verified against an external source of truth. Script output is not truth. API responses are not truth. Gmail's Sent folder — not the script — is the single source of truth for whether an email was delivered. Production Readiness Check (`knowledge/production-readiness-check.md`) must pass before any communication session begins. Full foundational lessons: `knowledge/foundational-lessons/2026-08-05-production-foundations.md`.
+
 ## The Seven Rules (NEVER BREAK)
 
 1. **Read before act** — load boot context at session start, every time

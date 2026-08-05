@@ -543,6 +543,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decisions_2026_08_05_operational_handover_standard",
+      "label": "Decisions / Operational Handover Standard",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-05-operational-handover-standard.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "495736aff3aa",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decisions_index",
       "label": "Decisions / Index",
       "file_type": "doc",
@@ -653,6 +664,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_foundational_lessons_2026_08_05_production_foundations",
+      "label": "Production Foundations",
+      "file_type": "doc",
+      "source_file": "knowledge/foundational-lessons/2026-08-05-production-foundations.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "85140642e0c2",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_future_capabilities",
       "label": "Future Capabilities",
       "file_type": "doc",
@@ -693,6 +715,17 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "934fdc0bf884",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_intelligence_escalation_framework",
+      "label": "Intelligence Escalation Framework",
+      "file_type": "doc",
+      "source_file": "knowledge/intelligence-escalation-framework.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "95d54b2de659",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -818,6 +851,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_operational_handover_standard",
+      "label": "Knowledge / Operational Handover Standard",
+      "file_type": "doc",
+      "source_file": "knowledge/operational-handover-standard.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "b57a1f02ca29",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_operational_investigation_standard",
       "label": "Operational Investigation Standard",
       "file_type": "doc",
@@ -914,6 +958,17 @@
       "community_name": "Knowledge",
       "content_hash": "33e2000d2a76",
       "val": 12.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_production_readiness_check",
+      "label": "Production Readiness Check",
+      "file_type": "doc",
+      "source_file": "knowledge/production-readiness-check.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "28e2f25e37f9",
+      "val": 6.0,
       "color": "#a78bfa"
     },
     {
@@ -2093,6 +2148,41 @@
     {
       "source": "agent_registry",
       "target": "learnings_ll_20260804_005",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_intelligence_escalation_framework",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_operational_handover_standard",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_05_operational_handover_standard",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_foundational_lessons_2026_08_05_production_foundations",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_production_readiness_check",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

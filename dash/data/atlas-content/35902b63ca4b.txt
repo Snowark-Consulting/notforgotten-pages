@@ -1,0 +1,166 @@
+# Decision: Airtable as Operational Source of Truth
+
+**Slug:** `airtable-operational-source-of-truth`
+**Status:** Made (Updated with Hierarchy of Truth — 5 Aug 2026)
+**Date:** 2026-08-05
+**Author:** James Hardstaff
+**Category:** Operations / Data Integrity
+
+---
+
+## Hierarchy of Truth
+
+Each system has one responsibility. No system should attempt to replace another. They continuously reconcile.
+
+| System | Responsibility | Question It Answers |
+|---|---|---|
+| **Gmail** | Communication Source of Truth | What was actually sent and received? |
+| **Send Evidence** | Production Source of Truth | Can we independently prove delivery? |
+| **Airtable** | Operational Source of Truth | What is the current state of every customer relationship? |
+| **Headquarters** | Executive Source of Truth | What matters right now? |
+
+---
+
+## BK-013 — Reality Always Wins
+
+The purpose of Airtable is not to record activity. The purpose of Airtable is to represent reality.
+
+Every record should answer one question:
+
+*"If James opened this record without opening Gmail, would he understand the complete state of the customer relationship?"*
+
+If the answer is no, the CRM is incomplete.
+
+A CRM that is almost accurate is unreliable. A CRM that is continuously reconciled becomes trusted. Trust is one of Not Forgotten's competitive advantages. Protect it.
+
+---
+
+## Continuous Reconciliation
+
+Every morning:
+1. Read all inboxes
+2. Classify every communication
+3. Respond where appropriate
+4. Verify every send
+5. Update Airtable
+6. Update Headquarters
+7. Run a reconciliation audit
+
+Reconciliation is part of the operating day — not a response to a request.
+
+---
+
+## Reality Audit
+
+Before certifying any reconciliation complete:
+
+- Does Gmail agree?
+- Does Airtable agree?
+- Does Send Evidence agree?
+- Does Headquarters agree?
+
+If any answer is "No", the work is not complete.
+
+---
+
+## Permanent Reconciliation Workflow
+
+```
+Receive → Analyse → Respond (if required) → Verify → Evidence → Airtable → Headquarters → Reconciliation Check
+```
+
+---
+
+## Messages Standard
+
+Every real customer interaction must have a Messages record containing:
+
+- Date & Time
+- Direction (Inbound / Outbound)
+- Channel (Email / SMS / WhatsApp)
+- Sender
+- Recipient
+- Subject
+- Summary
+- Gmail Message ID (where applicable)
+- Gmail Thread ID
+- Verification Status
+- Customer
+- Deal
+- Outcome
+
+Messages are the complete relationship history.
+
+---
+
+## Morning Reconciliation Audit
+
+Every morning, after scanning inboxes, Atlas must perform an Airtable Reconciliation Audit comparing:
+
+- Gmail ↔ Airtable
+- Airtable ↔ Messages
+- Messages ↔ Send Evidence
+- Send Evidence ↔ Headquarters
+
+Any mismatch must be reported immediately.
+
+---
+
+## Multi-Client Architecture
+
+Not Forgotten should think: **One platform, multiple client workspaces.**
+
+Each client owns:
+- Pipeline
+- Messages
+- Business Intelligence
+- Customer Timeline
+- Intelligence Preferences
+
+Headquarters provides the consolidated executive view across all clients.
+
+---
+
+## Implementation (5 Aug 2026)
+
+### Stage Corrections
+- Danielle Gibney → Lost (went with another provider)
+- Margaret Luscombe → Lost (engaged another company)
+- Joy Ryan → Awaiting Reply (requested separate quotes)
+- Nuwan Fernando → Awaiting Reply (committee considering)
+
+### Messages Backfill
+- 9 Messages created across 4 customer conversations
+- All include Gmail ID, Thread ID, direction, and verification status
+
+### Quotes Migration
+- 5 Quotes records migrated to QPaint Pipeline
+- Carol Beardsall created in QPaint (was missing)
+- 4 existing QPaint records enriched with Scope Summary
+- 5 Quotes records deleted (duplicates resolved)
+- 0 data lost
+
+### Reconciliation
+- 1,666 records audited (Gmail, Evidence, Airtable)
+- 4 stage corrections applied
+- 9 Messages created
+- 5 Quotes migrated
+- 0 remaining inconsistencies in active records
+
+---
+
+## Related
+
+- Permanent Communication Standard: `knowledge/decisions/2026-08-05-permanent-communication-standard.md`
+- QPaint Pipeline: 145 records (144 + Carol Beardsall)
+- Messages: now 410 records (+9)
+
+## Atlas's Challenge
+
+None. This decision strengthens data integrity and aligns with the Trust Framework principle of evidence before opinion.
+
+---
+
+## Review
+
+**Review date:** 2026-11-05

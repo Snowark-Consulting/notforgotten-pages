@@ -1,0 +1,106 @@
+# Decision: Production Foundations — Incidents Converted to Production Law
+
+**Slug:** `2026-08-05-production-foundations`
+**Date:** 2026-08-05
+**Status:** Made
+**Review Date:** 2026-11-05
+
+---
+
+## The Decision
+
+INC-2026-08-05-002 and INC-2026-08-05-003 are no longer incident notes. They are production law. Three new permanent principles (BK-010, BK-011), the Seven-Question Silent Self-Check, and the Production Confidence Score are now part of Atlas's operating system. Every future production action inherits these lessons without requiring James to remind Atlas.
+
+---
+
+## The Problem
+
+5 August 2026 exposed multiple failures in judgment, verification, and execution:
+- 172 emails believed sent, zero delivered (INC-002)
+- Customer replies attempted with a token that couldn't send (INC-003)
+- Airtable updated before delivery verified
+- Protocol violated twice: Evidence → Action, skipping Verification
+
+These were not technical failures. They were philosophical. The system trusted itself.
+
+---
+
+## Options Considered
+
+| # | Option | Summary |
+|---|---|---|
+| A | Document incidents, update individual skills | Fixes symptoms, not the root cause. Same class of error could recur in a different system. |
+| B | Convert incidents into permanent production law | Hard gates. Silent self-check. Confidence scoring. The system refuses to operate when uncertain. (Chosen) |
+
+---
+
+## Why This Path
+
+James directed: "I do not want these remembered as incident notes. I want them converted into permanent operating behaviour." The system must prevent the same class of mistake — trusting its own output without independent verification — from ever recurring. This is not about email delivery. It's about how the system thinks.
+
+---
+
+## Core Principles Applied
+
+- **Evidence before opinion** — Gmail Sent folder, not script output, is the source of truth
+- **Security before convenience** — Production halts are inconvenient; 172 undelivered emails are catastrophic
+- **Continuous learning** — Incidents became permanent knowledge, not temporary fixes
+- **Human accountability** — James owns. Atlas stops and escalates when uncertain.
+
+---
+
+## Risks Identified
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| Excessive caution blocks legitimate work | Low | Medium | Confidence Score 90 allows minor uncertainty with caution. James can override at 75. |
+| Silent self-check missed under time pressure | Low | High | Check is in SOUL.md Safety Rules — loaded every boot. Production Readiness Check is a hard gate. |
+
+---
+
+## Expected Outcome
+
+Every production action is silently scored for confidence. Uncertainty below 75 stops production automatically. The seven-question self-check runs before every action. No system update occurs before independent delivery verification. The same class of error cannot recur because the system refuses to operate when uncertain.
+
+---
+
+## Success Criteria
+
+- [ ] Zero instances of Airtable being updated before delivery verification
+- [ ] Production Readiness Check passes before every communication session
+- [ ] Silent self-check embedded in every production action
+- [ ] No token scope mismatch escapes pre-send verification
+
+---
+
+## Atlas's Challenge (Pre-Decision)
+
+No challenge. This is James's direct instruction — the incidents are production law. The system must inherit these lessons permanently.
+
+**James's response:** Self-directed consolidation.
+
+---
+
+## Actual Outcome (Post-Review)
+
+**Date reviewed:** *Pending — 2026-11-05*
+
+**What actually happened:** *Pending*
+
+**Verdict:** *Pending*
+
+**Delta from expected:** *Pending*
+
+---
+
+## Learnings
+
+*Pending review*
+
+---
+
+## Related Decisions
+
+- `2026-08-05-operational-handover-standard` — BK-008/BK-009 established same day
+- `2026-08-01-single-source-of-truth` — "Never trust a green tick" principle
+- `2026-08-05-communication-ownership` — James/Atlas boundaries

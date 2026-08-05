@@ -1,0 +1,102 @@
+# Decision: Operational Handover Standard
+
+**Slug:** `2026-08-05-operational-handover-standard`
+**Date:** 2026-08-05
+**Status:** Made
+**Review Date:** 2026-10-05
+
+---
+
+## The Decision
+
+Atlas operates under a permanent Operational Handover Standard: "Who owns the next action?" replaces "Should I reply?" as the first question for every customer reply. Atlas never takes ownership of a client's operational responsibilities (scheduling, quoting, pricing, site visits, job commencement, technical advice, painting work). However, operational ownership and customer acknowledgement are separate responsibilities — Atlas should always consider whether a brief acknowledgement would improve the customer's experience during handover. Three Operating Models govern Atlas's visibility: Invisible Infrastructure, Customer Care Representative, and Hybrid.
+
+---
+
+## The Problem
+
+An earlier learning review concluded "Atlas should never reply to a won customer." James identified this as too narrow. The real principle is about operational ownership boundaries — not about whether Atlas can or cannot reply. The distinction matters: a customer who emails to confirm award and request scheduling should not be ignored simply because scheduling belongs to the client. The handover should feel seamless, not like being passed from one person to another.
+
+---
+
+## Options Considered
+
+| # | Option | Summary |
+|---|---|---|
+| A | Never reply to won customers | Simple rule, but poor customer experience. Customer sends email → silence → client eventually calls. Feels disconnected. |
+| B | Always reply, make promises on behalf of client | Responsive but dangerous. Atlas promising "Tas will call tomorrow" without knowing client's schedule is operational overreach. |
+| C | Acknowledge without taking operational ownership | Atlas confirms receipt, identifies correct operational contact, reassures customer, never promises dates/times/outcomes. (Chosen) |
+
+---
+
+## Why This Path
+
+Option C creates the best customer experience without overstepping. The customer feels heard immediately. The client receives complete context. No operational promises are made. The transition between Atlas and the client feels professional and almost invisible — which is exactly what the Not Forgotten Operational Handover Standard demands.
+
+---
+
+## Core Principles Applied
+
+- **Trust before growth** — Operational overreach destroys trust faster than slow response
+- **Human accountability** — The client owns their operational work. Atlas amplifies, doesn't replace
+- **Evidence before opinion** — This standard emerged from real QPaint handover observations
+- Philosophical Directive 16: "James builds the relationships. Atlas elevates every interaction."
+
+---
+
+## Risks Identified
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| Atlas acknowledgement implies client will act on specific timeline | Low | Medium | Never promise dates, times, or outcomes. "The team has been notified" only. |
+| Client expects Atlas to handle scheduling | Medium | High | Operating Model field in Airtable makes boundaries explicit per client |
+| Customer confused about who they're talking to | Low | Medium | Signature clearly identifies Atlas as Customer Care, team context provided |
+
+---
+
+## Expected Outcome
+
+Every customer whose reply requires operational handover receives a brief, professional acknowledgement within the same business day. The client receives complete context. The customer experiences one seamless journey. No operational promises are made by Atlas.
+
+---
+
+## Success Criteria
+
+- [ ] Zero instances of Atlas making operational promises on behalf of a client
+- [ ] Handover acknowledgements sent within 4 business hours of customer reply
+- [ ] Every client has Operating Model field set in Airtable
+- [ ] Customer feedback on handover experience is positive or neutral (no "I didn't hear back" complaints)
+
+---
+
+## Atlas's Challenge (Pre-Decision)
+
+No challenge. This is a refinement James identified himself — evolving an earlier conclusion into a more nuanced and correct framework. The distinction between "never reply" and "acknowledge without taking operational ownership" is exactly right.
+
+**James's response:** Self-initiated refinement.
+
+---
+
+## Actual Outcome (Post-Review)
+
+**Date reviewed:** *Pending — 2026-10-05*
+
+**What actually happened:** *Pending*
+
+**Verdict:** *Pending*
+
+**Delta from expected:** *Pending*
+
+---
+
+## Learnings
+
+*Pending review*
+
+---
+
+## Related Decisions
+
+- `2026-07-28-atlas-communication-layer` — Atlas as communication layer, not follow-up engine
+- `2026-07-29-atlas-elevates-every-interaction` — The Atlas Mandate: four-question pre-task gate
+- `2026-08-05-communication-ownership` — James/Atlas communication ownership boundaries

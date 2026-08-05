@@ -1,0 +1,243 @@
+# Website Validation Plan
+
+**Date:** 5 August 2026
+**Author:** Atlas
+**Status:** ⏳ Pending James Approval
+**Principle:** Positioning is a hypothesis. Belief change is the metric. Clicks are not.
+
+> People do not buy because they understand our software. People buy because they understand their own problem. If our website explains Not Forgotten before it explains the visitor's problem, we have failed.
+
+---
+
+## 1. Validation Objective
+
+**Not:** "Do people like the website?"
+
+**But:** "Did the website change the way they think?"
+
+The Belief Architecture v4 makes seven claims about what visitors should believe after reading each section. Validation tests whether those claims hold. If a belief doesn't shift, the section that owns it is broken. Fix the section. Test again.
+
+---
+
+## 2. The Hypothesis Being Tested
+
+> A business owner who reads the homepage will experience an awakening: *"I never realised this was happening in my business."* They will progress through six additional belief shifts and leave asking: *"How much opportunity is sitting inside my business that I can't currently see?"*
+
+### Sub-Hypotheses — One Per Belief
+
+| # | Hypothesis |
+|---|---|
+| H1 | After reading the hero, the visitor questions their assumption that silent quotes are lost quotes. |
+| H2 | After reading the insight section, the visitor accepts that silence is usually not rejection — it's life getting in the way. |
+| H3 | After reading the proof section, the visitor believes other businesses have recovered meaningful revenue from this exact problem. |
+| H4 | After reading the how section, the visitor believes the solution requires almost no effort from them. |
+| H5 | After reading the care section, the visitor believes follow-up doesn't have to feel pushy — it can feel professional. |
+| H6 | After reading the value section, the visitor believes the economics are undeniable — one job pays for years. |
+| H7 | After reading the action section, the visitor leaves asking: "How much opportunity is sitting inside my business?" |
+
+---
+
+## 3. What We Measure
+
+### Primary Metric: Belief Change
+
+For each of the seven hypotheses, we measure:
+
+| Measure | Method |
+|---|---|
+| **Did they stop?** | Session duration, scroll depth, pause points |
+| **Did they think?** | Post-read interview: "What went through your mind as you read?" |
+| **Did they recognise themselves?** | Post-read interview: "Did any part of this feel like it was describing your business?" |
+| **Did they feel understood?** | Post-read interview: "Did it feel like the person who wrote this understands your world?" |
+| **Did they become curious?** | Post-read interview: "What do you want to know now that you didn't know before?" |
+
+### Secondary Metric: The Sentence That Stayed
+
+After the session, ask one question with no prompting:
+
+> *"Without looking back at the page — what's one sentence or idea that stayed with you?"*
+
+The answer reveals which belief actually landed. If they quote a feature, we failed. If they quote a problem insight, we succeeded.
+
+### Anti-Metrics — Things We Do Not Optimise For
+
+| Don't Measure | Because |
+|---|---|
+| Bounce rate | A visitor who reads deeply and leaves thinking is a success — even if they don't convert today |
+| Click-through rate | The site is not a funnel. It's a belief-change engine. Clicks are downstream of belief. |
+| Time on page (in isolation) | 30 seconds of deep recognition beats 5 minutes of confused scrolling |
+| Conversion rate (early) | Validating belief change comes before optimising conversion. Wrong order. |
+
+---
+
+## 4. Validation Method
+
+### Phase A: Silent Read-Through (5 participants)
+
+**Who:** Business owners who send quotes. Painter, electrician, builder, landscaper, cleaner. Mix of industries. Not friends. Not people who already know NF.
+
+**Setup:**
+1. Send them the dev URL. No introduction. No context. Just: "Can you take a look at this page and tell me what you think?"
+2. Do not explain what Not Forgotten does. Do not walk them through it. Do not answer questions during the read.
+3. Let them read at their own pace. Observe nothing. Record nothing during the session.
+
+**After they finish:**
+- Conduct a 15-minute conversation. Record it (with permission). Transcribe key quotes.
+- Ask the questions in Section 5 below. Do not lead. Do not defend. Just listen.
+
+**What we learn:**
+- Which beliefs shifted without any priming
+- Which sections they lingered on or skipped
+- What sentence they remembered
+- Whether the awakening happened at all
+
+### Phase B: Targeted Belief Test (per section, after Phase A fixes)
+
+If a specific belief didn't shift in Phase A, isolate that section. Show it to 3 new business owners. Ask only questions related to that belief. Fix the section. Retest.
+
+### Phase C: Exit Question Test (final)
+
+After all beliefs are validated, test the exit question with 3 new business owners. After reading the full page, ask:
+
+> *"What question are you left with?"*
+
+If they say "How much would this cost?" or "How does it work technically?" — the exit question didn't land. Fix the action section.
+
+If they say some version of "How much have I been missing?" or "What's sitting in my business?" — the exit is working.
+
+---
+
+## 5. Interview Questions
+
+### Opening (unprompted)
+
+1. "What went through your mind as you read that?"
+2. "Was there a moment where something clicked — where you thought, 'huh, I hadn't thought of it that way'?"
+3. "What's one sentence or idea that stayed with you? Without looking back."
+
+### Belief-Specific Probes
+
+*Only ask these if the participant hasn't already addressed them naturally.*
+
+| Belief | Question |
+|---|---|
+| H1 — Awakening | "Before reading this, what did you assume happens to quotes that go quiet?" |
+| H2 — Insight | "Do you think silence usually means rejection? Why or why not?" |
+| H3 — Proof | "Does the Travis Krieg result feel believable to you? Why or why not?" |
+| H4 — How | "What would stop you from trying something like this?" |
+| H5 — Care | "How do you feel about following up with customers? What holds you back?" |
+| H6 — Value | "At what price would something like this feel like a no-brainer?" |
+| H7 — Exit | "What question are you left with after reading this?" |
+
+### Closing
+
+8. "Did any part of this feel like it was written for someone else — not you?"
+9. "What would you change?"
+10. "Would you forward this to another business owner? Why or why not?"
+
+---
+
+## 6. Success Criteria
+
+### Per Hypothesis
+
+| Grade | Standard |
+|---|---|
+| **Validated** | 80%+ of participants express the target belief unprompted in their own words |
+| **Partially Validated** | 50-79% express the target belief, but need prompting or mix it with old beliefs |
+| **Not Validated** | Below 50%. Section needs fundamental rewrite. |
+
+### Overall
+
+| Grade | Standard |
+|---|---|
+| **Ready for Copy** | All 7 beliefs Validated or Partially Validated. Exit question lands unprompted in 80%+ of sessions. |
+| **Needs Work** | 1-2 beliefs Not Validated. Fix those sections. Retest. |
+| **Reposition** | 3+ beliefs Not Validated. The architecture is wrong. Return to positioning — do not copywrite. |
+
+---
+
+## 7. What Happens With Feedback
+
+| Feedback Type | Action |
+|---|---|
+| "I didn't understand X" | Clarify. Do not add complexity. Simpler language, not more explanation. |
+| "I don't believe Y" | Check the proof. Is the evidence weak? Is the claim too strong? Adjust. |
+| "This wasn't written for me" | The visitor doesn't see themselves in the problem. Check the insight. Is it specific enough to their industry? |
+| "I wanted to know Z but it wasn't there" | Potential gap. Only add if multiple participants ask the same thing. |
+| "The price surprised me" | Good — as long as the surprise is "that's affordable." If it's "that's expensive," the value section didn't do its job. |
+
+---
+
+## 8. What We Never Do During Validation
+
+- Defend the copy. If they didn't get it, they didn't get it. The copy is wrong — not the reader.
+- Explain what we meant. If we have to explain it, the page failed.
+- Lead the witness. "Did you feel like the part about insurance delays was relevant?" is leading. "What stood out to you?" is not.
+- Dismiss feedback from the wrong industry. A plumber's reaction is as valid as a painter's. If the belief doesn't transfer across industries, the insight isn't universal enough.
+- Optimise for conversion before belief. Wrong sequence. Belief first. Conversion follows.
+
+---
+
+## 9. Implementation Notes
+
+### Before Phase A Begins
+
+1. The dev site must reflect the Belief Architecture v4 positioning — not the current live site. If we test the current site, we're testing old positioning.
+2. Build a single-page version that follows the seven-section architecture. No design polish required. Plain HTML. The beliefs need to work before the design matters.
+3. The page should be self-contained. No nav to other pages. No footer links. One journey. Start to finish.
+
+### Participants
+
+| Criterion | Requirement |
+|---|---|
+| **Must** | Run a business that sends quotes to customers |
+| **Must** | Not be a friend, family member, or existing NF contact |
+| **Must** | Not have prior knowledge of Not Forgotten |
+| **Ideally** | Mix of industries (painting, electrical, plumbing, building, cleaning, landscaping) |
+| **Ideally** | Mix of business sizes (sole trader, small team, 10+ employees) |
+| **Minimum** | 5 participants for Phase A |
+
+### Recording
+
+- Record every session (with permission)
+- Transcribe key quotes verbatim
+- Tag quotes to specific beliefs (H1-H7)
+- Build a evidence file: `knowledge/website-validation-evidence.md`
+
+---
+
+## 10. Permanent Marketing Principle
+
+> **People do not buy because they understand our software. People buy because they understand their own problem. If our website explains Not Forgotten before it explains the visitor's problem, we have failed.**
+
+This principle is now locked. It governs every future website decision, every A/B test, every new page, every landing page, every campaign.
+
+### Additional Locked Principles
+
+| Principle | Meaning |
+|---|---|
+| **Belief before conversion** | Never optimise for clicks before validating belief change. Wrong order. |
+| **Simplicity scales** | The website should become simpler as the product becomes more sophisticated. Our competitive advantage is depth of customer understanding, not feature count. |
+| **Evidence before opinion** | Positioning changes only when real customer evidence proves they are necessary. No redesigns based on internal hunches. |
+| **Protect the awakening** | The most valuable moment on the page is the instant the visitor realises something about their own business. Nothing — no feature, no testimonial, no CTA — is more important than that moment. |
+
+---
+
+## 11. Next Steps
+
+| Step | Owner | Status |
+|---|---|---|
+| 1. Approve validation plan | James | ⏳ Pending |
+| 2. Build dev page per v4 architecture | Atlas | ⏳ Blocked on step 1 |
+| 3. Recruit 5 business owner participants | James | ⏳ |
+| 4. Run Phase A silent read-throughs | Atlas + James | ⏳ |
+| 5. Document findings | Atlas | ⏳ |
+| 6. Fix sections that failed | Atlas | ⏳ |
+| 7. Retest (Phase B + C) | Atlas + James | ⏳ |
+| 8. Copywrite final version | Atlas | ⏳ |
+| 9. Deploy to production | Atlas | ⏳ |
+
+---
+
+*Validation plan complete. No copy is written until beliefs are tested against real business owners.*

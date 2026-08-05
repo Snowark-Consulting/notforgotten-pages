@@ -1,0 +1,131 @@
+# Incident Review: 172 Production Emails Never Delivered — Silent Authentication Failure
+
+**Incident ID:** INC-2026-08-05-002
+**Date:** 5 August 2026
+**Severity:** S1 — Critical (production communications down)
+**Status:** Closed — Fully Recovered
+
+---
+
+## 1. What happened?
+
+A production communication audit on 5 August 2026 discovered that 172 outreach emails (156 QPaint Monday batch + 16 FF1 Wave 1) believed to have been sent on 3-4 August were never delivered to any recipient's inbox.
+
+Two separate authentication failures caused silent failures:
+
+- **QPaint batch (156 emails):** `send-qpaint.py` used `quotes_token.json` (authenticated as `quotes@notforgotten.com.au`) but hardcoded `From: atlas@notforgotten.com.au`. The token's OAuth scope was `gmail.modify` only — it lacked `gmail.send`. The Gmail API returned an error that was silently handled by the script's try/except. Zero emails appeared in any Gmail Sent folder.
+
+- **FF1 Wave 1 (16 emails):** `send-canonical.py` used `james_token.json` with an expired access token. The token file was missing the `client_id` field required for refresh, and the fallback path used `quotes_token.json` for client credentials — but the token format mismatch caused the refresh to also fail silently. Zero emails delivered.
+
+The Airtable records and Headquarters dashboards were updated based on script execution, not delivery verification — creating a false picture of campaign health.
+
+---
+
+## 2. What was the customer impact?
+
+**Direct:** 172 business owners never received communications they should have received. No relationship damage from duplicate sends (nothing was sent twice), but outreach timelines were delayed by 1-2 days.
+
+**Risk:** If the audit hadn't been performed, the business would have continued operating under the false assumption that campaigns were active. Email 2 follow-ups would have been sent to prospects who never received Email 1, damaging trust and wasting the outreach window.
+
+---
+
+## 3. What was the business impact?
+
+- **Operational:** Production pause on all outbound communications from 5 August recovery start through 5 August verification completion.
+- **Recovery effort:** ~4 hours to audit, diagnose, build new sender, test, and execute staged recovery.
+- **Campaign delay:** FF1 Wave 1 delayed 2 days (Aug 3 intended → Aug 5 actual).
+- **Trust Framework:** Two violations — no independent delivery verification existed, and script execution was treated as proof of completion.
+
+---
+
+## 4. What was the root cause?
+
+**Primary:** No independent email delivery verification. The system trusted script execution output ("email sent successfully") without verifying the email appeared in Gmail's Sent folder.
+
+**Contributing factors:**
+- Multiple sending scripts (7 total) with different authentication patterns, none of which verified delivery
+- OAuth token scopes not documented or validated against the required operations
+- Token expiry/refresh handled differently across scripts (some self-contained, some with cross-token dependencies)
+- No post-send reconciliation between batch logs and Gmail Sent folder
+- Airtable updated optimistically before delivery was confirmed
+
+---
+
+## 5. Why wasn't it detected earlier?
+
+- Test emails sent during Phase 1/2 testing used a different method (direct API tests) than the batch production scripts
+- The Monday batch was the first production use of `send-qpaint.py` at scale; prior smaller tests happened to work
+- No monitoring existed to compare "emails we believe we sent" against "emails Gmail says we sent"
+- The silent failure mode (API error caught by try/except without logging) masked the issue completely
+
+---
+
+## 6. How was it resolved?
+
+### Phase 1: Diagnosis and Root Cause
+1. **Full operational audit** — Cross-referenced batch logs against Gmail Sent folders for atlas@, james@, and quotes@
+2. **Root cause proven** — Token scope analysis and expiration checks confirmed both failure modes
+3. **System freeze** — All 8 sending/recommending crons paused. Airtable and Headquarters frozen
+
+### Phase 2: Build Verified Sender
+4. **New production sender** — `send-email.py` built with unified authentication and built-in Gmail verification
+5. **Legacy retirement** — 6 sending scripts moved to `scripts/legacy/`
+6. **OAuth token refresh** — `google_token.json` (atlas@) confirmed working; `james_token.json` re-authorised with `gmail.send` + `gmail.modify` scopes via `generate-oauth-url.py` → `exchange-oauth-code.py`
+
+### Phase 3: Staged Recovery
+7. **Email Verification Standard** established — Send → Verify in Gmail Sent → Capture IDs → Evidence Record → Update Airtable → Update HQ. Stop on failure.
+8. **Stage 1 (QPaint validation):** 5 never-contacted customers. All 5 verified. ✅
+9. **Stage 2 (QPaint batch):** 101 customers. 101/101 verified. 100% success. ✅
+10. **Stage 3 (FF1 Wave 1):** 1 test → approved → 15 batch. 16/16 verified from james@. 100% success. ✅
+
+### Total recovery: 122 emails sent, 122 verified, 0 failures, 0 skipped.
+
+---
+
+## 7. What permanent protection has been added?
+
+1. **Email Verification Standard** — "Proof before Progress." Gmail Sent folder is the single source of truth. No email is considered sent until independently verified. Script execution alone is insufficient evidence.
+
+2. **Production sender unification** — One sending pattern. `send-email.py` for atlas@ white-label; `ff1-test-send.py`/`ff1-batch-send.py` pattern for james@ NF outreach. All other senders retired to legacy/.
+
+3. **Send Evidence Records** — Every verified send produces a permanent JSON record in `data/send-evidence/` containing Gmail Message ID, Thread ID, delivery verification, and campaign context.
+
+4. **Permanent Outreach Sender standard** — All Not Forgotten outreach must come from `james@notforgotten.com.au`. Decision: `knowledge/decisions/permanent-outreach-sender-james.md`. Founding decision `founding-atlas-as-primary-sender` overturned.
+
+5. **Incident snapshot** — Complete system state frozen at `data/incidents/INC-2026-08-05-002/` (13 files) for future audit.
+
+6. **Six operational standards** approved for implementation: Relationship Owner, Outbound Dashboard, Communication Timeline, QA auditing, Business Learning from replies, Weekly Communication Review.
+
+---
+
+## 8. Could this ever happen again?
+
+**Same technical cause (silent token failure):** Very low. The Email Verification Standard requires independent Gmail verification for every send. Any token failure would be caught at verification time, not discovered days later.
+
+**Same class of error (trusting tool output without verification):** Low-medium. The principle is now "never trust a green tick." Every future system integration that produces side effects (writes to external systems, sends to external APIs) must include independent verification. The Trust Framework's Operational Trust Framework (four-gate release checklist) includes Verification as a gate.
+
+**Residual risk:** OAuth token expiry remains a periodic operational concern. Mitigated by: self-contained tokens with refresh capability, verification catching any expiry before campaign data is updated.
+
+---
+
+## 9. What should we improve next?
+
+1. **OAuth token health monitoring** — Automated check of token expiry, scope validity, and refresh capability. Alert if any token is within 24 hours of expiry or has insufficient scopes.
+
+2. **Pre-send reconciliation gate** — Before any bulk send, verify every recipient exists in Airtable at the expected stage.
+
+3. **Campaign Pulse should include delivery verification rate** — Dashboard metric comparing "emails attempted" vs "emails verified in Gmail Sent."
+
+---
+
+## Atlas's Reflection
+
+This incident exposed the most dangerous kind of failure: the one you don't know happened. 172 real business owners were never reached, and for 24 hours, every system indicator said they had been. The Airtable showed "Contacted." The dashboards showed campaigns progressing. The logs showed successful sends. All of it was wrong.
+
+The root failure wasn't technical — it was philosophical. The system trusted itself. It assumed that if a script said it sent an email, the email was sent. It assumed that if a token worked yesterday, it would work today. It assumed that if an API returned 200, the operation succeeded.
+
+The Email Verification Standard is not a technical fix. It's a philosophical one. "Proof before Progress" means the system no longer trusts itself. Every claim of completion must be independently verified against an external source of truth — in this case, Gmail's Sent folder.
+
+The recovery was methodical and complete: 122 emails recovered, 122 verified, 0 failures. But the real victory is that the system now operates from the assumption that any claim of success might be false — and verifies before proceeding.
+
+That is the permanent protection.

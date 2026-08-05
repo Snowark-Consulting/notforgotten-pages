@@ -17,7 +17,7 @@
 | 🏛️ | `founding-pricing-market-entry` | Pricing: $199/mo + $99 setup (market entry) | Early 2026 | 🟢 Made | 2026-12-01 |
 | 🏛️ | `founding-atlas-multiplier-not-replacement` | Atlas as AI multiplier, not human replacement | Early 2026 | 🟢 Made | 2027-06-01 |
 | 🏛️ | `founding-build-foundation-before-customers` | Build foundation before acquiring first 5 customers | Early 2026 | 🟢 Made | 2026-09-01 |
-| 🏛️ | `founding-atlas-as-primary-sender` | atlas@ as primary outreach sender | Jun 2026 | 🟢 Made | 2026-10-01 |
+|| 🏛️ | `founding-atlas-as-primary-sender` | atlas@ as primary outreach sender | Jun 2026 | ❌ Overturned | N/A |
 | 🏛️ | `founding-no-pitch-in-first-email` | No product pitch in first cold email | Jun 2026 | 🟢 Made | 2026-10-01 |
 | 🏛️ | `founding-business-name-fallback` | Business-name fallback when contact name unknown | Jun 2026 | 🟢 Made | 2026-10-01 |
 | 🏛️ | `founding-travis-case-study-as-bridge` | Travis case study as bridge, not opener | Jun 2026 | 🟢 Made | 2026-11-01 |
@@ -60,6 +60,15 @@
 | | `2026-08-03-log-retention-standard` | Log Retention Standard — Tiered retention: routine >48h deleted, failures 90 days, protected never touched, daily summaries. | Aug 2026 | 🟢 Made | 2026-09-03 |
 | | `2026-08-03-quote-follow-up-delay` | 48-Hour Quote Follow-Up Delay — follow-up-autopilot waits 48h before Email 1. | Aug 2026 | 🟢 Made | 2026-09-03 |
 
+| | `2026-08-05-permanent-outreach-sender-james` | Permanent Outreach Sender: all NF outreach from james@ | Aug 2026 | 🟢 Made | 2026-09-05 |
+| | `end-of-infrastructure-phase` | End of Infrastructure Phase — shift to evidence-led growth | Aug 2026 | 🟢 Made | 2026-11-05 |
+| | `2026-08-05-communication-channel-policy` | Communication Channel Policy — Email, SMS, Voice, WhatsApp governed | Aug 2026 | 🟢 Made | 2026-11-05 |
+| | `2026-08-05-quote-intake-standard` | Quote Intake Standard — 48-hour observation, human timing, clean inbox | Aug 2026 | 🟢 Made | 2026-11-05 |
+| | `2026-08-05-communication-ownership` | Communication Ownership — James/Atlas boundaries, business number, Email→SMS | Aug 2026 | 🟢 Made | 2026-11-05 |
+| | `2026-08-05-operational-handover-standard` | Operational Handover Standard — BK-008/BK-009, Operating Models, "Who owns the next action?" | Aug 2026 | 🟢 Made | 2026-10-05 |
+| | `2026-08-05-production-foundations` | Production Foundations — BK-010/BK-011, Silent Self-Check, Confidence Score. INC-002/003 converted to production law. | Aug 2026 | 🟢 Made | 2026-11-05 |
+| | `2026-08-05-intelligence-over-noise` | Intelligence Over Noise Standard — BK-012, Operational Action vs Business Intelligence, Monthly Client Reports | Aug 2026 | 🟢 Made | 2026-11-05 |
+
 ---
 
 ## Upcoming Reviews
@@ -97,6 +106,7 @@
 | 2026-10-04 | `2026-07-04-icp-owner-led-small-business` | ICP: Owner-led small business | 🟢 |
 | 2026-10-04 | `2026-07-04-messages-prospect-linked-field` | Messages → Prospect linked field | 🟢 |
 | 2026-10-05 | `2026-07-05-complete-sequence-before-first-send` | Complete sequence before first send | 🟢 |
+| 2026-10-05 | `2026-08-05-operational-handover-standard` | Operational Handover Standard — BK-008/BK-009 | 🟢 |
 | 2026-10-06 | `2026-07-06-campaign-review-operating-standard` | Campaign Review operating standard | 🟢 |
 | 2026-10-07 | `2026-07-07-communication-voice-standard` | Communication voice standard | 🟢 |
 | 2026-10-12 | `2026-07-12-distribution-validation-phase` | Distribution validation phase | 🟢 |
@@ -107,6 +117,12 @@
 | 2026-11-01 | `founding-travis-case-study-as-bridge` | Travis case study as bridge, not opener | 🟢 |
 | 2026-11-02 | `2026-08-02-atlas-trust-framework` | Atlas Trust Framework | 🟢 |
 | 2026-11-02 | `2026-08-02-founder-to-founder-sequence-frozen` | Founder-to-Founder Sequence v1.0 Frozen | 🟢 |
+| 2026-11-05 | `end-of-infrastructure-phase` | End of Infrastructure Phase — shift to evidence-led growth | 🟢 |
+| 2026-11-05 | `2026-08-05-communication-channel-policy` | Communication Channel Policy | 🟢 |
+| 2026-11-05 | `2026-08-05-quote-intake-standard` | Quote Intake Standard | 🟢 |
+| 2026-11-05 | `2026-08-05-communication-ownership` | Communication Ownership | 🟢 |
+| 2026-11-05 | `2026-08-05-production-foundations` | Production Foundations — Silent Self-Check, Confidence Score | 🟢 |
+| 2026-11-05 | `2026-08-05-intelligence-over-noise` | Intelligence Over Noise Standard — BK-012 | 🟢 |
 | 2026-12-01 | `founding-pricing-market-entry` | Pricing: $199/mo + $99 setup (market entry) | 🟢 |
 | 2026-12-01 | `founding-tiered-trust-automation` | Tier 1 admin automation, Tier 2 draft-and-ask | 🟢 |
 | 2027-06-01 | `founding-atlas-multiplier-not-replacement` | Atlas as AI multiplier, not human replacement | 🟢 |
@@ -218,4 +234,4 @@ Based on patterns observed, Atlas should watch for:
 ---
 
 *Last updated: 2026-08-02*
-*8 founding decisions + 34 living decisions = 42 decisions recorded. 0 decisions reviewed. 4 challenges logged.*
+*8 founding + 40 living = 48 decisions recorded. 0 decisions reviewed. 4 challenges logged.*

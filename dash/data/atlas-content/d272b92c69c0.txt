@@ -1,0 +1,88 @@
+# Decision: Permanent Communication Standard
+
+**Slug:** `permanent-communication-standard`
+**Status:** Made
+**Date:** 2026-08-05
+**Author:** James Hardstaff
+**Category:** Operations / Data Integrity
+
+---
+
+## Decision
+
+Every production communication must exist in three places:
+
+1. **Gmail** (source of truth — the sent or received email)
+2. **Airtable Messages** (relationship history — full audit trail within CRM)
+3. **Send Evidence** (production evidence — `knowledge/send-evidence/` JSON files)
+
+If one is missing, the communication history is incomplete.
+
+---
+
+## Won Definition
+
+A quote is considered **Won** when the customer has made a clear commitment to proceed.
+
+Examples:
+- "Your quote has been approved."
+- "Let's go ahead."
+- "Please book us in."
+- Purchase Order received.
+- Committee approval received.
+
+Scheduling, invoicing, and job commencement are operational activities. They do not determine whether the opportunity was won.
+
+The sale is won when the customer commits. Everything after that is delivery.
+
+---
+
+## Post-Processing Checklist
+
+Whenever Atlas processes a customer conversation, it must automatically ask:
+
+1. Should the Current Stage change?
+2. Should the Recovery Status change?
+3. Should the Outcome change?
+4. Does a Message record need to be created?
+5. Does this create Business Intelligence?
+
+These five questions are now part of the permanent post-processing workflow.
+
+---
+
+## Implementation
+
+### Immediate (5 Aug 2026)
+
+- "Won" stage added to QPaint Pipeline Current Stage field
+- Arno Hsu moved to Won (Current Stage: Won, Recovery Status: Won)
+- 4 Messages backfilled for Arno Hsu thread (Gmail IDs: 19fcef28e132341b, 19fcfdbf7bcf4dfe, 19fd003bc25eaba4, 19fd03893845b6a1)
+
+### Schema Gap
+
+The Messages table currently links to the Prospects table only. QPaint Pipeline records cannot be linked to Messages. Recommendation: add a linked field from Messages → QPaint Pipeline, or create a unified "Contacts" or "Relationships" table that both Prospects and QPaint Pipeline can reference.
+
+### Future
+
+- Post-processing checklist integrated into all customer communication workflows
+- "Won" stage added to Prospects table where missing
+- Messages schema expanded to support multi-table linking
+
+---
+
+## Related
+
+- Arno Hsu: QPaint Pipeline `rec6lZpr4GqRL7MyZ` — first Won under this standard
+- Messages: `recG6gqY9LKjQVy6P`, `recDHdVDNQQd8QNt2`, `recdd34nUUY0seOCZ`, `rec4xUvmbrL0JV5zj`
+- Thread: `19fcef28e132341b`
+
+## Atlas's Challenge
+
+None. This decision strengthens the CRM and aligns with the Trust Framework principles.
+
+---
+
+## Review
+
+**Review date:** 2026-11-05

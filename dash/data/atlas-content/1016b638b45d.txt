@@ -1,0 +1,106 @@
+# Incident Review: QPaint Pipeline — 61 Duplicate Records from Partial Dataset Import
+
+**Incident ID:** INC-2026-08-05-001
+**Date:** 5 August 2026
+**Severity:** S1 — Critical
+**Status:** Resolved
+
+---
+
+## 1. What happened?
+
+Atlas performed a reconciliation of the QPaint Pipeline Airtable table against the Monday 3 August send batches. The initial query used `maxRecords=200` which was silently capped at 100 records by an Airtable view filter. Atlas treated this first page as the complete dataset and identified 49 recipients from the send batches who appeared to be missing from the pipeline. These 49 were imported as new records.
+
+In reality, the pipeline contained 205 records across 3 pages. 55 of the 49 "new" imports created duplicate records — the same customers now existed twice in Airtable with conflicting data. Atlas presented "Scenario A" and "Scenario B" hypotheses to James rather than resolving the pagination to access the complete dataset.
+
+James directed a full Trust Framework repair: backup, repair plan, merge, stage correction, and certification.
+
+---
+
+## 2. What was the customer impact?
+
+**Direct:** None. No customer received duplicate emails. No customer journey was interrupted. The Monday sends were completed correctly before the incident occurred.
+
+**Risk:** If the duplicates had remained, future Email 2 or Email 3 sends could have contacted customers at the wrong stage, sent duplicate emails, or missed customers entirely. The 16 Bridge Email 2 recipients whose Airtable stage still showed Email 1 would have received Email 2 again instead of Email 3.
+
+---
+
+## 3. What was the business impact?
+
+- **Operational:** 2.5 hours of Atlas time to diagnose, plan, repair, and certify.
+- **Trust Framework:** Violation of "Evidence before opinion" principle. Atlas presented hypotheses instead of resolving to ground truth.
+- **Pipeline reporting:** Inflated pipeline value ($5.89M with duplicates vs. actual value after merge). Inaccurate counts for contacted vs. not contacted.
+- **Decision quality:** James was asked to make decisions on Scenario A/B rather than confirmed facts.
+
+---
+
+## 4. What was the root cause?
+
+**Primary:** Atlas made business decisions (bulk import of 49 records) from an incomplete dataset — the first 100 records of a 205-record table.
+
+**Contributing factors:**
+- Airtable's `maxRecords=200` was silently capped at 100 by a view filter. Atlas did not verify the result count against expected totals.
+- The `pageSize` pagination pattern was available but encountered auth issues with one approach (subprocess `curl`) before the working approach (Python `urllib.request`) was tried.
+- The import script used a cached TSV file exported earlier in the session rather than querying Airtable live.
+- When 25 of 49 imports appeared to change statuses without increasing the total, Atlas presented hypotheses rather than investigating the pagination.
+
+---
+
+## 5. Why wasn't it detected earlier?
+
+- The QPaint Pipeline table was created from a Pipedrive import on 28 July but never fully verified against the source data.
+- Monday batch files were built from the original Pipedrive export, not from Airtable — so the pipeline and the send list were never reconciled at send time.
+- No post-send reconciliation process existed to verify that Airtable reflected what was actually sent.
+- Airtable's inconsistent API behaviour (auth working for `maxRecords` but not `pageSize` in some patterns) masked the pagination issue.
+
+---
+
+## 6. How was it resolved?
+
+1. **Full backup** — 205 records saved to `data/backups/qpaint-pipeline-backup-2026-08-05T071642.json`
+2. **Complete pagination** — Python `urllib.request` with `pageSize=100` and offset following loaded all 3 pages (100 + 100 + 5 = 205 records)
+3. **Scored repair plan** — Each duplicate group scored by history richness. Keeper = highest score (Contacted status, deal value, outreach notes, stage). 55 groups, 61 records to merge.
+4. **Field merge** — 31 deal values, category types, and priority tiers copied. 15 outreach notes appended.
+5. **Duplicate deletion** — 61 merged records deleted in 7 batches.
+6. **Stage correction** — 34 Bridge Email 2 recipients updated from Email 1 to Email 2.
+7. **Certification** — 144 records, 144 unique emails, 0 duplicates, 0 stage conflicts confirmed.
+
+---
+
+## 7. What permanent protection has been added?
+
+1. **Production Incident Review skill** — Structured post-incident process triggered automatically for production issues. Nine standard questions. Headquarters integration.
+
+2. **Headquarters Production Incidents section** — Permanent organisational memory. Every incident recorded with date, severity, root cause, resolution, learning, and status.
+
+3. **Learning recorded** in `learnings/LEARNINGS.md` — "Partial dataset caused 61 duplicate Airtable records." Permanent operating principle: no import, reconciliation, or deduplication may rely on partial exports. Atlas must always paginate to the complete dataset.
+
+4. **Batch-Pipeline Reconciliation reference** in `references/batch-pipeline-reconciliation.md` — codified as a reusable pattern with Airtable pagination quirks documented.
+
+5. **New principle:** Never hide mistakes. Surface them, fix them, learn from them. Then improve the system.
+
+---
+
+## 8. Could this ever happen again?
+
+**Same technical cause (Airtable pagination):** Low. The `pageSize` + offset pattern with Python `urllib.request` is now proven. The Airtable skill's pitfall catalog documents the `maxRecords` vs `pageSize` distinction. Every future pipeline query will paginate fully.
+
+**Same class of error (decisions from incomplete data):** Medium. Any time Atlas queries an external system with pagination, caching, or filtering, there is residual risk of treating a partial result as complete. Mitigation: the operating principle now requires verification of result counts against expected totals before any mutation.
+
+---
+
+## 9. What should we improve next?
+
+**Pre-send reconciliation gate.** Before any bulk email send, verify that every recipient in the send batch has a corresponding Airtable record at the correct stage. This would have caught the pipeline/send-list disconnect before the Monday send, not after. Implement as a pre-flight check in the send pipeline.
+
+---
+
+## Atlas's Reflection
+
+This incident exposed a flaw in Atlas's decision-making: when faced with inconsistent data (49 imports, 25 status changes, no total increase), Atlas generated explanatory hypotheses rather than resolving the underlying query to get the complete dataset. The correct response was "I can see only 100 records. Let me fix the pagination before I conclude anything."
+
+The pagination issue was resolvable — the Python `urllib.request` pattern that eventually worked was available from the start. Atlas chose the wrong path: hypothesise about the gap rather than close it.
+
+James's intervention was the forcing function. His instruction — "resolve the pagination issue and produce an exact reconciliation" — redirected from interpretation to investigation. From "what probably happened" to "what actually happened."
+
+The standard is now: evidence before opinion. If the data is incomplete, get the complete data. Do not reason from a partial view.

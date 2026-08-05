@@ -1,0 +1,185 @@
+# Website Validation Plan — Final
+
+**Date:** 5 August 2026
+**Author:** Atlas, refined by James Hardstaff
+**Status:** Approved — Awaiting Participant Sessions
+**Principle:** Evidence leads. Opinion follows.
+
+> The only thing that changes the website from this point onward is evidence from real business owners.
+
+---
+
+## 1. Architecture Lock
+
+Belief Architecture v4 is frozen. No Version 5. No further positioning changes based on internal opinion.
+
+- **Dev site (Variant A):** https://dev.notforgotten.com.au
+- **Dev site (Variant B):** https://dev.notforgotten.com.au/b
+- **Production:** https://notforgotten.com.au (unchanged until validation complete)
+
+---
+
+## 2. A/B Test — Hero Headline
+
+Two variants. Same page. Only the hero differs.
+
+| | Variant A | Variant B |
+|---|---|---|
+| **H1** | Some of your quotes aren't dead. They're just waiting. | I never realised this was happening in my business. |
+| **Subhead** | You sent the quote. You waited. You heard nothing. You assumed they went elsewhere. But what if they didn't say no? What if they just got busy, and nobody ever followed up? | Quotes go out. Some come back. Some go quiet. You assume the quiet ones chose someone else. Most business owners do. But what if they didn't? What if they're still waiting for someone to follow up? |
+| **Mechanism** | States the insight directly | Names the visitor's realisation |
+
+### How We Decide
+
+Do not choose based on opinion. Measure:
+
+| Metric | Method |
+|---|---|
+| Which headline makes them stop? | Observe where they pause. Do they scroll past or linger? |
+| Which headline creates curiosity? | "What did you want to know after reading the first section?" |
+| Which headline they remember | "What sentence stayed with you?" — unprompted |
+| Which headline changes their thinking | "What do you think this company does?" — the litmus test |
+
+Minimum 3 participants per variant before comparing.
+
+---
+
+## 3. Validation Session Structure
+
+### Before the Session
+
+- Send the URL. No introduction. No context. Just: "Can you take a look at this page and tell me what you think?"
+- Do not explain what Not Forgotten does. Do not answer questions during the read.
+- Let them read at their own pace. Observe. Do not guide.
+
+### The Questions — In Order (Do Not Deviate)
+
+**Q1 (CRITICAL — the litmus test):**
+> *"What do you think this company does?"*
+
+| If they answer... | Verdict |
+|---|---|
+| "It follows up quotes." | Positioning failed. They described the mechanism, not the value. |
+| "It helps businesses recover opportunities they thought they'd lost." | Positioning working. |
+| "It helps businesses uncover revenue they didn't realise was still there." | Positioning working at the deepest level. |
+
+**Q2:**
+> *"What problem do you think this company solves?"*
+
+**Q3:**
+> *"At what point did something click for you? Was there a moment where you thought — huh, I hadn't thought of it that way?"*
+
+**Q4:**
+> *"Was there one sentence you kept thinking about?"*
+
+**Q5:**
+> *"Did anything confuse you?"*
+
+**Q6:**
+> *"Did anything feel unbelievable?"*
+
+**Q7:**
+> *"If you owned a business that sends quotes, would you want to know more? Why?"*
+
+**Q8:**
+> *"If you closed the website right now, what would still be on your mind?"*
+
+**Q9 (NEW):**
+> *"Who would you send this website to?"*
+
+This tells us whether the visitor sees an idea worth sharing rather than simply another software product.
+
+---
+
+## 4. Rules of Engagement
+
+| Rule | Rationale |
+|---|---|
+| **Never explain the website.** | If you have to explain it, the copy failed. Record the confusion. |
+| **Never defend the copy.** | The visitor is never wrong. If they didn't get it, the copy is wrong. |
+| **Never lead the witness.** | "Did you feel like the insurance part was relevant?" is leading. "What stood out to you?" is not. |
+| **Never dismiss industry feedback.** | A plumber's reaction is as valid as a painter's. If the belief doesn't transfer, the insight isn't universal enough. |
+| **Never answer questions during the read.** | Silence. Observe. The questions they ask during reading ARE the evidence. |
+| **Record everything.** | With permission. Transcribe key quotes verbatim. Tag to specific beliefs (H1-H7). |
+
+---
+
+## 5. Success Criteria
+
+### Primary: Q1 Response
+
+| Grade | Standard |
+|---|---|
+| **Positioning validated** | 80%+ of participants describe the value, not the mechanism |
+| **Partially validated** | 50-79% describe the value. Some revert to mechanism language. |
+| **Not validated** | Below 50%. Reposition before copywriting. |
+
+### Secondary: The Sentence That Stayed
+
+The unprompted answer to Q4 reveals which belief actually landed. If they quote a feature word ("follow-up," "email," "automated"), the page failed. If they quote a belief ("they didn't say no," "life got in the way," "one job pays for years"), the page succeeded.
+
+### A/B Winner
+
+The variant that produces more value-language Q1 responses wins. If both produce similar results, choose the one with higher recall (Q4: which sentence stayed).
+
+---
+
+## 6. Evidence File
+
+All sessions documented in: `knowledge/website-validation-evidence.md`
+
+Format per session:
+```
+Participant: [Industry, Business Size]
+Variant: A / B
+Date: [Date]
+
+Q1 — What do you think this company does?
+"[Verbatim response]"
+
+Q2 — What problem do you think this company solves?
+"[Verbatim response]"
+
+[...all questions...]
+
+Key quote: "[The sentence they remembered]"
+
+Beliefs shifted: H1? H2? H3? H4? H5? H6? H7?
+
+Verdict: [Which beliefs landed / which didn't]
+```
+
+---
+
+## 7. What Happens Next
+
+| Step | Action |
+|---|---|
+| 1 | James recruits 5 business owners (minimum) |
+| 2 | Assign 3 to Variant A, 3 to Variant B (or alternate if fewer) |
+| 3 | Run silent read-through sessions |
+| 4 | Document evidence in `website-validation-evidence.md` |
+| 5 | If all 7 beliefs validated and Q1 passes → copywrite final version |
+| 6 | If 1-2 beliefs fail → fix those sections, retest |
+| 7 | If 3+ beliefs fail → return to positioning (do not copywrite) |
+| 8 | Deploy winning variant to production |
+| 9 | Record website launch in Decision Library |
+| 10 | Add milestone to August Evidence Dossier |
+
+---
+
+## 8. Permanent Lock
+
+These are now immutable until real customer evidence proves they should change:
+
+| What's Locked | Why |
+|---|---|
+| Belief Architecture v4 | Positioned around the awakening, not the product |
+| "See What Your Quotes Are Worth" (CTA direction) | Outcome-led, curiosity-driven, non-committal |
+| No "automated", "AI", "platform", "free" language | Feature words that dilute the belief chain |
+| 7-section flow | Each section moves one belief. Structure is the message. |
+| Q1 litmus test | "What do you think this company does?" is the only metric that matters |
+
+---
+
+*Validation plan finalised. Evidence leads from here. Opinion follows.*

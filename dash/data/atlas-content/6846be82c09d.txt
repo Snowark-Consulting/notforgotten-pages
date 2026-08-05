@@ -1,0 +1,102 @@
+# INC-2026-08-05-003 — atlas@ Lacked gmail.send Scope, Replies Silently Undelivered
+
+**Incident ID:** INC-2026-08-05-003
+**Date:** 2026-08-05
+**Severity:** S1 — Customer Communication Failure
+**Status:** Resolved — atlas@ re-authorised and independently verified
+
+---
+
+## Summary
+
+Two QPaint customer replies (Arno Hsu — won deal, Kate Quinn — lost deal) were attempted from atlas@notforgotten.com.au. The Gmail API accepted both requests and returned HTTP 200 with message IDs. Neither email was delivered. The atlas@ OAuth token (`google_token.json`) was authorised for `gmail.modify` only — it lacked `gmail.send` scope. The API silently accepted send requests without the required permission.
+
+Additionally, `quotes_token.json` has the same scope limitation.
+
+Airtable was updated to reflect replies that were never sent — a protocol violation: Airtable was updated before delivery was independently verified.
+
+---
+
+## Timeline
+
+| Time (ACST) | Event |
+|---|---|
+| ~12:53 PM | Arno Hsu and Kate Quinn reply to QPaint follow-up emails |
+| ~12:45 PM | Atlas reads replies, immediately drafts and attempts to send responses |
+| ~12:48 PM | API returns success. Atlas reports replies as sent. Airtable updated. |
+| ~12:50 PM | James reports emails not visible in Gmail Sent folder |
+| ~12:52 PM | Atlas investigates, initially reports wrong message IDs |
+| ~13:00 PM | Root cause identified: atlas@ token missing gmail.send scope |
+
+---
+
+## Root Cause Analysis
+
+### Technical Root Cause
+
+`google_token.json` was authorised via OAuth with `gmail.modify` scope only. The Gmail API send endpoint (`/users/me/messages/send`) accepted the request without `gmail.send` permission, returning HTTP 200 with a message ID that corresponded to a modify/draft operation rather than a delivered send. This is a silent failure — no error code, no rejection, just no delivery.
+
+### Architectural Root Cause
+
+The operating system allowed production communication to begin without first proving the production environment was capable of sending email. There was no Production Readiness Check to verify token scopes before attempting customer communication. The system trusted API success responses without independent verification of delivery.
+
+### Protocol Violations
+
+1. Evidence → Action (skipped Verification, Decision, Update)
+2. Airtable updated before delivery verified
+3. Incoming message IDs reported as outgoing IDs in verification report
+4. Protocol broken twice in same day (QPaint replies + earlier white-label workflow)
+
+---
+
+## Affected Systems
+
+| System | Impact |
+|---|---|
+| atlas@ sends | ✅ Resolved. Token re-authorised with gmail.send + gmail.modify. Independently verified. |
+| quotes@ sends | 🔴 Same vulnerability. Token also lacks gmail.send. Pending re-authorisation. |
+| Airtable | Arno Hsu and Kate Quinn records incorrectly updated |
+| Customer impact | Arno Hsu waiting for scheduling confirmation. Kate Quinn not acknowledged. |
+
+## Unaffected Systems
+
+| System | Status |
+|---|---|
+| james@ sends | Healthy. Token has both gmail.send + gmail.modify. |
+| FF1 campaign | Verified. Sent from james@. |
+| Legacy Re-engagement | Verified. Sent from james@. |
+| QPaint autopilot | Follow-ups visible in Sent. Uses separate send path. |
+
+---
+
+## Resolution
+
+### Immediate
+- Stop all atlas@ customer communication ✅ Done
+- Production Readiness Check established as permanent standard ✅ Done
+
+### Completed
+- Re-authorise `google_token.json` (atlas@) with `gmail.send` + `gmail.modify` scopes ✅ Completed and independently verified
+
+### Required
+- Re-authorise `quotes_token.json` with `gmail.send` + `gmail.modify` scopes
+- Correct Airtable for Arno Hsu and Kate Quinn
+- Send pending replies once pipeline certified
+
+---
+
+## Learnings
+
+1. **Never trust a send success response.** Independent delivery verification is mandatory.
+2. **Production must prove it is healthy before operating.** This is not optional — it's a hard gate.
+3. **Token scopes are production-critical configuration.** Scope gaps must be detected before sends, not after failures.
+4. **Airtable must never be updated before delivery is independently verified.**
+5. **The correct sequence is: Check → Communicate → Verify → Evidence → Airtable → HQ. Nothing may occur out of order.**
+6. **API silent failures are the most dangerous kind.** The Gmail API's behaviour (accepting send without send scope) is a trap. We must guard against it.
+
+---
+
+## Related
+
+- INC-2026-08-05-002 — 172 emails undelivered (OAuth scope/expiry, no delivery verification)
+- `knowledge/production-readiness-check.md` — Permanent standard established from this incident

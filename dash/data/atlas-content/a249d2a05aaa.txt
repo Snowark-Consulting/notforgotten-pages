@@ -1,0 +1,93 @@
+# Decision: Intelligence Over Noise Standard
+
+**Slug:** `2026-08-05-intelligence-over-noise`
+**Date:** 2026-08-05
+**Status:** Made
+**Review Date:** 2026-11-05
+
+---
+
+## The Decision
+
+Not every customer outcome requires immediate escalation to the client. Lost opportunities are aggregated into monthly Business Intelligence reports rather than forwarded individually. Only operational actions (quote accepted, scheduling requests, technical questions, urgent issues) are escalated immediately. BK-012 — Intelligence Over Noise is now a permanent operating principle.
+
+---
+
+## The Problem
+
+The existing standard forwarded every customer reply — including lost deals — to the client immediately. This created noise. A client receiving "another quote lost" interruptions throughout the week gets stressed, not informed. The same information, aggregated monthly with trends and recommendations, becomes intelligence they can act on.
+
+---
+
+## Options Considered
+
+| # | Option | Summary |
+|---|---|---|
+| A | Forward everything immediately | Transparent but noisy. Clients get interrupted for every loss. |
+| B | Never forward losses | Quiet but blind. Clients miss VIP losses and urgent complaints. |
+| C | Distinguish operational action from business intelligence | Escalate actions. Aggregate patterns. Exceptions for VIP, strategic, complaints. (Chosen) |
+
+---
+
+## Why This Path
+
+The distinction between "the client needs to act" and "the client would benefit from knowing" is critical. Operational actions demand immediate escalation. Business intelligence is more valuable when aggregated and contextualised. This reduces noise while increasing insight — exactly what Atlas exists to do.
+
+---
+
+## Core Principles Applied
+
+- **Trust before growth** — Reducing noise demonstrates respect for the client's time
+- **Evidence before opinion** — Monthly reports are evidence-based, not anecdotal
+- **Continuous learning** — Every loss feeds the intelligence engine
+
+---
+
+## Risks Identified
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| VIP customer loss missed | Low | High | Exception: strategic accounts and VIPs escalated immediately |
+| Client wants real-time loss notification | Medium | Low | Operating Model field can override — some clients may prefer visibility |
+
+---
+
+## Expected Outcome
+
+Clients receive fewer interruptions. Monthly reports deliver more valuable, actionable intelligence. Lost deals are handled gracefully with customers per BK-006/BK-009 but not immediately forwarded to the client unless they require operational action.
+
+---
+
+## Success Criteria
+
+- [ ] Zero VIP/strategic/urgent losses go unreported to client within 4 hours
+- [ ] Monthly Client Intelligence Report delivered for every active client
+- [ ] Client feedback on reduced noise is positive or neutral
+- [ ] No client reports "I didn't know we were losing deals"
+
+---
+
+## Atlas's Challenge (Pre-Decision)
+
+No challenge. This is a natural evolution — the same distinction that created BK-008/BK-009 (Operational Ownership + Acknowledge Before Handover) applied to client-facing intelligence. Atlas exists to reduce noise while increasing insight.
+
+**James's response:** Self-directed standard.
+
+---
+
+## Actual Outcome (Post-Review)
+
+**Date reviewed:** *Pending — 2026-11-05*
+
+---
+
+## Learnings
+
+*Pending review*
+
+---
+
+## Related Decisions
+
+- `2026-08-05-operational-handover-standard` — BK-008/BK-009, Operational Ownership
+- `2026-08-05-production-foundations` — BK-010/BK-011, Production Confidence

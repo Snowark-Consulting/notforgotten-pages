@@ -1,0 +1,341 @@
+# Architectural Snapshot — Not Forgotten Systems
+
+**Date:** 5 August 2026
+**Version:** 1.0
+**Status:** Active
+**Purpose:** Single-document architecture reference. A new engineer reading this should understand how the platform thinks without speaking to James.
+
+---
+
+## 1. What Not Forgotten Systems Is
+
+Not Forgotten Systems is a **Customer Journey Operating System**. It recovers revenue from quotes that have gone quiet by managing customer communication on behalf of trade and service businesses.
+
+The product is trust. The technology is a tool to earn it.
+
+A client (e.g. QPaint) sends quotes to their customers. Those customers go quiet. Not Forgotten steps in as invisible infrastructure — communicating with those customers on the client's behalf until the customer is ready to proceed. The customer never sees "Not Forgotten." They see exceptional service from the business they already trust.
+
+---
+
+## 2. The Core Architecture
+
+```
+                         CUSTOMER JOURNEY
+                    (the single source of truth)
+                              │
+        ┌─────────────────────┼─────────────────────┐
+        │                     │                     │
+   [Gmail]              [Airtable]              [Future]
+   Communication         Operational             Channels
+   records               database               SMS, WhatsApp,
+        │                     │                 Phone, Portal
+        └─────────────────────┼─────────────────────┘
+                              │
+                     [Headquarters]
+                      Executive view
+```
+
+**There is only one customer. There is only one journey. There is only one operational truth.** Every system is simply another view of the same Journey ID.
+
+### Journey ID Standard
+
+Format: `NF-{CLIENT_SLUG}-{QUOTE_NUMBER}`
+
+Example: `NF-QPAINT-42640`
+
+The Journey ID is created the moment a quote enters Not Forgotten (via quotes@). It follows the customer through every system — Gmail threads, Airtable records, Messages, Evidence, Headquarters, reports, and all future channels.
+
+### System Roles
+
+| System | Role | Truth it holds |
+|---|---|---|
+| **Gmail** | Communication record | What was said, when, by whom |
+| **Airtable** | Operational database | Customer state, pipeline stage, journey progress |
+| **Headquarters** | Executive dashboard | Business health, decisions required, risks |
+| **Send Evidence** | Audit trail | What was sent, verified against Gmail Sent |
+| **CEO Brief** | Daily executive report | What matters today |
+| **Customer Journey (conceptual)** | Master thread | NF-QPAINT-42640 links everything |
+
+---
+
+## 3. The Production Pipeline
+
+Every customer journey follows a fixed 12-step sequence. Steps cannot be skipped or reordered.
+
+```
+1.  QUOTE RECEIVED (quotes@notforgotten.com.au)
+2.  EXTRACT customer and quote data
+        │
+3.  CREATE/UPDATE Airtable record  ← Journey begins here
+4.  CERTIFY Customer Journey (9 questions)
+5.  MOVE to Quotes Completed label
+6.  OBSERVE 48-hour window
+7.  PREPARE communication
+8.  PRE-SEND CERTIFICATION (10 gates)
+9.  SEND via verified production sender
+10. VERIFY delivery in Gmail Sent folder
+11. UPDATE Airtable (stage, notes, messages)
+12. UPDATE Headquarters
+```
+
+### The 48-Hour Observation Period
+
+After a quote enters the system, Not Forgotten waits 48 hours before any follow-up. This gives the client a natural opportunity to contact their customer first. During this window, Atlas monitors for meaningful communication. If the customer replies, the journey adapts. If nothing happens after 48 hours, the prepared communication is presented for approval.
+
+---
+
+## 4. The Verification Philosophy
+
+**Every claim of external effect must be independently verified against an external source of truth.**
+
+This is BK-004: Never Trust a Green Tick. It is the single most important engineering principle in the system. It was born from INC-2026-08-05-002, where 172 emails were reported as "sent" but zero existed in any Gmail Sent folder.
+
+### Verification Gates
+
+| Gate | When | What it checks |
+|---|---|---|
+| **Customer Journey Certification** | Quote intake + Pre-send | 9 questions answerable from Airtable |
+| **Pre-Send Certification** | Immediately before Gmail API | 10 hard gates (sender, recipients, signature, voice, commitments, etc.) |
+| **Post-Send Verification** | Immediately after Gmail API | Message exists in Gmail Sent folder |
+| **Airtable Reconciliation** | After verification | Stage, status, notes, Messages updated |
+
+### The Production Confidence Score
+
+Every production action is silently scored before execution:
+
+| Score | Action |
+|---|---|
+| 100 | Verified. Proceed. |
+| 90 | Minor uncertainty. Proceed with caution. |
+| 75 | Material uncertainty. Requires James approval. |
+| Below 75 | Production stops automatically. |
+
+### The Seven-Question Silent Self-Check
+
+Before any production action, Atlas silently asks: Do I have permission? Am I the correct owner? Have I verified assumptions? Am I relying on evidence, not API success? Have I updated every system? Have I verified every system? Can another person audit my work?
+
+Any "No" → production stops.
+
+---
+
+## 5. The Communication Philosophy
+
+### Customer Care (White-Label)
+
+Atlas communicates with a client's customers as invisible infrastructure. The customer sees the client's brand, not Not Forgotten. Principles:
+
+- **Invisible infrastructure.** Zero Not Forgotten branding. No privacy policy links. No marketing statements.
+- **Reduce anxiety, not just answer questions.** Every reply should leave the customer feeling calmer and more confident than before they opened the email.
+- **Acknowledge without assuming fault.** "I understand the link has expired" — not "I'm sorry the link expired."
+- **Team language.** "Tas and the QPaint team" — never "Tas" alone. Atlas never makes operational commitments.
+- **Measured by confidence after reading, not speed of reply.**
+
+### Internal Handover
+
+Communication with clients (e.g. flagging a customer issue to QPaint) follows a different standard:
+
+- **Reduce effort without reducing humanity.** Sound like a trusted colleague, not a ticket.
+- **Give the client everything they need to act without asking another question.**
+- **Maintain the relationship while being efficient.**
+- **Canonical signature from james@ appended verbatim.** Never removed or modified.
+
+### Founder Outreach
+
+Cold outreach from James to prospective clients uses the founder voice: direct, practical, no-bullshit. One business owner talking to another.
+
+---
+
+## 6. The Business Knowledge Framework
+
+Knowledge is classified into four tiers. Only the highest tier permanently changes the operating system.
+
+| Tier | Name | Example |
+|---|---|---|
+| **Observation** | Something interesting happened | "Alicia Campbell replied" |
+| **Pattern** | Same thing happened 3+ times | "Quote links expire after 60 days" |
+| **Improvement** | A specific change to respond | "Add link expiry check to intake" |
+| **Standard** | Permanent change to the OS | "Customer Journey Certification" |
+
+**Business Knowledge (BK) principles** are permanent operating laws, numbered sequentially:
+- BK-004: Never trust a green tick
+- BK-010: The cost of stopping is always lower than the cost of assuming
+- BK-011: Production environments must prove they are healthy
+- BK-013: Reality always wins (Airtable = operational truth)
+
+**Production Incidents (INC)** are numbered and reviewed:
+- INC-002: 172 emails silently not delivered
+- INC-003: Airtable updated before delivery verified
+- INC-004: Customer communication without verified journey
+
+---
+
+## 7. The Role of Airtable
+
+Airtable is the **operational source of truth**. It must be able to answer nine questions about every customer journey at any moment:
+
+1. Who is the customer?
+2. Which client do they belong to?
+3. Which quote is this?
+4. What is the quote value?
+5. What stage are they in?
+6. Which communication sequence applies?
+7. What communication has already occurred?
+8. What happens next?
+9. Who owns the next action?
+
+**Production Law:** If Airtable cannot answer these questions, production halts. Customer communication and Airtable must never diverge. Airtable becomes reality the moment a quote enters the system.
+
+### Base Structure
+
+| Table | Purpose |
+|---|---|
+| Prospects | Cold outreach targets |
+| Clients | Paying businesses (e.g. QPaint) |
+| QPaint Pipeline | Customer journeys for QPaint |
+| Quotes | Individual quote records |
+| Messages | Communication history linked to journeys |
+
+---
+
+## 8. The Role of Gmail
+
+Gmail is the **communication record**. It tells us what was said, when, and by whom.
+
+- **atlas@notforgotten.com.au** — White-label customer care. Communicates with clients' customers.
+- **james@notforgotten.com.au** — Founder voice. Cold outreach, client communication, internal handovers. Full canonical signature required.
+- **quotes@notforgotten.com.au** — Intake queue. Businesses CC/BCC this address on outgoing quotes.
+
+**Production Law:** Gmail's Sent folder is the single source of truth for whether an email was delivered — never the script output, never the API response.
+
+---
+
+## 9. The Role of Atlas
+
+Atlas is the AI operating system behind Not Forgotten. Atlas does not seek recognition — every action should make the client feel they are working directly with James, supported by an exceptionally organised, proactive, and intelligent business.
+
+Atlas operates under six immutable principles:
+1. Trust before growth
+2. Evidence before opinion
+3. Security before convenience
+4. Privacy by design
+5. Continuous learning
+6. Human accountability (Atlas advises; James owns)
+
+Atlas has delegated authority for standard outreach within approved sequences. Strategic decisions, new campaigns, and anything uncertain escalate to James.
+
+---
+
+## 10. The Role of Headquarters
+
+Headquarters is the **executive dashboard** — a five-tab web application that gives James a complete view of the business in under five minutes.
+
+| Tab | Purpose |
+|---|---|
+| War Room | Decisions, risks, priorities |
+| Pipeline | Active customer journeys |
+| Customers | Client health and activity |
+| Brain | Business knowledge and learnings |
+| Activity | Chronological action log |
+
+The CEO Brief is the daily executive report, published to GitHub Pages, answering four questions: What does James need to know? What does he need to decide? What should he ignore? What will have the biggest impact today?
+
+---
+
+## 11. The Relationship Between Systems
+
+```
+QUOTE ENTERS (quotes@)
+     │
+     ├── Gmail stores the raw email
+     ├── Airtable gets the customer record (Journey begins)
+     ├── Journey ID generated: NF-QPAINT-42640
+     │
+     ▼
+48-HOUR OBSERVATION
+     │
+     ▼
+COMMUNICATION PREPARED
+     │
+     ├── Customer Journey Certification (Airtable: 9 questions)
+     ├── Pre-Send Certification (10 gates)
+     │
+     ▼
+SEND (Gmail API)
+     │
+     ├── Gmail Sent folder: independent verification
+     ├── Send Evidence record: audit trail
+     ├── Airtable: stage updated, Messages created
+     ├── Headquarters: dashboard refreshed
+     │
+     ▼
+CUSTOMER REPLIES
+     │
+     ├── Gmail: inbound message
+     ├── Airtable: stage → Replied, notes updated
+     ├── Customer Care reply drafted (white-label)
+     ├── Internal handover to client (if needed)
+     └── Cycle continues
+```
+
+**If any two systems disagree, the journey is considered broken and production halts until reality is restored.**
+
+---
+
+## 12. Architectural Health Assessment
+
+### What Is Elegant
+
+- **Journey-centric model.** The NF-QPAINT-42640 pattern ties everything together. A new system (SMS, WhatsApp) only needs to reference the Journey ID to integrate fully.
+- **Verification philosophy.** BK-004 ("never trust a green tick") has been hardened into code gates. The 10-gate certification cannot be skipped — it's a function, not a checklist.
+- **Separation of communication layers.** Customer Care (white-label, atlas@), Founder (james@), and Intake (quotes@) are clearly separated. Each has its own token, voice rules, and certification path.
+- **12-step pipeline.** Nothing happens out of sequence. Quote intake → Airtable → Wait → Certify → Send → Verify → Reconcile. Fixed, enforced, auditable.
+
+### What Still Feels Fragile
+
+- **Airtable as a database.** Airtable was designed as a spreadsheet, not a production CRM. The 9-question certification is strong, but it depends on Airtable's API being available. There is no offline cache or fallback query path. If Airtable is down, the entire pipeline halts — correctly, but with no graceful degradation.
+- **Single-client architecture.** Everything is built around QPaint as the sole client. The certification function (`certify_customer_journey`) has a config dictionary designed for multi-client, but only 'qpaint' is populated. The Messages table links to `QPaint Deal` specifically, not a generic `Pipeline` field. Multi-client is designed but not tested.
+- **Inline sends bypass certification.** The certification gate is a Python function that must be called. If a send is constructed via raw MIME in a terminal session that doesn't call `certify()`, the gate doesn't fire. The send-outreach.py script integrates the gate; ad-hoc raw MIME sends (like the handover that triggered INC-004) rely on attention. A wrapper that forces certification before any Gmail API call would close this gap.
+- **Token refresh failures.** Three independent OAuth tokens (atlas@, james@, quotes@) each refresh independently. A single token expiry can silently block an entire channel. There's no proactive expiry monitoring — tokens are only refreshed when a send fails.
+- **Google Sheets dependency.** QPaint data lives in a shared Google Sheet. If Tas stops sharing it, the reconciliation cross-reference breaks. There's no automated sync between the Sheet and Airtable.
+
+### What Technical Debt Exists
+
+- **Seven legacy send scripts retired but still on disk.** INC-002 revealed seven different send scripts with different auth patterns. They've been retired but not deleted. Only `send-outreach.py` and the certification gate are production.
+- **Hardcoded values in certification.** The Airtable base ID (`appgw8Q993yOh4xpQ`) and client config are hardcoded in `pre_send_certification.py`. Multi-client will require config externalization.
+- **Messages table has client-specific field names.** `QPaint Deal` should be `Pipeline` or `Deal`. The current name won't survive the second client.
+- **No automated reconciliation.** Reconciliation between Gmail and Airtable is manual, triggered by James. It should be a cron job that runs daily and reports drift automatically.
+- **Evidence Dossiers are manual.** The QPaint Evidence Dossier (`ED-2026-08`) is a markdown file updated by hand. It should be generated from Airtable + Gmail data automatically.
+
+### What Assumptions Still Exist
+
+- **QPaint will remain the primary client.** The architecture is designed for multi-client but stress-tested for one. Assumption: the patterns that work for QPaint (48h wait, 5-email recovery sequence, white-label Customer Care) will generalize to electricians, plumbers, builders.
+- **Email will remain the primary channel.** SMS is designed (Twilio integration, template library, validation plan) but not in production. Assumption: email is sufficient for customer recovery in the near term.
+- **James will review everything strategic.** The system delegates routine sends to Atlas but escalates strategy to James. Assumption: this division holds as volume increases.
+- **Google Sheets will remain accessible.** The QPaint data lives in a shared Drive file. Assumption: Tas continues sharing it and doesn't change the schema.
+
+### What Should Never Change
+
+1. **The Six Principles.** Trust before growth. Evidence before opinion. Security before convenience. Privacy by design. Continuous learning. Human accountability.
+2. **The Journey-centric model.** One customer, one journey, one truth. Every system is a view of the same Journey ID.
+3. **BK-004: Never trust a green tick.** Independent verification is not negotiable.
+4. **The 12-step pipeline sequence.** Quote → Airtable → Wait → Certify → Send → Verify → Reconcile. Order is fixed.
+5. **Customer Care as invisible infrastructure.** The customer's relationship is with the client. Atlas never breaks that illusion.
+
+### What Should Probably Change (Next 6 Months)
+
+1. **Multi-client Airtable architecture.** The `QPaint Deal` field should become `Pipeline`. The Messages table should link generically. Client config should be externalized from the certification function.
+2. **Automated reconciliation.** A daily cron job that compares Gmail Sent to Airtable Messages and reports drift. Drift should trigger an automatic production halt, not wait for James to notice.
+3. **Proactive token health monitoring.** A watchdog that tests token validity daily and alerts before expiry, not after failure.
+4. **SMS channel activation.** The design is complete (Twilio integration, template library, 5-scenario validation plan). Next step: production pilot with a willing client.
+5. **Evidence Dossier automation.** Generate EDs from Airtable + Gmail, not manual markdown. Every journey should produce its own evidence automatically.
+6. **Send wrapper that enforces certification.** Every Gmail API call — whether from a script or an ad-hoc raw MIME send — should pass through the certification gate. No path to the API without certification.
+
+---
+
+## 13. Final Principle
+
+> Not Forgotten Systems is no longer a collection of automations. It is a Customer Journey Operating System. Every future feature, workflow, and decision must strengthen that architecture rather than compete with it.
+
+---
+
+*Snapshot complete. 5 August 2026. System returning to Normal Operations.*

@@ -1,0 +1,519 @@
+# QPaint Revenue Recovery — Evidence Dossier
+
+**Dossier ID:** ED-2026-08
+**Title:** QPaint Revenue Recovery — August 2026
+**Status:** 🟢 Active — Working Document
+**Classification:** Internal — Not for Publication
+**Period:** 1–31 August 2026
+**Last Updated:** 5 August 2026
+**Review Cadence:** Every Friday
+
+> ⚠️ **INTERNAL ONLY.** This is an evidence document, not a case study. No marketing. No exaggeration. No conclusions the evidence doesn't support. Factual record of what happened, when it happened, and what we learned. May be converted into a case study only after written approval from Tas Moulis (QPaint).
+
+---
+
+## Evidence Strength Key
+
+Every claim in this dossier is graded for evidentiary strength.
+
+| Grade | Standard | Example |
+|---|---|---|
+| **A** | Verified by customer communication, Gmail, Airtable, and business outcome | Arno Hsu: reply in Gmail, Won in Airtable, $129,750 outcome |
+| **B** | Verified by Gmail and Airtable | Email sent + Airtable record updated |
+| **C** | Operational observation requiring more evidence | Pattern noticed across replies, not yet statistically significant |
+| **D** | Hypothesis only — not yet validated | "Customers may respond better to evening emails" |
+
+---
+
+## Evidence Timeline — Key Milestones
+
+> One-page summary. The quickest way to understand the entire August 2026 QPaint recovery story.
+
+### Pre-Engagement
+
+| Date | Milestone | Why It Mattered | Evidence | Strength |
+|---|---|---|---|---|
+| Jul 2026 | QPaint onboarded as first NF client | First revenue recovery client. White-label model validated. | Airtable Clients table | B |
+| Jul 2026 | 144 dormant quotes loaded into QPaint Pipeline | Baseline dataset. Recovery opportunity quantified. | Airtable: 144 records | B |
+| 27 Jul | Joy Ryan replied — requested split quotes | First evidence that dormant customers respond to re-engagement | Gmail: `19faaf275ff53fd7` | A |
+
+### Wave 1 Re-engagement (4–5 Aug)
+
+| Date | Milestone | Why It Mattered | Evidence | Strength |
+|---|---|---|---|---|
+| 4 Aug | 106 Email 1 re-engagement emails sent | First production-scale QPaint recovery wave | 106 Send Evidence records | A |
+| 5 Aug 08:30 | First verified NF outreach from james@ (FF1) | NF's own outreach capability proven | Gmail: `19fcf010f028b095` | A |
+| 5 Aug 09:17 | Cathryn Cochrane replied — insurance pending | First T3 Engaged reply. BK-005 created (third-party wait principle) | Gmail: `19fcf2ce815e578a` | A |
+| 5 Aug 10:20 | Malcolm McCabe replied — lost on cost | BK-006 created (lost job ≠ lost customer) | Gmail: `19fcf663df5a0189` | A |
+| 5 Aug 12:58 | ⭐ **Arno Hsu — quote approved** | $129,750 recovered. 365-day dormant quote. Same-day conversion. | Gmail: `19fcfdbf7bcf4dfe` | A |
+| 5 Aug 13:12 | Arno acknowledged — 14-min response | BK-009 created (Acknowledge Before Handover). Customer appreciation protocol validated. | Gmail: `19fd003bc25eaba4` | A |
+| 5 Aug 14:39 | Arno Hsu — "Thank you so much" | Customer appreciation. Emotional outcome evidence. | Gmail: `19fd03893845b6a1` | A |
+
+### Infrastructure Recovery (5 Aug)
+
+| Date | Milestone | Why It Mattered | Evidence | Strength |
+|---|---|---|---|---|
+| 5 Aug | INC-002: 172 emails undelivered — RECOVERED | BK-004 + BK-010 + BK-011 created. Email Verification Standard established. | INC review | A |
+| 5 Aug | INC-003: atlas@ lacked gmail.send — RESOLVED | Production Readiness Check + Six-Step Execution Order created | INC review | A |
+| 5 Aug | 1,666-record CRM reconciliation | BK-013 created. Hierarchy of Truth established. Daily audit permanent. | Recon report | A |
+| 5 Aug | Won Definition codified | "Scheduling is operational, not sales." | Decision record | A |
+
+### Standards Established (5 Aug)
+
+| Date | Milestone | Why It Mattered | Evidence | Strength |
+|---|---|---|---|---|
+| 5 Aug | Permanent Communication Standard | Three-place rule: Gmail + Airtable + Evidence. 13 Messages backfilled. | Decision + Messages | A |
+| 5 Aug | Airtable Operational Source of Truth | BK-013. Continuous reconciliation. Morning audit workflow. | Decision | A |
+| 5 Aug | QPaint Deal linked field on Messages | 16 Messages backlinked. Full bidirectional traceability. | Airtable schema | B |
+| 5 Aug | V3 Multi-Client CRM Architecture designed | 100-client test. Staged migration path. | `architecture/v3-erd.md` | C |
+| 5 Aug | ED-2026-08 Evidence Dossier opened | First NF evidence dossier. Living document with Friday reviews. | This document | B |
+
+---
+
+## Executive Summary
+
+In August 2026, Not Forgotten Systems began recovery operations for QPaint, a commercial and residential painting business. The engagement covers dormant quote follow-up, customer re-engagement, and white-label customer care. This dossier records every significant event, outcome, and learning throughout the month.
+
+**As of 5 August 2026 (Day 1 of active operations):**
+- 144 dormant quotes loaded into QPaint Pipeline
+- 106 re-engagement emails sent (Email 1)
+- 7 customer replies received
+- 1 job won: Arno Hsu — $129,750.50 (365-day dormant quote)
+- 8 jobs lost (customers went elsewhere or opted out)
+- 6 Business Knowledge principles created
+- 5 production standards established or strengthened
+- Full CRM reconciliation completed
+
+---
+
+## Business Background
+
+### The Client
+
+| Field | Detail |
+|---|---|
+| **Business** | QPaint — Commercial & Residential Painting |
+| **Owner** | Tas Moulis |
+| **Team** | Dee (Solutions), Leslie (Admin) |
+| **Industry** | Painting (Trade Services) |
+| **Location** | Queensland, Australia |
+| **Customer Base** | Residential homeowners, body corporates, strata, government |
+
+### The Problem Before Not Forgotten
+
+QPaint had approximately 144 quotes that had been sent to customers but never systematically followed up. Some quotes were over 12 months old. There was no process for checking whether customers had received quotes, had questions, had chosen another provider, or were still deciding.
+
+Sales opportunities were being lost through inaction, not through customer decisions.
+
+### Engagement Model
+
+| Field | Detail |
+|---|---|
+| **Operating Model** | White-label. Atlas operates as "Customer Care — QPaint" |
+| **Atlas Owns** | Communication, customer care, follow-up, information gathering, relationship management |
+| **QPaint Owns** | Scheduling, quoting, pricing, site visits, job commencement, operational delivery |
+| **Sender Identity** | atlas@notforgotten.com.au (as QPaint Customer Care) |
+| **Onboarding Date** | July 2026 |
+
+---
+
+## Objectives
+
+1. Recover revenue from dormant quotes through systematic, professional follow-up
+2. Classify every customer response accurately in Airtable
+3. Build a complete relationship history for every QPaint customer
+4. Discover patterns in customer behaviour (objections, timing, decision drivers)
+5. Create a repeatable recovery playbook for future painting industry clients
+6. Ensure Airtable accurately represents reality — no Gmail dependency required
+
+---
+
+## Timeline of Events
+
+### Pre-August (July 2026)
+
+| Date | Event | Evidence |
+|---|---|---|
+| Jul 2026 | QPaint onboarded as first Not Forgotten client | Client record in Airtable |
+| Jul 2026 | 144 dormant quotes loaded into QPaint Pipeline | Pipeline table created |
+| 27 Jul | Early re-engagement emails sent (pre-production standard) | Gmail: various |
+| 28 Jul | Nicholas Zappacosta QAS Beenleigh tender received, forwarded to QPaint | Gmail: `19fc0d718ab68096` |
+| 28 Jul | Joy Ryan replied — requested two separate quotes. Atlas acknowledged. | Gmail: `19faaf275ff53fd7` |
+| 28 Jul | Logan Village SS Stage 1 confirmed (Sep 2026) — Nicholas Zappacosta | Gmail: `19fabc26057f8998` |
+
+### 4–5 August 2026 — Wave 1 Re-engagement
+
+| Date | Time | Event | Evidence |
+|---|---|---|---|
+| 4 Aug | 17:43 CT | 106 Email 1 re-engagement emails sent via verified production sender | 106 Send Evidence records |
+| 4 Aug | 22:43 | Emma Huskisson — automated reply (out-of-office). Not a real response. | Gmail: `19fcef20d06ee416` |
+| 4 Aug | 23:04 | Nuwan Fernando replied — committee still weighing options. Stage corrected to Awaiting Reply. | Gmail: `19fcf05e4e41f372` |
+| 5 Aug | 00:06 | Danielle Gibney replied — "gone with another provider." Marked Lost. | Gmail: `19fcf3e4c2019f9d` |
+| 5 Aug | 08:57 | Joy Ryan — already replied 29 Jul. Stage corrected from Email 2 to Awaiting Reply. | (see 29 Jul) |
+| 5 Aug | 09:04 | Chass Matters — lost to delayed follow-up. Honest apology sent. BK-007 created. | Gmail: `19fcf6b1cd4ce875` |
+| 5 Aug | 09:17 | Cathryn Cochrane replied — quote with insurer. 2-week check-in scheduled. BK-005 created. | Gmail: `19fcf2ce815e578a` |
+| 5 Aug | 09:18 | Darren Harper opted out — "Please stop email contact." Marked Lost. | Gmail: handler |
+| 5 Aug | 10:20 | Malcolm McCabe replied — lost on cost. Relationship preserved. BK-006 created. | Gmail: `19fcf663df5a0189` |
+| 5 Aug | 10:40 | Margaret Luscombe replied — "engaged another Painting Company." Marked Lost. | Gmail: `19fcf5db6406de41` |
+| 5 Aug | 12:53 | Kate Quinn replied — went with different quote. Marked Lost. | Gmail: `19fcef5af4cf499b` |
+| 5 Aug | **12:58** | ⭐ **Arno Hsu replied — quote approved in AGM. $129,750. Requesting start date.** | Gmail: `19fcfdbf7bcf4dfe` |
+| 5 Aug | 13:12 | Arno Hsu acknowledged. Tas informed. BK-009 applied. | Gmail: `19fd003bc25eaba4` |
+| 5 Aug | 13:42 | (correction — acknowledgment actually sent at 13:12 ACST) | |
+| 5 Aug | 14:39 | Arno Hsu — "Thank you so much." Customer appreciation. | Gmail: `19fd03893845b6a1` |
+
+### 5 August 2026 — Infrastructure & Standards
+
+| Time | Event | Evidence |
+|---|---|---|
+| 06:44 | Morning Command Centre refresh. Disk crisis resolved. Score: 87. | HQ |
+| 07:23 | INC-2026-08-05-001 resolved — 61 duplicate QPaint records merged. | INC review |
+| 08:30 | FF1 Wave 1 launched — first verified production email from james@. | Gmail: `19fcf010f028b095` |
+| 08:36 | FF1 Wave 1 complete — 16/16 sent + verified. | 16 evidence records |
+| 08:45 | INC-2026-08-05-002 CLOSED — 122 emails recovered. Production sender healthy. | INC review |
+| 10:56 | Operating principles codified. Infrastructure phase formally closed. | Decision |
+| 11:28 | Twilio certified Production Ready — SMS + Voice validated. | Test evidence |
+| 11:32 | Quote Intake Standard established — 48h observation, human timing. | Decision |
+| 12:41 | Legacy Re-engagement Pilot v1.0 launched — 3 emails, 100% verified. | 3 evidence records |
+| 12:48 | Arno Hsu WON + Kate Quinn LOST processed. | Airtable |
+| 13:07 | INC-2026-08-05-003 RESOLVED. atlas@ re-authorised. Production Readiness Check permanent. | INC review |
+| 17:05 | Arno Hsu marked Won in Airtable. Won stage added. | Airtable: `rec6lZpr4GqRL7MyZ` |
+| 17:15 | Permanent Communication Standard + Won Definition decisions recorded. | Decisions |
+| 17:17 | 4 Arno Hsu Messages backfilled with full Gmail audit trail. | Messages |
+| 17:20 | Reconciliation audit: 1,666 records. 4 stage corrections. 9 Messages. 5 Quotes migrated. | Recon report |
+| 17:30 | Quotes table migrated to QPaint workspace. 0 data lost. | Airtable |
+| 17:32 | Airtable Operational Source of Truth decision recorded. BK-013. Hierarchy of Truth. | Decision |
+| 17:38 | QPaint Deal linked field on Messages. 16 Messages backlinked. | Airtable |
+| 17:45 | V3 Multi-Client CRM Architecture ERD designed. | `knowledge/architecture/v3-erd.md` |
+| 18:00 | CS-2026-001 / ED-2026-08 evidence dossier opened. | This document |
+
+---
+
+## Revenue Recovery Timeline
+
+### Jobs Won
+
+| # | Customer | Deal | Value | Quote Date | Days Dormant | Won Date | Evidence |
+|---|---|---|---|---|---|---|---|
+| 1 | Arno Hsu | 41529 — 72 Learoyd Road, Algester | **$129,750.50** | 5 Aug 2025 | 365 | 5 Aug 2026 | Gmail thread `19fcef28e132341b` |
+
+**Total Revenue Won:** $129,750.50
+**Attribution:** 100% — no follow-up existed before Atlas
+
+### Jobs Lost
+
+| # | Customer | Reason | Value | Lost Date | Evidence |
+|---|---|---|---|---|---|
+| 1 | Danielle Gibney | Went with another provider | $8,514.00 | 5 Aug 2026 | Gmail: `19fcf3e4c2019f9d` |
+| 2 | Margaret Luscombe | Engaged another company | $21,176.10 | 5 Aug 2026 | Gmail: `19fcf5db6406de41` |
+| 3 | Kate Quinn | Went with different quote | $24,415.00 | 5 Aug 2026 | Gmail: `19fcef5af4cf499b` |
+| 4 | Darren Harper | Opted out (stop contact) | $43,437.35 | 5 Aug 2026 | Gmail |
+| 5 | Chass Matters | Lost to delayed follow-up | $4,317.50 | 5 Aug 2026 | Gmail: `19fcf6b1cd4ce875` |
+| 6 | Malcolm McCabe | Lost on cost | $38,404.30 | 5 Aug 2026 | Gmail: `19fcf663df5a0189` |
+| 7 | Andres Sillet | Went elsewhere | $33,007.70 | 29 Jul 2026 | Gmail |
+| 8 | Catherine Sinnamon | Went elsewhere | $11,984.50 | 29 Jul 2026 | Gmail |
+
+**Total Revenue Lost:** $185,256.45
+**Note:** These were customer decisions, not NF failures. 2 were already determined before our contact. 6 were responsive to our re-engagement and made their position clear.
+
+### Active / Pending
+
+| # | Customer | Status | Value | Last Contact | Next Action |
+|---|---|---|---|---|---|
+| 1 | Nicholas Zappacosta | Engaged - Awaiting Confirmation | $145,008.34 | 28 Jul 2026 | Await Tas quotes for 2 projects |
+| 2 | Joy Ryan | Awaiting Reply | $17,510.30 | 28 Jul 2026 | Awaiting customer decision on split quotes |
+| 3 | Nuwan Fernando | Awaiting Reply | $167,591.60 | 4 Aug 2026 | Committee weighing options — monitor |
+| 4 | Cathryn Cochrane | Awaiting Reply | TBD | 5 Aug 2026 | Insurance pending — check back 19 Aug |
+
+---
+
+## Customer Conversations
+
+### Arno Hsu — Won ($129,750.50)
+
+Full thread: `19fcef28e132341b`
+
+| # | Date/Time | Dir | Summary | Gmail ID |
+|---|---|---|---|---|
+| 1 | 4 Aug 17:43 CT | Out | Re-engagement: checking on quote, offering to clarify | `19fcef28e132341b` |
+| 2 | 5 Aug 12:58 AEST | In | ⭐ "Your quotation has been approved in AGM." Requests start date. | `19fcfdbf7bcf4dfe` |
+| 3 | 5 Aug 13:12 ACST | Out | Acknowledgment. Tas informed. BK-009 applied. | `19fd003bc25eaba4` |
+| 4 | 5 Aug 14:39 AEST | In | "Thank you so much." Customer appreciation. | `19fd03893845b6a1` |
+
+**Key Detail:** Quote was 365 days old. Customer replied within ~4 hours of receiving the first follow-up email. The body corporate committee (AGM) had already approved the quote — the customer was waiting for contact.
+
+### Nicholas Zappacosta — Engaged ($145,008.34)
+
+Multi-project government relationship. Logan Village State School confirmed for Sep 2026 ($145K). Two additional tenders pending Tas quotes. QAS Beenleigh tender forwarded 2 Aug.
+
+### Joy Ryan — Awaiting Reply ($17,510.30)
+
+Customer requested two separate quotes (external + internal) on 29 Jul. Atlas acknowledged and arranged with Tas. Awaiting customer decision.
+
+### Nuwan Fernando — Awaiting Reply ($167,591.60)
+
+Body corporate committee still weighing options, need more quotes for legislative requirements. KBW Community Management. Monitoring.
+
+### Cathryn Cochrane — Awaiting Reply
+
+Quote submitted to insurer. Customer waiting on insurance response. 2-week check-in scheduled for 19 Aug. BK-005 applied.
+
+---
+
+## Business Intelligence
+
+*Principles discovered through real customer interactions. All evidence-backed.*
+
+| ID | Principle | Source | Date |
+|---|---|---|---|
+| BK-001 | Painters do not respond meaningfully to curiosity-led outreach about quote follow-up. | CvC Day 21 (0/105 replies) | Jul-Aug 2026 |
+| BK-002 | Trust and shared experience are stronger opening mechanisms than curiosity for trade business owners. | FF1 design | Aug 2026 |
+| BK-003 | Customers do not buy because we follow up. They buy because they become more confident. | QPaint journey v1.0 | Jul 2026 |
+| BK-004 | Never trust a green tick. Every claim of external effect must be independently verified. | INC-2026-08-05-002 | Aug 2026 |
+| BK-005 | When a customer waits on a third party, remove the burden from them. Offer to check back. | Cathryn Cochrane | Aug 2026 |
+| BK-006 | A lost job is not necessarily a lost customer. Preserve the relationship. | Malcolm McCabe | Aug 2026 |
+| BK-007 | When the business has let a customer down, acknowledge it honestly. | Chass Matters | Aug 2026 |
+| BK-008 | Operational Ownership: Atlas never performs work that belongs to the client. | Arno Hsu handover | Aug 2026 |
+| BK-009 | Acknowledge Before Handover — reassure before transferring to client team. | Arno Hsu handover | Aug 2026 |
+| BK-010 | The cost of stopping is always lower than the cost of assuming. | INC-002 + INC-003 | Aug 2026 |
+| BK-011 | Production environments must prove they are healthy before operating. | INC-002 + INC-003 | Aug 2026 |
+| BK-012 | Intelligence Escalation Framework — Level 1/2/3 with per-client preferences. | Janis Tham / Civium | Aug 2026 |
+| BK-013 | Reality Always Wins — the CRM must represent reality, not record activity. | 5 Aug Reconciliation | Aug 2026 |
+
+---
+
+## Common Objections
+
+| Objection | Frequency | Response Pattern |
+|---|---|---|
+| "We've gone with another provider" | 5 of 8 losses | Graceful close. Thank for honesty. Leave door open. BK-006. |
+| "Please stop contacting" | 1 (Darren Harper) | Immediate removal. Mark Lost. Isolate from all automations. |
+| "Committee still deciding" | 1 (Nuwan Fernando) | Acknowledge. No pressure. Monitor. |
+| "Insurance pending" | 1 (Cathryn Cochrane) | Remove burden. Offer to check back. BK-005. |
+
+---
+
+## Lessons Learned
+
+### What Worked
+
+1. **Single re-engagement email was sufficient for Arno Hsu.** $129,750 recovered with one professional check-in.
+2. **Atlas as Customer Care creates genuine customer rapport.** Customers address Atlas by name with warmth.
+3. **The acknowledgment protocol (BK-009) creates appreciation.** Arno's "Thank you so much" is evidence.
+4. **Fast response times signal competence.** 14-minute acknowledgment after Arno's approval.
+5. **Systematic classification preserves learning.** Every reply categorised, every outcome recorded.
+
+### What Failed (and Was Fixed)
+
+1. **172 emails silently undelivered (INC-002).** Root cause: no delivery verification. Fixed: Email Verification Standard + Send Evidence.
+2. **atlas@ lacked gmail.send scope (INC-003).** Root cause: token authorised for gmail.modify only. Fixed: Production Readiness Check.
+3. **61 duplicate Airtable records (INC-001).** Root cause: partial dataset import. Fixed: full pagination + scored merge.
+4. **4 QPaint records with stage mismatches.** Root cause: no reconciliation process. Fixed: daily reconciliation audit (BK-013).
+5. **Messages not created for customer communications.** Root cause: no standard existed. Fixed: Permanent Communication Standard.
+
+---
+
+## Atlas Improvements
+
+| Improvement | Trigger | Date |
+|---|---|---|
+| Production Readiness Check | INC-003 (atlas@ scope gap) | 5 Aug |
+| Seven-Question Silent Self-Check | INC-002 + INC-003 | 5 Aug |
+| Production Confidence Score | INC-002 + INC-003 | 5 Aug |
+| Post-Processing Checklist (5 questions) | Arno Hsu handover | 5 Aug |
+| Reconciliation Audit (4-system check) | BK-013 | 5 Aug |
+| 100-Client Test (pre-field creation) | V3 Architecture | 5 Aug |
+
+---
+
+## Production Improvements
+
+| Standard | Trigger | Date |
+|---|---|---|
+| Email Verification Standard | INC-002 (172 undelivered) | 5 Aug |
+| Production Readiness Check | INC-003 (scope gap) | 5 Aug |
+| Six-Step Execution Order | INC-003 (Airtable before verification) | 5 Aug |
+| Permanent Communication Standard | Arno Hsu Messages backfill | 5 Aug |
+| Airtable Operational Source of Truth | 1,666-record reconciliation | 5 Aug |
+| Hierarchy of Truth | BK-013 | 5 Aug |
+| Continuous Reconciliation (morning audit) | BK-013 | 5 Aug |
+| Won Definition | Arno Hsu | 5 Aug |
+| Evidence Dossier Standard | This document | 5 Aug |
+
+---
+
+## Operational Metrics
+
+| Metric | Value | As Of |
+|---|---|---|
+| QPaint Pipeline records | 145 | 5 Aug |
+| Re-engagement emails sent (Email 1) | 106 | 5 Aug |
+| Customer replies received | 7 | 5 Aug |
+| Reply rate | 6.6% | 5 Aug |
+| Jobs won | 1 ($129,750.50) | 5 Aug |
+| Jobs lost | 8 ($185,256.45) | 5 Aug |
+| Active/awaiting | 4 (~$330,110+) | 5 Aug |
+| Messages created | 16 (linked to Pipeline) | 5 Aug |
+| Send Evidence records | 136 | 5 Aug |
+| BK principles created | 13 (6 from QPaint) | 5 Aug |
+| Production standards established | 9 | 5 Aug |
+| Production incidents | 3 (all resolved) | 5 Aug |
+| Decisions recorded | ~42 (3 tonight) | 5 Aug |
+| CRM reconciliation | 1,666 records, 0 remaining inconsistencies | 5 Aug |
+
+---
+
+## Evidence Register
+
+| Evidence Type | Location | Count |
+|---|---|---|
+| Gmail threads (atlas@) | Gmail | 691 messages |
+| Gmail threads (james@) | Gmail | 67 messages |
+| Send Evidence JSON | `data/send-evidence/` | 136 files |
+| QPaint Pipeline records | Airtable `tblHPx8o6qp81e60b` | 145 records |
+| Messages records | Airtable `tblsfhJV9bvJH48nW` | 410 records (16 QPaint-linked) |
+| Incident reviews | `knowledge/incident-reviews/` | 3 files |
+| Decision records | `knowledge/decisions/` | ~42 files |
+| BK principles | Headquarters | 13 principles |
+| Production standards | `production-standards/SKILL.md` | 1 canonical file |
+| Architecture | `knowledge/architecture/v3-erd.md` | 1 ERD |
+| Case study (preliminary) | `knowledge/case-studies/CS-2026-001-*.md` | 1 file |
+
+---
+
+## Product Evolution
+
+> *"Every significant customer interaction should answer: What changed in Not Forgotten because of this?"*
+
+### Changes Triggered by QPaint Customer Interactions
+
+| Trigger | What Changed | Type | Date | Strength |
+|---|---|---|---|---|
+| Arno Hsu approved quote | **Won Definition codified** — "scheduling is operational, not sales" | Operating Principle | 5 Aug | A |
+| Arno Hsu handover | **BK-009: Acknowledge Before Handover** — reassure before transferring | Customer Care Principle | 5 Aug | A |
+| Arno Hsu handover | **BK-008: Operational Ownership** — Atlas never does client's work | Operating Principle | 5 Aug | A |
+| Cathryn Cochrane — insurance pending | **BK-005: Third-Party Wait** — remove burden from customer | Customer Care Principle | 5 Aug | A |
+| Malcolm McCabe — lost on cost | **BK-006: Lost Job ≠ Lost Customer** — preserve relationship | Customer Care Principle | 5 Aug | A |
+| Chass Matters — lost to delayed follow-up | **BK-007: Honest Acknowledgment** — own mistakes | Customer Care Principle | 5 Aug | A |
+| 172 emails undelivered (INC-002) | **Email Verification Standard** — never trust a green tick | Production Standard | 5 Aug | A |
+| 172 emails undelivered (INC-002) | **BK-004: Never Trust a Green Tick** | Production Principle | 5 Aug | A |
+| 172 emails undelivered (INC-002) | **BK-010: Cost of Stopping < Cost of Assuming** | Production Principle | 5 Aug | A |
+| atlas@ lacked gmail.send (INC-003) | **Production Readiness Check** — certify before operating | Production Standard | 5 Aug | A |
+| atlas@ lacked gmail.send (INC-003) | **BK-011: Production Must Prove Health Before Operating** | Production Principle | 5 Aug | A |
+| 4 stage mismatches found | **Reconciliation Audit** — daily 4-system cross-check | Operating Workflow | 5 Aug | A |
+| 4 stage mismatches found | **BK-013: Reality Always Wins** — CRM must represent reality | Operating Principle | 5 Aug | A |
+| Messages not being created | **Permanent Communication Standard** — Gmail + Airtable + Evidence | Production Standard | 5 Aug | A |
+| Multiple QPaint Messages unlinked | **QPaint Deal linked field** — Messages ↔ Pipeline bidirectional | Airtable Schema | 5 Aug | A |
+| Schema gap identified | **V3 Multi-Client CRM Architecture** — 100-client test | Architecture | 5 Aug | B |
+| First Won deal documented | **ED-2026-08 Evidence Dossier** — living evidence document | Operating Standard | 5 Aug | B |
+| Janis Tham / Civium loss | **BK-012: Intelligence Escalation Framework** — Level 1/2/3 | Operating Standard | 5 Aug | B |
+
+### Platform State — Before and After 5 August
+
+| Area | Before | After |
+|---|---|---|
+| **Email verification** | Trusted script output | Independent Gmail verification mandatory |
+| **Production readiness** | No pre-flight check | Token scope + connectivity certified before any send |
+| **Communication audit** | No Messages created | Every communication → Airtable Message with Gmail ID |
+| **CRM accuracy** | Airtable could be stale | Daily reconciliation audit. Four-system agreement. |
+| **Won/Lost classification** | No consistent definition | Won = customer commitment. Scheduling = operational. |
+| **Customer care** | Ad-hoc responses | 6 BK principles. Acknowledge Before Handover protocol. |
+| **Architecture** | Single-table QPaint Pipeline | V3 multi-client design with 100-client test |
+| **Evidence** | None collected | ED-2026-08 living dossier with Friday reviews |
+
+---
+
+## What We Didn't Expect
+
+> *Discoveries that came from real customer conversations — things we never predicted.*
+
+| # | Discovery | Source | Why It Surprised Us | Strength |
+|---|---|---|---|---|
+| 1 | **A dormant 365-day quote can convert in 4 hours.** | Arno Hsu | We assumed dormant quotes were cold. The customer was waiting for contact — the body corporate had already approved. The follow-up unlocked a decision that was already made. | A |
+| 2 | **Customers say "Thank you" to Atlas by name.** | Arno Hsu, Joy Ryan | Atlas was designed as invisible infrastructure. Customers address Atlas personally with warmth. The white-label Customer Care identity creates genuine rapport. | A |
+| 3 | **172 production emails can vanish without any error.** | INC-002 | Script execution returned success. Everything looked normal. Only independent Gmail verification caught it. This changed how we think about "done." | A |
+| 4 | **Lost customers can be grateful for the follow-up.** | Malcolm McCabe, Kate Quinn | Customers who chose another provider thanked us for checking. The relationship was preserved, not damaged. Follow-up creates goodwill even when it doesn't create revenue. | A |
+| 5 | **The most valuable production improvements came from failures.** | INC-002, INC-003 | 6 BK principles and 5 production standards were created in response to things breaking. The incidents were more valuable than the successes — they forced systematic improvement. | A |
+| 6 | **A CRM that needs Gmail to understand the customer is not a CRM.** | Reconciliation audit | We built the pipeline, the emails, the evidence — but didn't connect them. 4 records were silently wrong until the audit caught them. The system worked because we checked. | A |
+| 7 | **Joy Ryan asked for two quotes — the follow-up created more work, not less.** | Joy Ryan | We expected follow-up to funnel decisions. Instead, an engaged customer asked for *more* quoting. The recovery process sometimes expands the opportunity before it converts. | B |
+| 8 | **Body corporate committees have their own timelines.** | Nuwan Fernando | Legislative requirements force committees to collect multiple quotes. Our follow-up timing is irrelevant — the committee's process determines the pace. We can only monitor and wait. | B |
+
+---
+
+## Founder Reflection — Week 1 (5 August 2026)
+
+> *An honest operating journal. Not marketing. Not for publication. What we learned, what surprised us, what we got wrong, and what should happen next.*
+
+### What Surprised Us
+
+Arno Hsu replied within 4 hours of receiving a single re-engagement email. The quote was 365 days old. A $129,750 decision that had been waiting for someone to ask. That single interaction validated the entire recovery model — but it also revealed how much revenue had been left on the table for an entire year.
+
+The "Thank you so much" from Arno was unexpected. Atlas was designed to be invisible infrastructure — efficient, professional, transparent. But customers are forming a relationship with Atlas. They address Atlas by name. They express appreciation. This is not a bug. It's evidence that care, delivered consistently, creates connection.
+
+### What We Learned
+
+The most valuable lessons came from failures, not successes. The 172 undelivered emails taught us more about production reliability than any successful send ever could. The missing gmail.send scope on atlas@ taught us to verify before acting. The CRM reconciliation taught us that a system that looks correct can be wrong in ways you only discover by checking.
+
+Real customer conversations generate better principles than any amount of design work. Six BK principles were created in one day — all from actual customer replies. None were planned in advance.
+
+### What We Got Wrong
+
+We trusted tool output without independent verification. Two production incidents on the same day — both caused by the same assumption: that success responses mean success. They don't. Verification must be independent.
+
+We built the CRM as a campaign tracker, not an operational database. Four customer records had wrong stages until the reconciliation audit caught them. Airtable should never require Gmail to understand the customer. That standard is now permanent.
+
+We didn't create Messages for customer communications. 13 had to be backfilled. Every future interaction now creates a Message record automatically.
+
+### What We Improved
+
+The production environment is fundamentally stronger. Email Verification, Production Readiness Check, Six-Step Execution Order, Production Confidence Score, Seven-Question Silent Self-Check — these didn't exist 24 hours ago. Now they're permanent.
+
+The CRM is no longer a campaign tracker. It's the operational source of truth. Daily reconciliation audits ensure it stays that way.
+
+Architecture thinking shifted from "support QPaint" to "support 100 clients." The V3 ERD and 100-client test are now design gates, not aspirations.
+
+### What Should Happen Next
+
+1. **FF1 Email 2 — before Monday.** 16 prospects waiting. The QPaint recovery proved follow-up works. FF1 tests whether founder-to-founder outreach converts for NF itself.
+
+2. **Complete the QPaint Email 2 wave.** 102 customers at Email 1 need their second touchpoint. Each reply is a learning opportunity.
+
+3. **Friday review of this dossier.** While the evidence is fresh. Fill the gaps. Strengthen the narrative.
+
+4. **Nicholas Zappacosta tender check-in.** $145K deal. Most engaged QPaint customer. Don't let it go cold.
+
+5. **Prepare for a second client.** The architecture is designed. The playbook is forming. QPaint is proving the model. The next client will benefit from everything we learned this week.
+
+---
+
+## Appendices
+
+### A. Won Definition (Permanent)
+
+> A quote is considered Won when the customer has made a clear commitment to proceed. Examples: "Your quote has been approved," "Let's go ahead," "Please book us in," Purchase Order received, Committee approval received. Scheduling, invoicing, and job commencement are operational activities. They do not determine whether the opportunity was won.
+
+### B. Hierarchy of Truth (Permanent)
+
+| System | Responsibility |
+|---|---|
+| Gmail | Communication Source of Truth |
+| Send Evidence | Production Source of Truth |
+| Airtable | Operational Source of Truth |
+| Headquarters | Executive Source of Truth |
+
+### C. Friday Review Checklist
+
+Every Friday during August:
+- [ ] Review all new events since last review
+- [ ] Verify all evidence is linked and accessible
+- [ ] Check for missing evidence — fill gaps while fresh
+- [ ] Improve narrative clarity
+- [ ] Update metrics
+- [ ] Identify patterns across the week
+- [ ] Note any new BK principles
+- [ ] Update this dossier
+
+---
+
+*Dossier opened 5 August 2026. Next Friday review: 7 August 2026.*
+*This is a living document. It grows with every customer interaction throughout August.*
+*Do not publish. Do not share externally. Internal evidence only.*

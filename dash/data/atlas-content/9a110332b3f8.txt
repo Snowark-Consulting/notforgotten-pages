@@ -1,0 +1,160 @@
+# Skill Validation Policy — Not Forgotten Systems
+
+**Version:** 1.0.0
+**Established:** 2026-08-05
+**Status:** Active
+**Owner:** Atlas
+
+---
+
+## Purpose
+
+Prevent the documentation-production drift that contributed to INC-2026-08-05-002. Skill maintenance is part of the change process, not an afterthought.
+
+---
+
+## Trigger Events
+
+Whenever any of the following occur, Atlas must automatically identify and review all affected skills:
+
+| Trigger | Action | Timing |
+|---|---|---|
+| **Production script changes** | Review all skills referencing that script | Before change is considered complete |
+| **Production workflow changes** | Review all skills in the affected workflow path | Before change goes live |
+| **Production incident occurs** | Review all skills touching affected systems | During incident review (Section 7) |
+| **Production decision changes** | Review all skills governed by that decision | When decision is recorded |
+| **New skill created** | Identify dependencies; update dependency map | At creation time |
+| **Skill archived/retired** | Update all skills that reference the retired skill | At retirement time |
+
+---
+
+## Validation Process
+
+### 1. Identify Affected Skills
+
+Search all skill directories for references:
+```
+search_files(pattern="<script_name>|<workflow_step>|<decision_slug>", path="skills/", target="content")
+```
+
+### 2. Review Each Affected Skill
+
+Apply the production skill review checklist:
+- [ ] Does this skill still reflect current production?
+- [ ] Does it reference any retired scripts, workflows, or assumptions?
+- [ ] Does it comply with the Email Verification Standard?
+- [ ] Does it comply with Proof Before Progress?
+- [ ] Does it comply with Gmail as the source of truth?
+- [ ] Does it comply with the Trust Framework?
+- [ ] Does it reference the current production sender architecture?
+- [ ] Is the Production Metadata section current?
+- [ ] Does it reference Production Standards rather than duplicating principles?
+
+### 3. Update or Annotate
+
+- **Current** → No change needed
+- **Minor fix** → Patch immediately
+- **Needs update** → Flag in CEO Brief, queue for next maintenance window
+- **Retired** → Move to archive, update all dependent skills
+
+### 4. Log
+
+Record every validation in the Skill Change Log at the end of this document.
+
+---
+
+## Production Metadata Standard
+
+Every production skill must end with:
+
+```markdown
+## Production Metadata
+
+| Field | Value |
+|---|---|
+| **Version** | X.Y.Z |
+| **Last Reviewed** | YYYY-MM-DD |
+| **Last Validated** | YYYY-MM-DD |
+| **Current Production Status** | Current / Needs Update / Retired |
+| **Owner** | Atlas |
+| **Dependencies** | Skills, scripts, tokens, services |
+| **Related Decisions** | Decision slugs |
+| **Related Incidents** | Incident IDs |
+| **Source of Truth** | Which system is authoritative |
+| **Production Standards Reference** | `skills/snowark/production-standards/SKILL.md` |
+```
+
+---
+
+## Skill Dependency Map
+
+### Production-Critical Skills (19 skills)
+
+```
+production-standards (★ Canonical)
+├── cold-email
+│   ├── email-draft
+│   ├── emails
+│   ├── email-tracking
+│   └── humanizer
+├── recovery-operations
+│   ├── pipeline-recovery
+│   ├── quote-intake
+│   └── email-draft
+├── growth-operations
+│   ├── campaign-review
+│   ├── google-analytics
+│   └── email-tracking
+├── trust-framework
+│   ├── production-incident-review
+│   ├── security-audit
+│   └── production-standards
+├── headquarters
+│   ├── campaign-review
+│   └── production-incident-review
+├── business-audit
+├── nightly-consolidation
+├── weekly-vault-lint
+├── decision-library
+├── industry-research
+└── campaign-review
+    └── production-incident-review
+```
+
+### Production Scripts → Skills
+
+| Script | Depended On By |
+|---|---|
+| `scripts/send-email.py` | recovery-operations, email-draft, production-incident-review, trust-framework |
+| `scripts/ff1-test-send.py` | cold-email, recovery-operations, email-tracking, trust-framework |
+| `scripts/follow-up-autopilot.py` | quote-intake, recovery-operations |
+| `scripts/quote-intake.py` | quote-intake |
+| `scripts/crm-update-send.py` | growth-operations, cold-email |
+
+### Legacy Scripts (do not depend on these)
+
+All scripts in `scripts/legacy/` must have zero active skill references. Any skill still referencing a legacy script as a production path requires immediate update.
+
+---
+
+## Skill Change Log
+
+| Date | Skill | Change | Trigger |
+|---|---|---|---|
+| 2026-08-05 | `production-standards` | Created | INC-2026-08-05-002 recovery |
+| 2026-08-05 | `cold-email` | Updated to v1.6.0 | INC-2026-08-05-002 recovery |
+| 2026-08-05 | `recovery-operations` | Patched (line 502) | Audit: gmail-html-send.py → send-email.py |
+| 2026-08-05 | `email-tracking` | Patched to v1.0.1 | Audit: legacy ref → current |
+| 2026-08-05 | `trust-framework` | Updated to v1.2.0 | Added dual-sender architecture |
+| 2026-08-05 | `campaign-review` | Updated to v1.1.0 | Added Production Metadata |
+| 2026-08-05 | `production-incident-review` | Updated to v1.1.0 | Added Production Metadata |
+| 2026-08-05 | `production-standards` | Created v1.0.0 | New foundational skill |
+
+---
+
+## Continuous Enforcement
+
+- **Nightly consolidation** checks for new scripts and cross-references skills
+- **Weekly vault lint** flags skills with stale Production Metadata (>30 days since last reviewed)
+- **CEO Brief** surfaces skills needing update in "Risks & Watch List"
+- **Production Standards** is referenced by all production skills — changes to it automatically trigger review of every dependent skill

@@ -1,0 +1,53 @@
+# Decision: Permanent Outreach Sender — james@notforgotten.com.au
+
+| Field | Value |
+|---|---|
+| **Slug** | `permanent-outreach-sender-james` |
+| **Date** | 2026-08-05 |
+| **Status** | Made |
+| **Category** | Communications, Operations |
+| **Review Date** | 2026-09-05 |
+
+## Context
+
+Following Production Incident INC-2026-08-05-002 where 172 emails (156 QPaint + 16 FF1) were believed sent but never delivered, and the successful Stage 1-2 QPaint recovery and FF1 Wave 1 completion:
+
+- The OAuth token for james@notforgotten.com.au has been re-authorised with `gmail.send` + `gmail.modify` scopes
+- 16 Founder-to-Founder v1.0 emails were sent and verified from james@ (100% verification rate)
+- Proven that james@ can be the production sender for NF outreach
+
+## Decision
+
+**All outbound outreach on behalf of Not Forgotten Systems must come from `james@notforgotten.com.au`.**
+
+This includes:
+- Founder-to-Founder outreach
+- Cold outreach
+- Follow-up with prospective Not Forgotten customers
+- Discovery conversations
+- Sales conversations
+- Any communication where the relationship is between James and another business owner
+
+**These communications must never come from an Atlas email address.**
+
+Atlas continues to operate behind the scenes: preparing emails, managing sequences, monitoring replies, recording evidence, updating Airtable, updating Headquarters, drafting responses, and recommending next actions. But the relationship belongs to James.
+
+## Exceptions
+
+White-label customer communications remain unchanged. When representing a client (e.g. QPaint), communications continue from the established white-label identity (e.g. "Atlas — Customer Care, QPaint").
+
+## Expected Outcomes
+
+- Recipients always know they're speaking directly with James
+- One relationship face for Not Forgotten from first contact through long-term client
+- No identity confusion between NF outreach and white-label client operations
+
+## Success Criteria
+
+- 100% of NF outbound communications verified from james@notforgotten.com.au
+- Zero NF communications from atlas@notforgotten.com.au
+- No customer confusion about who they're speaking with
+
+## James's Response
+
+Approved. "From this point onwards, we optimise based on customer behaviour and evidence — not assumptions."

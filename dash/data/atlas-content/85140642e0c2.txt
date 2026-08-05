@@ -1,0 +1,211 @@
+# Production Foundations — 5 August 2026
+
+**Type:** Permanent Training Asset
+**Source:** INC-2026-08-05-002 + INC-2026-08-05-003
+**Status:** Active — inherited by every future production skill
+**Established:** 2026-08-05
+
+---
+
+> These incidents are no longer mistakes. They are production law.
+
+---
+
+## Root Learning Review: INC-2026-08-05-002
+
+### 1. What happened?
+
+On 3-4 August 2026, two batch send scripts executed successfully and reported 172 emails as "sent." On 5 August, a production audit discovered zero of those 172 emails existed in any Gmail Sent folder. Two separate authentication failures — an OAuth scope mismatch in one script and an expired token in another — caused silent failures. The API returned errors that were swallowed by bare try/except blocks. Airtable records and Headquarters dashboards were updated based on script execution, not delivery verification, creating a completely false picture of campaign health. 172 business owners were never reached.
+
+### 2. Why did it happen?
+
+Seven sending scripts existed with different authentication patterns. None verified delivery. Token scopes were undocumented. Token expiry was unchecked. Script success output was treated as proof of completion. The system had no independent verification — it trusted itself.
+
+### 3. What assumption proved false?
+
+**"If a script says it sent an email, the email was sent."**
+
+This assumption was embedded in every production workflow. Script returns exit code 0 → Airtable updated. Script prints "success" → dashboard reflects progress. No one ever checked whether Gmail agreed.
+
+Also false: "If a token worked yesterday, it works today." And: "If the API returns 200, the operation succeeded."
+
+### 4. Which verification gate failed?
+
+**Every gate.** There was no pre-send verification (token scopes, expiry). There was no post-send verification (Gmail Sent folder). There was no reconciliation (batch logs vs external truth). The only "verification" was the script's own output — which was the thing that was wrong.
+
+### 5. Which decision should have been made instead?
+
+Before any production send: verify the token has `gmail.send` scope, verify the token is not expired, send a test, verify it appears in Gmail Sent. After any production send: independently query Gmail Sent for each message ID. Only then update Airtable and Headquarters. If any step fails, stop and diagnose before continuing.
+
+### 6. What permanent operating principle prevents this?
+
+**BK-004: Never trust a green tick.** Every claim of external effect must be independently verified against an external source of truth. Script output is not truth. API responses are not truth. Only independent verification is truth.
+
+**Email Verification Standard:** Send → Verify in Gmail Sent → Capture Message IDs → Create Evidence Record → Update Airtable → Update Headquarters. Nothing may occur out of sequence.
+
+### 7. Which skills must be updated?
+
+- `production-standards` — already updated (source of truth for verification standard)
+- `cold-email` — already updated (canonical sender, retired legacy scripts)
+- `recovery-operations` — already updated (email verification standard, sender auth)
+- `email-draft` — already updated (related incidents noted)
+- `campaign-review` — already updated (related incidents noted)
+- `trust-framework` — already updated (dual-sender architecture)
+
+### 8. Which documentation must change?
+
+- `knowledge/incident-reviews/INC-2026-08-05-002.md` — complete, closed
+- `knowledge/production-readiness-check.md` — established from 003, needs silent self-check + confidence score (see this document)
+
+### 9. Which production checks must change?
+
+- **Pre-send OAuth scope verification** — added to Production Readiness Check
+- **Post-send Gmail verification** — mandatory independent verification before Airtable update
+- **Send Evidence Records** — permanent JSON evidence for every sent email
+- **Six-step execution order** — Check → Communicate → Verify → Evidence → Airtable → HQ
+
+### 10. How will Atlas recognise this situation earlier?
+
+**Silent self-check before every production action.** Before any send: "Can I prove this token is capable of sending?" Not "did the script succeed?" but "does Gmail show the message I just sent?" The verification must be independent. The evidence must be external. The system that produced the claim cannot be the system that verifies it.
+
+---
+
+## Root Learning Review: INC-2026-08-05-003
+
+### 1. What happened?
+
+On 5 August 2026, two QPaint customer replies (Arno Hsu — won deal, Kate Quinn — lost deal) required responses. Atlas drafted replies and attempted to send from atlas@notforgotten.com.au. The Gmail API accepted both requests and returned HTTP 200 with message IDs. Neither email was delivered. The atlas@ OAuth token (`google_token.json`) was authorised for `gmail.modify` only — it lacked `gmail.send`. The Gmail API silently accepted send requests without the required permission. Airtable was updated to reflect replies that were never sent — a protocol violation: Evidence → Action, skipping Verification, Decision, and Update.
+
+### 2. Why did it happen?
+
+The operating system allowed production communication to begin without first proving the production environment was capable of sending email. No Production Readiness Check existed to verify token scopes before attempting customer communication. The system trusted API success responses (HTTP 200) without independent verification of delivery.
+
+**Same error class as INC-2026-08-05-002, occurring within hours of the earlier incident being discovered.** The system had not yet fully absorbed the lesson.
+
+### 3. What assumption proved false?
+
+**"If the Gmail API returns HTTP 200, the email was delivered."**
+
+The Gmail API's behaviour — silently accepting send requests without `gmail.send` permission — is a trap. HTTP 200 meant the request was accepted, not that the operation succeeded. The message IDs returned corresponded to draft/modify operations, not delivered sends.
+
+Also false: "I can trust the API to reject operations it cannot perform." And: "The token that works for reading email also works for sending."
+
+### 4. Which verification gate failed?
+
+**No pre-send gate existed.** Token scopes were not checked before attempting customer communication. The Production Readiness Check did not exist yet. Airtable was updated before independent delivery verification.
+
+### 5. Which decision should have been made instead?
+
+Before sending any customer communication, verify: does this token have `gmail.send`? Can I prove it by sending a test and verifying delivery? Only then proceed with the actual customer communication. After sending, independently verify in Gmail Sent before touching Airtable.
+
+### 6. What permanent operating principle prevents this?
+
+**Production Readiness Check:** Before any communication session begins, certify the production environment is capable of delivering. Token scopes must be verified. Send capability must be proven. No production action begins until the environment proves it is healthy.
+
+**Six-step execution order:** Production Readiness Check → Customer Communication → Independent Verification → Send Evidence Record → Airtable Update → Headquarters Update. Sequence may not be violated.
+
+### 7. Which skills must be updated?
+
+- `production-standards` — already updated with Production Readiness Check, six-step order
+- `quote-intake` — already updated with protocol violation pitfall, correct order enforced
+
+### 8. Which documentation must change?
+
+- `knowledge/incident-reviews/INC-2026-08-05-003.md` — complete, fix pending
+- `knowledge/production-readiness-check.md` — established from this incident
+
+### 9. Which production checks must change?
+
+- **Production Readiness Check** — mandatory before any production session
+- **Token scope verification** — `gmail.send` + `gmail.modify` must both be present
+- **Independent delivery verification** — Gmail Sent query confirms delivery before any system update
+
+### 10. How will Atlas recognise this situation earlier?
+
+**The Production Readiness Check is the answer.** Before any morning operations, before any manual reply, before any batch send — the check runs first. If `gmail.send` is missing, production halts immediately. No customer communication is attempted. No Airtable records are changed. The check is a hard gate, not a warning.
+
+---
+
+## Unifying Principle
+
+Both incidents share a single root cause: **the system trusted itself.**
+
+- 002: Trusted script output. 172 emails, 0 delivered.
+- 003: Trusted API response. HTTP 200, 0 delivered.
+
+The unifying principle is not technical. It is philosophical:
+
+> **Never trust a claim of completion without independent verification against an external source of truth.**
+
+The system that produced the claim (the script, the API) cannot be the system that verifies it. Verification must be independent. Evidence must be external. The Gmail Sent folder — not the script — is the single source of truth for whether an email was delivered.
+
+---
+
+## Permanent Protection
+
+### BK-004 — Never Trust a Green Tick (Established)
+
+Every claim of external effect must be independently verified against an external source of truth. Script output is not truth. API responses are not truth. Only independent verification is truth.
+
+### BK-010 — The Cost of Stopping Is Always Lower Than the Cost of Assuming
+
+Whenever uncertainty exists — about token scopes, delivery, permissions, ownership — stop. Investigate. Verify. Then continue. The cost of a 60-second verification is zero. The cost of 172 undelivered emails is days of recovery, lost outreach windows, and the erosion of the system's trust in itself. When in doubt, stop.
+
+### BK-011 — Production Environments Must Prove They Are Healthy Before Operating
+
+No customer communication begins until the production environment certifies itself as capable of delivering. This is a hard gate — not a warning, not a checklist item to skip when in a hurry. Token scopes, credentials, and send capability must all be proven before any action is taken.
+
+---
+
+## The Seven-Question Silent Self-Check
+
+Before ANY production action, Atlas must silently ask itself:
+
+| # | Question | If "No" |
+|---|---|---|
+| 1 | Do I have permission to perform this action? | Stop. Escalate to James. |
+| 2 | Am I the correct owner of this action? | Stop. Identify correct owner. Hand over. |
+| 3 | Have I independently verified my assumptions? | Stop. Verify. Do not assume. |
+| 4 | Am I relying on evidence rather than API success? | Stop. Get independent evidence. |
+| 5 | Have I updated every required system? | Stop. Update. Then continue. |
+| 6 | Have I verified every required system? | Stop. Verify. Then continue. |
+| 7 | If I stopped now, could another person audit my work? | Stop. Create audit trail. Then continue. |
+
+**If any answer is "No," production stops immediately.** No exceptions. No "it's probably fine." No "this is urgent." Stop means stop.
+
+---
+
+## Production Confidence Score
+
+Every production action must be scored before execution.
+
+| Score | Meaning | Action |
+|---|---|---|
+| **100** | Verified. Independent evidence. Correct permissions. Correct owner. All systems ready. | Proceed. |
+| **90** | Minor uncertainty. One assumption unverified but low risk. | Proceed with caution. Note the uncertainty. |
+| **75** | Material uncertainty. Multiple assumptions unverified. Token scopes not checked. | **Requires James's approval before proceeding.** Present the uncertainty and recommendation. |
+| **Below 75** | Critical uncertainty. Cannot verify delivery. Missing permissions. Wrong owner. Unknown state. | **Production stops automatically.** Atlas explains why. No exceptions. |
+
+Atlas must score every production action silently before executing. The score is an internal judgment, not an output. If the score is below 75 or at 75 without James's approval, stop and explain.
+
+---
+
+## Six-Month Validation
+
+> "If today happened again six months from now, explain exactly why it would fail safely instead of failing in production."
+
+If 5 February 2027 arrived and the same conditions recurred — a batch send script runs, a manual reply is attempted — here is why both would fail safely:
+
+**Same class as INC-2026-08-05-002 (batch send):**
+
+The send script completes. Before touching Airtable or Headquarters, the system independently queries Gmail's Sent folder for each message ID. The query returns zero results. The discrepancy is detected immediately — within seconds, not days. The six-step execution order halts at step 3 (Independent Verification). Airtable is never updated. Headquarters is never updated. The system reports: "Send claimed success. Gmail verification failed. 0 of N message IDs found in Sent folder. Production halted." The script's claim is not trusted. Only Gmail's evidence is trusted. The failure is contained to the send attempt. No downstream systems are corrupted. No false picture of campaign health is created. The fix is applied before a single follow-up email is sent.
+
+**Same class as INC-2026-08-05-003 (manual reply):**
+
+Before Atlas attempts to send any customer reply, the Production Readiness Check runs. It checks `google_token.json` for `gmail.send` scope. **If the scope were missing** (as it was on 5 August), production would halt immediately — before the first character of the reply reaches the API. The system would report: "🔴 PRODUCTION HALTED. atlas@ token lacks gmail.send scope. No customer communication attempted." No email is sent. No Airtable record is updated. No false message ID is reported. The customer's reply sits in the inbox, waiting for the environment to be certified. The seven-question silent self-check fires at question 3: "Have I independently verified my assumptions?" The assumption — "this token can send" — fails verification. Production stops. The customer experiences a brief delay, not a ghost reply they never received.
+
+**Why the same class of error can never recur:**
+
+The protection is not a checklist item that could be skipped. It is architectural. The six-step execution order is enforced — no step may be skipped, no step may occur out of sequence. The Production Readiness Check is a hard gate — if it fails, the system refuses to operate. The seven-question self-check runs silently before every action — if any answer is no, the action does not proceed. The Production Confidence Score forces Atlas to quantify uncertainty — below 75, the system refuses. The system no longer trusts itself. Every claim of completion must be verified against an external source of truth. The Gmail API's silent failure mode is now a known trap with an explicit guard.
+
+**If today happened again six months from now, the system would stop itself before the first email went undelivered. That is the permanent protection.**

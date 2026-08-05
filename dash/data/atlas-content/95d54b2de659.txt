@@ -1,0 +1,159 @@
+# Intelligence Escalation Framework
+
+**Established:** 2026-08-05 (refined from BK-012)
+**Source:** James Hardstaff
+**Status:** Permanent Operating Standard
+
+---
+
+> "The objective of Not Forgotten is not to report every event. The objective is to help businesses make better decisions."
+
+---
+
+## The Principle
+
+Escalate information based on its operational importance, not its existence. There are three levels.
+
+---
+
+## Level 1 — Immediate Operational Escalation
+
+Immediately notify the client when the customer requires action.
+
+| Trigger | Example |
+|---|---|
+| Quote accepted | Customer confirms they want to proceed |
+| Scheduling request | "When can you start?" |
+| Phone call request | "Can Tas call me?" |
+| Technical question | "Can you explain the scope?" |
+| Pricing clarification | "What's included in this?" |
+| Complaint | Any dissatisfaction with service |
+| Safety issue | Any safety concern |
+| VIP/strategic customer | High-value or long-term customer |
+| Legal/reputational risk | Anything that could damage the client |
+
+**Action:** Forward to client immediately with full context. These require operational action.
+
+---
+
+## Level 2 — Significant Business Intelligence
+
+Notify the client promptly (outside the monthly report) when a single event contains strategically important business intelligence.
+
+| Trigger | Example |
+|---|---|
+| High-value quote lost | Six-figure job goes to competitor |
+| Major commercial customer lost | Key account chooses elsewhere |
+| Multiple losses to same competitor | Pattern emerging — second or third loss to the same company |
+| New objection never seen before | "Your insurance doesn't cover this type of work" |
+| Recurring pattern beginning | Same objection from three different customers |
+| Anything James has asked to be escalated | Explicit request overrides standard routing |
+
+**Action:** Not an operational emergency, but strategically important. Notify client within the same business day with context and significance. These go outside the monthly report.
+
+---
+
+## Level 3 — Monthly Business Intelligence
+
+Everything else is aggregated into the Monthly Business Intelligence Report.
+
+| Trigger | Example |
+|---|---|
+| Lost on price | Standard competitive pricing loss |
+| Chose another contractor | Standard competitive loss |
+| Timing didn't suit | Customer not ready now |
+| Committee selected another | Institutional decision process |
+| Standard competitive losses | Routine market dynamics |
+| General customer feedback | Positive or neutral feedback |
+
+**Action:** Record, categorise, and include in trend reporting. Do not interrupt the client individually. These become trends, insights, and recommendations at month-end.
+
+---
+
+## The Learning Question
+
+Every lost opportunity should answer one question:
+
+**"Did we learn something today that we didn't know yesterday?"**
+
+| Answer | Action |
+|---|---|
+| **Yes** | Escalate the learning according to its importance (Level 1 or 2) |
+| **No** | Record it, categorise it, and include in trend reporting (Level 3) |
+
+---
+
+## Decision Framework
+
+When a customer reply arrives that constitutes a loss:
+
+1. **Classify the loss reason** — price, competitor, timing, scope, other
+2. **Ask the learning question** — did we learn something new?
+3. **Assess the escalation level** — Level 1 (action needed), Level 2 (strategically important), Level 3 (routine)
+4. **Respond to the customer** — graceful close per BK-006
+5. **Route the intelligence** — escalate or record per the framework
+6. **Verify, evidence, record** — standard production gates
+
+---
+
+## Monthly Business Intelligence Report
+
+Aggregate all Level 3 losses and present:
+
+- Number of lost quotes
+- Total value lost
+- Primary loss reasons
+- Competitor mentions
+- Pricing objections
+- Timing objections
+- Communication issues
+- Customer feedback
+- Recommended improvements
+- Atlas observations
+- Any new learnings from Level 2 escalations
+
+Level 2 items that were escalated during the month are also included for completeness, noted as "previously escalated."
+
+---
+
+## Related Business Knowledge
+
+- BK-006 — Lost Job, Not a Lost Customer (customer-facing response standard)
+- BK-009 — Acknowledge Before Handover (acknowledgement standard)
+- BK-012 — Intelligence Escalation Framework (this standard)
+
+---
+
+## Client Intelligence Preferences
+
+The Intelligence Escalation Framework is configurable for each client. Every client has an Intelligence Preferences profile in Airtable.
+
+### Default Profile
+
+| Level | Behaviour |
+|---|---|
+| Level 1 | Immediate operational notification |
+| Level 2 | Same-day strategic notification |
+| Level 3 | Monthly Business Intelligence Report |
+
+### Customisation
+
+Each client may refine their preferences over time. Examples:
+
+- "Notify me of every lost commercial quote."
+- "Notify me only when a quote exceeds $20,000."
+- "Notify me whenever a new objection appears."
+- "Notify me if we lose three jobs to the same competitor."
+- "Include everything else in the monthly report."
+
+### The Hard Rule
+
+**Level 1 operational events can never be disabled.** Quote accepted, scheduling requests, complaints, safety issues, VIP contacts, and legal/reputational risks are escalated immediately regardless of client preferences. This is non-negotiable.
+
+### Permanent Principle
+
+Not every business values the same information. The value of Atlas is not deciding what is important. The value of Atlas is understanding what is important to each individual client.
+
+The Intelligence Escalation Framework remains the default operating model. Client preferences may refine — but never weaken — the framework.
+
+Atlas should automatically apply each client's Intelligence Preferences when deciding whether to escalate. If no preferences are set, the default framework applies.

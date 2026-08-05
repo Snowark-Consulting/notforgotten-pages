@@ -1,0 +1,8 @@
+# Production Incidents — Index
+
+> Permanent organisational memory. Every incident makes the system stronger.
+
+| ID | Date | Severity | Title | Root Cause | Status |
+|---|---|---|---|---|---|---|
+| INC-2026-08-05-002 | 2026-08-05 | S1 | 172 Production Emails Never Delivered | OAuth scope/expiry failures, no delivery verification | Closed — Fully Recovered |
+| INC-2026-08-05-001 | 2026-08-05 | S1 | QPaint Pipeline — 61 Duplicate Records | Partial dataset import from incomplete Airtable pagination | Resolved |

@@ -1,0 +1,167 @@
+# Production Readiness Check — Permanent Standard
+
+**Established:** 2026-08-05
+**Source:** INC-2026-08-05-002 + INC-2026-08-05-003
+**Status:** Active
+**Last Updated:** 2026-08-05 — added Silent Self-Check + Production Confidence Score (from foundational lessons)
+
+## Principle
+
+Production systems earn trust by refusing to operate when they cannot prove they are healthy. Before any production communication session begins, Atlas must certify the production environment is capable of delivering.
+
+## The Seven-Question Silent Self-Check
+
+Before ANY production action, Atlas must silently ask itself:
+
+| # | Question | If "No" |
+|---|---|---|
+| 1 | Do I have permission to perform this action? | Stop. Escalate to James. |
+| 2 | Am I the correct owner of this action? | Stop. Identify correct owner. Hand over. |
+| 3 | Have I independently verified my assumptions? | Stop. Verify. Do not assume. |
+| 4 | Am I relying on evidence rather than API success? | Stop. Get independent evidence. |
+| 5 | Have I updated every required system? | Stop. Update. Then continue. |
+| 6 | Have I verified every required system? | Stop. Verify. Then continue. |
+| 7 | If I stopped now, could another person audit my work? | Stop. Create audit trail. Then continue. |
+
+**If any answer is "No," production stops immediately.** No exceptions. No "it's probably fine." No "this is urgent." Stop means stop.
+
+This check is the operational instantiation of BK-010: **The cost of stopping is always lower than the cost of assuming.**
+
+## Production Confidence Score
+
+Every production action must be scored before execution. Atlas must silently assign a confidence score.
+
+| Score | Meaning | Action |
+|---|---|---|
+| **100** | Verified. Independent evidence. Correct permissions. Correct owner. All systems ready. | Proceed. |
+| **90** | Minor uncertainty. One assumption unverified but low risk. | Proceed with caution. Note the uncertainty. |
+| **75** | Material uncertainty. Multiple assumptions unverified. Token scopes not checked. | **Requires James's approval before proceeding.** Present the uncertainty and recommendation. |
+| **Below 75** | Critical uncertainty. Cannot verify delivery. Missing permissions. Wrong owner. Unknown state. | **Production stops automatically.** Atlas explains why. No exceptions. |
+
+Atlas scores every production action silently before executing. The score is an internal judgment, not an output. If the score is below 75 or at 75 without James's approval, stop and explain.
+
+## When Required
+
+This check is mandatory before:
+
+- Morning inbox processing
+- Campaign launches
+- Batch sends
+- Manual replies
+- Customer follow-ups
+- SMS communications
+- Future WhatsApp communications
+- Any automated communication
+
+## Technical Checks
+
+### EMAIL
+
+| Check | What | Failure means |
+|---|---|---|
+| Correct sender identity | Verify which token/account will be used | Wrong sender = production stops |
+| Correct OAuth token loaded | Token file exists and parses | Missing token = production stops |
+| gmail.send permission | Token scopes include `gmail.send` | No send scope = production stops |
+| gmail.modify permission | Token scopes include `gmail.modify` | No modify scope = production stops |
+| Token valid | Token has refresh_token, not expired | Invalid token = production stops |
+| Token refresh working | Can successfully refresh access token | Refresh failure = production stops |
+
+### SMS (Twilio)
+
+| Check | What | Failure means |
+|---|---|---|
+| Credentials valid | Account SID + Auth Token present | Missing creds = SMS blocked |
+| Correct business number | +61 468 047 212 | Wrong number = SMS blocked |
+| Service available | API responds successfully | API down = SMS blocked |
+
+### WHATSAPP (when enabled)
+
+| Check | What | Failure means |
+|---|---|---|
+| Service available | API responds | API down = WhatsApp blocked |
+| Credentials valid | Auth present and working | Missing creds = WhatsApp blocked |
+
+### AIRTABLE
+
+| Check | What | Failure means |
+|---|---|---|
+| Connection healthy | API responds | API down = no Airtable updates |
+| Read access | Can read from base | No read = production stops |
+| Write access | Can write to base (verify with metadata) | No write = Airtable updates queued |
+
+### HEADQUARTERS
+
+| Check | What | Failure means |
+|---|---|---|
+| Update service available | GitHub Pages CDN responding | CDN down = HQ updates queued |
+
+## Output
+
+**All pass:**
+```
+🟢 PRODUCTION READY
+Confidence: [score]
+```
+
+**Any failure:**
+```
+🔴 PRODUCTION HALTED
+Confidence: [score]
+Failures:
+  ❌ [service]: [reason]
+```
+
+## Rules
+
+1. If ANY check fails, production immediately stops
+2. No customer communication is attempted
+3. No Airtable records are changed
+4. No Headquarters updates occur
+5. Atlas reports PRODUCTION NOT READY with the exact reason and confidence score
+6. Production resumes only after all failures are resolved AND the check is re-run
+
+## Execution Order
+
+For any customer communication:
+
+1. **Silent Self-Check** — seven questions. Any "no" = stop.
+2. **Production Confidence Score** — assign silently. Below 75 or 75 without approval = stop.
+3. **Production Readiness Check** — certify environment is healthy
+4. **Customer communication** — send email/SMS/WhatsApp
+5. **Independent verification** — confirm delivery in Sent folder / SMS logs
+6. **Send Evidence Record** — create evidence with Message ID
+7. **Airtable update** — update records only after delivery verified
+8. **Headquarters update** — update HQ only after Airtable confirmed
+
+Nothing may occur out of sequence. Airtable must never be updated before delivery is independently verified.
+
+## Morning Operations
+
+Every morning Atlas must perform a Production Readiness Check before doing any operational work. The result appears in the Morning Operations Brief.
+
+If 🟢 Production Ready: proceed with inbox processing and daily operations.
+
+If 🔴 Production Halted: no customer communication. Report reason. Fix. Re-check.
+
+## Permanent Business Knowledge
+
+This standard operationalises three permanent principles:
+
+- **BK-004: Never trust a green tick.** Every claim of external effect must be independently verified against an external source of truth.
+- **BK-010: The cost of stopping is always lower than the cost of assuming.** When in doubt, stop. Investigate. Verify. Then continue.
+- **BK-011: Production environments must prove they are healthy before operating.** This is a hard gate, not a checklist item.
+
+## Related Incidents
+
+- INC-2026-08-05-002 — 172 emails silently undelivered (OAuth scope/expiry)
+- INC-2026-08-05-003 — atlas@ lacked gmail.send, replies silently undelivered
+
+## Related Documents
+
+- `knowledge/foundational-lessons/2026-08-05-production-foundations.md` — Root Learning Reviews, six-month validation
+- `knowledge/decisions/2026-08-05-operational-handover-standard.md`
+
+## Related Decisions
+
+- `2026-08-05-communication-channel-policy`
+- `2026-08-05-communication-ownership`

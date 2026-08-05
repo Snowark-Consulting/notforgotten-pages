@@ -1,0 +1,164 @@
+# Not Forgotten CRM Architecture — Version 3
+
+**Status:** Proposal (Design Only — Do Not Implement)
+**Date:** 2026-08-05
+**Author:** Atlas, for James Hardstaff review
+**Principle:** "Will this still make sense when we have 100 clients?"
+
+---
+
+## 1. Core Principle
+
+Every client owns their operational data. No client data is mixed with another client's data. Headquarters aggregates across clients without becoming the operational database.
+
+---
+
+## 2. Entity Relationship Diagram
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     NOT FORGOTTEN HQ                              │
+│                                                                   │
+│  ┌──────────┐   ┌───────────┐   ┌────────────┐   ┌───────────┐  │
+│  │ Clients  │   │ Accounts  │   │Experiments │   │ Decisions │  │
+│  │          │   │ (billing) │   │            │   │           │  │
+│  │ QPaint   │   │ $TBD/mo   │   │ FF1 v1.0   │   │ pricing   │  │
+│  │ ABC Elec │   │           │   │            │   │ outreach  │  │
+│  └────┬─────┘   └───────────┘   └────────────┘   └───────────┘  │
+│       │                                                           │
+│       │ 1:N (each client has its own workspace tables)           │
+│       │                                                           │
+└───────┼───────────────────────────────────────────────────────────┘
+        │
+        ▼
+┌───────────────────────────────────────────────────────────────────┐
+│                   CLIENT WORKSPACE (per client)                    │
+│                                                                   │
+│  ┌────────────────┐   ┌──────────────────┐   ┌────────────────┐  │
+│  │   Pipeline     │   │    Messages       │   │  Intelligence  │  │
+│  │                │   │                  │   │                │  │
+│  │ • Customer     │◄──│ • Pipeline (link) │   │ • Principle    │  │
+│  │ • Stage        │   │ • Direction      │   │ • Category     │  │
+│  │ • Status       │   │ • Gmail ID       │   │ • Evidence     │  │
+│  │ • Deal Value   │   │ • Thread ID      │   │ • Client       │  │
+│  │ • Timeline     │   │ • Body           │   │ • Date         │  │
+│  │ • Notes        │   │ • Timestamp      │   └────────────────┘  │
+│  └────────┬───────┘   │ • Verified       │                        │
+│           │           └──────────────────┘                        │
+│           │                                                       │
+│  ┌────────┴───────┐   ┌──────────────────┐   ┌────────────────┐  │
+│  │Customer Timeline│   │  Config          │   │Intelligence    │  │
+│  │                │   │                  │   │Preferences     │  │
+│  │ • Date         │   │ • Client Name    │   │                │  │
+│  │ • Event        │   │ • Industry       │   │ • Category     │  │
+│  │ • Type         │   │ • Communication  │   │ • Level        │  │
+│  │ • Reference    │   │   Preferences    │   │ • Enabled      │  │
+│  │ • Pipeline     │   │ • Brand Voice    │   │ • Client       │  │
+│  └────────────────┘   │ • Operating Model│   └────────────────┘  │
+│                       └──────────────────┘                        │
+└───────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 3. Table Definitions
+
+### Global Tables (One per NF instance)
+
+| Table | Purpose | Key Fields |
+|---|---|---|
+| **Clients** | NF client registry | Name, Industry, Status, Onboarding Date, Workspace Slug |
+| **Accounts** | Billing & subscription | Client (link), Plan, MRR, Payment Status |
+| **Experiments** | Cross-client testing | Name, Hypothesis, Cohort, Results |
+| **Decisions** | Business decisions | (already exists in knowledge/decisions/) |
+
+### Client Workspace Tables (One set per client)
+
+| Table | Purpose | Key Fields |
+|---|---|---|
+| **Pipeline** | Customer relationship state | Customer Name, Email, Phone, Stage, Status, Deal Value, Quote Date, Last Contacted, Next Touchpoint, Outcome, Notes |
+| **Messages** | Communication audit trail | Pipeline (link), Direction, Channel, Gmail ID, Thread ID, Subject, Body, Timestamp, Verified, Purpose |
+| **Customer Timeline** | Chronological relationship history | Pipeline (link), Date, Event Type, Description, Reference |
+| **Intelligence** | Business knowledge from this client | Principle, Category, Evidence, Source Customer, Date |
+| **Intelligence Preferences** | Per-client escalation rules | Category, Level (1/2/3), Enabled, Notes |
+| **Config** | Client operational settings | Communication Preferences, Brand Voice, Operating Model, Sender Identity |
+
+---
+
+## 4. Relationships
+
+```
+Clients ──1:N──► Pipeline         (each client has N customers)
+Pipeline ──1:N──► Messages         (each customer has N communications)
+Pipeline ──1:N──► Customer Timeline (each customer has N timeline events)
+Pipeline ──1:1──► Intelligence Preferences (each customer can have custom rules)
+Client   ──1:N──► Intelligence     (each client contributes N learnings)
+```
+
+---
+
+## 5. Current State → Target State Migration
+
+| Current | Issue | Target |
+|---|---|---|
+| QPaint Pipeline is a standalone table | No client association | Pipeline table with Client link field |
+| Messages link to Prospects OR QPaint | Two link fields, same purpose | Single Pipeline link field (unified) |
+| Prospects table is NF outreach only | Mixed purpose | Prospects becomes NF-only. Client customers in Pipeline |
+| Quotes table | Legacy, now empty | Removed |
+| No Customer Timeline | Can't see relationship arc | Customer Timeline table per client |
+
+---
+
+## 6. Migration Path (Staged)
+
+### Stage 1 — Now (Done)
+- ✅ QPaint Deal link on Messages → QPaint Pipeline
+- ✅ 16 Messages backfilled and linked
+
+### Stage 2 — Single Client (QPaint only)
+- Add Client link to QPaint Pipeline (link to Clients table)
+- Create Customer Timeline table for QPaint
+- Create Intelligence Preferences table (per-customer, QPaint only)
+- Migrate QPaint Pipeline → Pipeline naming convention
+
+### Stage 3 — Second Client Onboarding
+- When second client signs (e.g., ABC Electrical):
+  - Clone workspace tables (Pipeline, Messages, Timeline, Intelligence, Config)
+  - Set Client link on all records
+  - No data migration needed — clean workspace
+- This proves the architecture scales
+
+### Stage 4 — Full Migration (3+ clients)
+- Unify Messages table: single Pipeline link field instead of Prospect + QPaint Deal
+- Migrate Prospects' NF-only communications to separate NF Messages view
+- Retire Prospects as customer pipeline — it becomes NF outreach only
+
+---
+
+## 7. The 100-Client Test
+
+Before adding any field, table, or relationship, ask:
+
+> *"Will this design still be clean and maintainable when there are 100 client workspaces?"*
+
+Signs a design fails:
+- Field names hardcoded to a specific client (e.g., "QPaint Deal" instead of "Pipeline")
+- Data from multiple clients sharing the same table without a Client discriminator
+- N+1 query patterns (one query per client instead of one filtered query)
+- Business logic embedded in field names instead of field values
+
+---
+
+## 8. Recommendation
+
+**Do not implement this now.** Review the ERD. When we have two paying clients, we execute Stage 3. The architecture is designed so that Stage 2 cleanup of QPaint is a natural preparation for client #2.
+
+The only immediate action I recommend: rename the "QPaint Deal" field on Messages to "Pipeline" (or "Deal") so it's client-agnostic from day one. The link target table can remain QPaint Pipeline for now — when we migrate to unified Pipeline, the link updates automatically.
+
+---
+
+## 9. Files to Create (when approved)
+
+- `knowledge/architecture/v3-erd.md` — this document
+- `knowledge/decisions/2026-08-05-staged-crm-architecture.md` — decision record
+- Update `production-standards/SKILL.md` — 100-client test rule

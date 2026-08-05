@@ -1,0 +1,108 @@
+# Decision: Quote Intake Standard — Processing Queue, 48-Hour Observation, Human Timing
+
+**Slug:** `2026-08-05-quote-intake-standard`
+**Date:** 2026-08-05
+**Status:** Made
+**Review Date:** 2026-11-05
+
+---
+
+## The Decision
+
+The quotes@ inbox is a processing queue, not an archive. After intake (detect → extract → validate → Airtable → journey → prepare), quotes enter a 48-hour observation period before any follow-up. During this window, Atlas monitors for meaningful communication (customer replies, client contact, quote acceptance/decline) and adapts the journey. If nothing meaningful occurs, Atlas presents the prepared communication for approval — never sends automatically. All communication timing follows the Human Communication Standard: "If James were personally managing this customer, when would he probably reply?" Processed emails are moved to the "Quotes Completed" Gmail label. Every quote produces a Quote Processing Report.
+
+---
+
+## The Problem
+
+The existing quote intake pipeline processed quotes and triggered Phase A autopilot (Email 1) immediately. This creates two risks: (1) following up before the business has had a natural opportunity to contact the customer first, and (2) responding with machine speed rather than human timing. Additionally, processed emails remained in the inbox, making it impossible to distinguish unprocessed from processed quotes at a glance.
+
+---
+
+## Options Considered
+
+| # | Option | Summary |
+|---|---|---|
+| A | Keep existing pipeline — immediate Phase A autopilot | Fastest time-to-first-contact. Risk of pre-empting natural client communication. |
+| B | 48-hour observation + human-timed responses + clean inbox | Slower first contact. Respects business's chance to engage naturally. Human-feeling timing. |
+| C | No automation — manual processing only | Maximum human control. Loses efficiency of automated intake. |
+
+---
+
+## Why This Path
+
+Option B. The 48-hour observation period respects the reality that the business may contact the customer first — Atlas should never pre-empt a natural conversation. The Human Communication Standard ensures Atlas behaves like a thoughtful customer care representative, not an automation. The clean inbox (Quotes Completed label) makes the operational queue unambiguous: every remaining email still needs processing.
+
+---
+
+## Core Principles Applied
+
+- **Trust before growth** — 48-hour observation respects existing customer relationships over speed
+- **Human accountability** — Responses are never sent automatically. Atlas presents, James approves.
+- **"Earn the right"** — Atlas earns the right to follow up by demonstrating contextual awareness
+- **The CEO Standard** — "If James were managing this, when would he reply?"
+- **Customer discovers, we don't convince** — Natural timing feels attentive, not automated
+
+---
+
+## Risks Identified
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| 48h window missed because monitoring failed | Low | Medium | Two-phase cron pair monitors quotes@ 24/7. Observation period tracked in Airtable. |
+| Client contacts customer during 48h window but Atlas doesn't detect it | Medium | Low | Monitor for replies to quotes@, client updates in Airtable. Surface in CEO Brief. |
+| "Quotes Completed" label not created → processed emails stay in inbox | Low | Medium | Label creation verified as part of this decision. |
+| Phase A autopilot still triggers during observation period | Low | High | Autopilot script must check observation window. This is a hard gate. |
+
+---
+
+## Expected Outcome
+
+Quotes@ inbox always reflects unprocessed work only. Every quote enters a 48-hour observation period. Atlas monitors for meaningful communication and adapts. After 48h with no activity, prepared communications presented for James approval. Quote Processing Reports generated for every intake. Customer communications feel human-timed, not automated.
+
+---
+
+## Success Criteria
+
+- [ ] "Quotes Completed" Gmail label created and functional
+- [ ] First quote processed under new 48-hour observation standard
+- [ ] First Quote Processing Report generated
+- [ ] Observation period monitoring operational (cron/automated check)
+- [ ] Phase A autopilot updated to respect 48-hour window
+- [ ] 0 quotes sent follow-up within 48 hours of intake without explicit approval
+- [ ] Quotes@ inbox clean — no processed emails in inbox
+- [ ] Review in 90 days: is the observation period the right length?
+
+---
+
+## Atlas's Challenge (Pre-Decision)
+
+No challenge. Decision aligns with every core principle. The 48-hour observation period is a natural refinement of the existing pipeline. The Human Communication Standard operationalises "Atlas elevates every interaction" at the timing level. The clean inbox standard is operationally elegant.
+
+---
+
+## Actual Outcome (Post-Review)
+
+**Date reviewed:** Pending
+
+**What actually happened:** Pending
+
+**Verdict:** Pending
+
+**Delta from expected:** Pending
+
+---
+
+## Learnings
+
+Pending review.
+
+---
+
+## Related Decisions
+
+- `2026-07-28-atlas-communication-layer` — Atlas as communication layer, four outcomes measured
+- `2026-08-05-communication-channel-policy` — Channel ownership and policy
+- `2026-07-27-sms-strategic-capability-design` — SMS framework
+- `2026-07-24-stage-1-approved-learning-phase` — Writing Playbook, evidence-based improvement
+- `2026-08-01-single-source-of-truth` — Canonical templates

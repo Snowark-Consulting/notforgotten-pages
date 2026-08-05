@@ -1,0 +1,81 @@
+# Decision: Communication Ownership & Identity Standards
+
+**Slug:** `2026-08-05-communication-ownership`
+**Date:** 2026-08-05
+**Status:** Made
+**Review Date:** 2026-11-05
+
+---
+
+## The Decision
+
+Permanent communication ownership and identity standards for all Not Forgotten channels. James owns founder outreach, cold outreach, sales, discovery, relationship building, strategic conversations, and all voice calls. Atlas owns white-label customer care, operational SMS, customer follow-up administration, monitoring, drafting, evidence recording, Airtable, Headquarters, and voice call recommendations. Atlas business number: +61 468 047 212. Email → SMS follow-up standard: Day 0 email, Day 2 SMS (only if no meaningful communication). One customer, one relationship, one communication history across all channels. Every communication experiment tracked independently in Headquarters.
+
+---
+
+## The Problem
+
+Three communication channels (Email, SMS, Voice) were established but ownership boundaries, the Atlas business number, and multi-channel coordination standards were not formally recorded. Without clear ownership, there is risk of channel misuse, inconsistent identity, and fragmented customer experiences.
+
+---
+
+## Options Considered
+
+| # | Option | Summary |
+|---|---|---|
+| A | Formal ownership matrix + single business number + multi-channel standard | All standards recorded. Clear boundaries. Independent experiment tracking. |
+| B | Keep existing implicit boundaries | Risk of drift. No formal record. |
+| C | Atlas owns all channels autonomously | Violates human accountability principle. |
+
+---
+
+## Why This Path
+
+Option A. Formal boundaries protect trust. The ownership matrix ensures every communication has a clear owner. The single business number (+61 468 047 212) creates consistent identity across SMS and future WhatsApp. The Email → SMS follow-up standard enables coordinated multi-channel communication without spamming. Independent experiment dashboards keep learning clean.
+
+---
+
+## Core Principles Applied
+
+- **Trust before growth** — Clear boundaries prevent channel misuse
+- **Human accountability** — James owns voice. Atlas recommends, never initiates calls.
+- **Privacy by design** — SMS consent framework applies to all outbound SMS
+- **Evidence before opinion** — Independent experiment dashboards enable clean measurement
+- **Continuous learning** — Every experiment tracked separately, learnings isolated
+
+---
+
+## Risks Identified
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| SMS sent without 48h observation check | Low | Medium | Standard encoded in quote-intake and follow-up-autopilot logic |
+| Voice boundary eroding over time | Low | High | James-only rule. Any change requires new decision. |
+| Experiment data contaminated across cohorts | Low | Medium | Independent dashboards. Separate Airtable tracking. |
+
+---
+
+## Expected Outcome
+
+Clear communication ownership. Consistent customer identity across channels. Coordinated multi-channel journeys. Clean experiment measurement. No channel misuse.
+
+---
+
+## Success Criteria
+
+- [ ] Communication Ownership Matrix recorded in all relevant skills and documentation
+- [ ] Atlas business number recorded across all systems
+- [ ] Email → SMS follow-up standard operational
+- [ ] Experiment dashboards live in Headquarters
+- [ ] 0 autonomous voice calls placed by Atlas
+- [ ] 0 cold SMS sent
+- [ ] Review in 90 days
+
+---
+
+## Related Decisions
+
+- `2026-08-05-communication-channel-policy` — Channel ownership and boundaries
+- `2026-08-05-quote-intake-standard` — 48h observation, human timing
+- `2026-07-27-sms-strategic-capability-design` — SMS consent framework
+- `2026-07-29-single-identity-james-led` — All NF from james@

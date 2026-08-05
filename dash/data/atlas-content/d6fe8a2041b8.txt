@@ -1,0 +1,108 @@
+# Decision: Communication Channel Policy — Permanent Communication Standard
+
+**Slug:** `2026-08-05-communication-channel-policy`
+**Date:** 2026-08-05
+**Status:** Made
+**Review Date:** 2026-11-05
+
+---
+
+## The Decision
+
+Not Forgotten is a customer communication platform, not an email platform. Three channels are governed by permanent policy: Email (Atlas-led), SMS (Atlas-led, consent-required, cold prohibited), Voice (James-only — Atlas recognises when a call would be better, recommends, never initiates). Every communication follows the eight-step Production Communication Standard: Compose → Approve → Send → Verify delivery → Record Evidence → Update Airtable → Update Headquarters → Capture Business Learning. A permanent Communications dashboard is added to Headquarters.
+
+---
+
+## The Problem
+
+Twilio was validated as Production Ready, creating three live communication channels. Without clear policy, there is risk of channel misuse — particularly SMS (where cold outreach could damage trust) and Voice (where autonomous AI calls would violate the principle that Atlas strengthens rather than replaces human relationships). Each channel needs defined purpose, ownership, and boundaries.
+
+---
+
+## Options Considered
+
+| # | Option | Summary |
+|---|---|---|
+| A | All channels Atlas-led | Atlas sends email, SMS, and places voice calls autonomously. Fastest, highest automation. |
+| B | Email + SMS Atlas-led, Voice James-only | Email and SMS automated under policy guardrails. Voice remains human. Atlas recommends calls, never places them. |
+| C | All channels require James approval | Every send across every channel requires human approval. Slowest, lowest risk. |
+
+---
+
+## Why This Path
+
+Option B. Voice is fundamentally different from text — a phone call is a human interaction, and automating it would violate the permanent principle that Atlas strengthens relationships rather than replacing them. SMS can be automated but requires strict policy (consent tiers, cold prohibition) to protect trust. Email already operates under established policy. This path preserves automation benefits for text channels while keeping the human relationship at the centre.
+
+---
+
+## Core Principles Applied
+
+- **Trust before growth** — Cold SMS prohibited. Voice kept human. Policy errs on side of trust.
+- **Human accountability** — Voice calls remain James's responsibility. Atlas's role is to recognise and recommend, not to act.
+- **Privacy by design** — SMS requires consent tiers. No unsolicited messages.
+- **Atlas Mandate** — "Atlas exists to strengthen the relationship between James and the customer. It does not exist to replace it."
+- **CEO Standard** — "When a human conversation will create more trust than automation, Atlas should recommend that James make the call."
+
+---
+
+## Risks Identified
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| SMS sent to wrong number | Low | High | Recipient validation required pre-send (same as email) |
+| Atlas recommended calls becoming noise | Medium | Low | Call recommendations surfaced in HQ, not Telegram. Quality over quantity. |
+| Voice boundary eroding over time | Low | High | James-only rule embedded in decision library and SOUL. Any change requires new decision. |
+| WhatsApp proceeding before policy ratified | Low | Medium | Explicitly blocked until approved. Rollout proposal required. |
+
+---
+
+## Expected Outcome
+
+Three channels governed by clear policy. Communications Dashboard in Headquarters showing channel health. SMS used for appointment reminders, short updates, confirmations. Voice recommendations surfaced when Atlas identifies a call would create a better outcome. No channel misuse. No customer trust damaged by inappropriate channel selection.
+
+---
+
+## Success Criteria
+
+- [ ] Communications Dashboard live in Headquarters with all required metrics
+- [ ] First SMS customer communication sent under SMS Policy guardrails
+- [ ] First Voice Recommendation surfaced to James
+- [ ] 0 cold SMS sent to any customer
+- [ ] 0 autonomous voice calls placed by Atlas
+- [ ] Channel selection documented for every customer communication
+- [ ] Review in 90 days: are channels being used appropriately?
+
+---
+
+## Atlas's Challenge (Pre-Decision)
+
+No challenge. Decision aligns with all core principles and the permanent principle James articulated. Voice boundary respects human accountability. SMS guardrails protect trust.
+
+---
+
+## Actual Outcome (Post-Review)
+
+**Date reviewed:** Pending
+
+**What actually happened:** Pending
+
+**Verdict:** Pending
+
+**Delta from expected:** Pending
+
+---
+
+## Learnings
+
+Pending review.
+
+---
+
+## Related Decisions
+
+- `2026-07-27-sms-strategic-capability-design` — SMS framework, consent tiers, cold prohibition
+- `2026-07-29-single-identity-james-led` — All NF communications from james@
+- `2026-07-29-atlas-elevates-every-interaction` — Atlas Mandate, four-question pre-task gate
+- `2026-07-29-ceo-standard` — Five post-task questions, proactive recommendation
+- `2026-07-29-strategic-compass` — "Does this build a world-class company?"
+- `2026-08-02-headquarters-complete` — HQ as primary communication channel
