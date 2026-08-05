@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 149,
+    "tasks_completed": 150,
     "recent": [
+      {
+        "date": "2026-08-05 10:56",
+        "task": "Operating principles codified: 3 daily questions, Morning Operations order, pattern detection mandate, quiet OS. INC-2026-08-05-002 fully closed. Infrastructure serves customers. Focus: conversations, learning, revenue.",
+        "category": "task"
+      },
       {
         "date": "2026-08-05 10:34",
         "task": "HQ Verification Standard established \u2014 4-stage lifecycle: Updated \u2192 Published \u2192 Propagating \u2192 Verified Live. All 4 stages passed 10:28-10:34 ACST. Live dashboard confirmed. BK-005/006/007 live. Score 93.",
@@ -135,11 +140,6 @@
         "date": "2026-08-03 19:50",
         "task": "CvC experiment formally closed. Curiosity-led outreach permanently retired for painter acquisition (105 prospects, 0 meaningful replies). FF1 now primary acquisition hypothesis. Three questions answered: proved methodology works, disproved context hypothesis, changed outreach philosophy. Learning LL-20260804-005 recorded. Experiment INDEX updated.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-03 19:48",
-        "task": "CvC Day 21 Final Analysis complete. Verdict: context sentence did not improve meaningful reply rate. 0/40 meaningful replies across both groups. Control: 1 T1 dismissal, 70% open rate. Treatment: 0 replies, 50% open rate. Analysis published at cvc-day21/ \u2014 closes the book on curiosity-based painter outreach.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-05T10:34:28.084621+09:30",
+  "last_updated": "2026-08-05T10:56:32.658159+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
