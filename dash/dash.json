@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 148,
+    "tasks_completed": 149,
     "recent": [
+      {
+        "date": "2026-08-05 10:34",
+        "task": "HQ Verification Standard established \u2014 4-stage lifecycle: Updated \u2192 Published \u2192 Propagating \u2192 Verified Live. All 4 stages passed 10:28-10:34 ACST. Live dashboard confirmed. BK-005/006/007 live. Score 93.",
+        "category": "task"
+      },
       {
         "date": "2026-08-05 10:25",
         "task": "QPaint: Chass Matters \u2014 lost to delayed follow-up. Sincere apology sent, owned the failure, committed to improvement. Gmail: 19fcf6b1cd4ce875. VERIFIED. BK-007: Honest acknowledgment when business falls short preserves trust.",
@@ -135,11 +140,6 @@
         "date": "2026-08-03 19:48",
         "task": "CvC Day 21 Final Analysis complete. Verdict: context sentence did not improve meaningful reply rate. 0/40 meaningful replies across both groups. Control: 1 T1 dismissal, 70% open rate. Treatment: 0 replies, 50% open rate. Analysis published at cvc-day21/ \u2014 closes the book on curiosity-based painter outreach.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-03 19:36",
-        "task": "Storage Health Policy active \u2014 four-tier system (Green/Amber/Red/Critical). Current: Amber (89%, stable). Explanatory reporting: why, trend, forecast, recommendation. Telegram escalation at Red/Critical. Cron: 506c5b3ae6bf (6h) + 48982944ea6e (alert).",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-05T10:25:49.961277+09:30",
+  "last_updated": "2026-08-05T10:34:28.084621+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
