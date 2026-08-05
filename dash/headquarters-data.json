@@ -224,9 +224,9 @@
       },
       {
         "id": "BK-012",
-        "principle": "Intelligence Over Noise: Clients should receive information that helps them make better decisions, not every individual event. Operational actions are escalated immediately. Lost opportunities are aggregated into monthly Business Intelligence reports rather than forwarded individually. Exceptions: VIP, strategic, complaints, legal/reputational.",
-        "source": "Janis Tham / Civium QPaint loss, Aug 2026",
-        "evidence": "Lost deal notification. James directed: not every loss needs immediate client escalation. Aggregate into monthly intelligence."
+        "principle": "Intelligence Escalation Framework: Escalate information based on operational importance, not its existence. Level 1: Immediate Operational Escalation (action required). Level 2: Significant Business Intelligence (prompt notification — strategic). Level 3: Monthly Business Intelligence (aggregate trends). Every lost opportunity: Did we learn something today that we didn't know yesterday?",
+        "source": "Janis Tham / Civium QPaint loss, refined by James, Aug 2026",
+        "evidence": "Three-level escalation framework replaces binary forward/don't-forward. Learning question distinguishes signal from noise."
       }
     ]
   },
