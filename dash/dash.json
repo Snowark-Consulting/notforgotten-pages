@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 152,
+    "tasks_completed": 153,
     "recent": [
+      {
+        "date": "2026-08-05 12:41",
+        "task": "Legacy Re-engagement Pilot v1.0 launched \u2014 3 emails sent (Celtic Deco, John's Painting, SA Quality Painting), 100% verified in Gmail Sent. Communication Ownership Matrix established. Atlas business number: +61 468 047 212. Email\u2192SMS follow-up standard: Day 0 email + Day 2 SMS.",
+        "category": "task"
+      },
       {
         "date": "2026-08-05 11:32",
         "task": "Quote Intake Standard established \u2014 48-hour observation period, human timing. Quotes@ inbox now a processing queue. 'Quotes Completed' Gmail label created. Processed quotes move out of inbox.",
@@ -135,11 +140,6 @@
         "date": "2026-08-04 19:07",
         "task": "HQ refresh \u2014 checking current state before update",
         "category": "task"
-      },
-      {
-        "date": "2026-08-03 19:58",
-        "task": "Foundation phase declared complete by James. Shift from build to execution. Atlas now measured by business outcomes: recovered revenue, conversations created, customers won, time saved, knowledge accumulated, better decisions. Decision recorded.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-05T11:32:26.689148+09:30",
+  "last_updated": "2026-08-05T12:41:48.733445+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
