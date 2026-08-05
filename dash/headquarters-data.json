@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-05T17:32:45+09:30",
+  "generated_at": "2026-08-05T17:38:01+09:30",
   "atlas_brief": {
     "greeting": "Good evening James",
-    "body": "Reconciliation complete. 1,666 records audited across Gmail, Send Evidence, and Airtable. 4 stage corrections applied. 9 Messages backfilled. 5 Quotes migrated to QPaint workspace. Airtable is now the operational CRM. Two permanent decisions recorded tonight. Score: 99. Pipeline: 145 QPaint records, 410 Messages. All systems agree.",
-    "estimated_time": "2\u20133 minutes",
+    "body": "BK-013 recorded. Hierarchy of Truth established: Gmail (communication), Send Evidence (production), Airtable (operational), Headquarters (executive). Continuous reconciliation is now the permanent operating standard. Morning workflow includes reconciliation audit. Score: 99. Pipeline: 145 QPaint records. All systems agree.",
+    "estimated_time": "1\u20132 minutes",
     "tone": "calm"
   },
   "business_score": {
@@ -104,6 +104,8 @@
   },
   "changes": {
     "today": [
+      "Hierarchy of Truth established: Gmail \u2192 Send Evidence \u2192 Airtable \u2192 Headquarters. Continuous reconciliation now permanent operating standard.",
+      "BK-013: Reality Always Wins \u2014 Airtable represents reality, not activity. CRM must answer: 'would James understand without opening Gmail?'",
       "Airtable operational source of truth decision recorded. Permanent reconciliation workflow established.",
       "Quotes table migrated to QPaint workspace. Carol Beardsall created. 5 duplicates resolved. 0 data lost.",
       "Reconciliation complete: 1,666 records audited. 4 stage corrections (Danielle Gibney\u2192Lost, Margaret Luscombe\u2192Lost, Joy Ryan\u2192Awaiting Reply, Nuwan Fernando\u2192Awaiting Reply). 9 Messages backfilled.",
@@ -231,6 +233,12 @@
         "principle": "Intelligence Escalation Framework: Escalate information based on operational importance. Level 1: Immediate (never disabled). Level 2: Same-day strategic. Level 3: Monthly aggregate. Per-client Intelligence Preferences configurable in Airtable. Learning question: Did we learn something today that we didn't know yesterday?",
         "source": "Janis Tham / Civium QPaint loss, refined by James (three levels + client preferences), Aug 2026",
         "evidence": "Three-level framework with per-client customisation. Client preferences may refine but never weaken. Level 1 never disabled."
+      },
+      {
+        "id": "BK-013",
+        "principle": "Reality Always Wins: The purpose of Airtable is not to record activity \u2014 it is to represent reality. Every record must answer: if James opened this without opening Gmail, would he understand the complete state of the customer relationship? A CRM that is continuously reconciled becomes trusted. A CRM that is almost accurate is unreliable.",
+        "source": "5 Aug 2026 Reconciliation \u2014 James Hardstaff",
+        "evidence": "1,666 records audited. 4 stage corrections. 13 Messages backfilled. 5 Quotes migrated. 0 remaining inconsistencies. Airtable now reflects reality without Gmail."
       }
     ]
   },
