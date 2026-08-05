@@ -1,19 +1,20 @@
 {
-  "generated_at": "2026-08-05T13:35:00+09:30",
+  "generated_at": "2026-08-05T12:49:07+09:30",
   "atlas_brief": {
     "greeting": "Good afternoon James.",
-    "body": "Twilio is Production Ready. Permanent Communication Channel Policy + Ownership established. Atlas business number: +61 468 047 212. Legacy Re-engagement Pilot v1.0 launched — 3 emails sent, verified in Gmail Sent. Experiment dashboards added to Headquarters.",
-    "estimated_time": "2–3 minutes",
+    "body": "Twilio is Production Ready. Communication Ownership established. Legacy Re-engagement Pilot live (3/3 verified). QPaint: 2 replies today \u2014 1 won (Arno Hsu, awaiting Tas scheduling), 1 lost (Kate Quinn, different quote). All systems healthy.",
+    "estimated_time": "2\u20133 minutes",
     "tone": "calm"
   },
   "business_score": {
-    "score": 96,
+    "score": 97,
     "change": "+1",
     "reasons_positive": [
-      "Legacy Re-engagement Pilot v1.0 launched — 3 emails, 100% verified",
+      "QPaint win: Arno Hsu approved quote, awaiting Tas scheduling",
+      "Legacy Re-engagement Pilot v1.0 launched \u2014 3 emails, 100% verified",
       "Communication Ownership Matrix established",
-      "Quote Intake Standard established — 48h observation, human timing, clean inbox",
-      "Twilio certified Production Ready — SMS + Voice validated",
+      "Quote Intake Standard established \u2014 48h observation, human timing, clean inbox",
+      "Twilio certified Production Ready \u2014 SMS + Voice validated",
       "5 customer replies processed with care",
       "3 Customer Care Principles established",
       "BK-005, BK-006, BK-007 now Not Forgotten-wide",
@@ -24,7 +25,7 @@
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "QPaint: 5 replies processed today. 1 engaged (insurance pending)."
+      "detail": "QPaint: Arno Hsu won (awaiting scheduling). Kate Quinn lost (different quote)."
     },
     "recovery_operations": {
       "status": "healthy",
@@ -107,13 +108,15 @@
   },
   "changes": {
     "today": [
-      "Legacy Re-engagement Pilot v1.0 launched — Celtic Deco, John's Painting, SA Quality Painting (3/3 verified)",
-      "Communication Ownership Matrix established — James/Atlas boundaries, Atlas business number +61 468 047 212",
-      "Email → SMS follow-up standard: Day 0 email, Day 2 SMS (48h observation)",
-      "Quote Intake Standard established — 48h observation, human timing, Quotes Completed label",
-      "Twilio certified Production Ready — SMS delivered, Voice connected (11s)",
-      "Permanent Communication Channel Policy established — Email, SMS, Voice, WhatsApp governed",
-      "5 QPaint customer replies processed — 1 engaged, 3 graceful closes, 1 monitoring",
+      "QPaint: Arno Hsu WON \u2014 quote approved, Tas to schedule (Learoyd Road)",
+      "QPaint: Kate Quinn LOST \u2014 went with different quote (Millicent Street)",
+      "Legacy Re-engagement Pilot v1.0 launched \u2014 Celtic Deco, John's Painting, SA Quality Painting (3/3 verified)",
+      "Communication Ownership Matrix established \u2014 James/Atlas boundaries, Atlas business number +61 468 047 212",
+      "Email \u2192 SMS follow-up standard: Day 0 email, Day 2 SMS (48h observation)",
+      "Quote Intake Standard established \u2014 48h observation, human timing, Quotes Completed label",
+      "Twilio certified Production Ready \u2014 SMS delivered, Voice connected (11s)",
+      "Permanent Communication Channel Policy established \u2014 Email, SMS, Voice, WhatsApp governed",
+      "5 QPaint customer replies processed \u2014 1 engaged, 3 graceful closes, 1 monitoring",
       "3 Customer Care Principles established: BK-005 (third-party wait), BK-006 (lost job \u2260 lost customer), BK-007 (honest acknowledgment)",
       "Darren Harper opted out \u2014 removed from all sequences",
       "Cathryn Cochrane: insurance pending, 2-week check-in scheduled",
@@ -253,9 +256,9 @@
       "success_rate": "100%"
     },
     "oauth_health": "ok"
-    },
-    "communications": {
-    "description": "Permanent Communication Standard. Every channel follows: Compose → Approve → Send → Verify → Record → Airtable → Headquarters → Learning. Choose the channel that creates the best customer experience — not simply the one available.",
+  },
+  "communications": {
+    "description": "Permanent Communication Standard. Every channel follows: Compose \u2192 Approve \u2192 Send \u2192 Verify \u2192 Record \u2192 Airtable \u2192 Headquarters \u2192 Learning. Choose the channel that creates the best customer experience \u2014 not simply the one available.",
     "channels": {
       "email": {
         "status": "production_ready",
