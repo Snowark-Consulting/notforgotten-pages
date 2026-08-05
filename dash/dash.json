@@ -164,15 +164,15 @@
       }
     ]
   },
-  "last_updated": "2026-08-05T13:07:15.272411+09:30",
+  "last_updated": "2026-08-05T13:30:59.363823+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
       "Campaign Complete": 84,
-      "New": 86,
+      "New": 83,
       "Won": 2,
       "Lost": 7,
-      "Outreach Active": 16,
+      "Outreach Active": 19,
       "Not a fit": 5
     },
     "verticals": {
@@ -202,7 +202,7 @@
         "Cleaning": 1
       },
       "New": {
-        "Painter": 44,
+        "Painter": 41,
         "Marketing agency": 18,
         "Commercial cleaning": 19,
         "Other": 2,
@@ -218,7 +218,7 @@
         "Marketing agency": 1
       },
       "Outreach Active": {
-        "Painter": 16
+        "Painter": 19
       },
       "Not a fit": {
         "Painter": 5
@@ -320,10 +320,28 @@
         "industry": "Painter",
         "last_contacted": "2026-08-05",
         "suburb": "Victoria"
+      },
+      {
+        "name": "SA Quality Painting",
+        "industry": "Painter",
+        "last_contacted": null,
+        "suburb": "South Australia"
+      },
+      {
+        "name": "Celtic Deco",
+        "industry": "Painter",
+        "last_contacted": null,
+        "suburb": "Victoria"
+      },
+      {
+        "name": "John's Painting",
+        "industry": "Painter",
+        "last_contacted": null,
+        "suburb": "South Australia"
       }
     ],
     "active_by_vertical": {
-      "Painter": 16
+      "Painter": 19
     },
     "messages": {
       "outbound_total": 199,
@@ -341,7 +359,7 @@
       "total_opens": 239,
       "avg_opens": 4.1
     },
-    "last_refreshed": "2026-08-05T02:00:57.451452+00:00"
+    "last_refreshed": "2026-08-05T04:00:59.362741+00:00"
   },
   "decisions": {
     "total": 42,
