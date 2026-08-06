@@ -345,8 +345,13 @@ function render() {
       if (items && items.length > 0) {
         items.forEach(c => {
           html += '<div class="change-item">';
-          html += '<span class="change-time">' + esc(c.time || c.day || '') + '</span>';
-          html += '<span class="change-desc">' + esc(c.description || '') + '</span>';
+          if (typeof c === 'string') {
+            html += '<span class="change-time"></span>';
+            html += '<span class="change-desc">' + esc(c) + '</span>';
+          } else {
+            html += '<span class="change-time">' + esc(c.time || c.day || '') + '</span>';
+            html += '<span class="change-desc">' + esc(c.text || c.description || '') + '</span>';
+          }
           html += '</div>';
         });
       } else {
