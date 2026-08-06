@@ -378,6 +378,68 @@ function render() {
   }
 
   // ═══════════════════════════════════════
+  // 7. QPAINT PIPELINE
+  // ═══════════════════════════════════════
+  const qp = H?.qpaint_pipeline;
+  if (qp) {
+    const s = qp.summary;
+    html += '<div class="section">';
+    html += '<div class="section-header"><h2>QPaint Recovery</h2><span class="line"></span><span style="font-size:var(--text-xs);color:var(--muted);">' + s.total_customers + ' customers | ' + s.total_pipeline_value + '</span></div>';
+    html += '<div class="health-grid" style="grid-template-columns: repeat(4, 1fr);">';
+    html += '<div class="health-card"><span class="dot green"></span><strong>Won</strong><br>' + s.won_count + ' (' + s.won_value + ')</div>';
+    html += '<div class="health-card"><span class="dot green"></span><strong>Engaged/Replied</strong><br>' + s.engaged_replied + '</div>';
+    html += '<div class="health-card"><span class="dot amber"></span><strong>Contacted</strong><br>' + s.contacted + '</div>';
+    html += '<div class="health-card"><span class="dot red"></span><strong>Lost</strong><br>' + s.lost_count + '</div>';
+    html += '</div>';
+
+    // Priority
+    html += '<div style="display:flex;gap:var(--space-sm);margin-top:var(--space-sm);font-size:var(--text-xs);color:var(--muted);">';
+    html += '<span>P1: ' + (qp.priority?.P1 || 0) + '</span>';
+    html += '<span>P2: ' + (qp.priority?.P2 || 0) + '</span>';
+    html += '<span>P3: ' + (qp.priority?.P3 || 0) + '</span>';
+    html += '</div>';
+
+    // Key customers
+    const kc = qp.key_customers;
+    if (kc && kc.length > 0) {
+      html += '<div style="margin-top:var(--space-md);">';
+      kc.forEach(c => {
+        const dotColor = c.stage === 'Won' ? 'green' : c.stage === 'Lost' ? 'red' : 'amber';
+        html += '<div class="waiting-item" style="margin-bottom:var(--space-xs);">';
+        html += '<div class="waiting-top">';
+        html += '<h3 style="font-size:var(--text-sm);">' + esc(c.name) + ' — ' + esc(c.value) + '</h3>';
+        html += '<span class="waiting-impact impact-medium" style="font-size:10px;">' + esc(c.stage) + '</span>';
+        html += '</div>';
+        html += '<div style="font-size:var(--text-xs);color:var(--muted);">' + esc(c.status) + '</div>';
+        html += '</div>';
+      });
+      html += '</div>';
+    }
+    html += '</div>';
+  }
+
+  // ═══════════════════════════════════════
+  // 8. VAULT HEALTH
+  // ═══════════════════════════════════════
+  const vh = H?.vault_health;
+  if (vh) {
+    html += '<div class="section">';
+    html += '<div class="section-header"><h2>Vault Health</h2><span class="line"></span><span style="font-size:var(--text-xs);color:var(--muted);">Institutional memory</span></div>';
+    html += '<div class="health-grid" style="grid-template-columns: repeat(4, 1fr);">';
+    html += '<div class="health-card"><span class="dot green"></span><strong>Decisions</strong><br>' + vh.decisions.total + ' (' + vh.decisions.founding + ' founding)</div>';
+    html += '<div class="health-card"><span class="dot green"></span><strong>Learnings</strong><br>' + vh.learnings.total + ' (' + vh.learnings.resolved + ' resolved)</div>';
+    html += '<div class="health-card"><span class="dot green"></span><strong>Incidents</strong><br>' + vh.incidents.total + ' (' + vh.incidents.resolved + ' resolved)</div>';
+    html += '<div class="health-card"><span class="dot green"></span><strong>CEO Briefs</strong><br>' + vh.ceo_briefs.published + ' published</div>';
+    html += '</div>';
+    html += '<div style="display:flex;gap:var(--space-sm);margin-top:var(--space-sm);font-size:var(--text-xs);color:var(--muted);">';
+    html += '<span>BK: ' + vh.business_knowledge.principles + ' principles</span>';
+    html += '<span>Memory: ' + vh.memory.usage + '</span>';
+    html += '<span>Disk: ' + vh.infrastructure.disk + '</span>';
+    html += '</div>';
+    html += '</div>';
+  }
+
+  // ═══════════════════════════════════════
   // FOOTER
   // ═══════════════════════════════════════
   html += '<div class="secondary-links">';
