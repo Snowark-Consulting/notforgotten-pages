@@ -1,0 +1,29 @@
+# Maintenance Backlog — Not Forgotten Systems
+
+> Low-severity improvements that don't block production. Items here are queued for future refinement cycles.
+
+---
+
+## MB-001: pandadoc-extract.py — scope_summary cleanup
+
+**Created:** 2026-08-06
+**Source:** pandadoc-extract.py v2.0.0 certification
+**Severity:** Low
+**Status:** Open
+
+**Problem:** The `scope_summary` field currently includes full terms and conditions, warranties, privacy text, and contract boilerplate alongside the meaningful scope-of-work section. The extracted text is 30K+ chars, making it impractical for CRM display.
+
+**Requirement:** Extract only the meaningful scope-of-work section (inclusions, exclusions, notes about the specific job) and exclude:
+- Standard terms and conditions
+- Warranties and disclaimers
+- Privacy text
+- QBCC insurance boilerplate
+- Payment terms
+- General specifications (paint types, application methods)
+- Acceptance/contract boilerplate
+
+**Guard:** Any change must:
+1. Preserve all six certified primary fields (customer_name, customer_email, pandadoc_number, quote_value, address, quote_date)
+2. Pass regression testing against the certified test set before production use
+
+**Dependencies:** None. Can be tackled independently.

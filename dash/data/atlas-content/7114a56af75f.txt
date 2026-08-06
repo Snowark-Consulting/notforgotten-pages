@@ -1,0 +1,49 @@
+# Decision: Observation Window Philosophy — Customer Experience, Not Human Mimicry
+
+> See also: [[Quote Follow-Up Delay]] (knowledge/decisions/2026-08-03-quote-follow-up-delay.md), [[Atlas Learning Framework]] (knowledge/atlas-learning-framework.md)
+
+**Slug:** `2026-08-06-observation-window-philosophy`
+**Date:** 2026-08-06
+**Status:** Made
+**Review date:** N/A (philosophical foundation)
+
+## Context
+
+Atlas described the 48-hour observation window as "mirroring natural human timing — a business owner wouldn't follow up the moment a quote lands." This framing was incorrect.
+
+## Decision
+
+The 48-hour observation period is not designed to imitate human behaviour. It exists because it creates the best customer experience. That distinction matters.
+
+**Wrong:** "We wait 48 hours to seem human."
+**Right:** "We wait 48 hours because it produces the best outcome for the customer."
+
+## Future Architecture: Adaptive Communication Timing
+
+The long-term vision is context-driven timing, not fixed rules. Atlas should eventually determine the most appropriate communication moment based on:
+
+- Industry norms and expectations
+- Quote value and complexity
+- Customer type (residential, commercial, strata)
+- Decision-making process (individual, committee, corporate)
+- Urgency signals (expiring quotes, seasonal windows)
+- Previous interaction patterns
+- Client preferences and past outcomes
+
+Until that capability is proven, 48 hours remains the production default. No implementation required.
+
+## Current Production Pipeline (Approved)
+
+1. Quote received
+2. Customer Journey certified
+3. Airtable verified
+4. 48-hour observation
+5. Founder Approval
+6. Commercial Customer Care draft
+7. Pre-Send Certification
+8. Send
+9. Independent verification
+10. Airtable update
+11. Headquarters update
+
+No changes to the current pipeline. This decision records the philosophy only.

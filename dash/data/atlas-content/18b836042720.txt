@@ -17,6 +17,8 @@
 | agent-architecture | `dual-path`, `skill discovery`, `pre-flight`, `orphaned skill`, `boot context`, `Registry`, `SOPs` | `cards/agent-architecture.md` |
 | asana | `asana`, `html_notes`, `POST /tasks`, `PUT /tasks`, `html_lacks_body`, `body tag` | `cards/asana.md` |
 
+| airtable | `airtable`, `Airtable`, `record`, `duplicate`, `pagination`, `maxRecords`, `pageSize` | `cards/airtable.md` |
+
 ## How to use
 
 1. **Agent discovers a fix** → appends to own `learnings/LEARNINGS.md` (existing process).

@@ -209,7 +209,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "88b110d5753e",
-      "val": 14.0,
+      "val": 16.0,
       "color": "#a78bfa"
     },
     {
@@ -539,7 +539,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "27793a781393",
-      "val": 6.0,
+      "val": 8.0,
       "color": "#a78bfa"
     },
     {
@@ -550,6 +550,39 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "495736aff3aa",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decisions_2026_08_06_communication_context_check",
+      "label": "Communication Context Check",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-06-communication-context-check.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "78d8cd910b2b",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decisions_2026_08_06_observation_window_philosophy",
+      "label": "Observation Window Philosophy",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-06-observation-window-philosophy.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "7114a56af75f",
+      "val": 4,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decisions_2026_08_06_pandadoc_extractor_v2_certified",
+      "label": "Pandadoc Extractor V2 Certified",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-06-pandadoc-extractor-v2-certified.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "b21689ac873a",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -829,6 +862,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_maintenance_backlog",
+      "label": "Maintenance Backlog",
+      "file_type": "doc",
+      "source_file": "knowledge/maintenance-backlog.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "4ff656f61313",
+      "val": 8.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_monthly_recovery_intelligence_report",
       "label": "Monthly Recovery Intelligence Report",
       "file_type": "doc",
@@ -858,7 +902,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "b57a1f02ca29",
-      "val": 6.0,
+      "val": 8.0,
       "color": "#a78bfa"
     },
     {
@@ -968,7 +1012,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "28e2f25e37f9",
-      "val": 6.0,
+      "val": 8.0,
       "color": "#a78bfa"
     },
     {
@@ -1331,7 +1375,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "751bfc5321ef",
-      "val": 8.0,
+      "val": 10.0,
       "color": "#a78bfa"
     },
     {
@@ -1386,7 +1430,7 @@
       "community": 5,
       "community_name": "Learnings",
       "content_hash": "d5d6365794d4",
-      "val": 14.0,
+      "val": 16.0,
       "color": "#f472b6"
     },
     {
@@ -2188,6 +2232,27 @@
       "source_file": ""
     },
     {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_06_communication_context_check",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_06_pandadoc_extractor_v2_certified",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_maintenance_backlog",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
       "source": "agent_sops",
       "target": "agent_registry",
       "relation": "wikilink",
@@ -2456,6 +2521,55 @@
     {
       "source": "knowledge_decisions_2026_07_24_provider_failover_gemini_fallback",
       "target": "knowledge_service_levels",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decisions_2026_08_06_communication_context_check",
+      "target": "knowledge_operational_handover_standard",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decisions_2026_08_06_communication_context_check",
+      "target": "knowledge_voice_review_checklist",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decisions_2026_08_06_communication_context_check",
+      "target": "knowledge_production_readiness_check",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decisions_2026_08_06_observation_window_philosophy",
+      "target": "knowledge_decisions_2026_08_03_quote_follow_up_delay",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decisions_2026_08_06_observation_window_philosophy",
+      "target": "knowledge_atlas_learning_framework",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decisions_2026_08_06_pandadoc_extractor_v2_certified",
+      "target": "learnings_learnings",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decisions_2026_08_06_pandadoc_extractor_v2_certified",
+      "target": "knowledge_maintenance_backlog",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

@@ -1,0 +1,53 @@
+# Decision: pandadoc-extract.py v2.0.0 Certified as Production Extractor
+
+> See also: [[Quote Intake]] (skills/notforgotten/quote-intake/SKILL.md), [[LEARNINGS]] (learnings/LEARNINGS.md), [[Maintenance Backlog]] (knowledge/maintenance-backlog.md)
+
+**Slug:** `2026-08-06-pandadoc-extractor-v2-certified`
+**Date:** 2026-08-06
+**Status:** Made
+**Review date:** 2026-11-06 (90 days)
+
+## Context
+
+PandaDoc share pages are React SPAs that render content via contenteditable elements invisible to standard DOM queries. `pandadoc-extract.py` v1 used `document.body.innerText` via `Runtime.evaluate` and returned empty results for all PandaDoc URLs. The extraction was consistently failing.
+
+## Decision
+
+1. Rewrite `pandadoc-extract.py` to use `Accessibility.getFullAXTree` (Chrome DevTools Protocol) as the primary extraction method.
+2. Retain `document.body.innerText` as fallback only.
+3. Six primary fields certified: customer_name, customer_email, pandadoc_number, quote_value, address, quote_date.
+4. Two additional fields recovered: expiry_date, gst.
+
+## Evidence
+
+| Quote | Customer | Value | Fields Recovered | Method |
+|---|---|---|---|---|
+| 43054 | Manohar Ganji | $13,860.00 | 8/8 | ax_tree |
+| 43016 | Deb Brown | $17,424.00 | 8/8 | ax_tree |
+
+Recovery rate: 100% (2/2 quotes). Test 3 token expired (expected).
+
+## Known Limitation
+
+`scope_summary` may include full terms and conditions text alongside scope of works. Severity: Low. Maintenance backlog item created for future cleanup.
+
+## Production Guard
+
+Any future change to the extractor must:
+1. Preserve all six certified primary fields
+2. Pass regression testing against the certified test set
+3. Not be deployed to production without explicit approval
+
+## Files Modified
+
+- `scripts/pandadoc-extract.py` — v2.0.0
+- `skills/notforgotten/quote-intake/references/pandadoc-intake-pattern.md`
+- `learnings/LEARNINGS.md`
+
+## Atlas's Challenge
+
+None. Direction was correct — AX-tree extraction was the right approach.
+
+## James's Response
+
+Approved and certified. Do not continue refining today.

@@ -8,6 +8,31 @@ tier: primary
 
 > Append-only log of fixes, API quirks, and gotchas. Check BEFORE touching any external API. Newest first.
 
+## 2026-08-06 — PandaDoc SPA invisible to DOM queries; Accessibility API required
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** PandaDoc share pages are React SPAs that render content via contenteditable `textbox` elements. Standard DOM queries return empty: `document.body.innerText` = `""`, `document.body.textContent` = `""`, `document.querySelectorAll('table tr')` = `0`, `document.querySelectorAll('[contenteditable="true"]')` = `0`. The `pandadoc-extract.py` v1 returned "No text extracted from page" for all PandaDoc URLs.
+
+**Cause:** PandaDoc's React render pipeline creates a virtual DOM that the accessibility tree sees but standard DOM traversal does not. The content is visually rendered but programmatically invisible to `Runtime.evaluate`. Additionally, `browser_console` targets `chrome://new-tab-page`, not the PandaDoc tab — `document.title` returns `"New Tab"`.
+
+**Fix:**
+1. `pandadoc-extract.py` v2 uses `Accessibility.getFullAXTree` (CDP) as primary extraction method, with `document.body.innerText` as fallback.
+2. AX tree splits compound values across separate nodes — parser handles multi-line names ("Manohar" / "Ganji" / email), dates ("Date:" / "03 / 08 / 2026"), and values ("Total" / "$13,860.00").
+3. Address extracted via street-pattern heuristic (title line filter + de-duplication).
+4. Quote number extracted from document title pattern (`^(\d{5})\s*-\s*`).
+5. Page loading detected by polling AX tree until "Connecting" text disappears and node count exceeds 100.
+6. `PUT /json/new` does NOT populate the AX tree — must use `browser_navigate` or `Page.navigate` on existing tabs.
+7. Deduplication required: AX tree has identical text in multiple node types (StaticText + InlineTextBox).
+
+**Validation:** 6/6 fields verified across 2 PandaDoc quotes (NF-QPAINT-43054, QPAINT-43016). Test 3 token expired (expected — PandaDoc share links are time-limited).
+
+**Principle:** A failed extraction method does not mean the data is unavailable. When rendered content is inaccessible through the DOM, inspect the accessibility tree and network layer before escalating.
+
+**Files modified:**
+- `scripts/pandadoc-extract.py` — v2.0.0, AX-tree primary extraction
+- `skills/notforgotten/quote-intake/references/pandadoc-intake-pattern.md` — updated extraction docs
+
 ## 2026-08-05 — INC-2026-08-05-002: 172 production emails silently undelivered due to OAuth scope/expiry failures
 
 **Confidence:** high

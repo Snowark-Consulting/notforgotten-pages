@@ -1,0 +1,48 @@
+# Decision: Communication Context Check — Mandatory Pre-Draft Gate
+
+> See also: [[Operational Handover Standard]] (knowledge/operational-handover-standard.md), [[Voice Review Checklist]] (knowledge/voice-review-checklist.md), [[Production Readiness Check]] (knowledge/production-readiness-check.md)
+
+**Slug:** `2026-08-06-communication-context-check`
+**Date:** 2026-08-06
+**Status:** Made
+**Review date:** 2026-09-06 (30 days)
+
+## Context
+
+During the Nicholas Zappacosta (QBuild) workflow, Atlas drafted emails before fully understanding the communication context. The emails required multiple correction cycles: sender identity was wrong (atlas@ instead of james@ for internal handover), the draft assumed work was in progress without evidence, and the internal handover addressed an individual instead of the team.
+
+The emails were ultimately correct, but the process took longer than necessary because writing began before context was established.
+
+## Decision
+
+From this point forward, communication starts with context, not content. Before writing a single word, Atlas must complete a **10-point Communication Context Check**:
+
+1. Who is the recipient?
+2. Is the recipient a customer or our client?
+3. Who owns the relationship?
+4. Who owns the next operational action?
+5. Which communication identity applies?
+6. What does the recipient actually need from this email?
+7. What does the recipient already know?
+8. What don't we know?
+9. What assumptions must we avoid?
+10. What outcome should the recipient have after reading this email?
+
+Only when all ten questions have been answered may the email be drafted.
+
+## The Order Matters
+
+**Wrong order:** Write → Think → Correct
+**Correct order:** Understand → Decide → Draft → Review → Approve → Send
+
+## Permanent Principle
+
+Excellent writing cannot compensate for incorrect context. The right email, sent from the wrong identity, to the wrong audience, or with the wrong assumptions, is still the wrong email. Every communication begins with understanding the situation before composing the message.
+
+## Production Gate
+
+This is a mandatory production gate. It fires before any draft is written. It sits alongside Communication Identity Check, Founder Approval Mode, Pre-Send Certification, and Customer Journey Certification.
+
+## Reflection
+
+The Nicholas workflow demonstrated that our standards work. Every issue was identified before production. Every correction improved the final outcome. The objective is not to avoid mistakes entirely — it is to build a system where mistakes are identified, learned from, and permanently prevented through better architecture.
