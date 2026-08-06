@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 172,
+    "tasks_completed": 173,
     "recent": [
+      {
+        "date": "2026-08-06 09:53",
+        "task": "New PandaDoc quote: QPaint 43054 - 1206 Anzac Ave, Kallangur. Customer: Manohar. Email + value pending enrichment from QPaint.",
+        "category": "task"
+      },
       {
         "date": "2026-08-06 09:12",
         "task": "Replied to Elisha Paige (Yule Strata, 13K committee review). Committee decision-maker awareness applied. All 3 inbox emails processed and filed.",
@@ -135,11 +140,6 @@
         "date": "2026-08-05 12:48",
         "task": "QPaint replies: Arno Hsu (WON \u2014 quote approved, Tas to schedule) + Kate Quinn (LOST \u2014 went with different quote). Both replied, Airtable updated, inbox clear. Protocol: Evidence \u2192 Verification \u2192 Decision \u2192 Action \u2192 Update.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-05 12:41",
-        "task": "Legacy Re-engagement Pilot v1.0 launched \u2014 3 emails sent (Celtic Deco, John's Painting, SA Quality Painting), 100% verified in Gmail Sent. Communication Ownership Matrix established. Atlas business number: +61 468 047 212. Email\u2192SMS follow-up standard: Day 0 email + Day 2 SMS.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-06T09:30:34.685417+09:30",
+  "last_updated": "2026-08-06T09:53:03.009691+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
