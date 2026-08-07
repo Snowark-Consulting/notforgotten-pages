@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operational Audit — Aug 7, 2026 — Not Forgotten Systems</title>
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0b2c4d; --gold: #e0a62a; --white: #ffffff; --light: #f7fbff;
+    --muted: #6b7280; --text: #0a0a0a; --surface: #ffffff;
+    --border: rgba(0,0,0,0.06); --healthy: #16a34a; --caution: #d97706; --critical: #dc2626;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --text-xs: 12px; --text-sm: 14px; --text-base: 16px; --text-lg: 20px; --text-xl: 24px;
+    --space-xs: 4px; --space-sm: 8px; --space-md: 16px; --space-lg: 24px; --space-xl: 32px;
+  }
+  body { font-family: var(--font); background: var(--light); color: var(--text); line-height: 1.6; }
+  .container { max-width: 960px; margin: 0 auto; padding: var(--space-lg); }
+  h1 { font-size: var(--text-xl); font-weight: 700; color: var(--navy); }
+  h2 { font-size: var(--text-lg); font-weight: 600; margin-top: var(--space-xl); color: var(--navy); border-bottom: 2px solid var(--gold); padding-bottom: var(--space-xs); }
+  h3 { font-size: var(--text-base); font-weight: 600; margin-top: var(--space-md); }
+  .header { background: var(--navy); color: white; padding: var(--space-xl) var(--space-lg); margin-bottom: var(--space-lg); }
+  .header h1 { color: white; }
+  .header .meta { color: var(--gold); font-size: var(--text-sm); margin-top: var(--space-sm); }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; margin-right: var(--space-xs); }
+  .badge-critical { background: #fee2e2; color: var(--critical); }
+  .badge-high { background: #fef3c7; color: var(--caution); }
+  .badge-medium { background: #e5e7eb; color: #4b5563; }
+  .badge-low { background: #f0fdf4; color: var(--healthy); }
+  .item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: var(--space-md); margin-bottom: var(--space-md); }
+  .item-critical { border-left: 4px solid var(--critical); }
+  .item-high { border-left: 4px solid var(--caution); }
+  .item-row { display: flex; justify-content: space-between; gap: var(--space-md); flex-wrap: wrap; }
+  .item-label { font-size: var(--text-xs); color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .item-value { font-size: var(--text-sm); font-weight: 500; }
+  .customer-list { margin-top: var(--space-sm); }
+  .customer-row { display: flex; justify-content: space-between; padding: var(--space-xs) 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+  .customer-row:last-child { border-bottom: none; }
+  .col-name { flex: 2; }
+  .col-value { flex: 1; text-align: right; font-weight: 600; }
+  .col-stage { flex: 1; text-align: right; }
+  .col-action { flex: 2; color: var(--muted); font-size: var(--text-xs); }
+  .rank { font-size: var(--text-lg); font-weight: 700; color: var(--navy); }
+  table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); margin-top: var(--space-sm); }
+  th { background: var(--navy); color: white; padding: 8px 12px; text-align: left; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.05em; }
+  td { padding: 8px 12px; border-bottom: 1px solid var(--border); }
+  tr:nth-child(even) { background: #f9fafb; }
+  .nav-back { margin-bottom: var(--space-md); }
+  .nav-back a { color: var(--navy); text-decoration: none; font-weight: 500; }
+  .summary-box { background: #fef3c7; border: 1px solid var(--caution); border-radius: 8px; padding: var(--space-md); margin: var(--space-md) 0; }
+  .summary-box strong { color: var(--caution); }
+  .section-meta { color: var(--muted); font-size: var(--text-sm); margin-bottom: var(--space-sm); font-style: italic; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="container">
+    <h1>Operational Audit — Not Forgotten Systems</h1>
+    <div class="meta">Generated: Aug 7, 2026 11:54 ACST | 4-System Reconciliation | 10 Sections</div>
+  </div>
+</div>
+<div class="container">
+<div class="nav-back"><a href="../dash/">← Back to Headquarters</a></div>
+
+<div class="summary-box">
+  <strong>⚠️ CRITICAL FINDING:</strong> 32 QPaint Email 2 P1 customers ($2.1M+ combined pipeline) are 4 days past their Next Touchpoint Date (Aug 3). No Email 3 template exists. This blocks the entire QPaint recovery pipeline conversion stage.
+</div>
+
+<!-- SECTION 1 -->
+<h2>1. Needs James's Attention</h2>
+<div class="section-meta">Every item ranked by urgency, revenue impact, customer impact, and risk if delayed.</div>
+
+<div class="item item-critical">
+  <div style="display:flex;align-items:center;gap:var(--space-sm);">
+    <span class="rank">#1</span>
+    <div>
+      <h3>⚠️ 32 QPaint Email 2 customers 4 DAYS OVERDUE for Email 3</h3>
+      <div style="margin-top:4px;">
+        <span class="badge badge-critical">CRITICAL</span>
+        <span class="badge badge-high">$2.1M+ Pipeline</span>
+        <span class="badge badge-high">32 Customers</span>
+      </div>
+    </div>
+  </div>
+  <div class="item-row" style="margin-top:var(--space-sm);">
+    <div><span class="item-label">Revenue Impact</span><br><span class="item-value">High — $2.1M+ combined</span></div>
+    <div><span class="item-label">Customer Impact</span><br><span class="item-value">High — mid-engagement silence</span></div>
+    <div><span class="item-label">Risk if Delayed</span><br><span class="item-value">Probability of going cold increases daily</span></div>
+    <div><span class="item-label">Review Time</span><br><span class="item-value">Template: 20 min | Batch: 30 min</span></div>
+  </div>
+  <p style="margin-top:var(--space-sm);">These 32 P1 customers had Next Touchpoint Date of Aug 3. Email 3 has not been designed or sent. Email 3 is typically the conversion touchpoint. <strong>Action:</strong> Atlas design Email 3 template today. James review Saturday. Send 32 customers Saturday or Monday.</p>
+</div>
+
+<div class="item item-high">
+  <div style="display:flex;align-items:center;gap:var(--space-sm);">
+    <span class="rank">#2</span>
+    <div>
+      <h3>FF1 Email 2 — 16 painter prospects (due Mon Aug 10)</h3>
+      <span class="badge badge-high">HIGH</span>
+    </div>
+  </div>
+  <p>NF customer acquisition. 16 painter prospects at Email 2. Drafts needed by Sunday for weekend review. Risk: Monday launch delayed if not drafted.</p>
+</div>
+
+<div class="item item-high">
+  <div style="display:flex;align-items:center;gap:var(--space-sm);">
+    <span class="rank">#3</span>
+    <div>
+      <h3>QPaint Email 3 sequence design — no template exists</h3>
+      <span class="badge badge-high">HIGH</span>
+    </div>
+  </div>
+  <p>Email 3 is the conversion touchpoint. No approved template blocks all 32 Email 2 customers. Must be designed before any sends.</p>
+</div>
+
+<div class="item">
+  <span class="rank">#4</span> <strong>Website v0.9 validation</strong> — Ask 5 business owners: "What do you think this company does?" Collect evidence this weekend. <span class="badge badge-medium">MEDIUM</span>
+</div>
+<div class="item">
+  <span class="rank">#5</span> <strong>V3 CRM Architecture ERD</strong> — Review and approve before second client. <span class="badge badge-medium">MEDIUM</span>
+</div>
+<div class="item">
+  <span class="rank">#6</span> <strong>CEO Briefs Aug 5-6</strong> — Archive gap. Can backfill or skip. <span class="badge badge-low">LOW</span>
+</div>
+
+<!-- SECTION 2 -->
+<h2>2. Needs Client Action (QPaint)</h2>
+<div class="section-meta">Items where QPaint needs to act. These are blocking customer outcomes. $300K+ in active deals stalled.</div>
+<table>
+  <thead><tr><th>Customer</th><th>Deal</th><th>Value</th><th>Stage</th><th>Action Needed</th><th>Risk</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Arno Hsu</strong></td><td>72 Learoyd Rd, Algester</td><td>$129,750</td><td>Won</td><td>Tas to schedule job commencement</td><td>Customer waiting since Aug 5</td></tr>
+    <tr><td><strong>Nicholas Zappacosta</strong></td><td>Logan Village State School</td><td>$145,008</td><td>Engaged</td><td>Dee/Leslie follow up govt procurement</td><td>Slow cycle — going cold</td></tr>
+    <tr><td><strong>Alicia Campbell</strong></td><td>24/75 Mungarie St, Keperra</td><td>$8,789</td><td>Replied</td><td>Tas resend quote with fresh link</td><td>Customer actively waiting</td></tr>
+    <tr><td><strong>Joy Ryan</strong></td><td>6 Warenda Close, Middle Park</td><td>$17,510</td><td>Awaiting Reply</td><td>QPaint provide 2 separate quotes</td><td>⚠️ 9 days since request</td></tr>
+    <tr><td><strong>Elisha Paige</strong></td><td>Yule Strata (3 quotes)</td><td>$363K total</td><td>Replied</td><td>QPaint on standby for committee</td><td>Low — committee process</td></tr>
+  </tbody>
+</table>
+
+<!-- SECTION 3 -->
+<h2>3. Follow-ups Due</h2>
+<div class="summary-box"><strong>⚠️ Critical: 32 Email 2 P1 customers 4 days overdue.</strong> Email 3 template not designed.</div>
+<table>
+  <thead><tr><th>Batch</th><th>Count</th><th>Value</th><th>Due</th><th>Status</th><th>Next Action</th></tr></thead>
+  <tbody>
+    <tr><td><strong>QPaint Email 3</strong></td><td>32</td><td>$2.1M+</td><td>Aug 3</td><td>🔴 4 days overdue</td><td>Design template → James approve → Send</td></tr>
+    <tr><td><strong>FF1 Email 2</strong></td><td>16</td><td>N/A (NF acq)</td><td>Aug 10</td><td>🟢 On track</td><td>Draft → James review → Send Mon</td></tr>
+    <tr><td><strong>QPaint Email 1</strong></td><td>97</td><td>$3.1M+</td><td>Rolling</td><td>🟢 In progress</td><td>Monitor replies</td></tr>
+  </tbody>
+</table>
+
+<!-- SECTION 4 -->
+<h2>4. Awaiting Customer</h2>
+<table>
+  <thead><tr><th>Customer</th><th>Deal</th><th>Value</th><th>Last Contact</th><th>Waiting For</th><th>Risk</th></tr></thead>
+  <tbody>
+    <tr><td>Elisha Paige</td><td>Yule Strata</td><td>$113,907</td><td>Aug 6</td><td>Committee decision</td><td>Low</td></tr>
+    <tr><td>Carlie Gunn</td><td>4 Tudar Pl, Thornlands</td><td>$19,932</td><td>Aug 5</td><td>Decision blocker answer</td><td>Low</td></tr>
+    <tr><td>Nuwan Fernando</td><td>15 Whitmore St, Taringa</td><td>$167,592</td><td>Aug 5</td><td>Committee + legislation</td><td>Low</td></tr>
+    <tr><td>Cathy Cochrane</td><td>11 Oatberry Cres, Shailer Park</td><td>$4,152</td><td>Aug 5</td><td>Insurer or Aug 19 check-in</td><td>Low</td></tr>
+    <tr><td>Joy Ryan</td><td>6 Warenda Close, Middle Park</td><td>$17,510</td><td>Jul 28</td><td>Customer decision + QPaint quotes</td><td>⚠️ Medium</td></tr>
+  </tbody>
+</table>
+
+<!-- SECTION 5 -->
+<h2>5. Won Opportunities</h2>
+<table>
+  <thead><tr><th>Customer</th><th>Deal</th><th>Value</th><th>Won</th><th>Handover</th><th>Risk</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Arno Hsu</strong></td><td>72 Learoyd Rd, Algester</td><td>$129,750</td><td>Aug 5</td><td>Atlas acknowledged. Tas to schedule.</td><td>Customer waiting</td></tr>
+  </tbody>
+</table>
+
+<!-- SECTION 6 -->
+<h2>6. Lost Opportunities (8)</h2>
+<table>
+  <thead><tr><th>Customer</th><th>Value</th><th>Reason</th><th>Learning</th></tr></thead>
+  <tbody>
+    <tr><td>Darren Harper</td><td>$43,437</td><td>Requested no contact</td><td>Respect unsubscribe. Graceful exit.</td></tr>
+    <tr><td>Mal McCabe</td><td>$38,404</td><td>Chose competitor (cost)</td><td>BK-006: Lost job ≠ lost customer</td></tr>
+    <tr><td>Andres Sillet</td><td>$33,008</td><td>Not going ahead</td><td>Feedback for BI</td></tr>
+    <tr><td>Kate Quinn</td><td>$24,415</td><td>Different quote</td><td>Graceful close</td></tr>
+    <tr><td>Margaret Luscombe</td><td>$21,176</td><td>Already engaged another</td><td>Communication clarity gap</td></tr>
+    <tr><td>Catherine Sinnamon</td><td>$11,984</td><td>Pricing</td><td>Flagged to Tas</td></tr>
+    <tr><td>Danielle Gibney</td><td>$8,514</td><td>Went with another</td><td>Definitive close</td></tr>
+    <tr><td>Chass Matters</td><td>$4,318</td><td>Delayed follow-up</td><td>BK-007: Honest apology</td></tr>
+  </tbody>
+</table>
+
+<!-- SECTION 7 -->
+<h2>7. Active Outreach & Experiments</h2>
+<div class="item"><strong>FF1 Painter Wave 1</strong> — 16 painters. Founder-to-Founder v1.0. Email 1 sent Aug 5. Email 2 due Aug 10.</div>
+<div class="item"><strong>QPaint Stage 2 Recovery</strong> — 147 customers. 97 Email 1, 32 Email 2. ⚠️ Email 3 overdue.</div>
+<div class="item"><strong>Website v0.9 Validation</strong> — Belief-change framework live. Evidence collection phase.</div>
+
+<!-- SECTION 8 -->
+<h2>8. New Quotes in Observation</h2>
+<div class="item">QPaint 43054 — Manohar, 1206 Anzac Ave Kallangur. Detected Aug 6 09:53. 48-hour observation window ends Aug 8.</div>
+
+<!-- SECTION 9 -->
+<h2>9. System Issues</h2>
+<table>
+  <thead><tr><th>Severity</th><th>Issue</th><th>Impact</th><th>Action</th></tr></thead>
+  <tbody>
+    <tr><td><span class="badge badge-critical">HIGH</span></td><td>Messages Prospect links empty</td><td>419 messages can't be traced to customers</td><td>Backfill Gmail ID cross-reference</td></tr>
+    <tr><td><span class="badge badge-critical">HIGH</span></td><td>32 Email 2 customers overdue</td><td>$2.1M+ engagement at risk</td><td>Design Email 3, send immediately</td></tr>
+    <tr><td><span class="badge badge-medium">MEDIUM</span></td><td>Token scope metadata empty</td><td>Risk of silent undelivered sends</td><td>Verify via OAuth endpoint before sends</td></tr>
+    <tr><td><span class="badge badge-low">LOW</span></td><td>CEO Briefs Aug 5-6 missing</td><td>Archive gap</td><td>Backfill or skip</td></tr>
+  </tbody>
+</table>
+
+<!-- SECTION 10 -->
+<h2>10. Weekend Action Plan</h2>
+
+<h3>Friday Aug 7</h3>
+<div class="item">✅ Full operational audit complete<p>Atlas: Design QPaint Email 3 template (unblocks 32 customers)</p><p>Atlas: Draft FF1 Email 2 for 16 painters</p><p>Atlas: Production Readiness Check — verify token scopes</p></div>
+
+<h3>Saturday Aug 8</h3>
+<div class="item">James: Review + approve QPaint Email 3 template (20 min)<p>James: Review + approve FF1 Email 2 drafts (30 min)</p><p>Atlas: Send Email 3 to 32 P1 QPaint customers</p><p>Atlas: Verify all sends. Create evidence. Update Airtable.</p><p>James: Ask 3-5 business owners about website</p></div>
+
+<h3>Sunday Aug 9</h3>
+<div class="item">James: Review V3 CRM Architecture ERD (15 min)<p>Atlas: Backfill Messages Prospect links</p><p>James: Weekly Communication Review (20 min)</p><p>Atlas: Prep Monday — FF1 Email 2 send ready</p></div>
+
+<h3>Next Week (Aug 10+)</h3>
+<div class="item">Mon: Send FF1 Email 2 to 16 painters<p>Mon: Monitor QPaint Email 3 replies</p><p>Ongoing: PandaDoc intake — Manohar observation ends Aug 8</p><p>Ongoing: Website validation evidence</p><p>Aug 19: Cathy Cochrane 2-week check-in</p></div>
+
+<h3>Do Not Work On Yet</h3>
+<div class="item">Second client onboarding | WhatsApp | SMS campaigns | New verticals | Pricing changes</div>
+
+</div>
+</body>
+</html>

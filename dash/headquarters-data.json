@@ -1,260 +1,173 @@
 {
-  "generated_at": "2026-08-06T19:12:29+09:30",
+  "generated_at": "2026-08-07T11:56:01+09:30",
   "atlas_brief": {
-    "greeting": "Good evening James.",
-    "body": "Full system audit complete. Vault is healthy: 48 decisions registered, 13 Business Knowledge principles, 3 production incidents all resolved, 7 CEO Briefs published. QPaint recovery: 147 customers, $5.24M pipeline, 1 Won ($129,750 Arno Hsu), 7 engaged/replied including Nicholas Zappacosta ($145K) and Elisha Paige ($113K). FF1 Wave 1: 16 painters, Email 2 due Monday Aug 10. 419 total messages tracked (404 outbound, 15 inbound). Disk 40%, all systems healthy. No new activity today since 09:53 — quiet, stable. Weekend focus: FF1 Email 2 drafts, V3 CRM architecture review, Weekly Communication Review.",
-    "estimated_time": "Under 5 minutes"
+    "greeting": "Good morning James.",
+    "body": "Full operational audit complete. ⚠️ Critical finding: 32 QPaint Email 2 P1 customers ($2.1M+) are 4 days overdue for Email 3. No Email 3 template exists yet — this is the highest priority for the weekend. FF1 Email 2 drafts needed for 16 painters (due Mon Aug 10). QPaint: 147 customers, $5.24M pipeline. 1 Won (Arno Hsu, $129,750). 7 engaged/replied. 8 Lost. 5 items require client action from QPaint. 4 system reconciliation gaps identified. Complete 10-section operational audit published to Command Centre.",
+    "estimated_time": "10-15 minutes"
   },
   "business_score": {
-    "score": 95,
-    "change": "—",
+    "score": 92,
+    "change": "-3",
     "reasons_positive": [
-      "Comprehensive audit: vault, QPaint, prospects, messages all consistent and healthy",
-      "QPaint: 147 customers, $5.24M pipeline, 7 engaged, 1 Won at $129,750",
-      "No incidents since Aug 5 — production stability holding",
-      "419 messages tracked — complete audit trail operational",
-      "Disk 40%, memory healthy — infrastructure stable"
+      "Full 4-system reconciliation complete — no hidden surprises",
+      "QPaint: $5.24M pipeline, 1 Won, 7 engaged — recovery model working",
+      "32 Email 2 customers identified and prioritised for Email 3",
+      "10-section audit gives complete operational visibility"
     ],
-    "reasons_negative": []
+    "reasons_negative": [
+      "32 QPaint Email 2 customers 4 days overdue — engagement momentum at risk",
+      "Email 3 template doesn't exist — blocking $2.1M+ pipeline",
+      "Messages Prospect links empty — reconciliation gap"
+    ]
   },
   "business_health": {
     "clients": {
-      "status": "healthy",
-      "detail": "QPaint: 147 customers. Arno Hsu Won ($129,750). Nicholas Zappacosta Engaged ($145K). Elisha Paige Replied ($113K). Carlie Gunn Replied ($19.9K). 8 Lost."
+      "status": "caution",
+      "detail": "QPaint: Arno Hsu Won ($129,750) awaiting Tas scheduling. Nicholas Zappacosta ($145K) awaiting QPaint follow-up. 5 items blocked on client action."
     },
     "recovery_operations": {
-      "status": "healthy",
-      "detail": "QPaint: 128 contacted, 7 engaged/replied, 1 Won, 8 Lost, 1 not yet contacted. P1: 93, P2: 50, P3: 3. PandaDoc intake active."
+      "status": "caution",
+      "detail": "⚠️ 32 Email 2 P1 customers ($2.1M+) 4 days overdue. Email 3 template not designed. 97 Email 1 in progress. 8 Lost with learnings."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "FF1 Wave 1: 16 painters, Email 1 sent Aug 5. Email 2 due Mon Aug 10. Website v0.9 live — belief-change framework deployed. 222 total prospects, 12 verticals."
+      "detail": "FF1 Wave 1: 16 painters. Email 2 due Mon Aug 10. Website v0.9 live. Full audit published."
     },
     "engineering": {
       "status": "healthy",
-      "detail": "All systems healthy. Disk 40% (7.4G/20G). Memory 55% (2.1G/3.8G). V3 CRM architecture designed. No incidents since Aug 5."
+      "detail": "All systems healthy. Disk 40%. 136 send evidence records. 419 messages. Token scopes need pre-send verification."
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint active. $129,750 Won attributed. $5.24M pipeline under management. No payment issues."
+      "detail": "QPaint: $129,750 Won. $5.24M pipeline. No payment issues."
     },
     "atlas": {
       "status": "healthy",
-      "detail": "Memory: 83% (95 index entries). 13 BK principles. 48 decisions. 3 incidents (all resolved). 7 CEO Briefs. 419 messages. Learning flywheel active."
+      "detail": "Memory: 83%. 13 BK principles. 48 decisions. 3 incidents resolved. Full audit complete."
     }
   },
   "waiting_for_james": [
     {
-      "title": "FF1 Email 2 drafts — Due Monday Aug 10",
-      "why_it_matters": "16 painter prospects. Email 2 is the value & discovery touchpoint. Drafts ready for weekend review = clean Monday launch.",
+      "title": "⚠️ CRITICAL: 32 QPaint Email 2 customers 4 days overdue — design Email 3 template",
+      "why_it_matters": "$2.1M+ combined pipeline. 32 P1 customers at Email 2 with Next Touchpoint Aug 3. Email 3 is the conversion touchpoint. No template exists.",
+      "business_impact": "Critical",
+      "estimated_review_time": "Template review: 20 min. Batch review: 30 min.",
+      "recommended_action": "Atlas design Email 3 template today. James review Saturday. Send 32 customers Saturday or Monday.",
+      "impact_sort": 100,
+      "status": "critical"
+    },
+    {
+      "title": "FF1 Email 2 — 16 painter drafts needed by Sunday",
+      "why_it_matters": "NF customer acquisition. 16 painter prospects. Email 2 due Monday Aug 10.",
       "business_impact": "High",
-      "estimated_review_time": "30 min review Saturday/Sunday",
-      "recommended_action": "Review 16 Email 2 drafts. Feedback by Sunday evening for Monday morning sends.",
-      "impact_sort": 88,
+      "estimated_review_time": "30 min review",
+      "recommended_action": "Atlas draft today. James review weekend. Send Monday.",
+      "impact_sort": 90,
       "status": "due_soon"
     },
     {
-      "title": "Website v0.9 — Post-launch validation",
-      "why_it_matters": "Belief-change framework live at notforgotten.com.au. Evidence before optimisation. Speak to business owners.",
-      "business_impact": "High",
-      "estimated_review_time": "Passive — review analytics over coming days",
-      "recommended_action": "Monitor GA4/Clarity. Ask 5 business owners: \"What do you think this company does?\"",
+      "title": "5 QPaint customers blocked on client action — needs escalation?",
+      "why_it_matters": "Arno Hsu (Won, $129K) awaiting scheduling. Nicholas Zappacosta ($145K) awaiting follow-up. Alicia Campbell ($8.8K) waiting for quote resend. Joy Ryan ($17.5K) waiting for quotes (9 days).",
+      "business_impact": "High — $300K+ in active deals stalled on client side",
+      "estimated_review_time": "15 min to assess and decide on escalation",
+      "recommended_action": "Review list. Decide: email Tas with consolidated action list, or let individual items flow naturally.",
       "impact_sort": 82,
+      "status": "needs_decision"
+    },
+    {
+      "title": "Website v0.9 validation — collect evidence this weekend",
+      "why_it_matters": "Belief-change framework live. No evidence yet on whether it works. Evidence before optimisation.",
+      "business_impact": "Medium",
+      "estimated_review_time": "Passive — conversations with 3-5 business owners",
+      "recommended_action": "Ask: 'What do you think this company does?' Note responses.",
+      "impact_sort": 70,
       "status": "monitoring"
     },
     {
-      "title": "Elisha Paige — $113K Yule Strata committee review",
-      "why_it_matters": "P1. Yule Strata has 3 QPaint quotes totalling $363K. Committee decision process underway.",
-      "business_impact": "High",
-      "estimated_review_time": "Under 2 min when committee responds",
-      "recommended_action": "Wait for committee feedback. QPaint team on standby.",
-      "impact_sort": 78,
-      "status": "waiting"
-    },
-    {
-      "title": "Nicholas Zappacosta — $145K Engaged, awaiting confirmation",
-      "why_it_matters": "Government procurement (QBuild). Advanced Logan Village State School + QAS Beenleigh. P1.",
-      "business_impact": "High",
-      "estimated_review_time": "Under 5 min when he replies",
-      "recommended_action": "Monitor. Government procurement cycles are slow. Do not rush.",
-      "impact_sort": 72,
-      "status": "waiting"
-    },
-    {
-      "title": "Carlie Gunn — $19.9K, weighing up decision",
-      "why_it_matters": "We asked what she's weighing up. Her answer reveals the blocker.",
+      "title": "Messages Prospect links empty — reconciliation backlog",
+      "why_it_matters": "419 messages recorded but can't trace to specific customers. Breaks customer timeline.",
       "business_impact": "Medium",
-      "estimated_review_time": "Under 2 min when she replies",
-      "recommended_action": "Wait for reply. Assess: can QPaint genuinely help?",
-      "impact_sort": 60,
-      "status": "waiting"
+      "estimated_review_time": "Atlas can backfill — no James time needed",
+      "recommended_action": "Atlas to cross-reference Gmail IDs and backfill Prospect links. Lower priority than Email 3.",
+      "impact_sort": 55,
+      "status": "backlog"
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Full vault audit complete. The operating system is healthy: 48 decisions, 13 BK principles, 3 resolved incidents, QPaint recovery tracking $5.24M across 147 customers, FF1 launched with 16 painters. The weekend approaches — highest leverage is preparing FF1 Email 2 drafts so Monday sends are frictionless.",
+    "executive_summary": "The audit reveals one critical gap: 32 QPaint Email 2 customers ($2.1M+) are overdue for Email 3, and the Email 3 template doesn't exist. This is the single highest-leverage action this weekend. Secondary: FF1 Email 2 drafts, client-side blockers, website validation.",
     "priorities": [
       {
-        "action": "Prepare FF1 Email 2 drafts for weekend review",
-        "why": "16 prospects. Due Monday Aug 10. Drafts ready tonight = James reviews at his pace Saturday/Sunday.",
-        "expected_impact": "No Sunday scramble. Clean Monday morning launch. Maintains 5-day cadence.",
-        "estimated_time": "30 min",
+        "action": "Design QPaint Email 3 template — today (Friday)",
+        "why": "32 P1 customers ($2.1M+) blocked without it. Email 3 is the conversion touchpoint.",
+        "expected_impact": "Unblocks $2.1M+ pipeline. Restores engagement momentum.",
+        "estimated_time": "Atlas: 15 min draft. James: 20 min review.",
         "confidence": "High"
       },
       {
-        "action": "Weekend: Review V3 CRM Architecture ERD",
-        "why": "Design complete. Foundation must scale to 100 clients before second client onboarded.",
-        "expected_impact": "Clean architecture decision before growth compounds. Prevents rework.",
-        "estimated_time": "15 min",
-        "confidence": "Medium"
+        "action": "Draft FF1 Email 2 for 16 painters — today (Friday)",
+        "why": "Due Monday. Drafts ready = James reviews at his pace over weekend.",
+        "expected_impact": "Clean Monday launch. No last-minute scramble.",
+        "estimated_time": "Atlas: 20 min draft. James: 30 min review.",
+        "confidence": "High"
       },
       {
-        "action": "Weekend: Weekly Communication Review",
-        "why": "Cover: Won deal patterns from Arno Hsu, reconciliation findings (1,666 records), 13 BK principles, lessons from INC-002/003.",
-        "expected_impact": "Establishes learning rhythm. Preserves Aug 5's breakthrough insights.",
-        "estimated_time": "20 min",
+        "action": "Assess QPaint client-side blockers — Saturday",
+        "why": "$300K+ in active deals stalled on QPaint. Arno Hsu (Won, unscheduled), Nicholas ($145K), Alicia (quote resend), Joy Ryan (quotes, 9 days).",
+        "expected_impact": "Convert Won to delivering. Restart stalled engagements.",
+        "estimated_time": "15 min assessment + possible email to Tas",
         "confidence": "Medium"
       }
     ],
     "can_wait": [
-      "QPaint Pipeline: Cathy Cochrane stage fix (minor mismatch)",
-      "Website validation: let data accumulate before analysing",
-      "Nuwan Fernando monitoring (committee still weighing)",
-      "Rename QPaint Deal field to Pipeline (cosmetic, pre-client-#2)",
-      "QPaint: 1 not-contacted record — lowest priority, handle after FF1 Email 2",
-      "CEO Briefs: Aug 5 and Aug 6 briefs pending (create after FF1 drafts)"
+      "Messages Prospect link backfill (Atlas can do, no James time)",
+      "CEO Briefs Aug 5-6 (archive gap, low priority)",
+      "V3 CRM Architecture review (important but not urgent)",
+      "Weekly Communication Review (Sunday is fine)",
+      "Cathy Cochrane check-in (not due until Aug 19)"
     ],
-    "closing": "The vault is comprehensive and healthy. The operating system is no longer theoretical — it's tracking $5.24M in customer pipeline, managing 147 QPaint relationships, running FF1 outreach, and accumulating permanent business knowledge. This weekend: FF1 drafts, architecture review, and reflection on what we've learned. Protect the weekend, prep Monday."
+    "closing": "The operating system is working — the audit found no hidden disasters. The critical gap is execution: Email 3 must be designed and sent. This weekend: Email 3 template → FF1 Email 2 drafts → client-side blocker assessment → website validation. Complete these four and Monday is set up for momentum."
   },
   "changes": {
     "today": [
       {
-        "time": "18:57",
-        "text": "Comprehensive vault audit: 48 decisions, 13 BK principles, 3 incidents (resolved), 7 CEO Briefs, 419 messages. All systems healthy."
+        "time": "11:54",
+        "text": "Full operational audit: 4-system reconciliation complete. 10-section report with Weekend Action Plan published."
       },
       {
-        "time": "18:57",
-        "text": "QPaint pipeline: 147 customers, $5.24M total value. Won: Arno Hsu ($129,750). 7 engaged/replied. 8 Lost. 1 not contacted."
+        "time": "11:54",
+        "text": "⚠️ Critical finding: 32 QPaint Email 2 P1 customers ($2.1M+) 4 days overdue. Email 3 template not designed."
       },
       {
-        "time": "09:53",
-        "text": "New PandaDoc quote detected: QPaint 43054 — Manohar, 1206 Anzac Ave Kallangur. Value pending enrichment."
-      },
-      {
-        "time": "09:35",
-        "text": "Elisha Paige replied (QPaint, $113K — Yule Strata committee). Commercial Customer Care reply sent."
-      },
-      {
-        "time": "09:35",
-        "text": "Alicia Campbell (QPaint, $8,789) — warm close confirmed."
-      },
-      {
-        "time": "09:04",
-        "text": "Morning inbox sweep — 3 emails processed. Carlie Gunn, Alicia Campbell, Elisha Paige. All replied and Airtable updated."
-      },
-      {
-        "time": "",
-        "text": "Quiet day after 10am — no new replies, no incidents, systems stable."
+        "time": "11:54",
+        "text": "Reconciliation: 147 QPaint customers audited. 419 Messages. 136 Send Evidence records. 4 gaps identified."
       }
     ],
     "yesterday": [
       {
-        "time": "22:15",
-        "text": "Website v0.9 deployed — belief-change framework live. 48 QA checks passed."
+        "time": "19:14",
+        "text": "Evening HQ refresh with Vault Health and QPaint Pipeline sections. CDN cache issue resolved."
       },
       {
-        "time": "20:38",
-        "text": "Carlie Gunn (QPaint, $19,932) — \"still deciding.\" Commercial Customer Care reply sent."
+        "time": "09:53",
+        "text": "New PandaDoc quote: QPaint 43054 — Manohar, Kallangur."
       },
       {
-        "time": "19:15",
-        "text": "Alicia Campbell (QPaint, $8,789) — quote expired. Replied + handover to QPaint."
+        "time": "09:35",
+        "text": "Elisha Paige replied ($113K, Yule Strata committee). Alicia Campbell warm close ($8.8K)."
       },
       {
-        "time": "19:02",
-        "text": "Website v4 deployed to production. Belief Architecture live. 18/18 checks passed."
-      },
-      {
-        "time": "17:32",
-        "text": "Reconciliation complete. 1,666 records audited. 4 stage corrections. Airtable now operational CRM."
-      },
-      {
-        "time": "17:17",
-        "text": "Arno Hsu marked Won ($129,750). First NF Won deal. Permanent Communication Standard established."
-      },
-      {
-        "time": "13:07",
-        "text": "INC-2026-08-05-003 resolved — atlas@ re-authorised. Production Readiness Check permanent law."
-      },
-      {
-        "time": "12:48",
-        "text": "QPaint replies: Arno Hsu (WON) + Kate Quinn (LOST). Customer acknowledgment protocol validated."
-      },
-      {
-        "time": "",
-        "text": "FF1 Wave 1 launched — 16 painters, Founder-to-Founder v1.0"
-      },
-      {
-        "time": "",
-        "text": "ED-2026-08 v2: Evidence Strength Key, Timeline, Product Evolution, What We Didn't Expect, Founder Reflection."
+        "time": "09:04",
+        "text": "Morning inbox: 3 emails processed (Carlie Gunn, Alicia Campbell, Elisha Paige)."
       }
     ],
     "this_week": [
-      {
-        "time": "",
-        "text": "FF1 Wave 1 launched — 16 painters, Email 2 due Mon Aug 10"
-      },
-      {
-        "time": "",
-        "text": "QPaint Stage 2 recovery: 147 customers, $5.24M pipeline, 1 Won, 7 engaged"
-      },
-      {
-        "time": "",
-        "text": "Arno Hsu Won ($129,750) — first NF Won deal"
-      },
-      {
-        "time": "",
-        "text": "Nicholas Zappacosta engaged ($145K) — government procurement"
-      },
-      {
-        "time": "",
-        "text": "Website v0.9 live — Belief Architecture deployed"
-      },
-      {
-        "time": "",
-        "text": "INC-2026-08-05-002 closed — 172 emails recovered"
-      },
-      {
-        "time": "",
-        "text": "INC-2026-08-05-003 resolved — atlas@ re-authorised"
-      },
-      {
-        "time": "",
-        "text": "Infrastructure phase formally closed"
-      },
-      {
-        "time": "",
-        "text": "Reconciliation: 1,666 records, Airtable = operational CRM"
-      },
-      {
-        "time": "",
-        "text": "Production Skill Certification complete"
-      },
-      {
-        "time": "",
-        "text": "V3 CRM Architecture designed"
-      },
-      {
-        "time": "",
-        "text": "13 Business Knowledge principles accumulated"
-      },
-      {
-        "time": "",
-        "text": "48 decisions registered in Decision Library"
-      },
-      {
-        "time": "",
-        "text": "419 total messages tracked across all channels"
-      }
+      "Full 4-system operational audit — first complete reconciliation",
+      "32 QPaint Email 2 customers identified as overdue — Email 3 now priority #1",
+      "FF1 Wave 1 launched — 16 painters, Email 2 due Mon Aug 10",
+      "QPaint: 147 customers, $5.24M pipeline, 1 Won, 7 engaged, 8 Lost",
+      "Website v0.9 live — Belief Architecture deployed",
+      "Vault: 48 decisions, 13 BK principles, 4 learnings, 3 incidents, 7 briefs",
+      "Messages: 419 total (404 outbound, 15 inbound)"
     ]
   },
   "lessons_learned": {
@@ -422,7 +335,7 @@
       }
     },
     "last_verified_send": {
-      "timestamp": "2026-08-06T19:12:29+09:30",
+      "timestamp": "2026-08-07T11:56:01+09:30",
       "gmail_message_id": "19fd44ecce2f0065",
       "recipient": "elisha@yulestrata.com.au",
       "sender": "atlas@notforgotten.com.au"
@@ -476,7 +389,7 @@
     "total_voice_recommendations": 0,
     "principle": "Atlas exists to strengthen the relationship between James and the customer. It does not exist to replace it."
   },
-  "operational_status": "Normal Operations — Founder Approval Mode active. Vault: 48 decisions, 13 BK principles, 3 resolved incidents, 7 CEO Briefs, 95 memory entries. QPaint: 147 customers, $5.24M pipeline, 1 Won, 7 engaged. FF1: 16 painters, Email 2 due Mon Aug 10. All systems healthy. Disk 40%, memory 55%. No active incidents.",
+  "operational_status": "⚠️ Action Required: 32 QPaint Email 2 P1 customers ($2.1M+) overdue for Email 3. Template not designed. FF1 Email 2 drafts due Monday. 5 client-side blockers ($300K+). Full audit published. All systems healthy. Weekend priorities defined.",
   "vault_health": {
     "description": "Complete state of the Not Forgotten knowledge vault — the institutional memory that compounds forever.",
     "decisions": {
