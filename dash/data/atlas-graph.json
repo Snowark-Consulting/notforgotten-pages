@@ -587,6 +587,39 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decisions_2026_08_07_production_operating_protocol",
+      "label": "Decisions / Production Operating Protocol",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-07-production-operating-protocol.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "65e3185c4661",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decisions_2026_08_08_founder_attention_verify_james_sent",
+      "label": "Founder Attention Verify James Sent",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-08-founder-attention-verify-james-sent.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "9a22d7c4406c",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decisions_2026_08_08_qpaint_four_email2_approved",
+      "label": "Qpaint Four Email2 Approved",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-08-qpaint-four-email2-approved.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "51819a59c2bc",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decisions_index",
       "label": "Decisions / Index",
       "file_type": "doc",
@@ -1002,6 +1035,28 @@
       "community_name": "Knowledge",
       "content_hash": "33e2000d2a76",
       "val": 12.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_production_evidence_2026_08_08_qpaint_email2_production_run",
+      "label": "Qpaint Email2 Production Run",
+      "file_type": "doc",
+      "source_file": "knowledge/production-evidence/2026-08-08-qpaint-email2-production-run.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "53e575144a80",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_production_operating_protocol",
+      "label": "Knowledge / Production Operating Protocol",
+      "file_type": "doc",
+      "source_file": "knowledge/production-operating-protocol.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "20af4318bc62",
+      "val": 6.0,
       "color": "#a78bfa"
     },
     {
@@ -1583,6 +1638,13 @@
     {
       "source": "agent_registry",
       "target": "knowledge_tracking_verification_checklist",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_production_operating_protocol",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
@@ -2248,6 +2310,34 @@
     {
       "source": "agent_registry",
       "target": "knowledge_maintenance_backlog",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_07_production_operating_protocol",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_08_founder_attention_verify_james_sent",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_08_qpaint_four_email2_approved",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_production_evidence_2026_08_08_qpaint_email2_production_run",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

@@ -1,0 +1,47 @@
+# Production Evidence: QPaint Email 2 — Four-Customer Send (2026-08-08)
+
+**Date:** 2026-08-08
+**Type:** Production Run Evidence
+**Status:** VERIFIED — 4/4 sent, verified, recorded, advanced
+
+## Context
+Four ACT THIS AFTERNOON QPaint customers requiring Email 2. Drafts went through five rounds of Founder review (closure → discovery shift, voice refinements, copy changes, paragraph spacing). Final approval granted after Gate 8b (paragraph spacing verification) was installed permanently in `pre_send_certification.py`.
+
+## Architecture Exercised
+The complete verification chain operated correctly end-to-end:
+
+| Component | Result |
+|---|---|
+| Pre-Send Certification (Gates 0-9 + 8b) | ✅ All 4 passed before send |
+| Duplicate-Send Gate (48h window) | ✅ All 4 clear |
+| Gmail API send | ✅ 4/4 delivered |
+| Independent Gmail Sent verification | ✅ 4/4 confirmed in SENT folder |
+| Paragraph spacing verification (post-send) | ✅ 5-6 breaks each, correct sign-off |
+| Send Evidence records created | ✅ 4 records in `data/send-evidence/` |
+| Airtable stage advance (Email 1 → Email 2) | ✅ 4/4 advanced |
+| Airtable read-back verification | ✅ 4/4 confirmed |
+| State authority | ✅ `state-transition.py` remains canonical authority |
+
+## Results
+
+| Customer | Gmail ID | Value | Stage |
+|---|---|---|---|
+| Jenny Yang | `19fda9d4f045de13` | $227,084 | Email 2 |
+| Richard Zhang | `19fda9d556711feb` | $145,350 | Email 2 |
+| Jesse Zhao | `19fda9d56916baa3` | $116,223 | Email 2 |
+| Helen Walsh | `19fda9d5a0648d6d` | $109,887 | Email 2 |
+
+**Total: $598,544 advanced. Zero failures.**
+
+## Learnings
+1. **Gate 8b is essential** — paragraph spacing must be enforced at code level, not caught in manual review. The platform collapsed visible whitespace in chat rendering, creating a false impression of incorrect formatting. Code blocks preserve whitespace for Founder review.
+2. **Self-contained send scripts work** — cross-module imports between `send-email.py` and `state-transition.py` are fragile. The self-contained approach ensured clean execution.
+3. **Five review rounds before send** — the process works. Discovery over closure. Simple over analytical. Verified over assumed. Every round improved the output.
+
+## Next Review
+**Aug 14-15:** Individual assessment of all four customers. Not automatic Email 3.
+
+## Related
+- Decision: `2026-08-08-qpaint-four-email2-approved.md` (approval + copy refinements)
+- Incident: `INC-2026-08-07-003` (Email 2 non-delivery — architecture that prevented recurrence)
+- Architecture: `state-transition.py`, `pre_send_certification.py`, `gmail-send-guard.py`

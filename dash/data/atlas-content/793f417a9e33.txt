@@ -7,10 +7,11 @@ tier: primary
 # Experiment: Founder-to-Founder v1.0 — Painter Wave 1
 
 **Experiment ID:** EXP-2026-08-02-FF1
-**Status:** Approved — awaiting Monday send
+**Status:** CONTAMINATED — DUPLICATE EMAIL 1 SEND (INC-2026-08-07-004)
 **Sequence:** Founder-to-Founder v1.0 (FROZEN)
 **Cohort:** 16 New painters with verified emails
 **Start:** Monday, 3 August 2026
+**Contamination:** All 16 prospects received Email 1 twice (Aug 2-3 + Aug 4). Blind batch re-run of ff1-batch-send.py with no duplicate-send prevention. 0/16 replies cannot be cleanly attributed to sequence performance. See INC-2026-08-07-004.
 
 ---
 

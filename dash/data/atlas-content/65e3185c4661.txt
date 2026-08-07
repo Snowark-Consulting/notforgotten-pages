@@ -1,0 +1,53 @@
+# Decision: Production Operating Protocol v1.0.0
+
+**Slug:** `2026-08-07-production-operating-protocol`
+**Date:** 2026-08-07
+**Status:** Made
+**Decision-maker:** James Hardstaff
+**Review date:** 2026-09-07
+
+## Context
+
+Over the course of Aug 5-7, 2026, multiple production incidents (INC-002, INC-003, INC-004) and recovery operations exposed that critical operating rules were stored in scattered documentation, conversational memory, and individual skills — not in a single enforceable protocol. James directed that all rules be permanently codified so Atlas does not require James to remember or re-teach them.
+
+## Decision
+
+Establish the **Production Operating Protocol v1.0.0** as the single permanent reference for all production operations. The protocol contains 20 rules covering: verified reality vs future intention, Gmail authority, state transitions, Founder Approval, pre-send verification, duplicate protection, quote intake, PandaDoc extraction, Last Contacted semantics, Messages reconciliation, pagination, model recovery, journey timing, communication quality, customer-facing timing, QPaint baseline, Founder attention, failure behaviour, architecture over memory, and protocol change control.
+
+## Classification
+
+| Class | Count | Rules |
+|---|---|---|
+| CODE-enforced | 6 | State transitions, duplicate protection (L1+L2), intake state machine, PandaDoc extraction, pagination, failure halts |
+| WATCHDOG-enforced | 2 | Gmail reconciliation, QPaint baseline monitoring |
+| DOC-enforced | 12 | Founder Approval, pre-send verification, Last Contacted, Messages reconciliation, model recovery, journey timing, communication quality, timing, Founder attention, failure surfacing, architecture principle, change control |
+
+## Hardening Gaps
+
+Six DOC-enforced rules flagged as critical/medium priority for architectural hardening:
+- Founder Approval Mode (CRITICAL)
+- Model Failure Recovery (HIGH)
+- Pre-Send Verification (MEDIUM)
+- Last Contacted validation (MEDIUM)
+- Messages/Send Evidence reconciliation (MEDIUM)
+- Failure Behaviour surfacing (MEDIUM)
+
+## QPaint Certified Baseline
+
+150 total records, 141 active, 138 Gmail-verified, 3 intentional zero, 0 exceptions. Full Next Action coverage on all active journeys. Portfolio-wide audits only on exception signal — not for reassurance.
+
+## Expected Outcomes
+
+- Atlas never requires James to re-teach operating rules
+- Rules enforced architecturally where possible, not relying on memory
+- Portfolio baseline maintained through normal operations
+- Exceptions surface immediately, not discovered days later
+
+## Related
+
+- INC-2026-08-05-002 (172 undelivered emails)
+- INC-2026-08-05-003 (atlas@ scope failure)
+- INC-2026-08-07-003 (32 false Email 2)
+- INC-2026-08-07-004 (16 duplicate Email 1)
+- `knowledge/production-operating-protocol.md` — full protocol
+- `knowledge/foundational-lessons/2026-08-05-production-foundations.md`

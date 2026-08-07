@@ -1,0 +1,39 @@
+# Decision: Founder Attention Must Verify James's Sent Folder
+
+**Date:** 2026-08-08
+**Status:** Made
+**Decision Maker:** James Hardstaff
+
+## Context
+Atlas presented two items as "requiring Founder action" in the Aug 8 Founder Attention Brief:
+1. Arno Hsu — "Has Tas been notified?" (handover required)
+2. Nicholas Zappacosta — "Client handover required"
+
+James directed Atlas to check james@notforgotten.com.au Sent folder before surfacing items. Both handovers had already been completed:
+- Arno: Handover sent Aug 5, Tas acknowledged "Received mate" same day
+- Nicholas: Handover sent Aug 6 to solutions@ + admin@
+
+## The Decision
+Founder Attention Briefs must verify ALL relevant operational evidence before surfacing an item as requiring Founder action. This specifically includes:
+
+- atlas@ inbox and sent
+- **james@ inbox and sent** (this was the gap)
+- Messages
+- Airtable
+- Existing handovers
+- Customer replies
+
+## The Principle
+**Do not surface the last action that was required. Surface the NEXT action that is still unresolved.**
+
+If Gmail proves James already took an action, advance the question to the true next unresolved action. For example:
+- "James needs to notify QPaint" → wrong if Gmail proves he already did
+- "QPaint has been notified — scheduling is now with Tas" → correct
+
+## Corrected States
+- **Arno Hsu:** HANDOVER COMPLETE — QPAINT ACKNOWLEDGED. Scheduling with Tas. No Founder attention required.
+- **Nicholas Zappacosta:** HANDOVER SENT — AWAITING QPAINT ACTION. Monitor; escalate only if QPaint hasn't acted within appropriate timeframe.
+
+## Related
+- Production Evidence: `2026-08-08-qpaint-email2-production-run.md`
+- Decision: `2026-08-08-qpaint-four-email2-approved.md`

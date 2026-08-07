@@ -1,0 +1,330 @@
+# Production Operating Protocol
+
+**Protocol Version:** 1.0.0
+**Established:** 2026-08-07
+**Authority:** James Hardstaff, Founder — Not Forgotten Systems
+**Scope:** All QPaint production operations. Extends to all future Not Forgotten clients.
+**Supersedes:** All prior undocumented or conversational operating conventions.
+
+---
+
+## Protocol Classification
+
+Each rule is classified by enforcement mechanism:
+
+| Class | Meaning |
+|---|---|
+| **CODE** | Enforced by code gate, state machine, or validation — cannot be skipped |
+| **WATCHDOG** | Monitored by automated watchdog — violation surfaces as alert |
+| **DOC** | Documentation only — relies on Atlas following instruction |
+
+Critical rules marked DOC represent architectural hardening opportunities.
+
+---
+
+## 1. Verified Reality vs Future Intention
+
+**Class: CODE (state-transition.py separation) + DOC (field semantics)**
+
+Verified communication state (Current Stage) records what has actually happened, verified against Gmail Sent. Future intention fields (Next Action, Next Action Date, Next Action Status, Next Action Owner) record what should happen next.
+
+- Current Stage may only advance through `state-transition.py` with verified Gmail evidence.
+- A Next Action Date is a REVIEW DATE — not an automatic send date.
+- At review time, reassess the customer's current journey before recommending communication.
+
+**Enforcement:** Stage advancement is CODE-enforced. Field semantics are DOC-enforced.
+
+---
+
+## 2. Gmail Sent Is Communication Truth
+
+**Class: CODE (state-transition.py Gate 1) + WATCHDOG (reconciliation-watchdog.py)**
+
+Customer email communication is verified only by direct Gmail Sent evidence. No other source is authoritative.
+
+Never claim an email was sent because: an API returned success, a script executed, Airtable advanced, Messages exists, Send Evidence exists, or conversational memory says it happened.
+
+- `state-transition.py` Gate 1: No verified Gmail message ID = no stage advancement.
+- `reconciliation-watchdog.py`: Daily Gmail ↔ Airtable comparison. Surfaces discrepancies.
+- The invariant: `NO VERIFIED GMAIL MESSAGE ID = NO STAGE ADVANCEMENT`.
+
+**Enforcement:** Gate 1 is CODE-enforced. Daily reconciliation is WATCHDOG-enforced.
+
+---
+
+## 3. One Canonical State-Transition Authority
+
+**Class: CODE (state-transition.py)**
+
+Only `scripts/state-transition.py` may change verified communication state in Airtable.
+
+- Senders send. Verifiers verify. One authority changes truth.
+- All five bypass scripts archived to `scripts/disabled/`.
+- `crm-update-send.py` gated with mandatory `--gmail-message-id`.
+- Five-gate chain: Gate 0 (duplicate) → Gate 1 (Gmail) → Gate 2 (evidence) → Gate 3 (Airtable) → Gate 4 (read-back).
+
+**Enforcement:** CODE-enforced. All other paths blocked or gated.
+
+---
+
+## 4. Founder Approval Mode
+
+**Class: DOC (FOUNDER_APPROVAL_MODE flag in pre_send_certification.py)**
+
+No outbound customer communication without explicit Founder Approval. Approval applies only to the exact customer-facing artefact presented. Draft approval is not permission to materially alter wording before sending. If the customer situation changes before execution, STOP and reassess.
+
+- `FOUNDER_APPROVAL_MODE = True` in `pre_send_certification.py`.
+- Deactivation: Only by James's explicit instruction.
+
+**Enforcement:** DOC-enforced. Flag exists but is not a hard architectural gate blocking all send paths. **Hardening gap: CRITICAL.**
+
+---
+
+## 5. Pre-Send Verification
+
+**Class: CODE (send-email2-batch-aug8.py pattern)**
+
+Immediately before every approved send, verify:
+
+1. Gmail Sent — duplicate-send check
+2. Gmail Inbox — any customer reply since approval
+3. Current journey state — Airtable stage unchanged
+4. Duplicate-send protection — both layers
+5. Exact approved artefact — no drift from Founder-approved copy
+
+If anything material changed, stop that individual send.
+
+**Enforcement:** Partially CODE-enforced (implemented in scheduled send script). Not yet a universal pre-send gate for all send paths. **Hardening gap: MEDIUM.**
+
+---
+
+## 6. Duplicate-Send Protection
+
+**Class: CODE (Layer 1 in send pipeline + Layer 2 in state-transition.py)**
+
+Two-layer protection:
+
+- **Layer 1:** Pre-send Gmail Sent scan. Block before Gmail API if matching customer + stage + subject exists.
+- **Layer 2:** `state-transition.py` Gate 0 rejects duplicate stage advancement.
+
+Retries must classify each prospect: ELIGIBLE, BLOCKED, or UNKNOWN. UNKNOWN must never send automatically. Batch retry must filter to eligible only — never resend full batch.
+
+**Enforcement:** CODE-enforced. Both layers active.
+
+---
+
+## 7. Quote Intake State Machine
+
+**Class: CODE (intake-engine.py)**
+
+Every quotes@ intake must follow the canonical state machine:
+
+```
+DISCOVERED → CLASSIFIED → EXTRACTING → EXTRACTED → VALIDATED →
+MATCHED → JOURNEY_CREATED → STATE_SET → FILED → VERIFIED → COMPLETE
+```
+
+- COMPLETE is impossible without filing and verification evidence.
+- Use full inbox discovery, not `is:unread` alone.
+- Cross-reference Gmail Message ID against the Intake Ledger for idempotency.
+- Use full pagination for all Airtable queries.
+
+**Enforcement:** CODE-enforced via `intake-engine.py` state machine. Inbox completeness verified by `inbox-watchdog.py` (WATCHDOG).
+
+---
+
+## 8. PandaDoc Extraction
+
+**Class: DOC + CODE (pandadoc-extract.py)**
+
+The certified PandaDoc extraction path is mandatory. Do not declare information unavailable or ask QPaint for missing information until the certified extractor has demonstrably been attempted with the approved timeout/retry behaviour.
+
+- Extraction failure must create an exception in the Intake Ledger.
+- It must not silently continue with partial information.
+- Token expiry is a valid extraction failure — surface as exception.
+
+**Enforcement:** CODE-enforced for extraction path. Exception handling is DOC-enforced. **Hardening gap: LOW.**
+
+---
+
+## 9. Last Contacted
+
+**Class: DOC**
+
+Last Contacted means **VERIFIED CUSTOMER COMMUNICATION**. It must never contain: intake date, migration date, extraction date, or record creation date — unless an actual verified customer communication occurred on that date.
+
+- For records with no customer communication, Last Contacted must remain blank.
+- Intake timing should be stored separately (Quote Date, intake notes, or journey creation metadata).
+
+**Enforcement:** DOC-enforced. No validation gate prevents intake dates from being written to Last Contacted. **Hardening gap: MEDIUM.**
+
+---
+
+## 10. Messages and Send Evidence Reconciliation
+
+**Class: DOC + WATCHDOG (partial)**
+
+Successful email execution requires reconciliation across four systems: Gmail, Messages, Send Evidence, Airtable.
+
+- A workflow step cannot be marked PASS because it was expected to happen.
+- PASS requires read-back evidence that the resulting artefact actually exists.
+- "Expected execution is not verified execution."
+
+**Enforcement:** WATCHDOG-enforced for daily reconciliation. Individual workflow step verification is DOC-enforced. **Hardening gap: MEDIUM.**
+
+---
+
+## 11. Pagination
+
+**Class: CODE (all refactored readers)**
+
+Every portfolio-wide or table-wide operation must handle full Airtable pagination. Never assume `maxRecords` or the first API page represents the complete dataset. Any audit must reconcile expected record count versus records actually processed.
+
+- All six previously-vulnerable readers refactored with `while offset` loops.
+- Pattern: follow every offset until none remains. Record pages and total records.
+
+**Enforcement:** CODE-enforced in all refactored readers. New scripts must follow the pattern.
+
+---
+
+## 12. Model Failure Recovery
+
+**Class: DOC**
+
+After any model, provider, or session failure: **reconstruct state from systems — not memory.** Authoritative evidence takes precedence over conversational reconstruction.
+
+Authoritative order: Gmail → Intake Ledger → Airtable → Messages → Send Evidence → HQ. Conversation history provides context only. It cannot establish production truth.
+
+**Enforcement:** DOC-enforced. No automated recovery mechanism exists. **Hardening gap: HIGH.**
+
+---
+
+## 13. Customer Journey Timing
+
+**Class: DOC**
+
+Do not blindly send because a date arrived. Next Action Date means REVIEW FIRST. At review time, reassess the customer's current journey before recommending communication.
+
+- Quote age provides commercial context but does not automatically determine communication timing.
+- Newly onboarded customers may require an observation period even when the underlying quote is older.
+- Observation windows should be anchored to quote issue date — not Atlas intake date.
+
+**Enforcement:** DOC-enforced. No automated gate prevents premature communication. **Hardening gap: MEDIUM.**
+
+---
+
+## 14. Customer Communication Quality
+
+**Class: DOC**
+
+The framework may be standardised. The customer experience must not feel standardised.
+
+- Email 1 objective: OPEN THE CONVERSATION.
+- Email 2 objective: DISCOVERY.
+- Do not manufacture urgency. Do not assume silence means rejection.
+- Do not unnecessarily repeat quote value. Do not mechanically list timing/scope/budget.
+- Do not seek closure prematurely. Do not involve Tas/QPaint unless the journey genuinely requires it.
+- Use individual customer context where verified. Never invent context.
+
+**Enforcement:** DOC-enforced. Quality depends on Atlas's drafting judgment. **Hardening gap: LOW.**
+
+---
+
+## 15. Customer-Facing Timing
+
+**Class: DOC**
+
+Communication should occur at natural business hours wherever practical. Avoid sending customer follow-ups late at night where it could make the system feel automated. Scheduled sends must still pass fresh pre-send verification immediately before execution.
+
+**Enforcement:** DOC-enforced. No time-of-day gate on send pipeline. **Hardening gap: LOW.**
+
+---
+
+## 16. QPaint Certified Baseline
+
+**Class: WATCHDOG (reconciliation)**
+
+Current certified baseline (established 2026-08-07):
+
+| Metric | Value |
+|---|---|
+| Total QPaint records | 150 |
+| Active journeys | 141 |
+| Verified Gmail communication | 138 |
+| Intentionally not yet contacted | 3 |
+| Missing communications | 0 |
+| Unsupported stages | 0 |
+| Active with Next Action | 141/141 |
+| Active with Next Action Date | 141/141 |
+| Active with Next Action Status | 141/141 |
+| Active with Next Action Owner | 141/141 |
+| Unexplained exceptions | 0 |
+
+This baseline should be MAINTAINED through normal operations. Trigger a portfolio-wide reconciliation only when an exception or integrity signal justifies it — not for reassurance.
+
+**Enforcement:** WATCHDOG-enforced via daily reconciliation. Baseline integrity monitored.
+
+---
+
+## 17. Founder Attention Principle
+
+**Class: DOC**
+
+Do not create unnecessary work for James. Atlas manages the portfolio. James receives: decisions, exceptions, material risks, and customer communications requiring approval. Routine monitoring stays with Atlas.
+
+**Enforcement:** DOC-enforced. Atlas judgment call.
+
+---
+
+## 18. Failure Behaviour
+
+**Class: CODE (state-transition.py halt) + DOC**
+
+If evidence is uncertain: STOP. Do not guess. Do not silently repair around the problem. Do not advance state. Do not send communication. Surface the exception.
+
+- Evidence before action. Proof before progress.
+- Production Confidence Score: below 75 = production halts.
+- Seven-Question Silent Self-Check: any "No" = production halts.
+
+**Enforcement:** Partially CODE-enforced (state-transition gates halt on failure). Exception surfacing is DOC-enforced. **Hardening gap: MEDIUM.**
+
+---
+
+## 19. Architecture Over Memory
+
+**Class: Meta**
+
+These rules must not depend on Atlas remembering them conversationally. Wherever possible, enforce through: code gates, state machines, validation, read-back verification, watchdogs, the Intake Ledger, canonical state transitions, and automated reconciliation. Documentation alone is not sufficient where architectural enforcement is possible.
+
+**Enforcement:** This protocol document is the canonical reference. Code enforcement is the target state for all critical rules.
+
+---
+
+## 20. Protocol Change Control
+
+**Class: DOC**
+
+These rules are PRODUCTION OPERATING PROTOCOL. Do not weaken, bypass, or reinterpret them autonomously. If Atlas believes a protocol should change: present the proposed change to James, explain why, explain the risk, wait for Founder Approval. Only then change the protocol.
+
+**Enforcement:** DOC-enforced. No automated gate prevents protocol violation.
+
+---
+
+## Hardening Priority Matrix
+
+| # | Rule | Current Class | Target Class | Priority |
+|---|---|---|---|---|
+| 4 | Founder Approval Mode | DOC | CODE | **CRITICAL** |
+| 12 | Model Failure Recovery | DOC | CODE | **HIGH** |
+| 5 | Pre-Send Verification | Partial CODE | CODE | **MEDIUM** |
+| 9 | Last Contacted validation | DOC | CODE | **MEDIUM** |
+| 10 | Messages/Send Evidence reconciliation | DOC + WATCHDOG | CODE | **MEDIUM** |
+| 13 | Customer Journey Timing | DOC | WATCHDOG | **MEDIUM** |
+| 18 | Failure Behaviour surfacing | Partial CODE | CODE | **MEDIUM** |
+| 8 | PandaDoc exception handling | DOC | CODE | **LOW** |
+| 14 | Communication Quality | DOC | DOC | **LOW** |
+| 15 | Customer-Facing Timing | DOC | CODE | **LOW** |
+
+---
+
+*Protocol Version 1.0.0. Established 2026-08-07 by James Hardstaff. All prior undocumented or conversational operating conventions are superseded by this document.*
