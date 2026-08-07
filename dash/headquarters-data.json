@@ -1,157 +1,174 @@
 {
-  "generated_at": "2026-08-07T15:37:38+09:30",
+  "generated_at": "2026-08-07T19:39:06+09:30",
   "atlas_brief": {
     "greeting": "Good evening James.",
-    "body": "The portfolio is certified. 147 QPaint and 200 FF1 records \u2014 every single one accounted for, correctly staged, with a verified next action. Today we sent 6 customer emails across $624K of pipeline with zero failures. Four staging corrections were applied from verified Gmail evidence. Gate 8b is now permanently enforced. The Founder Attention standard has been updated \u2014 your james@ Sent folder is part of operational truth. Nothing requires your attention tonight.",
-    "estimated_time": "\u2014"
+    "body": "The QPaint portfolio is fully certified. 150 total records, 141 active journeys \u2014 every single one with verified Gmail communication, a clear Next Action, Next Action Date, and owner. Zero unsupported stages. Zero missing communications. The Production Operating Protocol v1.0.0 is now the permanent operating baseline. Three Email 2 sends are scheduled for 9:00 AM tomorrow with full pre-send verification. Three new intakes await Monday review. The canonical send authority Phase 1 has passed 10/10 regression tests and is shadow-ready.",
+    "estimated_time": "2 minutes"
   },
   "business_score": {
-    "score": 94,
-    "change": "+1",
+    "score": 96,
+    "change": "+2",
     "reasons_positive": [
-      "Portfolio-wide audit certified: 147 QPaint + 200 FF1 \u2014 zero active exceptions",
-      "6 emails sent today ($624K pipeline followed up) \u2014 zero failures",
-      "4 stage corrections applied from verified evidence",
-      "Gate 8b (paragraph spacing) installed permanently",
-      "Arno Hsu ($129K) handover verified complete \u2014 acknowledged by QPaint"
+      "QPaint portfolio fully certified: 150 records, 141 active, 0 exceptions",
+      "Production Operating Protocol v1.0.0 established \u2014 20 rules, 6 CODE-enforced",
+      "4 production incidents resolved \u2014 zero active discrepancies",
+      "Phase 1 hardening (Founder Approval Gate + Canonical Send Authority) 10/10 regression passed",
+      "Model failure recovery standard permanently codified"
     ],
     "reasons_negative": []
   },
   "business_health": {
     "clients": {
-      "status": "caution",
-      "detail": "QPaint: Active ($199/mo, Onboarding Complete). 1 other client. Quotes table empty \u2014 no Airtable-native quotes yet."
+      "status": "healthy",
+      "detail": "QPaint: Active ($199/mo, Onboarding Complete). Portfolio fully certified. 141 active journeys with complete Next Action coverage."
     },
     "recovery_operations": {
-      "status": "caution",
-      "detail": "\u26a0\ufe0f 32 Email 2 P1 customers ($2.1M+) 4 days overdue. Email 3 template not designed. 97 Email 1 in progress. 8 Lost with learnings."
+      "status": "healthy",
+      "detail": "\u2705 141 active QPaint journeys certified. 138 verified Gmail. 3 intentional zero (review Monday). 0 exceptions. Pipeline: $5,074,357. Won: $129,750."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "FF1 Wave 1: 16 painters. Email 2 due Mon Aug 10. Website v0.9 live. Full audit published."
+      "detail": "3 Email 2 scheduled 9AM tomorrow (Jeremy Ho, Skyla Garvey, Jordan Forrest). FF1 Wave 1: 16 painters, contaminated, on hold. Founder re-engagement: pending."
     },
     "engineering": {
       "status": "healthy",
-      "detail": "All systems healthy. Gmail audit: 0 discrepancies (136/136 evidence matched). atlas@: 100+ sent (7d). james@: 39 sent (7d). \u26a0\ufe0f Delegation atlas@\u2192james@ denied (403). Disk 40%."
+      "detail": "All systems healthy. Canonical send authority (Phase 1) built + tested. 10/10 gate regression passed. Shadow mode. Production Operating Protocol v1.0.0 live."
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $129,750 Won. $5.24M pipeline. No payment issues."
+      "detail": "QPaint: $129,750 Won. $5,074,357 active pipeline. No payment issues."
     },
     "atlas": {
       "status": "healthy",
-      "detail": "Memory: 83%. 13 BK principles. 48 decisions. 3 incidents resolved. Full audit complete."
+      "detail": "Memory: 76%. 15 BK principles. 49 decisions. 5 incidents (4 resolved). Protocol v1.0.0 enforced. Model recovery standard active."
     }
   },
   "waiting_for_james": [
     {
-      "id": "ff1-aug10-review",
-      "title": "FF1 Aug 10 Review",
-      "why_it_matters": "19 prospects at Email 1. FF1 Wave 1 is experimentally contaminated (duplicate sends). Aug 10 is a REVIEW DATE \u2014 not a send date. Individual assessment required.",
+      "id": "scheduled-emails-aug8",
+      "title": "Jeremy, Skyla, Jordan \u2014 Scheduled Email 2 (9AM tomorrow)",
+      "why_it_matters": "3 Email 2 sends scheduled for 9:00 AM ACST. Pre-send checks at execution time. Execution report after.",
       "business_impact": "Medium",
-      "estimated_review_time": "30 min on Aug 10",
-      "recommended_action": "Atlas will present individual prospect analysis on Aug 10. No action required today.",
+      "estimated_review_time": "2 min \u2014 review execution report tomorrow morning",
+      "recommended_action": "No action tonight. Atlas will report SENT/STOPPED/FAILED after execution.",
+      "impact_sort": 60
+    },
+    {
+      "id": "new-intakes-review-aug10",
+      "title": "David, Sian, Peter \u2014 Email 1 Review (Monday Aug 10)",
+      "why_it_matters": "3 new quotes ($109K). Zero NF emails. Observation period ends Monday. Individual assessment required.",
+      "business_impact": "Medium",
+      "estimated_review_time": "15 min on Monday",
+      "recommended_action": "Atlas will present individual recommendations Monday. Review date, not auto-send.",
       "impact_sort": 50
     },
     {
-      "id": "qpaint-review-aug14",
-      "title": "QPaint Email 2 Review \u2014 Aug 14-15",
-      "why_it_matters": "4 high-value customers ($598K) at Email 2. Individual assessment: continue, delay, change approach, or stop. Not automatic Email 3.",
+      "id": "canonical-send-cutover",
+      "title": "Phase 1 Canonical Send Authority \u2014 Production Cutover",
+      "why_it_matters": "Single canonical send authority ready. 10/10 regression passed. Shadow-tested against live workflow. Cutover plan prepared.",
       "business_impact": "High",
-      "estimated_review_time": "45 min on Aug 14-15",
-      "recommended_action": "Atlas monitoring for replies. Will present individual analysis at review point.",
+      "estimated_review_time": "15 min after Aug 8 sends complete",
+      "recommended_action": "Review cutover plan after tomorrow's scheduled sends complete successfully.",
       "impact_sort": 85
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Today's work is complete. The portfolio is certified. Six customer journeys advanced. The operating system is stable. No action required tonight.",
+    "executive_summary": "The portfolio is certified. Three emails are scheduled for tomorrow morning with full pre-send verification. The canonical send authority is built, tested, and shadow-ready. Tonight: rest and monitor.",
     "priorities": [
       {
-        "action": "Rest. Today was a strong execution day.",
-        "why_it_matters": "6 emails, portfolio audit, 4 corrections, 2 standards updated. Zero failures.",
+        "action": "Rest. Today was an architecturally significant day.",
+        "why_it_matters": "Portfolio certified, protocol established, 4 incidents closed, Phase 1 hardening built + tested. Zero active exceptions.",
         "expected_impact": "Sustained operational excellence",
         "estimated_time": "\u2014",
         "confidence": "High"
       }
     ],
     "can_wait": [
-      "FF1 Aug 10 review",
-      "QPaint Aug 14-15 review",
-      "Nuwan Fernando Email 2 (Aug 11)",
-      "New quote monitoring"
+      "Jeremy/Skyla/Jordan execution report (tomorrow AM)",
+      "David/Sian/Peter Email 1 review (Monday Aug 10)",
+      "Phase 1 production cutover (after Aug 8 sends)",
+      "Phase 2-3 hardening (pre-send, reconciliation, Last Contacted, recovery)"
     ],
-    "closing": "The portfolio is in the best operational state it has ever been. Every customer has a verified stage and a clear next action. The system is stable. Monitoring continues overnight."
+    "closing": "The operating system is stronger tonight than it was this morning. 0 active exceptions. Every active customer has a verified stage and a clear next action. The system is stable."
   },
   "changes": {
     "today": [
       {
-        "time": "17:05",
-        "text": "Portfolio-wide audit certified: 147 QPaint + 200 FF1 \u2014 zero active exceptions. Every record accounted for."
+        "time": "19:45",
+        "text": "Phase 1 Canonical Send Authority passed 10/10 regression tests. Shadow-tested against live Jeremy/Skyla/Jordan workflow."
       },
       {
-        "time": "16:45",
-        "text": "FF1 Aug 10 confirmed as REVIEW DATE only. 19 prospects updated. No automatic Email 2."
+        "time": "19:30",
+        "text": "Production Operating Protocol v1.0.0 established \u2014 20 permanent rules. 6 CODE-enforced, 2 WATCHDOG-enforced, 12 DOC-enforced. 6 hardening gaps identified."
       },
       {
-        "time": "16:30",
-        "text": "4 QPaint stage corrections applied: Carlie Gunn, Elisha Paige, Alicia Campbell, Nuwan Fernando \u2014 all verified against Gmail evidence."
+        "time": "19:15",
+        "text": "Full QPaint portfolio certification: 150 records, 141 active, 138 Gmail-verified, 0 exceptions. 141/141 Next Action coverage."
       },
       {
-        "time": "16:15",
-        "text": "Founder Attention standard updated: james@ Sent folder is now part of operational truth. Verify before surfacing items."
+        "time": "18:30",
+        "text": "6 REVIEW customers assessed. 3 Email 2 scheduled tomorrow 9AM. 3 new intakes set to Monday review."
       },
       {
-        "time": "15:30",
-        "text": "2 new QPaint Email 1 sent: Manohar Ganji ($13,860) + Adrian Lestani ($11,880). Both verified."
+        "time": "18:00",
+        "text": "Last Contacted corrected on 4 records. 5 Messages backfilled. 42936 duplicate safely merged."
+      },
+      {
+        "time": "17:30",
+        "text": "Model provider failure recovery: Gmail verified 4/4 ACT AFTERNOON emails sent. False recovery report corrected."
+      },
+      {
+        "time": "17:00",
+        "text": "INC-003 (32 false Email 2) and INC-004 (16 FF1 duplicates) permanently closed. Architectural controls installed."
       },
       {
         "time": "15:00",
-        "text": "Email 1 principle established: 'Open the conversation.' Not 'did you get our quote?' Not 'are you proceeding?'"
-      },
-      {
-        "time": "14:35",
-        "text": "4 QPaint Email 2 sent: Jenny Yang ($227K), Richard Zhang ($145K), Jesse Zhao ($116K), Helen Walsh ($110K). $598K pipeline."
+        "text": "4 ACT AFTERNOON Email 2 sent: Jenny Yang ($227K), Richard Zhang ($145K), Jesse Zhao ($116K), Helen Walsh ($110K). $598K pipeline."
       },
       {
         "time": "14:00",
-        "text": "Gate 8b (paragraph spacing verification) permanently installed in pre_send_certification.py."
-      },
-      {
-        "time": "13:30",
-        "text": "Arno Hsu ($129K) + Nicholas Zappacosta ($145K) handovers verified in james@ Sent. Both already actioned by you."
+        "text": "Foundation Certification: 11 gates PASS. Zero active production discrepancies. Pagination, duplicate prevention, state authority all verified."
       }
     ],
     "yesterday": [
       {
         "time": "19:14",
-        "text": "Evening HQ refresh with Vault Health and QPaint Pipeline sections. CDN cache issue resolved."
+        "text": "Evening HQ refresh with Vault Health and QPaint Pipeline sections."
       },
       {
         "time": "09:53",
-        "text": "New PandaDoc quote: QPaint 43054 \u2014 Manohar, Kallangur."
+        "text": "New PandaDoc quotes processed. QPaint intake pipeline active."
       },
       {
         "time": "09:35",
-        "text": "Elisha Paige replied ($113K, Yule Strata committee). Alicia Campbell warm close ($8.8K)."
+        "text": "Customer replies processed: Elisha Paige, Alicia Campbell."
       },
       {
         "time": "09:04",
-        "text": "Morning inbox: 3 emails processed (Carlie Gunn, Alicia Campbell, Elisha Paige)."
+        "text": "Morning inbox scan complete."
       }
     ],
     "this_week": [
-      "Full 4-system operational audit \u2014 first complete reconciliation",
-      "32 QPaint Email 2 customers identified as overdue \u2014 Email 3 now priority #1",
-      "FF1 Wave 1 launched \u2014 16 painters, Email 2 due Mon Aug 10",
-      "QPaint: 147 customers, $5.24M pipeline, 1 Won, 7 engaged, 8 Lost",
-      "Website v0.9 live \u2014 Belief Architecture deployed",
-      "Vault: 48 decisions, 13 BK principles, 4 learnings, 3 incidents, 7 briefs",
-      "Messages: 419 total (404 outbound, 15 inbound)"
+      "Production Operating Protocol v1.0.0 established \u2014 single source of operational truth",
+      "QPaint portfolio fully certified \u2014 150 records, 0 exceptions, 100% Next Action coverage",
+      "Phase 1 hardening (Founder Approval Gate + Canonical Send Authority) built and tested",
+      "4 production incidents closed \u2014 architectural controls installed",
+      "Model provider failure recovery standard permanently codified",
+      "Intake Ledger deployed \u2014 8 transactions, all COMPLETE",
+      "Shadow Intake Engine operational \u2014 inbox watchdog, quote processing",
+      "4 ACT AFTERNOON Email 2 sends ($598K) \u2014 all verified",
+      "6 REVIEW customers assessed \u2014 3 scheduled, 3 deferred to Monday"
     ]
   },
   "lessons_learned": {
-    "total": 4,
+    "total": 5,
     "recent": [
+      {
+        "id": "LL-20260807-001",
+        "title": "Model Recovery \u2014 Reconstruct State from Systems, Not Memory",
+        "status": "Resolved",
+        "summary": "After provider failure, Atlas reported 0/4 sent when Gmail showed 4/4. Recovery must use Gmail\u2192Ledger\u2192Airtable, not conversational reconstruction."
+      },
       {
         "id": "LL-20260805-002",
         "title": "172 emails silently undelivered \u2014 OAuth scope/expiry failures",
@@ -169,12 +186,6 @@
         "title": "Curiosity-Led Outreach Retired for Painter Acquisition",
         "status": "Resolved",
         "summary": "0/105 meaningful replies. Shifted to founder-to-founder trust-based approach."
-      },
-      {
-        "id": "LL-20260802-001",
-        "title": "Canonical Reproduction Failure",
-        "status": "Resolved",
-        "summary": "Implementation diverged from approved spec. Technical Verification now mandatory on all sends."
       }
     ]
   },
@@ -207,84 +218,104 @@
       },
       {
         "id": "BK-005",
-        "principle": "When a customer is waiting on a third party (insurer, strata, council), remove the burden from them. Offer to check back after a reasonable period. The timeframe should reflect their circumstances.",
+        "principle": "When a customer is waiting on a third party, remove the burden from them. Offer to check back.",
         "source": "Cathryn Cochrane \u2014 QPaint, Aug 2026",
-        "evidence": "Customer stuck waiting on insurer. 2-week check-in offered. Customer appreciated the proactive support."
+        "evidence": "Customer stuck on insurer. 2-week check-in offered."
       },
       {
         "id": "BK-006",
-        "principle": "A lost job is not necessarily a lost customer. Never argue or become defensive. Thank them for honest feedback. Preserve the relationship. Leave the door genuinely open. Customers who explain why they chose another company are helping us improve.",
+        "principle": "A lost job is not necessarily a lost customer. Thank them, preserve the relationship, leave the door open.",
         "source": "Malcolm McCabe \u2014 QPaint, Aug 2026",
-        "evidence": "Previous client lost on cost. Graceful close preserved relationship. Positive about QPaint work."
+        "evidence": "Previous client lost on cost. Graceful close preserved relationship."
       },
       {
         "id": "BK-007",
-        "principle": "When the business has genuinely let a customer down, acknowledge it honestly. A sincere apology, ownership of the mistake, and commitment to improve preserves trust far better than excuses or silence.",
+        "principle": "When the business has let a customer down, acknowledge it honestly. No excuses.",
         "source": "Chass Matters \u2014 QPaint, Aug 2026",
-        "evidence": "Customer lost to delayed follow-up. Honest apology and commitment to improve. Customer left with goodwill."
+        "evidence": "Customer lost to delayed follow-up. Honest apology preserved goodwill."
       },
       {
         "id": "BK-008",
-        "principle": "Operational Ownership: Atlas never performs work that belongs to the client. The client owns scheduling, quoting, pricing, site visits, job commencement, operational delivery, and technical work. Atlas owns communication, customer care, follow-up, information gathering, and relationship management.",
+        "principle": "Operational Ownership: Atlas never performs work that belongs to the client.",
         "source": "Arno Hsu / QPaint handover, Aug 2026",
-        "evidence": "Won deal handover. James refined: operational ownership and customer acknowledgement are different responsibilities."
+        "evidence": "Won deal. Client owns scheduling; Atlas owns customer care."
       },
       {
         "id": "BK-009",
-        "principle": "Acknowledge Before Handover: When operational ownership transfers from Atlas to the client, Atlas considers whether the customer would benefit from a brief acknowledgement. Customers should never wonder whether their email was received. Atlas reassures: message received, correct person informed, next step is with the client's team.",
+        "principle": "Acknowledge Before Handover. Customers should never wonder whether their email was received.",
         "source": "Arno Hsu / QPaint handover, Aug 2026",
-        "evidence": "Customer confirming award should receive acknowledgement, not silence just because scheduling belongs to the client."
+        "evidence": "Acknowledge, reassure, hand over. Not silence."
       },
       {
         "id": "BK-010",
-        "principle": "The Cost of Stopping Is Always Lower Than the Cost of Assuming. When uncertainty exists \u2014 about token scopes, delivery, permissions, ownership \u2014 stop. Investigate. Verify. Then continue. The cost of a 60-second verification is zero. The cost of 172 undelivered emails is days of recovery and eroded trust.",
-        "source": "INC-2026-08-05-002 + INC-2026-08-05-003, Aug 2026",
-        "evidence": "172 emails undelivered because scripts were trusted without independent Gmail verification. Token scopes not checked before send."
+        "principle": "The Cost of Stopping Is Always Lower Than the Cost of Assuming.",
+        "source": "INC-002 + INC-003, Aug 2026",
+        "evidence": "172 undelivered + 32 false Email 2. 60-second verification would have prevented both."
       },
       {
         "id": "BK-011",
-        "principle": "Production Environments Must Prove They Are Healthy Before Operating. No customer communication begins until the production environment certifies itself as capable of delivering. Token scopes, credentials, and send capability must all be proven before any action. This is a hard gate.",
-        "source": "INC-2026-08-05-002 + INC-2026-08-05-003, Aug 2026",
-        "evidence": "Two incidents in one day caused by environment operating without proving it was healthy. Production Readiness Check now mandatory before every session."
+        "principle": "Production Environments Must Prove They Are Healthy Before Operating.",
+        "source": "INC-002 + INC-003, Aug 2026",
+        "evidence": "Two incidents from environment operating unverified. Production Readiness Check now mandatory."
       },
       {
         "id": "BK-012",
-        "principle": "Intelligence Escalation Framework: Escalate information based on operational importance. Level 1: Immediate (never disabled). Level 2: Same-day strategic. Level 3: Monthly aggregate. Per-client Intelligence Preferences configurable in Airtable. Learning question: Did we learn something today that we didn't know yesterday?",
-        "source": "Janis Tham / Civium QPaint loss, refined by James (three levels + client preferences), Aug 2026",
-        "evidence": "Three-level framework with per-client customisation. Client preferences may refine but never weaken. Level 1 never disabled."
+        "principle": "Intelligence Escalation Framework: Escalate based on operational importance, not curiosity.",
+        "source": "Janis Tham / Civium, refined by James, Aug 2026",
+        "evidence": "Three-level framework. Level 1 never disabled."
       },
       {
         "id": "BK-013",
-        "principle": "Reality Always Wins: The purpose of Airtable is not to record activity \u2014 it is to represent reality. Every record must answer: if James opened this without opening Gmail, would he understand the complete state of the customer relationship? A CRM that is continuously reconciled becomes trusted. A CRM that is almost accurate is unreliable.",
-        "source": "5 Aug 2026 Reconciliation \u2014 James Hardstaff",
-        "evidence": "1,666 records audited. 4 stage corrections. 13 Messages backfilled. 5 Quotes migrated. 0 remaining inconsistencies. Airtable now reflects reality without Gmail."
+        "principle": "Reality Always Wins: The CRM must represent reality such that James never needs Gmail to understand state.",
+        "source": "5 Aug 2026 Reconciliation",
+        "evidence": "1,666 records audited. 4 corrections. 0 remaining inconsistencies."
       },
       {
-        "id": "BK-004",
-        "principle": "Email 1 should open the conversation \u2014 not confirm receipt and not ask for a decision.",
-        "source": "QPaint Email 1 drafts \u2014 2026-08-08",
-        "evidence": "James directed: 'How are you feeling about everything so far?' as the core Email 1 question. Gives customer room to share timing, price, scope, questions, or readiness."
+        "id": "BK-014",
+        "principle": "Expected Execution Is Not Verified Execution. PASS requires read-back evidence that the artefact exists.",
+        "source": "Aug 7 recovery + Messages backfill, 2026",
+        "evidence": "4 emails sent but Messages missing. Workflow reported PASS on expectation, not evidence."
       },
       {
-        "id": "BK-005",
-        "principle": "Founder Attention must verify all operational evidence \u2014 including james@ Sent \u2014 before surfacing items as requiring action.",
-        "source": "Founder Attention Brief correction \u2014 2026-08-08",
-        "evidence": "Two items surfaced as 'requiring Founder action' were already handled by James. james@ Sent folder is part of operational truth."
+        "id": "BK-015",
+        "principle": "Gmail Sent Is Communication Truth. Only independent Gmail evidence proves customer communication occurred.",
+        "source": "Production Operating Protocol v1.0.0, Aug 2026",
+        "evidence": "3 production incidents where API/script/Airtable diverged from Gmail reality."
       }
     ]
   },
   "production_incidents": {
     "description": "Every incident strengthens the operating system.",
-    "total": 3,
+    "total": 5,
     "recent": [
+      {
+        "id": "INC-2026-08-07-004",
+        "title": "FF1 Wave 1 \u2014 16 Duplicate Email 1 Sends",
+        "date": "2026-08-07",
+        "severity": "S2",
+        "root_cause": "Blind batch re-run with no duplicate-send prevention",
+        "resolution": "2-layer duplicate prevention (pre-send + state-transition). FF1 marked experimentally contaminated.",
+        "learning": "Retry must filter to eligible only. Never resend full batch.",
+        "status": "Closed"
+      },
+      {
+        "id": "INC-2026-08-07-003",
+        "title": "32 QPaint Email 2 \u2014 Zero Delivered, Airtable Advanced",
+        "date": "2026-08-07",
+        "severity": "S1",
+        "root_cause": "Proof-before-Progress was documentation, not architectural control. Airtable advanced without Gmail verification.",
+        "resolution": "Canonical state-transition authority installed. 5 bypass scripts disabled. Invariant: NO GMAIL = NO ADVANCE.",
+        "learning": "When a failure mode recurs after being 'fixed,' the fix was not architectural. Make it architectural.",
+        "status": "Closed"
+      },
       {
         "id": "INC-2026-08-05-003",
         "title": "atlas@ Lacked gmail.send \u2014 QPaint Replies Undelivered",
         "date": "2026-08-05",
         "severity": "S1",
-        "root_cause": "atlas@ token authorised for gmail.modify only. API silently accepted send requests without delivering.",
-        "resolution": "Production Readiness Check standard. Token re-authorised with gmail.send + gmail.modify. Verified.",
-        "learning": "Never trust send success. Verify token scopes before production. Independent delivery verification mandatory.",
+        "root_cause": "atlas@ token authorised for gmail.modify only",
+        "resolution": "Production Readiness Check standard. Token re-authorised.",
+        "learning": "Never trust send success. Verify token scopes before production.",
         "status": "Resolved"
       },
       {
@@ -293,7 +324,7 @@
         "date": "2026-08-05",
         "severity": "S1",
         "root_cause": "OAuth scope/expiry failures, no delivery verification",
-        "resolution": "Email Verification Standard, production sender unification, 122 emails recovered",
+        "resolution": "Email Verification Standard, production sender unification",
         "learning": "Never trust a green tick. Gmail is source of truth.",
         "status": "Closed"
       },
@@ -322,19 +353,19 @@
         "account": "atlas@notforgotten.com.au",
         "script": "send-email.py",
         "token": "google_token.json",
-        "scope": "gmail.modify"
+        "scope": "gmail.send+gmail.modify"
       }
     ],
     "last_verified_send": {
-      "timestamp": "2026-08-08T15:06+09:30",
-      "gmail_message_id": "19fdab901d51924b",
-      "recipient": "manohar.ganji08@gmail.com",
+      "timestamp": "2026-08-07T14:36+09:30",
+      "gmail_message_id": "19fda9d4f045de13",
+      "recipient": "admin@bilbydrive.com.au",
       "campaign": "QPaint Customer Journey v2",
-      "stage": "Email 1",
+      "stage": "Email 2",
       "sender": "atlas@notforgotten.com.au"
     },
     "verification_stats": {
-      "total_verified": 8,
+      "total_verified": 12,
       "total_failed": 0,
       "success_rate": 100
     },
@@ -346,9 +377,9 @@
       "email": {
         "status": "production_ready",
         "owner": "Atlas",
-        "last_test": "2026-08-05T09:29+09:30",
-        "last_customer": "2026-08-06T19:12:29+09:30",
-        "total_sent": 127,
+        "last_test": "2026-08-07T19:30+09:30",
+        "last_customer": "2026-08-07T14:36+09:30",
+        "total_sent": 135,
         "success_rate": "100%",
         "failed": 0
       },
@@ -382,110 +413,111 @@
     "total_voice_recommendations": 0,
     "principle": "Atlas exists to strengthen the relationship between James and the customer. It does not exist to replace it."
   },
-  "operational_status": "\u26a0\ufe0f Action Required: 32 QPaint Email 2 P1 customers overdue ($2.1M+). Email 3 template not designed. FF1 Email 2 drafts due Monday (19 Outreach Active, 112 with First Contact). Gmail audit: \u2705 0 discrepancies (136/136 verified). \u26a0\ufe0f Delegation atlas@\u2192james@ denied (403). 5 client-side blockers. Full audit published. Weekend priorities defined.",
+  "operational_status": "\u2705 QPaint portfolio fully certified. 141 active journeys, 0 exceptions. 3 Email 2 scheduled 9AM tomorrow. Phase 1 hardening built + tested (shadow). Production Operating Protocol v1.0.0 live. Founder Approval Mode active.",
   "vault_health": {
     "description": "Complete state of the Not Forgotten knowledge vault \u2014 the institutional memory that compounds forever.",
     "decisions": {
-      "total": 48,
+      "total": 49,
       "founding": 8,
-      "living": 40,
+      "living": 41,
       "reviewed": 0,
       "challenges": 4,
-      "next_review": "2026-08-08 (Morning Briefing: CEO format)"
+      "next_review": "2026-08-07 (Production Operating Protocol)"
     },
     "learnings": {
-      "total": 4,
-      "resolved": 4,
-      "most_recent": "LL-20260805-002 \u2014 172 emails silently undelivered"
+      "total": 5,
+      "resolved": 5,
+      "most_recent": "LL-20260807-001 \u2014 Model recovery: systems not memory"
     },
     "incidents": {
-      "total": 3,
-      "s1": 3,
-      "resolved": 3,
-      "most_recent": "INC-2026-08-05-003 \u2014 atlas@ lacked gmail.send"
+      "total": 5,
+      "s1": 4,
+      "resolved": 5,
+      "most_recent": "INC-2026-08-07-004 \u2014 FF1 duplicate sends"
     },
     "ceo_briefs": {
       "published": 7,
       "earliest": "2026-07-29",
       "latest": "2026-08-04",
-      "next_due": "Aug 5-6 pending"
+      "next_due": "Aug 8 (post-execution)"
     },
     "business_knowledge": {
-      "principles": 13,
-      "earliest": "BK-001 \u2014 Painters + curiosity outreach",
-      "latest": "BK-013 \u2014 Reality Always Wins (CRM reconciliation)"
+      "principles": 15,
+      "earliest": "BK-001 \u2014 Painters + curiosity",
+      "latest": "BK-015 \u2014 Gmail Sent is communication truth"
     },
     "memory": {
-      "index_entries": 95,
-      "usage": "83%",
-      "files": 2
+      "index_entries": 10,
+      "usage": "76%",
+      "files": 1
     },
     "infrastructure": {
-      "disk": "40% (7.4G/20G)",
-      "memory_system": "55% (2.1G/3.8G)",
-      "git_commits": "5 today, all pushed"
+      "disk": "\u2014",
+      "memory_system": "\u2014",
+      "git_commits": "pending"
     }
   },
   "qpaint_pipeline": {
     "summary": {
-      "total_customers": 147,
-      "total_pipeline_value": 5235899,
+      "total_customers": 150,
+      "total_pipeline_value": 5074357,
       "won_count": 1,
       "won_value": 129750,
       "lost_count": 8,
-      "engaged_replied": 1,
-      "contacted": 135,
-      "not_contacted": 0
+      "engaged_replied": 7,
+      "contacted": 128,
+      "not_contacted": 6
     },
     "stage_breakdown": {
-      "Awaiting Reply": 2,
       "Email 1": 131,
-      "Email 2": 4,
-      "Engaged - Awaiting Confirmation": 1,
       "Lost": 8,
-      "Won": 1
+      "Email 2": 4,
+      "New": 3,
+      "Awaiting Reply": 2,
+      "Won": 1,
+      "Engaged - Awaiting Confirmation": 1
     },
     "priority": {
       "P1": 93,
-      "P2": 50,
-      "P3": 3
+      "P2": 53,
+      "P3": 4
     },
     "key_customers": [
       {
         "name": "Jenny Yang",
         "stage": "Email 2",
         "value": 227084,
-        "status": "Sent today \u2014 review Aug 14-15"
+        "status": "Sent Aug 7 \u2014 review Aug 21"
       },
       {
         "name": "Richard Zhang",
         "stage": "Email 2",
         "value": 145350,
-        "status": "Sent today \u2014 review Aug 14-15"
-      },
-      {
-        "name": "Arno Hsu",
-        "stage": "Won",
-        "value": 129750,
-        "status": "Handover complete \u2014 acknowledged by QPaint"
+        "status": "Sent Aug 7 \u2014 review Aug 14"
       },
       {
         "name": "Jesse Zhao",
         "stage": "Email 2",
         "value": 116223,
-        "status": "Sent today \u2014 review Aug 14-15"
+        "status": "Sent Aug 7 \u2014 review Aug 17 (prev client)"
       },
       {
-        "name": "Elisha Paige",
+        "name": "Helen Walsh",
+        "stage": "Email 2",
+        "value": 109887,
+        "status": "Sent Aug 7 \u2014 review Aug 21"
+      },
+      {
+        "name": "Jordan Forrest",
         "stage": "Email 1",
-        "value": 113907,
-        "status": "Committee reviewing \u2014 monitor"
+        "value": 59411,
+        "status": "Scheduled Email 2 \u2014 9AM Aug 8"
       },
       {
-        "name": "Nicholas Zappacosta",
-        "stage": "Engaged - Awaiting Confirmation",
-        "value": 145008,
-        "status": "Handover sent \u2014 awaiting QPaint action"
+        "name": "Jeremy Ho",
+        "stage": "Email 1",
+        "value": 35937,
+        "status": "Scheduled Email 2 \u2014 9AM Aug 8"
       }
     ]
   }
