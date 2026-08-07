@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Journey Data Model v3 — Not Forgotten Systems</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0b2c4d; --gold: #e0a62a; --muted: #6b7280; --text: #0a0a0a;
+    --border: rgba(0,0,0,0.08); --healthy: #16a34a; --caution: #d97706; --critical: #dc2626;
+    --font: 'Inter', -apple-system, sans-serif;
+  }
+  body { font-family: var(--font); background: #f7fbff; color: var(--text); line-height: 1.6; max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+  h1 { font-size: 24px; color: var(--navy); }
+  h2 { font-size: 18px; color: var(--navy); border-bottom: 2px solid var(--gold); padding-bottom: 4px; margin-top: 32px; }
+  h3 { font-size: 15px; margin-top: 24px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 16px 0; }
+  th { background: var(--navy); color: white; padding: 8px 12px; text-align: left; font-size: 11px; text-transform: uppercase; }
+  td { padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) { background: #f9fafb; }
+  .tag { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 10px; font-weight: 600; }
+  .tag-keep { background: #dcfce7; color: #166534; }
+  .tag-change { background: #fef3c7; color: #92400e; }
+  .tag-new { background: #dbeafe; color: #1e40af; }
+  .tag-remove { background: #fee2e2; color: #991b1b; }
+  .principle { background: #f0fdf4; border: 2px solid var(--healthy); border-radius: 8px; padding: 16px; margin: 16px 0; font-size: 14px; }
+  .principle strong { color: var(--healthy); }
+  .example { background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 16px 0; font-size: 13px; }
+  .example h3 { margin-top: 0; font-size: 14px; }
+  .diff-old { color: var(--critical); text-decoration: line-through; }
+  .diff-new { color: var(--healthy); }
+  code { background: #f1f5f9; padding: 1px 4px; border-radius: 3px; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<h1>Customer Journey Data Model v3</h1>
+<p style="color:var(--muted);font-size:14px;">Separating Verified Reality from Planned Intention — INC-2026-08-07-003</p>
+
+<div class="principle">
+  <strong>ARCHITECTURAL PRINCIPLE:</strong> Reality and intention must never share the same field. A future action cannot become historical fact simply because it was scheduled.
+</div>
+
+<h2>Current Problem (v2 Schema)</h2>
+
+<p>The <code>Current Stage</code> field carries two conflicting meanings:</p>
+
+<table>
+<tr><th>Record</th><th>Current Stage says</th><th>Actual meaning</th><th>Gmail proves</th></tr>
+<tr>
+  <td>Jesse Zhao</td>
+  <td>"Email 2"</td>
+  <td>"Email 2 is the next planned action"</td>
+  <td>Only Email 1 was ever sent</td>
+</tr>
+<tr>
+  <td>Laurie Wright</td>
+  <td>"Email 2"</td>
+  <td>"Email 2 is what we intend to do"</td>
+  <td>Only Email 1 was ever sent</td>
+</tr>
+</table>
+
+<p>This conflation caused the 32-customer incident: Airtable reported "Email 2" as if it had happened, but it was only planned.</p>
+
+<h2>Proposed v3 Schema</h2>
+
+<h3>Field Changes Summary</h3>
+
+<table>
+<tr><th>v2 Field</th><th>v3 Treatment</th><th>v3 Field</th><th>Meaning</th></tr>
+
+<tr>
+  <td style="font-weight:600;">Current Stage</td>
+  <td><span class="tag tag-change">CHANGE</span></td>
+  <td style="font-weight:600;">Verified Stage</td>
+  <td>What has actually happened — independently verified. Options: <code>New</code> | <code>Email 1 Sent</code> | <code>Email 2 Sent</code> | <code>Email 3 Sent</code> | <code>Email 4 Sent</code> | <code>Email 5 Sent</code> | <code>Customer Replied</code> | <code>Engaged</code> | <code>Won</code> | <code>Lost</code> | <code>Deferred</code></td>
+</tr>
+
+<tr>
+  <td style="font-weight:600;">—</td>
+  <td><span class="tag tag-new">NEW</span></td>
+  <td style="font-weight:600;">Next Action</td>
+  <td>What Not Forgotten currently intends to do. Options: <code>Send Email 1</code> | <code>Send Email 2</code> | <code>Send Email 3</code> | <code>Send Email 4</code> | <code>Send Email 5</code> | <code>Reply to Customer</code> | <code>Escalate to Client</code> | <code>Call Customer</code> | <code>Wait / Monitor</code> | <code>Close — Lost</code> | <code>Close — Won</code> | <code>Investigate</code> | <code>No Action</code></td>
+</tr>
+
+<tr>
+  <td style="font-weight:600;">—</td>
+  <td><span class="tag tag-new">NEW</span></td>
+  <td style="font-weight:600;">Next Action Status</td>
+  <td>State of the planned action: <code>Planned</code> | <code>Due</code> | <code>Awaiting Approval</code> | <code>Blocked</code> | <code>Completed</code> | <code>Cancelled</code></td>
+</tr>
+
+<tr>
+  <td style="font-weight:600;">Next Touchpoint Date</td>
+  <td><span class="tag tag-change">CHANGE</span></td>
+  <td style="font-weight:600;">Next Action Date</td>
+  <td>When the planned action should be considered. Renamed for clarity — "touchpoint" implied communication had occurred.</td>
+</tr>
+
+<tr>
+  <td style="font-weight:600;">Recovery Status</td>
+  <td><span class="tag tag-keep">KEEP</span></td>
+  <td style="font-weight:600;">Recovery Status</td>
+  <td>High-level recovery state: <code>Not Contacted</code> | <code>Contacted</code> | <code>Replied</code> | <code>Engaged</code> | <code>Won</code> | <code>Lost</code>. Remains useful for reporting.</td>
+</tr>
+
+<tr>
+  <td style="font-weight:600;">Last Contacted</td>
+  <td><span class="tag tag-keep">KEEP</span></td>
+  <td style="font-weight:600;">Last Verified Contact</td>
+  <td>Date of last independently verified communication. Renamed for clarity. ONLY updated via state-transition.py.</td>
+</tr>
+
+<tr>
+  <td style="font-weight:600;">First Action</td>
+  <td><span class="tag tag-remove">REMOVE</span></td>
+  <td style="font-weight:600;">—</td>
+  <td>Superseded by Next Action. Free-text action descriptions are too ambiguous.</td>
+</tr>
+
+<tr>
+  <td style="font-weight:600;">Action Reason</td>
+  <td><span class="tag tag-remove">REMOVE</span></td>
+  <td style="font-weight:600;">—</td>
+  <td>Superseded by Next Action + Outreach Notes context.</td>
+</tr>
+
+<tr>
+  <td style="font-weight:600;">Outreach Notes</td>
+  <td><span class="tag tag-keep">KEEP</span></td>
+  <td style="font-weight:600;">Journey Log</td>
+  <td>Chronological relationship timeline. Renamed to reflect its purpose: a permanent narrative of the customer relationship, not just outreach activity.</td>
+</tr>
+
+<tr>
+  <td style="font-weight:600;">—</td>
+  <td><span class="tag tag-new">NEW</span></td>
+  <td style="font-weight:600;">Last Verified Gmail ID</td>
+  <td>The most recent independently verified Gmail message ID for this customer. The invariant anchor. Blank = no proven communication.</td>
+</tr>
+
+</table>
+
+<h2>How the Invariant Enforces Reality</h2>
+
+<div class="example">
+<h3>Example: Jesse Zhao — Correct Journey</h3>
+
+<table>
+<tr><th>Field</th><th>Before Email 1</th><th>After Email 1 Verified</th><th>After Email 2 Planned</th><th>After Email 2 Verified</th></tr>
+<tr>
+  <td>Verified Stage</td>
+  <td><code>New</code></td>
+  <td><code>Email 1 Sent</code></td>
+  <td><code>Email 1 Sent</code></td>
+  <td><code>Email 2 Sent</code></td>
+</tr>
+<tr>
+  <td>Next Action</td>
+  <td><code>Send Email 1</code></td>
+  <td><code>Send Email 2</code></td>
+  <td><code>Send Email 2</code></td>
+  <td><code>Wait / Monitor</code></td>
+</tr>
+<tr>
+  <td>Next Action Status</td>
+  <td><code>Planned</code></td>
+  <td><code>Planned</code></td>
+  <td><code>Due</code></td>
+  <td><code>Completed</code></td>
+</tr>
+<tr>
+  <td>Next Action Date</td>
+  <td>Jul 28</td>
+  <td>Aug 2</td>
+  <td>Aug 2</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Last Verified Contact</td>
+  <td>—</td>
+  <td>Jul 28</td>
+  <td>Jul 28</td>
+  <td>Aug 7</td>
+</tr>
+<tr>
+  <td>Last Verified Gmail ID</td>
+  <td>—</td>
+  <td>19fab1b…</td>
+  <td>19fab1b…</td>
+  <td>19fcf…</td>
+</tr>
+</table>
+
+<p><strong>Key:</strong> "Email 2 Sent" only appears in Verified Stage AFTER Gmail independently proves it. Between planning and sending, the stage stays at "Email 1 Sent." The Next Action field carries the intention. The Verified Stage carries the reality.</p>
+</div>
+
+<div class="example">
+<h3>Example: The 32-Customer Incident Would Have Been Caught</h3>
+
+<table>
+<tr><th>Field</th><th>What v3 would have shown</th><th>What v2 incorrectly showed</th></tr>
+<tr><td>Verified Stage</td><td><code>Email 1 Sent</code> (all 32)</td><td class="diff-old">Email 2</td></tr>
+<tr><td>Next Action</td><td><code>Send Email 2</code></td><td class="diff-old">(no separate field)</td></tr>
+<tr><td>Next Action Status</td><td><code>Overdue</code></td><td class="diff-old">(no status field)</td></tr>
+<tr><td>Last Verified Gmail ID</td><td>19fab1b… (Email 1)</td><td class="diff-old">(no Gmail ID field — no proof anchor)</td></tr>
+</table>
+
+<p><strong>Key:</strong> Even if Email 2 was never sent, the dashboard and Decision Board would have correctly shown "32 customers at Email 1 Sent with Email 2 planned and overdue" — not "32 customers at Email 2." The operational picture would have been accurate even before the incident was discovered.</p>
+</div>
+
+<h2>Enforcement Rules</h2>
+
+<table>
+<tr><th>Rule</th><th>Enforcement</th></tr>
+<tr>
+  <td>Verified Stage can only advance via <code>state-transition.py</code></td>
+  <td>Architectural: only one function writes this field. Every other path is blocked.</td>
+</tr>
+<tr>
+  <td>Verified Stage requires Last Verified Gmail ID</td>
+  <td>Code: <code>advance_stage()</code> rejects empty Gmail ID at Gate 1.</td>
+</tr>
+<tr>
+  <td>Next Action can be set independently of Verified Stage</td>
+  <td>Allowed: planning does not change reality. Analysis scripts may set Next Action without Gmail verification.</td>
+</tr>
+<tr>
+  <td>Next Action Status transitions are constrained</td>
+  <td>Planned → Due → Completed OR Cancelled. No other transitions without manual override.</td>
+</tr>
+<tr>
+  <td>Headquarters reports Verified Stage, not Next Action</td>
+  <td>Dashboard, Decision Board, CEO Brief — all report what has happened, not what is planned.</td>
+</tr>
+<tr>
+  <td>Reconciliation watchdog compares Verified Stage against Gmail</td>
+  <td>Daily: any Verified Stage without a matching Gmail count = BLOCKING issue.</td>
+</tr>
+</table>
+
+<h2>Migration Plan</h2>
+
+<table>
+<tr><th>Step</th><th>Action</th><th>Risk</th></tr>
+<tr>
+  <td>1</td>
+  <td>Add new fields to Airtable: <code>Verified Stage</code>, <code>Next Action</code>, <code>Next Action Status</code>, <code>Last Verified Gmail ID</code></td>
+  <td>Low — additive only</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>Rename <code>Next Touchpoint Date</code> → <code>Next Action Date</code>, <code>Last Contacted</code> → <code>Last Verified Contact</code>, <code>Outreach Notes</code> → <code>Journey Log</code></td>
+  <td>Medium — breaks existing scripts that reference old field names</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>Populate <code>Verified Stage</code> from current <code>Current Stage</code> — but only where Gmail independently confirms</td>
+  <td>High — requires per-customer Gmail verification</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>Populate <code>Next Action</code> from <code>First Action</code> where sensible, default to <code>Investigate</code> where unclear</td>
+  <td>Medium — heuristic mapping, not exact</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>Update all scripts to use new field names and the <code>state-transition.py</code> invariant</td>
+  <td>High — requires script-by-script audit</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td>Update Headquarters, Decision Board, CEO Brief rendering</td>
+  <td>Medium</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td>Archive old <code>Current Stage</code>, <code>First Action</code>, <code>Action Reason</code> — don't delete, just stop using</td>
+  <td>Low</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td>Run reconciliation watchdog and verify 0 blocking issues</td>
+  <td>Low — verification step</td>
+</tr>
+</table>
+
+<h2>Scaling Beyond QPaint</h2>
+
+<p>The model is client-agnostic:</p>
+
+<ul style="margin-left:24px;font-size:14px;">
+  <li><strong>Verified Stage</strong> — universal. Every client's customers go through a journey. The stages are client-configurable but the invariant is the same: only advance with verified evidence.</li>
+  <li><strong>Next Action</strong> — universal. Every client's customers have a next action. Options are client-configurable.</li>
+  <li><strong>Next Action Status</strong> — universal. Planned / Due / Blocked / Completed / Cancelled works for every client.</li>
+  <li><strong>Last Verified Gmail ID</strong> — universal. Every client's communication channel produces evidence. Gmail is our current channel; the field name is specific but the pattern generalises.</li>
+  <li><strong>Reconciliation watchdog</strong> — universal. Compare verified stage against evidence. Works for any channel.</li>
+</ul>
+
+<p>For future clients, this becomes the default schema at onboarding — not retrofitted after an incident.</p>
+
+</body>
+</html>
