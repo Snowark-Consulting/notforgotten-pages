@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 177,
+    "tasks_completed": 178,
     "recent": [
+      {
+        "date": "2026-08-07 19:39",
+        "task": "HQ regenerated \u2014 Portfolio certified (150/141 active, 0 exceptions). Protocol v1.0.0 established. Phase 1 hardening 10/10 passed. Score: 96 (+2).",
+        "category": "task"
+      },
       {
         "date": "2026-08-07 15:37",
         "task": "Portfolio audit certified: 147 QPaint + 200 FF1 \u2014 zero active exceptions. 8 emails sent today (24K pipeline). 4 stage corrections. Gate 8b installed. Email 1 principle established. Founder Attention standard updated.",
@@ -135,11 +140,6 @@
         "date": "2026-08-05 17:38",
         "task": "BK-013: Reality Always Wins. Hierarchy of Truth established. Continuous reconciliation now permanent operating standard.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-05 17:32",
-        "task": "Reconciliation complete. 1,666 records audited. 4 stage corrections. 9 Messages backfilled. 5 Quotes migrated. Airtable now operational CRM. Score: 99 (+1).",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-07T19:30:16.824246+09:30",
+  "last_updated": "2026-08-07T19:39:18.227730+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
