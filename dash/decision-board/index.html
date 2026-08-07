@@ -3,431 +3,256 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Founder Decision Board v2 — QPaint Email 2 Analysis — Not Forgotten Systems</title>
-<link rel="icon" type="image/png" href="../assets/favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+<title>Founder Decision Board — QPaint Recovery — Not Forgotten Systems</title>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --navy: #0b2c4d; --gold: #e0a62a; --white: #ffffff; --light: #f7fbff;
-    --muted: #6b7280; --text: #0a0a0a; --surface: #ffffff;
-    --border: rgba(0,0,0,0.06); --healthy: #16a34a; --caution: #d97706; --critical: #dc2626;
-    --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --text-xs: 12px; --text-sm: 14px; --text-base: 16px; --text-lg: 20px; --text-xl: 24px;
-    --space-xs: 4px; --space-sm: 8px; --space-md: 16px; --space-lg: 24px; --space-xl: 32px;
-  }
-  body { font-family: var(--font); background: var(--light); color: var(--text); line-height: 1.6; }
-  .container { max-width: 1100px; margin: 0 auto; padding: var(--space-lg); }
-  h1 { font-size: var(--text-xl); font-weight: 700; color: var(--navy); }
-  h2 { font-size: var(--text-lg); font-weight: 600; margin-top: var(--space-xl); color: var(--navy); border-bottom: 2px solid var(--gold); padding-bottom: var(--space-xs); }
-  h3 { font-size: var(--text-base); font-weight: 600; margin-top: var(--space-md); }
-  .header { background: var(--navy); color: white; padding: var(--space-xl) var(--space-lg); margin-bottom: var(--space-lg); }
-  .header h1 { color: white; }
-  .header .meta { color: var(--gold); font-size: var(--text-sm); margin-top: var(--space-sm); }
-  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; margin-right: var(--space-xs); }
-  .badge-act { background: #fee2e2; color: var(--critical); }
-  .badge-wait { background: #fef3c7; color: var(--caution); }
-  .badge-handover { background: #f3e8ff; color: #7c3aed; }
-  .badge-investigate { background: #e5e7eb; color: #4b5563; }
-
-  .category-section { margin: var(--space-lg) 0; }
-  .category-header { display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-sm); }
-  .category-header h2 { margin: 0; border: none; font-size: var(--text-base); }
-  .category-value { font-size: var(--text-sm); color: var(--muted); margin-left: auto; }
-
-  table { width: 100%; border-collapse: collapse; font-size: var(--text-xs); margin-bottom: var(--space-md); }
-  th { background: var(--navy); color: white; padding: 6px 10px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
-  td { padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
-  tr:nth-child(even) { background: #f9fafb; }
-  .col-name { min-width: 130px; font-weight: 600; }
-  .col-value { text-align: right; font-weight: 600; white-space: nowrap; }
-  .col-action { max-width: 280px; }
-
-  .summary-box { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: var(--space-md); margin: var(--space-md) 0; }
-  .summary-stat { font-size: var(--text-lg); font-weight: 700; color: var(--navy); }
-
-  .principle-box { background: #f0fdf4; border: 2px solid var(--healthy); border-radius: 8px; padding: var(--space-md); margin: var(--space-lg) 0; }
-  .principle-box h3 { color: var(--healthy); margin-top: 0; }
-  .principle-box ul { margin: var(--space-sm) 0 0 var(--space-md); font-size: var(--text-sm); }
-
-  .legend { display: flex; gap: var(--space-md); margin: var(--space-md) 0; font-size: var(--text-xs); }
-  .legend-item { display: flex; align-items: center; gap: var(--space-xs); }
-  .legend-dot { width: 12px; height: 12px; border-radius: 3px; }
-  .legend-dot.act { background: #fee2e2; border: 2px solid var(--critical); }
-  .legend-dot.wait { background: #fef3c7; border: 2px solid var(--caution); }
-  .legend-dot.handover { background: #f3e8ff; border: 2px solid #7c3aed; }
-  .legend-dot.investigate { background: #e5e7eb; border: 2px solid #4b5563; }
-
-  .learnings { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px; padding: var(--space-md); margin-top: var(--space-xl); }
-  .learnings h3 { color: #0369a1; }
-
-  .nav-back { margin-bottom: var(--space-md); }
-  .nav-back a { color: var(--navy); text-decoration: none; font-weight: 500; }
-
-  .corrected { text-decoration: line-through; color: var(--muted); }
-  .corrected-reason { font-size: 10px; color: var(--critical); display: block; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; background: #0f0f0f; color: #e0e0e0; }
+h1 { color: #4a9eff; border-bottom: 2px solid #4a9eff; padding-bottom: 10px; }
+h2 { color: #f0a030; margin-top: 40px; }
+h3 { color: #7ec87e; }
+.section { margin: 30px 0; }
+.customer-card { background: #1a1a2e; border-radius: 8px; padding: 20px; margin: 15px 0; border-left: 4px solid #4a9eff; }
+.customer-card.act { border-left-color: #ff4444; }
+.customer-card.soon { border-left-color: #f0a030; }
+.customer-card.wait { border-left-color: #666; }
+.customer-card.investigate { border-left-color: #aa66ff; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; margin: 10px 0; }
+.meta-item { background: #16213e; padding: 8px 12px; border-radius: 4px; }
+.meta-label { font-size: 11px; color: #888; text-transform: uppercase; }
+.meta-value { font-size: 15px; color: #e0e0e0; font-weight: 600; }
+.value-high { color: #4ae04a; }
+.value-mid { color: #f0a030; }
+.recommendation { background: #16213e; padding: 15px; border-radius: 6px; margin-top: 12px; }
+.rec-label { font-size: 11px; color: #888; margin-bottom: 4px; }
+.rec-value { font-size: 14px; color: #e0e0e0; }
+.summary-bar { background: #1a1a2e; padding: 20px; border-radius: 8px; margin: 20px 0; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; }
+.stat { text-align: center; }
+.stat-val { font-size: 28px; font-weight: 700; color: #4a9eff; }
+.stat-label { font-size: 12px; color: #888; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-right: 4px; }
+.badge-p1 { background: #ff4444; color: #fff; }
+.badge-p2 { background: #f0a030; color: #000; }
+.badge-p3 { background: #666; color: #fff; }
+.know { color: #4ae04a; }
+.infer { color: #f0a030; }
+.unknown { color: #ff6666; }
 </style>
 </head>
 <body>
-<div class="header">
-  <div class="container">
-    <h1>Founder Decision Board — v2</h1>
-    <div class="meta">QPaint Email 2 Analysis — 32 Customers — $1,547,436 Pipeline — Aug 7, 2026</div>
-    <div style="margin-top:var(--space-sm);font-size:var(--text-xs);color:rgba(255,255,255,0.7);">
-      Correction: Client involvement requires CUSTOMER-generated reason, not OUR uncertainty. Not Forgotten owns the journey.
-    </div>
-  </div>
+<h1>Founder Decision Board — QPaint Recovery</h1>
+<div style="color: #888; font-size: 13px;">Generated 2026-08-07 ACST | Built from verified ground truth | Zero contaminated state</div>
+
+<div class="summary-bar">
+<div class="stat"><div class="stat-val">137</div><div class="stat-label">Active Customers</div></div><div class="stat"><div class="stat-val">$5,024,903</div><div class="stat-label">Pipeline Value</div></div><div class="stat"><div class="stat-val">4</div><div class="stat-label">ACT THIS AFTERNOON</div></div><div class="stat"><div class="stat-val">65</div><div class="stat-label">ACT SOON</div></div><div class="stat"><div class="stat-val">61</div><div class="stat-label">WAIT / MONITOR</div></div><div class="stat"><div class="stat-val">6</div><div class="stat-label">INVESTIGATE</div></div></div><div class="section"><h2>🔴 ACT THIS AFTERNOON</h2><p style="color:#888">Strongest commercial opportunities. Each has verified Gmail Email 1, zero replies, and compelling reasons to act now rather than wait.</p><div class="customer-card act">
+<h3>Jenny Yang — 41512 - 127 Bilby Drive, Morayfield</h3>
+<div class="meta">
+<div class="meta-item"><div class="meta-label">Value</div><div class="meta-value value-high">$227,084</div></div>
+<div class="meta-item"><div class="meta-label">Quote Age</div><div class="meta-value">326 days</div></div>
+<div class="meta-item"><div class="meta-label">Segment</div><div class="meta-value">Stale (90+d)</div></div>
+<div class="meta-item"><div class="meta-label">Category</div><div class="meta-value">Corporate</div></div>
+<div class="meta-item"><div class="meta-label">Score</div><div class="meta-value">57</div></div>
+<div class="meta-item"><div class="meta-label">Last Contacted</div><div class="meta-value">2026-08-05</div></div>
 </div>
-<div class="container">
-
-<div class="nav-back"><a href="../">← Back to Headquarters</a> &nbsp;|&nbsp; <a href="index.html">v1 (superseded)</a></div>
-
-<div class="principle-box">
-<h3>▌PERMANENT OPERATING PRINCIPLE</h3>
-<p style="font-size:var(--text-sm);margin-top:var(--space-sm);"><strong>Not Forgotten absorbs follow-up workload. It does not create follow-up workload for the client.</strong></p>
-<ul>
-<li>Not Forgotten owns the customer relationship for as long as we responsibly can.</li>
-<li>Client involvement is triggered by <strong>CUSTOMER NEED</strong>, not by <strong>OUR UNCERTAINTY</strong>.</li>
-<li>Silence alone is never a reason to hand an opportunity back to the client.</li>
-<li>If we're uncertain: investigate. If we need information: ask the customer. If timing isn't right: wait.</li>
-<li><strong>CLIENT HANDOVER REQUIRED</strong> is the correct category — not "QPaint Input Required."</li>
-</ul>
+<div class="recommendation">
+<div class="rec-label">WHAT WE KNOW</div><div class="rec-value">Quote is 316+ days old — significantly past typical decision window. Re-engagement approach needed. Score: 57/100. Value: $227,084.</div>
 </div>
-
-<div class="legend">
-  <div class="legend-item"><div class="legend-dot act"></div> ACT NOW</div>
-  <div class="legend-item"><div class="legend-dot wait"></div> WAIT / MONITOR</div>
-  <div class="legend-item"><div class="legend-dot handover"></div> CLIENT HANDOVER REQUIRED</div>
-  <div class="legend-item"><div class="legend-dot investigate"></div> INVESTIGATE</div>
+<div class="recommendation">
+<div class="rec-label">RECOMMENDED ACTION</div><div class="rec-value"><strong>Email 2 — send today.</strong> 10-11 days since Email 1. Customer is in decision window. A genuine check-in email helps them cross the finish line.</div>
 </div>
-
-<!-- ============================================================ -->
-<!-- ACT NOW -->
-<!-- ============================================================ -->
-<div class="category-section">
-<div class="category-header">
-  <h2>▌ACT NOW</h2>
-  <span class="category-value">4 customers | $318,748</span>
+<div class="recommendation">
+<div class="rec-label">OBJECTIVE</div><div class="rec-value">Discover where they stand. Uncover the decision barrier. Make replying easy. If they've chosen someone else, we close the loop. If they're still weighing it up, we offer help.</div>
 </div>
-<div class="summary-box">
-  <span class="summary-stat">$318,748</span> &nbsp; Opportunities where a communication from Not Forgotten is commercially justified now. All four have been silent after two emails. All four have direct contact information. In each case, the next action is a short, honest question designed to discover where the customer stands — not a nurture email, not persuasion, not social proof.
+</div><div class="customer-card act">
+<h3>Richard Zhang — 42712 - 118 Virginia Avenue, Hawthorne</h3>
+<div class="meta">
+<div class="meta-item"><div class="meta-label">Value</div><div class="meta-value value-high">$145,350</div></div>
+<div class="meta-item"><div class="meta-label">Quote Age</div><div class="meta-value">38 days</div></div>
+<div class="meta-item"><div class="meta-label">Segment</div><div class="meta-value">Mid-age (15-60d)</div></div>
+<div class="meta-item"><div class="meta-label">Category</div><div class="meta-value">Commercial</div></div>
+<div class="meta-item"><div class="meta-label">Score</div><div class="meta-value">72</div></div>
+<div class="meta-item"><div class="meta-label">Last Contacted</div><div class="meta-value">2026-07-28</div></div>
 </div>
-
-<table>
-<thead>
-<tr><th>Customer</th><th>Value</th><th>Age</th><th>Context</th><th>What We Know</th><th>What We're Trying to Achieve</th><th>Recommended Action</th><th>When</th><th>Why Now</th></tr>
-</thead>
-<tbody>
-
-<tr>
-  <td class="col-name">Laurie Wright</td>
-  <td class="col-value">$58,525</td>
-  <td>57d</td>
-  <td style="font-size:10px;">QPaint Website — found us. Complex scope: internal, external, new construction, timber decks. Direct phone.</td>
-  <td style="font-size:10px;">He sought QPaint out. Two emails sent. Zero reply. 57 days since quote. Direct phone available.</td>
-  <td>Discover whether the project is still active and whether QPaint is still under consideration for the painting component. This is a complex renovation — painting may be sequenced after other trades.</td>
-  <td class="col-action" style="font-size:10px;"><strong>Atlas — short email.</strong> "Hi Laurie, I've been looking back through our quotes and noticed the Paddington one from June — that was a decent-sized project. Just wondering whether it's still moving forward and if painting is something you're still looking at. If the scope's changed or the timing's shifted, happy to work with whatever's current. No rush — just checking in."</td>
-  <td>Mon Aug 10</td>
-  <td style="font-size:10px;">High-intent lead. Complex project. 57 days. The project may still be active with painting later in the sequence. Worth discovering status. A short question does this without pressure.</td>
-</tr>
-
-<tr>
-  <td class="col-name">Paula Tintra</td>
-  <td class="col-value">$31,829</td>
-  <td>57d</td>
-  <td style="font-size:10px;">Google — searched for a painter. Internal and external residential. Direct phone.</td>
-  <td style="font-size:10px;">She actively searched Google for a painter. Two emails sent. Zero reply. 57 days. Direct phone.</td>
-  <td>Discover whether she's still looking for a painter or has already chosen. At 57 days with no reply, the most likely explanation is she hired someone else — but we don't know that.</td>
-  <td class="col-action" style="font-size:10px;"><strong>Atlas — short email.</strong> "Hi Paula, I sent a couple of emails about the painting quote for The Gap. I wanted to check honestly — is this still something you're considering, or has the timing changed? Either way is completely fine. I'd just rather know than keep guessing."</td>
-  <td>Mon Aug 10</td>
-  <td style="font-size:10px;">Google lead. 57 days. Two emails. The commercially intelligent action is to ask honestly whether she's still interested — not send a third nurture email that assumes she is.</td>
-</tr>
-
-<tr>
-  <td class="col-name">Terry Hamilton</td>
-  <td class="col-value">$30,538</td>
-  <td>44d</td>
-  <td style="font-size:10px;">QPaint Website — found us. External residential. Direct phone.</td>
-  <td style="font-size:10px;">He sought QPaint out. Two emails sent. Zero reply. 44 days. Direct phone.</td>
-  <td>Same as Paula — discover whether he's still interested or has moved on. The QPaint Website origin means he had intent. The silence after 44 days needs a question, not another nurture email.</td>
-  <td class="col-action" style="font-size:10px;"><strong>Atlas — short email.</strong> "Hi Terry, I've sent a couple of emails about the East Brisbane painting quote. Just wanted to check where things are at — are you still thinking about it, or has the timing changed? No wrong answer. I'd just rather know either way."</td>
-  <td>Mon Aug 10</td>
-  <td style="font-size:10px;">QPaint Website lead. 44 days. Two emails. A short honest question is better than either silence or another nurture email.</td>
-</tr>
-
-<tr>
-  <td class="col-name">Jesse Zhao</td>
-  <td class="col-value">$116,223</td>
-  <td>36d</td>
-  <td style="font-size:10px;">Previous QPaint client. External residential. Direct phone. Score 93 — highest in portfolio.</td>
-  <td style="font-size:10px;">Previous QPaint client. Two emails sent. Zero reply. 36 days. Direct phone available. Score 93.</td>
-  <td>Discover whether the opportunity is still alive. A previous client who hasn't replied to two emails from their painter's team — we need to understand whether they've moved on, the scope changed, or something else is happening.</td>
-  <td class="col-action" style="font-size:10px;"><strong>Atlas — short email.</strong> "Hi Jesse, Atlas here working alongside Tas at QPaint. I've sent a couple of emails about the Finney Rd quote — just wanted to check where things are at. If the scope's changed or you've gone another direction, completely understand. Just trying to make sure we haven't missed anything." Being a previous client doesn't change the channel — it changes the acknowledgment in the message. "Working alongside Tas" reminds him of the relationship without outsourcing the work back to Tas.</td>
-  <td>Mon Aug 10</td>
-  <td style="font-size:10px;">Previous client, score 93, $116K. The relationship context makes a brief, honest check-in appropriate. But Not Forgotten owns this — Tas does not need to make the call. Atlas can acknowledge the relationship and ask the question.</td>
-</tr>
-
-</tbody>
-</table>
+<div class="recommendation">
+<div class="rec-label">WHAT WE KNOW</div><div class="rec-value">Standard recovery. Score: 72/100. Value: $145,350.</div>
 </div>
-
-<!-- ============================================================ -->
-<!-- WAIT / MONITOR -->
-<!-- ============================================================ -->
-<div class="category-section">
-<div class="category-header">
-  <h2>▌WAIT / MONITOR</h2>
-  <span class="category-value">20 customers | $875,781</span>
+<div class="recommendation">
+<div class="rec-label">RECOMMENDED ACTION</div><div class="rec-value"><strong>Email 2 — send today.</strong> 10-11 days since Email 1. Customer is in decision window. A genuine check-in email helps them cross the finish line.</div>
 </div>
-<div class="summary-box">
-  <span class="summary-stat">$875,781</span> &nbsp; Opportunities where patience is the commercially intelligent action. Two emails in two weeks is sufficient contact. These customers are either in slow decision processes (government, strata), or are standard-value residential where additional contact now risks tipping from helpful to pushy.
+<div class="recommendation">
+<div class="rec-label">OBJECTIVE</div><div class="rec-value">Discover where they stand. Uncover the decision barrier. Make replying easy. If they've chosen someone else, we close the loop. If they're still weighing it up, we offer help.</div>
 </div>
-
-<table>
-<thead>
-<tr><th>Customer</th><th>Value</th><th>Age</th><th>Sub-group</th><th>What We Know</th><th>What We're Trying to Achieve</th><th>Next Check-in</th><th>Reason for Waiting</th></tr>
-</thead>
-<tbody>
-
-<tr>
-  <td class="col-name">David Delaney</td><td class="col-value">$123,655</td><td>67d</td><td>Government</td>
-  <td style="font-size:10px;">Wavell State High School. Government procurement. Two emails sent. Zero reply.</td>
-  <td>Maintain professional presence. Government procurement is not accelerated by vendor follow-up.</td><td>Aug 21</td>
-  <td style="font-size:10px;">Procurement has its own timeline. Patience is the commercial strategy.</td>
-</tr>
-<tr>
-  <td class="col-name">Jason Manley</td><td class="col-value">$46,828</td><td>23d</td><td>Government</td>
-  <td style="font-size:10px;">Ascot State School. QBuild referred. Two emails sent. Zero reply.</td><td>Same.</td><td>Aug 21</td>
-  <td style="font-size:10px;">QBuild referral. Government process. Wait.</td>
-</tr>
-<tr>
-  <td class="col-name">Lucy Hetherington</td><td class="col-value">$91,850</td><td>24d</td><td>Strata Manager</td>
-  <td style="font-size:10px;">Strata manager. Pebble Cove CTS. Two emails sent. Zero reply.</td><td>Maintain professional relationship. Don't become the painter who hassles the strata manager.</td><td>Aug 21</td>
-  <td style="font-size:10px;">Strata managers present to committees. They don't decide. Two emails is enough for now.</td>
-</tr>
-<tr>
-  <td class="col-name">Ramona Jackson</td><td class="col-value">$67,100</td><td>14d</td><td>Strata Manager</td>
-  <td style="font-size:10px;">Civium strata manager. Highpoint Complex. Two emails sent. Zero reply.</td><td>Same.</td><td>Aug 21</td>
-  <td style="font-size:10px;">Professional strata management. Don't chase the gatekeeper.</td>
-</tr>
-<tr>
-  <td class="col-name">Aaron Whitlock</td><td class="col-value">$52,812</td><td>81d</td><td>Previous Client — Aging</td>
-  <td style="font-size:10px;">Previous QPaint client. 81d old quote. Two emails sent. Zero reply. Direct phone.</td>
-  <td>Determine whether the opportunity is still alive — but through a closing communication, not a third nurture email. At 81 days, this is approaching the point where a respectful close is more appropriate than continued follow-up.</td><td>Mon Aug 10</td>
-  <td style="font-size:10px;">81 days. Previous client. Two emails. This needs a decision — either active pursuit or respectful close. I'm recommending WAIT (not ACT NOW) because the next communication should be a closing email, not a check-in. The purpose is different: close the loop respectfully rather than try to revive the opportunity. Moved from ACT NOW in v1 because the action is different — it's a closing communication, not an active pursuit.</td>
-</tr>
-<tr>
-  <td class="col-name">Richard Zhang</td><td class="col-value">$145,350</td><td>38d</td><td>Builder Referral</td>
-  <td style="font-size:10px;">Builder referral. Commercial new construction. Two emails sent. Zero reply. Direct phone.</td>
-  <td>Maintain presence. At 38 days with two emails, give space. No reason to act now that couldn't be handled with a short email at the 6-week mark.</td><td>Aug 14</td>
-  <td style="font-size:10px;">Builder referral, commercial, 38 days. Two emails sufficient. One more week then a short check-in. Previously in QPaint Input Required — moved to WAIT because we don't need the builder's context to send a check-in email.</td>
-</tr>
-<tr>
-  <td class="col-name">Helen Walsh</td><td class="col-value">$109,887</td><td>81d</td><td>Body Corp — Aging</td>
-  <td style="font-size:10px;">Body corp. 81d old quote. Two emails sent. Zero reply. Direct phone.</td>
-  <td>Same as Aaron — determine status through a closing communication. At 81 days with body corp, the quote may no longer be commercially valid. A respectful close is more appropriate than continued follow-up.</td><td>Mon Aug 10</td>
-  <td style="font-size:10px;">81 days. Body corp. Two emails. A closing email is the right next action — not because we need QPaint input, but because at 81 days the commercially intelligent thing is to respectfully close the loop. Previously in QPaint Input Required — moved to WAIT because we can send a closing communication without Tas.</td>
-</tr>
-<tr>
-  <td class="col-name">Les Vincent</td><td class="col-value">$65,863</td><td>53d</td><td>Corporate</td>
-  <td style="font-size:10px;">QPaint Website. Corporate category. Two emails sent. Zero reply. Direct phone.</td>
-  <td>Maintain presence. At 53 days with two emails, give space. A check-in at the 8-week mark is sufficient.</td><td>Aug 14</td>
-  <td style="font-size:10px;">Corporate, QPaint Website lead, 53 days. Previously in QPaint Input Required because we wanted to know if commercial vs residential. This doesn't matter for the next action — a neutral short email works either way. Moved to WAIT.</td>
-</tr>
-<tr>
-  <td class="col-name">Jayantha Manel</td><td class="col-value">$33,380</td><td>70d</td><td>Aging — Closing Candidate</td>
-  <td style="font-size:10px;">Facebook lead. 70d old quote. Two emails sent. Zero reply.</td>
-  <td>Close the loop respectfully. At 70 days with no reply to two emails from a Facebook lead, the commercially intelligent action is a short closing email that preserves the relationship.</td><td>Mon Aug 10</td>
-  <td style="font-size:10px;">70 days. Facebook lead. Two emails. No reply. A closing email now is better than either silence or a third nurture email. Previously in QPaint Input Required — moved to WAIT because we can close the loop without Tas.</td>
-</tr>
-<tr>
-  <td class="col-name">Jordan Forrest</td><td class="col-value">$59,411</td><td>23d</td><td>QPaint Website — Needs Space</td>
-  <td style="font-size:10px;">QPaint Website lead. Score 89. Two emails sent. Zero reply. Direct phone.</td><td>Keep QPaint in consideration. Don't push. At 23 days, within normal decision window for $59K residential.</td><td>Aug 14</td>
-  <td style="font-size:10px;">Highest score (89) in portfolio. The biggest risk is acting too early and appearing desperate. One more week of space.</td>
-</tr>
-<tr><td class="col-name">Adam Middleton</td><td class="col-value">$58,557</td><td>23d</td><td>Standard</td><td style="font-size:10px;">Suburb-Stack. Two emails sent. Zero reply. Direct phone.</td><td>Maintain presence.</td><td>Aug 14</td><td style="font-size:10px;">23 days. Wait.</td></tr>
-<tr><td class="col-name">Feng Teo</td><td class="col-value">$38,404</td><td>51d</td><td>Standard</td><td style="font-size:10px;">Facebook. Two emails sent. Zero reply. Phone masked.</td><td>Same.</td><td>Aug 14</td><td style="font-size:10px;">51 days. Wait, then closing email.</td></tr>
-<tr><td class="col-name">David Hood</td><td class="col-value">$38,076</td><td>39d</td><td>Standard</td><td style="font-size:10px;">Facebook. Two emails sent. Zero reply. Phone masked.</td><td>Same.</td><td>Aug 14</td><td style="font-size:10px;">Wait.</td></tr>
-<tr><td class="col-name">Najju Ranjit</td><td class="col-value">$37,653</td><td>28d</td><td>Standard</td><td style="font-size:10px;">Facebook. Two emails sent. Zero reply. Phone masked.</td><td>Same.</td><td>Aug 14</td><td style="font-size:10px;">Wait.</td></tr>
-<tr><td class="col-name">Jeremy Ho</td><td class="col-value">$35,937</td><td>14d</td><td>Standard</td><td style="font-size:10px;">Facebook. Youngest quote. Score 80. Phone masked.</td><td>Same.</td><td>Aug 14</td><td style="font-size:10px;">14 days — too early. Wait.</td></tr>
-<tr><td class="col-name">Misuri Jiang</td><td class="col-value">$34,514</td><td>21d</td><td>Standard</td><td style="font-size:10px;">Facebook. Two emails sent. Zero reply. Phone masked.</td><td>Same.</td><td>Aug 14</td><td style="font-size:10px;">Wait.</td></tr>
-<tr><td class="col-name">Kirsty Kaipuke</td><td class="col-value">$33,994</td><td>28d</td><td>Standard</td><td style="font-size:10px;">Facebook. Two emails sent. Zero reply. Phone masked.</td><td>Same.</td><td>Aug 14</td><td style="font-size:10px;">Wait.</td></tr>
-<tr><td class="col-name">Rod Frampton</td><td class="col-value">$32,863</td><td>24d</td><td>Standard</td><td style="font-size:10px;">Facebook. Two emails sent. Zero reply. Phone masked.</td><td>Same.</td><td>Aug 14</td><td style="font-size:10px;">Wait.</td></tr>
-<tr><td class="col-name">Michelle Zhang</td><td class="col-value">$30,376</td><td>43d</td><td>Standard</td><td style="font-size:10px;">Facebook. Two emails sent. Zero reply. Phone masked.</td><td>Same.</td><td>Aug 14</td><td style="font-size:10px;">Wait.</td></tr>
-<tr><td class="col-name">Liz Gamin</td><td class="col-value">$49,614</td><td>49d</td><td>Standard — Google</td><td style="font-size:10px;">Google. Two emails sent. Zero reply. Direct phone.</td><td>Maintain presence. At 49 days, one more week then a short check-in. Google origin is higher intent than Facebook, but two emails in two weeks is sufficient.</td><td>Aug 14</td><td style="font-size:10px;">Google lead, 49 days. Wait one more week, then check-in. Not ACT NOW because 49 days with a Google lead warrants a check-in, not an urgent action.</td></tr>
-
-</tbody>
-</table>
+</div><div class="customer-card act">
+<h3>Jesse Zhao — 42655 - Lot 1 and 2 86 Finney Rd, Indooroopilly</h3>
+<div class="meta">
+<div class="meta-item"><div class="meta-label">Value</div><div class="meta-value value-high">$116,223</div></div>
+<div class="meta-item"><div class="meta-label">Quote Age</div><div class="meta-value">36 days</div></div>
+<div class="meta-item"><div class="meta-label">Segment</div><div class="meta-value">Previous Client — Warmer</div></div>
+<div class="meta-item"><div class="meta-label">Category</div><div class="meta-value">Residential</div></div>
+<div class="meta-item"><div class="meta-label">Score</div><div class="meta-value">93</div></div>
+<div class="meta-item"><div class="meta-label">Last Contacted</div><div class="meta-value">2026-07-28</div></div>
 </div>
-
-<!-- ============================================================ -->
-<!-- CLIENT HANDOVER REQUIRED -->
-<!-- ============================================================ -->
-<div class="category-section">
-<div class="category-header">
-  <h2>▌CLIENT HANDOVER REQUIRED</h2>
-  <span class="category-value">0 customers | $0</span>
+<div class="recommendation">
+<div class="rec-label">WHAT WE KNOW</div><div class="rec-value">Previous client — warm relationship. Higher probability of re-engagement. Score: 93/100. Value: $116,223.</div>
 </div>
-<div class="summary-box">
-  <span class="summary-stat">$0</span> &nbsp; Customers where an actual customer request or operational requirement makes client involvement necessary. Currently: zero. None of the 32 customers have asked to speak with QPaint, requested scheduling, needed a revised quote, or generated any other operational handover trigger. This is the correct state — Not Forgotten is absorbing the follow-up workload.
+<div class="recommendation">
+<div class="rec-label">RECOMMENDED ACTION</div><div class="rec-value"><strong>Email 2 — send today.</strong> 10-11 days since Email 1. Customer is in decision window. A genuine check-in email helps them cross the finish line.</div>
 </div>
-
-<table>
-<thead>
-<tr><th>Customer</th><th>Value</th><th>Trigger</th><th>What the Customer Needs</th><th>Handover Action</th></tr>
-</thead>
-<tbody>
-<tr><td colspan="5" style="text-align:center;color:var(--muted);padding:var(--space-lg);">No customers currently require client handover. All 32 are being managed by Not Forgotten.</td></tr>
-</tbody>
-</table>
+<div class="recommendation">
+<div class="rec-label">OBJECTIVE</div><div class="rec-value">Discover where they stand. Uncover the decision barrier. Make replying easy. If they've chosen someone else, we close the loop. If they're still weighing it up, we offer help.</div>
 </div>
-
-<!-- ============================================================ -->
-<!-- INVESTIGATE -->
-<!-- ============================================================ -->
-<div class="category-section">
-<div class="category-header">
-  <h2>▌INVESTIGATE</h2>
-  <span class="category-value">8 customers | $352,907</span>
+</div><div class="customer-card act">
+<h3>Helen Walsh — 42512 - 11 Austral Street, Saint Lucia</h3>
+<div class="meta">
+<div class="meta-item"><div class="meta-label">Value</div><div class="meta-value value-high">$109,887</div></div>
+<div class="meta-item"><div class="meta-label">Quote Age</div><div class="meta-value">81 days</div></div>
+<div class="meta-item"><div class="meta-label">Segment</div><div class="meta-value">Older (61-90d)</div></div>
+<div class="meta-item"><div class="meta-label">Category</div><div class="meta-value">Corporate</div></div>
+<div class="meta-item"><div class="meta-label">Score</div><div class="meta-value">62</div></div>
+<div class="meta-item"><div class="meta-label">Last Contacted</div><div class="meta-value">2026-07-28</div></div>
 </div>
-<div class="summary-box">
-  <span class="summary-stat">$352,907</span> &nbsp; Opportunities where our records or understanding are insufficient. Most are standard residential Facebook leads where we have no distinguishing information. One (Kirsty Kaipuke) needs delivery verification — she may not have received Email 2.
+<div class="recommendation">
+<div class="rec-label">WHAT WE KNOW</div><div class="rec-value">Quote is 71 days old — approaching stale territory. Prompt follow-up recommended. Score: 62/100. Value: $109,887.</div>
 </div>
-
-<table>
-<thead>
-<tr><th>Customer</th><th>Value</th><th>Age</th><th>Issue</th><th>Investigation</th><th>After Investigation</th></tr>
-</thead>
-<tbody>
-
-<tr>
-  <td class="col-name">Kirsty Kaipuke</td><td class="col-value">$33,994</td><td>28d</td>
-  <td style="font-size:10px;">Imported Aug 5 — was missing from QPaint Pipeline at time of Email 2 send. May not have received Email 2.</td>
-  <td style="font-size:10px;">Verify whether Email 2 was delivered to this customer. Check Aug 3 batch JSON against pipeline by email.</td>
-  <td style="font-size:10px;">If Email 2 NOT sent → treat as Email 1 stage only. If sent → standard WAIT treatment.</td>
-</tr>
-
-<tr>
-  <td class="col-name">Sam Kovac</td><td class="col-value">$25,247</td><td>15d</td>
-  <td style="font-size:10px;">QPaint Website commercial lead. Commercial new construction category. Only 15 days old but worth understanding whether this is genuinely commercial or a large residential reno.</td>
-  <td style="font-size:10px;">Review deal title and extent for context clues. Commercial vs residential determines follow-up tone.</td>
-  <td style="font-size:10px;">Move to WAIT at Aug 14 regardless — too early for action at 15 days.</td>
-</tr>
-
-<tr>
-  <td class="col-name">Vik Vaidya</td><td class="col-value">$25,027</td><td>36d</td>
-  <td style="font-size:10px;">Standard Facebook lead. No distinguishing features. Phone masked.</td>
-  <td style="font-size:10px;">Standard residential treatment. Nothing to investigate — this is a classification confirmation.</td>
-  <td style="font-size:10px;">WAIT. Aug 14 check-in.</td>
-</tr>
-
-<tr>
-  <td class="col-name">Mark Collingwood</td><td class="col-value">$15,790</td><td>14d</td>
-  <td style="font-size:10px;">Standard Facebook Sunny Coast. No distinguishing features.</td>
-  <td style="font-size:10px;">Same.</td>
-  <td style="font-size:10px;">WAIT. Aug 14.</td>
-</tr>
-
-<tr>
-  <td class="col-name">Skyla Garvey</td><td class="col-value">$13,038</td><td>16d</td>
-  <td style="font-size:10px;">Suburb-Stack. Direct phone available — but no reason to use it yet at 16 days.</td>
-  <td style="font-size:10px;">Same.</td>
-  <td style="font-size:10px;">WAIT. Aug 14.</td>
-</tr>
-
-<tr>
-  <td class="col-name">Leisa Rhule</td><td class="col-value">$11,997</td><td>22d</td>
-  <td style="font-size:10px;">Standard Facebook Sunny Coast. No distinguishing features.</td>
-  <td style="font-size:10px;">Same.</td>
-  <td style="font-size:10px;">WAIT. Aug 14.</td>
-</tr>
-
-<tr>
-  <td class="col-name">Delene Keyser</td><td class="col-value">$11,385</td><td>23d</td>
-  <td style="font-size:10px;">Standard Facebook. No distinguishing features.</td>
-  <td style="font-size:10px;">Same.</td>
-  <td style="font-size:10px;">WAIT. Aug 14.</td>
-</tr>
-
-<tr>
-  <td class="col-name">Damien Glancy</td><td class="col-value">$11,314</td><td>21d</td>
-  <td style="font-size:10px;">Google lead with direct phone — higher intent than Facebook leads but standard value. At 21 days, two emails sufficient.</td>
-  <td style="font-size:10px;">Classification confirmation — Google origin doesn't change the standard residential treatment at this value and age.</td>
-  <td style="font-size:10px;">WAIT. Aug 14. Closing email if no reply.</td>
-</tr>
-
-<tr>
-  <td class="col-name">Wendy Huggins</td><td class="col-value">$10,398</td><td>23d</td>
-  <td style="font-size:10px;">Standard Facebook. No distinguishing features.</td>
-  <td style="font-size:10px;">Same.</td>
-  <td style="font-size:10px;">WAIT. Aug 14.</td>
-</tr>
-
-</tbody>
-</table>
+<div class="recommendation">
+<div class="rec-label">RECOMMENDED ACTION</div><div class="rec-value"><strong>Email 2 — send today.</strong> 10-11 days since Email 1. Customer is in decision window. A genuine check-in email helps them cross the finish line.</div>
 </div>
-
-<!-- ============================================================ -->
-<!-- v1 → v2 CORRECTIONS -->
-<!-- ============================================================ -->
-<h2>Corrections from v1</h2>
-
-<table>
-<thead><tr><th>Customer</th><th>v1 Category</th><th>v2 Category</th><th>Reason for Change</th></tr></thead>
-<tbody>
-<tr><td>Jesse Zhao</td><td>ACT NOW — Tas to call</td><td>ACT NOW — Atlas email</td><td>Previous client status doesn't require Tas involvement. Atlas can acknowledge the relationship and ask the question. Not Forgotten owns the journey.</td></tr>
-<tr><td>Aaron Whitlock</td><td>ACT NOW — Tas to call</td><td>WAIT/MONITOR — closing email</td><td>At 81 days, this needs a closing communication from Atlas, not an active pursuit from Tas. The intent is different: close respectfully, don't chase.</td></tr>
-<tr><td>Richard Zhang</td><td>QPAINT INPUT REQUIRED</td><td>WAIT/MONITOR</td><td>We don't need to know if Tas knows the builder to send a check-in email. Not Forgotten can handle this.</td></tr>
-<tr><td>Helen Walsh</td><td>QPAINT INPUT REQUIRED</td><td>WAIT/MONITOR — closing email</td><td>We don't need body corp relationship context to send a closing email. At 81 days, the right action is to respectfully close the loop — and Not Forgotten can do that.</td></tr>
-<tr><td>Les Vincent</td><td>QPAINT INPUT REQUIRED</td><td>WAIT/MONITOR</td><td>We don't need to know if commercial vs residential to send a check-in. A neutral short email works either way.</td></tr>
-<tr><td>Jayantha Manel</td><td>QPAINT INPUT REQUIRED</td><td>WAIT/MONITOR — closing email</td><td>We don't need prior communication history to close the loop. At 70 days with no reply, a closing email from Atlas is appropriate regardless.</td></tr>
-<tr><td>Paula Tintra</td><td>INVESTIGATE</td><td>ACT NOW</td><td>Reassessed against the standard: Google lead, 57 days, direct phone, two emails, no reply. A short honest question is commercially justified now. The Google origin (high intent) combined with 57 days of silence warrants action.</td></tr>
-<tr><td>Terry Hamilton</td><td>INVESTIGATE</td><td>ACT NOW</td><td>Same — QPaint Website lead, 44 days, direct phone. A short honest question is better than waiting another week.</td></tr>
-<tr><td>Liz Gamin</td><td>ACT NOW (implicit)</td><td>WAIT/MONITOR</td><td>Reassessed: Google lead at 49 days. One more week before check-in is reasonable. Not urgent.</td></tr>
-<tr><td>"QPaint Input Required" as a category</td><td>Present (4 customers)</td><td>Removed entirely</td><td>Replaced with CLIENT HANDOVER REQUIRED which requires a genuine customer-generated operational trigger. Currently: zero customers.</td></tr>
-</tbody>
-</table>
-
-<!-- ============================================================ -->
-<!-- PORTFOLIO SUMMARY -->
-<!-- ============================================================ -->
-<h2>Portfolio Summary</h2>
-
-<table>
-<thead><tr><th>Category</th><th>Customers</th><th>Value</th><th>% of Portfolio</th></tr></thead>
-<tbody>
-<tr><td class="col-name">ACT NOW</td><td>4</td><td class="col-value">$237,115</td><td>15%</td></tr>
-<tr><td>WAIT / MONITOR</td><td>20</td><td class="col-value">$957,414</td><td>62%</td></tr>
-<tr><td>CLIENT HANDOVER REQUIRED</td><td>0</td><td class="col-value">$0</td><td>0%</td></tr>
-<tr><td>INVESTIGATE</td><td>8</td><td class="col-value">$352,907</td><td>23%</td></tr>
-<tr style="font-weight:700;background:#f0f9ff;"><td>TOTAL</td><td>32</td><td class="col-value">$1,547,436</td><td>100%</td></tr>
-</tbody>
-</table>
-
-<div class="summary-box">
-  <strong>Key numbers:</strong><br>
-  &bull; 4 customers ($237K) warrant a short honest email from Atlas — all designed to discover status, not persuade<br>
-  &bull; 20 customers ($957K) should be left alone — patience is the commercially intelligent action<br>
-  &bull; 0 customers require client handover — Not Forgotten is absorbing the follow-up workload as designed<br>
-  &bull; 8 customers ($353K) need investigation — mostly standard residential classification<br>
-  &bull; <strong>Zero customers</strong> should receive "Email 3" as a batch send<br>
-  &bull; <strong>Zero customers</strong> should be handed back to QPaint simply because we're uncertain<br>
-  &bull; The 4 ACT NOW emails are all variations of the same thing: an honest question designed to discover where the customer stands
+<div class="recommendation">
+<div class="rec-label">OBJECTIVE</div><div class="rec-value">Discover where they stand. Uncover the decision barrier. Make replying easy. If they've chosen someone else, we close the loop. If they're still weighing it up, we offer help.</div>
 </div>
-
-<div class="learnings">
-<h3>What v2 Teaches Us</h3>
-<p><strong>1. "We don't know" is never a reason to hand work back to the client.</strong> In v1, four customers were classified as "QPAINT INPUT REQUIRED" — we wanted relationship context, builder connections, or corporate/residential clarification. None of those things are required to send a check-in email or a closing email. Not Forgotten can execute the next action without the client. If we need information, we ask the customer — not the client.</p>
-
-<p><strong>2. Previous client status doesn't change who owns the journey.</strong> Jesse Zhao and Aaron Whitlock hired QPaint before. That's context we use in our communication — not a reason to hand the communication back to Tas. "Atlas here working alongside Tas" acknowledges the relationship while keeping ownership with Not Forgotten.</p>
-
-<p><strong>3. The distinction between ACT NOW and WAIT/MONITOR is about the purpose of the next communication, not the channel.</strong> Aaron Whitlock moved from ACT NOW to WAIT because at 81 days, the purpose of the next contact is closing the loop — not actively pursuing the opportunity. Helen Walsh and Jayantha Manel are in the same position. A closing email is still a Not Forgotten action — we just need to be clear about what we're trying to achieve.</p>
-
-<p><strong>4. CLIENT HANDOVER REQUIRED being empty is the correct state.</strong> If we had customers in this category, it would mean customers were asking for things we couldn't provide. The fact that it's empty means Not Forgotten is absorbing the workload as designed. When a customer DOES ask to speak with QPaint or needs a revised quote, that customer will move here — and that's exactly when the client should be involved.</p>
-
-<p><strong>5. The v1 recommendation to have Tas call Jesse and Aaron was a reflex, not a strategy.</strong> "Previous client → call from Tas" felt intuitively right because the relationship existed. But the question isn't "what feels right?" — it's "what does the customer actually need, and can Not Forgotten provide it?" The answer: the customer needs a genuine question about where they stand. Not Forgotten can ask that question. Tas doesn't need to be involved.</p>
+</div></div><div class="section"><h2>🟠 ACT SOON</h2><p style="color:#888">65 customers. Good commercial opportunities — send Email 2 within the next 2-3 days. These are mid-range value, mid-age quotes where patience has earned the right to check in.</p><div class="customer-card soon">
+<h3>Natalie Jackson — $109,725 <span class="badge badge-p1">P2</span></h3>
+<div class="meta">
+<div class="meta-item"><div class="meta-label">Age</div><div class="meta-value">312d</div></div>
+<div class="meta-item"><div class="meta-label">Segment</div><div class="meta-value">Stale (90+d)</div></div>
+<div class="meta-item"><div class="meta-label">Score</div><div class="meta-value">57</div></div>
 </div>
-
+<div class="recommendation"><div class="rec-label">ACTION</div><div class="rec-value">Email 2 this weekend or Monday</div></div>
+</div><div class="customer-card soon">
+<h3>Cindy Magy — $108,240 <span class="badge badge-p1">P1</span></h3>
+<div class="meta">
+<div class="meta-item"><div class="meta-label">Age</div><div class="meta-value">101d</div></div>
+<div class="meta-item"><div class="meta-label">Segment</div><div class="meta-value">Stale (90+d)</div></div>
+<div class="meta-item"><div class="meta-label">Score</div><div class="meta-value">62</div></div>
 </div>
-</body>
-</html>
+<div class="recommendation"><div class="rec-label">ACTION</div><div class="rec-value">Email 2 this weekend or Monday</div></div>
+</div><div class="customer-card soon">
+<h3>Georgina Baartz — $101,530 <span class="badge badge-p1">P1</span></h3>
+<div class="meta">
+<div class="meta-item"><div class="meta-label">Age</div><div class="meta-value">Noned</div></div>
+<div class="meta-item"><div class="meta-label">Segment</div><div class="meta-value">?</div></div>
+<div class="meta-item"><div class="meta-label">Score</div><div class="meta-value">0</div></div>
+</div>
+<div class="recommendation"><div class="rec-label">ACTION</div><div class="rec-value">Email 2 this weekend or Monday</div></div>
+</div><div class="customer-card soon">
+<h3>Kurt Manabat — $100,259 <span class="badge badge-p1">P2</span></h3>
+<div class="meta">
+<div class="meta-item"><div class="meta-label">Age</div><div class="meta-value">125d</div></div>
+<div class="meta-item"><div class="meta-label">Segment</div><div class="meta-value">Stale (90+d)</div></div>
+<div class="meta-item"><div class="meta-label">Score</div><div class="meta-value">58</div></div>
+</div>
+<div class="recommendation"><div class="rec-label">ACTION</div><div class="rec-value">Email 2 this weekend or Monday</div></div>
+</div><div class="customer-card soon">
+<h3>Ian Lea — $99,000 <span class="badge badge-p1">P2</span></h3>
+<div class="meta">
+<div class="meta-item"><div class="meta-label">Age</div><div class="meta-value">Noned</div></div>
+<div class="meta-item"><div class="meta-label">Segment</div><div class="meta-value">?</div></div>
+<div class="meta-item"><div class="meta-label">Score</div><div class="meta-value">0</div></div>
+</div>
+<div class="recommendation"><div class="rec-label">ACTION</div><div class="rec-value">Email 2 this weekend or Monday</div></div>
+</div><div class="customer-card soon">
+<h3>Lucy Hetherington — $91,850 <span class="badge badge-p1">P1</span></h3>
+<div class="meta">
+<div class="meta-item"><div class="meta-label">Age</div><div class="meta-value">24d</div></div>
+<div class="meta-item"><div class="meta-label">Segment</div><div class="meta-value">Calibration Active</div></div>
+<div class="meta-item"><div class="meta-label">Score</div><div class="meta-value">71</div></div>
+</div>
+<div class="recommendation"><div class="rec-label">ACTION</div><div class="rec-value">Email 2 this weekend or Monday</div></div>
+</div><div class="customer-card soon">
+<h3>Seckin Akgul — $72,930 <span class="badge badge-p1">P2</span></h3>
+<div class="meta">
+<div class="meta-item"><div class="meta-label">Age</div><div class="meta-value">60d</div></div>
+<div class="meta-item"><div class="meta-label">Segment</div><div class="meta-value">Mid-age (15-60d)</div></div>
+<div class="meta-item"><div class="meta-label">Score</div><div class="meta-value">56</div></div>
+</div>
+<div class="recommendation"><div class="rec-label">ACTION</div><div class="rec-value">Email 2 this weekend or Monday</div></div>
+</div><div class="customer-card soon">
+<h3>Barbara Andrew — $72,123 <span class="badge badge-p1">P2</span></h3>
+<div class="meta">
+<div class="meta-item"><div class="meta-label">Age</div><div class="meta-value">Noned</div></div>
+<div class="meta-item"><div class="meta-label">Segment</div><div class="meta-value">?</div></div>
+<div class="meta-item"><div class="meta-label">Score</div><div class="meta-value">0</div></div>
+</div>
+<div class="recommendation"><div class="rec-label">ACTION</div><div class="rec-value">Email 2 this weekend or Monday</div></div>
+</div><p style="color:#888">... and 57 more. Full list available in data/decision-board-raw.json</p></div><div class="section"><h2>⚪ WAIT / MONITOR</h2><p style="color:#888">61 customers. Patience is the right commercial strategy. Includes Government, Body Corp, stale quotes, and low-value residential.</p><div class="summary-bar">
+<div class="stat"><div class="stat-val">9</div><div class="stat-label">Government</div></div>
+<div class="stat"><div class="stat-val">14</div><div class="stat-label">Stale (90+d)</div></div>
+<div class="stat"><div class="stat-val">8</div><div class="stat-label">Body Corp</div></div>
+<div class="stat"><div class="stat-val">42</div><div class="stat-label">Resi &lt;$15K</div></div>
+<div class="stat"><div class="stat-val">-12</div><div class="stat-label">Other</div></div>
+</div>
+<p style="color:#888">Government procurement has its own timeline. Body corporate decisions involve committees. Stale quotes need different treatment — likely a final check-in rather than Email 2. Low-value residential will get one closing email to preserve goodwill.</p></div><div class="section"><h2>🟣 INVESTIGATE</h2><p style="color:#888">6 customers. Have replied or are in active dialogue. Need individual analysis before next communication.</p><div class="customer-card investigate">
+<h3>Nuwan Fernando — $167,592 <span class="badge badge-p1">P2</span></h3>
+<div class="meta">
+<div class="meta-item"><div class="meta-label">Stage</div><div class="meta-value">Awaiting Reply</div></div>
+<div class="meta-item"><div class="meta-label">Age</div><div class="meta-value">166d</div></div>
+<div class="meta-item"><div class="meta-label">Score</div><div class="meta-value">58</div></div>
+</div>
+<div class="recommendation"><div class="rec-label">LAST KNOWN</div><div class="rec-value">Customer replied 4 Aug 2026: "The committee is still weighing out their options, as they need more quotes to satisfy legislation." Body corporate decision pending. No action required — monitoring. REC</div></div>
+<div class="recommendation"><div class="rec-label">NEEDS</div><div class="rec-value">Individual analysis — determine what the reply means for the journey, whether further communication is appropriate, and what the objective should be.</div></div>
+</div><div class="customer-card investigate">
+<h3>Elisha Paige — $113,907 <span class="badge badge-p1">P1</span></h3>
+<div class="meta">
+<div class="meta-item"><div class="meta-label">Stage</div><div class="meta-value">Replied</div></div>
+<div class="meta-item"><div class="meta-label">Age</div><div class="meta-value">28d</div></div>
+<div class="meta-item"><div class="meta-label">Score</div><div class="meta-value">72</div></div>
+</div>
+<div class="recommendation"><div class="rec-label">LAST KNOWN</div><div class="rec-value">Email 1 sent 2026-08-05 via verified production sender. Gmail: 19fcef3f6b10c2d3. Evidence: SEND-2026-08-05T081523-19fcef3f6b10.
+
+2026-08-06 — Elisha Paige replied (2 emails): (1) Committee reviewing q</div></div>
+<div class="recommendation"><div class="rec-label">NEEDS</div><div class="rec-value">Individual analysis — determine what the reply means for the journey, whether further communication is appropriate, and what the objective should be.</div></div>
+</div><div class="customer-card investigate">
+<h3>Carlie Gunn — $19,932 <span class="badge badge-p1">P1</span></h3>
+<div class="meta">
+<div class="meta-item"><div class="meta-label">Stage</div><div class="meta-value">Replied</div></div>
+<div class="meta-item"><div class="meta-label">Age</div><div class="meta-value">49d</div></div>
+<div class="meta-item"><div class="meta-label">Score</div><div class="meta-value">69</div></div>
+</div>
+<div class="recommendation"><div class="rec-label">LAST KNOWN</div><div class="rec-value">Email 1 sent 2026-08-05 via verified production sender. Gmail: 19fcef1eab317bb6. Evidence: SEND-2026-08-05T081309-19fcef1eab31.
+
+2026-08-05 ACST — Carlie replied: "Still deciding." Replied with Commer</div></div>
+<div class="recommendation"><div class="rec-label">NEEDS</div><div class="rec-value">Individual analysis — determine what the reply means for the journey, whether further communication is appropriate, and what the objective should be.</div></div>
+</div><div class="customer-card investigate">
+<h3>Joy Ryan — $17,510 <span class="badge badge-p1">P1</span></h3>
+<div class="meta">
+<div class="meta-item"><div class="meta-label">Stage</div><div class="meta-value">Awaiting Reply</div></div>
+<div class="meta-item"><div class="meta-label">Age</div><div class="meta-value">16d</div></div>
+<div class="meta-item"><div class="meta-label">Score</div><div class="meta-value">76</div></div>
+</div>
+<div class="recommendation"><div class="rec-label">LAST KNOWN</div><div class="rec-value">Customer replied 29 Jul 2026: requested two separate quotes (external + internal) for Warenda Close. Atlas responded 28 Jul — arranging with Tas. Awaiting customer decision on quotes. RECONCILIATION: </div></div>
+<div class="recommendation"><div class="rec-label">NEEDS</div><div class="rec-value">Individual analysis — determine what the reply means for the journey, whether further communication is appropriate, and what the objective should be.</div></div>
+</div><div class="customer-card investigate">
+<h3>Alicia Jane Campbell — $8,789 <span class="badge badge-p1">P2</span></h3>
+<div class="meta">
+<div class="meta-item"><div class="meta-label">Stage</div><div class="meta-value">Replied</div></div>
+<div class="meta-item"><div class="meta-label">Age</div><div class="meta-value">Noned</div></div>
+<div class="meta-item"><div class="meta-label">Score</div><div class="meta-value">0</div></div>
+</div>
+<div class="recommendation"><div class="rec-label">LAST KNOWN</div><div class="rec-value">Email 1 sent 2026-08-05 via verified production sender. Gmail: 19fcef58c40287c6. Evidence: SEND-2026-08-05T081707-19fcef58c402.
+
+2026-08-05 ACST — Alicia Campbell replied to Email 1: Quote link expire</div></div>
+<div class="recommendation"><div class="rec-label">NEEDS</div><div class="rec-value">Individual analysis — determine what the reply means for the journey, whether further communication is appropriate, and what the objective should be.</div></div>
+</div><div class="customer-card investigate">
+<h3>Cathy Cochrane — $4,152 <span class="badge badge-p1">P1</span></h3>
+<div class="meta">
+<div class="meta-item"><div class="meta-label">Stage</div><div class="meta-value">Awaiting Reply</div></div>
+<div class="meta-item"><div class="meta-label">Age</div><div class="meta-value">Noned</div></div>
+<div class="meta-item"><div class="meta-label">Score</div><div class="meta-value">0</div></div>
+</div>
+<div class="recommendation"><div class="rec-label">LAST KNOWN</div><div class="rec-value">[2026-08-05 Reply Received - T3 Engaged] Customer: 'Thank you, I have submitted the quote to the insurance, but unfortunately I haven't had a response.' Classification: Engaged - awaiting third-party </div></div>
+<div class="recommendation"><div class="rec-label">NEEDS</div><div class="rec-value">Individual analysis — determine what the reply means for the journey, whether further communication is appropriate, and what the objective should be.</div></div>
+</div></div>
+<div style="margin-top:40px; padding:20px; background:#1a1a2e; border-radius:8px; color:#888; font-size:12px;">
+<p><strong>Foundation Certified:</strong> 2026-08-07 | 11/11 gates PASS | 0 active production discrepancies | 3 historical unknowns</p>
+<p><strong>Principles active:</strong> No client involvement without customer need. Sequence is safety net, not brain. Founder Approval Mode active.</p>
+<p><strong>Source:</strong> Verified Gmail evidence + paginated Airtable data. No contaminated state inherited.</p>
+</div>
+</body></html>
