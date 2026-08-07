@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T11:56:01+09:30",
+  "generated_at": "2026-08-07T12:00:10+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
     "body": "Full operational audit complete. ⚠️ Critical finding: 32 QPaint Email 2 P1 customers ($2.1M+) are 4 days overdue for Email 3. No Email 3 template exists yet — this is the highest priority for the weekend. FF1 Email 2 drafts needed for 16 painters (due Mon Aug 10). QPaint: 147 customers, $5.24M pipeline. 1 Won (Arno Hsu, $129,750). 7 engaged/replied. 8 Lost. 5 items require client action from QPaint. 4 system reconciliation gaps identified. Complete 10-section operational audit published to Command Centre.",
@@ -12,7 +12,8 @@
       "Full 4-system reconciliation complete — no hidden surprises",
       "QPaint: $5.24M pipeline, 1 Won, 7 engaged — recovery model working",
       "32 Email 2 customers identified and prioritised for Email 3",
-      "10-section audit gives complete operational visibility"
+      "10-section audit gives complete operational visibility",
+      "Gmail audit: 0 discrepancies — 136/136 send evidence records independently verified in Gmail SENT"
     ],
     "reasons_negative": [
       "32 QPaint Email 2 customers 4 days overdue — engagement momentum at risk",
@@ -23,7 +24,7 @@
   "business_health": {
     "clients": {
       "status": "caution",
-      "detail": "QPaint: Arno Hsu Won ($129,750) awaiting Tas scheduling. Nicholas Zappacosta ($145K) awaiting QPaint follow-up. 5 items blocked on client action."
+      "detail": "QPaint: Active ($199/mo, Onboarding Complete). 1 other client. Quotes table empty — no Airtable-native quotes yet."
     },
     "recovery_operations": {
       "status": "caution",
@@ -35,7 +36,7 @@
     },
     "engineering": {
       "status": "healthy",
-      "detail": "All systems healthy. Disk 40%. 136 send evidence records. 419 messages. Token scopes need pre-send verification."
+      "detail": "All systems healthy. Gmail audit: 0 discrepancies (136/136 evidence matched). atlas@: 100+ sent (7d). james@: 39 sent (7d). ⚠️ Delegation atlas@→james@ denied (403). Disk 40%."
     },
     "finance": {
       "status": "healthy",
@@ -91,6 +92,15 @@
       "recommended_action": "Atlas to cross-reference Gmail IDs and backfill Prospect links. Lower priority than Email 3.",
       "impact_sort": 55,
       "status": "backlog"
+    },
+    {
+      "title": "⚠️ Delegation atlas@→james@ denied (403) — Gmail access gap",
+      "why_it_matters": "Atlas uses james_token.json directly for james@ access, but formal delegation is denied. If direct token access fails, Atlas loses read visibility into james@ mailbox.",
+      "business_impact": "Medium",
+      "estimated_review_time": "5 min — verify delegation settings in Google Workspace Admin",
+      "recommended_action": "Check Google Workspace Admin → Apps → Gmail → Delegation settings for james@. Ensure atlas@ has delegate access.",
+      "impact_sort": 58,
+      "status": "needs_investigation"
     }
   ],
   "atlas_recommendation": {
@@ -129,6 +139,10 @@
   },
   "changes": {
     "today": [
+      {
+        "time": "11:58",
+        "text": "Gmail audit confirmed: 0 discrepancies across 136 send evidence records. atlas@ (100+ sent/7d), james@ (39 sent/7d). Delegation atlas@→james@ denied — needs investigation."
+      },
       {
         "time": "11:54",
         "text": "Full operational audit: 4-system reconciliation complete. 10-section report with Weekend Action Plan published."
@@ -335,13 +349,13 @@
       }
     },
     "last_verified_send": {
-      "timestamp": "2026-08-07T11:56:01+09:30",
+      "timestamp": "2026-08-07T12:00:10+09:30",
       "gmail_message_id": "19fd44ecce2f0065",
       "recipient": "elisha@yulestrata.com.au",
       "sender": "atlas@notforgotten.com.au"
     },
     "verification_stats": {
-      "total_verified": 127,
+      "total_verified": 136,
       "total_failed": 0,
       "success_rate": "100%"
     },
@@ -389,7 +403,7 @@
     "total_voice_recommendations": 0,
     "principle": "Atlas exists to strengthen the relationship between James and the customer. It does not exist to replace it."
   },
-  "operational_status": "⚠️ Action Required: 32 QPaint Email 2 P1 customers ($2.1M+) overdue for Email 3. Template not designed. FF1 Email 2 drafts due Monday. 5 client-side blockers ($300K+). Full audit published. All systems healthy. Weekend priorities defined.",
+  "operational_status": "⚠️ Action Required: 32 QPaint Email 2 P1 customers overdue ($2.1M+). Email 3 template not designed. FF1 Email 2 drafts due Monday (19 Outreach Active, 112 with First Contact). Gmail audit: ✅ 0 discrepancies (136/136 verified). ⚠️ Delegation atlas@→james@ denied (403). 5 client-side blockers. Full audit published. Weekend priorities defined.",
   "vault_health": {
     "description": "Complete state of the Not Forgotten knowledge vault — the institutional memory that compounds forever.",
     "decisions": {
