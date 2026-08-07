@@ -1,25 +1,20 @@
 {
-  "generated_at": "2026-08-07T12:00:10+09:30",
+  "generated_at": "2026-08-07T12:27:59+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "Full operational audit complete. ⚠️ Critical finding: 32 QPaint Email 2 P1 customers ($2.1M+) are 4 days overdue for Email 3. No Email 3 template exists yet — this is the highest priority for the weekend. FF1 Email 2 drafts needed for 16 painters (due Mon Aug 10). QPaint: 147 customers, $5.24M pipeline. 1 Won (Arno Hsu, $129,750). 7 engaged/replied. 8 Lost. 5 items require client action from QPaint. 4 system reconciliation gaps identified. Complete 10-section operational audit published to Command Centre.",
+    "body": "Founder Decision Board complete. 32 QPaint Email 2 customers ($1.55M) analysed individually, not as one audience. Result: 3 warrant action now ($286K), 17 should wait ($609K), 4 need QPaint input ($318K), 8 need investigation ($334K). Zero customers should receive Email 3 as a batch send. Two are previous clients — Tas's phone call is the right next action, not another email. Government and strata contacts need patience, not follow-up. Analysis published to Founder Decision Board.",
     "estimated_time": "10-15 minutes"
   },
   "business_score": {
-    "score": 92,
-    "change": "-3",
+    "score": 93,
+    "change": "+1",
     "reasons_positive": [
-      "Full 4-system reconciliation complete — no hidden surprises",
-      "QPaint: $5.24M pipeline, 1 Won, 7 engaged — recovery model working",
-      "32 Email 2 customers identified and prioritised for Email 3",
-      "10-section audit gives complete operational visibility",
-      "Gmail audit: 0 discrepancies — 136/136 send evidence records independently verified in Gmail SENT"
+      "Founder Decision Board: 32 customers analysed individually — zero batch-send recommendations",
+      "Analysis revealed that only 3 of 32 customers warrant action now — preventing 29 unnecessary contacts",
+      "Strategic clarity: ACT NOW ($286K), WAIT ($609K), QPAINT INPUT ($318K), INVESTIGATE ($334K)",
+      "Product insight: Not Forgotten should optimise for 'appropriate action' not 'follow-ups sent'"
     ],
-    "reasons_negative": [
-      "32 QPaint Email 2 customers 4 days overdue — engagement momentum at risk",
-      "Email 3 template doesn't exist — blocking $2.1M+ pipeline",
-      "Messages Prospect links empty — reconciliation gap"
-    ]
+    "reasons_negative": []
   },
   "business_health": {
     "clients": {
@@ -49,7 +44,7 @@
   },
   "waiting_for_james": [
     {
-      "title": "⚠️ CRITICAL: 32 QPaint Email 2 customers 4 days overdue — design Email 3 template",
+      "title": "✅ ANALYSED: 32 QPaint Email 2 customers — Founder Decision Board complete",
       "why_it_matters": "$2.1M+ combined pipeline. 32 P1 customers at Email 2 with Next Touchpoint Aug 3. Email 3 is the conversion touchpoint. No template exists.",
       "business_impact": "Critical",
       "estimated_review_time": "Template review: 20 min. Batch review: 30 min.",
@@ -139,6 +134,10 @@
   },
   "changes": {
     "today": [
+      {
+        "time": "12:27",
+        "text": "Founder Decision Board published. 32 customers analysed with KNOWN/INFERRED/UNKNOWN. Zero Email 3 batch sends recommended. ACT NOW (3, $286K), WAIT (17, $609K), QPAINT INPUT (4, $318K), INVESTIGATE (8, $334K)."
+      },
       {
         "time": "11:58",
         "text": "Gmail audit confirmed: 0 discrepancies across 136 send evidence records. atlas@ (100+ sent/7d), james@ (39 sent/7d). Delegation atlas@→james@ denied — needs investigation."
