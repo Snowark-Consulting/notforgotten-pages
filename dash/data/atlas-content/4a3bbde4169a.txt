@@ -42,7 +42,8 @@ Three hops max: Registry → Domain Index → Detail Card → Source.
 
 - [[Voice Review Checklist]] (knowledge/voice-review-checklist.md) — MANDATORY 8-point gate. Every customer-facing email runs this before presentation to James. Decision: 2026-07-07-communication-voice-standard.
 - [[Tracking Verification Checklist]] (knowledge/tracking-verification-checklist.md) — MANDATORY pre-launch gate. GA4, Clarity, tracking pixel, test open, landing page events. No campaign launches without full pass. Established 2026-07-27.
-- [[Production Operating Protocol]] (knowledge/production-operating-protocol.md) — Permanent operating rules v1.0.0: verified reality, Gmail authority, state transitions, Founder Approval, pre-send verification, duplicate protection, intake, pagination, model recovery, communication quality. 20 rules. 6 CODE-enforced, 2 WATCHDOG-enforced, 12 DOC-enforced (6 flagged for hardening). Established 2026-08-07. Load at boot.
+- [[Production Operating Protocol]] (knowledge/production-operating-protocol.md) — Protocol v1.1.0. Phase 1 Production Cutover CERTIFIED (2026-08-08). Canonical Send Authority with 11-gate pipeline. Send Classification (CUSTOMER/SYSTEM_INTERNAL/TEST_NON_PRODUCTION). Founder Approval code-enforced. Send window enforced. Idempotency enforced. 15/15 regression. Scheduling incident lesson. Load at boot.
+- [[Recovery Bootstrap]] (knowledge/recovery-bootstrap.md) — Complete operating knowledge for model restart / provider failure. Critical architecture, data paths, recovery sequence. Load after any model or provider failure.
 
 ## Knowledge (domain indexes — follow the pointers)
 
@@ -193,6 +194,10 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 - [[Decision: Founder Attention Verify James Sent]] (knowledge/decisions/2026-08-08-founder-attention-verify-james-sent.md) — Verify james@ Sent folder before any founder-attention escalation. Gate 8c.
 - [[Decision: QPaint Four Email 2 Approved]] (knowledge/decisions/2026-08-08-qpaint-four-email2-approved.md) — 4 Email 2 drafts approved for Aug 8 send. Discovery-oriented Customer Care.
 - [[QPaint Email 2 Production Run]] (knowledge/production-evidence/2026-08-08-qpaint-email2-production-run.md) — 4/4 sent, verified, recorded, advanced. Evidence record.
+- [[Decision: Phase 1 Production Cutover]] (knowledge/decisions/decision-2026-08-08-phase-1-certified.md) — Canonical Send Authority CERTIFIED. 11-gate pipeline, 15/15 regression. Protocol v1.1.0. Review: Sep 8.
+- [[Decision: Quote Insights Retention Layer]] (knowledge/decisions/2026-08-08-quote-insights-retention-layer.md) — Monthly Quote Insights V1 as official product retention tool. Review: Nov 8.
+- [[Quote Insights V1]] (knowledge/quote-insights-v1.md) — Product architecture for Monthly Quote Insights: retention tool, Outcome Data Model, CVS scoring, business value demonstration.
+- [[Recovery Bootstrap]] (knowledge/recovery-bootstrap.md) — Complete operating knowledge for model/provider recovery. Protocol v1.1.0. Architecture, data paths, recovery sequence.
 
 ## Email Intelligence
 - `skills/email/email-intelligence-mining/SKILL.md` — historical deep-dive mining of Gmail mailboxes for patterns, contacts, objections, pricing, pipeline data. Not for real-time monitoring.

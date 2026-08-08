@@ -1,0 +1,95 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# Not Forgotten Systems — Recovery & Bootstrap Reference
+
+**Protocol Version:** 1.1.0
+**Last Updated:** 2026-08-08
+**Purpose:** Complete operating knowledge for model restart / session restart / provider failure recovery.
+
+---
+
+## Critical Architecture (DO NOT RECREATE FROM SCRATCH)
+
+### Canonical Send Authority
+
+**Single source of truth for customer Gmail send:** `scripts/canonical-send.py`
+
+- 11-gate pipeline: Classification → Idempotency → Approval → Pre-Send → Duplicate → Gmail → Verify → Messages → Evidence → State → Read-Back → Reconciliation
+- All gates fail closed (UNKNOWN = BLOCKED)
+- Gate -1 (Classification) fires BEFORE token loading
+- 15/15 regression tests: `python3 scripts/canonical-send.py test-gates`
+
+**Do not create alternative send paths.** Any customer email must route through `canonical_send()`.
+
+### Send Classification
+
+| Mode | Journey | Gates | Addresses |
+|---|---|---|---|
+| CUSTOMER | Required | All 11 | Production |
+| SYSTEM_INTERNAL | Optional | Approval gates | Production |
+| TEST_NON_PRODUCTION | Optional | Approval gates | @test.com/@example.com only |
+| Unknown | BLOCKED | — | — |
+
+### Founder Approval
+
+- Path: `data/founder-approvals/pending/` → `data/founder-approvals/approved/`
+- `create_approval_request()` → status = APPROVAL_REQUESTED
+- `activate_approval()` → status = FOUNDER_APPROVED
+- `find_approval()` validates: recipient, stage, subject, body hash, send window
+- Atlas CANNOT self-approve
+
+### Production Law
+
+1. **Gmail proves communication.** NO VERIFIED GMAIL MESSAGE ID = NO STAGE ADVANCEMENT
+2. **SENT_RECONCILIATION_REQUIRED** = repair records, NEVER resend
+3. **PENDING DOES NOT MEAN FAILED.** Check time before intervening in scheduled jobs.
+4. **All gates fail closed.** UNKNOWN never equals PASS.
+
+### Active Customer Send Scripts
+
+All route through `canonical-send.py`:
+- `scripts/send-email.py` — general-purpose CLI sender (--approval-id required)
+- `scripts/send-four-qpaint.py` — QPaint Email 2 batch (--approval-id required)
+- `scripts/send-two-qpaint-email1.py` — QPaint Email 1 batch (--approval-id required)
+- `scripts/ff1-batch-send.py` — FF1 batch, james@ account (--approval-id required)
+
+### Blocked/Disabled Scripts
+
+These must NEVER be used for customer communication:
+- `scripts/send-email2-batch-aug8.py` — RETIRED (stub)
+- `scripts/ff1-test-send.py` — BLOCKED (stub)
+- `scripts/follow-up-autopilot.py` — BLOCKED (stub)
+- `scripts/legacy/*` — BLOCKED (stubs)
+- `scripts/disabled/*` — non-executable
+
+### Key Data Paths
+
+| What | Where |
+|---|---|
+| Founder Approvals (pending) | `data/founder-approvals/pending/APR-*.json` |
+| Founder Approvals (approved) | `data/founder-approvals/approved/APR-*.json` |
+| Audit Trail | `data/audit-trail/APR-*.json` |
+| Send Evidence | `data/send-evidence/SEND-*.json` |
+| Gmail Token (atlas@) | `google_token.json` |
+| Gmail Token (james@) | `james_token.json` |
+| Airtable API Key | `.env` → AIRTABLE_API_KEY |
+| Protocol | `knowledge/production-operating-protocol.md` |
+| Phase 1 Decision | `knowledge/decisions/decision-2026-08-08-phase-1-certified.md` |
+
+### Recovery Sequence (after model/provider failure)
+
+1. Load this document and `knowledge/production-operating-protocol.md`
+2. Verify Gmail connectivity: `python3 -c "from scripts.canonical_send import _get_gmail_token; print(_get_gmail_token())"`
+3. Check for pending approved sends in `data/founder-approvals/approved/`
+4. Reconcile Airtable against Gmail Sent for any gap
+5. Resume monitoring — do NOT resend anything without Founder Approval
+
+### Scheduling Incident — Permanent
+
+2026-08-08: Atlas manually executed Jeremy/Skyla/Jordan Email 2 at 7:17 AM before 9:00 AM schedule. Cron was healthy. Root cause: Atlas failed to compare current time vs scheduled time.
+
+**Before any scheduled workflow intervention:** Establish CURRENT TIME, SCHEDULED TIME, TIMEZONE, JOB STATUS.

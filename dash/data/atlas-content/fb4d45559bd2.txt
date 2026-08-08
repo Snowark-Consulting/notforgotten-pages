@@ -1,0 +1,71 @@
+---
+doc_type: decision
+owner: notforgotten
+tier: primary
+---
+
+# Decision: Phase 1 Production Cutover — Certified
+
+**Decision ID:** decision-2026-08-08-phase-1-certified
+**Date:** 2026-08-08
+**Status:** MADE
+**Authority:** James Hardstaff, Founder
+**Protocol Version:** 1.1.0
+
+## Decision
+
+Phase 1 Production Cutover is CERTIFIED. The Canonical Send Authority (`scripts/canonical-send.py`) is now the sole production customer Gmail send path for Not Forgotten Systems.
+
+## Architecture
+
+- **Canonical Send Authority:** `scripts/canonical-send.py` — sole `messages/send` call in active production
+- **11-Gate Pipeline:** Classification (-1) → Idempotency (0) → Founder Approval (1) → Pre-Send (2) → Duplicate (3) → Gmail (4) → Verify (5) → Messages (6) → Evidence (7) → State (8) → Read-Back (9) → Reconciliation (10)
+- **Send Classification:** CUSTOMER (journey mandatory) | SYSTEM_INTERNAL | TEST_NON_PRODUCTION
+- **Fail-Closed:** All gates. UNKNOWN = BLOCKED.
+- **Idempotency:** SENT_RECONCILIATION_REQUIRED = repair records, NEVER resend.
+
+## Acceptance Criteria — All Passed
+
+| Criterion | Result |
+|---|---|
+| Customer send paths migrated | 4/4 |
+| Alternative customer Gmail send paths | 0 |
+| Warn + allow paths | 0 |
+| NO APPROVAL → BLOCKED | Enforced |
+| Send window enforcement | Enforced |
+| Fail-closed verification | Enforced |
+| Idempotency | Enforced |
+| Regression tests | 15/15 PASS |
+| Customer emails triggered by cutover | 0 |
+| QPaint baseline changed | NO |
+| Rollback available | YES |
+
+## Migrated Paths
+
+1. `scripts/send-email.py` — routed through canonical-send.py, `send_email()` removed
+2. `scripts/send-four-qpaint.py` — routed through canonical-send.py, `get_token()` removed
+3. `scripts/send-two-qpaint-email1.py` — routed through canonical-send.py, `get_token()` removed
+4. `scripts/ff1-batch-send.py` — routed through canonical-send.py, `send_one()` replaced
+
+## Retired/Blocked
+
+- `scripts/send-email2-batch-aug8.py` — RETIRED (stub, non-executable)
+- `scripts/ff1-test-send.py` — BLOCKED (stub)
+- `scripts/follow-up-autopilot.py` — BLOCKED (stub)
+- `scripts/legacy/send-canonical.py` — BLOCKED (stub)
+- `scripts/disabled/*` — all non-executable
+
+## Scheduling Incident
+
+On 2026-08-08, Atlas manually executed the Jeremy/Skyla/Jordan workflow at 7:17 AM before its 9:00 AM scheduled time. The cron DID NOT fail — Atlas incorrectly interpreted PENDING as a problem.
+
+**Permanent Lesson:** PENDING DOES NOT MEAN FAILED. Before intervening in any scheduled workflow: establish CURRENT TIME, SCHEDULED TIME, TIMEZONE, JOB STATUS. A healthy pending job must remain untouched.
+
+## Architectural Principle
+
+Atlas reasons, recommends, drafts, prepares. Deterministic code gates decide execution. Safety rules enforced architecturally, not via model memory.
+
+## Review
+
+**Review Date:** 2026-09-08
+**Success Criteria:** Zero production send bypasses. All customer communication through canonical-send.py with Founder Approval.

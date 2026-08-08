@@ -1,0 +1,51 @@
+---
+doc_type: decision
+owner: notforgotten
+tier: primary
+---
+
+# Decision: Quote Insights V1 — Retention Layer
+
+**Date:** 2026-08-08
+**Status:** Made
+**Author:** James Hardstaff
+**Category:** Product Strategy
+
+## Decision
+
+Monthly Quote Insights V1 is an official retention tool within the Not Forgotten product strategy. Its purpose is to create ongoing value for clients beyond the core quote follow-up service by showing them what Not Forgotten is learning from their quote pipeline and customer conversations.
+
+## Retention Chain
+
+FOLLOW-UP creates customer conversations → CUSTOMER CONVERSATIONS create structured data → STRUCTURED DATA creates business intelligence → BUSINESS INTELLIGENCE creates ongoing value → ONGOING VALUE supports CLIENT RETENTION.
+
+## Retention Goal
+
+A client should eventually feel: "Even beyond the jobs Not Forgotten recovers, I don't want to lose the visibility and intelligence it gives me about my business."
+
+## Report Structure (V1)
+
+1. The Money — Won, Recovered, Lost, Open
+2. Revenue Recovered — specific recovery narratives
+3. Old Quotes Cleared Up — dormant backlog visibility
+4. Why Work Was Lost — verified reasons only
+5. Worth Watching — max 5 curated opportunities
+6. What I'd Pay Attention To — max 3 evidence-based actions
+7. One Thing We're Learning — single data-grounded insight
+
+## Principles
+
+- Evidence-based, not manufactured
+- Simple, not analytics-dashboard
+- Commercially useful, not technical
+- Easy for a business owner to understand
+- Generated from data NF already collects through core follow-up
+
+## Key Correction
+
+QPaint owner is Tas Moulis, not Travis. All future analysis, reports, Quote Insights and communications use "Tas."
+
+## Related
+
+- `knowledge/quote-insights-v1.md` — full product architecture
+- 90-day validation: 8 measures tracking outcome volume, recovery, loss specificity, and client action rate

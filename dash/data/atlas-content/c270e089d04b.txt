@@ -1,0 +1,284 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# Quote Insights V1 — Product Architecture
+## Not Forgotten Systems
+### Certified: 2026-08-08 | Retention Layer: Active
+
+---
+
+## STRATEGIC PURPOSE
+
+Monthly Quote Insights is a **retention tool** within the Not Forgotten product strategy. Its purpose is not simply reporting. It creates ongoing value for clients beyond the core quote follow-up service by showing them what Not Forgotten is learning from their quote pipeline and customer conversations.
+
+### Retention Chain
+
+```
+FOLLOW-UP creates customer conversations
+→ CUSTOMER CONVERSATIONS create structured data
+→ STRUCTURED DATA creates business intelligence
+→ BUSINESS INTELLIGENCE creates ongoing value
+→ ONGOING VALUE supports CLIENT RETENTION
+```
+
+### Retention Goal
+
+A client should eventually feel: "Even beyond the jobs Not Forgotten recovers, I don't want to lose the visibility and intelligence it gives me about my business."
+
+### The monthly report answers six questions
+
+1. What happened to my quotes?
+2. What money was recovered?
+3. Why am I losing work?
+4. What opportunities should I pay attention to?
+5. What is the data teaching me about my business?
+6. What should I consider doing next?
+
+---
+
+## CORE PRODUCT
+
+Every quote is tracked and professionally followed up until there is a meaningful next step or verified outcome.
+
+---
+
+## IMMEDIATE VALUE / ROI
+
+Revenue recovery from dormant opportunities where attribution evidence supports it.
+
+---
+
+## RETENTION LAYER
+
+Monthly Quote Insights — a one-page report containing:
+
+1. What happened to your quotes (Won, Lost, Open, Recovered)
+2. What was recovered and how
+3. Old quotes where follow-up revealed what is happening
+4. Why work was lost (verified reasons only)
+5. Opportunities worth watching (max 5, curated)
+6. What to pay attention to this month (max 3 evidence-based actions)
+7. One thing we're learning from the data
+
+---
+
+## CUSTOMER-FACING TEMPLATE — V1
+
+---
+
+# Your Quote Insights — [Month] [Year]
+
+**[Client Business Name]**
+
+---
+
+### The money
+
+| | |
+|---|---|
+| Quotes under management | [total] |
+| Total quoted value | $[total value] |
+| | |
+| Won this month | [won count] — $[won value] |
+| Recovered | [recovered count] — $[recovered value] |
+| Lost this month | [lost count] — $[lost value] |
+| Still open | [open count] — $[open value] |
+
+Every active quote is being tracked with a next step.
+
+---
+
+### Revenue recovered
+
+**$[recovered value] — [job location]**
+
+[Customer name]. [Job type]. [Recovery narrative — what happened, how long was it dormant, what did NF surface, what was the outcome.]
+
+[Handover status if applicable.]
+
+---
+
+### Old quotes we cleared up
+
+[Lead-in describing the dormant backlog at NF start — count, value, age criteria.]
+
+This month, follow-up revealed what is happening with [count] of them:
+
+| | |
+|---|---|
+| Won | [count] — $[value] |
+| Lost | [count] — $[value] |
+| Still deciding | [count] — $[value] |
+
+That's $[total] of old quotes where follow-up has now revealed what is happening. We're working through the remaining [count].
+
+---
+
+### Why work was lost
+
+[Lost count] quotes confirmed lost this month worth $[lost value].
+
+**[Reason group 1]** — [count] customers. [What we know. What we don't know.]
+
+**[Reason group 2]** — [count] customers. [Specific verified examples where impactful.]
+
+**[Reason group 3]** — [count] customers. [Narrative if noteworthy — e.g. communication failure, previous client, architect.]
+
+---
+
+### Worth watching
+
+**[Customer] — $[value]**
+[One sentence explaining why — relationship type, opportunity stage, customer signal, commercial context.]
+
+Maximum 5 entries. Select by value + engagement signals + timing + commercial context — not by dollar value alone.
+
+---
+
+### What I'd pay attention to this month
+
+**1. [Action heading]**
+
+[One paragraph. Specific. Evidence-based. Something the business owner can actually do. Not an NF system task.]
+
+**2. [Action heading]**
+
+[One paragraph.]
+
+**3. [Action heading]**
+
+[One paragraph.]
+
+Maximum 3 actions.
+
+---
+
+### One thing we're learning
+
+[One insight. Grounded in this client's verified data. No generalisations about "most businesses." No NF sales pitch. Should make the business owner think differently about their pipeline, customers or decisions.]
+
+---
+
+*Next update: [Month Year]*
+
+---
+
+## EVIDENCE RULES
+
+### Report generation rules
+
+1. Every number comes from the canonical BI resolver — never from ad-hoc classification.
+2. Every outcome is verified by customer reply evidence or Gmail delivery confirmation.
+3. Loss reasons come from Primary Objection field — never inferred from silence.
+4. Recovered revenue uses Tier 1 attribution only. Assisted and Observed wins do not appear as Recovered.
+5. Worth Watching selections use value + engagement signals + timing + context — not dollar value alone.
+6. Recommended actions must be: specific, evidence-based, commercially relevant, and something the business owner can actually do.
+7. "One thing we're learning" must be grounded in this client's data. No generalisations. No NF sales language.
+8. Never manufacture an insight because a section exists. If evidence is insufficient, say so or omit the claim.
+9. Never claim "this would have been lost without Not Forgotten."
+10. Never claim absolute prevention ("this won't happen again").
+
+### Language rules
+
+- Plain English. Readable by a busy business owner in five minutes.
+- No: CVS, attribution tiers, evidence confidence ratings, resolver diagnostics, system architecture, sequence terminology.
+- Yes: Money, customers, decisions, outcomes, reasons, actions.
+
+---
+
+## INTERNAL METRICS (not customer-facing)
+
+| Metric | Purpose |
+|---|---|
+| Commercial Visibility Surfaced (CVS) | Dormant backlog clearance rate |
+| Win Attribution (Recovered/Assisted/Observed/Pending) | Revenue attribution honesty |
+| Operational Leakage classification | Communication/visibility failure tracking |
+| Loss reason specificity rate | Intelligence quality |
+| Evidence confidence (HIGH/MEDIUM/LOW) | Internal rigour |
+| Resolver invariants | System integrity |
+
+---
+
+## 90-DAY VALIDATION
+
+### Measures
+
+| # | Measure | Target |
+|---|---|---|
+| 1 | Verified commercial outcomes surfaced | ≥15 cumulative dormant outcomes |
+| 2 | Recovered wins | ≥1 additional recovery |
+| 3 | Recovered value | Growth from baseline |
+| 4 | Percentage of losses with specific verified reason | ≥60% of new losses |
+| 5 | Active-consideration opportunities surfaced | Tracked — no target yet |
+| 6 | Communication/process failures identified | 0 new instances |
+| 7 | Time from quote to verified decision | Emerging metric — baseline only |
+| 8 | Business actions taken because of Quote Insights | ≥1 observed action |
+
+### Measure 8 — Action definition
+
+Record only where evidence exists the client changed or reviewed something because of an insight:
+
+- Reviewed pricing approach
+- Changed quoting for specific customer types
+- Reviewed a lead source investment
+- Changed an internal communication process
+- Prioritised a specific opportunity identified in the report
+- Changed follow-up handling based on evidence
+- Corrected missing business data (e.g. lead sources)
+
+Do not count reading the report as an action. Observe indirectly — do not survey or track.
+
+---
+
+## PRODUCT BOUNDARIES
+
+### CORE PRODUCT — always
+
+- Professional follow-up on every quote
+- Customer reply detection and response
+- Outcome surfacing and classification
+- Revenue recovery from dormant opportunities
+
+### RETENTION LAYER — must earn its place
+
+- Monthly Quote Insights report
+
+### INTERNAL INTELLIGENCE — supports the product
+
+- CVS
+- Attribution model
+- Evidence confidence
+- Operational leakage classification
+- Resolver diagnostics
+- Portfolio reconciliation
+
+### DO NOT BUILD
+
+- Full CRM
+- Quoting software
+- Generic BI dashboard with 20+ charts
+- Large analytics suite
+- Sales consultancy
+- Custom reports requiring manual analysis per client
+- Automated business recommendations
+- Industry benchmarks before 3+ clients in same vertical
+- Client-facing portal or login
+
+### SCALABILITY PRINCIPLE
+
+Quote Insights must ultimately be generated automatically from information Not Forgotten already collects while performing its core follow-up function. James should not need to manually analyse every client's business each month. Human approval may remain during validation, but manual analysis must not become the product.
+
+---
+
+## VERSION HISTORY
+
+| Version | Date | Status |
+|---|---|---|
+| V1.0 | 2026-08-08 | Approved — baseline customer-facing product |
+
+---
+
+*This document governs the Monthly Quote Insights product. It does not replace the Production Operating Protocol or the Trust Framework. It defines product strategy, not communication architecture.*

@@ -1,10 +1,90 @@
 # Production Operating Protocol
 
-**Protocol Version:** 1.0.0
+**Protocol Version:** 1.1.0
 **Established:** 2026-08-07
+**Last Amended:** 2026-08-08 — Phase 1 Production Cutover Certified
 **Authority:** James Hardstaff, Founder — Not Forgotten Systems
-**Scope:** All QPaint production operations. Extends to all future Not Forgotten clients.
-**Supersedes:** All prior undocumented or conversational operating conventions.
+**Scope:** All Not Forgotten Systems production operations.
+**Supersedes:** Protocol v1.0.0 and all prior operating conventions.
+
+---
+
+## Phase 1 Production Cutover — Certified
+
+**Status:** PASS — CERTIFIED (2026-08-08)
+**Canonical Send Authority:** `scripts/canonical-send.py` — sole Gmail customer-send authority
+**Regression:** 15/15 tests pass
+**Alternative Customer Gmail Send Paths:** 0
+**Warn + Allow Paths:** 0
+
+### Send Classification (CODE)
+
+| Classification | Journey Reference | Customer Gates | Production Addresses |
+|---|---|---|---|
+| CUSTOMER | Mandatory | All gates | Permitted |
+| SYSTEM_INTERNAL | Optional | Approval gates apply | Permitted |
+| TEST_NON_PRODUCTION | Optional | Approval gates apply | Test addresses only |
+| Unknown/Missing | BLOCKED | — | — |
+
+### Canonical Send Authority — 11-Gate Pipeline
+
+| Gate | Name | Class | Behaviour |
+|---|---|---|---|
+| -1 | Classification | CODE | Validates send mode. CUSTOMER requires journey params. Unknown → BLOCKED |
+| 0 | Idempotency | CODE | Prior verified Gmail send → BLOCKED. Never resend. |
+| 1 | Founder Approval | CODE | FOUNDER_APPROVED artefact required. Binds: recipient, stage, subject, body hash, send window, founder identity |
+| 2 | Pre-Send Verification | CODE | Gmail connectivity, inbox check for customer reply |
+| 3 | Duplicate Protection | CODE | Gmail Sent scan for matching subject+recipient |
+| 4 | Gmail Send | CODE | Single point of Gmail API call |
+| 5 | Gmail Sent Verification | CODE | Independent verification in Gmail Sent folder |
+| 6 | Messages Record | CODE | Airtable Messages table (CUSTOMER only) |
+| 7 | Send Evidence | CODE | Permanent evidence record on disk |
+| 8 | State Transition | CODE | Airtable stage advancement (CUSTOMER only) |
+| 9 | Airtable Read-Back | CODE | Independent verification of Airtable write (CUSTOMER only) |
+| 10 | Reconciliation | CODE | Final status: COMPLETE or SENT_RECONCILIATION_REQUIRED |
+
+### Founder Approval Gate (CODE)
+
+Atlas cannot self-approve. APPROVAL_REQUESTED ≠ FOUNDER_APPROVED.
+
+No valid Founder Approval = BLOCKED.
+
+Approval binds: Customer, Journey, Recipient, Channel, Communication Stage, Subject, Exact Body Hash, Approved Send Window (not_before + not_after, Adelaide time), Founder Identity, Approval Timestamp, Approval Status.
+
+Any material change invalidates approval.
+
+### Send Window (CODE)
+
+- Before approved window → BLOCKED
+- Inside approved window → eligible subject to remaining gates
+- After approved window → BLOCKED
+- Unknown time/timezone state → BLOCKED
+
+### Idempotency (CODE)
+
+Once Gmail proves a customer communication was sent, it must never be resent because a downstream system failed. Downstream failure after verified Gmail send → SENT_RECONCILIATION_REQUIRED. Repair the records. Never resend the customer communication.
+
+### Fail-Closed (CODE)
+
+All gates fail closed. UNKNOWN never equals PASS.
+
+### Scheduling Incident — Permanent Lesson
+
+On 2026-08-08, Atlas manually executed a scheduled workflow at 7:17 AM before its 9:00 AM scheduled time. The cron did not fail. Atlas failed to compare current time against scheduled time before intervening.
+
+**PENDING DOES NOT MEAN FAILED.**
+
+Before investigating or intervening in any scheduled workflow, Atlas must establish:
+- CURRENT TIME
+- SCHEDULED TIME
+- TIMEZONE
+- JOB STATUS
+
+A healthy scheduled job whose time has not arrived must remain untouched. Founder-approved timing is part of Founder Approval.
+
+### Architectural Principle
+
+Atlas may reason, recommend, draft, and prepare. Deterministic production gates decide whether execution is permitted. Critical safety and production rules must be enforced architecturally (code gates) wherever possible rather than relying on model memory.
 
 ---
 
@@ -328,3 +408,11 @@ These rules are PRODUCTION OPERATING PROTOCOL. Do not weaken, bypass, or reinter
 ---
 
 *Protocol Version 1.0.0. Established 2026-08-07 by James Hardstaff. All prior undocumented or conversational operating conventions are superseded by this document.*
+
+---
+
+## 21. Atomic HQ Update (Established 2026-08-08)
+
+**Class: CODE (hq-update.py)**
+
+"Update HQ" must always mean a complete atomic operation. No partial refreshes. No stale timestamps. Single entry point: `scripts/hq-update.py`. Morning cron `41c260e0c7c3` at 07:00 ACST. Data and timestamp represent the same atomic generation event. Completion requires: data refresh, all sections generated, generated_at refreshed, deploy complete, raw verified, live verified.

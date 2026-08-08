@@ -620,6 +620,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decisions_2026_08_08_quote_insights_retention_layer",
+      "label": "Quote Insights Retention Layer",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-08-quote-insights-retention-layer.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "5a3dc403f8c5",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decisions_index",
       "label": "Decisions / Index",
       "file_type": "doc",
@@ -628,6 +639,17 @@
       "community_name": "Knowledge",
       "content_hash": "45a68634d126",
       "val": 12.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decisions_decision_2026_08_08_phase_1_certified",
+      "label": "Decision 2026 08 08 Phase 1 Certified",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/decision-2026-08-08-phase-1-certified.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "fb4d45559bd2",
+      "val": 6.0,
       "color": "#a78bfa"
     },
     {
@@ -1115,6 +1137,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_quote_insights_v1",
+      "label": "Quote Insights V1",
+      "file_type": "doc",
+      "source_file": "knowledge/quote-insights-v1.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "c270e089d04b",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_quote_intake_multi_signal",
       "label": "Quote Intake Multi Signal",
       "file_type": "doc",
@@ -1122,6 +1155,17 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "add29dcef974",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_recovery_bootstrap",
+      "label": "Recovery Bootstrap",
+      "file_type": "doc",
+      "source_file": "knowledge/recovery-bootstrap.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "fe78f1db3f4b",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -1645,6 +1689,13 @@
     {
       "source": "agent_registry",
       "target": "knowledge_production_operating_protocol",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_recovery_bootstrap",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
@@ -2338,6 +2389,27 @@
     {
       "source": "agent_registry",
       "target": "knowledge_production_evidence_2026_08_08_qpaint_email2_production_run",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_decision_2026_08_08_phase_1_certified",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_08_quote_insights_retention_layer",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_quote_insights_v1",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
