@@ -1,0 +1,76 @@
+---
+doc_type: execution-authority
+owner: notforgotten
+tier: primary
+---
+
+# RE-ENG-AUG-2026 Campaign Execution Authority
+
+**Status:** SCHEDULED & APPROVED
+**Created:** 2026-08-09
+**Owner:** James Hardstaff / Founder
+**Change Authority:** Founder Approval required
+**Failure Behaviour:** FAIL CLOSED
+
+## Schedule
+
+| Field | Value |
+|---|---|
+| Schedule Status | CONFIRMED |
+| Execution Time (ACST) | Monday 10 August 2026, 9:00 AM |
+| Execution Time (UTC) | Sunday 9 August 2026, 23:30 |
+| Cron Job ID | `1fc8883c1f64` |
+
+## Audience
+
+| Field | Value |
+|---|---|
+| Approved Baseline | 147 |
+| Requirement | 147 is baseline, NOT a forced target |
+| Rule | Per-recipient re-check at execution; block any that fail |
+
+## Sender
+
+| Field | Value |
+|---|---|
+| From | `james@notforgotten.com.au` |
+| Display Name | James Hardstaff |
+| Signature | Canonical James Gmail signature, CID-safe, exactly once |
+
+## Template
+
+**CLOSED BASELINE.** No further changes authorised to:
+- Subject, email copy, YES/NO CALL buttons, button styling, response URLs
+- Unsubscribe, sender identity, signature, MIME/CID handling, tracking
+
+## Execution Sequence
+
+1. Fresh recipient eligibility check
+2. Suppression/unsubscribe check
+3. Duplicate/idempotency check
+4. Verify sender identity
+5. Verify signature integrity
+6. Verify exact approved template
+7. Verify recipient-specific tracking
+8. Send sequentially
+9. Verify Gmail send
+10. Write evidence to Airtable
+
+## Failure Rules
+
+- Individual recipient failure → BLOCK, continue
+- Systemic/infrastructure failure → STOP CAMPAIGN
+
+## Post-Execution Reconciliation
+
+Approved baseline vs actual eligible vs attempted vs sent vs blocked vs failed vs bounced vs duplicates. Airtable write-back + Gmail verification.
+
+## KPI
+
+**Permission-to-Call Rate = YES / successfully delivered emails**
+
+Open tracking = diagnostic only. Never trigger outreach.
+
+## No-Early-Send
+
+No campaign emails before Monday 10 August 2026, 9:00 AM ACST.

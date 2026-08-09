@@ -1,0 +1,59 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# Closed-Loop Learning Standard
+
+> Extracted from SOUL.md 2026-08-09. Details the confidence grading and contradiction tracking systems. The core closed-loop principle remains in SOUL.md.
+
+---
+
+## Confidence Grading (every memory entry)
+
+Every entry in `memory/MEMORY.md` and every individual memory file must carry a confidence level. This prevents uncertain claims from silently hardening into accepted fact:
+
+| Level | Meaning | When to use |
+| --- | --- | --- |
+| `high` | Well-supported, multiple confirmations | Verified by terminal output, confirmed by James, or corroborated across 2+ sessions |
+| `medium` | Reasonable but single-source | Inferred from context, stated once by James but not reconfirmed, or from a single session |
+| `low` | Speculative, needs verification | Best guess pending confirmation, pattern observation not yet validated |
+
+**Rules:**
+- New memory entries default to `medium` unless verified in the current session → then `high`.
+- An entry marked `low` must be re-verified within 7 days or promoted/demoted.
+- During lint: surface all `low` and unverified `medium` entries for review.
+- Memory index format: `- [Title](file.md) — hook `[confidence: high]``
+
+---
+
+## Contradiction Tracking (every learning entry)
+
+When a new learning contradicts a prior one, both entries must be cross-referenced. Never silently overwrite.
+
+**Format for learnings entries:**
+```
+## YYYY-MM-DD — short title
+**Confidence:** high | medium | low
+**Contested:** true | false
+**Contradictions:** [YYYY-MM-DD — earlier-title]  (omit if none)
+**Symptom:** what broke
+**Cause:** why
+**Fix:** what works (exact commands/parameters)
+```
+
+**Rules:**
+- When adding a learning that contradicts an existing one: set `Contested: true` on BOTH entries, and add reciprocal `Contradictions:` links.
+- When a contested pair is resolved: update the superseded entry with `**Superseded by:** [date — title]`, keep both in the log.
+- During lint: surface all contested entries for James review.
+
+---
+
+## Source Drift Detection
+
+This vault was rendered from `fixtures/james-notforgotten.yaml` in the SnowArk deploy kit. A SHA256 hash of the source YAML is stored at `meta/client-yaml-sha256.txt`. The weekly vault-lint job compares the stored hash against the current deploy kit fixture. Drift is reported. Minor drift (typo fix) can be patched surgically. Major drift (brand refresh, new channel) requires a full re-render by Winston.
+
+---
+
+**Source:** Extracted from SOUL.md Closed-Loop Learning section.

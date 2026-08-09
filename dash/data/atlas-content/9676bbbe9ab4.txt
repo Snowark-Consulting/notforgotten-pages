@@ -92,6 +92,8 @@ Log: ~/.hermes/logs/inbox-pulse.log
 ||| Log Retention | c68ae5970e89 | daily 20:30 ACST (11:00 UTC) | local | — | No-agent script (`bin/log-retention.py`). Tiered retention: routine >48h deleted, failures preserved 90 days, protected records never touched. Daily summaries to `logs/daily-summaries/`. Added 2026-08-03. |
 ||| Storage Health | 506c5b3ae6bf | every 6h | local | — | No-agent script (`bin/storage-health.py`). Four-tier monitoring (Green/Amber/Red/Critical). Writes to dash.json. Surfaces to HQ when >80%. Added 2026-08-03. |
 ||| Storage Escalation | 48982944ea6e | every 6h+1min | telegram:-1003939051249 | — | Agent cron. Reads storage-health output. Sends Telegram alert only when Red (>90%) or Critical (>95%). Added 2026-08-03. |
+|| Morning HQ Refresh | 41c260e0c7c3 | daily 07:00 ACST (21:30 UTC) | local | — | No-agent script (`scripts/hq-update.py`). Refreshes headquarters-data.json and decision board. Added 2026-08-09. |
+|| RE-ENG-AUG-2026 Campaign | 1fc8883c1f64 | once at 2026-08-09 23:30 UTC (Mon 9AM ACST) | origin | airtable, production-standards, trust-framework | One-shot: sends single-email re-engagement campaign to 147 prospects. CLOSED BASELINE. Added 2026-08-09. |
 
 ## Hooks (event-driven)
 

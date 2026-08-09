@@ -60,7 +60,7 @@
 | | `2026-08-03-log-retention-standard` | Log Retention Standard — Tiered retention: routine >48h deleted, failures 90 days, protected never touched, daily summaries. | Aug 2026 | 🟢 Made | 2026-09-03 |
 | | `2026-08-03-quote-follow-up-delay` | 48-Hour Quote Follow-Up Delay — follow-up-autopilot waits 48h before Email 1. | Aug 2026 | 🟢 Made | 2026-09-03 |
 
-| | `2026-08-05-permanent-outreach-sender-james` | Permanent Outreach Sender: all NF outreach from james@ | Aug 2026 | 🟢 Made | 2026-09-05 |
+| | `permanent-outreach-sender-james` | Permanent Outreach Sender: all NF outreach from james@ | Aug 2026 | 🟢 Made | 2026-09-05 |
 | | `end-of-infrastructure-phase` | End of Infrastructure Phase — shift to evidence-led growth | Aug 2026 | 🟢 Made | 2026-11-05 |
 | | `2026-08-05-communication-channel-policy` | Communication Channel Policy — Email, SMS, Voice, WhatsApp governed | Aug 2026 | 🟢 Made | 2026-11-05 |
 | | `2026-08-05-quote-intake-standard` | Quote Intake Standard — 48-hour observation, human timing, clean inbox | Aug 2026 | 🟢 Made | 2026-11-05 |
@@ -68,6 +68,8 @@
 | | `2026-08-05-operational-handover-standard` | Operational Handover Standard — BK-008/BK-009, Operating Models, "Who owns the next action?" | Aug 2026 | 🟢 Made | 2026-10-05 |
 | | `2026-08-05-production-foundations` | Production Foundations — BK-010/BK-011, Silent Self-Check, Confidence Score. INC-002/003 converted to production law. | Aug 2026 | 🟢 Made | 2026-11-05 |
 | | `2026-08-05-intelligence-over-noise` | Intelligence Over Noise Standard — BK-012, Operational Action vs Business Intelligence, Monthly Client Reports | Aug 2026 | 🟢 Made | 2026-11-05 |
+| | `2026-08-05-airtable-operational-source-of-truth` | Airtable as Operational Source of Truth — four-tier Hierarchy of Truth, BK-013 Reality Always Wins | Aug 2026 | 🟢 Made | 2026-11-05 |
+| | `2026-08-05-permanent-communication-standard` | Permanent Communication Standard — every production communication must exist in Gmail, Airtable Messages, and Send Evidence | Aug 2026 | 🟢 Made | 2026-11-05 |
 | | `2026-08-06-communication-context-check` | Communication Context Check — 10-point mandatory pre-draft gate. Understand→Decide→Draft→Review→Approve→Send. | Aug 2026 | 🟢 Made | 2026-09-06 |
 | | `2026-08-06-observation-window-philosophy` | Observation Window Philosophy — customer experience, not human mimicry. Philosophical foundation. | Aug 2026 | 🟢 Made | N/A |
 | | `2026-08-06-pandadoc-extractor-v2-certified` | pandadoc-extract.py v2.0.0 Certified — AX-tree extraction for React SPAs. 6 primary + 2 additional fields. | Aug 2026 | 🟢 Made | 2026-11-06 |
@@ -132,7 +134,9 @@
 | 2026-11-05 | `2026-08-05-communication-ownership` | Communication Ownership | 🟢 |
 | 2026-11-05 | `2026-08-05-production-foundations` | Production Foundations — Silent Self-Check, Confidence Score | 🟢 |
 | 2026-11-05 | `2026-08-05-intelligence-over-noise` | Intelligence Over Noise Standard — BK-012 | 🟢 |
-|| 2026-11-06 | `2026-08-06-pandadoc-extractor-v2-certified` | pandadoc-extract.py v2.0.0 Certified — AX-tree extraction | 🟢 |
+| 2026-11-05 | `2026-08-05-airtable-operational-source-of-truth` | Airtable as Operational Source of Truth — BK-013 | 🟢 |
+| 2026-11-05 | `2026-08-05-permanent-communication-standard` | Permanent Communication Standard | 🟢 |
+| 2026-11-06 | `2026-08-06-pandadoc-extractor-v2-certified` | pandadoc-extract.py v2.0.0 Certified — AX-tree extraction | 🟢 |
 | 2026-09-07 | `2026-08-07-production-operating-protocol` | Production Operating Protocol v1.0.0 — 20 rules | 🟢 |
 | 2026-09-08 | `decision-2026-08-08-phase-1-certified` | Phase 1 Production Cutover CERTIFIED | 🟢 |
 | 2026-10-08 | `2026-08-08-founder-attention-verify-james-sent` | Verify James Sent before founder-attention escalation | 🟢 |
@@ -248,5 +252,5 @@ Based on patterns observed, Atlas should watch for:
 
 ---
 
-*Last updated: 2026-08-08*
-*8 founding + 48 living = 56 decisions recorded. 0 decisions reviewed. 4 challenges logged.*
+*Last updated: 2026-08-09*
+*8 founding + 56 living = 64 decisions recorded. 0 decisions reviewed. 4 challenges logged.*

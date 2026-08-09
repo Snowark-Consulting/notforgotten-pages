@@ -4,6 +4,8 @@
 **Current size:** 492 lines (31KB)
 **Target after split:** ~290 lines (SOUL.md) + ~160 lines (Agent/trust-bootstrap.md)
 
+> **Implementation note (2026-08-09):** The Trust OS extraction was implemented into `Agent/trust-framework.md` (213 lines) instead of `Agent/trust-bootstrap.md` as originally proposed. `trust-framework.md` is the canonical Trust OS file, loaded at boot (SOUL.md line 4 of Boot Context). This proposal is preserved as a historical planning record. The architecture decision to use `trust-framework.md` over `trust-bootstrap.md` was made during implementation.
+
 ## Problem
 
 SOUL.md has grown 82% in one week due to Trust OS deployment (Service Levels, Trust Test, Operational Trust Framework, Governance Review). At the current trajectory, it will exceed 600 lines within a month. This makes boot context loading slower and dilutes the primary identity document.
