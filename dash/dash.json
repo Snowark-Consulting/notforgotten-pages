@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 178,
+    "tasks_completed": 179,
     "recent": [
+      {
+        "date": "2026-08-09 16:44",
+        "task": "HQ refresh \u2014 Sun 9 Aug 16:43 ACST. Pipeline $5.39M (+374K). RE-ENG-AUG-2026 locked for Monday 9AM. Score: 96.",
+        "category": "task"
+      },
       {
         "date": "2026-08-07 19:39",
         "task": "HQ regenerated \u2014 Portfolio certified (150/141 active, 0 exceptions). Protocol v1.0.0 established. Phase 1 hardening 10/10 passed. Score: 96 (+2).",
@@ -135,11 +140,6 @@
         "date": "2026-08-05 18:04",
         "task": "Evening HQ refresh. CS-2026-001 opened. QPaint Deal link active. V3 architecture designed. Score: 99. End of day.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-05 17:38",
-        "task": "BK-013: Reality Always Wins. Hierarchy of Truth established. Continuous reconciliation now permanent operating standard.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-09T15:30:51.760363+09:30",
+  "last_updated": "2026-08-09T16:44:16.772938+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
