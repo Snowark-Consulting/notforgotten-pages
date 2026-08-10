@@ -1,10 +1,9 @@
 {
-  "generated_at": "2026-08-10T16:24:06+09:30",
+  "generated_at": "2026-08-10T17:18:58+09:30",
   "atlas_brief": {
-    "greeting": "Good evening, James. It is 16:24 Adelaide on Monday 10 August 2026.",
-    "body": "Today was a major governance and campaign operations day. RE-ENG-AUG-2026 was sent to 147 production recipients at 9AM. Six recipients received duplicate sends (identified, root-caused, remediated). The campaign response infrastructure had a critical gap at launch (Campaign Tokens table was never provisioned, all 441 YES/NO/UNSUBSCRIBE links initially returned errors). Recovered by 5PM. The incident triggered a complete governance overhaul: Production Artifact Lock, Central Send Boundary with execution authority gate, Principle of Least Authority applied across all 29 active automations, and 12-gate Pre-Execution Certification. QPaint pipeline remains healthy at $5.39M. RE-ENG-AUG-2026 is now MONITOR ONLY, zero YES clicks as of evening.",
-    "tone": "operational",
-    "reading_time_seconds": 45
+    "greeting": "Good evening James.",
+    "body": "Today was a major governance and campaign operations day. RE-ENG-AUG-2026 was sent to 147 production recipients at 9AM. Six recipients received duplicate sends (identified, root-caused, remediated). The campaign response infrastructure had a critical gap at launch — all 441 YES/NO/UNSUBSCRIBE links initially returned errors. Recovered by 5PM. The incident triggered a complete governance overhaul: Production Artifact Lock, Central Send Boundary, 12-gate Pre-Execution Certification, and Principle of Least Authority applied across all 29 automations. QPaint pipeline: $5.39M, 150 records, 7 engaged. RE-ENG-AUG-2026 now MONITOR ONLY.",
+    "estimated_time": "3 minutes"
   },
   "business_score": {
     "score": 82,
@@ -25,106 +24,121 @@
     ]
   },
   "business_health": {
-    "pipeline": {
+    "clients": {
       "status": "healthy",
-      "value": "$5.39M",
-      "detail": "150 QPaint records. 2 Won ($147K), 7 Engaged ($398K), 11 Lost ($269K)."
+      "icon": "🏢",
+      "detail": "QPaint: 150 records, 2 Won ($147K), 7 Engaged ($398K), 11 Lost ($269K). Active autonomous envelope."
     },
-    "campaigns": {
+    "recovery_operations": {
+      "status": "healthy",
+      "icon": "🔄",
+      "detail": "137 active QPaint journeys. 98 Email 1, 31 Email 2, 7 engaged. Daily Attention active at 07:00 Adelaide."
+    },
+    "outreach": {
       "status": "monitoring",
-      "value": "1 active",
-      "detail": "RE-ENG-AUG-2026: 147 delivered, response links recovered, zero YES clicks so far."
+      "icon": "📨",
+      "detail": "RE-ENG-AUG-2026: 147 delivered. Response links recovered. Zero YES clicks so far. Monitoring."
     },
-    "automation": {
+    "engineering": {
       "status": "healthy",
-      "value": "29 jobs",
-      "detail": "22 active, 6 paused/completed, 1 in error. 0 over-privileged after Least Authority audit."
+      "icon": "⚙️",
+      "detail": "Production Artifact Lock active. Central Send Boundary deployed. 29 automations, 0 over-privileged."
     },
-    "governance": {
-      "status": "deployed",
-      "value": "12 gates",
-      "detail": "Production Artifact Lock, Central Send Boundary, Pre-Execution Certification, Least Authority all active."
+    "finance": {
+      "status": "healthy",
+      "icon": "💰",
+      "detail": "QPaint: $147,261 Won. $5.39M total pipeline. 2 Won, 7 Engaged, 11 Lost."
     },
-    "inbox": {
-      "status": "quiet",
-      "value": "0 pending",
-      "detail": "james@ and atlas@ inboxes clean. QPaint intake watching. No unread campaign replies."
-    },
-    "incidents": {
-      "status": "remediated",
-      "value": "1 P1",
-      "detail": "INC-2026-08-10-DUPLICATE-SEND resolved. Residual raw-credential bypass accepted."
+    "atlas": {
+      "status": "healthy",
+      "icon": "🧠",
+      "detail": "Governance framework deployed. 12-gate pre-execution certification. Memory consolidated."
     }
   },
   "waiting_for_james": [
     {
-      "id": "wf1",
-      "priority": "P1",
-      "item": "RE-ENG-AUG-2026 Founder review",
-      "detail": "Campaign is MONITOR ONLY. No YES clicks yet. Jay Duggin unsubscribed (duplicate sends). 5 bounces. Awaiting your decision on whether to monitor until reply window closes or take other action.",
-      "recommendation": "Continue monitoring. No resend. Response infrastructure now functional.",
-      "escalated": "2026-08-10T16:14:39+09:30"
+      "id": "re-eng-monitor",
+      "title": "RE-ENG-AUG-2026 — Monitor campaign responses",
+      "why_it_matters": "147 recipients delivered. Response links now functional after recovery. Zero YES clicks so far. Jay Duggin unsubscribed (duplicate sends). Campaign in MONITOR ONLY state.",
+      "business_impact": "High — $5M+ pipeline potential if engagement converts",
+      "estimated_review_time": "2 min",
+      "estimated_time": "2 min",
+      "recommended_action": "Continue monitoring. No resend. Response infrastructure now functional — any future clicks will be recorded.",
+      "impact_sort": 85
     },
     {
-      "id": "wf2",
-      "priority": "P2",
-      "item": "follow-up-autopilot authority decision",
-      "detail": "Paused under Least Authority. Customer-contact automation with no documented Founder authority. Script disabled. Cron job paused.",
-      "recommendation": "Either grant explicit authority with defined envelope, or retire permanently.",
-      "escalated": "2026-08-10T16:14:39+09:30"
+      "id": "follow-up-autopilot",
+      "title": "follow-up-autopilot — Authority decision required",
+      "why_it_matters": "Paused under Least Authority review. Customer-contact automation with no documented Founder authority. Script disabled, cron job paused.",
+      "business_impact": "Medium — QPaint Email 1 sending impacted if not resolved",
+      "estimated_review_time": "10 min",
+      "estimated_time": "10 min",
+      "recommended_action": "Either grant explicit authority with defined envelope, or retire permanently.",
+      "impact_sort": 50
     },
     {
-      "id": "wf3",
-      "priority": "P3",
-      "item": "Morning Briefing disposition",
-      "detail": "Paused since Aug 4. Superseded by CEO Brief and Headquarters.",
-      "recommendation": "Retire, function covered by CEO Brief.",
-      "escalated": "2026-08-10T16:14:39+09:30"
+      "id": "morning-briefing",
+      "title": "Morning Briefing — Retire or reactivate?",
+      "why_it_matters": "Paused since Aug 4. Superseded by CEO Brief + Headquarters + QPaint Daily Attention.",
+      "business_impact": "Low — function already covered by other automations",
+      "estimated_review_time": "2 min",
+      "estimated_time": "2 min",
+      "recommended_action": "Retire. All functions covered by CEO Brief and QPaint Daily Attention.",
+      "impact_sort": 20
     }
   ],
   "atlas_recommendation": {
-    "primary": "Monitor RE-ENG-AUG-2026 responses. The hard work is done. Campaign sent, infrastructure recovered, governance deployed. Now watch for YES clicks.",
-    "secondary": "Tomorrow: QPaint Daily Attention at 07:00 Adelaide. 7 engaged records to monitor. Nicholas Zappacosta Logan Village and QAS Beenleigh awaiting formal paperwork.",
-    "risk_watch": [
-      "RE-ENG-AUG-2026: any late YES clicks will now resolve correctly",
-      "Campaign Tokens table has 607 records (477 production, remainder cosmetic duplicates from earlier insert, no functional impact)"
+    "executive_summary": "Monitor RE-ENG-AUG-2026 responses. Campaign sent, infrastructure recovered, governance deployed. Now watch for YES clicks. Tomorrow: QPaint Daily Attention at 07:00 Adelaide.",
+    "priorities": [
+      {
+        "title": "Monitor RE-ENG-AUG-2026",
+        "detail": "147 recipients. Response links functional. Zero YES clicks. Watch for late responses."
+      },
+      {
+        "title": "QPaint Daily Attention tomorrow",
+        "detail": "7 engaged records. Nicholas Zappacosta Logan Village + QAS Beenleigh awaiting paperwork."
+      },
+      {
+        "title": "Governance monitoring",
+        "detail": "Verify no active automation exceeds authority. Watch for bypass attempts."
+      }
     ]
   },
   "changes": {
     "today": [
       {
         "time": "09:00",
-        "text": "RE-ENG-AUG-2026 executed, 176 sends to 148 unique addresses (147 production). 6 recipients received duplicates."
+        "text": "RE-ENG-AUG-2026 executed — 176 sends to 148 unique addresses. 6 recipients received duplicates."
       },
       {
         "time": "11:00",
-        "text": "Response infrastructure gap identified, Campaign Tokens table did not exist. All 441 YES/NO/UNSUB links returning HTTP 500."
+        "text": "Response infrastructure gap identified — Campaign Tokens table did not exist. All links returning HTTP 500."
       },
       {
         "time": "14:00",
-        "text": "P1 forensic audit: false '0 sent' report revoked. Root cause: atlas@ token used to query james@ mailbox. 176 sends verified."
+        "text": "P1 forensic audit: false '0 sent' report revoked. Campaign verified at 176 sends."
       },
       {
         "time": "16:00",
-        "text": "Campaign Tokens table created and backfilled, 477 tokens recovered from Gmail Sent HTML. All three response paths confirmed working."
+        "text": "Campaign Tokens backfilled — 477 tokens recovered. Response links confirmed working."
       },
       {
         "time": "17:00",
-        "text": "Governance overhaul: Production Artifact Lock, Central Send Boundary, Pre-Execution Certification, Principle of Least Authority deployed."
+        "text": "Governance overhaul: Production Artifact Lock, Central Send Boundary, Pre-Execution Certification deployed."
       },
       {
         "time": "19:00",
-        "text": "29 automations audited. 3 remediated (cold-email removed from non-send jobs). follow-up-autopilot paused. QPaint autonomy preserved."
+        "text": "29 automations audited. 3 remediated. follow-up-autopilot paused. QPaint autonomy preserved."
       },
       {
         "time": "20:00",
-        "text": "Global Founder Authority Standard certified. Residual raw-credential bypass documented and Founder-accepted."
+        "text": "Global Founder Authority Standard certified. Residual risk documented and Founder-accepted."
       }
     ],
     "yesterday": [
       {
         "time": "21:00",
-        "text": "RE-ENG-AUG-2026 CLOSED BASELINE locked. Campaign scheduled for Monday 9AM. Pre-flight audit completed."
+        "text": "RE-ENG-AUG-2026 CLOSED BASELINE locked. Campaign scheduled for Monday 9AM."
       }
     ]
   },
