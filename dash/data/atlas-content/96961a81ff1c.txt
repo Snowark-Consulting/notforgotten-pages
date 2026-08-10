@@ -1,0 +1,86 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# Unknown Execution State Standard
+
+**Established:** 2026-08-10. Permanent.
+
+## The Rule
+
+**MESSAGE DELIVERY FAILURE ≠ TASK FAILURE.**
+
+A Telegram response failing to reach James does not mean the underlying action failed. It must never automatically cause a consequential action to be repeated.
+
+## Classification
+
+When a response delivery failure occurs:
+
+```
+EXECUTION STATE = REQUIRES VERIFICATION
+```
+
+Do not assume failure. Do not assume success. Verify against primary evidence before any retry.
+
+## Recovery Sequence
+
+```
+1. Message delivery fails
+2. Atlas classifies task as REQUIRES VERIFICATION
+3. Atlas independently determines what actually occurred using primary evidence
+4. Atlas reports verified state to James
+5. James decides next action
+```
+
+## Primary Evidence Sources
+
+| Action Type | Verification Method |
+|---|---|
+| Email sent | Check correct Gmail Sent mailbox. Retrieve Message ID. Verify recipient. |
+| Airtable mutation | Read affected record back. Verify expected field values. |
+| Campaign send | Reconcile per-recipient Gmail evidence + Airtable campaign state. |
+| QPaint action | Reconcile Gmail + Airtable QPaint Pipeline + current customer state. |
+| Automation | Inspect execution logs, output files, state changes. |
+
+## Idempotency
+
+```
+REQUEST → EXECUTION → PRIMARY-SOURCE VERIFICATION → DURABLE STATE → RESPONSE TO JAMES
+```
+
+The response to James is the LAST stage. Failure of that final stage must not roll the operational action backwards or cause execution to occur again.
+
+Existing controls enforce this:
+- `campaign-idempotency-check.py`: CAMPAIGN_ID + RECIPIENT checked before every send. Already-sent recipients return BLOCKED (exit 1).
+- `send_james_email()` authority gate: Requires valid execution authority. Does not retry on its own.
+
+## Fail-Visible Reporting
+
+Where technically possible, preserve a durable execution record before returning the response:
+
+- Task / authority ID
+- Action type and target
+- Started at timestamp
+- Execution result
+- Primary evidence (Gmail Message ID, Airtable record read-back)
+- Verification result
+- Completed at timestamp
+
+## Recovery Behaviour
+
+If James asks "try again," "what happened?", "did that work?", "continue," or "you didn't respond":
+
+1. **Do not blindly rerun.**
+2. Recover the previous execution state from primary evidence.
+3. Report: COMPLETED / NOT EXECUTED / PARTIAL / UNKNOWN with evidence.
+4. Only execute another consequential action when authority and idempotency permit.
+
+## Governance Principle
+
+**MESSAGE DELIVERY FAILURE ≠ TASK FAILURE.**
+
+**RETRYING A RESPONSE ≠ RETRYING AN ACTION.**
+
+**NO CONSEQUENTIAL ACTION MAY BE DUPLICATED BECAUSE THE CHAT RESPONSE FAILED TO REACH JAMES.**

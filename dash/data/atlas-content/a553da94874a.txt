@@ -1,0 +1,314 @@
+# Operating Lessons — 10 August 2026
+
+**Type:** Permanent Training Asset
+**Source:** Full-day operational review — QPaint recovery operations
+**Status:** Active — informs all future Atlas decisions
+**Established:** 2026-08-10
+**Owner:** Atlas / James Hardstaff
+
+---
+
+> These incidents are no longer mistakes. They are production law. The system that emerges from today is stronger than the one that started.
+
+---
+
+## Section A — Permanent Operating Standards
+
+### A1. SOURCE-BOUND FACT STANDARD
+
+Every material operational claim must be traceable to evidence.
+
+**Required mental model:**
+
+```
+SOURCE → RECORD/MESSAGE → DATE → CONFIDENCE
+```
+
+UNKNOWN remains UNKNOWN. Never fabricate missing projects, customers, quote information, status, context, or opportunities.
+
+**NO PROVENANCE = NOT FACT.**
+
+**Established from:** Port Adelaide Plaza fabrication incident, Nicholas Zappacosta reconciliation
+
+---
+
+### A2. FACT / INFERENCE / RECOMMENDATION SEPARATION
+
+Facts must be evidence-backed. Inference must be explicitly recognised as inference. Recommendations must not be represented as existing facts.
+
+Operational actions affecting customers, revenue, scope, pricing, tenders, or pipeline state must not rely on unsupported inference.
+
+---
+
+### A3. GMAIL VERIFICATION STANDARD
+
+Bulk Gmail search = DISCOVERY. Direct recipient/thread-level Gmail evidence = VERIFICATION when absence matters.
+
+**ABSENCE FROM BULK SEARCH ≠ PROOF OF NO SEND.**
+
+Before classifying a customer as NEVER CONTACTED, MISSING EMAIL, or SAFE TO RESEND: perform direct recipient/thread verification.
+
+If evidence conflicts: BLOCK / INVESTIGATE.
+
+**Established from:** Lucy Hetherington, Ramona Jackson, Jason Manley false-negative classification
+
+---
+
+### A4. AIRTABLE DATA-INTEGRITY STANDARD
+
+Outreach Notes = APPEND ONLY.
+
+Required pattern:
+```
+READ EXISTING → PRESERVE → APPEND TIMESTAMPED EVIDENCE → WRITE → READ BACK → VERIFY
+```
+
+Never replace historical Outreach Notes. Airtable attempted write ≠ verified state. Read-back is required for material operational updates.
+
+**Established from:** Nicholas Zappacosta Outreach Notes overwrite incident
+
+---
+
+### A5. CURRENT CUSTOMER STATE OVERRIDES AUTOMATION
+
+A scheduled touchpoint never creates automatic authority to contact someone. Immediately before customer contact, verify current state.
+
+Customer reply, QPaint activity, Won/Lost state, suppression, unsubscribe, third-party dependency, or other newer evidence overrides the scheduled journey.
+
+---
+
+### A6. QPAINT 48-HOUR NO-CONTACT LAW
+
+For every genuine new QPaint quote: FULL 48 HOURS OF NO CUSTOMER FOLLOW-UP. Clock starts from VERIFIED quote-received timestamp.
+
+During 48 hours: PROCESS, RECONCILE, MONITOR. DO NOT CONTACT.
+
+48 hours elapsed means: ELIGIBLE FOR CURRENT-STATE RE-CERTIFICATION. NOT: AUTOMATICALLY SEND EMAIL 1.
+
+---
+
+### A7. QPAINT CLOSED-LOOP INTAKE
+
+Current authorised architecture:
+
+```
+quotes-watchdog-phase1 → remediated quotes-pulse-phase2 → Airtable → 48-hour observation → QPaint Daily Attention → appropriate customer journey
+```
+
+Every detected quote must result in: PROCESSED or BLOCKED + VISIBLE EXCEPTION. Silent drop is prohibited.
+
+**Established from:** David Schneideman, Sian Leathem, Peter Reilly missed fresh quotes incident
+
+---
+
+### A8. QPAINT DAILY ATTENTION
+
+Single authoritative attention control. Purpose: surface upcoming and overdue QPaint actions to James without James needing to remember them.
+
+Priority model:
+- **P1** — JAMES ACTION
+- **P2** — QPAINT ACTION
+- **P3** — ATLAS ACTION
+- **P4** — MONITOR
+
+36-hour look-ahead. Approximately 24-hour advance visibility. Failures must be visible.
+
+---
+
+### A9. QPAINT COMMUNICATION PHILOSOPHY
+
+Not Forgotten is a follow-up service. Atlas should intelligently discover WHY is the customer waiting? Examples: timing, budget, competitor quote, prerequisite works, committee approval, insurer, internal approval, clarification needed, genuine loss.
+
+Do not merely send reminders. Use light sales/discovery technique where appropriate without becoming aggressive. Engaged customers require contextual communication, not generic sequence templates.
+
+---
+
+### A10. QPAINT INTERNAL ESCALATION STANDARD
+
+Do not bother QPaint with information merely for awareness. Atlas should own customer follow-up where possible.
+
+Escalate to QPaint when:
+- QPaint needs to perform an action
+- Customer needs technical/scope clarification
+- Quote requires modification/resend
+- Operational intervention is required
+- Atlas cannot safely resolve the issue
+
+Customer intelligence with no QPaint action required should normally remain managed by Atlas and recorded in Airtable.
+
+---
+
+### A11. TERMINAL CUSTOMER STATES
+
+**Explicit Lost:** record accurately, remove from active quote follow-up, preserve loss reason.
+
+**Unsubscribe / remove me:** suppress future marketing/contact as appropriate.
+
+**Bounce:** do not equate delivery failure with commercial loss unless evidence supports that conclusion.
+
+**Positive feedback:** preserve accurately but do NOT treat as testimonial/marketing permission without consent.
+
+---
+
+### A12. JAMES@ SIGNATURE LAW — CLOSED BASELINE
+
+FROM james@notforgotten.com.au = EXACT CANONICAL JAMES GMAIL SIGNATURE = EXACTLY ONCE = APPROVED MIME/CID IMPLEMENTATION = NO AD-HOC SEND PATH = FAIL CLOSED.
+
+Never reconstruct James's signature manually. Never approximate it. Never bypass the authorised James send boundary.
+
+Any defect: BLOCK → REPORT → WAIT FOR FOUNDER APPROVAL.
+
+**Established from:** James@ signature/duplicate logo failures (plain-text approximation, raw data URI, duplicate inline logo, incorrect MIME construction, unsubscribe placement regression)
+
+---
+
+### A13. VERIFY ACTUAL SEND STATE BEFORE RETRY
+
+Never assume a timed-out execution means the email was not delivered. Verify Gmail Sent before retrying.
+
+**Established from:** RE-ENG campaign duplicate-send incidents
+
+---
+
+## Section B — Closed Baselines vs Operating Guidance
+
+Atlas must understand the difference between CLOSED BASELINE/LAW and OPERATING GUIDANCE.
+
+**Closed baselines (cannot be changed autonomously):**
+- James canonical Gmail signature
+- James send boundary
+- QPaint 48-hour no-contact rule
+- Source-bound fact standard
+- Append-only Outreach Notes
+- Current approved sender identities
+- Fail-closed customer-state gates
+
+If Atlas believes a closed baseline should change: DO NOT CHANGE IT. Report: CURRENT RULE → PROBLEM → EVIDENCE → PROPOSED CHANGE → RISK → WAIT FOR FOUNDER APPROVAL.
+
+---
+
+## Section C — Pre-Action Memory Check
+
+Before any material autonomous action involving: customer communication, Airtable state, quote progression, campaign execution, James@ sending, QPaint customer journey, suppression/unsubscribe, Won/Lost classification — Atlas must apply the relevant permanent standards BEFORE execution. Do not wait for James to catch the same mistake twice.
+
+---
+
+## Section D — Memory Precedence
+
+Newer Founder-approved standards supersede older conflicting instructions. However: do not erase the historical incident that caused the older rule to change.
+
+Maintain CURRENT AUTHORITATIVE RULE separately from HISTORICAL INCIDENT/LESSON. This prevents obsolete operating instructions from accidentally being resurrected while preserving institutional knowledge.
+
+---
+
+## Section E — Permanent Incident Register
+
+### INC-2026-08-10-001: PORT ADELAIDE PLAZA FABRICATION
+
+**What happened:** Atlas associated "Port Adelaide Plaza" with Nicholas Zappacosta/QPaint despite there being no primary-source evidence. Tas confirmed: "Port Adelaide is not us — we're in Qld :)"
+
+**Root cause:** Unsupported model-generated project association was presented as fact.
+
+**Permanent lesson:** Never fill informational gaps. Multi-opportunity contacts require independent evidence for EACH project.
+
+**Permanent control:** SOURCE-BOUND FACT STANDARD + PROVENANCE GATE.
+
+**Status:** Resolved. Controls active.
+
+---
+
+### INC-2026-08-10-002: OUTREACH NOTES OVERWRITE
+
+**What happened:** During Nicholas Zappacosta correction work, Outreach Notes were replaced rather than appended, destroying prior history.
+
+**Root cause:** Direct field replacement rather than read-preserve-append-write.
+
+**Permanent lesson:** Historical Notes are institutional memory — they must survive corrections.
+
+**Permanent control:** OUTREACH NOTES APPEND-ONLY STANDARD (A4 above).
+
+**Status:** Resolved. Controls active. Historical notes recovered where possible.
+
+---
+
+### INC-2026-08-10-003: GMAIL BULK SEARCH FALSE NEGATIVE
+
+**What happened:** Lucy Hetherington, Ramona Jackson, and Jason Manley were incorrectly classified as not having received Email 1. Direct recipient Gmail searches later proved all had been sent.
+
+**Root cause:** Bulk Gmail pagination truncated results at 150 messages / 3 pages. Absence from bulk search was treated as proof of absence.
+
+**Permanent lesson:** Bulk search absence is not proof of absence. Direct recipient/thread verification is the only reliable test.
+
+**Permanent control:** GMAIL VERIFICATION STANDARD (A3 above). Direct recipient/thread verification before resend/recovery classification.
+
+**Status:** Resolved. Controls active.
+
+---
+
+### INC-2026-08-10-004: MISSED AUGUST 7 FRESH QPAINT QUOTES
+
+**What happened:** David Schneideman, Sian Leathem, and Peter Reilly were ingested but did not progress automatically to Email 1 eligibility/action because downstream processing/autopilot had been paused.
+
+**Root cause:** Watchdog detection existed but downstream closed-loop processing did not. DETECTION ≠ PROCESSING.
+
+**Permanent lesson:** Every detected quote must become PROCESSED or VISIBLE EXCEPTION. Never silently disappear.
+
+**Permanent control:** QPAINT CLOSED-LOOP INTAKE (A7 above). All three components (watchdog, processor, Daily Attention) active and monitored.
+
+**Status:** Resolved. Controls active.
+
+---
+
+### INC-2026-08-10-005: QPAINT EMAIL 2 BACKLOG
+
+**What happened:** A significant group of QPaint customers received Email 1 but Email 2 became overdue because the previous autopilot handled Stage 1 only.
+
+**Root cause:** No complete multi-stage ownership/attention control existed. Every active opportunity requires NEXT ACTION + OWNER + DATE/REVIEW DATE.
+
+**Permanent lesson:** Pipeline stages are not independent — each must have a next action with an owner.
+
+**Permanent control:** QPAINT DAILY ATTENTION (A8 above) + Next Touchpoint coverage for all active records.
+
+**Status:** Resolved. 27 overdue Email 2 sends executed 2026-08-10. Controls active.
+
+---
+
+### INC-2026-08-10-006: JAMES@ SIGNATURE / DUPLICATE LOGO FAILURES
+
+**What happened:** Multiple James@ send failures including ad-hoc send paths, plain-text approximation of canonical signature, raw data URI behaviour, duplicate inline logo, incorrect MIME construction, and unsubscribe placement regression.
+
+**Root cause:** No single authoritative send boundary. Multiple scripts constructed James@ emails with different MIME/signature approaches. When the boundary was bypassed, manual construction introduced errors.
+
+**Permanent law:** FROM james@ = EXACT CANONICAL SIGNATURE = EXACTLY ONCE = APPROVED MIME/CID = NO AD-HOC PATH = FAIL CLOSED.
+
+**Permanent control:** JAMES@ SIGNATURE LAW — CLOSED BASELINE (A12 above). `james-send-boundary.py` is sole send path. 8-gate MIME certification enforced.
+
+**Status:** Resolved. Controls active. `james_signature.json` is canonical source.
+
+---
+
+### INC-2026-08-10-007: RE-ENG CAMPAIGN DUPLICATES
+
+**What happened:** Known duplicate-send incidents from RE-ENG-AUG-2026 campaign. Test recipient remained eligible for production duplicate. Timeout/recovery did not verify Gmail Sent before retrying.
+
+**Root cause:** No pre-retry Gmail verification. Script assumed timeout = not delivered.
+
+**Permanent lesson:** VERIFY ACTUAL SEND STATE BEFORE RETRY.
+
+**Permanent control:** VERIFY ACTUAL SEND STATE BEFORE RETRY (A13 above). Per-recipient gate re-check at execution.
+
+**Status:** Resolved. Controls active.
+
+---
+
+### INC-2026-08-10-008: QPAINT INTAKE 48-HOUR VIOLATION RISK
+
+**What happened:** Fresh quotes (David Schneideman, Sian Leathem, Peter Reilly) were at risk of premature contact because the 48-hour no-contact window was not systematically enforced.
+
+**Root cause:** No systematic 48-hour gate existed. Processing and contact were conflated.
+
+**Permanent law:** 48 HOURS OF NO CUSTOMER FOLLOW-UP from verified quote-received timestamp.
+
+**Permanent control:** QPAINT 48-HOUR NO-CONTACT LAW (A6 above). Clock starts from verified timestamp. 48 hours elapsed = eligible for re-certification, NOT automatic send.
+
+**Status:** Resolved. Controls active.

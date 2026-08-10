@@ -200,6 +200,14 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 - [[Decision: Quote Insights Retention Layer]] (knowledge/decisions/2026-08-08-quote-insights-retention-layer.md) — Monthly Quote Insights V1 as official product retention tool. Review: Nov 8.
 - [[Quote Insights V1]] (knowledge/quote-insights-v1.md) — Product architecture for Monthly Quote Insights: retention tool, Outcome Data Model, CVS scoring, business value demonstration.
 - [[Recovery Bootstrap]] (knowledge/recovery-bootstrap.md) — Complete operating knowledge for model/provider recovery. Protocol v1.1.0. Architecture, data paths, recovery sequence.
+- [[Global Founder Authority Law]] (knowledge/global-founder-authority-law.md) — Immutable production contract hierarchy. Founder Approval = production contract. Closed baselines cannot be changed autonomously.
+- [[Campaign Idempotency Standard]] (knowledge/campaign-idempotency-standard.md) — CAMPAIGN_ID + RECIPIENT = one send only. Mailbox identity enforced via code. From INC-2026-08-10-DUPLICATE-SEND.
+- [[Production Artifact Lock Standard]] (knowledge/production-artifact-lock-standard.md) — SHA-256 manifest, immutable after Founder Approval, 7 allowed variable fields. Any divergence = FAIL CLOSED = NO SEND.
+- [[Unknown Execution State Standard]] (knowledge/unknown-execution-state-standard.md) — Message delivery failure ≠ task failure. Verify before retry. Never assume timeout = not delivered.
+- [[QPaint Operating Architecture]] (knowledge/qpaint-operating-architecture.md) — Authoritative QPaint rules: 48-hour no-contact, closed-loop intake, Daily Attention P1-P4, communication philosophy, internal escalation.
+- [[Operating Lessons — Aug 2026]] (learnings/2026-08-10-operating-lessons.md) — 13 permanent standards (A1-A13) + 8 incidents (LL-001 through LL-008). Permanent training asset.
+- [[Incident: Duplicate Send]] (knowledge/incidents/INC-2026-08-10-DUPLICATE-SEND.md) — P1 campaign duplicate incident. 176 sends, 6 recipients affected. CLOSED-REMEDIATED with 11 controls.
+- [[End of Day Chronology — Aug 10]] (knowledge/incidents/2026-08-10-end-of-day-chronology.md) — Full timeline: what was supposed to happen, what actually happened, corrected truth, governance failures, controls created.
 
 ## Campaigns
 - [[RE-ENG-AUG-2026 Campaign Authority]] (knowledge/campaigns/RE-ENG-AUG-2026-execution-authority.md) — CLOSED BASELINE. Single-email re-engagement campaign. 147 prospects. Mon Aug 10 9AM ACST. Permission-to-Call KPI.

@@ -1,0 +1,99 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# Campaign Idempotency Standard
+
+**Established:** 2026-08-10 from INC-2026-08-10-DUPLICATE-SEND
+**Permanent.** Applies to every campaign send, every campaign, forever.
+
+## The Rule
+
+**CAMPAIGN_ID + RECIPIENT = ONE SEND ONLY.**
+
+Before any campaign email is sent to a recipient, the system MUST verify that no verified Gmail send already exists for that CAMPAIGN_ID + NORMALISED_RECIPIENT_EMAIL pair.
+
+## Per-Recipient State Machine
+
+```
+ELIGIBLE
+  |
+  v
+SEND IN PROGRESS
+  |
+  +---> Gmail API accept? ---+
+  |                          |
+  YES                        NO / UNCERTAIN
+  |                          |
+  v                          v
+GMAIL VERIFIED SENT          BLOCK
+  |                          |
+  v                          v
+COMPLETE                     EXCEPTION
+                             (human review required)
+```
+
+## Gates
+
+### Gate 1: Campaign + Recipient Check
+
+Before calling Gmail send API:
+```bash
+python3 scripts/campaign-idempotency-check.py "Campaign Subject" recipient@email.com
+```
+
+Exit 0 (CLEAR) = proceed to send.
+Exit 1 (BLOCKED) = stop, log, do not send.
+Exit 2 (UNCERTAIN) = stop, escalate to Founder.
+
+### Gate 2: Post-Send Verification
+
+After Gmail API returns success:
+1. Retrieve the Gmail Message ID from the API response
+2. Independently verify the message exists in Gmail Sent via direct ID lookup
+3. Record the Message ID, timestamp, and campaign ID to Airtable
+
+### Gate 3: Timeout Recovery
+
+If the send script times out mid-execution:
+1. DO NOT assume all pending recipients need sending
+2. Query Gmail Sent for CAMPAIGN_SUBJECT to identify the cut-off point
+3. Use `campaign-idempotency-check.py` on each remaining recipient
+4. Only send to recipients where the check returns CLEAR
+
+**TIMEOUT DOES NOT EQUAL FAILED SEND.**
+
+## Duplicate Detection
+
+- Duplicate is defined as: same campaign subject + same normalized recipient email + verified in Gmail Sent
+- Detection method: direct `to:recipient@email.com subject:"campaign subject"` Gmail query
+- Never use bulk search absence as proof of no send
+
+## Concurrent Execution Safety
+
+- A second process encountering the same CAMPAIGN_ID + RECIPIENT must:
+  1. Run the idempotency check
+  2. If BLOCKED or UNCERTAIN: fail closed (exit 1 or 2)
+  3. Never independently send
+
+## Test Isolation
+
+- Production recipients must never be used as uncontrolled test recipients
+- TEST_NON_PRODUCTION sends use explicitly approved test addresses only
+- A test send must never satisfy or alter production campaign state
+- A production recipient accidentally used during testing must be detected before production execution
+
+## Reconciliation
+
+After every campaign:
+1. Count unique intended recipients
+2. Count actual Gmail sends per recipient
+3. Report: recipients with 0 sends, 1 send, >1 send
+4. If >1 for any recipient: CAMPAIGN EXECUTION = COMPLETED WITH INCIDENT
+
+## Script
+
+`scripts/campaign-idempotency-check.py` — implements the check.
+Usage: `python3 scripts/campaign-idempotency-check.py "Campaign Subject" recipient@email.com [--token ~/.hermes/james_token.json] [--verbose]`

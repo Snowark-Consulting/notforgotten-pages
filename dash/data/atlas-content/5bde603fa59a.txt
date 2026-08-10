@@ -1,0 +1,48 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# Global Founder Authority — Permanent Operational Law
+
+**Established:** 2026-08-10 from RE-ENG-AUG-2026 governance review.
+**Status:** ACTIVE. Founder-accepted.
+
+## Authoritative Security Position
+
+| Path | Status |
+|---|---|
+| Approved send paths | **TECHNICALLY GATED** — `send_james_email()` enforces execution authority check |
+| Normal Atlas automations | **LEAST-PRIVILEGED AND GOVERNED** — 29/29 capability-authority aligned |
+| Known automation/script send bypasses | **BLOCKED / DISABLED** — follow-up-autopilot paused, cold-email removed from non-send jobs |
+| Raw terminal + credential bypass | **RESIDUAL INFRASTRUCTURE RISK** — not technically eliminated |
+
+## Active Controls
+
+| Control | State |
+|---|---|
+| Global Founder Authority Standard | ACTIVE |
+| Principle of Least Authority | ACTIVE — 29/29 automations audited, 0 over-privileged |
+| Production Artifact Lock | ACTIVE — SHA-256 manifest hash enforcement |
+| Approved Email Send Boundary | ACTIVE — `send_james_email()` sole authorised path |
+| Execution Authority Gate | ACTIVE — FOUNDER_DIRECT or FOUNDER_APPROVED_AUTONOMOUS_ENVELOPE required |
+| QPaint Autonomous Envelope | ACTIVE — subject-pattern scoped |
+| Campaign Idempotency | ACTIVE — CAMPAIGN_ID + RECIPIENT check |
+| Mailbox Identity Gate | ACTIVE — wrong credential = UNCERTAIN |
+| Bypass Detection Audit | ACTIVE — `audit_all_send_paths()` |
+| Pre-Execution Certification | ACTIVE — 12 gates |
+
+## Residual Risk — Accepted
+
+**Path:** Terminal access + `james_token.json` on disk → direct Gmail API call.
+
+**Classification:** RESIDUAL INFRASTRUCTURE RISK. Behaviorally prohibited. Cannot be technically eliminated without credential vault or API proxy infrastructure.
+
+**Prohibition:** TECHNICAL CAPABILITY ≠ EXECUTION AUTHORITY. The existence of a bypass does not grant permission to use it. Atlas is NEVER authorised to access `james_token.json` for the purpose of bypassing the send boundary, construct an ad-hoc Gmail send, call Gmail API directly, create temporary sending scripts, invoke child processes to bypass authority, or modify/disable the authority gate.
+
+**Future:** Centralised External Action Gateway — long-term architecture requirement. Not to be implemented now.
+
+## Founder Decision
+
+James Hardstaff accepts the residual risk for the current Atlas architecture. This acceptance does not authorise use of the bypass. Recorded 2026-08-10.

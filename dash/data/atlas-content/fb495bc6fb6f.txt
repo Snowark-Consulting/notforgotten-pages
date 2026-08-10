@@ -1,0 +1,59 @@
+# 10 August 2026 — End of Day Incident Chronology
+
+## RE-ENG-AUG-2026 Campaign
+
+### What Was Supposed to Happen
+Single-email re-engagement campaign. 147 approved recipients. Monday 9AM ACST. Each email with working YES/NO CALL/UNSUBSCRIBE buttons. Founder-approved CLOSED BASELINE.
+
+### What Actually Happened
+
+**09:00 ACST — Campaign Executed**
+176 emails sent to 148 unique addresses (147 production + 1 test). Campaign subject: "How many of your quotes just go quiet?"
+
+**Duplicate Sends**
+6 production recipients received 2-6 copies. Root cause: (A) main batch pointer reset caused rapid duplicates at list start; (B) timeout recovery restarted from beginning without Gmail verification. Jay Duggin unsubscribed in frustration after receiving 2 copies.
+
+**Response Infrastructure Broken**
+441 UUID tokens delivered in emails. Campaign Tokens Airtable table did not exist. All YES/NO CALL/UNSUBSCRIBE links returned HTTP 500. Root cause: test tokens bypassed Airtable lookup in r.js. Production path was never tested end-to-end.
+
+**~14:00 ACST — False "0 Sent" Audit**
+Atlas reported campaign never sent. Root cause: queried james@ Gmail while authenticated as atlas@ (via google_token.json). atlas@ lacks delegation to james@. Bulk search returned 10 messages (atlas@ own sent), interpreted as "0 campaign sends."
+
+**~14:30 ACST — P1 Forensic Audit**
+James identified the contradiction. Direct message ID retrieval + james_token.json revealed 176 verified sends. 2PM report revoked.
+
+**~15:00-17:00 ACST — Response Infrastructure Recovery**
+Campaign Tokens table created. 477 tokens (441 canonical + 36 duplicate-extra) extracted from Gmail Sent HTML and backfilled. r.js endpoint confirmed working for all three action types.
+
+### Corrected Truth
+- Campaign WAS sent: 147 unique production recipients, 160 total production sends (13 excess)
+- Response links WERE broken at launch, RECOVERED by ~17:00 ACST
+- 2PM "0 sent" report was FALSE — wrong mailbox authentication
+- Earlier "147/147" report was SUBSTANTIALLY CORRECT but under-counted duplicates
+
+## Governance Failures Identified
+
+1. **Founder Approval ≠ Production Artifact:** James approved a visual test. Production reconstructed the email with different infrastructure.
+2. **No pre-execution certification:** Token store not verified before send.
+3. **Test path ≠ production path:** Test tokens bypassed Airtable lookup.
+4. **No idempotency:** Timeout recovery restarted without Gmail verification.
+5. **Wrong mailbox audit:** Atlas queried james@ as atlas@.
+6. **Excessive automation capability:** Non-send jobs had cold-email skills loaded.
+
+## Controls Created
+
+1. Production Artifact Lock (SHA-256 manifest)
+2. 12-gate Pre-Execution Certification
+3. Campaign Idempotency (campaign-idempotency-check.py)
+4. Central Send Boundary with execution authority gate
+5. Global Founder Authority Standard
+6. Principle of Least Authority (29 automations audited, 3 remediated)
+7. Mailbox Identity Gate
+8. Token Persist-Before-Send
+9. Pre-Launch Infrastructure Gates (6 gates in pattern doc)
+10. Unknown Execution State Standard (delivery failure ≠ task failure)
+11. Bypass Detection Audit
+
+## Residual Risk — Accepted
+
+Raw terminal access + james_token.json on disk = theoretical direct Gmail API bypass. Behaviorally prohibited. Not technically eliminated. Founder-accepted for current architecture.

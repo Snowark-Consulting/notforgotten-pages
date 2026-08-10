@@ -1,0 +1,103 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# Production Artifact Lock Standard
+
+**Established:** 2026-08-10 from RE-ENG-AUG-2026 governance review.
+**Permanent.** Applies to every Founder-approved campaign, forever.
+
+## The Principle
+
+**FOUNDER APPROVAL = IMMUTABLE PRODUCTION CONTRACT.**
+
+When James approves a customer-facing artifact, production may only execute the EXACT approved artifact. Only explicitly authorised recipient-specific variables may change. Any material divergence = FAIL CLOSED = NO SEND = REPORT TO JAMES = NEW FOUNDER APPROVAL REQUIRED.
+
+## The Production Artifact Manifest
+
+Every campaign produces a `knowledge/manifests/{campaign_id}.json` document containing the complete approved production state:
+
+| Section | Contents |
+|---|---|
+| `artifact` | Subject, HTML body (with variable placeholders), plain body, MIME structure — all SHA-256 hashed |
+| `sender` | Email, display name, signature HTML (hashed), CID |
+| `cta` | Exact button wording, response endpoint structure |
+| `infrastructure` | Token store table, send path (hashed), Gmail account, token path |
+| `audience` | Approved recipient count, source, filter, Airtable base/table |
+| `behaviour` | Tracking, suppression, idempotency, send rate |
+| `hashes` | Complete manifest hash (seals all of the above) |
+
+## Manifest Lifecycle
+
+```
+DRAFT → LOCKED → (optional) INVALIDATED
+```
+
+- **DRAFT:** Being constructed. Not binding.
+- **LOCKED:** Founder Approval recorded. Immutable. Production may only execute against a LOCKED manifest.
+- **INVALIDATED:** Material change detected. New Founder Approval required.
+
+## Allowed Variable Schema
+
+Only these fields may differ per recipient:
+
+| Variable | Purpose |
+|---|---|
+| `first_name` | Recipient greeting |
+| `business_name` | Business personalisation |
+| `project` | Project-specific reference |
+| `yes_token` | Unique YES response UUID (persisted before send) |
+| `no_call_token` | Unique NO CALL response UUID (persisted before send) |
+| `unsub_token` | Unique UNSUBSCRIBE response UUID (persisted before send) |
+| `recipient_email` | Recipient address |
+
+Any other variable introduced at execution time = BLOCK SEND.
+
+## Per-Recipient Send Order
+
+```
+GENERATE TOKEN → PERSIST TOKEN → READ-BACK TOKEN → VERIFY RECIPIENT →
+VERIFY ACTION → VERIFY CAMPAIGN → VERIFY ENDPOINT →
+BUILD EMAIL → VERIFY AGAINST MANIFEST → SEND → GMAIL VERIFY → AIRTABLE WRITE-BACK
+```
+
+If any step fails: BLOCK THAT RECIPIENT. Do not send.
+
+## Idempotency
+
+`CAMPAIGN_ID + NORMALISED_RECIPIENT_EMAIL` = ONE SEND ONLY.
+
+Enforced by `scripts/campaign-idempotency-check.py` before every send.
+
+Timeout ≠ failed send. Verify Gmail Sent before retry.
+
+## Pre-Execution Certification
+
+12 gates defined in `scripts/pre-execution-certification.py`. All must PASS before the first email is sent. Any FAIL = NO SEND.
+
+## Execution Path Lock
+
+Only the approved `send_path` (recorded in manifest) may be used. No ad-hoc scripts. No manual workarounds. No recovery scripts unless explicitly in the approved path.
+
+## Founder Approval Invalidation
+
+Any of these changes invalidate Founder Approval:
+- Content, subject, sender, signature, layout, CTA, response behaviour
+- Send path, audience definition, suppression rule, tracking architecture
+- Material infrastructure change affecting customer experience
+
+Invalidated → BLOCK → New Founder Approval required.
+
+## Scripts
+
+| Script | Purpose |
+|---|---|
+| `scripts/production-artifact-lock.py` | Create, lock, verify, certify manifests |
+| `scripts/pre-execution-certification.py` | 12-gate pre-execution check |
+| `scripts/campaign-idempotency-check.py` | Per-recipient duplicate prevention |
+
+## Related Incidents
+
+- INC-2026-08-10-DUPLICATE-SEND — Campaign executed with duplicate sends, missing token store, contradictory reporting

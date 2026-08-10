@@ -8,6 +8,42 @@ tier: primary
 
 > Append-only log of fixes, API quirks, and gotchas. Check BEFORE touching any external API. Newest first.
 
+## 2026-08-10 — Comprehensive Operating Lessons (13 Permanent Standards + 8 Incidents)
+
+**Confidence:** high
+**Contested:** false
+
+Full permanent record: `learnings/2026-08-10-operating-lessons.md`
+
+**13 Permanent Operating Standards established:**
+A1. Source-Bound Fact Standard — NO PROVENANCE = NOT FACT
+A2. Fact / Inference / Recommendation Separation
+A3. Gmail Verification Standard — absence from bulk search ≠ proof of no send
+A4. Airtable Data-Integrity Standard — Outreach Notes APPEND ONLY, read-back required
+A5. Current Customer State Overrides Automation
+A6. QPaint 48-Hour No-Contact Law
+A7. QPaint Closed-Loop Intake — PROCESSED or VISIBLE EXCEPTION, never silent drop
+A8. QPaint Daily Attention — P1-P4 priority model, 36h look-ahead
+A9. QPaint Communication Philosophy — discover WHY, don't just remind
+A10. QPaint Internal Escalation Standard — escalate only when QPaint action needed
+A11. Terminal Customer States — Lost/Unsubscribe/Bounce/Positive feedback handling
+A12. James@ Signature Law (CLOSED BASELINE) — exact canonical, once, fail-closed
+A13. Verify Actual Send State Before Retry — never assume timeout = not delivered
+
+**8 Incidents registered** (LL-20260810-001 through LL-20260810-008):
+- Port Adelaide Plaza Fabrication
+- Outreach Notes Overwrite
+- Gmail Bulk Search False Negative
+- Missed Fresh QPaint Quotes
+- QPaint Email 2 Backlog
+- James@ Signature/Duplicate Logo Failures
+- RE-ENG Campaign Duplicates
+- QPaint Intake 48-Hour Violation Risk
+
+**Closed Baselines** (cannot be changed autonomously): James signature, send boundary, 48-hour rule, source-bound facts, append-only notes, sender identities, fail-closed gates.
+
+**Pre-Action Memory Check** required before: customer communication, Airtable state, quote progression, campaign execution, James@ sending, QPaint journey, suppression, Won/Lost classification.
+
 ## 2026-08-06 — PandaDoc SPA invisible to DOM queries; Accessibility API required
 
 **Confidence:** high

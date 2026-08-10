@@ -235,6 +235,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_campaign_idempotency_standard",
+      "label": "Campaign Idempotency Standard",
+      "file_type": "doc",
+      "source_file": "knowledge/campaign-idempotency-standard.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "429101c95984",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_campaign_intelligence_report_july_2026",
       "label": "Campaign Intelligence Report July 2026",
       "file_type": "doc",
@@ -807,6 +818,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_global_founder_authority_law",
+      "label": "Global Founder Authority Law",
+      "file_type": "doc",
+      "source_file": "knowledge/global-founder-authority-law.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "5bde603fa59a",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_governance_review_framework",
       "label": "Governance Review Framework",
       "file_type": "doc",
@@ -836,6 +858,28 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "934fdc0bf884",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_incidents_2026_08_10_end_of_day_chronology",
+      "label": "End Of Day Chronology",
+      "file_type": "doc",
+      "source_file": "knowledge/incidents/2026-08-10-end-of-day-chronology.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "fb495bc6fb6f",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_incidents_inc_2026_08_10_duplicate_send",
+      "label": "INC 2026 08 10 Duplicate SEND",
+      "file_type": "doc",
+      "source_file": "knowledge/incidents/INC-2026-08-10-DUPLICATE-SEND.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "39e917fa8957",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -1093,6 +1137,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_production_artifact_lock_standard",
+      "label": "Production Artifact Lock Standard",
+      "file_type": "doc",
+      "source_file": "knowledge/production-artifact-lock-standard.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "5a56c1fc6549",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_production_evidence_2026_08_08_qpaint_email2_production_run",
       "label": "Qpaint Email2 Production Run",
       "file_type": "doc",
@@ -1156,6 +1211,17 @@
       "community_name": "Knowledge",
       "content_hash": "d0e8a0f66edd",
       "val": 4,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_qpaint_operating_architecture",
+      "label": "Qpaint Operating Architecture",
+      "file_type": "doc",
+      "source_file": "knowledge/qpaint-operating-architecture.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "88af706d16d6",
+      "val": 6.0,
       "color": "#a78bfa"
     },
     {
@@ -1489,6 +1555,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_unknown_execution_state_standard",
+      "label": "Unknown Execution State Standard",
+      "file_type": "doc",
+      "source_file": "knowledge/unknown-execution-state-standard.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "96961a81ff1c",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_utm_naming_convention",
       "label": "Utm Naming Convention",
       "file_type": "doc",
@@ -1540,6 +1617,17 @@
       "community": 5,
       "community_name": "Learnings",
       "content_hash": "2545dec6e7df",
+      "val": 6.0,
+      "color": "#f472b6"
+    },
+    {
+      "id": "learnings_2026_08_10_operating_lessons",
+      "label": "Operating Lessons",
+      "file_type": "doc",
+      "source_file": "learnings/2026-08-10-operating-lessons.md",
+      "community": 5,
+      "community_name": "Learnings",
+      "content_hash": "a553da94874a",
       "val": 6.0,
       "color": "#f472b6"
     },
@@ -2457,6 +2545,62 @@
     {
       "source": "agent_registry",
       "target": "knowledge_quote_insights_v1",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_global_founder_authority_law",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_campaign_idempotency_standard",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_production_artifact_lock_standard",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_unknown_execution_state_standard",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_qpaint_operating_architecture",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "learnings_2026_08_10_operating_lessons",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_incidents_inc_2026_08_10_duplicate_send",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_incidents_2026_08_10_end_of_day_chronology",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

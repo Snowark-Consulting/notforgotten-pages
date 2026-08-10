@@ -1,0 +1,58 @@
+---
+incident_id: INC-2026-08-10-DUPLICATE-SEND
+severity: P1
+status: CLOSED - REMEDIATED
+date_occurred: 2026-08-09 23:30 UTC (2026-08-10 09:00 ACST)
+date_detected: 2026-08-10 ~14:00 ACST
+date_closed: 2026-08-10
+campaign: RE-ENG-AUG-2026
+affected_recipients: 6 production + 1 test
+excess_sends: 13 production + 15 test
+---
+
+# INC-2026-08-10-DUPLICATE-SEND
+
+## Summary
+
+The RE-ENG-AUG-2026 re-engagement campaign sent 176 total emails to 148 unique recipients (147 production + 1 test). Six production recipients received 2-6 copies. Total excess: 13 production sends.
+
+A subsequent audit at ~2PM ACST incorrectly reported "0 sent" due to authenticating as atlas@ while querying james@'s mailbox. This false report was revoked by the P1 forensic audit.
+
+## Root Cause
+
+**MODE A — Main Batch Pointer Reset (4 recipients, 11 excess sends):**
+Script restarted/pointer reset within main batch. Recipients at list start received rapid duplicates (within 2 min, 18:33-18:37 CST Aug 9).
+
+**MODE B — Recovery Without Gmail Verification (4 recipients, 5 excess sends):**
+After timeout, recovery script restarted from list beginning. No Gmail Sent verification before each send.
+
+**Overlap:** Creative Painting and Netlogyx caught by both failures.
+
+## Affected Recipients
+
+| Recipient | Sends | Mode |
+|---|---|---|
+| Creative Painting and Decorating | 6 | A (4) + B (2) |
+| Netlogyx | 4 | A (3) + B (1) |
+| Professional Painters | 3 | A (3) |
+| Jay Duggin Painting | 2 | B (2) |
+| Melbourne Central Cleaning | 2 | B (2) |
+| Hobart House Painter | 2 | A (2) |
+| hardstaff08@hotmail.com (TEST) | 16 | Pre-launch testing |
+
+## Impact
+
+- Jay Duggin Painting explicitly unsubscribed after receiving duplicates
+- Trust damage with 6 recipients
+- 13 excess sends beyond approved baseline
+- False 2PM audit triggered P1 forensic investigation
+
+## Permanent Controls
+
+1. SEND ATTEMPT does not equal SENT - Gmail Message ID required
+2. TIMEOUT does not equal FAILED SEND - verify Gmail before retry
+3. ABSENCE FROM BULK SEARCH does not equal NOT SENT
+4. MAILBOX IDENTITY must match requested mailbox
+5. CAMPAIGN IDEMPOTENCY: CAMPAIGN_ID + RECIPIENT = one send only
+6. POST-SEND RECONCILIATION must count per-recipient sends
+7. TEST ISOLATION: production recipients never used as uncontrolled test targets
