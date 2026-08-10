@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-10T07:01:03+09:30",
+  "generated_at": "2026-08-10T12:38:57+09:30",
   "atlas_brief": {
-    "greeting": "Good morning James.",
-    "body": "The QPaint portfolio is stable. 150 total records, 140 active journeys with complete Next Action coverage. Zero unsupported stages. Zero missing communications. The Production Operating Protocol v1.0.0 governs all operations. The canonical send authority is shadow-ready pending production cutover.",
+    "greeting": "Good afternoon James.",
+    "body": "The QPaint portfolio is stable. 150 total records, 137 active journeys with complete Next Action coverage. Zero unsupported stages. Zero missing communications. The Production Operating Protocol v1.0.0 governs all operations. The canonical send authority is shadow-ready pending production cutover.",
     "estimated_time": "2 minutes"
   },
   "business_score": {
@@ -20,11 +20,11 @@
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "QPaint: Active. Portfolio certified. 140 active journeys with complete Next Action coverage."
+      "detail": "QPaint: Active. Portfolio certified. 137 active journeys with complete Next Action coverage."
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "\u2705 140 active QPaint journeys certified. 127 contacted. 0 exceptions. Pipeline: $5,014,946. Won: $129,750."
+      "detail": "\u2705 137 active QPaint journeys certified. 127 contacted. 0 exceptions. Pipeline: $4,973,084. Won: $147,261."
     },
     "outreach": {
       "status": "healthy",
@@ -36,7 +36,7 @@
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $129,750 Won. $5,014,946 active pipeline."
+      "detail": "QPaint: $147,261 Won. $4,973,084 active pipeline."
     },
     "atlas": {
       "status": "healthy",
@@ -405,7 +405,7 @@
     "total_voice_recommendations": 0,
     "principle": "Atlas exists to strengthen the relationship between James and the customer. It does not exist to replace it."
   },
-  "operational_status": "\u2705 QPaint portfolio certified. 140 active journeys, 0 exceptions. Protocol v1.0.0. Phase 1 hardening shadow-ready.",
+  "operational_status": "\u2705 QPaint portfolio certified. 137 active journeys, 0 exceptions. Protocol v1.0.0. Phase 1 hardening shadow-ready.",
   "vault_health": {
     "description": "Complete state of the Not Forgotten knowledge vault \u2014 the institutional memory that compounds forever.",
     "decisions": {
@@ -452,21 +452,21 @@
   "qpaint_pipeline": {
     "summary": {
       "total_customers": 150,
-      "total_pipeline_value": 5014946,
-      "won_count": 1,
-      "won_value": 129750,
-      "lost_count": 9,
-      "engaged_replied": 7,
+      "total_pipeline_value": 4973084,
+      "won_count": 2,
+      "won_value": 147261,
+      "lost_count": 11,
+      "engaged_replied": 8,
       "contacted": 127,
-      "not_contacted": 6
+      "not_contacted": 2
     },
     "stage_breakdown": {
-      "Email 1": 128,
-      "Lost": 9,
-      "Email 2": 6,
-      "New": 3,
-      "Awaiting Reply": 2,
-      "Won": 1,
+      "Email 1": 98,
+      "Email 2": 31,
+      "Lost": 11,
+      "Engaged": 6,
+      "Won": 2,
+      "Awaiting Reply": 1,
       "Engaged - Awaiting Confirmation": 1
     },
     "priority": {
