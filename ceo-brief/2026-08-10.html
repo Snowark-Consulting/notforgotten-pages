@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CEO Brief — 10 August 2026 — Not Forgotten Systems</title>
+<style>
+  :root {
+    --navy: #0a1628;
+    --gold: #c8963e;
+    --light: #f8f6f2;
+    --surface: #ffffff;
+    --text: #1a1a2e;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --success: #059669;
+    --warn: #d97706;
+    --danger: #dc2626;
+    --info: #2563eb;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.7;
+  }
+  header {
+    background: var(--navy);
+    color: white;
+    padding: 2rem 2.5rem;
+    border-bottom: 3px solid var(--gold);
+  }
+  header h1 { font-size: 1.75rem; font-weight: 700; }
+  header .date { color: var(--gold); font-size: 0.95rem; margin-top: 0.25rem; }
+  header .subtitle { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 0.5rem; }
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+  .section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .section h2 {
+    font-size: 1.2rem;
+    color: var(--navy);
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .summary { font-size: 1.05rem; line-height: 1.8; }
+  table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+  th, td { padding: 0.6rem 0.8rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.92rem; }
+  th { background: var(--navy); color: white; font-weight: 600; }
+  tr:hover { background: rgba(200,150,62,0.05); }
+  .badge {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .badge-success { background: #d1fae5; color: var(--success); }
+  .badge-warn { background: #fef3c7; color: var(--warn); }
+  .badge-danger { background: #fee2e2; color: var(--danger); }
+  .badge-info { background: #dbeafe; color: var(--info); }
+  .badge-neutral { background: #f3f4f6; color: var(--muted); }
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  .metric-card {
+    background: var(--light);
+    border-radius: 6px;
+    padding: 1rem;
+    text-align: center;
+  }
+  .metric-card .value { font-size: 1.75rem; font-weight: 700; color: var(--navy); }
+  .metric-card .label { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+  .confidence-high { color: var(--success); font-weight: 600; }
+  .confidence-med { color: var(--warn); font-weight: 600; }
+  .confidence-low { color: var(--danger); font-weight: 600; }
+  ul { padding-left: 1.5rem; line-height: 1.8; }
+  a { color: var(--navy); text-decoration: none; font-weight: 600; }
+  a:hover { color: var(--gold); text-decoration: underline; }
+  .priority-1 { border-left: 4px solid var(--danger); padding-left: 1rem; margin-bottom: 1rem; }
+  .priority-2 { border-left: 4px solid var(--warn); padding-left: 1rem; margin-bottom: 1rem; }
+  .priority-3 { border-left: 4px solid var(--info); padding-left: 1rem; margin-bottom: 1rem; }
+  .alert-box {
+    background: #fee2e2;
+    border: 2px solid var(--danger);
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .alert-box strong { color: var(--danger); }
+  .alert-warn {
+    background: #fef3c7;
+    border: 2px solid var(--warn);
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .alert-warn strong { color: var(--warn); }
+  footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+  code { background: #f3f4f6; padding: 0.15rem 0.4rem; border-radius: 3px; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>CEO Brief</h1>
+  <div class="date">Monday, 10 August 2026 · Week 33</div>
+  <div class="subtitle">Not Forgotten Systems — Daily Executive Briefing</div>
+</header>
+
+<div class="container">
+
+<!-- CRITICAL ALERT -->
+<div class="alert-box">
+  <strong>🔴 CRITICAL: RE-ENG-AUG-2026 DUPLICATE SEND INCIDENT (INC-2026-08-10-DUPLICATE-SEND)</strong><br>
+  The re-engagement campaign fired overnight but <strong>sent duplicate emails to at least 5 prospects</strong> — some receiving up to <strong>6 copies</strong> of the same email. Two root causes: MODE A (batch pointer reset, sending 2-4 rapid duplicates) and MODE B (recovery batch without Gmail verification, sending 1-2 more duplicates 60 min later). <strong>Jay Duggin Painting</strong> both received duplicates and unsubscribed. Full incident review required today. Full production incident review required.
+</div>
+
+<!-- 1. CEO Priorities -->
+<div class="section">
+  <h2>1. CEO Priorities</h2>
+
+  <div class="priority-1">
+    <strong>🔴 Priority 1: RE-ENG-AUG-2026 Duplicate Send — Damage Assessment & Client Communication</strong><br>
+    <strong>Why:</strong> 49 prospects received the re-engagement email. At least 5 confirmed with 2-6 duplicates each (Creative Painting 6x, Netlogyx 4x, Professional Painters 3x, Hobart House Painter 2x, Jay Duggin Painting 2x). Jay Duggin already unsubscribed. Two distinct root causes identified. Every duplicate erodes trust.<br>
+    <strong>Est. time:</strong> 60-90 min (incident review + damage assessment + any apology emails)<br>
+    <strong>Delay impact:</strong> <span class="badge badge-danger">High</span> — trust damage compounds if unaddressed. More unsubscribes possible.
+  </div>
+
+  <div class="priority-2">
+    <strong>🟡 Priority 2: 5 QPaint Customer Replies — Triage & Respond</strong><br>
+    <strong>Why:</strong> Five QPaint customers replied over the weekend to follow-ups: Jason Manley (Ascot State School), Sian Leathem x2 (Dornoch Terrace), Damien Glancy (Jordain Court), Terry Hamilton (Blackall Terrace). These need review and response — some are likely "already chosen someone" but could include warm leads.<br>
+    <strong>Est. time:</strong> 15-20 min (read + decide on responses)<br>
+    <strong>Delay impact:</strong> <span class="badge badge-warn">Medium</span> — replies go cold if left >24h.
+  </div>
+
+  <div class="priority-3">
+    <strong>🔵 Priority 3: Fix Campaign Intel Monitor Cron (Path Bug)</strong><br>
+    <strong>Why:</strong> Cron attempted to run <code>scripts/scripts/campaign-intel-monitor.py</code> (double prefix). Hermes prepends <code>scripts/</code> to cron paths — the cron config needs just <code>campaign-intel-monitor.py</code>, not <code>scripts/campaign-intel-monitor.py</code>. Same pattern as the bin/ symlink fix from Aug 4.<br>
+    <strong>Est. time:</strong> 5 min<br>
+    <strong>Delay impact:</strong> <span class="badge badge-info">Low</span> — script works when called directly. Cron is the only broken path.
+  </div>
+</div>
+
+<!-- 2. Executive Summary -->
+<div class="section">
+  <h2>2. Executive Summary</h2>
+  <p class="summary">
+    The RE-ENG-AUG-2026 re-engagement campaign (49 prospects) executed overnight but encountered a serious duplicate-send bug affecting at least 5 prospects with 2-6 copies each. Two root causes identified: batch pointer reset and unverified recovery sends. One affected prospect unsubscribed. Five QPaint customers replied over the weekend requiring triage. Eleven outreach prospects remain Active at Email 1 with today as their next action date. The campaign intel monitor cron has a path-configuration bug. Production protocol v1.1.0 is certified but the duplicate-send incident reveals a verification gap in recovery-mode sends — the "never trust a green tick" principle was violated.
+  </p>
+</div>
+
+<!-- 3. Decisions Required -->
+<div class="section">
+  <h2>3. Decisions Required</h2>
+  <table>
+    <thead>
+      <tr><th>Decision</th><th>Recommendation</th><th>Confidence</th><th>Delay Impact</th><th>Context</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Send apology to duplicate recipients?</td>
+        <td>Yes — a brief, honest apology from James to the 5+ affected prospects. Acknowledge the error without over-explaining. This is a trust-repair move.</td>
+        <td><span class="confidence-high">High 95%</span></td>
+        <td><span class="badge badge-danger">High</span></td>
+        <td>Jay Duggin already unsubscribed. Proactive apology protects the remaining 4+ relationships.</td>
+      </tr>
+      <tr>
+        <td>Pause all automated sends until root cause is fixed?</td>
+        <td>Yes — pause all production sends. The MODE B recovery path (no Gmail verification) is a systemic vulnerability, not isolated to this campaign.</td>
+        <td><span class="confidence-high">High 95%</span></td>
+        <td><span class="badge badge-danger">High</span></td>
+        <td>Protocol v1.1.0 Rule 1: Verified Reality. The recovery path violated this by sending without Gmail verification.</td>
+      </tr>
+      <tr>
+        <td>Respond to QPaint replies — which ones need James vs Atlas?</td>
+        <td>Atlas can draft responses for all 5. Present to James for review. Jason Manley (government) and Terry Hamilton warrant higher attention.</td>
+        <td><span class="confidence-med">Medium 85%</span></td>
+        <td><span class="badge badge-warn">Medium</span></td>
+        <td>All 5 replies are to QPaint follow-ups. Some may be "already chosen" but could contain pipeline intelligence.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 4. Atlas Recommendations -->
+<div class="section">
+  <h2>4. Atlas' Recommendations</h2>
+
+  <table>
+    <thead>
+      <tr><th>#</th><th>Recommendation</th><th>Confidence</th><th>Why Change</th><th>Evidence</th><th>Expected Impact</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Conduct formal Production Incident Review (INC-2026-08-10-DUPLICATE-SEND) today</td>
+        <td><span class="confidence-high">High 95%</span></td>
+        <td>Two distinct failure modes in a single campaign. The recovery path violated Production Operating Protocol Rule 1 (Verified Reality). This is exactly the kind of incident the protocol was designed to prevent.</td>
+        <td>5+ affected prospects, 2 root causes (MODE A: batch pointer reset; MODE B: recovery without Gmail verification). Outreach notes in Airtable document both modes per prospect.</td>
+        <td>Permanent fix prevents recurrence. Protocol v1.2.0 hardens recovery path. Trust preserved for future campaigns.</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Hard-code Gmail Sent-folder verification into recovery/resume paths</td>
+        <td><span class="confidence-high">High 95%</span></td>
+        <td>MODE B occurred because the recovery batch didn't check Gmail before sending. The canonical send path has this check; the recovery path bypassed it.</td>
+        <td>MODE B affected Jay Duggin Painting (2 sends via recovery 80 min after main batch). This is the same class of error as INC-002 + INC-003 from Aug 5.</td>
+        <td>Closes the verification gap. Recovery path matches canonical path integrity. No future MODE-B-style incidents.</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Implement idempotency key per-recipient before send, not just batch-level</td>
+        <td><span class="confidence-med">Medium 85%</span></td>
+        <td>MODE A occurred because the batch pointer reset, allowing the same recipients to be re-processed. Per-recipient idempotency (Gmail Message-ID hash or Airtable sent-state check) would have blocked duplicates even with pointer failure.</td>
+        <td>Protocol v1.1.0 has idempotency at batch level (Rule 8). MODE A shows this is insufficient — pointer reset defeated batch-level idempotency.</td>
+        <td>Defense-in-depth against duplicate sends. Two independent checks: pointer position + per-recipient sent state.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 5. Inbox Summary -->
+<div class="section">
+  <h2>5. Inbox Summary</h2>
+
+  <div class="alert-warn">
+    <strong>🟡 5 QPaint customer replies received (Aug 9-10) — requiring triage today</strong>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>From</th><th>Subject</th><th>Date</th><th>Priority</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Jason Manley (hpw.qld.gov.au)</td><td>Re: Your QPaint quote — Ascot State School</td><td>Mon 10 Aug</td><td><span class="badge badge-warn">High</span> — Government client, $145K+ potential</td></tr>
+      <tr><td>Sian Leathem</td><td>Re: Your QPaint quote — Dornoch Terrace</td><td>Mon 10 Aug (x2)</td><td><span class="badge badge-info">Standard</span> — Two separate replies</td></tr>
+      <tr><td>Damien Glancy</td><td>Re: Your QPaint quote — Jordain Court, Ferny Hills</td><td>Mon 10 Aug</td><td><span class="badge badge-info">Standard</span></td></tr>
+      <tr><td>Terry Hamilton</td><td>Re: Your QPaint quote — Blackall Terrace, East Brisbane</td><td>Mon 10 Aug</td><td><span class="badge badge-info">Standard</span></td></tr>
+      <tr><td>Stratamatt Body Corporate</td><td>Auto-reply</td><td>Mon 10 Aug</td><td><span class="badge badge-neutral">Ignore</span> — Automated response</td></tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top: 1rem;"><strong>Also:</strong> Campaign intel monitor cron failed with path error (<code>scripts/scripts/</code> double-prefix). Script works when called directly. Root cause: Hermes prepends <code>scripts/</code> to cron paths — the cron config needed <code>campaign-intel-monitor.py</code>, not <code>scripts/campaign-intel-monitor.py</code>.</p>
+</div>
+
+<!-- 6. Pipeline Summary -->
+<div class="section">
+  <h2>6. Pipeline Summary</h2>
+
+  <table>
+    <thead>
+      <tr><th>Cohort</th><th>Count</th><th>Stage</th><th>Next Action</th><th>Next Date</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Active Outreach (Painters)</td>
+        <td>11</td>
+        <td>Email 1</td>
+        <td>Monitor for replies; prepare Email 2 drafts</td>
+        <td>10 Aug 2026 (today)</td>
+      </tr>
+      <tr>
+        <td>RE-ENG-AUG-2026</td>
+        <td>49</td>
+        <td>Email 1 Sent (with duplicates)</td>
+        <td>Damage assessment + apology to affected</td>
+        <td>INC-2026-08-10 — immediate</td>
+      </tr>
+      <tr>
+        <td>Campaign Complete</td>
+        <td>45</td>
+        <td>Closed</td>
+        <td>Monitor for late replies (30-day window)</td>
+        <td>Ongoing</td>
+      </tr>
+      <tr>
+        <td>New (uncontacted)</td>
+        <td>32</td>
+        <td>Pipeline</td>
+        <td>Future campaign assignment</td>
+        <td>TBD</td>
+      </tr>
+      <tr>
+        <td>Lost</td>
+        <td>8</td>
+        <td>Closed</td>
+        <td>None (re-engagement in 6 months)</td>
+        <td>Feb 2027</td>
+      </tr>
+      <tr>
+        <td>Not a Fit</td>
+        <td>3</td>
+        <td>Closed</td>
+        <td>None</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Won</td>
+        <td>1</td>
+        <td>Closed</td>
+        <td>Ongoing client management</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top: 1rem; color: var(--muted);"><strong>Active painter details:</strong> Sydney Painting Experts, Ron & Robin The Painters, 1800 All Painting, Superior Painters and Decorators, Redefine Painting, Ryan Painting, Upscale Painting & Decorating, Vicpainter, One Day Paint, PSA Painting, Brush Paint Wall. All at Email 1 with next action today.</p>
+</div>
+
+<!-- 7. Customer Highlights -->
+<div class="section">
+  <h2>7. Customer Highlights</h2>
+
+  <table>
+    <thead>
+      <tr><th>Customer</th><th>Signal</th><th>Action Needed</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Jay Duggin Painting</strong></td>
+        <td><span class="badge badge-danger">Unsubscribed</span> + received duplicate emails. Worst-case outcome: duplicate sends directly caused the unsubscribe. This is trust damage in action.</td>
+        <td>Consider a personal apology from James. This was a Campaign Complete prospect who came back for re-engagement — they gave us a second chance and got spammed.</td>
+      </tr>
+      <tr>
+        <td><strong>Jason Manley — Ascot State School (QPaint)</strong></td>
+        <td><span class="badge badge-warn">Replied</span> — Government client. Previously advanced a $145K QBuild project. Reply to follow-up email warrants priority handling.</td>
+        <td>Review reply content. If positive signal, escalate to James. Government pipeline is high-value.</td>
+      </tr>
+      <tr>
+        <td><strong>Creative Painting & Decorating</strong></td>
+        <td><span class="badge badge-danger">6 duplicate emails</span> — Worst-affected prospect. Hobart painter, new to outreach. 6 copies of the same re-engagement email.</td>
+        <td>Apology recommended. First impression severely damaged.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 8. Business Impact -->
+<div class="section">
+  <h2>8. Business Impact</h2>
+
+  <div class="metric-grid">
+    <div class="metric-card">
+      <div class="value">2</div>
+      <div class="label">Opportunities Recovered<br>(Tas Moulis + Star Painters — July)</div>
+    </div>
+    <div class="metric-card">
+      <div class="value">0</div>
+      <div class="label">New Opportunities Generated<br>(Aug — campaign just launched)</div>
+    </div>
+    <div class="metric-card">
+      <div class="value">108</div>
+      <div class="label">Customer Relationships Managed<br>(QPaint active pipeline)</div>
+    </div>
+    <div class="metric-card">
+      <div class="value" style="color: var(--danger);">INC-001</div>
+      <div class="label">Business Intelligence Discovered<br>(Duplicate-send vulnerability — critical)</div>
+    </div>
+  </div>
+</div>
+
+<!-- 9. System Health -->
+<div class="section">
+  <h2>9. System Health</h2>
+
+  <table>
+    <thead>
+      <tr><th>Component</th><th>Status</th><th>Note</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Atlas (this session)</td><td><span class="badge badge-success">Operational</span></td><td>Running. CEO Brief produced on schedule.</td></tr>
+      <tr><td>Airtable</td><td><span class="badge badge-success">Operational</span></td><td>API responding. 100 prospects, all fields intact.</td></tr>
+      <tr><td>Dashboard</td><td><span class="badge badge-warn">Needs Update</span></td><td>Last update Aug 9. Needs refresh after today's briefing.</td></tr>
+      <tr><td>Inbox (atlas@)</td><td><span class="badge badge-success">Operational</span></td><td>30 messages in 5 days. 5 customer replies. 1 auto-reply.</td></tr>
+      <tr><td>Campaign Intel Monitor Cron</td><td><span class="badge badge-danger">Failed</span></td><td>Path error: <code>scripts/scripts/</code>. Script works directly.</td></tr>
+      <tr><td>RE-ENG-AUG-2026 Cron</td><td><span class="badge badge-danger">Executed with Errors</span></td><td>Campaign sent but duplicate-send incident occurred.</td></tr>
+      <tr><td>QPaint Email 2 Cron (Aug 8)</td><td><span class="badge badge-warn">Manual Override</span></td><td>Cron failed to fire; manually executed. Evidence archived.</td></tr>
+      <tr><td>Storage Health</td><td><span class="badge badge-success">Green</span></td><td>Resolved Aug 4. State.db at 828KB. 12GB free.</td></tr>
+      <tr><td>Production Protocol</td><td><span class="badge badge-warn">v1.1.0 — Vulnerability Found</span></td><td>Recovery path bypasses Gmail verification. Needs v1.2.0.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 10. Upcoming Events -->
+<div class="section">
+  <h2>10. Upcoming Events</h2>
+
+  <table>
+    <thead>
+      <tr><th>Date</th><th>Event</th><th>Owner</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Mon 10 Aug</td><td>INC-2026-08-10-DUPLICATE-SEND: Production Incident Review</td><td>Atlas → James</td><td><span class="badge badge-danger">URGENT</span></td></tr>
+      <tr><td>Mon 10 Aug</td><td>QPaint replies: triage 5 customer responses</td><td>Atlas → James</td><td><span class="badge badge-warn">Today</span></td></tr>
+      <tr><td>Mon 10 Aug</td><td>Fix campaign-intel-monitor cron path</td><td>Atlas</td><td><span class="badge badge-info">Quick Fix</span></td></tr>
+      <tr><td>Mon 10 Aug</td><td>11 Active painters: Email 1 monitoring window</td><td>Atlas</td><td><span class="badge badge-info">Ongoing</span></td></tr>
+      <tr><td>Wed 13 Aug</td><td>Active painters: Email 2 drafts due (if no reply)</td><td>Atlas</td><td><span class="badge badge-neutral">Pending</span></td></tr>
+      <tr><td>Thu 28 Aug</td><td>Decision Review: Atlas Communication Layer (Jul 28)</td><td>Atlas → James</td><td><span class="badge badge-neutral">Scheduled</span></td></tr>
+      <tr><td>Thu 28 Aug</td><td>Campaign Intelligence Report — July 2026 due</td><td>Atlas</td><td><span class="badge badge-neutral">Scheduled</span></td></tr>
+      <tr><td>Mon 1 Sep</td><td>Governance Review — September 2026</td><td>Atlas</td><td><span class="badge badge-neutral">Scheduled</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 11. Risks & Watch List -->
+<div class="section">
+  <h2>11. Risks & Watch List</h2>
+
+  <table>
+    <thead>
+      <tr><th>Risk</th><th>Severity</th><th>What to Watch</th><th>Mitigation</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Trust damage from duplicate sends</td>
+        <td><span class="badge badge-danger">High</span></td>
+        <td>More unsubscribes in next 48 hours. Complaint emails. Reputation impact on re-engagement campaigns.</td>
+        <td>Apology to affected prospects. Halt all sends until fixed. Production incident review.</td>
+      </tr>
+      <tr>
+        <td>Recovery-path verification gap</td>
+        <td><span class="badge badge-danger">High</span></td>
+        <td>Any send that resumes/pauses/retries could trigger the same MODE B duplicate pattern.</td>
+        <td>Pause all production sends. Add Gmail Sent-folder verification to recovery path. Protocol v1.2.0.</td>
+      </tr>
+      <tr>
+        <td>Cron reliability</td>
+        <td><span class="badge badge-warn">Medium</span></td>
+        <td>QPaint Email 2 cron failed Aug 8 (manual override). Campaign intel monitor cron failed today (path bug). Two cron failures in 3 days.</td>
+        <td>Audit all active cron configurations. Verify path patterns against Hermes cron prepend behaviour.</td>
+      </tr>
+      <tr>
+        <td>QPaint reply response time</td>
+        <td><span class="badge badge-warn">Medium</span></td>
+        <td>5 replies waiting. Government client (Jason Manley) among them. Delayed response risks going cold.</td>
+        <td>Draft all 5 responses today. Present to James for review and send.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 12. Actions Requiring My Decision -->
+<div class="section">
+  <h2>12. Actions Requiring My Decision</h2>
+
+  <table>
+    <thead>
+      <tr><th>#</th><th>Action</th><th>Recommendation</th><th>Confidence</th><th>Delay Impact</th><th>Owner</th><th>Deadline</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Authorise Production Incident Review for INC-2026-08-10-DUPLICATE-SEND</td>
+        <td>Proceed immediately. Full root cause analysis, protocol hardening, affected-prospect communication plan.</td>
+        <td><span class="confidence-high">High 95%</span></td>
+        <td><span class="badge badge-danger">High</span></td>
+        <td>James</td>
+        <td>Today</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Authorise pause on all automated production sends until fix is deployed</td>
+        <td>Pause all. The recovery-path verification gap is systemic. No further sends until protocol v1.2.0 hardens the path.</td>
+        <td><span class="confidence-high">High 95%</span></td>
+        <td><span class="badge badge-danger">High</span></td>
+        <td>James</td>
+        <td>Today</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Approve apology email to 5+ duplicate-affected prospects</td>
+        <td>Brief, honest, from James. "A technical error caused duplicate emails. I'm sorry. This is not our standard." No over-explaining.</td>
+        <td><span class="confidence-high">High 90%</span></td>
+        <td><span class="badge badge-danger">High</span></td>
+        <td>James</td>
+        <td>Today</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Approve QPaint reply drafts for 5 customers</td>
+        <td>Atlas drafts all 5. Present for James review. Prioritise Jason Manley (government) and Terry Hamilton.</td>
+        <td><span class="confidence-med">Medium 85%</span></td>
+        <td><span class="badge badge-warn">Medium</span></td>
+        <td>James</td>
+        <td>Today</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 13. What to Ignore -->
+<div class="section">
+  <h2>13. What to Ignore</h2>
+
+  <ul>
+    <li><strong>45 Campaign Complete prospects</strong> — Monitoring window is open for late replies. No action needed today.</li>
+    <li><strong>32 New prospects</strong> — Uncontacted. Future campaign assignment. No urgency.</li>
+    <li><strong>PandaDoc extractor v2.0.0</strong> — Production certified Aug 6. Working correctly. Next review Nov 6.</li>
+    <li><strong>Storage health</strong> — Green since Aug 4. 12GB free. No monitoring needed.</li>
+    <li><strong>FF1 Painter Wave 1 (16 prospects)</strong> — Emails sent Aug 3. Monitoring window open. Email 2 not due until Aug 13. No action today.</li>
+    <li><strong>Travis-led Email 1 pilot</strong> — Design complete. Awaiting James approval to launch. Not blocking anything.</li>
+  </ul>
+</div>
+
+</div>
+
+<footer>
+  CEO Brief · 10 August 2026 · Not Forgotten Systems · Generated by Atlas<br>
+  <a href="index.html">Archive</a> · <a href="https://snowark-consulting.github.io/notforgotten-pages/dash/">Dashboard</a>
+</footer>
+
+</body>
+</html>
