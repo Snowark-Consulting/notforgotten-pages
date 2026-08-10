@@ -6,88 +6,182 @@
 <title>Not Forgotten — Business Health</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',-apple-system,sans-serif;background:#fff;color:#0a0a0a;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',-apple-system,sans-serif;background:#f8f9fa;color:#0a0a0a;line-height:1.6;-webkit-font-smoothing:antialiased}
 .container{max-width:1280px;margin:0 auto;padding:0 24px}
-.header{background:#0b2c4d;padding:24px 0;position:sticky;top:0;z-index:100}
+.header{background:#0b2c4d;padding:20px 0;position:sticky;top:0;z-index:100}
 .header .container{display:flex;align-items:center;justify-content:space-between}
-.header-logo{display:flex;align-items:center;gap:16px;text-decoration:none}
-.header-logo img{height:32px;width:auto}
-.header-logo span{color:#fff;font-size:18px;font-weight:600}
-.header-meta{color:rgba(255,255,255,.7);font-size:14px}
-.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:48px 0 24px}
-.kpi-card{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:24px}
-.kpi-label{font-size:14px;color:#737373;font-weight:500;margin-bottom:8px}
-.kpi-value{font-size:40px;font-weight:700;color:#0b2c4d;line-height:1.1}
-.kpi-sub{font-size:12px;color:#737373;margin-top:8px}
-.good{color:#16a34a}.warn{color:#f59e0b}
-.section{margin:48px 0}
-.section-title{font-size:24px;font-weight:700;margin-bottom:16px}
+.header-logo{text-decoration:none;color:#fff;font-size:20px;font-weight:700}
+.header-meta{color:rgba(255,255,255,.7);font-size:13px}
+.section{margin:32px 0}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.section-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff}
+.icon-growth{background:#0b2c4d}.icon-delivery{background:#1f5891}.icon-health{background:#16a34a}
+.section-title{font-size:22px;font-weight:700}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+.kpi-card{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:20px}
+.kpi-label{font-size:12px;color:#737373;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.kpi-value{font-size:32px;font-weight:700;color:#0b2c4d;line-height:1.1}
+.kpi-sub{font-size:12px;color:#737373;margin-top:4px}
+.kpi-unavailable{font-size:14px;color:#737373;font-style:italic}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .card{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:24px}
-.card-title{font-weight:600;font-size:16px;margin-bottom:16px}
-.card-badge{font-size:12px;font-weight:600;padding:2px 8px;border-radius:4px}
-.badge-review{background:#fef9c3;color:#854d0e}
-.pipeline-bar{display:flex;gap:4px;height:8px;border-radius:4px;overflow:hidden;margin-bottom:16px}
-.pipeline-stages{display:flex;gap:8px}
-.pipeline-stage{flex:1;text-align:center;padding:8px;border-radius:8px;font-size:12px;font-weight:500;background:#f5f5f5}
-.pipeline-stage.active{background:#0b2c4d;color:#fff;font-weight:600}
-.activity-item{display:flex;gap:16px;padding:12px 0;border-bottom:1px solid #e5e5e5}
-.activity-item:last-child{border-bottom:none}
-.activity-icon{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;font-weight:700;color:#fff}
-.icon-outbound{background:#1f5891}.icon-inbound{background:#16a34a}
-.activity-body{flex:1}.activity-meta{font-size:12px;color:#737373}
-.activity-text{font-size:14px;margin-top:2px}
-.tradie-card{display:flex;align-items:center;gap:12px;padding:12px;border-radius:8px;background:#f5f5f5;margin-bottom:8px}
-.tradie-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;color:#fff;background:#0b2c4d}
-.tradie-info{flex:1}.tradie-name{font-weight:600;font-size:16px}
-.tradie-trade{font-size:12px;color:#737373}
-.tradie-stat{text-align:right}.tradie-stat-val{font-weight:700;font-size:18px;color:#0b2c4d}
-.tradie-stat-label{font-size:12px;color:#737373}
+.card-title{font-weight:600;font-size:15px;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.card-badge{font-size:11px;font-weight:600;padding:2px 8px;border-radius:4px}
+.badge-green{background:#dcfce7;color:#166534}
+.badge-yellow{background:#fef9c3;color:#854d0e}
+.badge-red{background:#fecaca;color:#991b1b}
+.badge-grey{background:#f5f5f5;color:#737373}
+.campaign-response{font-size:13px;color:#737373;margin-top:8px;font-style:italic}
+.pipeline-bar{display:flex;gap:2px;height:8px;border-radius:4px;overflow:hidden;margin-bottom:12px}
+.pipeline-stages{display:flex;gap:4px;flex-wrap:wrap}
+.pipeline-stage{flex:1;min-width:80px;text-align:center;padding:8px 4px;border-radius:8px;font-size:11px;font-weight:500;background:#f5f5f5;line-height:1.3}
+.pipeline-stage small{display:block;font-size:16px;font-weight:700;margin-top:2px}
+.pipeline-stage.active{background:#0b2c4d;color:#fff}
 .status-row{display:flex;gap:8px;align-items:center;margin:8px 0}
 .status-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.status-label{font-size:14px;flex:1}.status-count{font-weight:600;font-size:14px}
-.empty-state{text-align:center;padding:48px;color:#737373;font-size:14px}
-.footer{text-align:center;padding:24px;color:#737373;font-size:12px;border-top:1px solid #e5e5e5;margin-top:48px}
+.status-label{font-size:13px;flex:1}.status-count{font-weight:600;font-size:13px}
+.system-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #f0f0f0}
+.system-row:last-child{border-bottom:none}
+.system-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.system-name{font-size:13px;flex:1}.system-status{font-size:12px;color:#737373}
+.dot-green{background:#16a34a}.dot-yellow{background:#e0a62a}.dot-red{background:#dc2626}.dot-grey{background:#a3a3a3}
+.empty-state{text-align:center;padding:36px;color:#737373;font-size:13px}
+.refresh-bar{background:#f0f4f8;border-radius:8px;padding:12px 16px;margin:24px 0;font-size:12px;color:#737373;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.refresh-bar strong{color:#0b2c4d}
+.source-fail{color:#dc2626;font-weight:600}
+.footer{text-align:center;padding:24px;color:#737373;font-size:11px;border-top:1px solid #e5e5e5;margin-top:48px}
 .footer a{color:#006aff}
-@media(max-width:900px){.kpi-grid{grid-template-columns:repeat(2,1fr)}.grid-2{grid-template-columns:1fr}.kpi-value{font-size:32px}}
-@media(max-width:500px){.kpi-grid{grid-template-columns:1fr}.header-logo span{display:none}}</style>
+@media(max-width:900px){.kpi-grid{grid-template-columns:repeat(2,1fr)}.grid-2{grid-template-columns:1fr}}
+@media(max-width:500px){.kpi-grid{grid-template-columns:1fr}.header-logo{font-size:16px}}</style>
 </head>
 <body>
 <header class="header"><div class="container">
-<a class="header-logo" href="https://notforgotten.com.au"><img src="assets/logo.png" alt="Not Forgotten"><span>Business Health</span></a>
-<div class="header-meta">Updated <strong>Aug 07, 2026 at 01:30 PM ACST</strong> · Airtable</div>
+<a class="header-logo" href="https://notforgotten.com.au">Not Forgotten — Business Health</a>
+<div class="header-meta">Dashboard V2</div>
 </div></header>
 <main class="container">
-<section class="kpi-grid">
-<div class="kpi-card"><div class="kpi-label">Active Customers</div><div class="kpi-value">0</div><div class="kpi-sub">All on paid plans</div></div>
-<div class="kpi-card"><div class="kpi-label">Pipeline Value</div><div class="kpi-value">$0</div><div class="kpi-sub">0 active quotes</div></div>
-<div class="kpi-card"><div class="kpi-label">Response Rate</div><div class="kpi-value">N/A</div><div class="kpi-sub good">0 of 0 quotes replied</div></div>
-<div class="kpi-card"><div class="kpi-label">Messages This Week</div><div class="kpi-value">100</div><div class="kpi-sub">4 inbound · 96 outbound</div></div>
-</section>
-<div class="grid-2">
-<section class="card"><div class="card-title">Quote Pipeline</div>
-<div class="pipeline-bar"><div class="seg" style="background:#737373;width:20%"></div><div class="seg" style="background:#e0a62a;width:20%"></div><div class="seg" style="background:#f5f5f5;width:20%"></div><div class="seg" style="background:#f5f5f5;width:20%"></div><div class="seg" style="background:#f5f5f5;width:20%"></div></div>
-<div class="pipeline-stages"><div class="pipeline-stage">New</div><div class="pipeline-stage active">In Sequence</div><div class="pipeline-stage">Replied</div><div class="pipeline-stage">Awaiting</div><div class="pipeline-stage">Won / Lost</div></div>
-</section>
-<section class="card"><div class="card-title">Quote Health</div>
-<div class="grid-2" style="grid-template-columns:1fr 1fr">
-<div style="text-align:center;padding:16px;background:#f7fbff;border-radius:8px"><div style="font-size:32px;font-weight:700;color:#0b2c4d">$0</div><div style="font-size:12px;color:#737373">Pipeline Value</div></div>
-<div style="text-align:center;padding:16px;background:#f7fbff;border-radius:8px"><div style="font-size:32px;font-weight:700;color:#e0a62a">0</div><div style="font-size:12px;color:#737373">Active Quotes</div></div>
-</div></section>
+<div class="refresh-bar">
+<span>Updated <strong>Aug 11, 2026 at 05:40 AM ACST</strong> · <strong>5/5</strong> sources healthy</span>
+<span>NF Growth · QPaint Delivery · System Health</span>
 </div>
-<section class="section"><div class="section-title">Recent Activity</div><div class="card"><div class="activity-item"><div class="activity-icon icon-outbound">OUT</div><div class="activity-body"><div class="activity-meta">Aug 05 · 09:30 PM · </div><div class="activity-text">Replied to Carlie with Commercial Customer Care: thanked her, asked what she's weighing up (price, timing, scope, comparing), offered QPaint...</div></div></div>
-<div class="activity-item"><div class="activity-icon icon-inbound">IN</div><div class="activity-body"><div class="activity-meta">Aug 05 · 02:09 PM · </div><div class="activity-text">GMAIL ID: 19fd03893845b6a1 | THREAD: 19fcef28e132341b | VERIFIED: Yes...</div></div></div>
-<div class="activity-item"><div class="activity-icon icon-inbound">IN</div><div class="activity-body"><div class="activity-meta">Aug 05 · 12:28 PM · </div><div class="activity-text">GMAIL ID: 19fcfdbf7bcf4dfe | THREAD: 19fcef28e132341b | VERIFIED: Yes...</div></div></div>
-<div class="activity-item"><div class="activity-icon icon-inbound">IN</div><div class="activity-body"><div class="activity-meta">Aug 05 · 10:10 AM · </div><div class="activity-text">GMAIL ID: 19fcf5db6406de41 | THREAD: 19fcef4289519391 | VERIFIED: Yes...</div></div></div>
-<div class="activity-item"><div class="activity-icon icon-outbound">OUT</div><div class="activity-body"><div class="activity-meta">Aug 01 · 12:40 PM · </div><div class="activity-text">Follow-up 1 sent to Brian Mitchell (brianmitchell42@icloud.com) for QPaint quote. Automated via follow-up-autopilot.</div></div></div>
-<div class="activity-item"><div class="activity-icon icon-inbound">IN</div><div class="activity-body"><div class="activity-meta">Jul 29 · 08:27 AM · </div><div class="activity-text">GMAIL ID: 19faaf275ff53fd7 | THREAD: 19fa62c4e6f0d9ec | VERIFIED: Yes...</div></div></div>
-<div class="activity-item"><div class="activity-icon icon-outbound">OUT</div><div class="activity-body"><div class="activity-meta">Jul 29 · 08:24 AM · </div><div class="activity-text">Hi Apex Painters,...</div></div></div>
-<div class="activity-item"><div class="activity-icon icon-outbound">OUT</div><div class="activity-body"><div class="activity-meta">Jul 29 · 08:24 AM · </div><div class="activity-text">Hi Sun Painters Adelaide,...</div></div></div>
-</div></section>
-<div class="grid-2">
-<section class="card"><div class="card-title">Customers</div><div class="empty-state">No customers yet</div></section>
-<section class="card"><div class="card-title">By Industry</div><div class="empty-state">No data yet</div></section>
+
+<!-- ═══ SECTION 1: NF GROWTH ═══ -->
+<div class="section">
+<div class="section-header">
+<div class="section-icon icon-growth">NF</div>
+<div class="section-title">Not Forgotten Growth</div>
 </div>
+<div class="kpi-grid">
+<div class="kpi-card"><div class="kpi-label">Total Prospects</div><div class="kpi-value">272</div><div class="kpi-sub">All-time outreach prospects</div></div>
+<div class="kpi-card"><div class="kpi-label">Active Outreach</div><div class="kpi-value">0</div><div class="kpi-sub">Currently sending</div></div>
+<div class="kpi-card"><div class="kpi-label">Campaign Monitoring</div><div class="kpi-value">98</div><div class="kpi-sub">RE-ENG-AUG-2026 observation · 41 completed · 8 suppressed<div class="campaign-response">RE-ENG-AUG-2026: 2 human replies from 141 delivered — response rate still forming. 8 suppressed.</div></div></div>
+<div class="kpi-card"><div class="kpi-label">Engaged</div><div class="kpi-value">0</div><div class="kpi-sub">In conversation / qualified</div></div>
+</div>
+<div class="kpi-grid">
+<div class="kpi-card"><div class="kpi-label">Customers Won</div><div class="kpi-value">2</div><div class="kpi-sub">Lifetime NF clients won</div></div>
+<div class="kpi-card"><div class="kpi-label">Paying Clients</div><div class="kpi-value">1</div><div class="kpi-sub">$199 MRR · 1 trial</div></div>
+<div class="kpi-card"><div class="kpi-label">NF Sales Pipeline Value</div><div class="kpi-unavailable">Not currently tracked</div></div>
+<div class="kpi-card"><div class="kpi-label">Campaign Response</div><div class="kpi-value" style="font-size:18px">2 / 141</div><div class="kpi-sub">Human replies from delivered · rate still forming</div></div>
+</div>
+<div class="grid-2">
+<div class="card"><div class="card-title">Campaign Audience — RE-ENG-AUG-2026<div class="campaign-response">RE-ENG-AUG-2026: 2 human replies from 141 delivered — response rate still forming. 8 suppressed.</div></div>
+<div class="kpi-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:0">
+<div class="kpi-card" style="padding:16px"><div class="kpi-label">Original</div><div class="kpi-value" style="font-size:24px">147</div></div>
+<div class="kpi-card" style="padding:16px"><div class="kpi-label">Observing</div><div class="kpi-value" style="font-size:24px">98</div></div>
+<div class="kpi-card" style="padding:16px"><div class="kpi-label">Suppressed</div><div class="kpi-value" style="font-size:24px">8</div></div>
+</div>
+<div style="margin-top:12px;font-size:12px;color:#737373">
+Completed: 41 · Human replies: 2 · Auto: 1 · Bounces: 6<br>
+Unsubscribed: 1 · Business Closed: 1<br>
+<span style="color:#0b2c4d;font-weight:600">MONITOR ONLY — No sends authorised</span>
+</div>
+</div>
+<div class="card"><div class="card-title">By Industry</div><div class="status-row"><div class="status-dot" style="background:#0b2c4d"></div><span class="status-label">Painter</span><span class="status-count">196</span></div>
+<div class="status-row"><div class="status-dot" style="background:#1f5891"></div><span class="status-label">Marketing agency</span><span class="status-count">30</span></div>
+<div class="status-row"><div class="status-dot" style="background:#e0a62a"></div><span class="status-label">Commercial cleaning</span><span class="status-count">30</span></div>
+<div class="status-row"><div class="status-dot" style="background:#16a34a"></div><span class="status-label">IT MSP</span><span class="status-count">4</span></div>
+<div class="status-row"><div class="status-dot" style="background:#dc2626"></div><span class="status-label">Other</span><span class="status-count">2</span></div>
+<div class="status-row"><div class="status-dot" style="background:#737373"></div><span class="status-label">Construction</span><span class="status-count">2</span></div>
+<div class="status-row"><div class="status-dot" style="background:#8b5cf6"></div><span class="status-label">B2B Services</span><span class="status-count">2</span></div>
+<div class="status-row"><div class="status-dot" style="background:#ec4899"></div><span class="status-label">Electrician</span><span class="status-count">2</span></div>
+</div>
+</div>
+</div>
+
+<!-- ═══ SECTION 2: QPAINT DELIVERY ═══ -->
+<div class="section">
+<div class="section-header">
+<div class="section-icon icon-delivery">QP</div>
+<div class="section-title">Client Delivery — QPaint</div>
+</div>
+<div class="kpi-grid">
+<div class="kpi-card"><div class="kpi-label">Total Opportunities</div><div class="kpi-value">150</div><div class="kpi-sub">All QPaint pipeline records</div></div>
+<div class="kpi-card"><div class="kpi-label">Active</div><div class="kpi-value">137</div><div class="kpi-sub">In-play opportunities</div></div>
+<div class="kpi-card"><div class="kpi-label">Won</div><div class="kpi-value">2</div><div class="kpi-sub">$147,261 recovered</div></div>
+<div class="kpi-card"><div class="kpi-label">Lost</div><div class="kpi-value">11</div><div class="kpi-sub">$269,019 lost</div></div>
+</div>
+<div class="kpi-grid">
+<div class="kpi-card"><div class="kpi-label">Total Quoted Value</div><div class="kpi-value">$5.39M</div><div class="kpi-sub">All 150 opportunities</div></div>
+<div class="kpi-card"><div class="kpi-label">Active Quote Value</div><div class="kpi-value">$4.97M</div><div class="kpi-sub">In-play (excl won/lost)</div></div>
+<div class="kpi-card"><div class="kpi-label">Won Value</div><div class="kpi-value">$147,261</div><div class="kpi-sub">2 deals confirmed</div></div>
+<div class="kpi-card"><div class="kpi-label">Recovered Value</div><div class="kpi-unavailable">Not yet attributed</div></div>
+</div>
+<div class="card" style="margin-bottom:24px">
+<div class="card-title">Pipeline Stage Distribution · <span style="font-weight:400;font-size:13px;color:#737373">150 total</span></div>
+<div class="pipeline-bar"><div class="seg" style="background:#737373;width:65.3%"></div><div class="seg" style="background:#1f5891;width:20.7%"></div><div class="seg" style="background:#0b2c4d;width:4.0%"></div><div class="seg" style="background:#e0a62a;width:0.7%"></div><div class="seg" style="background:#e0a62a;width:0.7%"></div><div class="seg" style="background:#16a34a;width:1.3%"></div><div class="seg" style="background:#dc2626;width:7.3%"></div></div>
+<div class="pipeline-stages"><div class="pipeline-stage active">Email 1<br><small>98</small></div><div class="pipeline-stage active">Email 2<br><small>31</small></div><div class="pipeline-stage active">Engaged<br><small>6</small></div><div class="pipeline-stage active">Awaiting Reply<br><small>1</small></div><div class="pipeline-stage active">Engaged - Awaiting Confirmation<br><small>1</small></div><div class="pipeline-stage active">Won<br><small>2</small></div><div class="pipeline-stage active">Lost<br><small>11</small></div></div>
+</div>
+<div class="grid-2">
+<div class="card"><div class="card-title">Value Summary</div>
+<div class="status-row"><span class="status-label">Active Quote Value</span><span class="status-count">$4.97M</span></div>
+<div class="status-row"><span class="status-label" style="color:#16a34a">Won Value</span><span class="status-count" style="color:#16a34a">$147,261</span></div>
+<div class="status-row"><span class="status-label" style="color:#dc2626">Lost Value</span><span class="status-count" style="color:#dc2626">$269,019</span></div>
+<div class="status-row"><span class="status-label">Recovered (attributed)</span><span class="status-count" style="color:#737373">Not yet attributed</span></div>
+</div>
+<div class="card"><div class="card-title">Quick Stats</div>
+<div class="status-row"><span class="status-label">Active opportunities</span><span class="status-count">137</span></div>
+<div class="status-row"><span class="status-label">Won deals</span><span class="status-count" style="color:#16a34a">2</span></div>
+<div class="status-row"><span class="status-label">Lost deals</span><span class="status-count" style="color:#dc2626">11</span></div>
+<div class="status-row"><span class="status-label">Total pipeline</span><span class="status-count">150</span></div>
+</div>
+</div>
+</div>
+
+<!-- ═══ SECTION 3: SYSTEM HEALTH ═══ -->
+<div class="section">
+<div class="section-header">
+<div class="section-icon icon-health">SH</div>
+<div class="section-title">System Health</div>
+</div>
+<div class="kpi-grid">
+<div class="kpi-card"><div class="kpi-label">Core Systems</div><div class="kpi-value" style="color:#16a34a">7</div><div class="kpi-sub">Healthy</div></div>
+<div class="kpi-card"><div class="kpi-label">Exceptions</div><div class="kpi-value" style="color:#e0a62a">2</div><div class="kpi-sub">0 critical · 2 warning</div></div>
+<div class="kpi-card"><div class="kpi-label">Data Quality</div><div class="kpi-value" style="font-size:18px">19 orphaned</div><div class="kpi-sub">+ 3 bounce records need stage update</div></div>
+<div class="kpi-card"><div class="kpi-label">Last Refresh</div><div class="kpi-value" style="font-size:16px">05:40</div><div class="kpi-sub">11 Aug 2026 ACST</div></div>
+</div>
+<div class="card" style="margin-bottom:24px">
+<div class="card-title">System Status</div><div class="system-row"><div class="system-dot dot-green"></div><div class="system-name">QPaint quote intake watchdog</div><div class="system-status">Operational</div></div>
+<div class="system-row"><div class="system-dot dot-green"></div><div class="system-name">QPaint quote processing</div><div class="system-status">Operational</div></div>
+<div class="system-row"><div class="system-dot dot-green"></div><div class="system-name">QPaint daily prioritisation</div><div class="system-status">Operational</div></div>
+<div class="system-row"><div class="system-dot dot-grey"></div><div class="system-name">Inbox pulse (atlas@)</div><div class="system-status">Superseded</div></div>
+<div class="system-row"><div class="system-dot dot-yellow"></div><div class="system-name">Business health dashboard</div><div class="system-status">Warning</div></div>
+<div class="system-row"><div class="system-dot dot-yellow"></div><div class="system-name">Nightly vault backup</div><div class="system-status">Warning</div></div>
+<div class="system-row"><div class="system-dot dot-green"></div><div class="system-name">Pipeline data (dash.json)</div><div class="system-status">Operational</div></div>
+<div class="system-row"><div class="system-dot dot-green"></div><div class="system-name">Campaign monitoring pulse</div><div class="system-status">Operational</div></div>
+<div class="system-row"><div class="system-dot dot-green"></div><div class="system-name">Airtable API (HQ base)</div><div class="system-status">Operational</div></div>
+<div class="system-row"><div class="system-dot dot-green"></div><div class="system-name">Quotes mailbox pipeline</div><div class="system-status">Operational</div></div>
+</div>
+<div class="card">
+<div class="card-title">Data Quality Notes</div>
+<div style="font-size:13px;color:#737373;line-height:1.8">
+• <strong>19 orphaned records</strong> have Sequence Status="Active" but no campaign or sequence context — excluded from Active Outreach count.<br>
+• <strong>3 bounce records</strong> (Experience Painting Canberra, Adelaide Painting Services, +1) have Pipeline Stage still="New" despite verified bounce evidence in Outreach Notes.<br>
+• <strong>8 QPaint replies</strong> in atlas@ inbox remain UNREAD but CRM-confirmed as processed — legacy artifact from white-label migration to quotes@.<br>
+• RE-ENG-AUG-2026 is <strong>MONITOR ONLY</strong>. No sends authorised. Campaign Tokens (607) are infrastructure inventory — no Processed click data available.
+</div>
+</div>
+</div>
+
 </main>
-<footer class="footer">Not Forgotten Systems · Business Health Dashboard · Auto-refreshed hourly · <a href="https://notforgotten.com.au">notforgotten.com.au</a></footer>
+<footer class="footer">Not Forgotten Systems · Business Health Dashboard V2 · Auto-refreshed hourly · <a href="https://notforgotten.com.au">notforgotten.com.au</a></footer>
 </body></html>
