@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-10T12:47:09+09:30",
+  "generated_at": "2026-08-10T12:58:37+09:30",
   "atlas_brief": {
     "greeting": "Good afternoon James.",
-    "body": "The QPaint portfolio is stable. 150 total records, 137 active journeys with complete Next Action coverage. Zero unsupported stages. Zero missing communications. The Production Operating Protocol v1.0.0 governs all operations. The canonical send authority is shadow-ready pending production cutover.",
+    "body": "Major operational day complete. 150 QPaint records, 137 active, 0 exceptions. 33 emails sent across 3 campaigns. 5 customer replies actioned (2 Lost, 3 Engaged). QPaint Daily Attention + closed-loop intake activated. 100% 24-hour warning coverage. 0 uncontacted customers. The operating system is significantly stronger than it was this morning.",
     "estimated_time": "2 minutes"
   },
   "business_score": {
@@ -24,11 +24,11 @@
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "\u2705 137 active QPaint journeys certified. 127 contacted. 0 exceptions. Pipeline: $4,973,084. Won: $147,261."
+      "detail": "\u2705 137 active journeys. 34 Email 2 sent. 5 engaged. 2 Won ($147,261). Pipeline: $4,973,084. 0 exceptions."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "3 Email 2 scheduled (Jeremy Ho, Skyla Garvey, Jordan Forrest). FF1 Wave 1 on hold. Founder re-engagement pending."
+      "detail": "34 Email 2 sent (27 today). 5 replies (2 Lost, 3 Engaged). Email 3 earliest Aug 20. RE-ENG-AUG-2026: 147 sent, monitoring."
     },
     "engineering": {
       "status": "healthy",
@@ -45,61 +45,67 @@
   },
   "waiting_for_james": [
     {
-      "id": "re-eng-aug-2026-launch",
-      "title": "RE-ENG-AUG-2026 \u2014 147 Sequential Sends (Monday 9AM)",
-      "why_it_matters": "Largest production campaign to date. 147 approved senders. Sequential send with per-recipient gate re-check at execution. Fail-closed. Founder-only change control.",
-      "business_impact": "High",
-      "estimated_review_time": "5 min \u2014 Atlas reports SENT/STOPPED/FAILED after execution completes",
-      "recommended_action": "No action tonight. Atlas will execute at 9AM Monday and report. Review execution report when available.",
-      "impact_sort": 90
-    },
-    {
-      "id": "new-intakes-review-aug10",
-      "title": "David, Sian, Peter \u2014 Email 1 Review (Monday Aug 10)",
-      "why_it_matters": "3 new quotes (~$109K). Observation period complete. Individual assessment required before first contact.",
+      "id": "follow-up-autopilot-decision",
+      "title": "QPaint follow-up automation \u2014 Founder decision",
+      "why_it_matters": "New quotes detected by watchdog. Pulse-phase2 processes into Airtable (active). Old autopilot retired. Email 1 sending requires manual approval until new autopilot authorised.",
       "business_impact": "Medium",
-      "estimated_review_time": "15 min on Monday",
-      "recommended_action": "Atlas will present individual recommendations Monday. Review before any sends.",
+      "estimated_review_time": "10 min",
+      "recommended_action": "Review autopilot remediation audit. Decide whether to re-enable automated Email 1 sending.",
       "impact_sort": 50
-    },
-    {
-      "id": "canonical-send-cutover",
-      "title": "Phase 1 Canonical Send Authority \u2014 Production Cutover",
-      "why_it_matters": "Single canonical send authority ready. 10/10 regression passed. Shadow-tested against live workflow.",
-      "business_impact": "High",
-      "estimated_review_time": "15 min after RE-ENG-AUG-2026 completes",
-      "recommended_action": "Review cutover plan after Monday's campaign sends complete successfully.",
-      "impact_sort": 70
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Sunday evening. The portfolio is stable. Pipeline value has increased to $5,339,363 (was $5,014,946). Tomorrow: the largest production campaign yet \u2014 147 sequential sends at 9AM ACST. All pre-flight checks will run at execution time.",
+    "executive_summary": "Monday Aug 10. Major operational day complete. QPaint portfolio: 150 records, 137 active, 0 exceptions. 33 emails sent today. 5 customer replies actioned. QPaint Daily Attention active at 07:00 daily. Closed-loop intake active.",
     "priorities": [
       {
-        "action": "Rest tonight. Tomorrow is operationally significant.",
-        "why_it_matters": "147 sequential sends with per-recipient gate re-check. The system is locked and loaded. The best thing James can do tonight is be fresh for the execution review.",
-        "expected_impact": "Sustained operational excellence",
-        "estimated_time": "\u2014",
-        "confidence": "High"
+        "action": "QPaint Daily Attention \u2014 first run 07:00 tomorrow",
+        "why_it_matters": "First automated pre-due alert since Aug 4. 36-hour look-ahead. 100% coverage."
+      },
+      {
+        "action": "Follow-up autopilot \u2014 Founder decision pending",
+        "why_it_matters": "New quotes detected but Email 1 requires manual approval. Closing this gap completes the automation chain."
       }
     ],
     "can_wait": [
-      "RE-ENG-AUG-2026 execution (tomorrow 9AM)",
-      "David/Sian/Peter Email 1 review (Monday Aug 10)",
-      "Phase 1 production cutover (after campaign completes)",
-      "Phase 2-3 hardening (pre-send, reconciliation, Last Contacted, recovery)"
+      "Email 3 campaign (earliest Aug 20)",
+      "Non-QPaint recovery operations",
+      "Phase 2-3 hardening follow-ups"
     ],
-    "closing": "The operating system is stronger than it was a week ago. 0 active exceptions. Every active customer has a verified stage and a clear next action. Tomorrow: the largest campaign yet."
+    "closing": "The QPaint operating system is stronger than it was this morning. 33 emails executed. 5 replies handled. 2 losses closed. 3 opportunities progressing. Daily Attention + closed-loop intake active. 0 silent drops possible."
   },
   "changes": {
     "today": [
       {
-        "time": "16:43",
-        "text": "Pipeline value updated: $5,339,363 (+$324,417 since last audit). Not Contacted reduced from 6 to 1."
+        "time": "12:45",
+        "text": "QPaint portfolio certified: 150 records, 137 active, 0 exceptions, 0 uncontacted. All active have verified Gmail + Next Touchpoints + 24h warning coverage."
       },
       {
-        "time": "16:43",
-        "text": "HQ regenerated. RE-ENG-AUG-2026 locked for Monday 9AM execution. All systems nominal."
+        "time": "12:30",
+        "text": "5 QPaint replies actioned: Sian Leathem (positive), David Schneideman (competing), Terry Hamilton (timing), Damien Glancy (Lost), Skyla Garvey (Lost)."
+      },
+      {
+        "time": "12:00",
+        "text": "33 emails sent today: 3 fresh Email 1 ($108K), 27 Email 2 recovery ($1.08M), 3 engaged follow-ups."
+      },
+      {
+        "time": "11:30",
+        "text": "QPaint Daily Attention activated. Closed-loop intake activated (quotes-pulse-phase2 remediated). 48-hour no-contact rule enforced."
+      },
+      {
+        "time": "10:30",
+        "text": "Intake audit: 13/13 gates PASS. Old autopilot retired. All 4 failed gates remediated."
+      },
+      {
+        "time": "10:00",
+        "text": "Communication audit: 3 calibration records verified. Pat Dare corrected. 26 Email 2 overdue identified."
+      },
+      {
+        "time": "09:30",
+        "text": "P1: Jay Duggin duplicate logo. Boundary hardened \u2014 8-gate MIME cert. Permanent james@ send law established."
+      },
+      {
+        "time": "09:00",
+        "text": "Daily Attention review: 4 engaged (Cathy, Carlie, Elisha, Alicia). Nicholas Z awaiting paperwork."
       }
     ],
     "yesterday": [
@@ -405,7 +411,7 @@
     "total_voice_recommendations": 0,
     "principle": "Atlas exists to strengthen the relationship between James and the customer. It does not exist to replace it."
   },
-  "operational_status": "\u2705 QPaint portfolio certified. 137 active journeys, 0 exceptions. Protocol v1.0.0. Phase 1 hardening shadow-ready.",
+  "operational_status": "\u2705 QPaint certified. 137 active, 0 exceptions. 33 emails today. Daily Attention active. Intake active. 0 silent drops.",
   "vault_health": {
     "description": "Complete state of the Not Forgotten knowledge vault \u2014 the institutional memory that compounds forever.",
     "decisions": {
@@ -476,40 +482,64 @@
     },
     "key_customers": [
       {
-        "name": "Jenny Yang",
-        "stage": "Email 2",
-        "value": 227084,
-        "status": "Sent Aug 7 \u2014 review Aug 21"
+        "name": "Nicholas Zappacosta",
+        "stage": "Engaged \u2014 Awaiting Confirmation",
+        "value": 145008,
+        "status": "QPaint-managed. Formal paperwork. Next: Sep 10."
       },
       {
-        "name": "Richard Zhang",
-        "stage": "Email 2",
-        "value": 145350,
-        "status": "Sent Aug 7 \u2014 review Aug 14"
+        "name": "Elisha Paige",
+        "stage": "Engaged",
+        "value": 113907,
+        "status": "Committee review. Follow-up sent. Next: Aug 17."
       },
       {
-        "name": "Jesse Zhao",
-        "stage": "Email 2",
-        "value": 116223,
-        "status": "Sent Aug 7 \u2014 review Aug 17 (prev client)"
+        "name": "Sian Leathem",
+        "stage": "Engaged",
+        "value": 39996,
+        "status": "Positive signal. Carpentry blocker. Next: Aug 14."
       },
       {
-        "name": "Helen Walsh",
-        "stage": "Email 2",
-        "value": 109887,
-        "status": "Sent Aug 7 \u2014 review Aug 21"
+        "name": "David Schneideman",
+        "stage": "Engaged",
+        "value": 39888,
+        "status": "Competing quote. Next: Aug 14."
       },
       {
-        "name": "Jeremy Ho",
-        "stage": "Email 2",
-        "value": 35937,
-        "status": "Scheduled Email 2 \u2014 9AM Aug 8 \u2192 now in Email 2 stage"
+        "name": "Terry Hamilton",
+        "stage": "Engaged",
+        "value": 30538,
+        "status": "Timing wait. Builder/roof. Next: Sep 7."
       },
       {
-        "name": "Skyla Garvey",
-        "stage": "Email 2",
-        "value": 13038,
-        "status": "Scheduled Email 2 \u2014 9AM Aug 8 \u2192 now in Email 2 stage"
+        "name": "Carlie Gunn",
+        "stage": "Engaged",
+        "value": 19932,
+        "status": "Still deciding. Next: Aug 17."
+      },
+      {
+        "name": "Alicia Campbell",
+        "stage": "Engaged",
+        "value": 8789,
+        "status": "Quote resend check. Next: Aug 17."
+      },
+      {
+        "name": "Cathy Cochrane",
+        "stage": "Awaiting Reply",
+        "value": 4152,
+        "status": "Insurer wait. Next: Aug 19."
+      },
+      {
+        "name": "Joy Ryan",
+        "stage": "Won",
+        "value": 17510,
+        "status": "Won \u2014 $12,234. Assisted."
+      },
+      {
+        "name": "Arno Hsu",
+        "stage": "Won",
+        "value": 129750,
+        "status": "Won \u2014 proceeding."
       }
     ]
   }
