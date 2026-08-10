@@ -2,7 +2,7 @@
   "generated_at": "2026-08-10T17:18:58+09:30",
   "atlas_brief": {
     "greeting": "Good evening James.",
-    "body": "Today was a major governance and campaign operations day. RE-ENG-AUG-2026 was sent to 147 production recipients at 9AM. Six recipients received duplicate sends (identified, root-caused, remediated). The campaign response infrastructure had a critical gap at launch — all 441 YES/NO/UNSUBSCRIBE links initially returned errors. Recovered by 5PM. The incident triggered a complete governance overhaul: Production Artifact Lock, Central Send Boundary, 12-gate Pre-Execution Certification, and Principle of Least Authority applied across all 29 automations. QPaint pipeline: $5.39M, 150 records, 7 engaged. RE-ENG-AUG-2026 now MONITOR ONLY.",
+    "body": "Today was a major governance and campaign operations day. RE-ENG-AUG-2026 was sent to 147 production recipients at 9AM. Six recipients received duplicate sends (identified, root-caused, remediated). The campaign response infrastructure had a critical gap at launch \u2014 all 441 YES/NO/UNSUBSCRIBE links initially returned errors. Recovered by 5PM. The incident triggered a complete governance overhaul: Production Artifact Lock, Central Send Boundary, 12-gate Pre-Execution Certification, and Principle of Least Authority applied across all 29 automations. QPaint pipeline: $5.39M, 150 records, 7 engaged. RE-ENG-AUG-2026 now MONITOR ONLY.",
     "estimated_time": "3 minutes"
   },
   "business_score": {
@@ -26,51 +26,51 @@
   "business_health": {
     "clients": {
       "status": "healthy",
-      "icon": "🏢",
+      "icon": "\ud83c\udfe2",
       "detail": "QPaint: 150 records, 2 Won ($147K), 7 Engaged ($398K), 11 Lost ($269K). Active autonomous envelope."
     },
     "recovery_operations": {
       "status": "healthy",
-      "icon": "🔄",
+      "icon": "\ud83d\udd04",
       "detail": "137 active QPaint journeys. 98 Email 1, 31 Email 2, 7 engaged. Daily Attention active at 07:00 Adelaide."
     },
     "outreach": {
       "status": "monitoring",
-      "icon": "📨",
+      "icon": "\ud83d\udce8",
       "detail": "RE-ENG-AUG-2026: 147 delivered. Response links recovered. Zero YES clicks so far. Monitoring."
     },
     "engineering": {
       "status": "healthy",
-      "icon": "⚙️",
+      "icon": "\u2699\ufe0f",
       "detail": "Production Artifact Lock active. Central Send Boundary deployed. 29 automations, 0 over-privileged."
     },
     "finance": {
       "status": "healthy",
-      "icon": "💰",
+      "icon": "\ud83d\udcb0",
       "detail": "QPaint: $147,261 Won. $5.39M total pipeline. 2 Won, 7 Engaged, 11 Lost."
     },
     "atlas": {
       "status": "healthy",
-      "icon": "🧠",
+      "icon": "\ud83e\udde0",
       "detail": "Governance framework deployed. 12-gate pre-execution certification. Memory consolidated."
     }
   },
   "waiting_for_james": [
     {
       "id": "re-eng-monitor",
-      "title": "RE-ENG-AUG-2026 — Monitor campaign responses",
+      "title": "RE-ENG-AUG-2026 \u2014 Monitor campaign responses",
       "why_it_matters": "147 recipients delivered. Response links now functional after recovery. Zero YES clicks so far. Jay Duggin unsubscribed (duplicate sends). Campaign in MONITOR ONLY state.",
-      "business_impact": "High — $5M+ pipeline potential if engagement converts",
+      "business_impact": "High \u2014 $5M+ pipeline potential if engagement converts",
       "estimated_review_time": "2 min",
       "estimated_time": "2 min",
-      "recommended_action": "Continue monitoring. No resend. Response infrastructure now functional — any future clicks will be recorded.",
+      "recommended_action": "Continue monitoring. No resend. Response infrastructure now functional \u2014 any future clicks will be recorded.",
       "impact_sort": 85
     },
     {
       "id": "follow-up-autopilot",
-      "title": "follow-up-autopilot — Authority decision required",
+      "title": "follow-up-autopilot \u2014 Authority decision required",
       "why_it_matters": "Paused under Least Authority review. Customer-contact automation with no documented Founder authority. Script disabled, cron job paused.",
-      "business_impact": "Medium — QPaint Email 1 sending impacted if not resolved",
+      "business_impact": "Medium \u2014 QPaint Email 1 sending impacted if not resolved",
       "estimated_review_time": "10 min",
       "estimated_time": "10 min",
       "recommended_action": "Either grant explicit authority with defined envelope, or retire permanently.",
@@ -78,9 +78,9 @@
     },
     {
       "id": "morning-briefing",
-      "title": "Morning Briefing — Retire or reactivate?",
+      "title": "Morning Briefing \u2014 Retire or reactivate?",
       "why_it_matters": "Paused since Aug 4. Superseded by CEO Brief + Headquarters + QPaint Daily Attention.",
-      "business_impact": "Low — function already covered by other automations",
+      "business_impact": "Low \u2014 function already covered by other automations",
       "estimated_review_time": "2 min",
       "estimated_time": "2 min",
       "recommended_action": "Retire. All functions covered by CEO Brief and QPaint Daily Attention.",
@@ -91,28 +91,38 @@
     "executive_summary": "Monitor RE-ENG-AUG-2026 responses. Campaign sent, infrastructure recovered, governance deployed. Now watch for YES clicks. Tomorrow: QPaint Daily Attention at 07:00 Adelaide.",
     "priorities": [
       {
-        "title": "Monitor RE-ENG-AUG-2026",
-        "detail": "147 recipients. Response links functional. Zero YES clicks. Watch for late responses."
+        "action": "Monitor RE-ENG-AUG-2026",
+        "why_it_matters": "147 recipients. Response links functional. Zero YES clicks. Watch for late responses.",
+        "expected_impact": "Significant improvement to operational reliability",
+        "estimated_time": "30-60 min",
+        "confidence": "High"
       },
       {
-        "title": "QPaint Daily Attention tomorrow",
-        "detail": "7 engaged records. Nicholas Zappacosta Logan Village + QAS Beenleigh awaiting paperwork."
+        "action": "QPaint Daily Attention tomorrow",
+        "why_it_matters": "7 engaged records. Nicholas Zappacosta Logan Village + QAS Beenleigh awaiting paperwork.",
+        "expected_impact": "Significant improvement to operational reliability",
+        "estimated_time": "30-60 min",
+        "confidence": "High"
       },
       {
-        "title": "Governance monitoring",
-        "detail": "Verify no active automation exceeds authority. Watch for bypass attempts."
+        "action": "Governance monitoring",
+        "why_it_matters": "Verify no active automation exceeds authority. Watch for bypass attempts.",
+        "expected_impact": "Significant improvement to operational reliability",
+        "estimated_time": "30-60 min",
+        "confidence": "High"
       }
-    ]
+    ],
+    "can_wait": []
   },
   "changes": {
     "today": [
       {
         "time": "09:00",
-        "text": "RE-ENG-AUG-2026 executed — 176 sends to 148 unique addresses. 6 recipients received duplicates."
+        "text": "RE-ENG-AUG-2026 executed \u2014 176 sends to 148 unique addresses. 6 recipients received duplicates."
       },
       {
         "time": "11:00",
-        "text": "Response infrastructure gap identified — Campaign Tokens table did not exist. All links returning HTTP 500."
+        "text": "Response infrastructure gap identified \u2014 Campaign Tokens table did not exist. All links returning HTTP 500."
       },
       {
         "time": "14:00",
@@ -120,7 +130,7 @@
       },
       {
         "time": "16:00",
-        "text": "Campaign Tokens backfilled — 477 tokens recovered. Response links confirmed working."
+        "text": "Campaign Tokens backfilled \u2014 477 tokens recovered. Response links confirmed working."
       },
       {
         "time": "17:00",
@@ -140,22 +150,23 @@
         "time": "21:00",
         "text": "RE-ENG-AUG-2026 CLOSED BASELINE locked. Campaign scheduled for Monday 9AM."
       }
-    ]
+    ],
+    "this_week": []
   },
   "lessons_learned": {
     "total": 5,
     "recent": [
       {
         "id": "LL-20260807-001",
-        "title": "Model Recovery — Reconstruct State from Systems, Not Memory",
+        "title": "Model Recovery \u2014 Reconstruct State from Systems, Not Memory",
         "status": "Resolved",
-        "summary": "After provider failure, Atlas reported 0/4 sent when Gmail showed 4/4. Recovery must use Gmail→Ledger→Airtable, not conversational reconstruction."
+        "summary": "After provider failure, Atlas reported 0/4 sent when Gmail showed 4/4. Recovery must use Gmail\u2192Ledger\u2192Airtable, not conversational reconstruction."
       },
       {
         "id": "LL-20260805-002",
-        "title": "172 emails silently undelivered — OAuth scope/expiry failures",
+        "title": "172 emails silently undelivered \u2014 OAuth scope/expiry failures",
         "status": "Resolved",
-        "summary": "No independent delivery verification. Script execution ≠ proof. Gmail Sent folder is source of truth."
+        "summary": "No independent delivery verification. Script execution \u2260 proof. Gmail Sent folder is source of truth."
       },
       {
         "id": "LL-20260805-001",
@@ -201,19 +212,19 @@
       {
         "id": "BK-005",
         "principle": "When a customer is waiting on a third party, remove the burden from them. Offer to check back.",
-        "source": "Cathryn Cochrane — QPaint, Aug 2026",
+        "source": "Cathryn Cochrane \u2014 QPaint, Aug 2026",
         "evidence": "Customer stuck on insurer. 2-week check-in offered."
       },
       {
         "id": "BK-006",
         "principle": "A lost job is not necessarily a lost customer. Thank them, preserve the relationship, leave the door open.",
-        "source": "Malcolm McCabe — QPaint, Aug 2026",
+        "source": "Malcolm McCabe \u2014 QPaint, Aug 2026",
         "evidence": "Previous client lost on cost. Graceful close preserved relationship."
       },
       {
         "id": "BK-007",
         "principle": "When the business has let a customer down, acknowledge it honestly. No excuses.",
-        "source": "Chass Matters — QPaint, Aug 2026",
+        "source": "Chass Matters \u2014 QPaint, Aug 2026",
         "evidence": "Customer lost to delayed follow-up. Honest apology preserved goodwill."
       },
       {
@@ -272,7 +283,7 @@
     "recent": [
       {
         "id": "INC-2026-08-07-004",
-        "title": "FF1 Wave 1 — 16 Duplicate Email 1 Sends",
+        "title": "FF1 Wave 1 \u2014 16 Duplicate Email 1 Sends",
         "date": "2026-08-07",
         "severity": "S2",
         "root_cause": "Blind batch re-run with no duplicate-send prevention",
@@ -282,7 +293,7 @@
       },
       {
         "id": "INC-2026-08-07-003",
-        "title": "32 QPaint Email 2 — Zero Delivered, Airtable Advanced",
+        "title": "32 QPaint Email 2 \u2014 Zero Delivered, Airtable Advanced",
         "date": "2026-08-07",
         "severity": "S1",
         "root_cause": "Proof-before-Progress was documentation, not architectural control. Airtable advanced without Gmail verification.",
@@ -292,7 +303,7 @@
       },
       {
         "id": "INC-2026-08-05-003",
-        "title": "atlas@ Lacked gmail.send — QPaint Replies Undelivered",
+        "title": "atlas@ Lacked gmail.send \u2014 QPaint Replies Undelivered",
         "date": "2026-08-05",
         "severity": "S1",
         "root_cause": "atlas@ token authorised for gmail.modify only",
@@ -312,7 +323,7 @@
       },
       {
         "id": "INC-2026-08-05-001",
-        "title": "QPaint Pipeline — 61 Duplicate Records",
+        "title": "QPaint Pipeline \u2014 61 Duplicate Records",
         "date": "2026-08-05",
         "severity": "S1",
         "root_cause": "Partial dataset import from incomplete Airtable pagination",
@@ -354,7 +365,7 @@
     "oauth_health": "ok"
   },
   "communications": {
-    "description": "Permanent Communication Standard. Every channel follows: Compose → Approve → Send → Verify → Record → Airtable → Headquarters → Learning.",
+    "description": "Permanent Communication Standard. Every channel follows: Compose \u2192 Approve \u2192 Send \u2192 Verify \u2192 Record \u2192 Airtable \u2192 Headquarters \u2192 Learning.",
     "channels": {
       "email": {
         "status": "production_ready",
@@ -397,7 +408,7 @@
   },
   "operational_status": "RE-ENG-AUG-2026: MONITOR ONLY. QPaint: active with autonomous envelope. Governance: all controls deployed. Automation: 22 active, 0 over-privileged.",
   "vault_health": {
-    "description": "Complete state of the Not Forgotten knowledge vault — the institutional memory that compounds forever.",
+    "description": "Complete state of the Not Forgotten knowledge vault \u2014 the institutional memory that compounds forever.",
     "decisions": {
       "total": 49,
       "founding": 8,
@@ -409,13 +420,13 @@
     "learnings": {
       "total": 5,
       "resolved": 5,
-      "most_recent": "LL-20260807-001 — Model recovery: systems not memory"
+      "most_recent": "LL-20260807-001 \u2014 Model recovery: systems not memory"
     },
     "incidents": {
       "total": 5,
       "s1": 4,
       "resolved": 5,
-      "most_recent": "INC-2026-08-07-004 — FF1 duplicate sends"
+      "most_recent": "INC-2026-08-07-004 \u2014 FF1 duplicate sends"
     },
     "ceo_briefs": {
       "published": 7,
@@ -425,8 +436,8 @@
     },
     "business_knowledge": {
       "principles": 15,
-      "earliest": "BK-001 — Painters + curiosity",
-      "latest": "BK-015 — Gmail Sent is communication truth"
+      "earliest": "BK-001 \u2014 Painters + curiosity",
+      "latest": "BK-015 \u2014 Gmail Sent is communication truth"
     },
     "memory": {
       "index_entries": 10,
@@ -436,20 +447,24 @@
     "infrastructure": {
       "disk": "44% (8.2G/20G)",
       "memory_system": "71% (2.7G/3.8G)",
-      "git_commits": "21b74f34 — Pipeline refresh 2026-08-09 15:30"
+      "git_commits": "21b74f34 \u2014 Pipeline refresh 2026-08-09 15:30"
     }
   },
   "qpaint_pipeline": {
-    "total_records": 150,
-    "total_value": 5389363.47,
-    "won": 2,
-    "won_value": 147260.8,
-    "lost": 11,
-    "lost_value": 269019.05,
-    "engaged": 7,
-    "engaged_value": 398058.94,
-    "email1": 98,
-    "email2": 31,
-    "last_updated": "2026-08-10T16:14:39+09:30"
+    "summary": {
+      "total_customers": 150,
+      "total_pipeline_value": "$5.39M",
+      "won_count": 2,
+      "won_value": "$147,261",
+      "engaged_replied": 7,
+      "contacted": 98,
+      "lost_count": 11
+    },
+    "priority": {
+      "P1": 0,
+      "P2": 0,
+      "P3": 0
+    },
+    "key_customers": []
   }
 }
