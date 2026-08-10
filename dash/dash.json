@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 182,
+    "tasks_completed": 183,
     "recent": [
+      {
+        "date": "2026-08-10 13:07",
+        "task": "QPaint Recovery Dashboard refreshed \u2014 150 records, .39M pipeline, 2 Won, 11 Lost, 7 Engaged. Replaced stale Day 0 (July 28) data with full Aug 10 state.",
+        "category": "task"
+      },
       {
         "date": "2026-08-10 12:59",
         "task": "HQ full refresh \u2014 QPaint certified, 33 emails today, 5 replies actioned, Daily Attention + intake active, 0 exceptions.",
@@ -135,11 +140,6 @@
         "date": "2026-08-05 18:54",
         "task": "A/B test live: dev.notforgotten.com.au (A) vs dev.notforgotten.com.au/b (B). Belief Architecture v4 frozen. Validation plan finalised. Q1 litmus test: 'What do you think this company does?'",
         "category": "task"
-      },
-      {
-        "date": "2026-08-05 18:40",
-        "task": "Dev site v4 deployed to dev.notforgotten.com.au. 7-section belief chain: Awakening\u2192Insight\u2192Proof\u2192How\u2192Care\u2192Value\u2192Action. Ready for business owner validation.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-10T12:59:05.444694+09:30",
+  "last_updated": "2026-08-10T13:07:04.898547+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
