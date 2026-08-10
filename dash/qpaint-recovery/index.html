@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>QPaint Recovery — Not Forgotten Systems</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -31,117 +34,300 @@ body { font-family: var(--font); background: var(--nfs-light); color: var(--nfs-
 .metric-card.gold-border { border-left: 4px solid var(--nfs-gold); }
 .section-title { font-size: 20px; font-weight: 700; color: var(--nfs-navy); margin-bottom: var(--space-lg); }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-bottom: var(--space-2xl); }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-lg); margin-bottom: var(--space-2xl); }
 .panel { background: var(--nfs-white); border-radius: var(--radius); padding: var(--space-xl); box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
 .panel h3 { font-size: 16px; font-weight: 700; color: var(--nfs-navy); margin-bottom: var(--space-md); }
+.panel.full { grid-column: 1 / -1; }
 table { width: 100%; border-collapse: collapse; font-size: 14px; }
 th { text-align: left; padding: var(--space-sm) var(--space-md); color: var(--nfs-muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid rgba(0,0,0,0.08); }
 td { padding: var(--space-sm) var(--space-md); border-bottom: 1px solid rgba(0,0,0,0.04); }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
 .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; }
 .badge-engaged { background: #e8f5e9; color: #2e7d32; }
 .badge-pending { background: #fff3e0; color: #e65100; }
 .badge-active { background: #e3f2fd; color: #1565c0; }
 .badge-won { background: #c8e6c9; color: #1b5e20; }
+.badge-lost { background: #fce4ec; color: #c62828; }
+.badge-system { background: #f3e5f5; color: #6a1b9a; }
 .highlight-gold { color: var(--nfs-gold); font-weight: 700; }
 .footer { text-align: center; color: var(--nfs-muted); font-size: 12px; padding: var(--space-2xl); }
 .footer a { color: var(--nfs-navy); text-decoration: none; }
-@media (max-width: 900px) { .metrics { grid-template-columns: 1fr 1fr; } .grid-2 { grid-template-columns: 1fr; } }
+.status-ok { color: #2e7d32; font-weight: 600; }
+.status-warn { color: #e65100; font-weight: 600; }
+@media (max-width: 900px) { .metrics { grid-template-columns: 1fr 1fr; } .grid-2, .grid-3 { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 
 <div class="header">
   <h1>QPaint Recovery — Operations Dashboard</h1>
-  <p class="sub">Client: Tas Moulis &middot; Launched: 28 July 2026 &middot; Calibration batch: 8 contacts &middot; Day 0</p>
+  <p class="sub">Client: Tas Moulis &middot; Launched: 28 July 2026 &middot; Full Pipeline: 150 Quotes &middot; Updated: 10 August 2026 13:00 ACST</p>
 </div>
 
 <div class="container">
 
   <!-- Four Outcome Metrics -->
-  <h2 class="section-title">Outcome Metrics (Decision 2026-07-28)</h2>
+  <h2 class="section-title">Pipeline Overview</h2>
   <div class="metrics">
     <div class="metric-card gold-border">
-      <div class="value">1</div>
-      <div class="label">Opportunities Recovered</div>
-      <div class="detail">Logan Village State School — $145,008<br>Engaged, awaiting confirmation</div>
+      <div class="value">$5.39M</div>
+      <div class="label">Total Pipeline Value</div>
+      <div class="detail">150 quotes across all stages</div>
     </div>
     <div class="metric-card gold-border">
-      <div class="value">1</div>
-      <div class="label">New Opportunities Generated</div>
-      <div class="detail">QAS Beenleigh — value TBD<br>New govt project from existing conversation</div>
+      <div class="value">$147K</div>
+      <div class="label">Revenue Recovered</div>
+      <div class="detail">2 Won — Arno Hsu (Recovered) + Joy Ryan (Assisted)</div>
     </div>
     <div class="metric-card">
-      <div class="value">1</div>
-      <div class="label">Customer Relationships Managed</div>
-      <div class="detail">Nicholas Zappacosta (QBuild)<br>Active relationship, 2 threads</div>
+      <div class="value">$4.97M</div>
+      <div class="label">Active Pipeline</div>
+      <div class="detail">129 active opportunities (Email 1 + Email 2 + Engaged + Awaiting)</div>
     </div>
     <div class="metric-card">
-      <div class="value">3</div>
-      <div class="label">Business Intelligence Discovered</div>
-      <div class="detail">Govt engagement pattern, escalation framework, role evolution</div>
+      <div class="value">$269K</div>
+      <div class="label">Lost / Not Proceeding</div>
+      <div class="detail">11 closed — 9 went elsewhere, 2 not proceeding</div>
     </div>
   </div>
 
-  <!-- Campaign Status + Active Opportunities -->
+  <!-- Campaign Status + Pipeline Breakdown -->
   <div class="grid-2">
     <div class="panel">
       <h3>Campaign Status</h3>
       <table>
-        <tr><td>Emails sent</td><td class="highlight-gold">8</td></tr>
-        <tr><td>Reply rate</td><td class="highlight-gold">12.5%</td></tr>
-        <tr><td>Open rate</td><td>Pending data</td></tr>
-        <tr><td>Next send</td><td>Email 2 — Aug 2, 2026</td></tr>
-        <tr><td>Remaining active</td><td>7 contacts</td></tr>
-        <tr><td>Escalations to Tas</td><td>1 (QAS Beenleigh quotation)</td></tr>
+        <tr><td>Email 1 sent</td><td class="highlight-gold num">98</td><td>Initial outreach — awaiting first reply window</td></tr>
+        <tr><td>Email 2 sent</td><td class="highlight-gold num">31</td><td>Follow-up sent — next touchpoint Aug 14-21</td></tr>
+        <tr><td>Engaged</td><td class="highlight-gold num">7</td><td>Active conversation — 6 Engaged + 1 Awaiting Confirmation</td></tr>
+        <tr><td>Awaiting Reply</td><td class="highlight-gold num">1</td><td>Cathy Cochrane — check-in Aug 19</td></tr>
+        <tr><td>Won</td><td><span class="badge badge-won">2</span></td><td>$147,260.80 recovered</td></tr>
+        <tr><td>Lost</td><td><span class="badge badge-lost">11</span></td><td>$269,019.05 — went elsewhere or not proceeding</td></tr>
+        <tr><td>Total sent</td><td class="highlight-gold num">129</td><td>Emails dispatched (98 Email 1 + 31 Email 2)</td></tr>
       </table>
     </div>
 
     <div class="panel">
-      <h3>Active Opportunities</h3>
+      <h3>Pipeline by Stage</h3>
       <table>
-        <tr>
-          <th>Project</th><th>Stage</th><th>Value</th><th>Next</th>
-        </tr>
-        <tr>
-          <td><strong>Logan Village State School</strong><br><small>Nicholas Zappacosta</small></td>
-          <td><span class="badge badge-engaged">Engaged — Awaiting Confirmation</span></td>
-          <td>$145,008</td>
-          <td>Nicholas's reply</td>
-        </tr>
-        <tr>
-          <td><strong>QAS Beenleigh</strong><br><small>Nicholas Zappacosta</small></td>
-          <td><span class="badge badge-pending">Pending — Awaiting Quotation</span></td>
-          <td>TBD</td>
-          <td>Tas to prepare quote</td>
-        </tr>
-        <tr>
-          <td><strong>7 calibration contacts</strong><br><small>Various</small></td>
-          <td><span class="badge badge-active">Email 1 — Awaiting Reply</span></td>
-          <td>$110K combined</td>
-          <td>Email 2 — Aug 2</td>
-        </tr>
+        <tr><th>Stage</th><th class="num">Count</th><th class="num">Value</th></tr>
+        <tr><td><span class="badge badge-active">Email 1</span></td><td class="num">98</td><td class="num">—</td></tr>
+        <tr><td><span class="badge badge-active">Email 2</span></td><td class="num">31</td><td class="num">$1.84M</td></tr>
+        <tr><td><span class="badge badge-engaged">Engaged</span></td><td class="num">6</td><td class="num">$253K</td></tr>
+        <tr><td><span class="badge badge-engaged">Engaged — Awaiting Confirmation</span></td><td class="num">1</td><td class="num">$145K</td></tr>
+        <tr><td><span class="badge badge-pending">Awaiting Reply</span></td><td class="num">1</td><td class="num">$4.2K</td></tr>
+        <tr><td><span class="badge badge-won">Won</span></td><td class="num">2</td><td class="num">$147K</td></tr>
+        <tr><td><span class="badge badge-lost">Lost</span></td><td class="num">11</td><td class="num">$269K</td></tr>
+        <tr style="font-weight:700; border-top: 2px solid rgba(0,0,0,0.1);"><td>Total</td><td class="num">150</td><td class="num">$5.39M</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Won Deals -->
+  <div class="panel" style="margin-bottom: var(--space-2xl);">
+    <h3>Won — Revenue Recovered</h3>
+    <table>
+      <tr><th>Contact</th><th>Deal</th><th class="num">Value</th><th>Attribution</th><th>Date</th></tr>
+      <tr>
+        <td><strong>Arno Hsu</strong></td>
+        <td>72 Learoyd Road, Algester — Painting</td>
+        <td class="num highlight-gold">$129,750.50</td>
+        <td><span class="badge badge-won">Recovered</span></td>
+        <td>5 Aug 2026</td>
+      </tr>
+      <tr>
+        <td><strong>Joy Ryan</strong></td>
+        <td>6 Warenda Close, Middle Park</td>
+        <td class="num highlight-gold">$17,510.30</td>
+        <td><span class="badge badge-won">Assisted</span></td>
+        <td>—</td>
+      </tr>
+      <tr style="font-weight:700; border-top: 2px solid rgba(0,0,0,0.1);">
+        <td colspan="2">Total Recovered</td>
+        <td class="num highlight-gold">$147,260.80</td>
+        <td colspan="2"></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Engaged Opportunities -->
+  <div class="panel" style="margin-bottom: var(--space-2xl);">
+    <h3>Engaged — Active Conversations (7)</h3>
+    <table>
+      <tr><th>Contact</th><th>Deal</th><th class="num">Value</th><th>Stage</th><th>Next Touchpoint</th><th>Last Contact</th></tr>
+      <tr>
+        <td><strong>Nicholas Zappacosta</strong></td>
+        <td>Logan Village State School + QAS Beenleigh</td>
+        <td class="num">$145,008</td>
+        <td><span class="badge badge-engaged">Awaiting Confirmation</span></td>
+        <td>10 Sep 2026</td>
+        <td>28 Jul</td>
+      </tr>
+      <tr>
+        <td><strong>Elisha Paige</strong></td>
+        <td>Buckland North Apartments, Nundah</td>
+        <td class="num">$113,907</td>
+        <td><span class="badge badge-engaged">Engaged</span></td>
+        <td>17 Aug 2026</td>
+        <td>10 Aug</td>
+      </tr>
+      <tr>
+        <td><strong>Sian Leathem</strong></td>
+        <td>155 Dornoch Terrace, Highgate Hill</td>
+        <td class="num">$39,996</td>
+        <td><span class="badge badge-engaged">Engaged</span></td>
+        <td>14 Aug 2026</td>
+        <td>10 Aug</td>
+      </tr>
+      <tr>
+        <td><strong>David Schneideman</strong></td>
+        <td>72 Adavale St, Brookfield</td>
+        <td class="num">$39,888</td>
+        <td><span class="badge badge-engaged">Engaged</span></td>
+        <td>14 Aug 2026</td>
+        <td>10 Aug</td>
+      </tr>
+      <tr>
+        <td><strong>Terry Hamilton</strong></td>
+        <td>23 Blackall Terrace, East Brisbane</td>
+        <td class="num">$30,538</td>
+        <td><span class="badge badge-engaged">Engaged</span></td>
+        <td>7 Sep 2026</td>
+        <td>10 Aug</td>
+      </tr>
+      <tr>
+        <td><strong>Carlie Gunn</strong></td>
+        <td>4 Tudar Place, Thornlands</td>
+        <td class="num">$19,932</td>
+        <td><span class="badge badge-engaged">Engaged</span></td>
+        <td>17 Aug 2026</td>
+        <td>10 Aug</td>
+      </tr>
+      <tr>
+        <td><strong>Alicia Campbell</strong></td>
+        <td>24/75 Mungarie Street, Keperra</td>
+        <td class="num">$8,789</td>
+        <td><span class="badge badge-engaged">Engaged</span></td>
+        <td>17 Aug 2026</td>
+        <td>10 Aug</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Top Email 2 Opportunities -->
+  <div class="panel" style="margin-bottom: var(--space-2xl);">
+    <h3>Email 2 — Top Opportunities by Value (31 sent, next touchpoint Aug 14-21)</h3>
+    <table>
+      <tr><th>Contact</th><th class="num">Value</th><th>Next Touchpoint</th></tr>
+      <tr><td>Jenny Yang</td><td class="num highlight-gold">$227,084</td><td>21 Aug</td></tr>
+      <tr><td>Nuwan Fernando</td><td class="num highlight-gold">$167,592</td><td>14 Aug</td></tr>
+      <tr><td>Richard Zhang</td><td class="num highlight-gold">$145,350</td><td>14 Aug</td></tr>
+      <tr><td>David Delaney</td><td class="num highlight-gold">$123,655</td><td>20 Aug</td></tr>
+      <tr><td>Jesse Zhao</td><td class="num highlight-gold">$116,223</td><td>17 Aug</td></tr>
+    </table>
+  </div>
+
+  <!-- Nicholas Zappacosta Deep Dive -->
+  <div class="panel" style="margin-bottom: var(--space-2xl);">
+    <h3>Nicholas Zappacosta (QBuild) — Key Relationship</h3>
+    <table>
+      <tr><th>Thread</th><th>Status</th><th>Value</th><th>Atlas Action</th></tr>
+      <tr>
+        <td><strong>Logan Village State School</strong></td>
+        <td><span class="badge badge-engaged">Awaiting formal paperwork</span></td>
+        <td class="num">$145,008</td>
+        <td>Monitor — Tas to confirm when paperwork arrives</td>
+      </tr>
+      <tr>
+        <td><strong>QAS Beenleigh</strong></td>
+        <td><span class="badge badge-pending">Awaiting formal paperwork</span></td>
+        <td>TBD</td>
+        <td>Monitor — Tas to confirm when paperwork arrives</td>
+      </tr>
+    </table>
+    <p style="margin-top: var(--space-md); font-size: 13px; color: var(--nfs-muted);">
+      <strong>Status:</strong> Customer follow-up required = NO. Atlas action = NONE (waiting on Tas). 
+      Both opportunities awaiting formal paperwork from QBuild. Port Adelaide Plaza was incorrectly attributed — 
+      not a QPaint opportunity (data integrity incident resolved 10 Aug 2026).
+      Next touchpoint: 10 Sep 2026 (Nicholas's stated return from leave).
+    </p>
+  </div>
+
+  <!-- Lost -->
+  <div class="panel" style="margin-bottom: var(--space-2xl);">
+    <h3>Lost — Closed (11)</h3>
+    <table>
+      <tr><th>Contact</th><th>Deal</th><th class="num">Value</th><th>Reason</th></tr>
+      <tr><td>Jordan Forrest</td><td>86 Harold Street, Holland Park</td><td class="num">$59,411</td><td>Went Elsewhere</td></tr>
+      <tr><td>Darren Harper</td><td>75 Olivia Place, Pullenvale</td><td class="num">$43,437</td><td>Not Proceeding</td></tr>
+      <tr><td>Mal McCabe</td><td>71 Hows Rd, Nundah</td><td class="num">$38,404</td><td>Went Elsewhere</td></tr>
+      <tr><td>Andres Sillet</td><td>8 Bay Drive, Russell Island</td><td class="num">$33,008</td><td>Not Proceeding</td></tr>
+      <tr><td>Kate Quinn</td><td>18 Millicent Street, Moorooka</td><td class="num">$24,415</td><td>Went Elsewhere</td></tr>
+      <tr><td>Margaret Luscombe</td><td>Chapel Hill</td><td class="num">$21,176</td><td>Went Elsewhere</td></tr>
+      <tr><td>Skyla Garvey</td><td>337 Sumners Road, Riverhills</td><td class="num">$13,038</td><td>Went Elsewhere</td></tr>
+      <tr><td>Catherine Sinnamon</td><td>29 Drury Street, West End</td><td class="num">$11,985</td><td>Went Elsewhere</td></tr>
+      <tr><td>Damien Glancy</td><td>5 Jordain Court, Ferny Hills</td><td class="num">$11,314</td><td>Went Elsewhere</td></tr>
+      <tr><td>Danielle Gibney</td><td>Teneriffe</td><td class="num">$8,514</td><td>Went Elsewhere</td></tr>
+      <tr><td>Chass Matters</td><td>Chapel Hill</td><td class="num">$4,318</td><td>Went Elsewhere</td></tr>
+    </table>
+  </div>
+
+  <!-- Operational Status -->
+  <div class="grid-2">
+    <div class="panel">
+      <h3>System Status</h3>
+      <table>
+        <tr><td>Daily Attention cron</td><td><span class="status-ok">Active</span> — 07:00 Adelaide daily</td></tr>
+        <tr><td>Intake watchdog</td><td><span class="status-ok">Active</span> — monitoring quotes@</td></tr>
+        <tr><td>Intake processor</td><td><span class="status-ok">Active</span> — closed-loop verified</td></tr>
+        <tr><td>Send boundary</td><td><span class="status-ok">Active</span> — 8-gate MIME certification</td></tr>
+        <tr><td>Airtable reconciliation</td><td><span class="status-ok">Clean</span> — 150/150 records, 0 inconsistencies</td></tr>
+      </table>
+    </div>
+
+    <div class="panel">
+      <h3>Key Events — 10 August 2026</h3>
+      <table>
+        <tr><td style="width:60px;">07:00</td><td>Daily Attention scan — 36h look-ahead</td></tr>
+        <tr><td>09:00</td><td>5 inbound replies classified and handled</td></tr>
+        <tr><td>09:30</td><td>Damien Glancy → Lost (Went Elsewhere)</td></tr>
+        <tr><td>09:30</td><td>Skyla Garvey → Lost (Went Elsewhere)</td></tr>
+        <tr><td>09:30</td><td>Sian Leathem, David Schneideman, Terry Hamilton → Engaged</td></tr>
+        <tr><td>09:30</td><td>Port Adelaide Plaza data integrity incident resolved</td></tr>
+        <tr><td>10:30</td><td>Nicholas Zappacosta records corrected and verified</td></tr>
+        <tr><td>12:00</td><td>QPaint Recovery Dashboard refreshed</td></tr>
       </table>
     </div>
   </div>
 
   <!-- Business Intelligence -->
   <div class="panel" style="margin-bottom: var(--space-2xl);">
-    <h3>Business Intelligence Discovered (Day 0)</h3>
+    <h3>Business Intelligence</h3>
     <table>
-      <tr><th>Insight</th><th>Evidence</th><th>Implication</th></tr>
-      <tr>
-        <td>Atlas is the communication layer, not a follow-up engine</td>
-        <td>Nicholas routed a new government project directly to Atlas instead of normal QBuild procurement channels</td>
-        <td>Decision 2026-07-28: role redefined. Escalate only when Tas adds value.</td>
-      </tr>
+      <tr><th>Insight</th><th>Evidence</th><th>Status</th></tr>
       <tr>
         <td>Government customers engage positively with professional follow-up</td>
-        <td>QBuild foreperson sent two positive replies in one day, including detailed scope for a new project</td>
-        <td>Tone and approach validated for government sector</td>
+        <td>QBuild foreperson sent positive replies, routed new project through Atlas</td>
+        <td><span class="badge badge-won">Validated</span> — 2 government opportunities active</td>
       </tr>
       <tr>
         <td>One calibration email can generate multiple engagements</td>
-        <td>Single Email 1 produced: Logan Village advancement + QAS Beenleigh new opportunity</td>
-        <td>Metric tracking must separate Recovered from Generated</td>
+        <td>Single Email 1 to Nicholas produced Logan Village + QAS Beenleigh</td>
+        <td><span class="badge badge-won">Validated</span></td>
+      </tr>
+      <tr>
+        <td>Atlas is the communication layer, not just a follow-up engine</td>
+        <td>Nicholas routed a new government project directly to Atlas</td>
+        <td><span class="badge badge-won">Validated</span> — role redefined</td>
+      </tr>
+      <tr>
+        <td>Append-only Outreach Notes prevent data loss</td>
+        <td>Port Adelaide Plaza fabrication incident: 11 write paths audited, 0 unsafe after fix</td>
+        <td><span class="badge badge-system">Hardened</span> — 10 Aug 2026</td>
+      </tr>
+      <tr>
+        <td>Outcome attribution requires source evidence</td>
+        <td>Joy Ryan: Won = Assisted (not Recovered). Not Forgotten helped but did not cause the win.</td>
+        <td><span class="badge badge-system">Standard</span> — evidence-before-attribution rule active</td>
       </tr>
     </table>
   </div>
@@ -149,7 +335,7 @@ td { padding: var(--space-sm) var(--space-md); border-bottom: 1px solid rgba(0,0
 </div>
 
 <div class="footer">
-  Not Forgotten Systems &middot; <a href="../">Main Dashboard</a> &middot; Generated 2026-07-28
+  Not Forgotten Systems &middot; <a href="../">Main Dashboard</a> &middot; <a href="../qpaint-recovery/">QPaint Recovery</a> &middot; Generated 10 August 2026 13:00 ACST
 </div>
 
 </body>
