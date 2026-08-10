@@ -164,14 +164,14 @@
       }
     ]
   },
-  "last_updated": "2026-08-10T09:30:08.001157+09:30",
+  "last_updated": "2026-08-10T11:30:04.462071+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
-      "New": 93,
+      "New": 89,
       "Campaign Complete": 78,
       "Won": 2,
-      "Lost": 6,
+      "Lost": 10,
       "Outreach Active": 16,
       "Not a fit": 5
     },
@@ -190,9 +190,9 @@
     },
     "stage_by_vertical": {
       "New": {
-        "Painter": 59,
-        "Marketing agency": 13,
-        "Commercial cleaning": 16,
+        "Painter": 58,
+        "Marketing agency": 11,
+        "Commercial cleaning": 15,
         "Other": 2,
         "Plumber": 1,
         "Electrician": 2
@@ -211,8 +211,9 @@
         "Painter": 2
       },
       "Lost": {
-        "Painter": 4,
-        "Commercial cleaning": 2
+        "Painter": 5,
+        "Commercial cleaning": 3,
+        "Marketing agency": 2
       },
       "Outreach Active": {
         "Painter": 16
@@ -335,10 +336,10 @@
     "opens": {
       "deliveries": 39,
       "prospects_opened": 54,
-      "total_opens": 227,
+      "total_opens": 229,
       "avg_opens": 4.2
     },
-    "last_refreshed": "2026-08-10T00:00:07.999928+00:00"
+    "last_refreshed": "2026-08-10T02:00:04.460840+00:00"
   },
   "decisions": {
     "total": 42,
