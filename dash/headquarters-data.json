@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-10T16:14:39+09:30",
+  "generated_at": "2026-08-10T16:24:06+09:30",
   "atlas_brief": {
-    "greeting": "Good evening, James. It is 16:14 Adelaide on Monday 10 August 2026.",
+    "greeting": "Good evening, James. It is 16:24 Adelaide on Monday 10 August 2026.",
     "body": "Today was a major governance and campaign operations day. RE-ENG-AUG-2026 was sent to 147 production recipients at 9AM. Six recipients received duplicate sends (identified, root-caused, remediated). The campaign response infrastructure had a critical gap at launch (Campaign Tokens table was never provisioned, all 441 YES/NO/UNSUBSCRIBE links initially returned errors). Recovered by 5PM. The incident triggered a complete governance overhaul: Production Artifact Lock, Central Send Boundary with execution authority gate, Principle of Least Authority applied across all 29 active automations, and 12-gate Pre-Execution Certification. QPaint pipeline remains healthy at $5.39M. RE-ENG-AUG-2026 is now MONITOR ONLY, zero YES clicks as of evening.",
     "tone": "operational",
     "reading_time_seconds": 45
