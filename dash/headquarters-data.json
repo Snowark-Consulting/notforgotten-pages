@@ -19,7 +19,7 @@
     "founder_calls": {
       "status": "healthy",
       "icon": "\ud83d\udcde",
-      "detail": "14 calls ready. Full briefs loaded. 2 removed (Bob De Groot skip, AJ Blunt duplicate)."
+      "detail": "13 calls ready. 1 removed (Jay Duggin \u2014 suppressed/unsubscribed)."
     },
     "email_systems": {
       "status": "healthy",
@@ -189,8 +189,8 @@
   },
   "founder_call_day": {
     "date": "Wednesday 12 August 2026",
-    "ready": 14,
-    "total": 14,
+    "ready": 13,
+    "total": 13,
     "first_block": [
       {
         "order": 1,
@@ -403,23 +403,6 @@
         "confidence": "HIGH"
       },
       {
-        "order": 6,
-        "business": "Jay Duggin Painting",
-        "contact": "Jay Duggin",
-        "phone": "0411 354 511",
-        "location": "Adelaide, SA",
-        "best_call_time": "10:15 AM ACST",
-        "brief": "Multi-award MPA winner (Best New Home 2023). 5-year workmanship guarantee. Services: residential, commercial, strata, heritage, wallpaper, roofs. Strong premium positioning.",
-        "icp_fit": "Strong \u2014 award-winning premium painter. High quote volume from brand recognition. Likely loses work when busy.",
-        "opening": "'G'day Jay, James Hardstaff here from Not Forgotten Systems. I saw you've been cleaning up at the MPA awards \u2014 congratulations on that Best New Home win. I'm calling local painters this week to learn about how they handle quoting. Got two minutes?'",
-        "discovery": [
-          "When you send a quote for a residential repaint, what's your process for following up if you don't hear back?"
-        ],
-        "prior_contact": "1 email (RE-ENG-AUG-2026, Aug 10). No prior campaigns.",
-        "objective": "Learn whether award-winning premium painter with high inbound volume has follow-up gaps.",
-        "confidence": "HIGH"
-      },
-      {
         "order": 7,
         "business": "MAD Painters & Decorators",
         "contact": "Mick",
@@ -568,7 +551,45 @@
       ],
       "phone_discrepancy": [
         "SA Painting Services \u2014 Airtable has 0490 179 248, website shows 1300 037 277"
+      ],
+      "removed_from_campaign": [
+        "Jay Duggin Painting \u2014 SUPPRESSED + UNSUBSCRIBED in Airtable (RE-ENG-AUG-2026). Removed from call list pending verification."
       ]
     }
+  },
+  "campaign_health": {
+    "campaign": "RE-ENG-AUG-2026",
+    "last_verified": "2026-08-12T06:19:41+09:30",
+    "original_audience": 147,
+    "airtable_records": 100,
+    "delivered": 93,
+    "observing": 60,
+    "completed": 35,
+    "suppressed": 7,
+    "bounced_failure": 5,
+    "bounced_delay": 2,
+    "unsubscribed": 1,
+    "genuine_yes": 0,
+    "genuine_phone_requests": 0,
+    "genuine_no_call": 0,
+    "human_replies": 0,
+    "positive_signals": 0,
+    "data_exceptions": 3,
+    "certification": "CAMPAIGN HEALTH \u2014 NO GENUINE CUSTOMER RESPONSES",
+    "summary": "RE-ENG-AUG-2026 was delivered to ~93 recipients (5 hard bounces, 2 delays). Zero genuine customer responses detected. All 607 campaign tokens are infrastructure recovery artifacts \u2014 none represent actual customer clicks. Zero direct email replies received. The response infrastructure (Campaign Tokens table + r.js handler) was not functional during the response window. No commercial signals to escalate.",
+    "call_list_impact": {
+      "removed": [
+        "Jay Duggin Painting \u2014 flagged as SUPPRESSED + UNSUBSCRIBED in Airtable. Remove from call list pending verification."
+      ],
+      "promoted": [],
+      "quarantined": [],
+      "note": "Cross-reference limited by incomplete Airtable business name data. 14 callable prospects reduced to 13 pending Jay Duggin verification."
+    },
+    "data_quality_exceptions": [
+      "607 tokens in Campaign Tokens table \u2014 ALL are infrastructure artifacts (RESPONSE INFRASTRUCTURE RECOVERY or DUPLICATE SEND provenance). Zero represent genuine customer clicks.",
+      "2 tokens marked Processed (1 NO_CALL, 1 UNSUBSCRIBE) \u2014 both processed during recovery, not by customer action. Provenance: RESPONSE INFRASTRUCTURE RECOVERY.",
+      "47 of 147 original recipients not found with Campaign ID in Airtable \u2014 likely from external source or Campaign ID field not populated."
+    ],
+    "reconciliation": "100 Airtable records + 47 external = 147 total. Full 147/147 reconciliation limited by external data availability. 100/100 Airtable records reconciled: 35 Completed, 60 no Sequence Status, 4 Lost, 1 Unsubscribed, 7 Marketing Suppressed. 5 hard bounces, 2 delays."
   }
 }
