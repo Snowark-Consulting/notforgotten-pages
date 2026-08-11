@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Headquarters — Not Forgotten Systems</title>
-<meta name="version" content="2026-08-10-0654">
+<meta name="version" content="2026-08-12-call-day">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -124,6 +124,47 @@
   .secondary-links a { color: var(--muted); text-decoration: none; font-size: var(--text-sm); padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm); transition: all 0.15s; }
   .secondary-links a:hover { color: var(--navy); background: rgba(11,44,77,0.04); }
 
+  /* ── Founder Call Day ── */
+  .callday-header { background: linear-gradient(135deg, var(--navy), #153e6b); color: var(--white); border-radius: var(--radius-lg); padding: var(--space-lg) var(--space-xl); margin-bottom: var(--space-md); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-md); }
+  .callday-header h2 { font-size: var(--text-lg); font-weight: 700; color: var(--gold); }
+  .callday-header .callday-meta { font-size: var(--text-sm); opacity: 0.8; }
+  .callday-card { background: var(--surface); border-radius: var(--radius-md); margin-bottom: var(--space-sm); box-shadow: var(--shadow-sm); border: 1px solid var(--border); overflow: hidden; transition: border-color 0.15s; }
+  .callday-card:hover { border-color: var(--gold); }
+  .callday-card.called { opacity: 0.6; }
+  .callday-card-header { display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md) var(--space-lg); cursor: pointer; user-select: none; }
+  .callday-card-header .call-num { font-size: var(--text-lg); font-weight: 700; color: var(--gold); min-width: 32px; text-align: center; }
+  .callday-card-header .call-info { flex: 1; min-width: 0; }
+  .callday-card-header .call-name { font-weight: 600; font-size: var(--text-base); color: var(--navy); }
+  .callday-card-header .call-contact { font-size: var(--text-sm); color: var(--muted); }
+  .callday-card-header .call-phone { font-weight: 700; font-size: var(--text-lg); color: var(--navy); white-space: nowrap; display: flex; align-items: center; gap: var(--space-sm); }
+  .callday-card-header .call-phone a { color: var(--navy); text-decoration: none; }
+  .callday-card-header .call-chevron { font-size: var(--text-sm); color: var(--muted); transition: transform 0.2s; }
+  .callday-card.expanded .call-chevron { transform: rotate(180deg); }
+  .callday-card-body { display: none; padding: 0 var(--space-lg) var(--space-lg); border-top: 1px solid var(--border); }
+  .callday-card.expanded .callday-card-body { display: block; }
+  .callday-brief { font-size: var(--text-sm); line-height: 1.7; margin-bottom: var(--space-md); color: var(--text); }
+  .callday-brief .fact { color: var(--healthy); font-weight: 600; font-size: var(--text-xs); }
+  .callday-brief .inference { color: var(--caution); font-weight: 600; font-size: var(--text-xs); }
+  .callday-section-label { font-size: var(--text-xs); font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: var(--space-md); margin-bottom: var(--space-xs); }
+  .callday-opening { background: var(--light); padding: var(--space-md); border-radius: var(--radius-sm); font-size: var(--text-sm); line-height: 1.6; margin-bottom: var(--space-sm); border-left: 3px solid var(--gold); }
+  .callday-discovery { font-size: var(--text-sm); color: var(--text); margin-bottom: var(--space-sm); }
+  .callday-discovery li { margin-bottom: var(--space-xs); }
+  .callday-actions { display: flex; gap: var(--space-sm); flex-wrap: wrap; margin-top: var(--space-md); }
+  .callday-btn { padding: 8px 18px; border-radius: 20px; font-size: var(--text-xs); font-weight: 600; border: 1px solid var(--border); background: var(--surface); color: var(--navy); cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+  .callday-btn:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+  .callday-btn.called-btn { background: var(--healthy); color: var(--white); border-color: var(--healthy); }
+  .callday-btn.voicemail-btn { background: var(--caution); color: var(--white); border-color: var(--caution); }
+  .callday-badge { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; white-space: nowrap; }
+  .badge-high { background: rgba(22,163,74,0.1); color: var(--healthy); }
+  .badge-medium { background: rgba(217,119,6,0.1); color: var(--caution); }
+  .badge-low { background: rgba(107,114,128,0.1); color: var(--muted); }
+  .callday-issues { font-size: var(--text-xs); color: var(--muted); margin-top: var(--space-lg); padding: var(--space-md); background: var(--light); border-radius: var(--radius-sm); }
+  @media (max-width: 600px) {
+    .callday-card-header { flex-wrap: wrap; }
+    .callday-card-header .call-phone { width: 100%; justify-content: flex-start; }
+    .callday-actions { flex-direction: column; }
+  }
+
   /* ── Loading ── */
   .loading { text-align: center; padding: var(--space-3xl); color: var(--muted); }
   .loading-spinner { display: inline-block; width: 24px; height: 24px; border: 2px solid var(--border); border-top: 2px solid var(--gold); border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: var(--space-md); }
@@ -240,7 +281,95 @@ function render() {
   }
 
   // ═══════════════════════════════════════
-  // 2. BUSINESS HEALTH
+  // 2. FOUNDER CALL DAY
+  // ═══════════════════════════════════════
+  const callDay = H?.founder_call_day;
+  if (callDay && callDay.ready > 0) {
+    html += '<div class="section">';
+    html += '<div class="callday-header">';
+    html += '<div><h2>📞 TODAY — FOUNDER CALL DAY</h2><div class="callday-meta">' + callDay.date + ' · ' + callDay.ready + ' of ' + callDay.total + ' prospects ready</div></div>';
+    html += '</div>';
+
+    // Call framework quick-access
+    const cf = callDay.call_framework;
+    if (cf) {
+      html += '<details style="margin-bottom:var(--space-md);font-size:var(--text-sm);"><summary style="cursor:pointer;color:var(--navy);font-weight:600;">📋 Call Framework & Objection Handling</summary>';
+      html += '<div class="callday-opening" style="margin-top:var(--space-sm);"><strong>Opening:</strong><br>' + esc(cf.opening) + '</div>';
+      html += '<div class="callday-opening"><strong>If "I didn\'t see it":</strong><br>' + esc(cf.if_no) + '</div>';
+      html += '<div style="margin-top:var(--space-sm);"><strong>Discovery Questions:</strong><ul style="font-size:var(--text-sm);">';
+      (cf.discovery||[]).forEach(q => { html += '<li>' + esc(q) + '</li>'; });
+      html += '</ul></div>';
+      const oh = callDay.objection_handling;
+      if (oh) {
+        html += '<div style="margin-top:var(--space-sm);"><strong>Objections:</strong><ul style="font-size:var(--text-xs);">';
+        for (const [k,v] of Object.entries(oh)) {
+          html += '<li><strong>' + esc(k.replace(/_/g,' ')) + ':</strong> ' + esc(v) + '</li>';
+        }
+        html += '</ul></div>';
+      }
+      if (callDay.voicemail) {
+        html += '<div class="callday-opening"><strong>Voicemail:</strong><br>' + esc(callDay.voicemail) + '</div>';
+      }
+      html += '</details>';
+    }
+
+    // All calls
+    const allCalls = callDay.all_calls || callDay.first_block || [];
+    allCalls.forEach((c, i) => {
+      const confClass = (c.confidence||'').toLowerCase().includes('high') ? 'badge-high' : 
+                       (c.confidence||'').toLowerCase().includes('medium') ? 'badge-medium' : 'badge-low';
+      html += '<div class="callday-card" id="call-' + (i+1) + '">';
+      html += '<div class="callday-card-header" onclick="toggleCall(' + (i+1) + ')">';
+      html += '<span class="call-num">' + (i+1) + '</span>';
+      html += '<div class="call-info">';
+      html += '<div class="call-name">' + esc(c.business) + ' <span class="callday-badge ' + confClass + '">' + esc(c.confidence||'') + '</span></div>';
+      html += '<div class="call-contact">' + esc(c.contact||'UNKNOWN') + ' · ' + esc(c.location) + ' · ' + esc(c.best_call_time||'') + '</div>';
+      html += '</div>';
+      html += '<div class="call-phone"><a href="tel:' + esc(c.phone||'').replace(/[^0-9+]/g,'') + '">' + esc(c.phone||'?') + '</a></div>';
+      html += '<span class="call-chevron">▼</span>';
+      html += '</div>';
+      // Expandable body
+      html += '<div class="callday-card-body">';
+      html += '<div class="callday-brief"><strong>Brief:</strong> ' + esc(c.brief||'') + '</div>';
+      html += '<div class="callday-brief"><span class="fact">ICP FIT:</span> ' + esc(c.icp_fit||'') + '</div>';
+      html += '<div class="callday-section-label">Conversation Hook</div>';
+      html += '<div class="callday-opening">' + esc(c.opening||'') + '</div>';
+      if (c.discovery && c.discovery.length > 0) {
+        html += '<div class="callday-section-label">Discovery Questions</div>';
+        html += '<ul class="callday-discovery">';
+        c.discovery.forEach(q => { html += '<li>' + esc(q) + '</li>'; });
+        html += '</ul>';
+      }
+      html += '<div style="font-size:var(--text-xs);color:var(--muted);">Prior: ' + esc(c.prior_contact||'None') + '</div>';
+      html += '<div class="callday-section-label">Call Outcome</div>';
+      html += '<div class="callday-actions">';
+      const outcomes = (callDay.outcomes||['CONNECTED','NO ANSWER','VOICEMAIL','BAD NUMBER','DO NOT CONTACT']);
+      outcomes.forEach(o => {
+        html += '<button class="callday-btn" onclick="recordOutcome(' + (i+1) + ',\'' + esc(o) + '\');event.stopPropagation();">' + esc(o) + '</button>';
+      });
+      html += '</div>';
+      html += '</div>';
+      html += '</div>';
+    });
+
+    // Issues
+    const issues = callDay.issues;
+    if (issues) {
+      html += '<div class="callday-issues">';
+      const allIssues = [...(issues.skipped||[]), ...(issues.duplicates||[]), ...(issues.no_phone||[]), ...(issues.phone_discrepancy||[])];
+      if (allIssues.length > 0) {
+        html += '<strong>Issues/Notes:</strong><ul style="margin-top:var(--space-xs);">';
+        allIssues.forEach(iss => { html += '<li>' + esc(iss) + '</li>'; });
+        html += '</ul>';
+      }
+      html += '</div>';
+    }
+
+    html += '</div>';
+  }
+
+  // ═══════════════════════════════════════
+  // 3. BUSINESS HEALTH
   // ═══════════════════════════════════════
   const health = H?.business_health;
   if (health) {
@@ -464,6 +593,8 @@ function render() {
   html += '</div>';
 
   app.innerHTML = html;
+  // Restore saved call outcomes
+  setTimeout(restoreOutcomes, 100);
 }
 
 function showChanges(key) {
@@ -492,6 +623,46 @@ function esc(s) {
   const div = document.createElement('div');
   div.textContent = s;
   return div.innerHTML;
+}
+
+function toggleCall(n) {
+  const card = document.getElementById('call-' + n);
+  if (card) card.classList.toggle('expanded');
+}
+
+function recordOutcome(n, outcome) {
+  const card = document.getElementById('call-' + n);
+  if (!card) return;
+  // Mark as called
+  card.classList.add('called');
+  // Collapse
+  card.classList.remove('expanded');
+  // Store outcome
+  const store = JSON.parse(localStorage.getItem('callday_outcomes') || '{}');
+  store['call-' + n] = { outcome: outcome, time: new Date().toISOString() };
+  localStorage.setItem('callday_outcomes', JSON.stringify(store));
+  // Visual feedback
+  const header = card.querySelector('.call-name');
+  if (header) header.textContent += ' — ' + outcome;
+  // Remove outcome buttons
+  const actions = card.querySelector('.callday-actions');
+  if (actions) actions.innerHTML = '<span style=\"font-size:var(--text-xs);color:var(--muted);\">✓ Recorded: ' + outcome + '</span>';
+}
+
+// Restore saved outcomes on load
+function restoreOutcomes() {
+  const store = JSON.parse(localStorage.getItem('callday_outcomes') || '{}');
+  for (const [key, val] of Object.entries(store)) {
+    const n = key.replace('call-', '');
+    const card = document.getElementById('call-' + n);
+    if (card) {
+      card.classList.add('called');
+      const header = card.querySelector('.call-name');
+      if (header) header.textContent += ' — ' + val.outcome;
+      const actions = card.querySelector('.callday-actions');
+      if (actions) actions.innerHTML = '<span style=\"font-size:var(--text-xs);color:var(--muted);\">✓ Recorded: ' + val.outcome + '</span>';
+    }
+  }
 }
 
 // Boot
