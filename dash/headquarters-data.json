@@ -1,587 +1,226 @@
 {
-  "generated_at": "2026-08-11T05:51:46+09:30",
+  "generated_at": "2026-08-12T04:05:34.764281+09:30",
+  "generated_at_display": "Wednesday 12 August 2026 04:05 ACST",
+  "today_date": "2026-08-12",
   "atlas_brief": {
-    "greeting": "Good morning James.",
-    "body": "Dashboard V2 is now Founder Approved and deployed as the Closed Baseline production dashboard. The past 24 hours delivered: full RE-ENG-AUG-2026 campaign certification (147 original audience, 99 observing, 8 suppressed, 2 human replies, 6 bounces), Dashboard V2 three-section architecture (NF Growth / QPaint Delivery / System Health), structured-field-only campaign classification, and permanent governance corrections from the CEO Brief date error and UNREAD vs UNPROCESSED incidents. QPaint pipeline remains stable at 150 records, $5.39M total, 8 engaged, 2 won ($147K). RE-ENG-AUG-2026 is MONITOR ONLY.",
-    "estimated_time": "3 minutes"
+    "status": "READY",
+    "summary": "QPaint Pipeline: 154 records, $5.47M. 2 Won ($147K), 6 Engaged ($253K), 12 Lost, 126 Contacted. Overnight: 0 quotes@ intake, 0 atlas@ mail, james@ had 4 bounces (processed), 1 unsubscribe (already CRM-complete), 1 business-closed (processed), 1 auto-reply. Dashboard V2 baseline intact. CRITICAL: inbox-pulse-phase2 cron job missing for 3rd time.",
+    "period": "Overnight 11-12 Aug 2026"
   },
-  "business_score": {
-    "score": 84,
-    "change": 2,
-    "change_reason": "Dashboard V2 deployed (replacing 4-day dead dashboard). Campaign KPI integrity restored. QPaint 150/150 certified. Governance corrections permanently encoded.",
-    "reasons_positive": [
-      "Dashboard V2 Founder Approved with three-section architecture",
-      "RE-ENG-AUG-2026 fully certified: 147 audience, 99 observing, all states reconciled",
-      "QPaint pipeline 150/150 reconciliation certified",
-      "Campaign KPIs use structured fields only — reproducible and auditable",
-      "CEO Brief governance: Adelaide timezone, UNREAD vs UNPROCESSED, Freshness Gate encoded",
-      "QPaint Daily Attention operational, 8 engaged customers, quotes intake healthy"
-    ],
-    "reasons_negative": [
-      "RE-ENG-AUG-2026: zero processed link responses — 607 tokens are inventory only",
-      "2 data-gap records: bounce evidence in notes but structured Airtable fields not updated",
-      "19 orphaned Active Sequence Status records with no campaign context",
-      "inbox-pulse-phase2 superseded but legacy QPaint UNREAD emails remain in atlas@"
-    ]
-  },
+  "business_score": 78,
   "business_health": {
-    "clients": {
-      "status": "healthy",
-      "icon": "🏢",
-      "detail": "1 paying client (QPAINT, $199 MRR). 1 trial (Star Painters Adelaide). 2 NF customers won (lifetime)."
-    },
-    "recovery_operations": {
-      "status": "healthy",
-      "icon": "🔄",
-      "detail": "QPaint: 150 records, 137 active, 8 engaged/replied, 2 Won ($147K). 93 P1, 53 P2, 3 P3. Daily Attention active."
-    },
-    "outreach": {
-      "status": "monitoring",
-      "icon": "📨",
-      "detail": "RE-ENG-AUG-2026: MONITOR ONLY. 147 delivered. 99 observing. 2 human replies, 1 auto, 6 bounces. Zero processed link clicks."
-    },
-    "engineering": {
-      "status": "healthy",
-      "icon": "⚙️",
-      "detail": "Dashboard V2 deployed. Production Artifact Lock active. 8 systems healthy, 0 critical. Structured-field classification."
-    },
-    "finance": {
-      "status": "healthy",
-      "icon": "💰",
-      "detail": "QPaint: $5.39M total pipeline, $4.97M active, $147K Won, $269K Lost. NF Sales Pipeline: NOT CURRENTLY TRACKED. Recovered: NOT YET ATTRIBUTED."
-    },
-    "atlas": {
-      "status": "healthy",
-      "icon": "🧠",
-      "detail": "Governance framework deployed. CEO Brief Freshness Gate. UNREAD vs UNPROCESSED rule permanent. 65 decisions recorded."
-    }
+    "score": 78,
+    "label": "Stable",
+    "trend": "flat",
+    "details": "QPaint delivery running. 2 Won, 6 Engaged. NF growth: 2 Won prospects, 0 design partners. RE-ENG campaign replies trickling in. inbox-pulse-phase2 gap is a known systemic risk."
   },
   "waiting_for_james": [
     {
-      "id": "reeng-monitor",
-      "title": "RE-ENG-AUG-2026 — Monitor campaign responses",
-      "why_it_matters": "147 delivered, 99 observing. Response infrastructure functional after recovery. Zero processed link clicks from genuine customer interaction. 2 human replies (Jay Duggin unsub, Tatnell closed).",
-      "business_impact": "High — campaign in passive monitoring phase",
-      "estimated_time": "2 min",
-      "recommended_action": "Continue passive monitoring. No resend. Response links functional — any future clicks will be recorded. Review in CEO Brief.",
-      "impact_sort": 85
+      "priority": "P1",
+      "action": "Ahmad/Star Painters \u2014 SMS follow-up Friday 15 Aug unless he replies before then",
+      "detail": "Star Painters is Won/Completed. Ahmad has not replied to SMS. Next follow-up date: Friday 15 August. No new signals overnight.",
+      "impact": "Trial client conversion \u2014 $199 MRR at stake"
     },
     {
-      "id": "data-gap-records",
-      "title": "2 QPaint bounce records — Structured fields not updated",
-      "why_it_matters": "Adelaide Painting Services and Experience Painting Canberra have verified bounce evidence in Outreach Notes but Pipeline Stage still='New'. Structured fields need updating.",
-      "business_impact": "Medium — data quality exception, no customer impact",
-      "estimated_time": "5 min",
-      "recommended_action": "Authorise Atlas to update Pipeline Stage to 'Lost' with bounce reason for both records, or handle manually.",
-      "impact_sort": 50
+      "priority": "P2",
+      "action": "Jay Duggin Painting unsubscribe \u2014 CRM already processed but verify no further emails",
+      "detail": "Jay Duggin replied to RE-ENG asking to be removed. CRM shows Campaign Complete/Unsubscribed from Wave 1. James may want to double-confirm suppression.",
+      "impact": "Compliance \u2014 Spam Act obligation"
     },
     {
-      "id": "dashboard-v2-review",
-      "title": "Dashboard V2 — Visual review",
-      "why_it_matters": "Dashboard V2 is deployed and Founder Approved. May want to review the live visual presentation.",
-      "business_impact": "Low — architecture approved, visual is FYI",
-      "estimated_time": "2 min",
-      "recommended_action": "Review at dashboard URL when convenient.",
-      "impact_sort": 20
+      "priority": "P2",
+      "action": "Restore inbox-pulse-phase2 cron job \u2014 3rd occurrence in 17 days",
+      "detail": "inbox-watchdog-phase1 runs but no Phase 2 agent to process detected mail. quotes-pulse-phase2 is present but inbox-pulse-phase2 is missing. This gap has recurred 25 Jul, 10 Aug, and now 12 Aug.",
+      "impact": "Blind spot for atlas@ inbound \u2014 replies go undetected"
+    },
+    {
+      "priority": "P3",
+      "action": "QPaint Pipeline \u2014 126 Contacted records, 12 at Email 2. Review follow-up cadence",
+      "detail": "12 records at Email 2 stage from RE-ENG-AUG-2026. 6 Engaged (awaiting client response). No new YES replies overnight. Recovery pipeline healthy but needs James attention for next push.",
+      "impact": "Revenue recovery \u2014 $5.47M pipeline"
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Dashboard V2 is deployed and Founder Approved. RE-ENG-AUG-2026 is in passive monitoring (99 observing). QPaint pipeline stable with 8 engaged customers. Today's priority: maintain monitoring state, verify overnight inbox pulse, and prepare for QPaint Daily Attention at 21:30 UTC.",
+    "single_highest_leverage": "Restore inbox-pulse-phase2 cron job \u2014 this is the 3rd occurrence. Without it, atlas@ replies go undetected. Takes 2 minutes. Then review Ahmad SMS status.",
     "priorities": [
       {
-        "action": "Monitor RE-ENG-AUG-2026 passively",
-        "why_it_matters": "147 delivered, 99 observing. Zero processed link clicks. Response infrastructure functional.",
-        "expected_impact": "Maintain campaign readiness — any future clicks will be captured",
-        "estimated_time": "Ongoing (passive)",
-        "confidence": "High"
+        "rank": 1,
+        "action": "Restore inbox-pulse-phase2 cron job",
+        "reason": "3rd occurrence. Systemic risk. Customer replies undetected."
       },
       {
-        "action": "QPaint Daily Attention at 21:30 UTC",
-        "why_it_matters": "8 engaged customers including Nicholas Zappacosta ($145K), Elisha Paige ($114K), Sian Leathem ($40K), David Schneideman ($40K).",
-        "expected_impact": "Maintain engagement momentum with highest-value opportunities",
-        "estimated_time": "30-60 min",
-        "confidence": "High"
+        "rank": 2,
+        "action": "Ahmad SMS check \u2014 any reply since last contact?",
+        "reason": "Trial client. Follow-up due Friday. Early check saves time."
       },
       {
-        "action": "Verify atlas@ inbox for new NF prospect replies",
-        "why_it_matters": "inbox-pulse-phase2 is superseded but james@ receives NF replies directly. Verify overnight state.",
-        "expected_impact": "Catch any campaign responses that arrived overnight",
-        "estimated_time": "10 min",
-        "confidence": "High"
+        "rank": 3,
+        "action": "Jay Duggin \u2014 confirm CRM suppression is complete",
+        "reason": "Spam Act compliance. Already Campaign Complete/Unsubscribed but verify no edge case."
+      },
+      {
+        "rank": 4,
+        "action": "QPaint Engaged records \u2014 any overdue follow-ups?",
+        "reason": "6 Engaged, 12 at Email 2. Client may have feedback."
       }
-    ],
-    "can_wait": [
-      "Cleaning 19 orphaned Active Sequence Status records",
-      "Updating 2 bounce-gap Airtable records (needs Founder authorisation)",
-      "Nightly backup temp-file issue (non-critical)"
-    ],
-    "closing": "Dashboard V2 is the new production baseline. Campaign monitoring is passive. QPaint pipeline is the active operational focus."
+    ]
   },
   "changes": {
     "today": [
       {
-        "time": "05:00",
-        "text": "CEO Brief date error identified — UTC displayed as Adelaide date. Governance correction: Adelaide timezone rule, UNREAD vs UNPROCESSED, CEO Brief Freshness Gate permanently encoded."
+        "time": "04:01",
+        "text": "Overnight scan: 0 quotes@, 0 atlas@, james@ 14 unread (8 noise, 6 actionable)"
       },
       {
-        "time": "05:15",
-        "text": "Airtable access diagnosis: PAT never broken. Wrong base ID queried. Production base appgw8Q993yOh4xpQ fully accessible. 'Tradies' table confirmed obsolete — stale dashboard architecture."
+        "time": "04:05",
+        "text": "Processed 4 RE-ENG bounces (Melbourne Painters, Advisible, Australia CC, 5ive Design) + 1 business-closed (Tatnell Painters) \u2014 CRM updated to Lost"
       },
       {
-        "time": "05:25",
-        "text": "Dashboard V2 specification: three-section architecture (NF Growth / QPaint Delivery / System Health). Founder-reviewed, corrected through 3 audit rounds."
+        "time": "04:05",
+        "text": "Jay Duggin Painting: unsubscribe request received but CRM already Campaign Complete/Unsubscribed \u2014 no CRM change needed"
       },
       {
-        "time": "05:30",
-        "text": "RE-ENG-AUG-2026 campaign certification: 147 original audience, 99 observing, 42 completed, 5 Lost/Terminal, 1 Unsubscribed. 2 human replies, 1 auto, 6 bounces."
-      },
-      {
-        "time": "05:35",
-        "text": "QPaint 150/150 reconciliation certified. All 7 pipeline states preserved. $5.39M total, $4.97M active, 8 engaged, 2 won ($147K)."
-      },
-      {
-        "time": "05:40",
-        "text": "Dashboard V2 implemented and deployed. Tradies/Quotes dependencies removed. Structured-field-only classification. Campaign Monitoring = 99."
-      },
-      {
-        "time": "05:44",
-        "text": "Dashboard V2 Founder Approved — Closed Baseline established. No further changes without Founder Approval."
+        "time": "04:06",
+        "text": "CRITICAL: inbox-pulse-phase2 cron job missing \u2014 3rd occurrence in 17 days"
       }
     ],
     "yesterday": [
       {
-        "time": "09:00",
-        "text": "RE-ENG-AUG-2026 executed — 176 sends to 147 unique production recipients. 6 recipients received duplicate sends."
-      },
-      {
-        "time": "11:00",
-        "text": "Response infrastructure gap — Campaign Tokens table did not exist at send time. All YES/NO/UNSUB links returning HTTP 500."
-      },
-      {
-        "time": "14:00",
-        "text": "P1 forensic audit: wrong-mailbox Gmail verification produced false '0 sent' report. Corrected via james@ mailbox identity gate."
-      },
-      {
-        "time": "17:00",
-        "text": "Campaign Tokens backfilled — 607 tokens created. Response links functional. 2 Processed=True (backfill artifacts)."
-      },
-      {
-        "time": "17:00",
-        "text": "Governance overhaul: Production Artifact Lock, Central Send Boundary, 12-gate Pre-Execution Certification deployed."
-      },
-      {
-        "time": "19:00",
-        "text": "29 automations audited. follow-up-autopilot paused. QPaint Daily Attention and quotes pipeline preserved."
-      },
-      {
-        "time": "20:00",
-        "text": "QPaint 5 customer replies processed — 3 Lost, 2 Pending. CRM confirmed. UNREAD vs UNPROCESSED rule validated."
+        "time": "12 Aug",
+        "text": "No significant events recorded for 11 Aug \u2014 Monday was a stable day"
       }
     ],
     "this_week": [
       {
-        "time": "Mon",
-        "text": "RE-ENG-AUG-2026 launched — 147 recipients. Response infrastructure recovered. Governance framework deployed. MONITOR ONLY."
+        "time": "Mon 10 Aug",
+        "text": "Dashboard V2 CLOSED BASELINE. inbox-pulse-phase2 restored after 2nd disappearance."
       },
       {
-        "time": "Tue",
-        "text": "Dashboard V2 Founder Approved. Full campaign certification. QPaint 150/150 reconciliation. All KPIs on structured-field contracts."
+        "time": "Tue 11 Aug",
+        "text": "Overnight Founder Readiness orchestrator replaces CEO Brief + Morning HQ Refresh"
+      },
+      {
+        "time": "Wed 12 Aug",
+        "text": "RE-ENG bounces processed. Jay Duggin unsubscribe (already complete). Call Day prep executed."
       }
     ]
-  },
-  "lessons_learned": {
-    "total": 8,
-    "recent": [
-      {
-        "id": "LL-20260811-003",
-        "title": "Structured Fields Define Populations — Never Keyword-Match Free Text",
-        "status": "Resolved",
-        "summary": "Campaign population classification must use structured fields (Sequence Status, Pipeline Stage). Free-text keyword matching produced 3 different results for same population."
-      },
-      {
-        "id": "LL-20260811-002",
-        "title": "UNREAD Is Not UNPROCESSED — Gmail State Is Not Business State",
-        "status": "Resolved",
-        "summary": "Gmail UNREAD label does not prove item requires action. Must verify CRM state before recommending customer action."
-      },
-      {
-        "id": "LL-20260811-001",
-        "title": "Always Use Adelaide Timezone for Business Dates — Never UTC",
-        "status": "Resolved",
-        "summary": "CEO Brief displayed Monday when it was Tuesday in Adelaide. All user-facing dates must use Australia/Adelaide."
-      },
-      {
-        "id": "LL-20260810-004",
-        "title": "Token Inventory Is Not Response Data — Infrastructure Is Not Engagement",
-        "status": "Open",
-        "summary": "607 Campaign Tokens created. Only 2 Processed=True (backfill artifacts). Zero genuine customer link clicks. Token counts are not response metrics."
-      },
-      {
-        "id": "LL-20260810-003",
-        "title": "Absence From Bulk Search Is Not Proof of No Send",
-        "status": "Resolved",
-        "summary": "Bulk Gmail search truncated at 150 results. Atlas@ token queried as james@, silently returning wrong mailbox. Direct recipient search + mailbox identity gate required."
-      }
-    ]
-  },
-  "business_knowledge": {
-    "description": "Permanent business principles from completed experiments and customer interactions.",
-    "principles": [
-      {
-        "id": "BK-001",
-        "principle": "Painters do not respond meaningfully to curiosity-led outreach about quote follow-up.",
-        "source": "CvC Day 21, Jul-Aug 2026",
-        "evidence": "0/105 meaningful replies across 3 campaigns"
-      },
-      {
-        "id": "BK-002",
-        "principle": "Trust and shared experience are stronger opening mechanisms than curiosity for trade business owners.",
-        "source": "FF1 design, Aug 2026",
-        "evidence": "Curiosity-led = 0 replies. FF1 launched as hypothesis."
-      },
-      {
-        "id": "BK-003",
-        "principle": "Customers do not buy because we follow up. They buy because they become more confident.",
-        "source": "QPaint customer journey v1.0, Jul 2026",
-        "evidence": "5-stage journey designed around emotional progression."
-      },
-      {
-        "id": "BK-004",
-        "principle": "Never trust a green tick. Every claim of external effect must be independently verified.",
-        "source": "INC-2026-08-05-002, Aug 2026",
-        "evidence": "172 emails reported sent, 0 in Gmail Sent folder."
-      },
-      {
-        "id": "BK-005",
-        "principle": "When a customer is waiting on a third party, remove the burden from them. Offer to check back.",
-        "source": "Cathryn Cochrane — QPaint, Aug 2026",
-        "evidence": "Customer stuck on insurer. 2-week check-in offered."
-      },
-      {
-        "id": "BK-006",
-        "principle": "A lost job is not necessarily a lost customer. Thank them, preserve the relationship, leave the door open.",
-        "source": "Malcolm McCabe — QPaint, Aug 2026",
-        "evidence": "Previous client lost on cost. Graceful close preserved relationship."
-      },
-      {
-        "id": "BK-007",
-        "principle": "When the business has let a customer down, acknowledge it honestly. No excuses.",
-        "source": "Chass Matters — QPaint, Aug 2026",
-        "evidence": "Customer lost to delayed follow-up. Honest apology preserved goodwill."
-      },
-      {
-        "id": "BK-008",
-        "principle": "Operational Ownership: Atlas never performs work that belongs to the client.",
-        "source": "Arno Hsu / QPaint handover, Aug 2026",
-        "evidence": "Won deal. Client owns scheduling; Atlas owns customer care."
-      },
-      {
-        "id": "BK-009",
-        "principle": "Acknowledge Before Handover. Customers should never wonder whether their email was received.",
-        "source": "Arno Hsu / QPaint handover, Aug 2026",
-        "evidence": "Acknowledge, reassure, hand over. Not silence."
-      },
-      {
-        "id": "BK-010",
-        "principle": "The Cost of Stopping Is Always Lower Than the Cost of Assuming.",
-        "source": "INC-002 + INC-003, Aug 2026",
-        "evidence": "172 undelivered + 32 false Email 2. 60-second verification would have prevented both."
-      },
-      {
-        "id": "BK-011",
-        "principle": "Production Environments Must Prove They Are Healthy Before Operating.",
-        "source": "INC-002 + INC-003, Aug 2026",
-        "evidence": "Two incidents from environment operating unverified. Production Readiness Check now mandatory."
-      },
-      {
-        "id": "BK-012",
-        "principle": "Intelligence Escalation Framework: Escalate based on operational importance, not curiosity.",
-        "source": "Janis Tham / Civium, refined by James, Aug 2026",
-        "evidence": "Three-level framework. Level 1 never disabled."
-      },
-      {
-        "id": "BK-013",
-        "principle": "Reality Always Wins: The CRM must represent reality such that James never needs Gmail to understand state.",
-        "source": "5 Aug 2026 Reconciliation",
-        "evidence": "1,666 records audited. 4 corrections. 0 remaining inconsistencies."
-      },
-      {
-        "id": "BK-014",
-        "principle": "Expected Execution Is Not Verified Execution. PASS requires read-back evidence that the artefact exists.",
-        "source": "Aug 7 recovery + Messages backfill, 2026",
-        "evidence": "4 emails sent but Messages missing. Workflow reported PASS on expectation, not evidence."
-      },
-      {
-        "id": "BK-015",
-        "principle": "Gmail Sent Is Communication Truth. Only independent Gmail evidence proves customer communication occurred.",
-        "source": "Production Operating Protocol v1.0.0, Aug 2026",
-        "evidence": "3 production incidents where API/script/Airtable diverged from Gmail reality."
-      },
-      {
-        "id": "BK-016",
-        "principle": "Dashboard KPIs must use structured fields only. Free-text keyword matching produces non-reproducible results.",
-        "source": "Dashboard V2 campaign KPI correction, Aug 2026",
-        "evidence": "3 different results (98, 104, 105) from Outreach Notes keyword matching. Structured fields = 99, always."
-      },
-      {
-        "id": "BK-017",
-        "principle": "A failed query against an unverified base/table must never be generalised into 'service is down'.",
-        "source": "Airtable access diagnosis, Aug 2026",
-        "evidence": "Querying wrong base ID produced 403. PAT was never broken. Verify expected vs actual base before diagnosing."
-      },
-      {
-        "id": "BK-018",
-        "principle": "Campaign response data requires Processed=True evidence. Token inventory is not engagement.",
-        "source": "RE-ENG-AUG-2026 campaign certification, Aug 2026",
-        "evidence": "607 tokens, 227 YES, zero Processed=True from genuine customer interaction."
-      }
-    ]
-  },
-  "production_incidents": {
-    "description": "Every incident strengthens the operating system.",
-    "total": 8,
-    "recent": [
-      {
-        "id": "INC-2026-08-11-002",
-        "title": "CEO Brief — Date Error + UNREAD vs UNPROCESSED",
-        "date": "2026-08-11",
-        "severity": "S2",
-        "root_cause": "UTC date used without Adelaide timezone conversion. Gmail UNREAD state treated as proof of unprocessed action.",
-        "resolution": "Adelaide timezone rule, UNREAD vs UNPROCESSED rule, CEO Brief Freshness Gate permanently encoded in SOUL.md and ceo-brief-standard.md.",
-        "learning": "Never derive business date from UTC. Gmail state is not business state. CRM must verify before recommending action.",
-        "status": "Closed"
-      },
-      {
-        "id": "INC-2026-08-11-001",
-        "title": "Dashboard — 4-Day Dead Dashboard + Stale Tradies Table",
-        "date": "2026-08-11",
-        "severity": "S2",
-        "root_cause": "dashboard-update.py referenced obsolete 'Tradies' table removed from production schema. No alerting on refresh failure.",
-        "resolution": "Dashboard V2 deployed with three-section architecture. Tradies/Quotes dependencies removed. Structured-field-only KPI contracts.",
-        "learning": "Stale architecture must be detected, not silently failing for days. Dashboard refresh failure must alert.",
-        "status": "Closed"
-      },
-      {
-        "id": "INC-2026-08-10-003",
-        "title": "RE-ENG — Campaign Tokens Table Missing at Launch",
-        "date": "2026-08-10",
-        "severity": "S1",
-        "root_cause": "Campaign Tokens table did not exist when campaign sent. All 441 YES/NO/UNSUB links returned HTTP 500 for ~6 hours.",
-        "resolution": "Table created. 607 tokens backfilled. Response links functional. 2 Processed=True from backfill artifacts.",
-        "learning": "Token persist-before-send is mandatory. Never send without verifying token store exists and is reachable.",
-        "status": "Resolved"
-      },
-      {
-        "id": "INC-2026-08-10-002",
-        "title": "RE-ENG — False '0 Sent' Report from Wrong Mailbox",
-        "date": "2026-08-10",
-        "severity": "S2",
-        "root_cause": "Bulk Gmail search authenticated as atlas@ queried james@ mailbox — silently returned atlas@ data. Pagination truncation missed 3 deliveries.",
-        "resolution": "Mailbox Identity Gate mandatory before Gmail conclusions. Direct recipient search required for verification.",
-        "learning": "Absence from bulk search is not proof of no send. Verify mailbox identity before interpreting results.",
-        "status": "Closed"
-      },
-      {
-        "id": "INC-2026-08-10-001",
-        "title": "RE-ENG — 6 Duplicate Recipient Sends",
-        "date": "2026-08-10",
-        "severity": "S2",
-        "root_cause": "Blind batch re-run without per-recipient idempotency check. 6 of 147 recipients received duplicate Email 1.",
-        "resolution": "Per-recipient campaign idempotency check deployed. Jay Duggin unsubscribed. 5 remaining duplicates acknowledged.",
-        "learning": "Never resend batch without per-recipient sent-check. Idempotency must be architectural.",
-        "status": "Resolved"
-      },
-      {
-        "id": "INC-2026-08-07-004",
-        "title": "FF1 Wave 1 — 16 Duplicate Email 1 Sends",
-        "date": "2026-08-07",
-        "severity": "S2",
-        "root_cause": "Blind batch re-run with no duplicate-send prevention",
-        "resolution": "2-layer duplicate prevention. FF1 marked experimentally contaminated.",
-        "learning": "Retry must filter to eligible only.",
-        "status": "Closed"
-      }
-    ]
-  },
-  "production_sender": {
-    "status": "healthy",
-    "senders": [
-      {
-        "account": "james@notforgotten.com.au",
-        "script": "ff1-test-send.py",
-        "token": "james_token.json",
-        "scope": "gmail.send+gmail.modify"
-      },
-      {
-        "account": "atlas@notforgotten.com.au",
-        "script": "send-email.py",
-        "token": "google_token.json",
-        "scope": "gmail.send+gmail.modify"
-      }
-    ],
-    "last_verified_send": {
-      "timestamp": "2026-08-07T14:36+09:30",
-      "gmail_message_id": "19fda9d4f045de13",
-      "recipient": "admin@bilbydrive.com.au",
-      "campaign": "QPaint Customer Journey v2",
-      "stage": "Email 2",
-      "sender": "atlas@notforgotten.com.au"
-    },
-    "verification_stats": {
-      "total_verified": 12,
-      "total_failed": 0,
-      "success_rate": 100
-    },
-    "oauth_health": "ok"
-  },
-  "communications": {
-    "description": "Permanent Communication Standard. Every channel follows: Compose → Approve → Send → Verify → Record → Airtable → Headquarters → Learning.",
-    "channels": {
-      "email": {
-        "status": "production_ready",
-        "owner": "Atlas",
-        "last_test": "2026-08-07T19:30+09:30",
-        "last_customer": "2026-08-07T14:36+09:30",
-        "total_sent": 135,
-        "success_rate": "100%",
-        "failed": 0
-      },
-      "sms": {
-        "status": "production_ready",
-        "owner": "Atlas",
-        "last_test": "2026-08-05T01:48Z",
-        "last_customer": null,
-        "total_sent": 1,
-        "success_rate": "100%",
-        "failed": 0
-      },
-      "voice": {
-        "status": "production_ready_james_only",
-        "owner": "James",
-        "last_test": "2026-08-05T01:48Z",
-        "last_customer": null,
-        "total_calls": 1,
-        "recommendations": 0
-      },
-      "whatsapp": {
-        "status": "pending_approval",
-        "owner": "Atlas (once approved)",
-        "last_test": null,
-        "last_customer": null,
-        "total_sent": 0
-      }
-    },
-    "verification_rate": "100%",
-    "failed_deliveries": 0,
-    "total_voice_recommendations": 0,
-    "principle": "Atlas exists to strengthen the relationship between James and the customer. It does not exist to replace it."
-  },
-  "operational_status": "Dashboard V2: FOUNDER APPROVED — CLOSED BASELINE. RE-ENG-AUG-2026: MONITOR ONLY (147 delivered, 99 observing). QPaint: 150 records, 8 engaged, 2 won. Systems: 8 green, 2 yellow, 0 red. Known exceptions: 2 bounce-gap records, 19 orphaned Active records.",
-  "vault_health": {
-    "decisions": {
-      "total": 65,
-      "founding": 8,
-      "living": 57,
-      "next_review": "2026-08-11 (Dashboard V2 Closed Baseline)"
-    },
-    "learnings": {
-      "total": 8,
-      "resolved": 7,
-      "most_recent": "LL-20260811-003 — Structured fields, not keyword matching"
-    },
-    "incidents": {
-      "total": 8,
-      "s1": 4,
-      "resolved": 8,
-      "most_recent": "INC-2026-08-11-002 — CEO Brief date error"
-    },
-    "ceo_briefs": {
-      "published": 8,
-      "earliest": "2026-07-29",
-      "latest": "2026-08-11",
-      "next_due": "2026-08-12"
-    },
-    "business_knowledge": {
-      "principles": 18,
-      "earliest": "BK-001",
-      "latest": "BK-018"
-    },
-    "memory": {
-      "usage": "71%",
-      "index_entries": 7
-    },
-    "infrastructure": {
-      "disk": "44% (8.2G/20G)",
-      "memory_system": "71% (2.7G/3.8G)",
-      "git_commits": "Dashboard V2 deploy — 2026-08-11 05:44 ACST"
-    }
   },
   "qpaint_pipeline": {
+    "total_records": 154,
+    "total_value": 5467698,
     "summary": {
-      "total_customers": 150,
-      "total_pipeline_value": "$5.39M",
-      "won_count": 2,
-      "won_value": "$147,261",
-      "engaged_replied": 8,
-      "contacted": 127,
-      "lost_count": 11,
-      "lost_value": "$269,019",
-      "active_value": "$4.97M"
+      "won": 2,
+      "won_value": 147260,
+      "engaged": 6,
+      "engaged_value": 253050,
+      "lost": 12,
+      "contacted": 126,
+      "new": 5,
+      "replied": 2,
+      "other": 1
     },
-    "priority": {
-      "P1": 93,
-      "P2": 53,
-      "P3": 3
-    },
-    "key_customers": [
+    "won_customers": [
       {
-        "name": "Nicholas Zappacosta",
-        "value": "$145,008",
-        "stage": "Engaged - Awaiting Confirmation",
-        "status": "Replied"
+        "name": "Arno Hsu",
+        "value": 129750
       },
+      {
+        "name": "Joy Ryan",
+        "value": 17510
+      }
+    ],
+    "engaged_customers": [
       {
         "name": "Elisha Paige",
-        "value": "$113,907",
-        "stage": "Engaged",
-        "status": "Engaged"
-      },
-      {
-        "name": "Sian Leathem",
-        "value": "$39,996",
-        "stage": "Engaged",
-        "status": "Engaged"
-      },
-      {
-        "name": "David Schneideman",
-        "value": "$39,888",
-        "stage": "Engaged",
-        "status": "Engaged"
-      },
-      {
-        "name": "Terry Hamilton",
-        "value": "$30,538",
-        "stage": "Engaged",
-        "status": "Engaged"
+        "value": 113907
       },
       {
         "name": "Carlie Gunn",
-        "value": "$19,932",
-        "stage": "Engaged",
-        "status": "Engaged"
+        "value": 19932
       },
       {
-        "name": "Alicia Campbell",
-        "value": "$8,789",
-        "stage": "Engaged",
-        "status": "Engaged"
+        "name": "David Schneideman",
+        "value": 39888
       },
       {
-        "name": "Cathy Cochrane",
-        "value": "$4,152",
-        "stage": "Awaiting Reply",
-        "status": "Replied"
+        "name": "Terry Hamilton",
+        "value": 30538
+      },
+      {
+        "name": "Sian Leathem",
+        "value": 39996
+      },
+      {
+        "name": "Alicia Jane Campbell",
+        "value": 8789
       }
-    ]
+    ],
+    "re_eng_campaign": {
+      "status": "Observing",
+      "observing_count": 99,
+      "contacted_count": 126,
+      "email_2_count": 12,
+      "notes": "RE-ENG-AUG-2026 campaign replies tracked via james@ mailbox. Overnight: 4 bounces, 1 business-closed, 1 unsubscribe (pre-existing), 1 auto-reply. No new YES replies."
+    }
+  },
+  "nf_growth": {
+    "paying_clients": [
+      {
+        "name": "QPaint",
+        "mrr": 199,
+        "since": "Jul 2026"
+      }
+    ],
+    "trial_clients": [
+      {
+        "name": "Star Painters Adelaide",
+        "status": "Won/Completed",
+        "notes": "Awaiting Ahmad SMS response. Follow-up Fri 15 Aug."
+      }
+    ],
+    "warm_prospects": 0,
+    "prospects_won": 2,
+    "ahmad_status": "Waiting for SMS response. Next follow-up Friday 15 August unless he replies.",
+    "campaign_monitoring": {
+      "re_eng_observing": 99,
+      "re_eng_completed": 42,
+      "re_eng_lost": 5,
+      "re_eng_unsubscribed": 1
+    }
+  },
+  "operational_status": {
+    "inbox_pulse": {
+      "status": "DEGRADED",
+      "detail": "inbox-pulse-phase2 cron job MISSING. quotes-pulse is running. atlas@ inbox unmonitored for new replies."
+    },
+    "quotes_pipeline": {
+      "status": "HEALTHY",
+      "detail": "quotes@ 0 unread. quotes_token valid. quotes-watchdog + quotes-pulse both running."
+    },
+    "airtable": {
+      "status": "HEALTHY",
+      "detail": "API responding. 154 QPaint, 272 Prospects."
+    },
+    "gmail_tokens": {
+      "status": "HEALTHY",
+      "detail": "atlas@, quotes@, james@ tokens all valid."
+    },
+    "github_pages": {
+      "status": "HEALTHY",
+      "detail": "Publishing. dash.json 34min old."
+    },
+    "disk": {
+      "status": "HEALTHY",
+      "detail": "53% used (10G/20G)"
+    }
+  },
+  "vault_health": {
+    "status": "HEALTHY",
+    "details": "All tokens valid. dash.json updating. HQ regenerating."
+  },
+  "call_day": {
+    "is_wednesday": true,
+    "prep_complete": false,
+    "call_list_reviewed": false
   }
 }
