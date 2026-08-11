@@ -1,0 +1,84 @@
+# Decision: Dashboard V2 — Founder Approved (CLOSED BASELINE)
+
+**Date:** 2026-08-11 (Tuesday)
+**Time:** 05:45 ACST (Adelaide)
+**Decision-maker:** James Hardstaff (Founder)
+**Decision type:** Architecture / Production Baseline
+**Confidence:** High
+**Status:** CLOSED BASELINE
+
+---
+
+## Decision
+
+Dashboard V2 is Founder Approved as the authoritative production business health dashboard for Not Forgotten Systems.
+
+## Architecture
+
+Three-section separation:
+1. **Not Forgotten Growth** — Prospects table (NF business development)
+2. **Client Delivery / QPaint** — QPaint Pipeline table (client revenue recovery)
+3. **System Health** — Cron jobs, Airtable, data quality
+
+## Authoritative Production State
+
+| KPI | Value | Source |
+|---|---|---|
+| Total Prospects | 272 | Prospects |
+| Active Outreach | 0 | Structured fields |
+| Campaign Monitoring | 99 | RE-ENG-AUG-2026 Observing |
+| Completed (campaign) | 42 | RE-ENG-AUG-2026 |
+| Lost/Terminal | 5 | RE-ENG-AUG-2026 |
+| Unsubscribed | 1 | RE-ENG-AUG-2026 |
+| Paying Clients | 1 (QPAINT, $199 MRR) | Clients |
+| QPaint Opportunities | 150 | QPaint Pipeline |
+| QPaint Active Value | ~$4.97M | QPaint Pipeline |
+| QPaint Won Value | $147,261 | QPaint Pipeline |
+| NF Sales Pipeline Value | NOT CURRENTLY TRACKED | — |
+| Recovered Value | NOT YET ATTRIBUTED | — |
+
+## Removed Architecture
+
+- Tradies table (obsolete)
+- Legacy Quotes table (empty)
+- Hardcoded pipeline percentages
+- Token inventory as business KPI
+- Free-text Outreach Notes keyword matching in campaign KPIs
+
+## Classification Logic
+
+Campaign population KPIs use **structured fields only**:
+- Sequence Status (Unsubscribed, Completed, Active, None)
+- Pipeline Stage (New, Campaign Complete, Lost, Won, etc.)
+
+No keyword matching on Outreach Notes.
+
+## Known Data Quality Exceptions
+
+- 2 bounce records in Observation with Pipeline Stage still="New" (Adelaide Painting Services, Experience Painting Canberra)
+- 19 orphaned Active Sequence Status records with no campaign/sequence context
+
+## Governance
+
+Future dashboard changes require: PROPOSE → DATA CONTRACT → FOUNDER APPROVAL → IMPLEMENT → VERIFY.
+
+## Related Files
+
+- `scripts/dashboard-update.py` — production implementation
+- `knowledge/dashboard-v2-specification.md` — full data contracts
+- `knowledge/decisions/2026-08-11-ceo-brief-governance.md` — prior governance decision
+- `knowledge/decisions/2026-08-11-dashboard-v2.md` — this file
+
+## Related Incidents
+
+- INC-2026-08-11: CEO Brief date error + UNREAD≠UNPROCESSED (governance correction)
+- Dashboard V1 stale Tradies/Quotes dependency (architecture correction)
+- Campaign YES = token inventory, not response data (data integrity correction)
+
+---
+
+**DASHBOARD V2 STATUS: FOUNDER APPROVED**
+**CLOSED BASELINE: YES**
+**CAMPAIGN MONITORING: 99**
+**QPAINT RECONCILIATION: 150/150**
+**KNOWN DATA QUALITY EXCEPTIONS: 2 bounce-state gaps**

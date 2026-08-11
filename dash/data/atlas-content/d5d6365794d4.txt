@@ -8,6 +8,30 @@ tier: primary
 
 > Append-only log of fixes, API quirks, and gotchas. Check BEFORE touching any external API. Newest first.
 
+## 2026-08-11 — INC-2026-08-11-QUOTE-FALSE-COMPLETION: Certify Before Complete
+
+**Confidence:** permanent
+**Contested:** false
+
+**Root Cause:** Three QPaint PandaDoc quotes marked "Quotes Completed" with incomplete Airtable records (Deal Value=$0). The "Quotes Completed" Gmail label was applied after extraction was ATTEMPTED, not after intake was CERTIFIED COMPLETE. No architectural gate existed between partial extraction and the label.
+
+**Permanent Fixes:**
+- `scripts/intake-certification.py` — `certify_intake_complete()` hard gate
+- Gmail "Intake Exception" label (Label_1, quotes@) — fail-visible exception state
+- Quotes-pulse-phase2 cron prompt updated — cert before label
+- pandadoc-extract.py v2.1.0 — auto-retry short AX tree captures (text < 10K → re-navigate, up to 3x)
+- quote-intake skill v2.2.0 — Intake Completion Gate section
+
+**Permanent Operating Principle: ATTEMPTED ≠ COMPLETED.**
+For any automation where business state is at stake: WRITE → READ BACK → VERIFY → CERTIFY → PROGRESS. Never: PROCESS RAN → DONE.
+
+**Required QPaint intake fields:** Contact Person, Contact Email, Deal Value (>$0), First Action. Cannot be weakened without Founder Approval.
+
+**Labels (quotes@):** Quotes Completed = Label_135578373843577379, Intake Exception = Label_1. Do NOT use Label_7 (atlas@ only).
+
+Full incident: `knowledge/incident-reviews/INC-2026-08-11-QUOTE-FALSE-COMPLETION.md`
+Decision: `knowledge/decisions/2026-08-11-intake-completion-gate.md`
+
 ## 2026-08-10 — Comprehensive Operating Lessons (13 Permanent Standards + 8 Incidents)
 
 **Confidence:** high

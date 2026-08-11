@@ -78,6 +78,7 @@
 | | `2026-08-08-qpaint-four-email2-approved` | QPaint 4 Email 2 approved for Aug 8 send. Discovery-oriented Customer Care. Jenny $227K, Richard $145K, Jesse $116K, Helen $110K. | Aug 2026 | 🟢 Made | 2026-10-08 |
 | | `2026-08-08-quote-insights-retention-layer` | Quote Insights V1 — official retention tool within product strategy. Follow-up→data→intelligence→value→retention chain. | Aug 2026 | 🟢 Made | 2026-11-08 |
 | | `decision-2026-08-08-phase-1-certified` | Phase 1 Production Cutover CERTIFIED. Canonical Send Authority sole production send path. 11-gate pipeline, 15/15 regression. Protocol v1.1.0. | Aug 2026 | 🟢 Made | 2026-09-08 |
+| | `2026-08-11-intake-completion-gate` | Intake Completion Gate — CERTIFY BEFORE COMPLETE. Hard architectural gate between PandaDoc extraction and Gmail "Quotes Completed" label. `intake-certification.py`. INC-2026-08-11. | Aug 2026 | 🟢 Made | 2026-11-11 |
 
 ---
 
@@ -141,7 +142,8 @@
 | 2026-09-08 | `decision-2026-08-08-phase-1-certified` | Phase 1 Production Cutover CERTIFIED | 🟢 |
 | 2026-10-08 | `2026-08-08-founder-attention-verify-james-sent` | Verify James Sent before founder-attention escalation | 🟢 |
 | 2026-10-08 | `2026-08-08-qpaint-four-email2-approved` | QPaint 4 Email 2 approved for Aug 8 send | 🟢 |
-| 2026-11-08 | `2026-08-08-quote-insights-retention-layer` | Quote Insights V1 — Retention Layer | 🟢 |
+|| 2026-11-08 | `2026-08-08-quote-insights-retention-layer` | Quote Insights V1 — Retention Layer | 🟢 |
+|| 2026-11-11 | `2026-08-11-intake-completion-gate` | Intake Completion Gate — CERTIFY BEFORE COMPLETE | 🟢 |
 || 2026-12-01 | `founding-pricing-market-entry` | Pricing: $199/mo + $99 setup (market entry) | 🟢 |
 || 2026-12-01 | `founding-tiered-trust-automation` | Tier 1 admin automation, Tier 2 draft-and-ask | 🟢 |
 | 2027-06-01 | `founding-atlas-multiplier-not-replacement` | Atlas as AI multiplier, not human replacement | 🟢 |
@@ -253,4 +255,4 @@ Based on patterns observed, Atlas should watch for:
 ---
 
 *Last updated: 2026-08-09*
-*8 founding + 56 living = 64 decisions recorded. 0 decisions reviewed. 4 challenges logged.*
+*8 founding + 57 living = 65 decisions recorded. 0 decisions reviewed. 4 challenges logged.*

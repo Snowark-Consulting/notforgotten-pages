@@ -10,6 +10,36 @@ tier: primary
 
 ---
 
+## The Freshness Gate (MANDATORY — Established 2026-08-11)
+
+Before presenting any operational fact in a CEO Brief, Daily Attention report, or "what needs attention" response, Atlas must certify:
+
+```
+SOURCE: [exact data source — Gmail API, Airtable, cron list, etc.]
+LAST VERIFIED: [ISO timestamp with ACST/ACDT]
+QUERY STATUS: SUCCESS / FAILURE / DEGRADED
+FRESHNESS: [minutes since verification]
+CAVEAT: [any limitation — e.g. "CRM state unverified, PAT scope limited"]
+```
+
+**If a required live source fails:**
+→ Report: **SOURCE UNAVAILABLE — CURRENT STATE UNKNOWN**
+→ Do NOT substitute stale, cached, or inferred data as current fact.
+→ Do NOT present yesterday's operational state as today's reality.
+
+**If Airtable/CRM unavailable and James states an item was already handled:**
+→ Classify: **PROCESSING STATE = UNVERIFIED**
+→ Report: "Gmail shows unread but CRM state cannot currently be verified."
+→ Do NOT recommend duplicate customer action.
+→ Do NOT override James based on Gmail unread state alone.
+
+**Timezone:** All user-facing operational dates default to **Australia/Adelaide** (ACST/ACDT). Always use `TZ=Australia/Adelaide` on date calls. Never derive the displayed business date from UTC. If timezone unavailable → REPORT UNKNOWN.
+
+**Decision:** `knowledge/decisions/2026-08-11-ceo-brief-governance.md`
+**Incident:** INC-2026-08-11 (CEO Brief date error + UNREAD≠UNPROCESSED)
+
+---
+
 ## 13 Sections
 
 1. **CEO Priorities** — The three highest-value decisions or actions for James today, ranked by business impact. Each includes: why it matters, estimated review time, business impact if completed today, consequence of delaying. This section prioritises James's attention — not every task deserves equal weight.

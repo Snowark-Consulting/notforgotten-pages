@@ -1,0 +1,98 @@
+# Incident Review: INC-2026-08-11-QUOTE-FALSE-COMPLETION
+
+**Incident ID:** INC-2026-08-11-QUOTE-FALSE-COMPLETION
+**Date:** 2026-08-11
+**Severity:** S1 (critical)
+**Status:** Closed
+
+---
+
+## 1. What happened?
+
+Three QPaint PandaDoc quote emails (#43061 Beth McIntosh, #43031 Cheryl Sim, #43025 Julius Gloria) were processed by the quotes@ intake pipeline. After partial data extraction, all 3 were marked READ and moved to the "Quotes Completed" Gmail label — despite having critically incomplete Airtable records. All 3 had Deal Value = $0. One had no customer email. One had no scope. All had First Action missing. Two had Next Touchpoint Dates already in the past.
+
+The "Quotes Completed" label was applied because the system interpreted "extraction attempted + Airtable record created" as "intake complete." No certification gate existed between the Airtable write and the Gmail label.
+
+## 2. Customer impact?
+
+**NONE.** Zero customer contact occurred. The 48-hour no-contact rule held. No follow-up emails were triggered. All 3 quotes were in Stage=New throughout the incident.
+
+## 3. Business impact?
+
+Three quote intake records required forensic reconciliation and enrichment. Approximately 2 hours of Atlas + Founder time for investigation and remediation. No revenue impact (quotes were not lost). No reputational impact (customers unaware).
+
+## 4. Root cause?
+
+The quotes-pulse-phase2 cron prompt instructed: "After successful Airtable creation: Move email to 'Quotes Completed' label." Successful = record created, not record certified complete. The 12-step Pipeline Flow in the quote-intake skill documented Step 4 (VERIFY) as a hard stop, but this was documentation only — not an architectural enforcement. The agent applied the label immediately after writing whatever data it had.
+
+## 5. Why wasn't it detected earlier?
+
+The failure mode had not manifested before because previous QPaint PandaDoc quotes were processed when James was actively reviewing intake. The 2026-08-10 operating standards session established "Fail-visible" and "Source-bound facts" but did not create a hard architectural gate between partial extraction and completion labelling.
+
+## 6. How was it resolved?
+
+**Phase 1 — Architecture:**
+- Created `scripts/intake-certification.py` with `certify_intake_complete()` function
+- Created Gmail "Intake Exception" label (Label_1) in quotes@
+- Updated quotes-pulse-phase2 cron prompt to require certification before label
+- Updated quote-intake skill to v2.2.0 with Intake Completion Gate section
+- 7/7 regression tests pass
+
+**Phase 2 — Recovery:**
+- Extracted Deal Values from PandaDoc AX tree (multiple retries for full captures):
+  - 43061: $9,680.00
+  - 43031: $29,697.80
+  - 43025: $3,298.90
+- Enriched all 3 Airtable records with verified data
+- Applied Intake Exception label during recovery
+- After certification PASS: removed Intake Exception, applied Quotes Completed
+- 0 duplicates, 0 customer contact
+
+**Phase 3 — Extractor Hardening:**
+- pandadoc-extract.py v2.1.0: auto-retry when text_length < 10,000 (up to 3 attempts)
+- 3/3 regression tests on the affected quotes
+
+## 7. Permanent protection?
+
+| Protection | Mechanism |
+|---|---|
+| Certify before complete | `certify_intake_complete()` hard gate — all 4 required fields must pass |
+| Intake Exception state | Gmail Label_1 — fail-visible, stays in INBOX |
+| Read-back verification | Airtable read-back required before label application |
+| PandaDoc retry | Auto-retry short AX tree captures 3x before declaring failure |
+| Cron prompt updated | "After certification AND read-back" replaces "After successful Airtable creation" |
+| Duplicate prevention | Dedup by quote number during recovery |
+
+## 8. Could it happen again?
+
+**NO.** The certification function is now the architectural gate. No quote can be labelled "Quotes Completed" without passing `certify_intake_complete()`. The cron prompt enforces this. An incomplete extraction will trigger Intake Exception — not Quotes Completed. Any attempt to bypass the gate would require modifying both the script AND the cron prompt.
+
+## 9. What should we improve next?
+
+Apply the "Certify Before Complete" principle to other automated workflows beyond QPaint intake — particularly campaign sends, Airtable state transitions, and customer communication triggers.
+
+## Atlas's Reflection
+
+The failure was not in detecting quotes or extracting data. The failure was in **declaring completion before proving completion.** The automation succeeded technically (script ran, API returned 200, record was created) but failed operationally (the business outcome was not achieved). This is the same class of error as INC-2026-08-05-002/003 (Airtable advanced before Gmail verified delivery). The lesson generalises: **Trust the evidence, not the process.**
+
+## Permanent Operating Principle
+
+**ATTEMPTED ≠ COMPLETED.**
+
+Completion requires:
+- Required fields present
+- Authoritative source evidence
+- Write success verified
+- Read-back matches intended state
+- Certification passes
+
+Only then: PROGRESS.
+
+## Related
+
+- Decision: `knowledge/decisions/2026-08-11-intake-completion-gate.md`
+- Script: `scripts/intake-certification.py`
+- Extractor: `scripts/pandadoc-extract.py` v2.1.0
+- Skill: `skills/notforgotten/quote-intake/SKILL.md` v2.2.0
+- Cron: `cron/jobs.json` job `203f3a6cfd56`
+- Gmail: Label_1 (Intake Exception), Label_135578373843577379 (Quotes Completed)

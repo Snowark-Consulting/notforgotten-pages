@@ -212,6 +212,8 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 ## Campaigns
 - [[RE-ENG-AUG-2026 Campaign Authority]] (knowledge/campaigns/RE-ENG-AUG-2026-execution-authority.md) — CLOSED BASELINE. Single-email re-engagement campaign. 147 prospects. Mon Aug 10 9AM ACST. Permission-to-Call KPI.
 - [[Re-Engagement Campaign Pattern]] (skills/cold-email/references/re-engagement-campaign-pattern.md) — Single-email re-engagement campaign structure reference.
+- [[INC-2026-08-11-QUOTE-FALSE-COMPLETION]] (knowledge/incident-reviews/INC-2026-08-11-QUOTE-FALSE-COMPLETION.md) — S1 incident: 3 QPaint quotes falsely completed with Deal Value=$0. Intake certification gate deployed. CERTIFY BEFORE COMPLETE.
+- [[Decision: Intake Completion Gate]] (knowledge/decisions/2026-08-11-intake-completion-gate.md) — Hard architectural gate between extraction and Gmail label. `intake-certification.py`. INC-2026-08-11.
 
 ## Email Intelligence
 - `skills/email/email-intelligence-mining/SKILL.md` — historical deep-dive mining of Gmail mailboxes for patterns, contacts, objections, pricing, pipeline data. Not for real-time monitoring.

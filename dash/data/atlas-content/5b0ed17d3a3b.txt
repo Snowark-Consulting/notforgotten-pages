@@ -1,0 +1,360 @@
+# Dashboard V2 — Information Architecture Specification
+
+**Date:** 2026-08-11
+**Status:** DRAFT — Awaiting Founder Approval
+**Replaces:** dashboard-update.py (stale, last updated 2026-08-07)
+**Decision reference:** `knowledge/decisions/2026-08-11-dashboard-v2.md`
+
+---
+
+## Architecture Principle
+
+Three separated operational layers. Never mix NF sales with client customer pipelines.
+
+---
+
+## SECTION 1 — NOT FORGOTTEN GROWTH
+
+**Primary source:** Prospects table (272 records)
+**Secondary source:** Campaign Tokens table (607 records)
+**Source base:** `appgw8Q993yOh4xpQ`
+
+### KPI 1.1 — Total Prospects
+
+| Field | Value |
+|---|---|
+| **Display label** | Total Prospects |
+| **Source** | Prospects table — count of all records |
+| **Exact field** | N/A (record count) |
+| **Calculation** | `COUNT(Prospects)` |
+| **Current value** | 272 |
+| **Status** | ✅ AVAILABLE |
+
+### KPI 1.2 — Active Outreach
+
+| Field | Value |
+|---|---|
+| **Display label** | Active Outreach |
+| **Source** | Prospects table — filtered |
+| **Exact field** | `Sequence Status` |
+| **Calculation** | `COUNT where Sequence Status = "Active"` |
+| **Current value** | 19 |
+| **Status** | ✅ AVAILABLE |
+
+### KPI 1.3 — Engaged Prospects
+
+| Field | Value |
+|---|---|
+| **Display label** | Engaged |
+| **Source** | Prospects table — filtered |
+| **Exact field** | `Pipeline stage` |
+| **Calculation** | `COUNT where Pipeline stage IN ("Engaged", "In conversation", "Demo booked", "Qualified Opportunity", "Design Partner")` |
+| **Current value** | 0 |
+| **Status** | ✅ AVAILABLE (value is 0 — accurate) |
+
+### KPI 1.4 — Customers Won
+
+| Field | Value |
+|---|---|
+| **Display label** | Customers Won |
+| **Source** | Prospects table — filtered |
+| **Exact field** | `Pipeline stage` |
+| **Calculation** | `COUNT where Pipeline stage = "Won"` |
+| **Current value** | 2 |
+| **Status** | ✅ AVAILABLE |
+
+### KPI 1.5 — NF Sales Pipeline Value
+
+| Field | Value |
+|---|---|
+| **Display label** | NF Sales Pipeline Value |
+| **Source** | — |
+| **Status** | ❌ **NOT CURRENTLY TRACKED** |
+| **Display** | "Not currently tracked" |
+| **Note** | Prospects table has no deal/opportunity value field. Do not manufacture. |
+
+### KPI 1.6 — Paying Clients
+
+| Field | Value |
+|---|---|
+| **Display label** | Paying Clients |
+| **Source** | Clients table |
+| **Exact field** | `Subscription status`, `MRR` |
+| **Calculation** | `COUNT where Subscription status = "Active"` |
+| **Current value** | 1 (QPAINT, MRR $199) |
+| **Status** | ⚠️ PARTIALLY AVAILABLE — 2 clients total (1 Active, 1 Trial). Star Painters has no MRR populated. |
+
+### KPI 1.7 — Current MRR
+
+| Field | Value |
+|---|---|
+| **Display label** | Current MRR |
+| **Source** | Clients table |
+| **Exact field** | `MRR` |
+| **Calculation** | `SUM(MRR) where Subscription status = "Active"` |
+| **Current value** | $199 |
+| **Status** | ⚠️ PARTIALLY AVAILABLE — only QPAINT has MRR populated. |
+
+### Campaign Performance Panel
+
+| Sub-metric | Source | Field | Calculation | Current |
+|---|---|---|---|---|
+| Campaign | Campaign Tokens | `Campaign` | Unique values | RE-ENG-AUG-2026 |
+| Total Recipients | Campaign Tokens | N/A | COUNT | 607 |
+| YES | Campaign Tokens | `Action` | COUNT where Action="YES" | 227 |
+| NO CALL | Campaign Tokens | `Action` | COUNT where Action="NO_CALL" | 190 |
+| Unsubscribe | Campaign Tokens | `Action` | COUNT where Action="UNSUBSCRIBE" | 190 |
+| YES Rate | Calculated | — | YES / Total × 100 | 37.4% |
+
+**Status:** ✅ AVAILABLE
+
+### Industry Breakdown Panel
+
+| Field | Value |
+|---|---|
+| **Display label** | By Industry |
+| **Source** | Prospects table |
+| **Exact field** | `Industry` |
+| **Calculation** | COUNT grouped by Industry |
+| **Current** | Painter: 196, Marketing agency: 30, Commercial cleaning: 30, IT MSP: 4, Construction: 2, etc. |
+| **Status** | ✅ AVAILABLE |
+
+### Recent Prospect Activity
+
+| Field | Value |
+|---|---|
+| **Display label** | Recent Activity |
+| **Source** | Messages table — filtered to outbound direction |
+| **Filter** | `Direction = "Outbound"` |
+| **Note** | Currently activity feed shows all messages. For NF Growth, filter to NF-originated outbound only. |
+| **Status** | ✅ AVAILABLE (requires filter refinement) |
+
+---
+
+## SECTION 2 — CLIENT DELIVERY / QPAINT
+
+**Primary source:** QPaint Pipeline table (150 records)
+**Source base:** `appgw8Q993yOh4xpQ`
+
+### KPI 2.1 — Total QPaint Opportunities
+
+| Field | Value |
+|---|---|
+| **Display label** | QPaint Opportunities |
+| **Source** | QPaint Pipeline table |
+| **Exact field** | N/A (record count) |
+| **Calculation** | `COUNT(QPaint Pipeline)` |
+| **Current value** | 150 |
+| **Status** | ✅ AVAILABLE |
+
+### KPI 2.2 — Active Opportunities
+
+| Field | Value |
+|---|---|
+| **Display label** | Active |
+| **Source** | QPaint Pipeline — filtered |
+| **Exact field** | `Recovery Status` |
+| **Calculation** | `COUNT where Recovery Status IN ("Contacted", "Engaged", "Replied", "New")` |
+| **Current value** | 137 (127 Contacted + 6 Engaged + 2 Replied + 2 New) |
+| **Status** | ✅ AVAILABLE |
+
+### KPI 2.3 — Won
+
+| Field | Value |
+|---|---|
+| **Display label** | Won |
+| **Source** | QPaint Pipeline |
+| **Exact field** | `Recovery Status` |
+| **Calculation** | `COUNT where Recovery Status = "Won"` |
+| **Current value** | 2 |
+| **Status** | ✅ AVAILABLE |
+
+### KPI 2.4 — Lost
+
+| Field | Value |
+|---|---|
+| **Display label** | Lost |
+| **Source** | QPaint Pipeline |
+| **Exact field** | `Recovery Status` |
+| **Calculation** | `COUNT where Recovery Status = "Lost"` |
+| **Current value** | 11 |
+| **Status** | ✅ AVAILABLE |
+
+### KPI 2.5 — Active Quote Value
+
+| Field | Value |
+|---|---|
+| **Display label** | Active Quote Value |
+| **Source** | QPaint Pipeline |
+| **Exact field** | `Deal Value` |
+| **Calculation** | `SUM(Deal Value) where Recovery Status != "Lost" AND Recovery Status != "Won"` |
+| **Current value** | ~$4,973,083 ($5,389,363 − $147,261 Won − $269,019 Lost) |
+| **Status** | ✅ AVAILABLE |
+
+### KPI 2.6 — Won / Recovered Value
+
+| Field | Value |
+|---|---|
+| **Display label** | Recovered Value |
+| **Source** | QPaint Pipeline |
+| **Exact field** | `Deal Value` |
+| **Calculation** | `SUM(Deal Value) where Recovery Status = "Won"` |
+| **Current value** | $147,261 |
+| **Status** | ✅ AVAILABLE |
+
+### KPI 2.7 — Lost Value
+
+| Field | Value |
+|---|---|
+| **Display label** | Lost Value |
+| **Source** | QPaint Pipeline |
+| **Exact field** | `Deal Value` |
+| **Calculation** | `SUM(Deal Value) where Recovery Status = "Lost"` |
+| **Current value** | $269,019 |
+| **Status** | ✅ AVAILABLE |
+
+### Pipeline Stage Bar
+
+| Stage | Source Field | Current Count |
+|---|---|---|
+| Email 1 | `Current Stage` | 98 |
+| Email 2 | `Current Stage` | 31 |
+| Engaged | `Current Stage` | 6 |
+| Awaiting Reply | `Current Stage` | 2 |
+| Won | `Current Stage` | 2 |
+| Lost | `Current Stage` | 11 |
+
+**Display:** Dynamic horizontal bar, segmented proportionally. No hardcoded percentages.
+**Status:** ✅ AVAILABLE
+
+### Upcoming Actions
+
+| Field | Value |
+|---|---|
+| **Display label** | Actions Due |
+| **Source** | QPaint Pipeline |
+| **Exact field** | `Next Touchpoint Date`, `Priority Tier` |
+| **Calculation** | COUNT where Next Touchpoint Date ≤ today, grouped by Priority |
+| **Status** | ✅ AVAILABLE |
+
+### Overdue Actions
+
+| Field | Value |
+|---|---|
+| **Display label** | Overdue |
+| **Source** | QPaint Pipeline |
+| **Exact field** | `Next Touchpoint Date` |
+| **Calculation** | COUNT where Next Touchpoint Date < today AND Recovery Status != "Lost" AND Recovery Status != "Won" |
+| **Status** | ✅ AVAILABLE |
+
+### Common Blockers
+
+| Field | Value |
+|---|---|
+| **Display label** | Common Blockers |
+| **Source** | QPaint Pipeline |
+| **Exact field** | `Primary Objection` |
+| **Calculation** | COUNT grouped by Primary Objection where Recovery Status = "Lost" |
+| **Status** | ✅ AVAILABLE (low sample size — 11 lost) |
+
+---
+
+## SECTION 3 — SYSTEM HEALTH
+
+### KPI 3.1 — Healthy Systems
+
+| Field | Value |
+|---|---|
+| **Display label** | Systems Healthy |
+| **Source** | Cron job list + Gmail API + Airtable API |
+| **Status values** | Healthy / Degraded / Down |
+| **Current** | DEGRADED — dashboard dead, bin/ scripts blocked, inbox-pulse-phase2 missing |
+
+### Individual System Status
+
+| System | Source | Current | Display |
+|---|---|---|---|
+| quotes-watchdog-phase1 | `hermes cron list` | Running | 🟢 |
+| quotes-pulse-phase2 | `hermes cron list` | Running | 🟢 |
+| QPaint Daily Attention | `hermes cron list` | Scheduled 21:30 UTC | 🟢 |
+| inbox-watchdog-phase1 | `hermes cron list` | Running (*/3) | 🟡 |
+| inbox-pulse-phase2 | `hermes cron list` | Missing | 🔴 |
+| Dashboard refresh | `hermes cron list` | Failing (stale table) | 🔴 |
+| Campaign Pulse | `hermes cron list` | Running (every 48h) | 🟢 |
+| Nightly backup | `hermes cron list` | Failing (temp file) | 🟡 |
+| Pipeline data refresh | `hermes cron list` | Running (every 2h) | 🟢 |
+| bin/ scripts (×5) | `hermes cron list` | Blocked (path scanner) | 🟡 |
+| Airtable access | Direct API test | Healthy (all 6 tables) | 🟢 |
+| Quotes intake | quotes-pulse-phase2 | Running | 🟢 |
+
+### KPI 3.2 — Exceptions
+
+| Field | Value |
+|---|---|
+| **Display label** | Active Exceptions |
+| **Source** | Count of 🔴 + 🟡 items above |
+| **Current** | 6 (2 red + 4 yellow) |
+
+### KPI 3.3 — Dashboard Freshness
+
+| Field | Value |
+|---|---|
+| **Display label** | Last Refresh |
+| **Source** | Script execution timestamp |
+| **Exact field** | `datetime.now(ACST)` |
+| **Display** | ISO timestamp with ACST |
+| **Status** | ✅ AVAILABLE |
+
+### KPI 3.4 — Data Source Status
+
+| Source | Last Verified | Status |
+|---|---|---|
+| Airtable Prospects | [refresh time] | ✅ |
+| Airtable QPaint Pipeline | [refresh time] | ✅ |
+| Airtable Campaign Tokens | [refresh time] | ✅ |
+| Gmail (quotes@) | [last pulse] | ✅ |
+| Gmail (atlas@) | [last pulse] | ✅ |
+
+---
+
+## EXISTING COMPONENT DISPOSITION
+
+| # | Current Component | Disposition | New Home |
+|---|---|---|---|
+| 1 | KPI: Active Customers | **REMOVE** — obsolete unified count | Replaced by 1.1 (Total Prospects) + 1.6 (Paying Clients) |
+| 2 | KPI: Pipeline Value | **SPLIT** | 1.5 (NF — not tracked) + 2.5 (QPaint Active Quote Value) |
+| 3 | KPI: Response Rate | **SPLIT** | 1.x (NF campaign YES rate) + 2.x (QPaint engagement rate, deferred) |
+| 4 | KPI: Messages This Week | **REDESIGN** | Filter by source (NF outbound vs QPaint) — Section 1 activity + Section 2 |
+| 5 | Quote Pipeline bar | **REDESIGN** | Dynamic bar from QPaint Current Stage distribution — Section 2 |
+| 6 | Quote Health | **REMOVE** | Replaced by 2.5/2.6/2.7 (QPaint value KPIs) |
+| 7 | Recent Activity | **RETAIN (redesigned)** | Filtered to NF outbound — Section 1 |
+| 8 | Customers panel | **REMOVE** | Replaced by QPaint opportunity list — Section 2 |
+| 9 | By Industry panel | **RETAIN (redesigned)** | NF Prospects Industry breakdown — Section 1 |
+| 10 | Footer | **RETAIN** | Updated timestamp and data source note |
+
+---
+
+## CANNOT CURRENTLY BE SUPPORTED
+
+| KPI | Reason | Recommendation |
+|---|---|---|
+| NF Sales Pipeline Value ($) | No deal value field in Prospects or linked Quotes table | Display "Not currently tracked" — do not manufacture |
+| NF Outreach Response Rate | Messages table direction labels don't distinguish NF campaign replies from QPaint replies | Defer until Messages filtering by campaign/source is reliable |
+| QPaint Customer Engagement Rate | Need denominator clarification (sent emails vs total opportunities) | Defer — clarify with James which denominator to use |
+| Paying Client Count (definitive) | Only 2 clients, 1 with MRR populated, 1 in Trial with no financial data | Display current value with caveat: "2 clients (1 active, 1 trial)" |
+
+---
+
+## IMPLEMENTATION NOTES
+
+1. **No UNION of Prospects + QPaint Pipeline.** They remain separate data populations in separate dashboard sections.
+2. **All hardcoded placeholders removed.** Pipeline bar, percentages, status strings — all dynamic.
+3. **Freshness timestamps** on every section with source status.
+4. **Failed source → display "DATA UNAVAILABLE"** not stale cached value.
+5. **Quotes table dependency eliminated entirely.** Replaced by QPaint Pipeline for value data.
+6. **"Tradies" reference removed** — no longer needed.
+7. **dashboard-update.py** will need significant restructure (3-section layout, multiple data sources).
+
+---
+
+**Status:** Awaiting Founder Approval before implementation.

@@ -1,0 +1,58 @@
+---
+doc_type: decision
+owner: notforgotten
+tier: primary
+---
+
+# Decision: Intake Completion Gate (2026-08-11)
+
+**Status:** APPROVED — Phase 1 implemented, 7/7 tests pass
+**Founder Approval:** James Hardstaff, 2026-08-11
+**Incident:** INC-2026-08-11-QUOTE-FALSE-COMPLETION
+
+## Summary
+
+A hard architectural gate was missing between quote intake extraction/Airtable creation and the Gmail "Quotes Completed" label. Three QPaint quotes (43061, 43031, 43025) were labelled complete with Deal Value=$0 and missing critical fields.
+
+## Changes Made
+
+1. **`scripts/intake-certification.py`** — New certification function. `certify_intake_complete(record_fields)` validates Contact Person, Contact Email, Deal Value (>$0), Atlas next action. Returns (certified, missing).
+
+2. **Gmail label "Intake Exception"** — Created in quotes@ (`Label_1`). Applied when certification fails. Email stays in INBOX, operationally visible.
+
+3. **Quote-intake skill v2.2.0** — Intake Completion Gate section added. Pipeline Flow updated: Step 4 (VERIFY) is now architecturally enforced. Label IDs documented.
+
+4. **Quotes-pulse-phase2 cron prompt** — POST-PROCESSING section replaced. Three paths: CERTIFY→PASS→Quotes Completed, CERTIFY→FAIL→Intake Exception. Fail-closed principles codified: "INCOMPLETE EXTRACTION ≠ COMPLETED QUOTE."
+
+## Certification Contract
+
+Authoritative required fields (matching Pitfall 25 autopilot guardrails):
+- Contact Person: non-empty, not "Unknown"
+- Contact Email: non-empty, contains "@"
+- Deal Value: > $0
+- Atlas next action: non-empty
+
+## Test Results
+
+7/7 regression tests pass:
+1. Complete valid quote → PASS
+2. Missing Deal Value ($0) → FAIL (Deal Value)
+3. Missing Contact Email → FAIL (Contact Email)
+4. Missing Contact Person → FAIL (Contact Person)
+5. Contact Person = "Unknown" → FAIL (Contact Person)
+6. Missing Atlas next action → FAIL (Atlas next action)
+7. All fields missing → FAIL (all 4)
+
+## Final Question
+
+> If a new QPaint quote arrives now with incomplete extraction, can Atlas still move it to Quotes Completed without proving the Airtable record is complete?
+
+**NO.** The quotes-pulse-phase2 cron prompt now requires `certify_intake_complete()` before label application. The certification function is the architectural gate. An incomplete extraction will trigger Intake Exception, not Quotes Completed.
+
+## References
+
+- Script: `scripts/intake-certification.py`
+- Skill: `skills/notforgotten/quote-intake/SKILL.md` v2.2.0
+- Cron: `cron/jobs.json` job `203f3a6cfd56`
+- Gmail label: `Label_1` (Intake Exception, quotes@)
+- Gmail label: `Label_135578373843577379` (Quotes Completed, quotes@)

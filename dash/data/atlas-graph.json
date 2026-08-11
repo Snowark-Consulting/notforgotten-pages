@@ -675,6 +675,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decisions_2026_08_11_intake_completion_gate",
+      "label": "Intake Completion Gate",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-11-intake-completion-gate.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "eecee43749eb",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decisions_index",
       "label": "Decisions / Index",
       "file_type": "doc",
@@ -858,6 +869,17 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "934fdc0bf884",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_incident_reviews_inc_2026_08_11_quote_false_completion",
+      "label": "INC 2026 08 11 Quote False Completion",
+      "file_type": "doc",
+      "source_file": "knowledge/incident-reviews/INC-2026-08-11-QUOTE-FALSE-COMPLETION.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "51b97337d272",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -2608,6 +2630,20 @@
     {
       "source": "agent_registry",
       "target": "knowledge_campaigns_re_eng_aug_2026_execution_authority",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_incident_reviews_inc_2026_08_11_quote_false_completion",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_11_intake_completion_gate",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

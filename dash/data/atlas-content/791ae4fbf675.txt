@@ -1,0 +1,46 @@
+# Decision: CEO Brief Governance Corrections (INC-2026-08-11)
+
+**Date:** 2026-08-11 (Tuesday)
+**Time:** 05:10 ACST (Adelaide)
+**Decision-maker:** James Hardstaff (Founder)
+**Decision type:** Governance / Permanent Standard
+**Confidence:** High
+**Status:** Enacted
+
+---
+
+## Incident
+
+The CEO Brief generated at 2026-08-10 19:35 UTC (2026-08-11 05:05 ACST) displayed the business date as "Monday, 10 August 2026" when the correct Adelaide date was "Tuesday, 11 August 2026." The brief also presented 5 QPaint customer replies as requiring processing based solely on Gmail UNREAD state, when James had stated they were worked through yesterday.
+
+## Root Cause
+
+1. **Date error:** `date` command executed without `TZ=Australia/Adelaide`, producing UTC day (Monday) instead of Adelaide day (Tuesday).
+2. **UNREAD≠UNPROCESSED gap:** No evidence hierarchy existed to distinguish Gmail label state from actual processing state. The brief assumed UNREAD = requires action, overriding James's statement.
+
+## Enacted Corrections
+
+1. **Business Date Standard:** All user-facing dates default to Australia/Adelaide. Always `TZ=Australia/Adelaide`.
+2. **UNREAD ≠ UNPROCESSED:** Evidence hierarchy: Gmail + CRM + Outreach Notes + Execution History. CRM unavailable + James says handled = UNVERIFIED. Never override James on Gmail alone.
+3. **CEO Brief Freshness Gate:** Every section certifies SOURCE/LAST VERIFIED/QUERY STATUS/FRESHNESS/CAVEAT. Source fail = UNKNOWN, no stale substitution.
+
+## QPaint Quarantine
+
+Five customer replies from 2026-08-10 blocked until CRM access restored:
+- Leisa Rhule (6 Echuca Court, Warana)
+- Damien Glancy (5 Jordain Court, Ferny Hills)
+- Skyla Garvey (Sumners Road)
+- Terry Hamilton (23 Blackall Terrace, East Brisbane)
+- David Schneideman (Adavale St)
+
+No action permitted until Airtable PAT scope restored and James confirms CRM state.
+
+## Files Modified
+
+- `knowledge/ceo-brief-standard.md` — Freshness Gate added
+- `memory/MEMORY.md` — Governance rules saved
+- `knowledge/decisions/2026-08-11-ceo-brief-governance.md` — This file
+
+---
+
+**Atlas acknowledges:** This incident demonstrated a structural weakness in how the CEO Brief architecture handles timezone conversion and distinguishes Gmail state from business processing state. The Freshness Gate and UNREAD≠UNPROCESSED rules close this gap permanently.
