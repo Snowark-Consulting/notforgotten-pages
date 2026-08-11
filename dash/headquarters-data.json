@@ -1,226 +1,262 @@
 {
-  "generated_at": "2026-08-12T04:05:34.764281+09:30",
-  "generated_at_display": "Wednesday 12 August 2026 04:05 ACST",
-  "today_date": "2026-08-12",
-  "atlas_brief": {
-    "status": "READY",
-    "summary": "QPaint Pipeline: 154 records, $5.47M. 2 Won ($147K), 6 Engaged ($253K), 12 Lost, 126 Contacted. Overnight: 0 quotes@ intake, 0 atlas@ mail, james@ had 4 bounces (processed), 1 unsubscribe (already CRM-complete), 1 business-closed (processed), 1 auto-reply. Dashboard V2 baseline intact. CRITICAL: inbox-pulse-phase2 cron job missing for 3rd time.",
-    "period": "Overnight 11-12 Aug 2026"
+  "generated_at": "2026-08-12T05:51:15+09:30",
+  "generated_by": "Atlas \u2014 Morning Readiness (rebuilt from primary evidence, 2026-08-12 05:48 ACST)",
+  "call_day": "Wednesday 12 August 2026",
+  "status": "READY \u2014 5 fully-researched + 12 pending briefs",
+  "todays_number_one": {
+    "objective": "Founder-led prospect conversations \u2014 PMF discovery",
+    "why": "Direct founder-to-owner conversations yield the highest signal on ICP fit, objections, and product-market positioning",
+    "target": "5-8 calls during business hours"
   },
-  "business_score": 78,
-  "business_health": {
-    "score": 78,
-    "label": "Stable",
-    "trend": "flat",
-    "details": "QPaint delivery running. 2 Won, 6 Engaged. NF growth: 2 Won prospects, 0 design partners. RE-ENG campaign replies trickling in. inbox-pulse-phase2 gap is a known systemic risk."
-  },
-  "waiting_for_james": [
+  "certified_call_list": [
     {
-      "priority": "P1",
-      "action": "Ahmad/Star Painters \u2014 SMS follow-up Friday 15 Aug unless he replies before then",
-      "detail": "Star Painters is Won/Completed. Ahmad has not replied to SMS. Next follow-up date: Friday 15 August. No new signals overnight.",
-      "impact": "Trial client conversion \u2014 $199 MRR at stake"
+      "order": 1,
+      "business": "Viva Painters Adelaide",
+      "phone": "08 8246 2902",
+      "location": "Greater Adelaide, SA",
+      "best_call_time": "9:00 AM ACST",
+      "owner": "Unknown (no public name found)",
+      "brief": "'Free Quote in 24Hrs' guarantee. 300+ suburb SEO presence. Suggests growth/scale mode. Virtual office address \u2014 likely small operator scaling aggressively. Mixed residential/commercial/strata/industrial.",
+      "icp_fit": "Strong \u2014 high quote volume implied by '24hr quote' positioning. Growth company likely feeling admin pain.",
+      "opening": "'I was looking at what you guys do \u2014 the 24-hour quote guarantee is a strong commitment for a painting business. I'm curious how you manage that turnaround at scale.'",
+      "discovery": [
+        "With that 24-hour promise, you must be sending a lot of quotes. What happens after they go out?",
+        "Is there someone whose job it is to follow them up, or does that tend to slip?"
+      ],
+      "prior_contact": "1 email (RE-ENG-AUG-2026, Aug 10). No prior campaigns.",
+      "objective": "Learn whether '24hr quote' positioning creates a follow-up bottleneck. If yes, strong NF fit.",
+      "confidence": "MEDIUM"
     },
     {
-      "priority": "P2",
-      "action": "Jay Duggin Painting unsubscribe \u2014 CRM already processed but verify no further emails",
-      "detail": "Jay Duggin replied to RE-ENG asking to be removed. CRM shows Campaign Complete/Unsubscribed from Wave 1. James may want to double-confirm suppression.",
-      "impact": "Compliance \u2014 Spam Act obligation"
+      "order": 2,
+      "business": "Pro Painters Adelaide",
+      "phone": "0431 188 818",
+      "location": "Adelaide, SA",
+      "best_call_time": "9:15 AM ACST",
+      "owner": "Emilio Fuentes",
+      "brief": "15+ years. Dulux Accredited. Premium positioning \u2014 low-VOC, environmentally friendly. Has estimator named Eric who visits clients. Free quotes in 24 hours. 209-unit strata project completed. Small team, home-based.",
+      "icp_fit": "Strong \u2014 free quotes + estimator role suggests formal quote pipeline. Likely managing multiple active quotes.",
+      "opening": "'I noticed you guys are Dulux Accredited and did that big 209-unit project \u2014 that's serious work. I'm curious how you manage the quoting side when you're handling jobs that size.'",
+      "discovery": [
+        "With Eric doing estimates, do you find the quotes he sends out actually get followed up consistently?",
+        "Once Eric's done the quote and moved on to the next one, who's keeping track of whether the customer came back?"
+      ],
+      "prior_contact": "1 email (RE-ENG-AUG-2026, Aug 10). No prior campaigns.",
+      "objective": "Understand handoff between estimator (Eric) and follow-up. Likely gap between quote delivery and conversion tracking.",
+      "confidence": "HIGH"
     },
     {
-      "priority": "P2",
-      "action": "Restore inbox-pulse-phase2 cron job \u2014 3rd occurrence in 17 days",
-      "detail": "inbox-watchdog-phase1 runs but no Phase 2 agent to process detected mail. quotes-pulse-phase2 is present but inbox-pulse-phase2 is missing. This gap has recurred 25 Jul, 10 Aug, and now 12 Aug.",
-      "impact": "Blind spot for atlas@ inbound \u2014 replies go undetected"
+      "order": 3,
+      "business": "Painter Painting",
+      "phone": "0406 713 970",
+      "location": "Littlehampton, Adelaide Hills, SA",
+      "best_call_time": "9:30 AM ACST",
+      "owner": "Les + wife Peg",
+      "brief": "Family-run, 30+ years. Les paints, Peg does interior decorating/QC. 'No job too small.' Classic owner-operator. No CRM, no booking system. Simple single-page website.",
+      "icp_fit": "Very strong \u2014 exactly the type of business NF was built for. Owner on the tools all day. No admin. No follow-up system. Every lost quote is pure word-of-mouth revenue.",
+      "opening": "'Les, I was having a look at what you and Peg do \u2014 30 years in the Hills, that's a proper family business. I bet you've got a pretty solid reputation up there.'",
+      "discovery": [
+        "When you send someone a quote in the Hills, do they usually come back pretty quickly, or do some just go quiet?",
+        "Are you the one following up, or does Peg handle that side?"
+      ],
+      "prior_contact": "1 email (RE-ENG-AUG-2026, Aug 10). No prior campaigns.",
+      "objective": "Classic owner-operator discovery. Les is exactly who NF helps. If he's losing 2-3 jobs/month to poor follow-up, that's real money.",
+      "confidence": "HIGH"
     },
     {
-      "priority": "P3",
-      "action": "QPaint Pipeline \u2014 126 Contacted records, 12 at Email 2. Review follow-up cadence",
-      "detail": "12 records at Email 2 stage from RE-ENG-AUG-2026. 6 Engaged (awaiting client response). No new YES replies overnight. Recovery pipeline healthy but needs James attention for next push.",
-      "impact": "Revenue recovery \u2014 $5.47M pipeline"
+      "order": 4,
+      "business": "One Touch Paint",
+      "phone": "0415 392 436",
+      "location": "Inner south/east Adelaide, SA",
+      "best_call_time": "9:45 AM ACST",
+      "owner": "Slavek",
+      "brief": "37 years. Artisan painter. Residential + commercial. Advanced techniques (abrasive blasting, epoxy, powder coating). Detailed written agreements. Free quotes. 'Never raise the price.' Lead forms on every page.",
+      "icp_fit": "Strong \u2014 free quotes + lead forms = volume. Detailed written agreements suggest formal quoting. But he's an artisan who probably hates admin.",
+      "opening": "'Slavek, I read that you never raise the price once you've quoted \u2014 that takes confidence after 37 years. Do you find customers really respect that?'",
+      "discovery": [
+        "With free quotes and all those lead forms, you must send quite a few. What's your process after the quote goes out?",
+        "For someone who's been doing this 37 years, I'm guessing word of mouth keeps you busy \u2014 does follow-up even matter at this point, or do they just come back?"
+      ],
+      "prior_contact": "1 email (RE-ENG-AUG-2026, Aug 10). No prior campaigns.",
+      "objective": "Learn whether a 37-year veteran still loses work to poor follow-up, or whether reputation alone drives business. If he's losing work, he's a perfect NF client.",
+      "confidence": "HIGH"
+    },
+    {
+      "order": 5,
+      "business": "BlackSilver Master Painters",
+      "phone": "08 8260 5008",
+      "location": "Adelaide Metro + Hills + Barossa, SA",
+      "best_call_time": "10:00 AM ACST",
+      "owner": "Geoff King (CEO)",
+      "brief": "28+ years. 22 staff (18 qualified + 4 apprentices). CEO Geoff King personally quotes and inspects every job. Director Andrew Kerr once repainted a 4-year-old exterior at zero cost because it wasn't good enough. Extraordinary integrity culture. Dulux & Haymes accredited.",
+      "icp_fit": "Strong \u2014 formal 4-stage pipeline (contact\u2192quote\u2192accept\u2192works). CEO does quoting personally. Multiple stakeholders. Scaled business with quoting as personal bottleneck.",
+      "opening": "'Geoff, I was genuinely impressed reading about your business \u2014 22 staff but you still personally quote and inspect every job. In an industry where the owner disappears after the first meeting, that's remarkable.'",
+      "discovery": [
+        "With you personally doing every quote, what happens to follow-up when you're also running 22 people?",
+        "You've built something really solid over 28 years \u2014 is quote follow-up something you've got dialled in, or is it one of those things that still nags at you?"
+      ],
+      "prior_contact": "1 email (RE-ENG-AUG-2026, Aug 10). No prior campaigns.",
+      "objective": "CEO who personally quotes is the bottleneck. If follow-up suffers because Geoff is stretched, NF solves a real pain point for a 22-person operation.",
+      "confidence": "HIGH"
     }
   ],
-  "atlas_recommendation": {
-    "single_highest_leverage": "Restore inbox-pulse-phase2 cron job \u2014 this is the 3rd occurrence. Without it, atlas@ replies go undetected. Takes 2 minutes. Then review Ahmad SMS status.",
-    "priorities": [
-      {
-        "rank": 1,
-        "action": "Restore inbox-pulse-phase2 cron job",
-        "reason": "3rd occurrence. Systemic risk. Customer replies undetected."
-      },
-      {
-        "rank": 2,
-        "action": "Ahmad SMS check \u2014 any reply since last contact?",
-        "reason": "Trial client. Follow-up due Friday. Early check saves time."
-      },
-      {
-        "rank": 3,
-        "action": "Jay Duggin \u2014 confirm CRM suppression is complete",
-        "reason": "Spam Act compliance. Already Campaign Complete/Unsubscribed but verify no edge case."
-      },
-      {
-        "rank": 4,
-        "action": "QPaint Engaged records \u2014 any overdue follow-ups?",
-        "reason": "6 Engaged, 12 at Email 2. Client may have feedback."
-      }
+  "remaining_callable": {
+    "total": 17,
+    "fully_researched": 5,
+    "pending_briefs": 12,
+    "note": "12 prospects from RE-ENG-AUG-2026 SA/TAS cohort require business research before calling. Baseline subagent research was not completed overnight. Recommend starting with the 5 fully-researched calls and continuing research in parallel.",
+    "pending_businesses": [
+      "ASL Painting",
+      "AJ Cochrane",
+      "Steve Liddall",
+      "Hobart House Painter",
+      "Professional Painters",
+      "Ultimate Painting",
+      "Luxury Painting",
+      "Watsons Painting",
+      "Bob De Groot",
+      "Halifax Painting",
+      "Adelaide Hills Painting",
+      "Tasmanian Painters"
     ]
   },
-  "changes": {
-    "today": [
-      {
-        "time": "04:01",
-        "text": "Overnight scan: 0 quotes@, 0 atlas@, james@ 14 unread (8 noise, 6 actionable)"
-      },
-      {
-        "time": "04:05",
-        "text": "Processed 4 RE-ENG bounces (Melbourne Painters, Advisible, Australia CC, 5ive Design) + 1 business-closed (Tatnell Painters) \u2014 CRM updated to Lost"
-      },
-      {
-        "time": "04:05",
-        "text": "Jay Duggin Painting: unsubscribe request received but CRM already Campaign Complete/Unsubscribed \u2014 no CRM change needed"
-      },
-      {
-        "time": "04:06",
-        "text": "CRITICAL: inbox-pulse-phase2 cron job missing \u2014 3rd occurrence in 17 days"
-      }
-    ],
-    "yesterday": [
-      {
-        "time": "12 Aug",
-        "text": "No significant events recorded for 11 Aug \u2014 Monday was a stable day"
-      }
-    ],
-    "this_week": [
-      {
-        "time": "Mon 10 Aug",
-        "text": "Dashboard V2 CLOSED BASELINE. inbox-pulse-phase2 restored after 2nd disappearance."
-      },
-      {
-        "time": "Tue 11 Aug",
-        "text": "Overnight Founder Readiness orchestrator replaces CEO Brief + Morning HQ Refresh"
-      },
-      {
-        "time": "Wed 12 Aug",
-        "text": "RE-ENG bounces processed. Jay Duggin unsubscribe (already complete). Call Day prep executed."
-      }
+  "call_framework": {
+    "opening": "Hi [name], it's James Hardstaff here. I run a company called Not Forgotten \u2014 we help painting businesses make sure no quote goes cold. I sent you a quick email earlier this week. Did you happen to see it?",
+    "if_no": "No worries at all \u2014 I know how busy it gets. The short version is: we help painters follow up quotes automatically so nothing falls through the cracks. I was curious if that's something you deal with.",
+    "discovery_questions": [
+      "How many quotes do you send out in a typical month?",
+      "What happens after a quote goes out \u2014 do you have a system for following up?",
+      "Roughly what percentage would you say actually convert?",
+      "What's the biggest reason you think quotes don't turn into jobs?",
+      "If you could wave a magic wand and fix one thing about your quoting process, what would it be?"
     ]
+  },
+  "objection_handling": {
+    "not_interested": "Fair enough \u2014 appreciate the honesty. Mind if I ask: is it because you've already got a system that works, or is follow-up just not something you worry about?",
+    "already_follow_up": "That's great \u2014 most don't. What do you use? (Listen.) Most of our clients were following up manually before they came to us \u2014 the issue was consistency, not effort.",
+    "send_information": "Happy to. What's the best email? I'll send you a one-pager. No pressure \u2014 just so you've got it if you ever want to revisit.",
+    "too_busy": "I won't keep you. Quick question \u2014 are you on the tools yourself? (If yes.) That's exactly why we built this. When you're painting all day, follow-up is the first thing that slips.",
+    "who_are_you": "Totally fair. I'm James \u2014 I run Not Forgotten. We're a small Australian company that built a follow-up system specifically for trade businesses. I reached out because I thought what we do might help someone like you.",
+    "how_much": "It depends on your quote volume \u2014 typically between $200-500/month for a painting business your size. But I'd rather understand whether it'd actually help you before we talk numbers."
+  },
+  "voicemail": "Hi [name], James Hardstaff here from Not Forgotten. I sent you an email earlier this week about helping with quote follow-up. No need to call back \u2014 I'll try you again another time. Or you can reply to the email if it's easier. Cheers.",
+  "outcome_tracking": {
+    "options": [
+      "CONNECTED \u2014 INTERESTED",
+      "CONNECTED \u2014 FOLLOW UP",
+      "CONNECTED \u2014 NOT INTERESTED",
+      "CONNECTED \u2014 ALREADY SOLVED",
+      "NO ANSWER",
+      "VOICEMAIL",
+      "BAD NUMBER",
+      "DO NOT CONTACT",
+      "OTHER"
+    ],
+    "fields": [
+      "quotes_per_month",
+      "current_follow_up_process",
+      "biggest_pain",
+      "objection",
+      "interest_signal",
+      "next_action",
+      "notes"
+    ]
+  },
+  "calling_blocks": {
+    "morning": "9:00 AM \u2014 11:00 AM ACST (Adelaide prospects)",
+    "afternoon": "2:00 PM \u2014 4:00 PM ACST",
+    "note": "All 17 prospects are in SA or TAS \u2014 same timezone as ACST. No timezone conflicts."
   },
   "qpaint_pipeline": {
-    "total_records": 154,
-    "total_value": 5467698,
-    "summary": {
-      "won": 2,
-      "won_value": 147260,
-      "engaged": 6,
-      "engaged_value": 253050,
-      "lost": 12,
-      "contacted": 126,
-      "new": 5,
-      "replied": 2,
-      "other": 1
+    "total": 154,
+    "previous_baseline": 150,
+    "net_movement": "+4",
+    "additions": [
+      {
+        "quote": "43025",
+        "customer": "Julius Gloria",
+        "value": "$3,298.90",
+        "intake": "2026-08-11",
+        "certification": "PASS",
+        "stage": "New",
+        "next_touchpoint": "2026-08-01"
+      },
+      {
+        "quote": "43031",
+        "customer": "Cheryl Sim",
+        "value": "$29,697.80",
+        "intake": "2026-08-11",
+        "certification": "PASS",
+        "stage": "New",
+        "next_touchpoint": "2026-08-05"
+      },
+      {
+        "quote": "43061",
+        "customer": "Beth McIntosh",
+        "value": "$9,680.00",
+        "intake": "2026-08-11",
+        "certification": "PASS",
+        "stage": "New",
+        "next_touchpoint": "2026-08-08"
+      },
+      {
+        "quote": "43019",
+        "customer": "Nicholas Zappacosta",
+        "value": "$35,657.60",
+        "intake": "2026-08-11 20:31 ACST",
+        "certification": "PASS",
+        "stage": "New",
+        "next_touchpoint": "2026-08-11"
+      }
+    ],
+    "stage_distribution": {
+      "Email 1": 98,
+      "Email 2": 30,
+      "Lost": 12,
+      "Engaged": 6,
+      "New": 4,
+      "Won": 2,
+      "Awaiting Reply": 1,
+      "Engaged - Awaiting Confirmation": 1
     },
-    "won_customers": [
-      {
-        "name": "Arno Hsu",
-        "value": 129750
-      },
-      {
-        "name": "Joy Ryan",
-        "value": 17510
-      }
-    ],
-    "engaged_customers": [
-      {
-        "name": "Elisha Paige",
-        "value": 113907
-      },
-      {
-        "name": "Carlie Gunn",
-        "value": 19932
-      },
-      {
-        "name": "David Schneideman",
-        "value": 39888
-      },
-      {
-        "name": "Terry Hamilton",
-        "value": 30538
-      },
-      {
-        "name": "Sian Leathem",
-        "value": 39996
-      },
-      {
-        "name": "Alicia Jane Campbell",
-        "value": 8789
-      }
-    ],
-    "re_eng_campaign": {
-      "status": "Observing",
-      "observing_count": 99,
-      "contacted_count": 126,
-      "email_2_count": 12,
-      "notes": "RE-ENG-AUG-2026 campaign replies tracked via james@ mailbox. Overnight: 4 bounces, 1 business-closed, 1 unsubscribe (pre-existing), 1 auto-reply. No new YES replies."
+    "founder_action_needed": "Nothing currently requires James for QPaint. All 4 new intake records are certified. Next review: 43019 (Nicholas Zappacosta, $35,657.60) observation period ends Aug 13."
+  },
+  "ahmad_status": {
+    "sms_sent": "Monday 11 August 2026",
+    "response_received": "No response detected in james@ or atlas@ INBOX",
+    "recommendation": "No action today. Preserve for follow-up Friday 15 August as previously scheduled."
+  },
+  "system_health": {
+    "quotes_inbox": "CLEAN (0 unprocessed)",
+    "intake_exceptions": "0",
+    "certification_gate": "ACTIVE (7/7 tests pass)",
+    "pandadoc_extractor": "v2.1.0 (auto-retry active)"
+  },
+  "founder_priorities_ranked": [
+    {
+      "rank": "P1",
+      "item": "Call Day \u2014 5 researched prospect conversations",
+      "why": "Revenue/PMF discovery"
+    },
+    {
+      "rank": "P2",
+      "item": "Complete research for remaining 12 callable prospects",
+      "why": "Growth pipeline"
+    },
+    {
+      "rank": "P3",
+      "item": "Review QPaint 43019 ($35,657.60 Govt) before observation ends",
+      "why": "Strategic \u2014 large government opportunity"
+    },
+    {
+      "rank": "P4",
+      "item": "System maintenance (Atlas can handle)",
+      "why": "No Founder time needed"
+    },
+    {
+      "rank": "P5",
+      "item": "inbox-pulse-phase2 restoration",
+      "why": "Superseded architecture \u2014 do not restore"
     }
-  },
-  "nf_growth": {
-    "paying_clients": [
-      {
-        "name": "QPaint",
-        "mrr": 199,
-        "since": "Jul 2026"
-      }
-    ],
-    "trial_clients": [
-      {
-        "name": "Star Painters Adelaide",
-        "status": "Won/Completed",
-        "notes": "Awaiting Ahmad SMS response. Follow-up Fri 15 Aug."
-      }
-    ],
-    "warm_prospects": 0,
-    "prospects_won": 2,
-    "ahmad_status": "Waiting for SMS response. Next follow-up Friday 15 August unless he replies.",
-    "campaign_monitoring": {
-      "re_eng_observing": 99,
-      "re_eng_completed": 42,
-      "re_eng_lost": 5,
-      "re_eng_unsubscribed": 1
-    }
-  },
-  "operational_status": {
-    "inbox_pulse": {
-      "status": "DEGRADED",
-      "detail": "inbox-pulse-phase2 cron job MISSING. quotes-pulse is running. atlas@ inbox unmonitored for new replies."
-    },
-    "quotes_pipeline": {
-      "status": "HEALTHY",
-      "detail": "quotes@ 0 unread. quotes_token valid. quotes-watchdog + quotes-pulse both running."
-    },
-    "airtable": {
-      "status": "HEALTHY",
-      "detail": "API responding. 154 QPaint, 272 Prospects."
-    },
-    "gmail_tokens": {
-      "status": "HEALTHY",
-      "detail": "atlas@, quotes@, james@ tokens all valid."
-    },
-    "github_pages": {
-      "status": "HEALTHY",
-      "detail": "Publishing. dash.json 34min old."
-    },
-    "disk": {
-      "status": "HEALTHY",
-      "detail": "53% used (10G/20G)"
-    }
-  },
-  "vault_health": {
-    "status": "HEALTHY",
-    "details": "All tokens valid. dash.json updating. HQ regenerating."
-  },
-  "call_day": {
-    "is_wednesday": true,
-    "prep_complete": false,
-    "call_list_reviewed": false
-  }
+  ]
 }
