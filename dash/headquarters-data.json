@@ -7,7 +7,7 @@
   },
   "atlas_brief": {
     "greeting": "Good morning, James.",
-    "body": "Today is Founder Call Day \u2014 Wednesday 12 August. 5 fully-researched SA/TAS painting prospects are ready for your first calling block at 9:00 AM ACST. 12 more briefs are being researched by subagents now. QPaint Pipeline is healthy at 154 records \u2014 4 new intake yesterday, all certified. Nothing requires your QPaint attention. Ahmad has not replied to Monday's SMS \u2014 follow-up scheduled Friday.",
+    "body": "Today is Founder Call Day \u2014 Wednesday 12 August. 14 SA/TAS painting prospect briefs are now complete and loaded into HQ. 5 fully researched (calls 1-5) + 9 additional verified (calls 6-14). 2 removed: Bob De Groot (unverifiable) and AJ Blunt (duplicate of Adelaide Commercial Painters). Start with the first block at 9:00 AM. QPaint healthy at 154. Ahmad no reply.",
     "estimated_time": "30 seconds"
   },
   "business_health": {
@@ -19,7 +19,7 @@
     "founder_calls": {
       "status": "healthy",
       "icon": "\ud83d\udcde",
-      "detail": "5 calls ready. 12 briefs in progress. First block 9:00 AM."
+      "detail": "14 calls ready. Full briefs loaded. 2 removed (Bob De Groot skip, AJ Blunt duplicate)."
     },
     "email_systems": {
       "status": "healthy",
@@ -47,10 +47,10 @@
     "executive_summary": "Today is Founder Call Day. Your #1 priority is direct prospect conversations for PMF discovery. 5 fully-researched calls are ready. Atlas is completing the remaining 12 briefs in the background.",
     "priorities": [
       {
-        "action": "Call Day Block 1 \u2014 5 SA/TAS painting prospects (9:00\u201310:30 AM ACST)",
-        "why_it_matters": "Direct founder-to-owner conversations. Highest signal on ICP fit, objections, PMF. Revenue/commercial impact.",
+        "action": "Call Day \u2014 14 SA/TAS painting prospects (9:00 AM\u201312:30 PM, then 2:00\u20133:00 PM ACST)",
+        "why_it_matters": "Direct founder-to-owner conversations. 14 verified briefs with opening lines and discovery questions.",
         "expected_impact": "5 discovery conversations. Learn whether quote follow-up is a real pain point for SA/TAS painters.",
-        "estimated_time": "90 minutes",
+        "estimated_time": "~3 hours across two blocks",
         "confidence": "High \u2014 all 5 have verified phones and researched briefs"
       },
       {
@@ -61,7 +61,7 @@
         "confidence": "Medium \u2014 needs strategic judgment"
       },
       {
-        "action": "Continue research for remaining 12 callable prospects",
+        "action": "Call Day complete \u2014 14 briefs loaded, 2 removed",
         "why_it_matters": "Afternoon calling block needs briefs. Atlas completing in background.",
         "expected_impact": "Expanded Call Day reach if briefs pass verification.",
         "estimated_time": "Atlas handles",
@@ -80,7 +80,8 @@
       "Call Day preparation \u2014 5 SA/TAS calls ready",
       "QPaint Pipeline 150\u2192154 (+4 new intake, all certified)",
       "Intake certification gate active (INC-2026-08-11 closed)",
-      "Ahmad: no reply to Monday SMS"
+      "Ahmad: no reply to Monday SMS",
+      "14 Call Day briefs complete. 2 removed (Bob De Groot unverifiable, AJ Blunt duplicate)."
     ],
     "yesterday": [
       "P1 Incident: QPaint intake false completion (3 quotes) \u2014 recovered and closed",
@@ -188,8 +189,8 @@
   },
   "founder_call_day": {
     "date": "Wednesday 12 August 2026",
-    "ready": 5,
-    "total": 17,
+    "ready": 14,
+    "total": 14,
     "first_block": [
       {
         "order": 1,
@@ -309,6 +310,265 @@
       "VOICEMAIL",
       "BAD NUMBER",
       "DO NOT CONTACT"
-    ]
+    ],
+    "all_calls": [
+      {
+        "order": 1,
+        "business": "Viva Painters Adelaide",
+        "phone": "08 8246 2902",
+        "location": "Greater Adelaide, SA",
+        "best_call_time": "9:00 AM ACST",
+        "owner": "Unknown (no public name found)",
+        "brief": "'Free Quote in 24Hrs' guarantee. 300+ suburb SEO presence. Suggests growth/scale mode. Virtual office address \u2014 likely small operator scaling aggressively. Mixed residential/commercial/strata/industrial.",
+        "icp_fit": "Strong \u2014 high quote volume implied by '24hr quote' positioning. Growth company likely feeling admin pain.",
+        "opening": "'I was looking at what you guys do \u2014 the 24-hour quote guarantee is a strong commitment for a painting business. I'm curious how you manage that turnaround at scale.'",
+        "discovery": [
+          "With that 24-hour promise, you must be sending a lot of quotes. What happens after they go out?",
+          "Is there someone whose job it is to follow them up, or does that tend to slip?"
+        ],
+        "prior_contact": "1 email (RE-ENG-AUG-2026, Aug 10). No prior campaigns.",
+        "objective": "Learn whether '24hr quote' positioning creates a follow-up bottleneck. If yes, strong NF fit.",
+        "confidence": "MEDIUM"
+      },
+      {
+        "order": 2,
+        "business": "Pro Painters Adelaide",
+        "phone": "0431 188 818",
+        "location": "Adelaide, SA",
+        "best_call_time": "9:15 AM ACST",
+        "owner": "Emilio Fuentes",
+        "brief": "15+ years. Dulux Accredited. Premium positioning \u2014 low-VOC, environmentally friendly. Has estimator named Eric who visits clients. Free quotes in 24 hours. 209-unit strata project completed. Small team, home-based.",
+        "icp_fit": "Strong \u2014 free quotes + estimator role suggests formal quote pipeline. Likely managing multiple active quotes.",
+        "opening": "'I noticed you guys are Dulux Accredited and did that big 209-unit project \u2014 that's serious work. I'm curious how you manage the quoting side when you're handling jobs that size.'",
+        "discovery": [
+          "With Eric doing estimates, do you find the quotes he sends out actually get followed up consistently?",
+          "Once Eric's done the quote and moved on to the next one, who's keeping track of whether the customer came back?"
+        ],
+        "prior_contact": "1 email (RE-ENG-AUG-2026, Aug 10). No prior campaigns.",
+        "objective": "Understand handoff between estimator (Eric) and follow-up. Likely gap between quote delivery and conversion tracking.",
+        "confidence": "HIGH"
+      },
+      {
+        "order": 3,
+        "business": "Painter Painting",
+        "phone": "0406 713 970",
+        "location": "Littlehampton, Adelaide Hills, SA",
+        "best_call_time": "9:30 AM ACST",
+        "owner": "Les + wife Peg",
+        "brief": "Family-run, 30+ years. Les paints, Peg does interior decorating/QC. 'No job too small.' Classic owner-operator. No CRM, no booking system. Simple single-page website.",
+        "icp_fit": "Very strong \u2014 exactly the type of business NF was built for. Owner on the tools all day. No admin. No follow-up system. Every lost quote is pure word-of-mouth revenue.",
+        "opening": "'Les, I was having a look at what you and Peg do \u2014 30 years in the Hills, that's a proper family business. I bet you've got a pretty solid reputation up there.'",
+        "discovery": [
+          "When you send someone a quote in the Hills, do they usually come back pretty quickly, or do some just go quiet?",
+          "Are you the one following up, or does Peg handle that side?"
+        ],
+        "prior_contact": "1 email (RE-ENG-AUG-2026, Aug 10). No prior campaigns.",
+        "objective": "Classic owner-operator discovery. Les is exactly who NF helps. If he's losing 2-3 jobs/month to poor follow-up, that's real money.",
+        "confidence": "HIGH"
+      },
+      {
+        "order": 4,
+        "business": "One Touch Paint",
+        "phone": "0415 392 436",
+        "location": "Inner south/east Adelaide, SA",
+        "best_call_time": "9:45 AM ACST",
+        "owner": "Slavek",
+        "brief": "37 years. Artisan painter. Residential + commercial. Advanced techniques (abrasive blasting, epoxy, powder coating). Detailed written agreements. Free quotes. 'Never raise the price.' Lead forms on every page.",
+        "icp_fit": "Strong \u2014 free quotes + lead forms = volume. Detailed written agreements suggest formal quoting. But he's an artisan who probably hates admin.",
+        "opening": "'Slavek, I read that you never raise the price once you've quoted \u2014 that takes confidence after 37 years. Do you find customers really respect that?'",
+        "discovery": [
+          "With free quotes and all those lead forms, you must send quite a few. What's your process after the quote goes out?",
+          "For someone who's been doing this 37 years, I'm guessing word of mouth keeps you busy \u2014 does follow-up even matter at this point, or do they just come back?"
+        ],
+        "prior_contact": "1 email (RE-ENG-AUG-2026, Aug 10). No prior campaigns.",
+        "objective": "Learn whether a 37-year veteran still loses work to poor follow-up, or whether reputation alone drives business. If he's losing work, he's a perfect NF client.",
+        "confidence": "HIGH"
+      },
+      {
+        "order": 5,
+        "business": "BlackSilver Master Painters",
+        "phone": "08 8260 5008",
+        "location": "Adelaide Metro + Hills + Barossa, SA",
+        "best_call_time": "10:00 AM ACST",
+        "owner": "Geoff King (CEO)",
+        "brief": "28+ years. 22 staff (18 qualified + 4 apprentices). CEO Geoff King personally quotes and inspects every job. Director Andrew Kerr once repainted a 4-year-old exterior at zero cost because it wasn't good enough. Extraordinary integrity culture. Dulux & Haymes accredited.",
+        "icp_fit": "Strong \u2014 formal 4-stage pipeline (contact\u2192quote\u2192accept\u2192works). CEO does quoting personally. Multiple stakeholders. Scaled business with quoting as personal bottleneck.",
+        "opening": "'Geoff, I was genuinely impressed reading about your business \u2014 22 staff but you still personally quote and inspect every job. In an industry where the owner disappears after the first meeting, that's remarkable.'",
+        "discovery": [
+          "With you personally doing every quote, what happens to follow-up when you're also running 22 people?",
+          "You've built something really solid over 28 years \u2014 is quote follow-up something you've got dialled in, or is it one of those things that still nags at you?"
+        ],
+        "prior_contact": "1 email (RE-ENG-AUG-2026, Aug 10). No prior campaigns.",
+        "objective": "CEO who personally quotes is the bottleneck. If follow-up suffers because Geoff is stretched, NF solves a real pain point for a 22-person operation.",
+        "confidence": "HIGH"
+      },
+      {
+        "order": 6,
+        "business": "Jay Duggin Painting",
+        "contact": "Jay Duggin",
+        "phone": "0411 354 511",
+        "location": "Adelaide, SA",
+        "best_call_time": "10:15 AM ACST",
+        "brief": "Multi-award MPA winner (Best New Home 2023). 5-year workmanship guarantee. Services: residential, commercial, strata, heritage, wallpaper, roofs. Strong premium positioning.",
+        "icp_fit": "Strong \u2014 award-winning premium painter. High quote volume from brand recognition. Likely loses work when busy.",
+        "opening": "'G'day Jay, James Hardstaff here from Not Forgotten Systems. I saw you've been cleaning up at the MPA awards \u2014 congratulations on that Best New Home win. I'm calling local painters this week to learn about how they handle quoting. Got two minutes?'",
+        "discovery": [
+          "When you send a quote for a residential repaint, what's your process for following up if you don't hear back?"
+        ],
+        "prior_contact": "1 email (RE-ENG-AUG-2026, Aug 10). No prior campaigns.",
+        "objective": "Learn whether award-winning premium painter with high inbound volume has follow-up gaps.",
+        "confidence": "HIGH"
+      },
+      {
+        "order": 7,
+        "business": "MAD Painters & Decorators",
+        "contact": "Mick",
+        "phone": "0409 382 163",
+        "location": "Adelaide + Regional SA",
+        "best_call_time": "10:30 AM ACST",
+        "brief": "Dulux Accredited. Active Google Ads with conversion tracking. Services: commercial, residential, roofing, water blasting, decorative finishes. Adelaide metro + regional SA.",
+        "icp_fit": "Strong \u2014 advertising investment shows lead-gen focus. Conversion tracking means he measures ROI. Likely sophisticated about his funnel.",
+        "opening": "'G'day Mick, James Hardstaff from Not Forgotten Systems. I noticed you're a Dulux Accredited business covering both Adelaide and regional SA \u2014 that's a big footprint. I'm calling to learn about how painting business owners handle their quoting. Got a quick couple of minutes?'",
+        "discovery": [
+          "With your Google Ads running and leads coming in, what happens to a quote after you send it \u2014 do you have a system for following up?"
+        ],
+        "prior_contact": "1 email (RE-ENG-AUG-2026, Aug 10). No prior campaigns.",
+        "objective": "Learn from a Google Ads-savvy painter whether lead investment creates a follow-up bottleneck.",
+        "confidence": "HIGH"
+      },
+      {
+        "order": 8,
+        "business": "Adelaide Commercial Painters",
+        "contact": "Joe",
+        "phone": "0411 229 279",
+        "location": "Adelaide + greater SA",
+        "best_call_time": "10:45 AM ACST",
+        "brief": "Notable projects: AGL Torrens Island, Coopers Stadium, Capri Theatre, RSPCA. Multi-award MPA winner. 5.0 Google rating. Responds to quotes 'within one business day.' Commercial + residential + strata + protective coatings.",
+        "icp_fit": "Very strong \u2014 commercial quoting is complex and has long sales cycles. Structured follow-up on large-dollar quotes is critical.",
+        "opening": "'G'day Joe, James Hardstaff from Not Forgotten Systems. I saw you've done Coopers Stadium and the Capri Theatre \u2014 that's some serious commercial work. I'm reaching out to a few painting business owners to understand how they manage the quoting side. Have you got two minutes?'",
+        "discovery": [
+          "For your commercial quotes \u2014 when you're quoting something like a warehouse complex or strata building \u2014 how long do those typically sit before you hear back, and what do you do in the meantime?"
+        ],
+        "prior_contact": "1 email (RE-ENG-AUG-2026, Aug 10). No prior campaigns.",
+        "objective": "Understand commercial quoting follow-up cycle for high-value projects.",
+        "confidence": "HIGH"
+      },
+      {
+        "order": 9,
+        "business": "Painting Zone",
+        "contact": "UNKNOWN",
+        "phone": "0406 644 167",
+        "location": "Adelaide (17+ suburbs)",
+        "best_call_time": "11:00 AM ACST",
+        "brief": "10+ years. Fully licensed. Free quote form on website. Services 17+ Adelaide suburbs. Interior, exterior, roof, commercial. YouTube video. Strong digital presence.",
+        "icp_fit": "Strong \u2014 free quote form + digital presence = inbound lead generation. Likely gets more quotes than they can manually track.",
+        "opening": "'Hi, I'm James from Not Forgotten Systems. Saw your site \u2014 you blokes cover a lot of ground across Adelaide. How's business been this winter?'",
+        "discovery": [
+          "You've got the free quote form on the site \u2014 what happens after someone fills that in? Do you have a system for following them up?"
+        ],
+        "prior_contact": "1 email (RE-ENG-AUG-2026, Aug 10). No prior campaigns.",
+        "objective": "Learn whether free quote form generates volume that outpaces manual follow-up capacity.",
+        "confidence": "MEDIUM"
+      },
+      {
+        "order": 10,
+        "business": "Noonan Painting Contractors",
+        "contact": "UNKNOWN",
+        "phone": "0412 922 348",
+        "location": "SA statewide",
+        "best_call_time": "11:15 AM ACST",
+        "brief": "20+ years. Master Painters Association SA. EnviroPainter accredited. Heritage specialist \u2014 Port Adelaide Council Chambers, Alberton Oval, Struan House, Leconfield Winery. Trains SA apprentices.",
+        "icp_fit": "Strong \u2014 heritage niche is premium. Accreditation suggests formal processes. Quote volume likely moderate but value high.",
+        "opening": "'Hi, James from Not Forgotten Systems. Twenty years and counting \u2014 I noticed you've done some beautiful heritage work, the Council Chambers and that winery down in McLaren Vale. How's the heritage side of things going?'",
+        "discovery": [
+          "For a heritage restoration job versus a standard repaint \u2014 how different is your quoting approach? Do you build in more contingency on the older buildings?"
+        ],
+        "prior_contact": "1 email (RE-ENG-AUG-2026, Aug 10). No prior campaigns.",
+        "objective": "Understand whether heritage/restoration niche has unique follow-up challenges.",
+        "confidence": "MEDIUM"
+      },
+      {
+        "order": 11,
+        "business": "Clean Cut Painters",
+        "contact": "Waz Yassine",
+        "phone": "0400 896 913",
+        "location": "Rostrevor, SA",
+        "best_call_time": "11:30 AM ACST",
+        "brief": "Family since 1984 (40+ years). Brothers Waz and Sal took over from founder. No subcontractors \u2014 they quote and do every job themselves. Dulux and Wattyl paints. Building License 313 315.",
+        "icp_fit": "Very strong \u2014 exactly the type NF was built for. Owner-operators on the tools all day. No admin. No follow-up system. Every lost quote is direct revenue loss.",
+        "opening": "'Hey Waz, James from Not Forgotten Systems. I was reading about your family business \u2014 since 1984, that's incredible. I love that you and Sal still do every job yourselves. How's the pipeline looking at the moment?'",
+        "discovery": [
+          "Given you and Sal handle every quote personally, how do you manage that alongside the actual painting \u2014 do you batch your quoting to certain days, or fit it in between jobs?"
+        ],
+        "prior_contact": "1 email (RE-ENG-AUG-2026, Aug 10). No prior campaigns.",
+        "objective": "Classic NF ICP \u2014 owner-operators capped by their own time. If follow-up slips, it's pure revenue loss.",
+        "confidence": "HIGH"
+      },
+      {
+        "order": 12,
+        "business": "SA Painting Services",
+        "contact": "Tristan Baldey",
+        "phone": "0490 179 248 \u26a0\ufe0f",
+        "location": "Adelaide, SA",
+        "best_call_time": "2:00 PM ACST",
+        "brief": "Owner Tristan Baldey (since 2004). Painted for House Rules & Selling Houses TV shows. MPA member. Eco-friendly painting. BLD332031. **Phone discrepancy: website shows 1300 037 277, not 0490 179 248.** Try provided number first.",
+        "icp_fit": "Strong \u2014 TV credentials drive inbound leads. Brand recognition may create quoting overload.",
+        "opening": "'G'day Tristan, James Hardstaff from Not Forgotten Systems. I noticed your team worked on House Rules and Selling Houses \u2014 that's a serious credential. I'm calling painting business owners to learn about their quoting process. Have you got a couple of minutes?'",
+        "discovery": [
+          "With the kind of leads your brand recognition brings in, how do you keep track of which quotes still need following up?"
+        ],
+        "prior_contact": "1 email (RE-ENG-AUG-2026, Aug 10). No prior campaigns.",
+        "objective": "Learn whether TV-branded painter has follow-up gaps from high inbound volume.",
+        "confidence": "MEDIUM \u2014 phone number not confirmed on website"
+      },
+      {
+        "order": 13,
+        "business": "MJ Painting Adelaide",
+        "contact": "Mukhtar Jawidi",
+        "phone": "0449 900 857",
+        "location": "Windsor Gardens, SA",
+        "best_call_time": "2:15 PM ACST",
+        "brief": "Sole trader since 2021. No functioning website \u2014 likely word-of-mouth only. Painters who rely on referrals often have no formal quoting process.",
+        "icp_fit": "Medium \u2014 very small operation. May not send enough quotes for NF to be relevant.",
+        "opening": "'Hey, it's James from Not Forgotten Systems here. I've been chatting with painting business owners around Adelaide and your name came up. Got a minute?'",
+        "discovery": [
+          "How do most of your new jobs come in at the moment \u2014 is it mostly repeat clients and referrals, or do you get much through online?"
+        ],
+        "prior_contact": "1 email (RE-ENG-AUG-2026, Aug 10).",
+        "objective": "Discovery \u2014 determine if sole trader sends enough quotes to benefit from NF.",
+        "confidence": "LOW"
+      },
+      {
+        "order": 14,
+        "business": "Real Painters Co",
+        "contact": "UNKNOWN",
+        "phone": "0434 344 049",
+        "location": "Plympton, SA",
+        "best_call_time": "2:30 PM ACST",
+        "brief": "Registered since 2020. Website down (SSL error). Minimal public presence beyond business register. May be word-of-mouth only.",
+        "icp_fit": "Uncertain \u2014 insufficient public information.",
+        "opening": "'G'day, I'm James from Not Forgotten Systems. I came across Real Painters Co on the business register \u2014 noticed you've been going since 2020. How's the painting trade treating you down in Plympton?'",
+        "discovery": [
+          "When someone reaches out for a quote, what's your typical process \u2014 do you go out to site, or can you quote from photos over the phone?"
+        ],
+        "prior_contact": "1 email (RE-ENG-AUG-2026, Aug 10).",
+        "objective": "Discovery \u2014 verify business is active and understand quoting process.",
+        "confidence": "LOW"
+      }
+    ],
+    "issues": {
+      "skipped": [
+        "Bob De Groot Painting \u2014 domain does not exist, business unverifiable"
+      ],
+      "duplicates": [
+        "AJ Blunt Paint = Adelaide Commercial Painters \u2014 same business, now trades as ACP"
+      ],
+      "no_phone": [
+        "Hobart House Painter \u2014 no phone number found on website or public records"
+      ],
+      "phone_discrepancy": [
+        "SA Painting Services \u2014 Airtable has 0490 179 248, website shows 1300 037 277"
+      ]
+    }
   }
 }
