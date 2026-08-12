@@ -164,15 +164,15 @@
       }
     ]
   },
-  "last_updated": "2026-08-12T16:48:34.243383+09:30",
+  "last_updated": "2026-08-13T06:38:11.875908+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
-      "New": 89,
-      "Campaign Complete": 78,
+      "New": 87,
+      "Campaign Complete": 72,
       "Won": 2,
-      "Lost": 10,
-      "Outreach Active": 16,
+      "Lost": 11,
+      "Outreach Active": 23,
       "Not a fit": 5
     },
     "verticals": {
@@ -190,7 +190,7 @@
     },
     "stage_by_vertical": {
       "New": {
-        "Painter": 58,
+        "Painter": 56,
         "Marketing agency": 11,
         "Commercial cleaning": 15,
         "Other": 2,
@@ -200,7 +200,7 @@
       "Campaign Complete": {
         "IT MSP": 3,
         "Marketing agency": 7,
-        "Painter": 58,
+        "Painter": 52,
         "Landscaper": 1,
         "Commercial cleaning": 5,
         "Construction": 1,
@@ -211,12 +211,12 @@
         "Painter": 2
       },
       "Lost": {
-        "Painter": 5,
+        "Painter": 6,
         "Commercial cleaning": 3,
         "Marketing agency": 2
       },
       "Outreach Active": {
-        "Painter": 16
+        "Painter": 23
       },
       "Not a fit": {
         "Painter": 5
@@ -226,8 +226,20 @@
       {
         "name": "Sydney Painting Experts",
         "industry": "Painter",
-        "last_contacted": "2026-08-05",
+        "last_contacted": "2026-08-12",
         "suburb": "Sydney"
+      },
+      {
+        "name": "Kincoat Painting",
+        "industry": "Painter",
+        "last_contacted": "2026-08-12",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "AKP Painting & Decorating",
+        "industry": "Painter",
+        "last_contacted": "2026-08-12",
+        "suburb": "South Australia"
       },
       {
         "name": "Ron & Robin The Painters",
@@ -254,6 +266,12 @@
         "suburb": "Victoria"
       },
       {
+        "name": "Adelaide Premier Painters",
+        "industry": "Painter",
+        "last_contacted": "2026-08-12",
+        "suburb": "South Australia"
+      },
+      {
         "name": "Ryan Painting",
         "industry": "Painter",
         "last_contacted": "2026-08-05",
@@ -262,7 +280,7 @@
       {
         "name": "Upscale Painting & Decorating",
         "industry": "Painter",
-        "last_contacted": "2026-08-05",
+        "last_contacted": "2026-08-12",
         "suburb": "Sydney CBD"
       },
       {
@@ -318,19 +336,43 @@
         "industry": "Painter",
         "last_contacted": "2026-08-05",
         "suburb": "Victoria"
+      },
+      {
+        "name": "Top Painters Adelaide",
+        "industry": "Painter",
+        "last_contacted": "2026-08-12",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "Paintpal Pty Ltd",
+        "industry": "Painter",
+        "last_contacted": "2026-08-12",
+        "suburb": "Victoria"
+      },
+      {
+        "name": "Paint Master",
+        "industry": "Painter",
+        "last_contacted": "2026-08-12",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "Bayside Painting & Decorating",
+        "industry": "Painter",
+        "last_contacted": "2026-08-12",
+        "suburb": "Victoria"
       }
     ],
     "active_by_vertical": {
-      "Painter": 16
+      "Painter": 23
     },
     "messages": {
-      "outbound_total": 183,
-      "inbound_total": 17,
-      "total": 200,
-      "reply_rate": 9.3,
+      "outbound_total": 18,
+      "inbound_total": 0,
+      "total": 18,
+      "reply_rate": 0.0,
       "last_7_days": {
-        "outbound": 16,
-        "inbound": 14
+        "outbound": 18,
+        "inbound": 0
       }
     },
     "opens": {
@@ -339,7 +381,7 @@
       "total_opens": 229,
       "avg_opens": 4.2
     },
-    "last_refreshed": "2026-08-12T00:00:06.851277+00:00"
+    "last_refreshed": "2026-08-12T21:08:11.874529+00:00"
   },
   "decisions": {
     "total": 42,
@@ -4645,18 +4687,18 @@
   },
   "storage_health": {
     "tier": "green",
-    "disk_pct": 46.9,
-    "free_gb": 10.4,
-    "why": "chrome profile (830MB), other hermes (782MB), cron outputs (259MB). Normal system overhead.",
+    "disk_pct": 62.0,
+    "free_gb": 7.4,
+    "why": "other hermes (3095MB), chrome profile (1019MB), cron outputs (658MB). Normal system overhead.",
     "trend": "stable",
     "daily_rate_pct": 0.0,
     "forecast_days_to_95": null,
     "recommendation": "None \u2014 storage is healthy.",
     "largest_consumers": {
-      "chrome_profile": 829.7,
-      "other_hermes": 781.6,
-      "cron_outputs": 258.8
+      "other_hermes": 3094.6,
+      "chrome_profile": 1018.8,
+      "cron_outputs": 658.4
     },
-    "last_checked": "2026-08-10T15:34:37+0930"
+    "last_checked": "2026-08-13T06:03:45+0930"
   }
 }
