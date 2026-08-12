@@ -6,7 +6,20 @@ tier: primary
 
 # LEARNINGS — Atlas
 
-> Append-only log of fixes, API quirks, and gotchas. Check BEFORE touching any external API. Newest first.
+> Append-only log## 2026-08-12 — Initial Customer Email Law: Protocol Before Content
+
+**Confidence:** permanent
+**Contested:** false
+
+**Root Cause:** QPaint Email 1 drafts for Cheryl Sim, Beth McIntosh, and Julius Gloria were generated from memory instead of the canonical `qpaint-recovery-introduction` template. Drafts violated 7 of 14 mandatory elements including wrong opening, missing identity introduction, wrong signature, and missing privacy footer.
+
+**Permanent Law:** NO INITIAL CUSTOMER EMAIL MAY BE DRAFTED FROM MEMORY. Canonical template must be retrieved before content generation. Variable substitution only.
+
+**Template:** `knowledge/canonical-templates/qpaint/recovery-introduction-v1.md` — authoritative QPaint first-touch introduction. Checksum: `0241bdb45a22ba13a8e9ba2b7e4e83eb53b84a458e042ec3e444a91dba18f882`.
+
+**Decision:** `knowledge/decisions/2026-08-12-initial-customer-email-law.md`
+
+ of fixes, API quirks, and gotchas. Check BEFORE touching any external API. Newest first.
 
 ## 2026-08-11 — INC-2026-08-11-QUOTE-FALSE-COMPLETION: Certify Before Complete
 

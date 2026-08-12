@@ -214,6 +214,9 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 - [[Re-Engagement Campaign Pattern]] (skills/cold-email/references/re-engagement-campaign-pattern.md) — Single-email re-engagement campaign structure reference.
 - [[INC-2026-08-11-QUOTE-FALSE-COMPLETION]] (knowledge/incident-reviews/INC-2026-08-11-QUOTE-FALSE-COMPLETION.md) — S1 incident: 3 QPaint quotes falsely completed with Deal Value=$0. Intake certification gate deployed. CERTIFY BEFORE COMPLETE.
 - [[Decision: Intake Completion Gate]] (knowledge/decisions/2026-08-11-intake-completion-gate.md) — Hard architectural gate between extraction and Gmail label. `intake-certification.py`. INC-2026-08-11.
+- [[QPaint Privacy Governance]] (knowledge/decisions/2026-08-12-qpaint-privacy-governance.md) — White-label/privacy-footer governance conflict resolved. Single approved exception with certification logic.
+- [[Initial Customer Email Law]] (knowledge/decisions/2026-08-12-initial-customer-email-law.md) — NO INITIAL CUSTOMER EMAIL DRAFTED FROM MEMORY. 13-gate canonical template pipeline.
+- [[QPaint Operating Model]] (knowledge/qpaint/qpaint-operating-model.md) — One customer at a time. Atlas selects, verifies, recommends. James decides.
 
 ## Email Intelligence
 - `skills/email/email-intelligence-mining/SKILL.md` — historical deep-dive mining of Gmail mailboxes for patterns, contacts, objections, pricing, pipeline data. Not for real-time monitoring.

@@ -1,0 +1,59 @@
+---
+doc_type: decision
+owner: notforgotten
+tier: primary
+---
+
+# Decision: Permanent Initial Customer Email Law (2026-08-12)
+
+> NO INITIAL CUSTOMER EMAIL MAY BE DRAFTED FROM MEMORY. 13-gate pipeline. Canonical template enforcement. Variable substitution only.
+
+**Status:** PERMANENT — Founder Authority
+**Established:** 2026-08-12
+**Trigger:** QPaint Email 1 drafts generated from memory instead of canonical template
+
+## Permanent Law
+
+NO INITIAL CUSTOMER EMAIL MAY BE DRAFTED FROM MEMORY.
+
+Before generating any first-touch customer communication:
+
+IDENTIFY CLIENT → IDENTIFY COMMUNICATION TYPE → RETRIEVE CURRENT APPROVED PROTOCOL → RETRIEVE CURRENT CANONICAL TEMPLATE → VERIFY CUSTOMER ELIGIBILITY → CHECK CUSTOMER HISTORY → CHECK REPEAT-CONTACT STATUS → CHECK CLIENT-SPECIFIC INSTRUCTIONS → LOAD SOURCE EVIDENCE → SUBSTITUTE APPROVED VARIABLES ONLY → RUN TEMPLATE COMPLIANCE CERTIFICATION → PRESENT FOR FOUNDER APPROVAL → SEND ONLY IF AUTHORITY EXISTS
+
+Never: CUSTOMER APPEARS ELIGIBLE → GENERATE A REASONABLE EMAIL FROM MEMORY.
+
+## Canonical Template Enforcement
+
+- `knowledge/canonical-templates/qpaint/recovery-introduction-v1.md` is the authoritative QPaint initial email template
+- Template ID: `qpaint-recovery-introduction`
+- Variable substitution ONLY — no sentence rewriting, shortening, synonym substitution, or tone adjustment
+- Any wording outside approved variables that differs from canonical template → BLOCK DRAFT → TEMPLATE DIVERGENCE
+
+## State Precision
+
+- DRAFTED ≠ COMPLIANT
+- COMPLIANT ≠ APPROVED
+- APPROVED ≠ SENT
+- SEND ATTEMPTED ≠ DELIVERED
+- DELIVERED ≠ JOURNEY COMPLETE
+
+## Gates
+
+- Repeat-Contact Gate: search full pipeline before treating any quote as "new customer"
+- Client-Instruction Gate: current client instruction wins over scheduled communication
+- Source-Backed Variable Gate: approved variables must come from authoritative source evidence
+- Initial Email Certification: `certify_initial_customer_email()` — 13-point gate
+
+## Signature
+
+`Atlas / Working alongside {client_first_name} at {client_business}`
+
+## Privacy Footer
+
+Required on every QPaint customer email.
+
+## References
+
+- Template: `knowledge/canonical-templates/qpaint/recovery-introduction-v1.md`
+- Sequence: `knowledge/follow-up-sequences/painter-standard.md`
+- Example: Nicholas Zappacosta (new quote ≠ new relationship)

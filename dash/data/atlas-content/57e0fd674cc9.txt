@@ -29,7 +29,7 @@ Before ANY outbound client communication leaves the system, verify:
 | 6 | Reply-to address | Will replies go to the correct address? |
 | 7 | Links | Do any links reference Not Forgotten when the client hasn't approved co-branding? |
 | 8 | Tone | Does the tone match the client's voice and relationship stage? |
-| 9 | No unauthorised NF references | Are there zero references to Not Forgotten unless the client has explicitly approved co-branding? |
+|| 9 | No unauthorised NF references | Are there zero unauthorised references to Not Forgotten in the customer-facing content? **Privacy Footer Exception (2026-08-12):** The approved privacy footer (`Not Forgotten Systems is helping {business_name} manage quote follow-ups...`) is the ONLY authorised Not Forgotten reference. Approved footer in correct location (after signature, separated by `---`) = PASS. Modified or relocated footer, or any NF reference outside it = FAIL. |
 
 **Any single verification failure = hard stop. The email is not sent. Period.**
 
@@ -116,6 +116,7 @@ Every verification failure is logged permanently. Purpose: identify patterns, no
 | Date | Client | Recipient | Check Failed | Resolution |
 |---|---|---|---|---|
 | 2026-07-28 | QPaint | 20 recipients | #9 — NF signature in white-label email | Protocol established 2026-07-29 |
+| 2026-08-12 | QPaint | All customer emails | #9 — Privacy footer vs. white-label governance conflict reconciled | Founder decision 2026-08-12: privacy footer is authorised exception. Gate logic updated to distinguish authorised disclosure from unauthorised branding. |
 
 ---
 

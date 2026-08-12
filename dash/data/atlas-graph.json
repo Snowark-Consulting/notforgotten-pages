@@ -686,6 +686,28 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decisions_2026_08_12_initial_customer_email_law",
+      "label": "Initial Customer Email Law",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-12-initial-customer-email-law.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "27bb3aafe1c1",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decisions_2026_08_12_qpaint_privacy_governance",
+      "label": "Qpaint Privacy Governance",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-12-qpaint-privacy-governance.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "2e7bdc0871c6",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decisions_index",
       "label": "Decisions / Index",
       "file_type": "doc",
@@ -1255,6 +1277,17 @@
       "community_name": "Knowledge",
       "content_hash": "50f4a95aec20",
       "val": 10.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_qpaint_qpaint_operating_model",
+      "label": "Qpaint Operating Model",
+      "file_type": "doc",
+      "source_file": "knowledge/qpaint/qpaint-operating-model.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "6a301c839cf7",
+      "val": 6.0,
       "color": "#a78bfa"
     },
     {
@@ -2644,6 +2677,27 @@
     {
       "source": "agent_registry",
       "target": "knowledge_decisions_2026_08_11_intake_completion_gate",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_12_qpaint_privacy_governance",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_12_initial_customer_email_law",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_qpaint_qpaint_operating_model",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

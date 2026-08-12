@@ -1,0 +1,112 @@
+---
+doc_type: decision
+owner: notforgotten
+tier: primary
+---
+
+# Decision: QPaint White-Label / Privacy Footer Governance Reconciliation
+
+> Governance conflict between white-label zero-NF rule and privacy footer requirement resolved — single approved exception with certification logic.
+
+**Slug:** `2026-08-12-qpaint-privacy-governance`
+**Date:** 2026-08-12
+**Status:** Made
+**Decision by:** James Hardstaff
+
+---
+
+## Context
+
+Two Founder-approved rules governing QPaint customer communication were discovered to directly conflict:
+
+1. **White-Label Send Protocol** (2026-07-29): "ZERO Not Forgotten branding. Search body for `Not Forgotten`, `notforgotten`... If ANY fail → DO NOT SEND."
+
+2. **Canonical Email 1 Template** (2026-07-28) + **SOUL.md Safety Rule #8** (~2026-08-05): Mandatory privacy footer containing "Not Forgotten Systems is helping QPAINT manage quote follow-ups... notforgotten.com.au/privacy..."
+
+The conflict: the privacy footer's exact wording would be blocked by the white-label protocol's first verification check. Both rules were current. Neither was superseded. The conflict existed for 13 days unrecognised.
+
+Atlas flagged it during the Email 1 certification for Cheryl Sim, Beth McIntosh, and Julius Gloria (2026-08-12).
+
+---
+
+## The Decision
+
+**Option 1 — Privacy footer is an approved exception to the white-label rule.**
+
+The Not Forgotten privacy footer is a specific and limited exception to the QPaint white-label rule.
+
+### What remains prohibited (NF branding hard stop):
+
+- Sender identity
+- Display name
+- Main email body
+- QPaint signature
+- Subject line
+- Sales messaging
+- Customer-service identity
+- Logos or visual branding
+- Any other customer-facing content
+- Any modified or relocated privacy footer wording
+
+### What is authorised (single exception):
+
+The exact approved privacy footer, in the correct location (after signature, separated by `---`):
+
+```
+Not Forgotten Systems is helping QPAINT manage quote follow-ups. We keep your information secure and use it only in connection with this quote. Privacy policy: notforgotten.com.au/privacy. If you'd prefer not to be contacted, reply to this email.
+```
+
+This disclosure is NOT co-branding. It is an approved privacy/transparency exception only.
+
+**QPaint `co_branding_approved` remains FALSE.**
+
+---
+
+## Certification Logic
+
+Distinguish between:
+
+| Status | Condition |
+|---|---|
+| **PASS** | Exact approved privacy footer appears in the designated footer location |
+| **FAIL** | "Not Forgotten", "notforgotten", NF logo, Growth & Operations, or any other NF identity appears anywhere outside the authorised privacy footer |
+| **FAIL** | Privacy footer wording has been modified without Founder approval |
+| **FAIL** | Privacy footer is missing where required |
+
+---
+
+## Affected Governance
+
+| Document | Change Required |
+|---|---|
+| `knowledge/qpaint-white-label-send-protocol.md` | Verification checklist updated: privacy footer exception codified, version history added |
+| `knowledge/client-identity-verification-gate.md` | Check #9 updated to distinguish authorised disclosure from unauthorised branding, log entry added |
+| `SOUL.md` Safety Rule #8 | White-Label Exception clause added |
+| `knowledge/canonical-templates/qpaint/recovery-introduction-v1.md` | Version history entry added |
+| `skills/email-draft/SKILL.md` | Identity gate language updated with privacy footer exception |
+| `skills/snowark/recovery-operations/SKILL.md` | White-label signature rule preserved — already correct |
+
+---
+
+## Permanent Principle
+
+> **ZERO UNAUTHORISED NOT FORGOTTEN BRANDING.**
+> **Allowed exception: EXACT APPROVED PRIVACY FOOTER ONLY.**
+> **Any Not Forgotten reference outside the approved privacy footer = HARD STOP — DO NOT SEND.**
+
+---
+
+## Cross-References
+
+- `knowledge/qpaint-white-label-send-protocol.md` — Updated
+- `knowledge/client-identity-verification-gate.md` — Updated
+- `SOUL.md` Safety Rule #8 — Updated
+- `knowledge/canonical-templates/qpaint/recovery-introduction-v1.md` — Version history updated
+- `knowledge/decisions/2026-08-12-initial-customer-email-law.md` — Related
+- `knowledge/decisions/2026-07-29-single-identity-james-led.md` — White-label exception preserved
+
+---
+
+## Atlas Discovery Credit
+
+Atlas identified this governance conflict during Email 1 certification and blocked all three sends pending Founder resolution.

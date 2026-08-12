@@ -90,9 +90,25 @@ Working alongside Tas at QPaint
 ### Verification before every QPaint send:
 
 1. Search email body for: `Not Forgotten`, `notforgotten`, `nf-logo`, `Growth & Operations`
-2. Search for HTML img tags (tracking pixel, logo)
-3. Confirm signature block matches QPaint white-label template
-4. If ANY of these fail → DO NOT SEND
+2. **Privacy Footer Exception (2026-08-12):** The approved privacy footer is the ONLY authorised Not Forgotten reference in QPaint customer emails. If any `Not Forgotten` or `notforgotten` match is the EXACT approved privacy footer in the correct location (after signature, separated by `---`), it is AUTHORISED — do not block.
+3. If any `Not Forgotten` or `notforgotten` reference appears OUTSIDE the approved privacy footer (body, signature, subject, display name, sender identity) → HARD STOP.
+4. If the privacy footer wording has been modified from the approved text → HARD STOP.
+5. If the privacy footer is missing from a QPaint customer email → HARD STOP.
+6. Search for HTML img tags (tracking pixel, logo)
+7. Confirm signature block matches QPaint white-label template
+8. If any UNAUTHORISED check fails → DO NOT SEND
+
+**Approved privacy footer (exact text):**
+```
+Not Forgotten Systems is helping QPAINT manage quote follow-ups. We keep your information secure and use it only in connection with this quote. Privacy policy: notforgotten.com.au/privacy. If you'd prefer not to be contacted, reply to this email.
+```
+
+### Version History
+
+| Date | Change |
+|---|---|
+| 2026-07-29 | Established. Trigger: NF signature leaked into 20 QPaint calibration emails. |
+| 2026-08-12 | Privacy footer exception codified. Founder decision: approved privacy footer is a limited exception to zero-NF-branding rule. All other NF references remain prohibited. |
 
 ---
 
