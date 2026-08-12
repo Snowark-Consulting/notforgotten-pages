@@ -4,7 +4,55 @@
  * 
  * Handles YES, NO CALL, and UNSUBSCRIBE responses from campaign emails.
  * Tokens are opaque — no Airtable IDs or email addresses in URLs.
+ * 
+ * Updated 2026-08-09: GA4 tracking added to all confirmation pages
+ * for campaign source attribution (RE-ENG-AUG-2026).
  */
+
+// Shared GA4 snippet — injected into every confirmation page
+// campaign_action is set per page: YES, NO_CALL, UNSUBSCRIBE
+const GA4_SNIPPET = (action) => `
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-03Y95NSDRV"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-03Y95NSDRV',{'campaign':'RE-ENG-AUG-2026','campaign_action':'${action}'});
+</script>`;
+
+// Shared head template for campaign attribution
+const HEAD = (title, action) =>
+`<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${title}</title>${GA4_SNIPPET(action)}`;
+
+const YES_PAGE = (name) => `<!DOCTYPE html>
+<html lang="en">
+<head>${HEAD('Thanks', 'YES')}</head>
+<body style="font-family: Arial, Helvetica, sans-serif; background: #f7fbff; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;">
+<div style="text-align: center; max-width: 400px; padding: 40px;">
+<p style="font-size: 18px; color: #0b2c4d; margin: 0 0 8px 0;">Thanks ${name},</p>
+<p style="font-size: 16px; color: #666; margin: 0 0 24px 0;">James will give you a call this week.</p>
+<p style="font-size: 12px; color: #aaa;">— Not Forgotten</p>
+</div></body></html>`;
+
+const NO_CALL_PAGE = (name) => `<!DOCTYPE html>
+<html lang="en">
+<head>${HEAD('No Problem', 'NO_CALL')}</head>
+<body style="font-family: Arial, Helvetica, sans-serif; background: #f7fbff; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;">
+<div style="text-align: center; max-width: 400px; padding: 40px;">
+<p style="font-size: 18px; color: #0b2c4d; margin: 0 0 8px 0;">No problem, ${name}.</p>
+<p style="font-size: 16px; color: #666; margin: 0 0 24px 0;">James won't call you as a result of this email.</p>
+<p style="font-size: 12px; color: #aaa;">— Not Forgotten</p>
+</div></body></html>`;
+
+const UNSUB_PAGE = `<!DOCTYPE html>
+<html lang="en">
+<head>${HEAD('Unsubscribed', 'UNSUBSCRIBE')}</head>
+<body style="font-family: Arial, Helvetica, sans-serif; background: #f7fbff; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;">
+<div style="text-align: center; max-width: 400px; padding: 40px;">
+<p style="font-size: 18px; color: #0b2c4d; margin: 0 0 24px 0;">You've been unsubscribed from future Not Forgotten marketing.</p>
+<p style="font-size: 12px; color: #aaa;">— Not Forgotten</p>
+</div></body></html>`;
+
 export default async function handler(req, res) {
   const { t } = req.query;
 
@@ -19,40 +67,14 @@ export default async function handler(req, res) {
     const name = parts.slice(1).join('-') || 'there';
 
     if (action === 'yes') {
-      return res.status(200).send(`<!DOCTYPE html>
-<html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Thanks</title></head>
-<body style="font-family: Arial, Helvetica, sans-serif; background: #f7fbff; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;">
-<div style="text-align: center; max-width: 400px; padding: 40px;">
-<p style="font-size: 18px; color: #0b2c4d; margin: 0 0 8px 0;">Thanks ${name.charAt(0).toUpperCase() + name.slice(1)},</p>
-<p style="font-size: 16px; color: #666; margin: 0 0 24px 0;">James will give you a call this week.</p>
-<p style="font-size: 12px; color: #aaa;">— Not Forgotten</p>
-</div></body></html>`);
+      return res.status(200).send(YES_PAGE(name.charAt(0).toUpperCase() + name.slice(1)));
     }
-
     if (action === 'no') {
-      return res.status(200).send(`<!DOCTYPE html>
-<html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>No Problem</title></head>
-<body style="font-family: Arial, Helvetica, sans-serif; background: #f7fbff; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;">
-<div style="text-align: center; max-width: 400px; padding: 40px;">
-<p style="font-size: 18px; color: #0b2c4d; margin: 0 0 8px 0;">No problem, ${name.charAt(0).toUpperCase() + name.slice(1)}.</p>
-<p style="font-size: 16px; color: #666; margin: 0 0 24px 0;">James won't call you as a result of this email.</p>
-<p style="font-size: 12px; color: #aaa;">— Not Forgotten</p>
-</div></body></html>`);
+      return res.status(200).send(NO_CALL_PAGE(name.charAt(0).toUpperCase() + name.slice(1)));
     }
-
     if (action === 'unsub') {
-      return res.status(200).send(`<!DOCTYPE html>
-<html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Unsubscribed</title></head>
-<body style="font-family: Arial, Helvetica, sans-serif; background: #f7fbff; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;">
-<div style="text-align: center; max-width: 400px; padding: 40px;">
-<p style="font-size: 18px; color: #0b2c4d; margin: 0 0 24px 0;">You've been unsubscribed from future Not Forgotten marketing.</p>
-<p style="font-size: 12px; color: #aaa;">— Not Forgotten</p>
-</div></body></html>`);
+      return res.status(200).send(UNSUB_PAGE);
     }
-
     return res.status(400).send('Unknown test action.');
   }
 
@@ -96,15 +118,9 @@ export default async function handler(req, res) {
     
     // Only process if not already used
     if (fields.Processed) {
-      if (action === 'YES') {
-        return res.status(200).send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Thanks</title></head><body style="font-family: Arial, Helvetica, sans-serif; background: #f7fbff; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;"><div style="text-align: center; max-width: 400px; padding: 40px;"><p style="font-size: 18px; color: #0b2c4d; margin: 0 0 8px 0;">Thanks ${name},</p><p style="font-size: 16px; color: #666; margin: 0 0 24px 0;">James will give you a call this week.</p><p style="font-size: 12px; color: #aaa;">— Not Forgotten</p></div></body></html>`);
-      }
-      if (action === 'NO_CALL') {
-        return res.status(200).send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>No Problem</title></head><body style="font-family: Arial, Helvetica, sans-serif; background: #f7fbff; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;"><div style="text-align: center; max-width: 400px; padding: 40px;"><p style="font-size: 18px; color: #0b2c4d; margin: 0 0 8px 0;">No problem, ${name}.</p><p style="font-size: 16px; color: #666; margin: 0 0 24px 0;">James won't call you as a result of this email.</p><p style="font-size: 12px; color: #aaa;">— Not Forgotten</p></div></body></html>`);
-      }
-      if (action === 'UNSUBSCRIBE') {
-        return res.status(200).send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Unsubscribed</title></head><body style="font-family: Arial, Helvetica, sans-serif; background: #f7fbff; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;"><div style="text-align: center; max-width: 400px; padding: 40px;"><p style="font-size: 18px; color: #0b2c4d; margin: 0 0 24px 0;">You've been unsubscribed from future Not Forgotten marketing.</p><p style="font-size: 12px; color: #aaa;">— Not Forgotten</p></div></body></html>`);
-      }
+      if (action === 'YES') return res.status(200).send(YES_PAGE(name));
+      if (action === 'NO_CALL') return res.status(200).send(NO_CALL_PAGE(name));
+      if (action === 'UNSUBSCRIBE') return res.status(200).send(UNSUB_PAGE);
     }
     
     // Mark as processed and update prospect
@@ -149,16 +165,10 @@ export default async function handler(req, res) {
       });
     }
     
-    // Return appropriate confirmation
-    if (action === 'YES') {
-      return res.status(200).send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Thanks</title></head><body style="font-family: Arial, Helvetica, sans-serif; background: #f7fbff; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;"><div style="text-align: center; max-width: 400px; padding: 40px;"><p style="font-size: 18px; color: #0b2c4d; margin: 0 0 8px 0;">Thanks ${name},</p><p style="font-size: 16px; color: #666; margin: 0 0 24px 0;">James will give you a call this week.</p><p style="font-size: 12px; color: #aaa;">— Not Forgotten</p></div></body></html>`);
-    }
-    if (action === 'NO_CALL') {
-      return res.status(200).send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>No Problem</title></head><body style="font-family: Arial, Helvetica, sans-serif; background: #f7fbff; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;"><div style="text-align: center; max-width: 400px; padding: 40px;"><p style="font-size: 18px; color: #0b2c4d; margin: 0 0 8px 0;">No problem, ${name}.</p><p style="font-size: 16px; color: #666; margin: 0 0 24px 0;">James won't call you as a result of this email.</p><p style="font-size: 12px; color: #aaa;">— Not Forgotten</p></div></body></html>`);
-    }
-    if (action === 'UNSUBSCRIBE') {
-      return res.status(200).send(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Unsubscribed</title></head><body style="font-family: Arial, Helvetica, sans-serif; background: #f7fbff; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;"><div style="text-align: center; max-width: 400px; padding: 40px;"><p style="font-size: 18px; color: #0b2c4d; margin: 0 0 24px 0;">You've been unsubscribed from future Not Forgotten marketing.</p><p style="font-size: 12px; color: #aaa;">— Not Forgotten</p></div></body></html>`);
-    }
+    // Return appropriate confirmation with GA4 tracking
+    if (action === 'YES') return res.status(200).send(YES_PAGE(name));
+    if (action === 'NO_CALL') return res.status(200).send(NO_CALL_PAGE(name));
+    if (action === 'UNSUBSCRIBE') return res.status(200).send(UNSUB_PAGE);
     
     return res.status(400).send('Unknown action.');
     
