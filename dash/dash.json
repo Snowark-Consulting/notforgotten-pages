@@ -164,59 +164,62 @@
       }
     ]
   },
-  "last_updated": "2026-08-13T06:38:11.875908+09:30",
+  "last_updated": "2026-08-13T06:39:32.865972+09:30",
   "pipeline": {
-    "prospect_count": 200,
+    "prospect_count": 272,
     "stages": {
-      "New": 87,
-      "Campaign Complete": 72,
+      "New": 144,
+      "Campaign Complete": 78,
       "Won": 2,
-      "Lost": 11,
-      "Outreach Active": 23,
+      "Lost": 15,
+      "Outreach Active": 28,
       "Not a fit": 5
     },
     "verticals": {
-      "Painter": 144,
-      "IT MSP": 3,
-      "Marketing agency": 20,
-      "Commercial cleaning": 23,
+      "Painter": 196,
+      "IT MSP": 4,
+      "Marketing agency": 30,
+      "Commercial cleaning": 30,
       "Landscaper": 1,
       "Other": 2,
-      "Construction": 1,
+      "Construction": 2,
       "Plumber": 1,
       "B2B Services": 2,
       "Engineering": 1,
-      "Electrician": 2
+      "Electrician": 2,
+      "Cleaning": 1
     },
     "stage_by_vertical": {
       "New": {
-        "Painter": 56,
-        "Marketing agency": 11,
-        "Commercial cleaning": 15,
+        "Painter": 99,
+        "Marketing agency": 19,
+        "Commercial cleaning": 21,
         "Other": 2,
         "Plumber": 1,
         "Electrician": 2
       },
       "Campaign Complete": {
         "IT MSP": 3,
-        "Marketing agency": 7,
-        "Painter": 52,
+        "Marketing agency": 8,
+        "Painter": 54,
         "Landscaper": 1,
-        "Commercial cleaning": 5,
-        "Construction": 1,
+        "Commercial cleaning": 6,
+        "Construction": 2,
         "B2B Services": 2,
-        "Engineering": 1
+        "Engineering": 1,
+        "Cleaning": 1
       },
       "Won": {
         "Painter": 2
       },
       "Lost": {
-        "Painter": 6,
+        "Painter": 8,
         "Commercial cleaning": 3,
-        "Marketing agency": 2
+        "Marketing agency": 3,
+        "IT MSP": 1
       },
       "Outreach Active": {
-        "Painter": 23
+        "Painter": 28
       },
       "Not a fit": {
         "Painter": 5
@@ -360,10 +363,40 @@
         "industry": "Painter",
         "last_contacted": "2026-08-12",
         "suburb": "Victoria"
+      },
+      {
+        "name": "SA Quality Painting",
+        "industry": "Painter",
+        "last_contacted": null,
+        "suburb": "South Australia"
+      },
+      {
+        "name": "Celtic Deco",
+        "industry": "Painter",
+        "last_contacted": null,
+        "suburb": "Victoria"
+      },
+      {
+        "name": "John's Painting",
+        "industry": "Painter",
+        "last_contacted": null,
+        "suburb": "South Australia"
+      },
+      {
+        "name": "Geelong Painters",
+        "industry": "Painter",
+        "last_contacted": "2026-08-12",
+        "suburb": "Bannockburn"
+      },
+      {
+        "name": "Colour Life Painting",
+        "industry": "Painter",
+        "last_contacted": "2026-08-12",
+        "suburb": "Sydney"
       }
     ],
     "active_by_vertical": {
-      "Painter": 23
+      "Painter": 28
     },
     "messages": {
       "outbound_total": 18,
@@ -376,12 +409,12 @@
       }
     },
     "opens": {
-      "deliveries": 39,
-      "prospects_opened": 54,
-      "total_opens": 229,
+      "deliveries": 43,
+      "prospects_opened": 59,
+      "total_opens": 245,
       "avg_opens": 4.2
     },
-    "last_refreshed": "2026-08-12T21:08:11.874529+00:00"
+    "last_refreshed": "2026-08-12T21:09:32.864126+00:00"
   },
   "decisions": {
     "total": 42,
