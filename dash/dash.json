@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 183,
+    "tasks_completed": 184,
     "recent": [
+      {
+        "date": "2026-08-12 16:48",
+        "task": "Processed 3 QPaint customer replies: Cathryn Cochrane (engaged \u2014 itemised breakdown requested, Tas notified via James), David Schneideman (lost \u2014 went elsewhere, 9,888), Catherine Kumar (lost \u2014 not proceeding). All replied, verified in Gmail Sent, filed to Quotes Completed, Airtable updated.",
+        "category": "task"
+      },
       {
         "date": "2026-08-10 13:07",
         "task": "QPaint Recovery Dashboard refreshed \u2014 150 records, .39M pipeline, 2 Won, 11 Lost, 7 Engaged. Replaced stale Day 0 (July 28) data with full Aug 10 state.",
@@ -135,11 +140,6 @@
         "date": "2026-08-05 19:02",
         "task": "Website v4 deployed to production. Belief Architecture live at notforgotten.com.au. 18/18 verification checks passed. Variant A. Validation continues on live site.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-05 18:54",
-        "task": "A/B test live: dev.notforgotten.com.au (A) vs dev.notforgotten.com.au/b (B). Belief Architecture v4 frozen. Validation plan finalised. Q1 litmus test: 'What do you think this company does?'",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-12T09:30:06.852511+09:30",
+  "last_updated": "2026-08-12T16:48:34.243383+09:30",
   "pipeline": {
     "prospect_count": 200,
     "stages": {
