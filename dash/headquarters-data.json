@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-13T06:30:26+09:30",
+  "generated_at": "2026-08-13T18:41:30+09:30",
   "atlas_brief": {
-    "greeting": "Good morning James.",
-    "body": "The QPaint portfolio is stable. 154 total records, 138 active journeys with complete Next Action coverage. Zero unsupported stages. Zero missing communications. The Production Operating Protocol v1.0.0 governs all operations. The canonical send authority is shadow-ready pending production cutover.",
+    "greeting": "Good evening James.",
+    "body": "Overnight readiness reconciliation complete. State is stable: QPaint portfolio holds at 154 records ($4.98M active pipeline, 138 active journeys), zero overdue follow-ups, zero new replies since yesterday's reconciliation. RE-ENG-AUG-2026 stands at 99 observing, 42 completed, 6 Lost, 1 Unsubscribed. No new commercial signals overnight. One open item: cron scheduler timezone drift has shifted all 23 jobs -9.5h (this job fired at 18:41 ACST instead of 04:00). Recommend Winston revert config.yaml timezone or rewrite expressions.",
     "estimated_time": "2 minutes"
   },
   "business_score": {
@@ -16,11 +16,11 @@
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "\u2705 138 active QPaint journeys certified. 129 contacted. 0 exceptions. Pipeline: $4,983,243. Won: $147,261."
+      "detail": "138 active QPaint journeys. 129 contacted, 2 not-contacted (PandaDoc intake), 6 engaged, 1 awaiting confirmation, 2 won, 14 lost. 0 overdue follow-ups. Active pipeline: $4,983,243. Won: $147,261."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "3 Email 2 scheduled (Jeremy Ho, Skyla Garvey, Jordan Forrest). FF1 Wave 1 on hold. Founder re-engagement pending."
+      "detail": "RE-ENG-AUG-2026: 147 delivered, 99 observing, 42 completed, 6 Lost, 1 Unsubscribed. Zero YES replies."
     },
     "engineering": {
       "status": "healthy",
@@ -28,65 +28,64 @@
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $147,261 Won. $4,983,243 active pipeline."
+      "detail": "QPaint: $147,261 Won. $4,983,243 active pipeline. $199 MRR (QPaint client)."
     },
     "atlas": {
       "status": "healthy",
       "detail": "Memory healthy. Protocol v1.0.0 enforced. Model recovery standard active."
     }
   },
-  "waiting_for_james": [],
+  "waiting_for_james": [
+    {
+      "action": "Cron timezone drift — revert config.yaml timezone or rewrite 23 cron expressions",
+      "why": "config.yaml timezone changed to Australia/Adelaide, shifting all cron jobs -9.5h. Overnight readiness fired at 18:41 ACST instead of 04:00.",
+      "owner": "Winston (Snowark)",
+      "priority": "P1"
+    }
+  ],
   "atlas_recommendation": {
-    "executive_summary": "Today is Founder Call Day. Your #1 priority is direct prospect conversations for PMF discovery. 5 fully-researched calls are ready. Atlas is completing the remaining 12 briefs in the background.",
+    "executive_summary": "Stable day. QPaint portfolio is healthy with zero overdue follow-ups and zero new replies. The single highest-leverage item is resolving the cron timezone drift before it corrupts tomorrow's morning run. Ahmad (Star Painters trial) SMS follow-up is due Friday 15 Aug.",
     "priorities": [
       {
-        "action": "Call Day \u2014 14 SA/TAS painting prospects (9:00 AM\u201312:30 PM, then 2:00\u20133:00 PM ACST)",
-        "why_it_matters": "Direct founder-to-owner conversations. 14 verified briefs with opening lines and discovery questions.",
-        "expected_impact": "5 discovery conversations. Learn whether quote follow-up is a real pain point for SA/TAS painters.",
-        "estimated_time": "~3 hours across two blocks",
-        "confidence": "High \u2014 all 5 have verified phones and researched briefs"
+        "action": "Resolve cron timezone drift (Winston)",
+        "why_it_matters": "All 23 cron jobs now fire -9.5h off schedule. Overnight readiness, CEO brief, consolidation all mis-timed.",
+        "expected_impact": "Restores correct morning briefing cadence. Prevents missed/double runs.",
+        "estimated_time": "~20 min (revert timezone or rewrite expressions)",
+        "confidence": "High — root cause confirmed in config.yaml"
       },
       {
-        "action": "Review QPaint 43019 \u2014 Nicholas Zappacosta ($35,657.60 Govt)",
-        "why_it_matters": "Large government opportunity. Observation period ends Aug 13. Strategic decision on approach.",
-        "expected_impact": "Positioning decision for government-sector follow-up.",
-        "estimated_time": "10 minutes",
-        "confidence": "Medium \u2014 needs strategic judgment"
+        "action": "Ahmad (Star Painters trial) SMS follow-up — due Friday 15 Aug unless he replies first",
+        "why_it_matters": "Trial client activation. Only warm lead currently being worked.",
+        "expected_impact": "Moves trial toward paid conversion.",
+        "estimated_time": "~5 min Friday",
+        "confidence": "Medium — awaiting his response"
       },
       {
-        "action": "Call Day complete \u2014 14 briefs loaded, 2 removed",
-        "why_it_matters": "Afternoon calling block needs briefs. Atlas completing in background.",
-        "expected_impact": "Expanded Call Day reach if briefs pass verification.",
-        "estimated_time": "Atlas handles",
-        "confidence": "Atlas in progress"
+        "action": "Monitor QPaint engaged cohort (7 customers: 6 Engaged + 1 Awaiting Confirmation)",
+        "why_it_matters": "$440K+ in engaged pipeline. Cathy Cochrane awaiting insurer, Elisha Paige committee review.",
+        "expected_impact": "Protect engaged revenue. Atlas owns monitoring.",
+        "estimated_time": "0 min James — Atlas monitoring",
+        "confidence": "High"
       }
-    ],
-    "can_wait": [
-      "Ahmad follow-up (scheduled Friday 15 Aug)",
-      "QPaint operational review (nothing needs James today)",
-      "System maintenance (Atlas handles)"
-    ],
-    "closing": "Start calling at 9:00 AM. Full briefs, opening lines, and discovery questions at HQ. Call framework and objection handling also available."
+    ]
   },
   "changes": {
     "today": [
-      "Call Day preparation \u2014 5 SA/TAS calls ready",
-      "QPaint Pipeline 150\u2192154 (+4 new intake, all certified)",
-      "Intake certification gate active (INC-2026-08-11 closed)",
-      "Ahmad: no reply to Monday SMS",
-      "14 Call Day briefs complete. 2 removed (Bob De Groot unverifiable, AJ Blunt duplicate)."
+      "Overnight readiness reconciliation: state stable, 0 new replies, 0 overdue QPaint follow-ups",
+      "4 QPaint records advanced New -> Email 1 (reconciliation verified in Gmail Sent)",
+      "Cron scheduler timezone drift detected (all 23 jobs -9.5h) — flag to James/Winston"
     ],
     "yesterday": [
-      "P1 Incident: QPaint intake false completion (3 quotes) \u2014 recovered and closed",
-      "Intake certification gate deployed (certify_intake_complete)",
-      "PandaDoc extractor hardened to v2.1.0 (auto-retry)",
-      "Gmail Intake Exception label created"
+      "Founder Call Day: 14 SA/TAS painting prospects",
+      "QPaint: Catherine Kumar (Plantation Place) Lost — 'no longer interested'",
+      "QPaint: David Schneideman Lost — went with competitor",
+      "QPaint: Cathy Cochrane engaged — insurer requested itemised breakdown with GST"
     ],
     "this_week": [
-      "RE-ENG-AUG-2026 campaign: 147 emails delivered, 33 responses",
+      "RE-ENG-AUG-2026: 147 emails delivered, 99 observing, 0 YES",
       "QPaint Email 2: 30 customers advanced",
-      "Foundation Certification: all gates pass",
-      "CEO Brief standard refined (4 questions, confidence ratings)"
+      "QPaint: 2 Won (Arno Hsu $129,750, Joy Ryan $17,510)",
+      "Intake certification gate active (INC-2026-08-11 closed)"
     ]
   },
   "lessons_learned": {
@@ -94,21 +93,21 @@
     "recent": [
       {
         "id": "INC-2026-08-11",
-        "title": "QPaint Quote Intake \u2014 False Completion",
+        "title": "QPaint Quote Intake — False Completion",
         "status": "Closed",
         "summary": "3 quotes marked complete with $0 deal values. Root cause: no certification gate between extraction and label. Fixed: certify_intake_complete() + Intake Exception state."
       },
       {
         "id": "BK-014",
-        "title": "ATTEMPTED \u2260 COMPLETED",
+        "title": "ATTEMPTED ≠ COMPLETED",
         "status": "Permanent",
-        "summary": "Automation success \u2260 business outcome success. Every critical workflow must verify the business state, not just the process completion."
+        "summary": "Automation success ≠ business outcome success. Every critical workflow must verify the business state, not just the process completion."
       },
       {
         "id": "BK-015",
-        "title": "HTTP 200 \u2260 Application Success",
+        "title": "HTTP 200 ≠ Application Success",
         "status": "Permanent",
-        "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy \u2192 verify dependencies \u2192 verify render \u2192 certify."
+        "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy → verify dependencies → verify render → certify."
       }
     ]
   },
@@ -123,7 +122,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "\u2705 QPaint portfolio certified. 138 active journeys, 0 exceptions. Protocol v1.0.0. Phase 1 hardening shadow-ready.",
+  "operational_status": "QPaint portfolio certified: 138 active journeys, 0 exceptions, 0 overdue. Production Operating Protocol v1.0.0. One open item: cron timezone drift.",
   "vault_health": {
     "decisions": {
       "total": 15,
@@ -147,7 +146,7 @@
       "usage": "86%"
     },
     "infrastructure": {
-      "disk": "\u2014"
+      "disk": "—"
     }
   },
   "qpaint_pipeline": {
@@ -162,11 +161,10 @@
       "not_contacted": 2
     },
     "stage_breakdown": {
-      "Email 1": 97,
+      "Email 1": 101,
       "Email 2": 30,
       "Lost": 14,
       "Engaged": 6,
-      "New": 4,
       "Won": 2,
       "Engaged - Awaiting Confirmation": 1
     },
@@ -177,28 +175,28 @@
     },
     "key_customers": [
       {
-        "name": "Nicholas Zappacosta (#43019)",
-        "value": "$35,657.60",
-        "stage": "New",
-        "status": "Govt \u2014 observation ends Aug 13"
+        "name": "Nicholas Zappacosta (#42864)",
+        "value": "$145,008.34",
+        "stage": "Engaged - Awaiting Confirmation",
+        "status": "Logan Village SS + QAS Beenleigh awaiting formal paperwork. Monitor ~Sep 10."
       },
       {
-        "name": "Cheryl Sim (#43031)",
-        "value": "$29,697.80",
-        "stage": "New",
-        "status": "Intake certified. 48h window."
+        "name": "Elisha Paige (#42857)",
+        "value": "$113,907.20",
+        "stage": "Engaged",
+        "status": "Buckland North committee reviewing. Next follow-up Aug 17."
       },
       {
-        "name": "Beth McIntosh (#43061)",
-        "value": "$9,680.00",
-        "stage": "New",
-        "status": "Intake certified. 48h window expired."
+        "name": "Arno Hsu (#41529)",
+        "value": "$129,750.50",
+        "stage": "Won",
+        "status": "Handover verified. Scheduling with QPaint."
       },
       {
-        "name": "Julius Gloria (#43025)",
-        "value": "$3,298.90",
-        "stage": "New",
-        "status": "Intake certified. Quote from Jul 30."
+        "name": "Cathy Cochrane (#42917)",
+        "value": "$4,152.50",
+        "stage": "Engaged",
+        "status": "Insurer requested itemised breakdown Aug 12. Next Aug 19."
       }
     ]
   }
