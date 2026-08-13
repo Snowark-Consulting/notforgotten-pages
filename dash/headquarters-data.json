@@ -1,91 +1,167 @@
 {
-  "generated_at": "2026-08-13T18:41:30+09:30",
+  "generated_at": "2026-08-14T06:45:29+09:30",
   "atlas_brief": {
-    "greeting": "Good evening James.",
-    "body": "Overnight readiness reconciliation complete. State is stable: QPaint portfolio holds at 154 records ($4.98M active pipeline, 138 active journeys), zero overdue follow-ups, zero new replies since yesterday's reconciliation. RE-ENG-AUG-2026 stands at 99 observing, 42 completed, 6 Lost, 1 Unsubscribed. No new commercial signals overnight. One open item: cron scheduler timezone drift has shifted all 23 jobs -9.5h (this job fired at 18:41 ACST instead of 04:00). Recommend Winston revert config.yaml timezone or rewrite expressions.",
-    "estimated_time": "2 minutes"
+    "greeting": "Good morning James.",
+    "body": "Complete business audit complete, reconciled against live Airtable (5 tables) and Gmail (3 mailboxes). QPaint holds 154 records: $4.98M open pipeline, 2 won ($141,984 recovered), 14 lost, 7 engaged/replied. 60 journeys are at their Email 2 review point today. V2 growth is unproven (17 sent, 0 replies). Two system fixes and one governance gap are flagged in Waiting For James.",
+    "estimated_time": "3 minutes"
   },
   "business_score": {
-    "score": 96,
-    "change": 0
+    "score": 85,
+    "change": -11,
+    "reasons_positive": [
+      "QPaint core operation strong: 138 active journeys, 0 overdue, $141,984 recovered revenue verified",
+      "All 3 mailboxes authenticated, 0 unread — no unhandled customer replies",
+      "Airtable fully reconciled: 272 prospects, 154 QPaint, 2 clients, all 5 tables coherent"
+    ],
+    "reasons_negative": [
+      "V2 growth unproven: 17 sent, 0 replies, 0 opportunities",
+      "Only 1 paying client ($199 MRR) + 1 trial",
+      "followup-queue.py broken (403), inbox-pulse-phase2 paused — reply-detection blind spot",
+      "8 suppressed prospects still marked CERTIFIED ELIGIBLE"
+    ]
   },
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "QPaint: Active. Portfolio certified. 138 active journeys with complete Next Action coverage."
+      "detail": "QPaint: Active, $199 MRR + $99 signup (paid). Star Painters Adelaide: Trial (no MRR yet)."
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "138 active QPaint journeys. 129 contacted, 2 not-contacted (PandaDoc intake), 6 engaged, 1 awaiting confirmation, 2 won, 14 lost. 0 overdue follow-ups. Active pipeline: $4,983,243. Won: $147,261."
+      "detail": "138 active QPaint journeys, $4.98M open. 2 won ($141,984 recovered), 14 lost, 7 engaged/replied. 60 Email 2 reviews due today. 0 overdue."
     },
     "outreach": {
-      "status": "healthy",
-      "detail": "RE-ENG-AUG-2026: 147 delivered, 99 observing, 42 completed, 6 Lost, 1 Unsubscribed. Zero YES replies."
+      "status": "caution",
+      "detail": "V2 Insight-Proof v1: 17 sent (11 Aug), 0 replies. RE-ENG-AUG-2026: 146 unique delivered, 0 YES. Growth not yet proven."
     },
     "engineering": {
-      "status": "healthy",
-      "detail": "All systems healthy. Canonical send authority (Phase 1) shadow-ready. Production Operating Protocol v1.0.0 live."
+      "status": "caution",
+      "detail": "followup-queue.py 403s every 2h (references deleted Messages table). inbox-pulse-phase2 paused since 04 Aug. 5 cron jobs in error state."
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $147,261 Won. $4,983,243 active pipeline. $199 MRR (QPaint client)."
+      "detail": "$199 MRR (QPaint). $141,984 verified recovered revenue. $4.98M open pipeline. No Stripe/bank access: costs and cash UNKNOWN."
     },
     "atlas": {
       "status": "healthy",
-      "detail": "Memory healthy. Protocol v1.0.0 enforced. Model recovery standard active."
+      "detail": "Audit complete and reconciled. All 3 mailboxes authenticated. Airtable verified against primary sources."
     }
   },
   "waiting_for_james": [
     {
-      "action": "Cron timezone drift — revert config.yaml timezone or rewrite 23 cron expressions",
-      "why": "config.yaml timezone changed to Australia/Adelaide, shifting all cron jobs -9.5h. Overnight readiness fired at 18:41 ACST instead of 04:00.",
-      "owner": "Winston (Snowark)",
-      "priority": "P1"
+      "id": "qpaint-email2-review",
+      "title": "QPaint Email 2 review — 60 journeys at review point today",
+      "why_it_matters": "60 Email 1 journeys hit their follow-up review today (14 Aug). This is the bulk of the $4.98M open pipeline. Requires your decision on who progresses to Email 2.",
+      "business_impact": "High",
+      "estimated_time": "15 min",
+      "recommended_action": "Atlas prepares the Email 2 plan (sent-state verified, reply-checked). You approve / hold / adjust. No mass-send without your sign-off.",
+      "impact_sort": 90
+    },
+    {
+      "id": "cron-repair",
+      "title": "Restore inbox-pulse-phase2 + fix followup-queue.py",
+      "why_it_matters": "atlas@ reply processing has been paused since 04 Aug — QPaint customer replies could go unhandled. followup-queue.py 403s every 2h (references deleted Messages table).",
+      "business_impact": "High",
+      "estimated_time": "5 min decision",
+      "recommended_action": "Approve Atlas to fix followup-queue.py and re-enable inbox-pulse-phase2.",
+      "impact_sort": 80
+    },
+    {
+      "id": "suppression-regate",
+      "title": "Re-gate 8 suppressed prospects still 'CERTIFIED ELIGIBLE'",
+      "why_it_matters": "8 records are Marketing Suppressed but still CERTIFIED ELIGIBLE (incl. Jay Duggin, unsubscribed). RE-ENG resumes Aug 19 — they'd be re-emailed unless gated.",
+      "business_impact": "Medium",
+      "estimated_time": "Atlas handles, you confirm",
+      "recommended_action": "Approve Atlas to re-run the suppression gate and fix eligibility flags before Aug 19.",
+      "impact_sort": 60
+    },
+    {
+      "id": "star-painters-trial",
+      "title": "Star Painters Adelaide trial — activation follow-up",
+      "why_it_matters": "Only other client besides QPaint. Still on trial, no MRR. Ahmad is due a follow-up.",
+      "business_impact": "Medium",
+      "estimated_time": "5 min Friday",
+      "recommended_action": "Confirm follow-up approach (Atlas drafts, you send).",
+      "impact_sort": 50
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Stable day. QPaint portfolio is healthy with zero overdue follow-ups and zero new replies. The single highest-leverage item is resolving the cron timezone drift before it corrupts tomorrow's morning run. Ahmad (Star Painters trial) SMS follow-up is due Friday 15 Aug.",
+    "executive_summary": "Audit complete and reconciled against live Airtable + Gmail. QPaint is the revenue engine ($199 MRR, $141,984 recovered, $4.98M open). 60 journeys are at their Email 2 review point today. V2 growth is unproven (17 sent, 0 replies). Two system fixes and one governance gap need your sign-off.",
     "priorities": [
       {
-        "action": "Resolve cron timezone drift (Winston)",
-        "why_it_matters": "All 23 cron jobs now fire -9.5h off schedule. Overnight readiness, CEO brief, consolidation all mis-timed.",
-        "expected_impact": "Restores correct morning briefing cadence. Prevents missed/double runs.",
-        "estimated_time": "~20 min (revert timezone or rewrite expressions)",
-        "confidence": "High — root cause confirmed in config.yaml"
+        "action": "Approve QPaint Email 2 plan (60 journeys due today)",
+        "why_it_matters": "QPaint is your only paying client. This is the largest block of open pipeline ($4.98M) with follow-ups due today.",
+        "expected_impact": "Protects the highest-value revenue opportunity. Prevents 60 journeys going stale.",
+        "estimated_time": "15 min",
+        "confidence": "High"
       },
       {
-        "action": "Ahmad (Star Painters trial) SMS follow-up — due Friday 15 Aug unless he replies first",
-        "why_it_matters": "Trial client activation. Only warm lead currently being worked.",
-        "expected_impact": "Moves trial toward paid conversion.",
-        "estimated_time": "~5 min Friday",
-        "confidence": "Medium — awaiting his response"
+        "action": "Restore inbox-pulse-phase2 + fix followup-queue",
+        "why_it_matters": "Reply detection is the backbone of QPaint delivery. A paused pulse means silent customer replies.",
+        "expected_impact": "Closes the customer-reply blind spot. Removes the 4x/day failing job.",
+        "estimated_time": "Atlas 20 min, you 5 min",
+        "confidence": "High"
       },
       {
-        "action": "Monitor QPaint engaged cohort (7 customers: 6 Engaged + 1 Awaiting Confirmation)",
-        "why_it_matters": "$440K+ in engaged pipeline. Cathy Cochrane awaiting insurer, Elisha Paige committee review.",
-        "expected_impact": "Protect engaged revenue. Atlas owns monitoring.",
-        "estimated_time": "0 min James — Atlas monitoring",
+        "action": "Re-gate 8 suppressed records before Aug 19 RE-ENG resume",
+        "why_it_matters": "Governance: suppressed prospects must never be re-emailed. 8 are still flagged eligible.",
+        "expected_impact": "Prevents a spam-compliance breach on Aug 19.",
+        "estimated_time": "Atlas 15 min, you confirm",
         "confidence": "High"
       }
-    ]
+    ],
+    "can_wait": [
+      "V2 follow-ups (next 19 Aug)",
+      "Star Painters trial SMS (Friday 15 Aug)",
+      "Monthly outreach report + stale-prospect alert (broken, non-urgent)"
+    ],
+    "closing": "The #1 thing today: decide the QPaint Email 2 batch. Everything else can follow."
   },
   "changes": {
     "today": [
-      "Overnight readiness reconciliation: state stable, 0 new replies, 0 overdue QPaint follow-ups",
-      "4 QPaint records advanced New -> Email 1 (reconciliation verified in Gmail Sent)",
-      "Cron scheduler timezone drift detected (all 23 jobs -9.5h) — flag to James/Winston"
+      {
+        "time": "06:45",
+        "text": "Complete business audit reconciled against live Airtable (5 tables) + Gmail (3 mailboxes)"
+      },
+      {
+        "time": "06:45",
+        "text": "QPaint: 60 journeys at Email 2 review point today, 0 overdue, 0 new replies"
+      },
+      {
+        "time": "06:45",
+        "text": "Flagged: followup-queue.py 403 (deleted Messages table), inbox-pulse-phase2 paused"
+      }
     ],
     "yesterday": [
-      "Founder Call Day: 14 SA/TAS painting prospects",
-      "QPaint: Catherine Kumar (Plantation Place) Lost — 'no longer interested'",
-      "QPaint: David Schneideman Lost — went with competitor",
-      "QPaint: Cathy Cochrane engaged — insurer requested itemised breakdown with GST"
+      {
+        "time": "18:44",
+        "text": "Overnight readiness reconciliation: state stable, 0 new replies, 0 overdue"
+      },
+      {
+        "time": "—",
+        "text": "QPaint: 2 Won (Arno Hsu $129,750, Joy Ryan $17,510) — recovered $141,984"
+      },
+      {
+        "time": "—",
+        "text": "Cron timezone drift flagged (overnight readiness fires 18:30 ACST not 04:00)"
+      }
     ],
     "this_week": [
-      "RE-ENG-AUG-2026: 147 emails delivered, 99 observing, 0 YES",
-      "QPaint Email 2: 30 customers advanced",
-      "QPaint: 2 Won (Arno Hsu $129,750, Joy Ryan $17,510)",
-      "Intake certification gate active (INC-2026-08-11 closed)"
+      {
+        "time": "—",
+        "text": "RE-ENG-AUG-2026: 146 unique delivered, 0 YES"
+      },
+      {
+        "time": "—",
+        "text": "V2 Insight-Proof v1: 17 sent (11 Aug), 0 replies"
+      },
+      {
+        "time": "—",
+        "text": "QPaint Email 2: 30 customers advanced"
+      },
+      {
+        "time": "—",
+        "text": "QPaint: 2 Won ($141,984 recovered revenue)"
+      }
     ]
   },
   "lessons_learned": {
@@ -122,7 +198,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "QPaint portfolio certified: 138 active journeys, 0 exceptions, 0 overdue. Production Operating Protocol v1.0.0. One open item: cron timezone drift.",
+  "operational_status": "Audit complete. QPaint certified: 138 active, 0 overdue, 60 Email 2 reviews due today. System: followup-queue.py broken + inbox-pulse-phase2 paused (flagged). Governance: 8 suppressed still eligible (flagged).",
   "vault_health": {
     "decisions": {
       "total": 15,
@@ -143,22 +219,22 @@
       "principles": 15
     },
     "memory": {
-      "usage": "86%"
+      "usage": "91%"
     },
     "infrastructure": {
-      "disk": "—"
+      "disk": "65% (13G/20G)"
     }
   },
   "qpaint_pipeline": {
     "summary": {
       "total_customers": 154,
-      "total_pipeline_value": 4983243,
+      "total_pipeline_value": "$4.98M",
       "won_count": 2,
-      "won_value": 147261,
+      "won_value": "$147,261",
       "lost_count": 14,
       "engaged_replied": 7,
-      "contacted": 129,
-      "not_contacted": 2
+      "contacted": 131,
+      "not_contacted": 0
     },
     "stage_breakdown": {
       "Email 1": 101,
@@ -171,32 +247,38 @@
     "priority": {
       "P1": 93,
       "P2": 53,
-      "P3": 8
+      "P3": 3
     },
     "key_customers": [
       {
-        "name": "Nicholas Zappacosta (#42864)",
-        "value": "$145,008.34",
+        "name": "Nicholas Zappacosta",
+        "value": "$145,008",
         "stage": "Engaged - Awaiting Confirmation",
-        "status": "Logan Village SS + QAS Beenleigh awaiting formal paperwork. Monitor ~Sep 10."
+        "status": "Logan Village SS + QAS Beenleigh awaiting paperwork. Monitor ~Sep 10."
       },
       {
-        "name": "Elisha Paige (#42857)",
-        "value": "$113,907.20",
-        "stage": "Engaged",
-        "status": "Buckland North committee reviewing. Next follow-up Aug 17."
-      },
-      {
-        "name": "Arno Hsu (#41529)",
-        "value": "$129,750.50",
+        "name": "Arno Hsu",
+        "value": "$129,750",
         "stage": "Won",
         "status": "Handover verified. Scheduling with QPaint."
       },
       {
-        "name": "Cathy Cochrane (#42917)",
-        "value": "$4,152.50",
+        "name": "Elisha Paige",
+        "value": "$113,907",
         "stage": "Engaged",
-        "status": "Insurer requested itemised breakdown Aug 12. Next Aug 19."
+        "status": "Buckland North committee reviewing. Next Aug 17."
+      },
+      {
+        "name": "Terry Hamilton",
+        "value": "$30,538",
+        "stage": "Engaged",
+        "status": "Waiting on builder + roof timing. Next Sep 7."
+      },
+      {
+        "name": "Cathy Cochrane",
+        "value": "$4,153",
+        "stage": "Engaged",
+        "status": "Awaiting QPaint itemised breakdown (insurer). Next Aug 19."
       }
     ]
   }
