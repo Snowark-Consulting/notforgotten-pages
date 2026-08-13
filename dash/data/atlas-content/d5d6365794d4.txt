@@ -6,7 +6,9 @@ tier: primary
 
 # LEARNINGS — Atlas
 
-> Append-only log## 2026-08-12 — Initial Customer Email Law: Protocol Before Content
+> Append-only log of fixes, API quirks, and gotchas. Check BEFORE touching any external API. Newest first.
+
+## 2026-08-12 — Initial Customer Email Law: Protocol Before Content
 
 **Confidence:** permanent
 **Contested:** false
@@ -18,8 +20,6 @@ tier: primary
 **Template:** `knowledge/canonical-templates/qpaint/recovery-introduction-v1.md` — authoritative QPaint first-touch introduction. Checksum: `0241bdb45a22ba13a8e9ba2b7e4e83eb53b84a458e042ec3e444a91dba18f882`.
 
 **Decision:** `knowledge/decisions/2026-08-12-initial-customer-email-law.md`
-
- of fixes, API quirks, and gotchas. Check BEFORE touching any external API. Newest first.
 
 ## 2026-08-11 — INC-2026-08-11-QUOTE-FALSE-COMPLETION: Certify Before Complete
 
@@ -432,3 +432,15 @@ Format per entry:
 **Symptom:** Prepare-Ahead cron (4a10d4135c2c) reported "⚠️ Blocker: Gmail token expired. OAuth app promoted to Production invalidated the refresh token. Token expiry shows epoch zero — unusable until James re-authenticates." Manual testing showed `gmail_auth.get_access_token()` working perfectly.
 **Cause:** The `expiry` field is `1970-01-01T00:00:00Z` (epoch zero), which is the deliberate Jun 25 fix — it forces the refresh_token flow on every call, producing a fresh access token each time. The cron agent inspected the `expiry` field, saw epoch zero, and incorrectly concluded the token was broken without testing it.
 **Fix:** Added pitfall to `growth-operations` skill: epoch-zero expiry is working state, not failure. The only valid diagnostic is calling `gmail_auth.get_access_token()` and checking for a `ya29.*` token. Never flag token status based on the `expiry` field alone.
+
+## 2026-08-13 — reconciliation-watchdog.py early-return false positive
+
+**Symptom:** reconciliation-watchdog.py flagged 30 QPaint records as "Stage Email 2 but only 1 sent message (expected ≥2)". Precise `to:email in:sent` search proved all 30 had exactly 2 sent emails (Email 1 + Email 2).
+
+**Root cause:** `check_gmail()` returns EARLY from the first date window that finds ANY message. Records with recent "Last Contacted" (Aug 7-10) hit Window 1 (`after:last_contacted-1day`), which only captures Email 2 (recent) and misses Email 1 (older). Result: undercount "1 sent".
+
+**Fix (when authorised):** replace the early-return window logic with a single definitive `to:<email> in:sent` search (no date filter), OR accumulate across all windows before returning. Never return early from a narrow window when counting sent emails.
+
+**Lesson:** A reconciliation flag is a HYPOTHESIS, not a verdict. Always verify with direct recipient-level Gmail search before correcting any CRM record. Mass-correcting based on watchdog flags alone would have falsified 30 correct records.
+
+**Related:** Pitfall 34/35 (bulk vs direct search), production-standards Section 15 (pagination).
