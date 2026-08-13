@@ -1,140 +1,134 @@
 {
-  "generated_at": "2026-08-14T06:45:29+09:30",
+  "generated_at": "2026-08-14T07:40:12+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "Complete business audit complete, reconciled against live Airtable (5 tables) and Gmail (3 mailboxes). QPaint holds 154 records: $4.98M open pipeline, 2 won ($141,984 recovered), 14 lost, 7 engaged/replied. 60 journeys are at their Email 2 review point today. V2 growth is unproven (17 sent, 0 replies). Two system fixes and one governance gap are flagged in Waiting For James.",
-    "estimated_time": "3 minutes"
+    "body": "QPaint Email 2 cohort is complete: 54 sends, all verified in Gmail Sent and reconciled to Airtable. Post-send repairs done: canonical_send.py legacy Messages-table defect fixed, Adelaide timezone enforced, 54 records date-corrected and Messages-field reconciled. QPaint now at 84 journeys on Email 2, 47 on Email 1, zero overdue.",
+    "estimated_time": "2 minutes"
   },
   "business_score": {
-    "score": 85,
-    "change": -11,
+    "score": 86,
+    "change": 1,
     "reasons_positive": [
-      "QPaint core operation strong: 138 active journeys, 0 overdue, $141,984 recovered revenue verified",
-      "All 3 mailboxes authenticated, 0 unread — no unhandled customer replies",
-      "Airtable fully reconciled: 272 prospects, 154 QPaint, 2 clients, all 5 tables coherent"
+      "QPaint Email 2 cohort executed cleanly: 54/54 sent, verified, reconciled",
+      "Infrastructure defects closed: Messages-table and timezone bugs fixed",
+      "Suppression protection: 8 records re-gated (7 SUPPRESSED + Jay Duggin DO NOT EMAIL)"
     ],
     "reasons_negative": [
-      "V2 growth unproven: 17 sent, 0 replies, 0 opportunities",
-      "Only 1 paying client ($199 MRR) + 1 trial",
-      "followup-queue.py broken (403), inbox-pulse-phase2 paused — reply-detection blind spot",
-      "8 suppressed prospects still marked CERTIFIED ELIGIBLE"
+      "V2 growth still unproven: 17 sent, 0 replies",
+      "1 paying client ($199 MRR) + 1 trial",
+      "V2 sender-attribution and duplicate-send reconciliations still open"
     ]
   },
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "QPaint: Active, $199 MRR + $99 signup (paid). Star Painters Adelaide: Trial (no MRR yet)."
+      "detail": "QPaint: Active, $199 MRR + $99 signup. Star Painters Adelaide: Trial (no MRR yet)."
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "138 active QPaint journeys, $4.98M open. 2 won ($141,984 recovered), 14 lost, 7 engaged/replied. 60 Email 2 reviews due today. 0 overdue."
+      "detail": "138 active QPaint journeys, $4.98M open. Email 2 cohort complete (54 sent, verified). 84 at Email 2, 47 at Email 1. 0 overdue. 2 won, 14 lost, 7 engaged/replied."
     },
     "outreach": {
       "status": "caution",
       "detail": "V2 Insight-Proof v1: 17 sent (11 Aug), 0 replies. RE-ENG-AUG-2026: 146 unique delivered, 0 YES. Growth not yet proven."
     },
     "engineering": {
-      "status": "caution",
-      "detail": "followup-queue.py 403s every 2h (references deleted Messages table). inbox-pulse-phase2 paused since 04 Aug. 5 cron jobs in error state."
+      "status": "healthy",
+      "detail": "canonical_send.py repaired: legacy Messages-table defect fixed, Adelaide timezone enforced. Send path verified. inbox-pulse-phase2 still paused (flagged)."
     },
     "finance": {
       "status": "healthy",
-      "detail": "$199 MRR (QPaint). $141,984 verified recovered revenue. $4.98M open pipeline. No Stripe/bank access: costs and cash UNKNOWN."
+      "detail": "$199 MRR (QPaint). $141,984 verified recovered revenue. $4.98M open pipeline. Costs/cash UNKNOWN (no Stripe/bank access)."
     },
     "atlas": {
       "status": "healthy",
-      "detail": "Audit complete and reconciled. All 3 mailboxes authenticated. Airtable verified against primary sources."
+      "detail": "Audit + Email 2 cohort + post-send repairs complete. All 3 mailboxes authenticated, 0 unread."
     }
   },
   "waiting_for_james": [
     {
-      "id": "qpaint-email2-review",
-      "title": "QPaint Email 2 review — 60 journeys at review point today",
-      "why_it_matters": "60 Email 1 journeys hit their follow-up review today (14 Aug). This is the bulk of the $4.98M open pipeline. Requires your decision on who progresses to Email 2.",
-      "business_impact": "High",
-      "estimated_time": "15 min",
-      "recommended_action": "Atlas prepares the Email 2 plan (sent-state verified, reply-checked). You approve / hold / adjust. No mass-send without your sign-off.",
-      "impact_sort": 90
-    },
-    {
-      "id": "cron-repair",
-      "title": "Restore inbox-pulse-phase2 + fix followup-queue.py",
-      "why_it_matters": "atlas@ reply processing has been paused since 04 Aug — QPaint customer replies could go unhandled. followup-queue.py 403s every 2h (references deleted Messages table).",
-      "business_impact": "High",
-      "estimated_time": "5 min decision",
-      "recommended_action": "Approve Atlas to fix followup-queue.py and re-enable inbox-pulse-phase2.",
-      "impact_sort": 80
-    },
-    {
-      "id": "suppression-regate",
-      "title": "Re-gate 8 suppressed prospects still 'CERTIFIED ELIGIBLE'",
-      "why_it_matters": "8 records are Marketing Suppressed but still CERTIFIED ELIGIBLE (incl. Jay Duggin, unsubscribed). RE-ENG resumes Aug 19 — they'd be re-emailed unless gated.",
+      "id": "v2-sender-semantics",
+      "title": "Rule on V2 'Performed By' semantics (9 atlas@-sent records)",
+      "why_it_matters": "V2 Activity ledger marks all 16 Email 1 records 'James', but 9 were actually sent from atlas@. Correcting needs your ruling on whether 'Performed By' means authorised-by or executed-by.",
       "business_impact": "Medium",
-      "estimated_time": "Atlas handles, you confirm",
-      "recommended_action": "Approve Atlas to re-run the suppression gate and fix eligibility flags before Aug 19.",
+      "estimated_time": "5 min decision",
+      "recommended_action": "Confirm 'Performed By' semantics, then Atlas corrects the ledger with audit notes.",
       "impact_sort": 60
     },
     {
+      "id": "qpaint-dup-review",
+      "title": "Deliberate review: 2 duplicate-Email-1 records (Lyndon Hardy, Misuri)",
+      "why_it_matters": "Both received Email 1 twice. Currently HOLD pending reconciliation of their communication history before any further contact.",
+      "business_impact": "Medium",
+      "estimated_time": "Atlas prepares, you decide",
+      "recommended_action": "Atlas prepares a reconciliation summary; you decide send/hold for each.",
+      "impact_sort": 50
+    },
+    {
       "id": "star-painters-trial",
-      "title": "Star Painters Adelaide trial — activation follow-up",
-      "why_it_matters": "Only other client besides QPaint. Still on trial, no MRR. Ahmad is due a follow-up.",
+      "title": "Star Painters Adelaide trial follow-up (Ahmad)",
+      "why_it_matters": "Only other client besides QPaint. Trial, no MRR yet. Due a follow-up.",
       "business_impact": "Medium",
       "estimated_time": "5 min Friday",
       "recommended_action": "Confirm follow-up approach (Atlas drafts, you send).",
-      "impact_sort": 50
+      "impact_sort": 40
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Audit complete and reconciled against live Airtable + Gmail. QPaint is the revenue engine ($199 MRR, $141,984 recovered, $4.98M open). 60 journeys are at their Email 2 review point today. V2 growth is unproven (17 sent, 0 replies). Two system fixes and one governance gap need your sign-off.",
+    "executive_summary": "QPaint Email 2 cohort is complete (54/54 verified and reconciled) and the two infrastructure defects are closed. QPaint is the revenue engine ($199 MRR, $141,984 recovered, $4.98M open). Next material step is the V2 follow-up on 19 Aug and resolving the two open data-integrity items.",
     "priorities": [
       {
-        "action": "Approve QPaint Email 2 plan (60 journeys due today)",
-        "why_it_matters": "QPaint is your only paying client. This is the largest block of open pipeline ($4.98M) with follow-ups due today.",
-        "expected_impact": "Protects the highest-value revenue opportunity. Prevents 60 journeys going stale.",
-        "estimated_time": "15 min",
+        "action": "V2 follow-up prep for 19 Aug (Esmayel + 16 cohort)",
+        "why_it_matters": "First V2 reply window closes ~19 Aug. Prep follow-ups now so they're founder-ready.",
+        "expected_impact": "Moves V2 from 0 replies toward first conversation.",
+        "estimated_time": "Atlas 30 min this week",
+        "confidence": "Medium"
+      },
+      {
+        "action": "Resolve V2 'Performed By' semantics + duplicate-send records",
+        "why_it_matters": "Closes the two remaining data-integrity gaps from the audit.",
+        "expected_impact": "Clean ledger for future V2 reporting.",
+        "estimated_time": "Atlas 20 min + your ruling",
         "confidence": "High"
       },
       {
-        "action": "Restore inbox-pulse-phase2 + fix followup-queue",
-        "why_it_matters": "Reply detection is the backbone of QPaint delivery. A paused pulse means silent customer replies.",
-        "expected_impact": "Closes the customer-reply blind spot. Removes the 4x/day failing job.",
-        "estimated_time": "Atlas 20 min, you 5 min",
-        "confidence": "High"
-      },
-      {
-        "action": "Re-gate 8 suppressed records before Aug 19 RE-ENG resume",
-        "why_it_matters": "Governance: suppressed prospects must never be re-emailed. 8 are still flagged eligible.",
-        "expected_impact": "Prevents a spam-compliance breach on Aug 19.",
-        "estimated_time": "Atlas 15 min, you confirm",
+        "action": "Re-enable inbox-pulse-phase2",
+        "why_it_matters": "atlas@ reply processing still paused — QPaint customer replies rely on it.",
+        "expected_impact": "Closes the customer-reply blind spot.",
+        "estimated_time": "Atlas 10 min",
         "confidence": "High"
       }
     ],
     "can_wait": [
-      "V2 follow-ups (next 19 Aug)",
-      "Star Painters trial SMS (Friday 15 Aug)",
-      "Monthly outreach report + stale-prospect alert (broken, non-urgent)"
+      "RE-ENG-AUG-2026 resume (re-gated, but 0 YES so far)",
+      "Monthly outreach report + stale-prospect alert fixes",
+      "QPaint Email 3 (not due until ~21 Aug)"
     ],
-    "closing": "The #1 thing today: decide the QPaint Email 2 batch. Everything else can follow."
+    "closing": "QPaint delivery is on solid footing. Next lever is V2 growth — nothing is blocked, but there is no warm pipeline yet."
   },
   "changes": {
     "today": [
       {
-        "time": "06:45",
-        "text": "Complete business audit reconciled against live Airtable (5 tables) + Gmail (3 mailboxes)"
+        "time": "07:26",
+        "text": "QPaint Email 2 cohort: 54 sent, verified in Gmail Sent, reconciled to Airtable"
       },
       {
-        "time": "06:45",
-        "text": "QPaint: 60 journeys at Email 2 review point today, 0 overdue, 0 new replies"
+        "time": "07:45",
+        "text": "canonical_send.py repaired: legacy Messages-table defect fixed, Adelaide timezone enforced"
       },
       {
-        "time": "06:45",
-        "text": "Flagged: followup-queue.py 403 (deleted Messages table), inbox-pulse-phase2 paused"
+        "time": "07:50",
+        "text": "54 records date-corrected (Last Contacted -> 08-14, Next Touchpoint -> 08-21)"
+      },
+      {
+        "time": "07:30",
+        "text": "Suppression protection: 8 records re-gated (7 SUPPRESSED + Jay Duggin DO NOT EMAIL)"
       }
     ],
     "yesterday": [
       {
-        "time": "18:44",
-        "text": "Overnight readiness reconciliation: state stable, 0 new replies, 0 overdue"
+        "time": "—",
+        "text": "Complete business audit reconciled against live Airtable + Gmail"
       },
       {
         "time": "—",
@@ -142,25 +136,25 @@
       },
       {
         "time": "—",
-        "text": "Cron timezone drift flagged (overnight readiness fires 18:30 ACST not 04:00)"
+        "text": "V2 Insight-Proof v1: 17 sent, 0 replies"
       }
     ],
     "this_week": [
+      {
+        "time": "—",
+        "text": "QPaint Email 2 cohort: 54 sent (14 Aug), 84 journeys now on Email 2"
+      },
       {
         "time": "—",
         "text": "RE-ENG-AUG-2026: 146 unique delivered, 0 YES"
       },
       {
         "time": "—",
-        "text": "V2 Insight-Proof v1: 17 sent (11 Aug), 0 replies"
+        "text": "Suppression governance: 8 records protected"
       },
       {
         "time": "—",
-        "text": "QPaint Email 2: 30 customers advanced"
-      },
-      {
-        "time": "—",
-        "text": "QPaint: 2 Won ($141,984 recovered revenue)"
+        "text": "QPaint: 2 Won ($141,984 recovered)"
       }
     ]
   },
@@ -198,7 +192,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "Audit complete. QPaint certified: 138 active, 0 overdue, 60 Email 2 reviews due today. System: followup-queue.py broken + inbox-pulse-phase2 paused (flagged). Governance: 8 suppressed still eligible (flagged).",
+  "operational_status": "QPaint Email 2 cohort complete (54/54 sent + reconciled). canonical_send.py repaired (Messages-table + timezone). 8 suppressed records protected. V2 follow-up next 19 Aug. inbox-pulse-phase2 still paused (flagged).",
   "vault_health": {
     "decisions": {
       "total": 15,
@@ -237,8 +231,8 @@
       "not_contacted": 0
     },
     "stage_breakdown": {
-      "Email 1": 101,
-      "Email 2": 30,
+      "Email 1": 47,
+      "Email 2": 84,
       "Lost": 14,
       "Engaged": 6,
       "Won": 2,
