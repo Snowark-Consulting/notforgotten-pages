@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 184,
+    "tasks_completed": 185,
     "recent": [
+      {
+        "date": "2026-08-13 18:43",
+        "task": "Overnight readiness (18:41 ACST drift run): QPaint 154 recs / 138 active / 0 new replies. RE-ENG 99 observing. HQ refreshed + verified live. Flagged: cron timezone drift + inbox-pulse-phase2 missing.",
+        "category": "task"
+      },
       {
         "date": "2026-08-12 16:48",
         "task": "Processed 3 QPaint customer replies: Cathryn Cochrane (engaged \u2014 itemised breakdown requested, Tas notified via James), David Schneideman (lost \u2014 went elsewhere, 9,888), Catherine Kumar (lost \u2014 not proceeding). All replied, verified in Gmail Sent, filed to Quotes Completed, Airtable updated.",
@@ -135,11 +140,6 @@
         "date": "2026-08-05 20:28",
         "task": "Alicia Campbell (QPaint) replied to Email 1 \u2014 quote link expired, asking for resend. ,789 deal. Stage updated to Replied/Engaged. Messages record created.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-05 19:02",
-        "task": "Website v4 deployed to production. Belief Architecture live at notforgotten.com.au. 18/18 verification checks passed. Variant A. Validation continues on live site.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-13T18:00:24.754893+09:30",
+  "last_updated": "2026-08-13T18:43:33.431807+09:30",
   "pipeline": {
     "prospect_count": 272,
     "stages": {
