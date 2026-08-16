@@ -5,6 +5,7 @@
 | Domain | Trigger keywords | Card |
 |--------|-----------------|------|
 | gmail | `gog gmail`, `newer_than`, `batchModify`, `mark.read`, `threadId`, `Gmail API` | `cards/gmail.md` |
+| hermes | `shell hook`, `matcher`, `post_tool_call`, `pre_tool_call`, `pre_llm_call`, `allowed_users`, `allowlisted`, `state.db`, `system_prompt`, `skill-injection`, `trigram` | `cards/hermes.md` |
 | shell | `zsh`, `for p in`, `\| tee`, `tmux pipe`, `nvm`, `pyenv`, `echo $`, `declare -A` | `cards/shell.md` |
 | cron | `cronjob`, `schedule`, `launchd`, `LaunchAgent`, `crontab`, `keychain` | `cards/cron.md` |
 | telegram | `allowed_chats`, `allowed_users`, `TELEGRAM`, `@mention`, `/start`, `bot` | `cards/telegram.md` |
@@ -14,7 +15,7 @@
 | models | `gemini`, `model`, `deprecated`, `discontinued`, `404`, `provider` | `cards/models.md` |
 | campaign | `cold-email`, `campaign`, `calibration`, `prospect overlap`, `ownership check`, `pre-flight` | [campaign.md](cards/campaign.md) |
 | python | `datetime.now`, `ZoneInfo`, `timezone`, `Adelaide time`, `UTC server`, `bare datetime` | `cards/python.md` |
-| agent-architecture | `dual-path`, `skill discovery`, `pre-flight`, `orphaned skill`, `boot context`, `Registry`, `SOPs`, `certify`, `verify`, `certification gate` | `cards/agent-architecture.md` |
+| agent-architecture | `dual-path`, `skill discovery`, `pre-flight`, `orphaned skill`, `boot context`, `Registry`, `SOPs`, `certify`, `verify`, `certification gate`, `touchpoint`, `review point`, `auto-contact` | `cards/agent-architecture.md` |
 | asana | `asana`, `html_notes`, `POST /tasks`, `PUT /tasks`, `html_lacks_body`, `body tag` | `cards/asana.md` |
 
 | airtable | `airtable`, `Airtable`, `record`, `duplicate`, `pagination`, `maxRecords`, `pageSize` | `cards/airtable.md` |

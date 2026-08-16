@@ -1,0 +1,73 @@
+# Canonical Email Template — QPaint Recovery Follow-Up (Discovery)
+
+**Template ID:** qpaint-email2-discovery
+**Version:** 1
+**Status:** Active
+**Approved by:** James Hardstaff
+**Approved date:** 2026-08-07 (as "Discovery" Email 2, Founder-approved)
+**Canonicalised:** 2026-08-14
+**Purpose:** Second-touch follow-up for QPaint customers who received Email 1 and did not reply. Discovery of interest and objections. No pressure.
+**Checksum (SHA256):** 2e111a1cde1ebddfa57cdd19a71d42b239faa10e292a905af9dca2fbf7d3f19c
+
+---
+
+## Variables
+
+| Variable | Source | Example |
+|---|---|---|
+| `{customer_first_name}` | QPaint Pipeline → Contact Person (first word only) | Jeremy |
+| `{property}` | QPaint Pipeline → Deal Title (address, quote number prefix stripped) | Mount Ommaney Drive |
+
+## Subject Rule
+
+Subject MUST be `Re: ` + the original Email 1 subject, to maintain the Gmail thread.
+For the standard batch (Email 1 subject "Your quote from QPaint"), the Email 2 subject is:
+
+```
+Re: Your quote from QPaint
+```
+
+## Template
+
+```
+Subject: Re: Your quote from QPaint
+
+Hi {customer_first_name},
+
+Just checking back in on the painting quote for {property}.
+
+I'm interested to know what you thought of the quote and whether there's anything you're unsure about or still considering.
+
+If there is, feel free to be completely open with me. It helps us understand what matters to you and whether there's anything we can do to help.
+
+And if you're simply not ready to make a decision yet, that's completely fine too.
+
+Kind regards,
+
+Atlas
+Customer Care — QPaint
+```
+
+## Privacy Footer (appended automatically, not part of template)
+
+```
+---
+Not Forgotten Systems is helping QPaint manage quote follow-ups. We keep your information secure and use it only in connection with this quote. Privacy policy: notforgotten.com.au/privacy. If you'd prefer not to be contacted, reply to this email.
+```
+
+## Rules
+
+1. **Never** modify the template body. Variable substitution is the only allowed change.
+2. **Subject** must be `Re: ` + original Email 1 subject to preserve the Gmail thread. Never create a new thread for an existing conversation.
+3. **Never** use the customer's full name. First name only.
+4. **Always** use "Kind regards" as the sign-off.
+5. **Always** use "Atlas / Customer Care — QPaint" as the signature.
+6. **Always** append the privacy footer — this is the ONLY authorised Not Forgotten reference in white-label QPaint communications.
+7. **Never** mention the quote value.
+8. **Never** open with "following up", "touching base", or any marketing phrasing.
+
+## Version History
+
+| Version | Date | Change |
+|---|---|---|
+| 1 | 2026-08-14 | Canonicalised from the 7 Aug Founder-approved "Discovery" Email 2 (Gmail ID 19fde31c42ff1dc4). Adds privacy footer and standardised subject per 12 Aug white-label governance. |

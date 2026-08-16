@@ -60,7 +60,7 @@
 | | `2026-08-03-log-retention-standard` | Log Retention Standard — Tiered retention: routine >48h deleted, failures 90 days, protected never touched, daily summaries. | Aug 2026 | 🟢 Made | 2026-09-03 |
 | | `2026-08-03-quote-follow-up-delay` | 48-Hour Quote Follow-Up Delay — follow-up-autopilot waits 48h before Email 1. | Aug 2026 | 🟢 Made | 2026-09-03 |
 
-| | `permanent-outreach-sender-james` | Permanent Outreach Sender: all NF outreach from james@ | Aug 2026 | 🟢 Made | 2026-09-05 |
+| | `2026-08-05-permanent-outreach-sender-james` | Permanent Outreach Sender: all NF outreach from james@ | Aug 2026 | 🟢 Made | 2026-09-05 |
 | | `end-of-infrastructure-phase` | End of Infrastructure Phase — shift to evidence-led growth | Aug 2026 | 🟢 Made | 2026-11-05 |
 | | `2026-08-05-communication-channel-policy` | Communication Channel Policy — Email, SMS, Voice, WhatsApp governed | Aug 2026 | 🟢 Made | 2026-11-05 |
 | | `2026-08-05-quote-intake-standard` | Quote Intake Standard — 48-hour observation, human timing, clean inbox | Aug 2026 | 🟢 Made | 2026-11-05 |
@@ -79,6 +79,11 @@
 | | `2026-08-08-quote-insights-retention-layer` | Quote Insights V1 — official retention tool within product strategy. Follow-up→data→intelligence→value→retention chain. | Aug 2026 | 🟢 Made | 2026-11-08 |
 | | `decision-2026-08-08-phase-1-certified` | Phase 1 Production Cutover CERTIFIED. Canonical Send Authority sole production send path. 11-gate pipeline, 15/15 regression. Protocol v1.1.0. | Aug 2026 | 🟢 Made | 2026-09-08 |
 | | `2026-08-11-intake-completion-gate` | Intake Completion Gate — CERTIFY BEFORE COMPLETE. Hard architectural gate between PandaDoc extraction and Gmail "Quotes Completed" label. `intake-certification.py`. INC-2026-08-11. | Aug 2026 | 🟢 Made | 2026-11-11 |
+| | `2026-08-11-ceo-brief-governance` | CEO Brief Governance Corrections — Business Date Standard (TZ=Adelaide), CEO Brief Freshness Gate, UNREAD≠UNPROCESSED. INC-2026-08-11. | Aug 2026 | 🟢 Made | 2026-11-11 |
+| | `2026-08-11-dashboard-v2` | Dashboard V2 — Founder Approved (CLOSED BASELINE). dashboard-update.py production. 19 orphaned Sequence Status records resolved. | Aug 2026 | 🟢 Made | N/A |
+| | `2026-08-12-initial-customer-email-law` | Initial Customer Email Law — PERMANENT. 13-gate canonical pipeline. No initial customer email drafted from memory. | Aug 2026 | 🟢 Made | N/A |
+| | `2026-08-12-qpaint-privacy-governance` | QPaint White-Label / Privacy Footer Governance — single approved exception reconciled. | Aug 2026 | 🟢 Made | 2026-11-12 |
+| | `2026-08-14-star-painters-trial-correction` | Star Painters trial correction — Ahmad never became a paying client (trial only). Commercial truth: 1 paying client (QPAINT $199 MRR), 1 trial. Trial ≠ conversion. | Aug 2026 | 🟢 Made | N/A |
 
 ---
 
@@ -254,5 +259,5 @@ Based on patterns observed, Atlas should watch for:
 
 ---
 
-*Last updated: 2026-08-09*
-*8 founding + 57 living = 65 decisions recorded. 0 decisions reviewed. 4 challenges logged.*
+*Last updated: 2026-08-16*
+*8 founding + 61 living = 69 decisions recorded. 0 decisions reviewed. 4 challenges logged.*

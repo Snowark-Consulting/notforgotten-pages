@@ -1,0 +1,40 @@
+# Hermes Storage-Efficiency Issue (documented 2026-08-15 — for later engineering)
+
+Not solved today (containment first). Root cause of state.db bloat, measured on the live
+DB (5.35 GB). Four compounding inefficiencies, all inherent to Hermes's current storage
+model — reclaiming any of them requires a Hermes code/schema change.
+
+## 1. Repeated system_prompt storage — 361.7 MB
+
+`sessions.system_prompt` stores the full boot context (SOUL.md + memory + skills) per
+session. 7,515 sessions × ~47 KB avg, but only **54 distinct** values. The same ~54
+prompts are stored ~7,500 times. Fix: dedupe/normalise (store prompt text once, reference
+by id) or store a hash.
+
+## 2. Repeated skill-invocation / context storage — ~871 MB
+
+"user"-role messages are largely context injections: "[IMPORTANT: The user has invoked the
+'<skill>' skill…" followed by the FULL skill text (SKILL.md + references), re-stored on
+every invocation. 7,396 user messages are >50 KB (avg ~117 KB). The growth-operations and
+quote-intake skills (~200 KB each) are duplicated across every cron + interactive session
+that loads them. Fix: don't persist injected context as full messages, or dedupe by skill
+version hash.
+
+## 3. Regular FTS content duplication — ~936 MB
+
+`messages_fts_content` is a shadow table that copies the message text (FTS5 inline-content
+mode). The same text also lives in `messages.content`. Fix: FTS5 external-content mode
+(`content='messages'`), which stops the copy.
+
+## 4. Trigram FTS duplication — ~2.82 GB
+
+`messages_fts_trigram_content` (936 MB, another content copy) + `messages_fts_trigram_data`
+(1.88 GB, the trigram inverted index — inherently ~2× the source text for the trigram
+tokenizer). This is the single largest consumer and is the CJK/substring search index.
+Fix: contentless/external-content mode, or make trigram opt-in.
+
+## Net
+
+~3.1 GB of the 5.35 GB state.db is duplicated/injected context; the actual unique
+conversation history is far smaller. All four fixes are Hermes engineering work — do not
+attempt without Founder + Winston approval.

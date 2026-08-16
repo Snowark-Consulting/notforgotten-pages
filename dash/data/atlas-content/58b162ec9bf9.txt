@@ -1,0 +1,163 @@
+# V2-NEW50-AUG15-2026 — Outbound Strategy (v3, FINAL — execution-ready)
+
+Cohort: 50 new Australian painting businesses. 34 email-eligible (one control cohort).
+16 phone-only (held). Status: STRATEGY CERTIFIED AWAITING FOUNDER SEND APPROVAL.
+
+---
+
+## 1. Reply Definitions (separate axes)
+
+- **RAW REPLY** — any human reply (vs bounce/auto-reply). = `Replied` checkbox / inbound Message.
+- **MEANINGFUL REPLY** — a reply that provides commercially useful info or progresses the
+  relationship: describes follow-up process, confirms pain, already has a system, expresses
+  interest, asks how it works, asks pricing, gives timing, requests a conversation, names the
+  decision-maker, gives a useful objection. NOT defined by which touch generated it.
+- **POSITIVE REPLY** — expresses interest / asks how it works / asks pricing / requests a
+  conversation. (`Interest Level = Hot`)
+- **CONVERSATION** — multi-exchange thread (T4); prospect volunteers operational detail.
+- **OPPORTUNITY** — `Pipeline stage = Qualified Opportunity`.
+- **CUSTOMER** — `Became client` link / `Won` (paid subscription evidence only).
+
+Attribution (separate, recorded on every response): Response Touch, Response Channel,
+Days From First Touch, Touches Before Response.
+
+---
+
+## 2. Airtable Schema Audit (no new fields)
+
+Audit of existing Prospects + V2 Outreach Activity + Messages concludes: **all three proposed
+fields can be REUSED or DERIVED. No new fields required.**
+
+| Proposed field | Verdict | Reuse / derive |
+|---|---|---|
+| V2 Reply Tier (T0-T5) | REUSE | `Replied` (raw) + `Interest Level` Hot/Warm/Cold (positive/engaged/negative) + `Biggest Objection` (Already have a system / Timing / Not decision maker) + `Lost reason` (Not interested) + `Pipeline stage` (Qualified Opportunity). T0-T5 tier recorded in `Outreach notes` (append-only, dated) for the Campaign Review. |
+| V2 Response Touch | DERIVE | Last outbound `V2 Outreach Activity` before the reply (by Timestamp). Computed in the dashboard, not stored. |
+| V2 Pain Confirmed | REUSE | `Call Outcome` (multilineText) + `What Interested Them` + `Interest Level`. Pain confirmation is a discovery note, not a schema field. |
+
+Attribution (response touch, channel, days-from-first-touch, touches-before-response) is a JOIN
+the dashboard computes from `V2 Outreach Activity` (timestamp, channel, Activity Type) + the
+reply timestamp. Verbatim owner language → `Call Outcome` + `Outreach notes` (append-only).
+
+No new field is proposed. No schema change without Founder approval.
+
+---
+
+## 3. Cadence (frozen)
+
+Touch 1 (D1) Email · Touch 2 (D4) Email · Touch 3 (D8) Email · Touch 4 (D12) Call/SMS · Touch 5 (D18) Email.
+
+## 4. Exact Copy (frozen control)
+
+### Touch 1 — Email 1
+Subject: `what happens after you send a quote`
+> Hi [First name],
+>
+> [Personalisation line]
+>
+> You put real time into every quote: the enquiry, the visit, pricing it, sending it. Then some of them just go quiet.
+>
+> What do you do with those ones?
+>
+> I've been asking painters this lately and the answers are all over the place.
+
+### Touch 2 — Email 2
+Subject: `14 jobs, $177,555`
+> Hi [First name],
+>
+> A quick one, following on from my last email.
+>
+> One painting business gave us a list of quotes that had gone quiet. Across 14 jobs, $177,555 was recovered. One early period produced $59,000 within about three weeks.
+>
+> That isn't a promise of what you'd find. It's just what was already sitting in their list.
+>
+> Made me wonder what might be sitting in yours.
+
+### Touch 3 — Email 3
+Subject: `you don't have to wait for new quotes`
+> Hi [First name],
+>
+> Quick thought on how this actually works.
+>
+> There are two ways it helps. The first is going back through the quotes you've already sent and quietly re-opening the ones that stalled. That's work you've already done the hard part on.
+>
+> The second is making sure the quotes you send from today get the right next action, so they don't stall the same way.
+>
+> Starting with existing quotes means we wouldn't have to wait for months of new quote activity before there's something to work with.
+
+### Touch 4 — Founder call / SMS (discovery first, not a pitch)
+Call: "G'day [Name], James here. Quick one: I've been speaking with painting businesses about what happens after a quote goes out. What do you normally do once you've sent one?" Then listen; capture language.
+Voicemail: "G'day [Name], James Hardstaff here. I emailed you about what happens after a quote goes out. If you've got two minutes to tell me how you normally follow up after sending one, I'd appreciate it. No pitch. [Number] if it's easier."
+SMS: "Hi [Name], James here (I emailed last week about what happens after a quote goes out). No pressure. If you've got a minute: how do you normally follow up after you send a quote? Reply STOP to opt out."
+
+SMS is NOT pre-decided by "mid-value". Before SMS, verify: mobile belongs to the appropriate
+business contact · consent/compliance basis acceptable · no DNC/suppression · prospect already
+received the preceding email sequence · SMS genuinely adds value over another email/call.
+
+### Touch 5 — Email 4
+Subject: `a quick look at your quotes`
+> Hi [First name],
+>
+> I'll leave it with you after this.
+>
+> I've reached out because I genuinely think there could be money sitting in quotes you've already sent.
+>
+> If you're open to it, I'd be happy to have a quick look at how you're currently following up, and tell you straight whether I think Not Forgotten would actually help.
+>
+> If it isn't a fit, I'll tell you that too.
+>
+> Either way, thanks for reading these.
+
+---
+
+## 5. Analytics Dashboard (derived, no new schema)
+
+Eligible · Enrolled · Delivered · Raw Replies · Meaningful Replies · Positive Replies ·
+Conversations · Pain Confirmed · Pain Not Present · Existing Solution · Timing · Not Interested ·
+Wrong Person · Meetings · Opportunities · Customers · MRR.
+
+Rates: Prospect→Reply, Prospect→Meaningful, Prospect→Positive, Prospect→Conversation,
+Conversation→Opportunity, Opportunity→Customer, Prospect→Customer.
+
+By touch (T1-T5 responses) · By channel (Email / Founder Call / SMS) · Response latency
+(same-day, 1-3d, 4-7d, 8+d) · Touches before first response.
+
+Opens are directional/noisy only, never commercial intent.
+
+## 6. Learning Capture
+
+For every genuine conversation, record the prospect's actual language about what happens after
+they send quotes. Do not paraphrase away the useful language. Their words feed future email copy,
+landing pages, product, objections, positioning, pricing, scripts. Market evidence outranks our
+assumptions. Target: "12 owners said they follow up when they remember", "4 said office/admin
+handles it", "3 already use CRM", "5 said too busy".
+
+## 7. Success Thresholds (internal experiment rules, not benchmarks)
+
+After the full 34-prospect sequence:
+- 0 meaningful replies → RETHINK positioning/message/channel.
+- 1-2 meaningful replies → ITERATE one major variable.
+- 3+ meaningful replies → evidence of signal, continue and scale carefully.
+- 0 opportunities → investigate curiosity without purchase intent.
+- 1+ qualified opportunity → commercial signal.
+- 1+ paying customer → strong evidence to continue (still analyse why they converted; do not
+  declare product-market fit from one customer).
+
+## 8. Control Cohort
+
+34 email-eligible = ONE experimental cohort. 12+11+11 = operational send-safety batches only,
+NOT separate experiments. Same message/subject/cadence/proof/CTA/positioning throughout. Control
+is frozen once execution begins.
+
+## 9. Founder Call Prioritisation (Touch 4, ~6-10)
+
+Hunter Coast (Gavin Kane) · Colourland (Jihad Al Harere) · Final Finish (Sean Melican) ·
+Painting All Sorts (Jimmy Bond) · Fresh Effects (Rabih Zoreika) · Rise Painters (Ibby).
+Discovery first. Do not pitch immediately.
+
+## 10. Execution (awaiting Founder send approval)
+
+Do NOT auto-send. Present Touch 1 copy + first 12 recipients (verified recipient, verified
+name where available, personalisation line, sender, rendered email, duplicate/contact-history
+check, DNC/suppression check) → Founder approval → sequential send → verify each send in Gmail
+Sent → reconcile Airtable → record evidence → next batch only if the prior batch passed cleanly.
+No SMS, no calls, no Touch 2, no unrelated outreach until their scheduled point.

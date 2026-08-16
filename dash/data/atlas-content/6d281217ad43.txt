@@ -1,0 +1,41 @@
+# Decision: Star Painters / Ahmad — Never Became a Paying Client
+
+**Date:** 2026-08-14
+**Type:** Classification correction (Founder clarification)
+**Status:** Applied
+
+## Context
+
+Ahmad Haidari (Star Painters Adelaide) was classified `Won` / `Became client` in the
+Prospects table (V2 Status = `CLIENT`), and the campaign-intelligence metrics counted
+`conversions = 2` (Tas Moulis + Star Painters).
+
+## Founder clarification
+
+Ahmad **never became a paying Not Forgotten client**. He showed interest, agreed to a
+trial, but never converted to a paid subscription. No paid subscription was established.
+
+## Correction applied
+
+- **Prospects** (`recT4Tr0RV84rN6wu`): Pipeline stage `Won` → `Outreach Active`; V2 Status
+  `CLIENT` → `ACTIVE`; cleared `Won date` and `Became client` link; `Days to convert`
+  auto-cleared (computed field). Trial history preserved in Outreach Notes.
+- **Clients** (`recvCrAQuaMnDmCex`): kept `Subscription status = Trial` (already correct —
+  no MRR, no Plan). Record preserved, not deleted.
+- **campaign-intel-monitor.py** + **campaign-intel-state.json**: `conversions` 2 → 1.
+- **campaign-intelligence-report-july-2026.md**: Conversions 2 → 1; Star Painters note
+  changed from "Now paying client" to "Entered trial — never became a paying client".
+- **founder-reengagement-approval-pack.md**: Star Painters "Now a paying client" → "Trial only".
+
+## Resulting commercial truth
+
+- Paying NF clients: **1** (QPAINT, $199 MRR)
+- NF MRR: **$199**
+- Active trials: **1** (Star Painters Adelaide)
+- Ahmad is now an **active commercial opportunity / trial** (trial → paid conversion).
+
+## Lesson
+
+"Won" / "Became client" classification requires evidence of an **established paid
+subscription**, not merely agreement to trial. A trial agreement is an active opportunity,
+not a conversion. Do not count trials in conversions, paying clients, or MRR.

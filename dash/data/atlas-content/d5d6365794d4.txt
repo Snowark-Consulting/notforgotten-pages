@@ -8,6 +8,92 @@ tier: primary
 
 > Append-only log of fixes, API quirks, and gotchas. Check BEFORE touching any external API. Newest first.
 
+## 2026-08-16 — Cron output persistence: no config knob; retention tightened 96h → 24h
+
+**Confidence:** high
+**Contested:** false
+
+Hermes cron writes a `.md` audit file to `cron/output/<job_id>/<timestamp>.md` on EVERY run, and it ALWAYS includes the full `## Prompt` section (the entire injected context: SOUL.md, skills, watchdog context) plus `## Response`. The bulk of the file is the Prompt, not the response — that's why the two LLM-driven pulse jobs (quotes-pulse-phase2, inbox-pulse-phase2, each ~1/min) generate ~230MB/day. There is **no config flag or env var** to suppress output persistence or strip the prompt: `cron` config only has `provider`, `chronos.*`, `wrap_response`, `max_parallel_jobs` (verified in `hermes_cli/config.py` and `cron/scheduler.py`). The `.md` is written by `save_job_output()` (`cron/jobs.py`); output is constructed in `scheduler.py` (~line 1960). True "reduce at source" requires editing Hermes core (`/usr/local/lib/hermes-agent/cron/scheduler.py`), which reverts on `hermes update` — not recommended.
+
+**Action taken (2026-08-16):** tightened `RETENTION_HOURS` 96 → 24 in `bin/log-retention.py` (BOTH copies: `bin/` + `scripts/bin/`, kept identical) and reconciled all docs (`knowledge/log-retention-standard.md`, `Agent/Infrastructure.md`, `Agent/Registry.md`, growth-operations + nightly-consolidation + headquarters references) from stale "48h"/"4-day/96h" to "24h". Failure preservation stays 90 days. Steady-state cron/output now ~230MB (was ~900MB). Pre-existing drift noted: script had been 96h while docs said 48h.
+
+**Source:** none (documented inline). Related: `knowledge/log-retention-standard.md`, decision `2026-08-03-log-retention-standard.md`.
+
+## 2026-08-15 — QPaint Email 3: Pipeline Truth (not breakup) + Customer Context Overrides Generic Copy
+
+**Confidence:** high
+**Contested:** false
+
+Founder correction to proposed Jeremy Ho Email 3. Email 3 asks for PIPELINE TRUTH (make it easy for the customer to tell us where things stand), NOT a breakup. Must not sound desperate, repeat Email 2, say "final", manufacture urgency, or close the opportunity. Four response states → commercial classification: STILL CONSIDERING→Engaged, ON HOLD→Deferred, WENT ELSEWHERE→Lost+cleanup, WANTS TO PROCEED→Opportunity, NO RESPONSE→unresolved (do not infer why). QPaint recovery ≠ cold prospecting — existing commercial relationship; cadence built from customer evidence, not "breakup" patterns. Refinement (Nuwan Fernando): EMAIL NUMBER determines position, CUSTOMER EVIDENCE determines what we say — known context overrides generic copy.
+
+**Source:** `learnings/2026-08-15-qpaint-email3-pipeline-truth.md`
+
+## 2026-08-15 — Ahmad / Star Painters: STALLED OPPORTUNITY (not trial), six-state distinction
+
+**Confidence:** high
+**Contested:** false
+
+Supersedes 2026-08-14 "trial" label. Ahmad Haidari (Star Painters Adelaide) is a STALLED COMMERCIAL OPPORTUNITY (interest + agreement, never onboarded/used/paid). Six states must not be collapsed: interest expressed → agreement to proceed → onboarding started → onboarding complete → product active → paying customer. Rule: do not advance commercial reality merely because someone verbally agreed to the next step — primary evidence must support each state. TRIAL DISCUSSED ≠ TRIAL STARTED ≠ PRODUCT USED ≠ PAYING CUSTOMER. Result: 1 paying client (QPAINT $199 MRR), 0 trials, 1 stalled.
+
+**Source:** `learnings/2026-08-15-ahmad-stalled-opportunity.md`
+
+## 2026-08-15 — Next Touchpoint Date ≠ Contact: "I'll be in touch" = review point
+
+**Confidence:** high
+**Contested:** false
+
+Next Touchpoint Date does not necessarily mean CONTACT CUSTOMER — it can mean REVIEW THE OPPORTUNITY. When a customer says "I'll be in touch soon", set a REVIEW point (First Action "REVIEW ONLY (not contact)"), preserve commercial state, send a brief acknowledgment only (no CTA/question/pressure/date promise). Must not auto-contact just because the date arrived. Sian Leathem case: carpenter rescheduled, classified Engaged/In Progress, review point 2026-08-24.
+
+**Source:** `learnings/2026-08-15-ntp-review-vs-contact.md`
+
+## 2026-08-15 — Known Cron Defects (3, documented — not repairing)
+
+**Confidence:** medium
+**Contested:** false
+
+Secondary priority — repair only if customer/data-integrity/revenue/security/imminent-failure risk. (1) Stale Prospect Alert (519e0b52719c) exits 1 after REPORTING stale prospects (cosmetic — alert text correct, non-zero exit flagged as "error"). (2) CEO Brief (4e98b4642d62, paused) script `scripts/campaign-intel-monitor.py` double-prefix resolves to `scripts/scripts/...` (wrong; should be bare). (3) bin/ symlink path-resolution constraint — scheduler blocks paths outside scripts/; mitigated 2026-08-14 by copying bin/*.py to scripts/bin/ as real files.
+
+**Source:** `learnings/2026-08-15-cron-known-defects.md`
+
+## 2026-08-15 — Hermes Storage-Efficiency: state.db bloat root cause (for later engineering)
+
+**Confidence:** high
+**Contested:** false
+
+Measured on live DB (5.35GB): ~3.1GB is duplicated/injected context. Four inefficiencies: (1) system_prompt repeated ~7,500× (~362MB, only 54 distinct values); (2) skill-invocation context re-stored every session (~871MB); (3) messages_fts_content shadow copy (~936MB); (4) trigram FTS content + inverted index (~2.82GB, the single largest consumer). Fixes: dedupe system_prompt, don't persist injected context, FTS5 external-content mode, trigram opt-in. All require Hermes code/schema change — do not attempt without Founder + Winston approval. Trigram FTS not droppable (breaks session_search).
+
+**Source:** `learnings/2026-08-15-hermes-storage-efficiency.md`
+
+## 2026-08-14 — Cron timezone dependency: never change scheduler timezone without converting expressions
+
+**Confidence:** high
+**Contested:** false
+
+Australia/Adelaide is the authoritative business timezone. The Aug 12 change of the global scheduler timezone from '' (UTC) to Australia/Adelaide was correct in intent but incomplete: done WITHOUT converting the existing UTC-written cron expressions. Result: nightly jobs (written 11:00-12:00 UTC = 20:30-21:30 Adelaide) shifted to midday Adelaide. Permanent rule: any scheduler-timezone change MUST include a dependency check across ALL cron expressions — determine whether each was written as UTC or Adelaide wall-clock, and convert UTC-written ones (+9:30 ACST) BEFORE committing. Corrected 2026-08-14: consolidation 21:00, backup 21:30, graph rebuild 21:40, tracking audit 20:55, log retention 20:30 (5 re-saved: vault-lint, stale prospect, website intel, monthly report, signature sync).
+
+**Source:** `learnings/2026-08-14-cron-timezone-dependency.md`
+
+## 2026-08-14 — QPaint reply processing: "James" ambiguity + commercial outcome categorisation
+
+**Confidence:** high
+**Contested:** false
+
+**Learning 1 — "James" is ambiguous across QPaint.** QPaint has its own employee named James. A customer reference to "James" must NOT be assumed to mean James Hardstaff. Vivien Lennan replied "responded to James yesterday and explained our situation" — initially misread as "already engaged with James Hardstaff"; correct reading is she spoke to a QPaint employee. Rule: establish identity from context/evidence before attributing a customer interaction to a specific person.
+
+**Learning 2 — Commercial outcome categorisation.** QPaint follow-up produces pipeline truth, not just recovered revenue. Five outcomes tracked separately, never conflated:
+
+| Category | Definition |
+|---|---|
+| Revenue Recovery | Job genuinely recovered through our follow-up |
+| Revenue Confirmation | Job already won/accepted that follow-up discovers/confirms |
+| Pipeline Cleanup | Quotes confirmed Lost |
+| Deferred Pipeline | Real opportunity with future timing |
+| Engaged Opportunities | Customer actively considering/progressing |
+
+Rule: do not call a "confirmation" a "recovery" unless evidence shows follow-up caused or materially contributed to the win. Market evidence outranks assumptions. Matters for reporting and case studies.
+
+**Source:** `learnings/2026-08-14-qpaint-reply-categorization.md`
+
 ## 2026-08-12 — Initial Customer Email Law: Protocol Before Content
 
 **Confidence:** permanent

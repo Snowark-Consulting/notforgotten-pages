@@ -6,7 +6,7 @@ tier: primary
 
 # Log Retention Standard
 
-> Routine logs >48h deleted, failures preserved 90 days, protected records never touched. Daily summaries. Governance standard, not just disk management.
+> Routine logs >24h deleted, failures preserved 90 days, protected records never touched. Daily summaries. Governance standard, not just disk management.
 
 **Established:** 2026-08-03
 **Decision:** `knowledge/decisions/2026-08-03-log-retention-standard.md`
@@ -34,7 +34,7 @@ High-frequency cron outputs are classified as routine operational logs. These in
 | `d0cdcda5b237` | inbox-watchdog-phase1 | Every 3 min |
 | `20810e75d779` | quotes-watchdog-phase1 | Every 1 min |
 
-**Rule:** Routine successful outputs older than 48 hours are automatically deleted.
+**Rule:** Routine successful outputs older than 24 hours are automatically deleted.
 
 ### 2. Failure and Warning Logs
 

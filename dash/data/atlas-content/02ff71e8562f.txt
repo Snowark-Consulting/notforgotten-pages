@@ -1,0 +1,37 @@
+# Cron Timezone Dependency Rule (2026-08-14)
+
+## The lesson
+
+Australia/Adelaide is the authoritative business timezone for Not Forgotten.
+
+The 12 Aug change of the global scheduler timezone from '' (UTC default) to
+Australia/Adelaide was correct in intent but incomplete: it was done WITHOUT
+converting the existing UTC-written cron expressions.
+
+Result: the "nightly" jobs (written as 11:00-12:00 UTC = 20:30-21:30 Adelaide)
+shifted to 11:00-12:00 Adelaide (midday), so "Nightly Memory Consolidation" ran
+during the day.
+
+## The rule (permanent)
+
+Any future change to the global scheduler timezone MUST include, before commit,
+a dependency check across ALL existing cron expressions:
+
+1. For every job, determine whether its expression was written as UTC or as
+   Adelaide wall-clock time.
+2. Convert UTC-written expressions to Adelaide (+9:30 for ACST) BEFORE the
+   timezone change is committed.
+3. Never change the scheduler timezone independently of the schedules that
+   depend on it.
+
+## Corrected 2026-08-14
+
+- Nightly memory consolidation: 30 11 → 0 21 (21:00 Adelaide)
+- Nightly backup: 0 12 → 30 21 (21:30 Adelaide)
+- Nightly vault graph rebuild: 10 12 → 40 21 (21:40 Adelaide)
+- Nightly tracking tag audit: 25 11 → 55 20 (20:55 Adelaide)
+- Log retention: 0 11 → 30 20 (20:30 Adelaide)
+
+Stale next_run_at jobs re-saved (same expression) to re-evaluate in Adelaide:
+weekly vault-lint, stale prospect alert, weekly website intelligence, monthly
+outreach report, James signature sync.

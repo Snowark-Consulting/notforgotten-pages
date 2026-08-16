@@ -39,8 +39,28 @@
     ]
   },
   "activity": {
-    "tasks_completed": 185,
+    "tasks_completed": 189,
     "recent": [
+      {
+        "date": "2026-08-16 16:06",
+        "task": "Campaign pulse posted 16 Aug \u2014 QPaint 4th win (Zappacosta 45K), Email 3 cohort .25M, V2-NEW50 Batch 1 scheduled Tue 18 Aug",
+        "category": "task"
+      },
+      {
+        "date": "2026-08-15 14:55",
+        "task": "Built V2-NEW50-AUG15-2026 cohort: researched + verified 57 new Australian painting businesses, uploaded 50 to Airtable Prospects (UNSENT/NEW, never contacted). NSW/QLD/VIC/WA/ACT/TAS/NT coverage. 7 held for review.",
+        "category": "task"
+      },
+      {
+        "date": "2026-08-14 15:59",
+        "task": "Campaign pulse posted \u2014 QPaint Email 2 batch (54 sent, $956K contacted, 3 same-day replies all deferred-not-lost); V2 Insight-Proof at 31 Email 1 sends, 0 replies",
+        "category": "task"
+      },
+      {
+        "date": "2026-08-14 13:19",
+        "task": "QPaint: Cheryl Sim #43031 marked Won (signature verified by James). Attribution pending.",
+        "category": "task"
+      },
       {
         "date": "2026-08-13 18:43",
         "task": "Overnight readiness (18:41 ACST drift run): QPaint 154 recs / 138 active / 0 new replies. RE-ENG 99 observing. HQ refreshed + verified live. Flagged: cron timezone drift + inbox-pulse-phase2 missing.",
@@ -120,26 +140,6 @@
         "date": "2026-08-05 21:24",
         "task": "Carlie Gunn (QPaint, 9,932) \u2014 replied to Email 1. Sent Commercial Customer Care reply: uncovering decision blocker. Stage \u2192 Replied, Recovery \u2192 Engaged.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-05 21:09",
-        "task": "Architectural Snapshot v1.0 complete \u2014 journey-centric architecture documented. INC-004 closed. 10-gate certification active. System returning to Normal Operations.",
-        "category": "task"
-      },
-      {
-        "date": "2026-08-05 20:48",
-        "task": "Handover to QPaint (Dee + Leslie) \u2014 Alicia Campbell needs quote resend. Sent from james@. Gmail: 19fd1a5648428848.",
-        "category": "task"
-      },
-      {
-        "date": "2026-08-05 20:38",
-        "task": "Replied to Alicia Campbell (QPaint, ,789) \u2014 quote link expired, notified Tas to resend. Customer Care Standard refined and applied.",
-        "category": "task"
-      },
-      {
-        "date": "2026-08-05 20:28",
-        "task": "Alicia Campbell (QPaint) replied to Email 1 \u2014 quote link expired, asking for resend. ,789 deal. Stage updated to Replied/Engaged. Messages record created.",
-        "category": "task"
       }
     ]
   },
@@ -164,19 +164,20 @@
       }
     ]
   },
-  "last_updated": "2026-08-14T10:00:12.985203+09:30",
+  "last_updated": "2026-08-17T06:00:58.412039+09:30",
   "pipeline": {
-    "prospect_count": 272,
+    "prospect_count": 322,
     "stages": {
-      "New": 144,
-      "Campaign Complete": 78,
-      "Won": 2,
+      "New": 189,
+      "Campaign Complete": 69,
+      "Outreach Active": 42,
+      "Won": 1,
       "Lost": 15,
-      "Outreach Active": 28,
-      "Not a fit": 5
+      "Not a fit": 5,
+      "Qualified Opportunity": 1
     },
     "verticals": {
-      "Painter": 196,
+      "Painter": 246,
       "IT MSP": 4,
       "Marketing agency": 30,
       "Commercial cleaning": 30,
@@ -191,7 +192,7 @@
     },
     "stage_by_vertical": {
       "New": {
-        "Painter": 99,
+        "Painter": 144,
         "Marketing agency": 19,
         "Commercial cleaning": 21,
         "Other": 2,
@@ -201,7 +202,7 @@
       "Campaign Complete": {
         "IT MSP": 3,
         "Marketing agency": 8,
-        "Painter": 54,
+        "Painter": 45,
         "Landscaper": 1,
         "Commercial cleaning": 6,
         "Construction": 2,
@@ -209,8 +210,11 @@
         "Engineering": 1,
         "Cleaning": 1
       },
+      "Outreach Active": {
+        "Painter": 42
+      },
       "Won": {
-        "Painter": 2
+        "Painter": 1
       },
       "Lost": {
         "Painter": 8,
@@ -218,19 +222,43 @@
         "Marketing agency": 3,
         "IT MSP": 1
       },
-      "Outreach Active": {
-        "Painter": 28
-      },
       "Not a fit": {
         "Painter": 5
+      },
+      "Qualified Opportunity": {
+        "Painter": 1
       }
     },
     "outreach_active": [
+      {
+        "name": "M .J. Painters Melbourne",
+        "industry": "Painter",
+        "last_contacted": "2026-08-14",
+        "suburb": "Victoria"
+      },
       {
         "name": "Sydney Painting Experts",
         "industry": "Painter",
         "last_contacted": "2026-08-12",
         "suburb": "Sydney"
+      },
+      {
+        "name": "Like Painting",
+        "industry": "Painter",
+        "last_contacted": "2026-08-14",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "Inspire Painting",
+        "industry": "Painter",
+        "last_contacted": "2026-08-14",
+        "suburb": "Victoria"
+      },
+      {
+        "name": "The Painting Company",
+        "industry": "Painter",
+        "last_contacted": "2026-08-14",
+        "suburb": "Victoria"
       },
       {
         "name": "Kincoat Painting",
@@ -261,6 +289,12 @@
         "industry": "Painter",
         "last_contacted": "2026-08-05",
         "suburb": "Sydney"
+      },
+      {
+        "name": "M & M Property Services SA",
+        "industry": "Painter",
+        "last_contacted": "2026-08-14",
+        "suburb": "South Australia"
       },
       {
         "name": "Redefine Painting",
@@ -317,6 +351,18 @@
         "suburb": "Victoria"
       },
       {
+        "name": "All Melbourne Painting",
+        "industry": "Painter",
+        "last_contacted": "2026-08-14",
+        "suburb": "Victoria"
+      },
+      {
+        "name": "Restyle Painting & Decorating",
+        "industry": "Painter",
+        "last_contacted": "2026-08-14",
+        "suburb": "South Australia"
+      },
+      {
         "name": "Newline Painting",
         "industry": "Painter",
         "last_contacted": "2026-08-05",
@@ -347,9 +393,33 @@
         "suburb": "South Australia"
       },
       {
+        "name": "Austar Painting & Renovations",
+        "industry": "Painter",
+        "last_contacted": "2026-08-14",
+        "suburb": "Victoria"
+      },
+      {
+        "name": "Doctor Brush Painting Services",
+        "industry": "Painter",
+        "last_contacted": "2026-08-14",
+        "suburb": "Victoria"
+      },
+      {
         "name": "Paintpal Pty Ltd",
         "industry": "Painter",
         "last_contacted": "2026-08-12",
+        "suburb": "Victoria"
+      },
+      {
+        "name": "Adelaide Designer Painters",
+        "industry": "Painter",
+        "last_contacted": "2026-08-14",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "Melbourne\u2019s Painting and Decorating",
+        "industry": "Painter",
+        "last_contacted": "2026-08-14",
         "suburb": "Victoria"
       },
       {
@@ -365,9 +435,27 @@
         "suburb": "Victoria"
       },
       {
+        "name": "Tohmes Painting and Cleaning Services",
+        "industry": "Painter",
+        "last_contacted": "2026-08-14",
+        "suburb": "Victoria"
+      },
+      {
+        "name": "Apex Painters",
+        "industry": "Painter",
+        "last_contacted": "2026-08-14",
+        "suburb": "South Australia"
+      },
+      {
         "name": "SA Quality Painting",
         "industry": "Painter",
         "last_contacted": null,
+        "suburb": "South Australia"
+      },
+      {
+        "name": "More than Painting",
+        "industry": "Painter",
+        "last_contacted": "2026-08-14",
         "suburb": "South Australia"
       },
       {
@@ -396,15 +484,15 @@
       }
     ],
     "active_by_vertical": {
-      "Painter": 28
+      "Painter": 42
     },
     "messages": {
-      "outbound_total": 19,
+      "outbound_total": 33,
       "inbound_total": 0,
-      "total": 19,
+      "total": 33,
       "reply_rate": 0.0,
       "last_7_days": {
-        "outbound": 19,
+        "outbound": 33,
         "inbound": 0
       }
     },
@@ -414,7 +502,7 @@
       "total_opens": 245,
       "avg_opens": 4.2
     },
-    "last_refreshed": "2026-08-14T00:30:12.983826+00:00"
+    "last_refreshed": "2026-08-16T20:30:58.410401+00:00"
   },
   "decisions": {
     "total": 42,
@@ -568,6 +656,89 @@
   "drafts": {
     "files": [
       {
+        "file": "v2-top10-call-list-2026-08-15.md",
+        "title": "V2 Top 10 Painter Call List \u2014 READY (2026-08-15)",
+        "status": null,
+        "window": null,
+        "prospects": [],
+        "prospect_count": 0
+      },
+      {
+        "file": "founder-reengagement-approval-pack.md",
+        "title": "Founder Re-engagement Strategy \u2014 Approval Pack",
+        "status": null,
+        "window": null,
+        "prospects": [
+          {
+            "name": "Strategy Context",
+            "subject": null,
+            "angles": [],
+            "body": null
+          },
+          {
+            "name": "Compliance Verification",
+            "subject": null,
+            "angles": [],
+            "body": null
+          },
+          {
+            "name": "Pilot Design",
+            "subject": null,
+            "angles": [],
+            "body": null
+          },
+          {
+            "name": "Eligibility Criteria",
+            "subject": null,
+            "angles": [],
+            "body": null
+          },
+          {
+            "name": "Email Draft (with unsubscribe + personalisation)",
+            "subject": "Quick question",
+            "angles": [],
+            "body": "Hi [Name or Business],\nI'm James, the founder of Not Forgotten.\n[PERSONALISATION \u2014 one short, truthful, verified sentence about their business.]\nI noticed we sent you a few emails about our quote follow-up service and I wanted to reach out personally \u2014 not to sell you anything, but to learn.\nIf you have 30 seconds, I'd genuinely appreciate your take: what made our service not the right fit for you?\nNo wrong answers. If you don't need it, don't want it, or went another direction \u2014 that's honestly helpful to know.\nAnd if you'd prefer I didn't email again, just say the word. To stop receiving emails from Not Forgotten, simply reply 'unsubscribe'.\nThanks for your time.\nJames"
+          },
+          {
+            "name": "CRM Fields Required",
+            "subject": null,
+            "angles": [],
+            "body": null
+          },
+          {
+            "name": "Send Plan",
+            "subject": null,
+            "angles": [],
+            "body": null
+          },
+          {
+            "name": "Stop Conditions",
+            "subject": null,
+            "angles": [],
+            "body": null
+          },
+          {
+            "name": "Evaluation Framework (August 25)",
+            "subject": null,
+            "angles": [],
+            "body": null
+          },
+          {
+            "name": "Delivery Format",
+            "subject": null,
+            "angles": [],
+            "body": null
+          },
+          {
+            "name": "Request for James",
+            "subject": null,
+            "angles": [],
+            "body": null
+          }
+        ],
+        "prospect_count": 11
+      },
+      {
         "file": "qpaint-nicholas-acknowledgement-2026-08-02.md",
         "title": "Nicholas Zappacosta \u2014 Tender Acknowledgement",
         "status": null,
@@ -675,81 +846,6 @@
         "prospect_count": 11
       },
       {
-        "file": "founder-reengagement-approval-pack.md",
-        "title": "Founder Re-engagement Strategy \u2014 Approval Pack",
-        "status": null,
-        "window": null,
-        "prospects": [
-          {
-            "name": "Strategy Context",
-            "subject": null,
-            "angles": [],
-            "body": null
-          },
-          {
-            "name": "Compliance Verification",
-            "subject": null,
-            "angles": [],
-            "body": null
-          },
-          {
-            "name": "Pilot Design",
-            "subject": null,
-            "angles": [],
-            "body": null
-          },
-          {
-            "name": "Eligibility Criteria",
-            "subject": null,
-            "angles": [],
-            "body": null
-          },
-          {
-            "name": "Email Draft (with unsubscribe + personalisation)",
-            "subject": "Quick question",
-            "angles": [],
-            "body": "Hi [Name or Business],\nI'm James, the founder of Not Forgotten.\n[PERSONALISATION \u2014 one short, truthful, verified sentence about their business.]\nI noticed we sent you a few emails about our quote follow-up service and I wanted to reach out personally \u2014 not to sell you anything, but to learn.\nIf you have 30 seconds, I'd genuinely appreciate your take: what made our service not the right fit for you?\nNo wrong answers. If you don't need it, don't want it, or went another direction \u2014 that's honestly helpful to know.\nAnd if you'd prefer I didn't email again, just say the word. To stop receiving emails from Not Forgotten, simply reply 'unsubscribe'.\nThanks for your time.\nJames"
-          },
-          {
-            "name": "CRM Fields Required",
-            "subject": null,
-            "angles": [],
-            "body": null
-          },
-          {
-            "name": "Send Plan",
-            "subject": null,
-            "angles": [],
-            "body": null
-          },
-          {
-            "name": "Stop Conditions",
-            "subject": null,
-            "angles": [],
-            "body": null
-          },
-          {
-            "name": "Evaluation Framework (August 25)",
-            "subject": null,
-            "angles": [],
-            "body": null
-          },
-          {
-            "name": "Delivery Format",
-            "subject": null,
-            "angles": [],
-            "body": null
-          },
-          {
-            "name": "Request for James",
-            "subject": null,
-            "angles": [],
-            "body": null
-          }
-        ],
-        "prospect_count": 11
-      },
-      {
         "file": "tas-nicholas-reply-2026-07-28.md",
         "title": "Draft: Tas \u2014 Nicholas Zappacosta positive reply",
         "status": null,
@@ -774,8 +870,8 @@
         "prospect_count": 0
       }
     ],
-    "updated": "2026-08-13T12:35:25.549859+00:00",
-    "total_files": 9,
+    "updated": "2026-08-16T12:35:42.846500+00:00",
+    "total_files": 10,
     "total_prospects": 22
   },
   "ceo_brief": {
@@ -4719,19 +4815,19 @@
     }
   },
   "storage_health": {
-    "tier": "green",
-    "disk_pct": 67.5,
-    "free_gb": 6.4,
-    "why": "other hermes (4081MB), chrome profile (1022MB), cron outputs (831MB). Normal system overhead.",
-    "trend": "rapidly increasing",
-    "daily_rate_pct": 5.35,
-    "forecast_days_to_95": 5.1,
-    "recommendation": "None \u2014 storage is healthy.",
+    "tier": "red",
+    "disk_pct": 90.5,
+    "free_gb": 1.9,
+    "why": "state db (8431MB), chrome profile (1041MB), other hermes (869MB). Normal system overhead.",
+    "trend": "decreasing",
+    "daily_rate_pct": -3.73,
+    "forecast_days_to_95": null,
+    "recommendation": "Investigate. Top consumers: state_db (8431.0MB), chrome_profile (1041.2MB), other_hermes (869.2MB). Find reclaim opportunities.",
     "largest_consumers": {
-      "other_hermes": 4081.3,
-      "chrome_profile": 1022.0,
-      "cron_outputs": 830.8
+      "state_db": 8431.0,
+      "chrome_profile": 1041.2,
+      "other_hermes": 869.2
     },
-    "last_checked": "2026-08-14T06:00:34+0930"
+    "last_checked": "2026-08-17T06:00:54+0930"
   }
 }

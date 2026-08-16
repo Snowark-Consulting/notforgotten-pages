@@ -1,0 +1,41 @@
+# Ahmad / Star Painters — STALLED OPPORTUNITY correction (2026-08-15)
+
+Supersedes `2026-08-14-star-painters-trial-correction` (which still labelled him a "trial").
+
+## Commercial truth
+
+Ahmad Haidari (Star Painters Adelaide) is a **STALLED COMMERCIAL OPPORTUNITY**, not an
+active trial. He expressed interest and agreed to proceed, but never completed
+onboarding/setup, never became a paying customer, and is not using the product.
+
+## The six-state distinction (do not collapse these)
+
+1. INTEREST EXPRESSED
+2. AGREEMENT TO PROCEED
+3. ONBOARDING STARTED
+4. ONBOARDING COMPLETE
+5. PRODUCT ACTIVE
+6. PAYING CUSTOMER
+
+**Rule:** do not advance commercial reality merely because someone verbally agreed to the
+next step. Primary evidence must support each state.
+
+- TRIAL DISCUSSED/AGREED ≠ TRIAL STARTED ≠ PRODUCT USED ≠ PAYING CUSTOMER.
+
+## Changes applied
+
+- **Prospects** (`recT4Tr0RV84rN6wu`): Pipeline stage → `Qualified Opportunity`
+  (was `Outreach Active`). V2 Status stays `ACTIVE`.
+- **Clients** (`recvCrAQuaMnDmCex`): Subscription status → `Churned` (was `Trial`);
+  Onboarding status → `Not started`. No MRR/Plan.
+- **HQ**: business_score → "1 paying client ($199 MRR) + 1 stalled opportunity";
+  waiting_for_james item → `star-painters-stalled`.
+- **Dashboard V2**: regenerated → "1 paying · 0 trial" (Star Painters now counts as
+  Engaged/Qualified, not Trial).
+
+## Resulting commercial position
+
+- Paying clients: **1** (QPAINT, $199 MRR)
+- Active trials: **0**
+- Stalled opportunity: **1** (Star Painters Adelaide / Ahmad)
+- Ahmad is NOT counted as a trial in any headline metric.

@@ -1,0 +1,32 @@
+# Known Defects — Cron (recorded 2026-08-15, not repairing)
+
+Secondary priority. Repair only if one creates customer / data-integrity / revenue /
+security / imminent-failure risk. Recorded per Founder instruction "do not start
+repairing the three legacy cron defects this morning."
+
+## 1. Stale Prospect Alert — exit code 1 (cosmetic)
+
+- Job `519e0b52719c`, script `stale-prospect-alert.py`, weekly Monday 08:00.
+- `last_status: error` because the script exits code 1 after REPORTING stale prospects
+  (SA Quality Painting, Celtic Deco, John's Painting). The alert text is correct and
+  delivered; the non-zero exit is what the scheduler flags as "error".
+- Fix (when approved): return exit 0 after reporting (or have the scheduler treat
+  "reported stale prospects" as success).
+
+## 2. CEO Brief — script path double-prefix
+
+- Job `4e98b4642d62`, paused. `script: "scripts/campaign-intel-monitor.py"`.
+- The scheduler already resolves relative to `scripts/`, so this resolves to
+  `scripts/scripts/campaign-intel-monitor.py` (wrong). Should be bare
+  `campaign-intel-monitor.py`. Latent (paused) — no current impact.
+
+## 3. bin/ symlink path-resolution constraint (root cause, mitigated)
+
+- The scheduler blocks any script whose resolved path falls outside `scripts/`
+  (`resolves outside the scripts directory`). `bin/*.py` symlinks under
+  `scripts/bin/` therefore fail.
+- Mitigated 2026-08-14 by copying `log-retention.py`, `monthly-outreach-report.py`,
+  `sync-james-signature.py`, `followup-queue.py` from `bin/` to `scripts/bin/` as
+  real files. Log Retention now runs ok.
+- Remaining constraint: any FUTURE `bin/` symlink will hit the same block. Documented,
+  not repaired (would need scheduler config or a different layout).

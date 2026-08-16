@@ -1,0 +1,38 @@
+# QPaint Reply Processing — Learnings (2026-08-14)
+
+## Learning 1: "James" is ambiguous across QPaint
+
+QPaint has its own employee named James. A customer's reference to "James" must
+NOT be assumed to mean James Hardstaff.
+
+- Vivien Lennan replied "responded to James yesterday and explained our situation."
+- This was initially treated as "customer already engaged with James Hardstaff."
+- Correct interpretation: she spoke to James at QPaint (a QPaint employee).
+
+Rule: identity must be established from context/evidence before attributing a
+customer interaction to a specific person. When a QPaint customer references a
+name, do not assume it maps to Not Forgotten staff.
+
+## Learning 2: Commercial outcome categorisation (QPaint follow-up)
+
+QPaint follow-up produces pipeline truth, not just recovered revenue. Track these
+five outcomes separately. Do not conflate them.
+
+| Category | Definition | Example (14 Aug) |
+|---|---|---|
+| Revenue Recovery | Job genuinely recovered through our follow-up | (none today) |
+| Revenue Confirmation | Job already won/accepted that follow-up discovers/confirms | (none today) |
+| Pipeline Cleanup | Quotes confirmed Lost | Darryl Rogers, Rachel Stephenson, Nicholas Hanna, Ben Towler ($14,773, competitor selected) |
+| Deferred Pipeline | Real opportunity with future timing | Lee Wright (~18 months), Alf Quattrocchi / Irene Prosser ($8,712, next year) |
+| Engaged Opportunities | Customer actively considering/progressing | Cathy Cochrane (itemised breakdown) |
+
+Rule: do not call a "confirmation" a "recovery" unless evidence shows our
+follow-up caused or materially contributed to the win. Market evidence outranks
+assumptions. This distinction matters for reporting and case studies.
+
+Reclassification (14 Aug): Ben Towler was initially logged as Revenue
+Confirmation on his "accepted and paid the deposit" reply. QPaint could not
+verify the acceptance/payment, and Ben then confirmed "I went with another
+company". Reclassified Lost (competitor selected) -> Pipeline Cleanup $14,773.
+Revenue Confirmation reverts to (none today). Alf Quattrocchi / Irene Prosser
+("hold back and probably do it next year") logged Deferred Pipeline $8,712.
