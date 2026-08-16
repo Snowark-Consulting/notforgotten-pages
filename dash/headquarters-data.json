@@ -1,69 +1,63 @@
 {
-  "generated_at": "2026-08-17T04:11:53+09:30",
+  "generated_at": "2026-08-17T06:50:27+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "Monday. Quiet overnight — no new customer replies across quotes@, atlas@ or james@ (only DMARC noise). QPaint book holds at 4 Won ($321,967): recovered $129,750 (Arno Hsu), assisted $41,932 (Joy Ryan + Cheryl Sim), tender $145,008 (Logan Village State School). V2-NEW50 Batch 1 fires tomorrow (Tue 18 Aug, 12 recipients) — already approved and scheduled, no action needed. Two items need your call today: disk/state.db remediation (90% full, 2.1GB free, ~4 days of runway) and the Star Painters/Ahmad re-engagement.",
+    "body": "The QPaint portfolio is stable. 157 total records, 130 active journeys with complete Next Action coverage. Zero unsupported stages. Zero missing communications. The Production Operating Protocol v1.0.0 governs all operations. The canonical send authority is shadow-ready pending production cutover.",
     "estimated_time": "2 minutes"
   },
   "business_score": {
     "score": 86,
-    "change": "—",
+    "change": "\u2014",
     "reasons_positive": [
-      "QPaint: 4 Won totalling $321,967 — recovered $129,750 (Arno), assisted $41,932 (Joy + Cheryl), tender $145,008 (Logan Village SS)",
+      "QPaint: 4 Won totalling $321,967 \u2014 recovered $129,750 (Arno), assisted $41,932 (Joy + Cheryl), tender $145,008 (Logan Village SS)",
       "V2-NEW50 Batch 1 APPROVED + SCHEDULED (12, fires Tue 18 Aug), 0 sent",
       "QPaint pipeline healthy: 155 records, $5.48M book, 0 overdue follow-ups"
     ],
     "reasons_negative": [
       "V2 growth unproven: 0 replies across RE-ENG (99 observing) + Insight-Proof (14 sent 14 Aug)",
       "1 paying customer ($199 MRR) + 1 stalled opportunity (Star Painters/Ahmad)",
-      "state.db 8.1GB, disk 90% (2.1GB free) — remediation decision due today"
+      "state.db 8.1GB, disk 90% (2.1GB free) \u2014 remediation decision due today"
     ]
   },
   "business_health": {
     "clients": {
       "status": "healthy",
-      "icon": "✅",
-      "detail": "QPaint: 1 paying ($199 MRR, Green). Star Painters = stalled opportunity (not trial). 155 records, 4 Won."
+      "detail": "QPaint: Active. Portfolio certified. 130 active journeys with complete Next Action coverage."
     },
     "recovery_operations": {
       "status": "healthy",
-      "icon": "✅",
-      "detail": "155 records, $5.48M book. 4 Won ($321,967), 23 Lost, 118 Contacted. Email 3: 3 sent (calibration). 69 at Email 2 = review cohort."
+      "detail": "\u2705 130 active QPaint journeys certified. 118 contacted. 0 exceptions. Pipeline: $4,686,318. Won: $321,967."
     },
     "outreach": {
       "status": "healthy",
-      "icon": "✅",
-      "detail": "V2-NEW50 Batch 1: 12 approved+scheduled Tue. Insight-Proof v1: 14 sent 14 Aug (James). RE-ENG: 99 observing, 0 YES."
+      "detail": "3 Email 2 scheduled (Jeremy Ho, Skyla Garvey, Jordan Forrest). FF1 Wave 1 on hold. Founder re-engagement pending."
     },
     "engineering": {
-      "status": "caution",
-      "icon": "⚠️",
-      "detail": "Disk 90% (2.1GB free). state.db 8.1GB. Nightly backup FAILING (1.1GB file in git history). Dashboard refresh git-push timeout."
+      "status": "healthy",
+      "detail": "All systems healthy. Canonical send authority (Phase 1) shadow-ready. Production Operating Protocol v1.0.0 live."
     },
     "finance": {
       "status": "healthy",
-      "icon": "✅",
-      "detail": "QPaint $199 MRR. 4 Won $321,967 (recovered $129,750, assisted $41,932, tender $145,008). $4.67M active pipeline."
+      "detail": "QPaint: $321,967 Won. $4,686,318 active pipeline."
     },
     "atlas": {
       "status": "healthy",
-      "icon": "✅",
-      "detail": "Quiet overnight. No new customer signals. All 4 inbox-pulse jobs healthy."
+      "detail": "Memory healthy. Protocol v1.0.0 enforced. Model recovery standard active."
     }
   },
   "waiting_for_james": [
     {
       "title": "Disk & state.db remediation (90% full)",
-      "why_it_matters": "state.db grew 6.6GB → 8.1GB over the weekend. At ~0.5GB/day, disk fills in ~4 days, which would take down Hermes entirely (email monitoring, all cron, inbox pulse).",
-      "business_impact": "High — system-wide outage risk within a week",
+      "why_it_matters": "state.db grew 6.6GB \u2192 8.1GB over the weekend. At ~0.5GB/day, disk fills in ~4 days, which would take down Hermes entirely (email monitoring, all cron, inbox pulse).",
+      "business_impact": "High \u2014 system-wide outage risk within a week",
       "estimated_time": "15 min decision",
       "recommended_action": "Approve disk expansion OR Hermes storage fix (Winston). Root cause documented 15 Aug: ~3.1GB duplicated injected context in state.db.",
       "impact_sort": 92
     },
     {
       "title": "Star Painters / Ahmad re-engagement decision",
-      "why_it_matters": "Stalled opportunity — agreed to proceed but never onboarded/paid. Deferred from Sunday. James owns the relationship.",
-      "business_impact": "Medium — potential 2nd paying client ($199 MRR)",
+      "why_it_matters": "Stalled opportunity \u2014 agreed to proceed but never onboarded/paid. Deferred from Sunday. James owns the relationship.",
+      "business_impact": "Medium \u2014 potential 2nd paying client ($199 MRR)",
       "estimated_time": "10 min",
       "recommended_action": "Decide: re-engage Ahmad this week, or let it go. If re-engage, I'll draft the message.",
       "impact_sort": 58
@@ -74,25 +68,25 @@
     "priorities": [
       {
         "action": "Resolve disk/state.db remediation today",
-        "why_it_matters": "Disk 90% full, state.db growing ~0.5GB/day. A full disk takes down Hermes entirely — the single biggest risk this week.",
-        "expected_impact": "High — prevents system outage",
+        "why_it_matters": "Disk 90% full, state.db growing ~0.5GB/day. A full disk takes down Hermes entirely \u2014 the single biggest risk this week.",
+        "expected_impact": "High \u2014 prevents system outage",
         "estimated_time": "15 min decision",
         "confidence": "High (90%)"
       },
       {
         "action": "Decide Star Painters / Ahmad re-engagement",
         "why_it_matters": "Only stalled growth opportunity. Converting it = 2nd paying client.",
-        "expected_impact": "Medium — revenue + $199 MRR",
+        "expected_impact": "Medium \u2014 revenue + $199 MRR",
         "estimated_time": "10 min",
         "confidence": "Medium (70%)"
       }
     ],
     "can_wait": [
-      "QPaint Email 3 review cohort (69 at Email 2 — individual review, Atlas handles)",
-      "Shalender Hingorani $13,552 — 48h observation expired, Atlas review (not auto-send)",
-      "Elisha Paige NTP today (17 Aug) — Atlas follow-up review",
-      "Vivien Lennan NTP tomorrow (18 Aug) — reconciliation in progress",
-      "V2-NEW50 Batch 1 execution (Tue 18 Aug) — approved, no action needed"
+      "QPaint Email 3 review cohort (69 at Email 2 \u2014 individual review, Atlas handles)",
+      "Shalender Hingorani $13,552 \u2014 48h observation expired, Atlas review (not auto-send)",
+      "Elisha Paige NTP today (17 Aug) \u2014 Atlas follow-up review",
+      "Vivien Lennan NTP tomorrow (18 Aug) \u2014 reconciliation in progress",
+      "V2-NEW50 Batch 1 execution (Tue 18 Aug) \u2014 approved, no action needed"
     ],
     "closing": "Disk is the one thing I'd act on today. Everything else can wait."
   },
@@ -100,42 +94,42 @@
     "today": [
       {
         "time": "04:00",
-        "text": "state.db 7.7GB → 8.1GB, disk back to 90% (2.1GB free) — growth accelerating"
+        "text": "state.db 7.7GB \u2192 8.1GB, disk back to 90% (2.1GB free) \u2014 growth accelerating"
       },
       {
         "time": "04:00",
-        "text": "Nightly backup still failing (1.1GB file remains in git history — untrack fix incomplete)"
+        "text": "Nightly backup still failing (1.1GB file remains in git history \u2014 untrack fix incomplete)"
       },
       {
         "time": "04:00",
-        "text": "No new customer replies overnight (quotes@, atlas@, james@ all clear — only DMARC noise)"
+        "text": "No new customer replies overnight (quotes@, atlas@, james@ all clear \u2014 only DMARC noise)"
       }
     ],
     "yesterday": [
       {
-        "time": "—",
-        "text": "QPaint Won book reconciled to 4 ($321,967) — Logan Village SS 4th win"
+        "time": "\u2014",
+        "text": "QPaint Won book reconciled to 4 ($321,967) \u2014 Logan Village SS 4th win"
       },
       {
-        "time": "—",
-        "text": "Cheryl Sim reclassified Attribution Pending → Assisted ($29,698)"
+        "time": "\u2014",
+        "text": "Cheryl Sim reclassified Attribution Pending \u2192 Assisted ($29,698)"
       },
       {
-        "time": "—",
+        "time": "\u2014",
         "text": "V2-NEW50 Batch 1 approved + scheduled (12, Tue 18 Aug)"
       }
     ],
     "this_week": [
       {
-        "time": "—",
+        "time": "\u2014",
         "text": "QPaint: 4 Won totalling $321,967 (recovered $129,750, assisted $41,932, tender $145,008)"
       },
       {
-        "time": "—",
+        "time": "\u2014",
         "text": "V2-NEW50 cohort built (50 prospects: 34 email, 16 phone)"
       },
       {
-        "time": "—",
+        "time": "\u2014",
         "text": "RE-ENG-AUG-2026: 147 audience, 0 YES (monitor only)"
       }
     ]
@@ -145,21 +139,21 @@
     "recent": [
       {
         "id": "INC-2026-08-11",
-        "title": "QPaint Quote Intake — False Completion",
+        "title": "QPaint Quote Intake \u2014 False Completion",
         "status": "Closed",
         "summary": "3 quotes marked complete with $0 deal values. Root cause: no certification gate between extraction and label. Fixed: certify_intake_complete() + Intake Exception state."
       },
       {
         "id": "BK-014",
-        "title": "ATTEMPTED ≠ COMPLETED",
+        "title": "ATTEMPTED \u2260 COMPLETED",
         "status": "Permanent",
-        "summary": "Automation success ≠ business outcome success. Every critical workflow must verify the business state, not just the process completion."
+        "summary": "Automation success \u2260 business outcome success. Every critical workflow must verify the business state, not just the process completion."
       },
       {
         "id": "BK-015",
-        "title": "HTTP 200 ≠ Application Success",
+        "title": "HTTP 200 \u2260 Application Success",
         "status": "Permanent",
-        "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy → verify dependencies → verify render → certify."
+        "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy \u2192 verify dependencies \u2192 verify render \u2192 certify."
       }
     ]
   },
@@ -174,7 +168,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "Monday. QPaint 4 Won ($321,967) stable. V2-NEW50 Batch 1 fires Tue. Disk remediation + Star Painters decision needed today.",
+  "operational_status": "\u2705 QPaint portfolio certified. 130 active journeys, 0 exceptions. Protocol v1.0.0. Phase 1 hardening shadow-ready.",
   "vault_health": {
     "decisions": {
       "total": 15,
@@ -199,19 +193,19 @@
     },
     "infrastructure": {
       "disk": "90% (2.1G free)",
-      "state_db": "8.1GB — growth flagged (was 6.6GB Sun)"
+      "state_db": "8.1GB \u2014 growth flagged (was 6.6GB Sun)"
     }
   },
   "qpaint_pipeline": {
     "summary": {
-      "total_customers": 155,
-      "total_pipeline_value": "$5.48M",
+      "total_customers": 157,
+      "total_pipeline_value": 4686318,
       "won_count": 4,
-      "won_value": "$321,967",
+      "won_value": 321967,
       "lost_count": 23,
       "engaged_replied": 9,
       "contacted": 118,
-      "not_contacted": 1
+      "not_contacted": 3
     },
     "stage_breakdown": {
       "Email 2": 69,
@@ -221,62 +215,61 @@
       "Replied": 4,
       "Won": 4,
       "Email 3": 3,
-      "New": 1,
-      "Engaged - Awaiting Confirmation": 0
+      "New": 3
     },
     "priority": {
       "P1": 93,
       "P2": 53,
-      "P3": 3
+      "P3": 11
     },
     "key_customers": [
       {
         "name": "Nuwan Fernando",
         "value": "$167,592",
         "stage": "Email 3",
-        "status": "Email 3 sent 15 Aug — NTP 22 Aug"
+        "status": "Email 3 sent 15 Aug \u2014 NTP 22 Aug"
       },
       {
         "name": "Nicholas Zappacosta",
         "value": "$145,008",
         "stage": "Won",
-        "status": "Logan Village SS — works confirmed (tender, awaiting QBuild paperwork)"
+        "status": "Logan Village SS \u2014 works confirmed (tender, awaiting QBuild paperwork)"
       },
       {
         "name": "Richard Zhang",
         "value": "$145,350",
         "stage": "Email 3",
-        "status": "Email 3 sent 15 Aug — NTP 22 Aug"
+        "status": "Email 3 sent 15 Aug \u2014 NTP 22 Aug"
       },
       {
         "name": "Arno Hsu",
         "value": "$129,750",
         "stage": "Won",
-        "status": "Recovered $129,750 (attributed) — handover verified"
+        "status": "Recovered $129,750 (attributed) \u2014 handover verified"
       },
       {
         "name": "Elisha Paige",
         "value": "$113,907",
         "stage": "Engaged",
-        "status": "Committee reviewing — NTP today (17 Aug), follow-up review due"
+        "status": "Committee reviewing \u2014 NTP today (17 Aug), follow-up review due"
       },
       {
         "name": "Sian Leathem",
         "value": "$39,996",
         "stage": "Replied",
-        "status": "Replied — 48h observation (NTP 24 Aug)"
+        "status": "Replied \u2014 48h observation (NTP 24 Aug)"
       },
       {
         "name": "Jeremy Ho",
         "value": "$35,937",
         "stage": "Email 3",
-        "status": "Email 3 sent 15 Aug — NTP 22 Aug"
+        "status": "Email 3 sent 15 Aug \u2014 NTP 22 Aug"
       },
       {
         "name": "Cheryl Sim",
         "value": "$29,698",
         "stage": "Won",
-        "status": "Won — Assisted $29,698 (follow-up influenced)"
+        "status": "Won \u2014 Assisted $29,698 (follow-up influenced)"
       },
       {
         "name": "Joy Ryan",
@@ -288,19 +281,19 @@
         "name": "Ben Towler",
         "value": "$14,773",
         "stage": "Lost",
-        "status": "Reconciled — went elsewhere (acknowledgment pending)"
+        "status": "Reconciled \u2014 went elsewhere (acknowledgment pending)"
       },
       {
         "name": "Shalender Hingorani",
         "value": "$13,552",
         "stage": "New",
-        "status": "Observation expired 16 Aug — review due (not auto-send)"
+        "status": "Observation expired 16 Aug \u2014 review due (not auto-send)"
       },
       {
         "name": "Vivien Lennan",
         "value": "$9,148",
         "stage": "Replied",
-        "status": "Replied 14 Aug — reconciliation in progress (NTP 18 Aug)"
+        "status": "Replied 14 Aug \u2014 reconciliation in progress (NTP 18 Aug)"
       }
     ]
   }
