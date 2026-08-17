@@ -130,6 +130,8 @@ The Gemini transition was executed on 2026-07-25: config.yaml updated (provider:
 
 This decision supersedes the original DR-006. DR-006 is now closed.
 
+**SUPERSEDED (2026-08-17):** The 2026-07-25 Gemini-only resolution is **overturned** by decision `2026-08-17-deepseek-client-data-approved`. Founders are now comfortable with DeepSeek processing client data. DeepSeek (`deepseek-v4-pro`) is the approved primary AI provider for all workflows including client data. The Nightly Dream had flagged that `config.yaml` was in fact running DeepSeek for all data with no Gemini fallback — the July boundary was documented but never enforced in configuration. See DR-2026-08-17-001 below.
+
 **Alternatives Under Consideration:**
 1. Switch primary to Gemini (US-based, DPA available) — preserves fallback structure
 2. Keep DeepSeek but exclude client-data workflows (route only non-PII prompts)
@@ -161,6 +163,26 @@ This decision supersedes the original DR-006. DR-006 is now closed.
 
 ---
 
+### DR-2026-08-17-001 — DeepSeek Approved for Client Data Processing
+
+**Decision:** DeepSeek (`deepseek-v4-pro`) is the approved primary AI provider for all workflows, including client-data workflows. Overturns the 2026-07-25 Gemini-only boundary (Safety Rule 7) and the DR-006 resolution.
+
+**Why:** The Nightly Dream (2026-08-17) flagged that `config.yaml` was running DeepSeek for all data with no Gemini fallback — the July boundary was documented but never enforced in configuration. Rather than reconfigure to Gemini (migration cost, prompt retuning, cost increase), the founders consciously accepted DeepSeek for client data. Josh Hancock confirmed the team is comfortable with DeepSeek processing client data.
+
+**Alternatives Considered:**
+1. Enforce Gemini-only boundary (reconfigure config.yaml) — rejected: migration effort + cost; boundary had never actually been enforced
+2. Overturn the boundary and record the decision — chosen: aligns documentation with operating reality, preserves the "why"
+3. Redact/anonymise before DeepSeek transmission — rejected: degrades follow-up email quality, adds failure modes
+
+**Risks Accepted:** High — cross-border disclosure to China-based processor with no DPA (APP 8), single-provider dependency (no fallback), front-page/reputational risk. All consciously accepted by founders. Privacy Policy must be updated to describe DeepSeek processing accurately.
+
+**Expected Benefits:** Removes the SOUL.md/config contradiction. No recurring Nightly Dream anomaly. No provider migration cost.
+
+**Date Implemented:** 2026-08-17
+**Review:** November 2026 (decision `2026-08-17-deepseek-client-data-approved`)
+
+---
+
 ## Decision Audit Trail
 
 | Date | DR-ID | What Changed | Why |
@@ -172,6 +194,7 @@ This decision supersedes the original DR-006. DR-006 is now closed.
 | 2026-07-25 | DR-005 | File permissions hardened | World-readable secrets closed |
 | 2026-07-25 | DR-006 | DeepSeek flagged for review | Failed Trust Test at scale |
 | 2026-07-25 | DR-007 | Collection notices & opt-out implemented | APP 5/7 compliance |
+| 2026-08-17 | DR-2026-08-17-001 | DeepSeek approved for client data | Overturns DR-006; founders accept cross-border posture |
 
 ---
 

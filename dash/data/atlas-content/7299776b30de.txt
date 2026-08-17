@@ -86,10 +86,16 @@ One line per new learning. This is the signal that Winston's morning Learning Ha
 
 If there are no new learnings, note it and move on.
 
-### 13. SUMMARY
+### 13. RECOMMENDATIONS LEDGER SYNC
+
+If tonight produced anything needing Josh's attention, append each to `Agent/recommendations.json` so it surfaces in the dashboard's Recommendations tab:
+
+`python3 scripts/recommendations.py add --json '{"id":"consolidation-<slug>","source":"consolidation","category":"<credential|skill|stale|anomaly>","tone":"<orange|yellow>","headline":"...","detail":"...","evidence":["..."]}'`
+
+### 14. SUMMARY
 
 Post a summary to the designated channel. Format: brief heading, then bullet list of all actions taken across steps 1-12 (memories promoted/archived/pruned, skills drafted, learnings flagged, wikilinks added, connections made, files renamed, frontmatter added, files terse-ified, indexes updated, broken links fixed, infra docs synced). Keep it concise. If nothing meaningful changed, say so.
 
-### 14. OPERATIONS LOG
+### 15. OPERATIONS LOG
 
 After the summary, append exactly one dated line to `Agent/log.md` recording tonight's run. Format: `YYYY-MM-DD HH:MM | CONSOLIDATE | one-line summary of what changed tonight`. Append at the bottom, newest last. Never rewrite or delete existing log lines.

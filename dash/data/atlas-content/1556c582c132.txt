@@ -1,0 +1,115 @@
+# Decision: DeepSeek Approved for Client Data Processing
+
+**Slug:** `2026-08-17-deepseek-client-data-approved`
+**Date:** 2026-08-17
+**Status:** Made
+**Review Date:** 2026-11-17
+
+---
+
+## The Decision
+
+Not Forgotten Systems is comfortable with DeepSeek processing client data. The AI Provider Boundary established 2026-07-25 (Safety Rule 7 in SOUL.md: "DeepSeek permanently disabled for client data, Gemini-only") is **overturned**. DeepSeek is the approved primary AI provider for all workflows, including those containing client, customer, prospect, quote, email, financial, commercially sensitive, or personal information.
+
+---
+
+## The Problem
+
+The Nightly Dream flagged an anomaly (2026-08-17): `config.yaml` sets DeepSeek (`deepseek-v4-pro`) as the default provider with no Gemini fallback configured. Every QPaint customer email, prospect outreach, and quote was flowing through DeepSeek despite SOUL.md Safety Rule 7 marking it "permanently disabled" for that data. The boundary was documented but never actually enforced in configuration.
+
+The recommendation required a choice: either reconfigure to Gemini (enforcing the boundary), or record an explicit decision that the boundary no longer applies. Josh Hancock confirmed on behalf of the founders: the team is now comfortable with DeepSeek processing client data. The recommendation is therefore invalid.
+
+---
+
+## Options Considered
+
+| # | Option | Summary |
+|---|---|---|
+| A | Enforce the Gemini-only boundary | Reconfigure `config.yaml` to Gemini primary, restrict DeepSeek to zero-PII system ops. Migration effort, prompt retuning, cost increase. |
+| B | Overturn the boundary (chosen) | Accept DeepSeek as the approved primary provider for all data. Update SOUL.md, registers, and documentation to reflect reality. No config change needed. |
+
+---
+
+## Why This Path
+
+The team has evaluated DeepSeek as a provider and is now comfortable with it processing client data. The prior boundary was based on a July 2026 Trust Test assessment (see `knowledge/legal/deepseek-assessment.md`) that failed DeepSeek on all five questions, largely on cross-border jurisdiction and absence of a DPA. That concern has now been consciously accepted by the founders.
+
+Recording the decision (rather than silently letting the drift continue) is the correct move: it removes the contradiction between SOUL.md Safety Rule 7 and the actual operating configuration, and it preserves the reasoning for anyone asking "why do we allow DeepSeek for client data now?" six months later.
+
+---
+
+## Core Principles Applied
+
+- **Trust before growth** — engaged but consciously overridden by founder decision. The founders own the trade-off between provider cost/performance and the cross-border privacy posture.
+- **Human accountability** — this is exactly the kind of decision that belongs to the founders, not to Atlas. Atlas recorded it and reconciled all systems; it did not make the call.
+- **Security before convenience** — noted as tension. The override means convenience/cost now wins on this specific axis, by explicit founder choice.
+
+---
+
+## Risks Identified
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| Cross-border disclosure to China-based processor (APP 8) | Certain | High | Accepted by founders. Privacy Policy must be updated to describe DeepSeek processing accurately (no policy-practice gap). |
+| No DPA available from DeepSeek | Certain | Medium | Accepted. Documented in Privacy Register. |
+| Single-provider dependency (no fallback configured) | Med | Med | Reliability risk separate from privacy. `fallback_providers: []` — consider re-adding Gemini as outage fallback. |
+| Front-page/reputational risk | Med | High | Accepted consciously. Do not reverse without explicit founder direction. |
+
+---
+
+## Expected Outcome
+
+- SOUL.md Safety Rule 7 rewritten to reflect DeepSeek as approved primary provider.
+- All trust registers, data flow map, and memory entries reconciled to the new boundary.
+- No further Nightly Dream anomalies flagging a boundary/configuration mismatch.
+- Privacy Policy updated to accurately disclose DeepSeek processing (follow-up action, not part of this decision).
+
+---
+
+## Success Criteria
+
+- [x] Decision recorded in Decision Library and registered in INDEX.md
+- [x] SOUL.md Safety Rule 7 overturned and rewritten
+- [x] Decision Register (DR-006) superseded + audit trail updated
+- [x] Data Flow Map, Privacy Register, DeepSeek Assessment reconciled
+- [x] Memory index entries (lines 40, 44) updated
+- [x] Nightly Dream recommendation marked resolved
+- [ ] Privacy Policy updated to disclose DeepSeek processing accurately (follow-up)
+
+---
+
+## Atlas's Challenge (Pre-Decision)
+
+> This reverses a decision that failed the Trust Test 5/5 just three weeks ago. The original assessment (`knowledge/legal/deepseek-assessment.md`) found DeepSeek is a China-based processor with no DPA, and that we had not taken "reasonable steps" under APP 8.1. Before overturning, I want to confirm: (1) is this a conscious acceptance of the cross-border/privacy posture, not a drift-ignoring convenience move, and (2) should the Privacy Policy be updated in the same breath so we don't publish a policy that contradicts our actual provider?
+
+**Response (Josh Hancock):** "We are now okay and comfortable with DeepSeek processing client data. This recommendation is now invalid."
+
+The founders have consciously accepted the posture. Decision recorded as made.
+
+---
+
+## Actual Outcome (Post-Review)
+
+**Date reviewed:** *Pending — 2026-11-17*
+
+**What actually happened:** *To be completed at review.*
+
+**Verdict:** *To be completed at review.*
+
+**Delta from expected:** *To be completed at review.*
+
+---
+
+## Learnings
+
+1. **A documented boundary that isn't enforced in configuration is not a boundary.** Safety Rule 7 said "enforced by configuration, not instruction" — but the configuration never actually matched the rule. The rule drifted from reality for ~3 weeks before the Nightly Dream caught it. Lesson: when a boundary is declared, the enforcing configuration change must be verified in the same task, not deferred.
+2. **Drift-ignoring vs. conscious acceptance.** The correct resolution to a rule/reality mismatch is an explicit decision (this file), not silently editing the rule to match. Recording preserves the "why" for future review.
+3. **Founders can override any non-principle rule.** The Six Principles are immutable; Safety Rules are not. This is a clean demonstration of the hierarchy.
+
+---
+
+## Related Decisions
+
+- `2026-07-24-provider-failover-gemini-fallback` — prior Gemini fallback chain (now moot as fallback is unconfigured)
+- DR-006 in `knowledge/trust/decision-register.md` — the original "DeepSeek as primary → flagged → Gemini-only" sequence, now superseded
+- `knowledge/legal/deepseek-assessment.md` — the July assessment whose Trust Test findings are now consciously set aside

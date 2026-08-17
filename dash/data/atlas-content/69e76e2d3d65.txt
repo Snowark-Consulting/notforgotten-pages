@@ -1,0 +1,66 @@
+---
+doc_type: operating-learning
+owner: notforgotten
+tier: primary
+date: 2026-08-17
+source: QPaint Founder Attention Audit (157-record deep dive + Gmail cross-check)
+---
+
+# Next-Action Principle — CRM Stage Is Not Commercial Truth
+
+**Established:** 2026-08-17, from the QPaint Founder Attention Audit.
+
+## The principle
+
+Primary customer evidence overrides stale CRM state. The CRM stage (Email 1/2/3, Contacted,
+Engaged) is a bookkeeping signal, not commercial truth. The question is never "what stage is
+this record in?" — it is "what is the right next action for this customer?"
+
+**Not Forgotten optimises for the right next action, not the next follow-up.**
+
+## The eight commercial states
+
+Every QPaint record resolves to exactly one of these, determined by evidence, not by the CRM field:
+
+| State | Meaning | Next action |
+|---|---|---|
+| SILENT | No reply, sequence running | Continue the appropriate evidence-led sequence |
+| ENGAGED | Replied, actively considering | Respond to the reply; assess the actual blocker |
+| WAITING | Customer (or third party) needs time | Deliberately do nothing until the review date |
+| QPAINT ACTION REQUIRED | QPaint must provide something | Escalate to QPaint; do not re-contact customer |
+| ATLAS ACTION REQUIRED | Next step is a follow-up/acknowledgement | Atlas handles within the sequence |
+| FOUNDER/COMMERCIAL JUDGMENT | Commercial judgment call (pricing, scope, negotiation, committee) | Escalate to James/Tas; do not auto-email |
+| LOST | Genuine loss evidence (customer said so) | STOP — graceful close already sent |
+| WON | Genuine award evidence | STOP — operational handover complete |
+
+## Rules
+
+- **No response alone never equals Lost.** Lost requires an explicit customer reply ("went
+  elsewhere", "not proceeding", "no longer needed").
+- **Won requires award evidence**, never inference (e.g. "works confirmed", signed contract).
+- **High quote value is not evidence of buying intent.** Value, recovery score, and silence
+  are prioritisation signals, not reasons to escalate to a phone call. Escalate only when
+  customer evidence (a reply, an objection, a committee, a third-party wait) justifies it.
+- **A customer who has explained a delay is WAITING, not SILENT.** Re-contacting them adds no
+  value and reads as noise. Set a review date and wait.
+
+## Examples from the 2026-08-17 audit
+
+- Nuwan Fernando ($167k) → committee procurement → **WAIT**
+- Jason Manley ($46k) → "heritage job, office review" → **WAIT**
+- Nicholas Zappacosta / QAS Beenleigh → QPaint managing, paperwork pending → **HOLD (QPaint)**
+- Elisha Paige ($113k) → committee + "cost is a lot" → **FOUNDER/COMMERCIAL JUDGMENT**
+- Silent normal quote → continue sequence
+- Lost with reply evidence → STOP
+- Won with award evidence → STOP
+
+## Constraint
+
+This is a principle, not a schema change. Do NOT create new Airtable statuses, redesign the
+QPaint journey, or build new automation from this learning. First collect evidence from the
+existing journey. The principle governs how Atlas interprets existing CRM state at each review
+point.
+
+## See also
+
+- [[QPaint Operating Model]] (knowledge/qpaint/qpaint-operating-model.md) — one customer at a time, evidence-led next action

@@ -2,7 +2,7 @@
 
 **Purpose:** Full inventory of every type of information collected, processed, or stored. Updated before any new feature goes live.
 **Owner:** Atlas (CISO)
-**Updated:** 2026-07-25 (baseline from Security Audit)
+**Updated:** 2026-08-17 (DeepSeek approved for client data)
 **Review cadence:** Before every new feature launch; quarterly full review
 
 ---
@@ -16,12 +16,12 @@
 | **What** | Business names, employee count, owner quoting status |
 | **Why collected** | Core product — identifying and qualifying prospects |
 | **Where stored** | Airtable (Prospects table), state.db (sessions), agent.log (tool output) |
-| **Who has access** | James (Airtable owner), Atlas (Airtable API via PAT), Google (Gemini) |
-| **Leaves infrastructure?** | Yes — Airtable (US), Google (Gemini, US) |
-| **Third-party processors** | Airtable Inc., Google (Gemini) |
+| **Who has access** | James (Airtable owner), Atlas (Airtable API via PAT), DeepSeek (China) |
+| **Leaves infrastructure?** | Yes — Airtable (US), DeepSeek (China) |
+| **Third-party processors** | Airtable Inc., DeepSeek (China) |
 | **Retention** | Indefinite (active), proposed: 12 months after lost, then anonymise |
 | **Deletion process** | Manual Airtable record deletion. No automated purge. No backup purge. |
-| **Legal considerations** | APP 3 (collection), APP 11 (security), APP 8 (cross-border — Gemini US) |
+| **Legal considerations** | APP 3 (collection), APP 11 (security), APP 8 (cross-border — DeepSeek China) |
 
 ### 2. Personal Information — Contact Details
 
@@ -30,9 +30,9 @@
 | **What** | Contact first names, email addresses, phone numbers |
 | **Why collected** | Primary contact channel for outreach and follow-up |
 | **Where stored** | Airtable (Prospects, Clients, Quotes tables), state.db, agent.log, Gmail mailboxes |
-| **Who has access** | James, Atlas (automated), Google (Gemini) |
-| **Leaves infrastructure?** | Yes — Airtable (US), Google Workspace (US/global), Google (Gemini, US) |
-| **Third-party processors** | Airtable Inc., Google Workspace, Google (Gemini) |
+| **Who has access** | James, Atlas (automated), DeepSeek (China) |
+| **Leaves infrastructure?** | Yes — Airtable (US), Google Workspace (US/global), DeepSeek (China) |
+| **Third-party processors** | Airtable Inc., Google Workspace, DeepSeek (China) |
 | **Retention** | Indefinite. Proposed: Duration of engagement + 90 days for clients; 12 months for lost prospects |
 | **Deletion process** | Manual only. Must also delete from state.db, agent.log, Gmail — no process exists |
 | **Legal considerations** | APP 3, APP 5 (notification — now implemented via notices), APP 6 (use limitation), APP 7 (direct marketing opt-out — now implemented via notices), APP 11, APP 12 (access requests — no process) |
@@ -45,9 +45,9 @@
 | **What** | Suburbs (and implicitly addresses in quote PDFs) |
 | **Why collected** | Service area context for outreach and quote follow-up |
 | **Where stored** | Airtable (Prospects, Quotes tables), quote PDFs in Gmail (quotes@) |
-| **Who has access** | James, Atlas (automated), Google (Gemini) |
-| **Leaves infrastructure?** | Yes — Airtable (US), Google Workspace (US/global), Google (Gemini, US) |
-| **Third-party processors** | Airtable Inc., Google Workspace, Google (Gemini) |
+| **Who has access** | James, Atlas (automated), DeepSeek (China) |
+| **Leaves infrastructure?** | Yes — Airtable (US), Google Workspace (US/global), DeepSeek (China) |
+| **Third-party processors** | Airtable Inc., Google Workspace, DeepSeek (China) |
 | **Retention** | Indefinite. Proposed: 24 months for quote data, then anonymise to suburb-level only |
 | **Deletion process** | Manual. Quote PDFs in Gmail require mailbox-level deletion — no process. |
 | **Legal considerations** | APP 3, APP 11. Full addresses in PDFs may be sensitive for sole traders operating from home. |
@@ -60,9 +60,9 @@
 | **What** | Quote values ($), MRR, won values |
 | **Why collected** | Core product — quote follow-up and business intelligence |
 | **Where stored** | Airtable (Quotes, Clients tables), state.db, agent.log |
-| **Who has access** | James, Atlas (automated), Google (Gemini) |
-| **Leaves infrastructure?** | Yes — Airtable (US), Google (Gemini, US) |
-| **Third-party processors** | Airtable Inc., Google (Gemini) |
+| **Who has access** | James, Atlas (automated), DeepSeek (China) |
+| **Leaves infrastructure?** | Yes — Airtable (US), DeepSeek (China) |
+| **Third-party processors** | Airtable Inc., DeepSeek (China) |
 | **Retention** | Indefinite. Proposed: 24 months, then anonymise |
 | **Deletion process** | Manual only |
 | **Legal considerations** | APP 11. Quote values are commercially sensitive for NFS's clients — breach would expose client pricing. |
@@ -75,9 +75,9 @@
 | **What** | Email bodies, outreach notes, message records, conversation state, relationship memory |
 | **Why collected** | Operational record. Sales context. AI follow-up context. |
 | **Where stored** | Gmail (atlas@, quotes@, james@), Airtable (Messages, Prospects.Outreach notes, Clients.Relationship memory, Quotes.Conversation state), state.db (all sessions), agent.log (tool output) |
-| **Who has access** | James, Atlas (Gmail via OAuth, Airtable via PAT), Google (Gemini) |
-| **Leaves infrastructure?** | Yes — Google Workspace (US/global), Airtable (US), Google (Gemini, US) |
-| **Third-party processors** | Google Workspace, Airtable Inc., Google (Gemini) |
+| **Who has access** | James, Atlas (Gmail via OAuth, Airtable via PAT), DeepSeek (China) |
+| **Leaves infrastructure?** | Yes — Google Workspace (US/global), Airtable (US), DeepSeek (China) |
+| **Third-party processors** | Google Workspace, Airtable Inc., DeepSeek (China) |
 | **Retention** | Indefinite everywhere. Proposed: 90 days state.db, 30 days agent.log, 24 months Airtable Messages |
 | **Deletion process** | No process for state.db or agent.log. Manual for Airtable and Gmail. |
 | **Legal considerations** | APP 11 (security — world-readable state.db until 2026-07-25). APP 12 (access requests would require manual assembly from 4+ systems). |
@@ -90,9 +90,9 @@
 | **What** | Quote PDFs — may contain full business names, addresses, ABNs, phone numbers, pricing, scope of work |
 | **Why collected** | Quote intake pipeline — extracting structured data for follow-up |
 | **Where stored** | Gmail (quotes@ mailbox), extracted text in Airtable (Quotes.Scope Summary Text), temporary files in /tmp during processing |
-| **Who has access** | James, Atlas (quotes_token.json — OAuth to quotes@), Google (Gemini) |
-| **Leaves infrastructure?** | Yes — Google Workspace (US/global), Airtable (US), Google (Gemini, US) |
-| **Third-party processors** | Google Workspace, Airtable Inc., Google (Gemini) |
+| **Who has access** | James, Atlas (quotes_token.json — OAuth to quotes@), DeepSeek (China) |
+| **Leaves infrastructure?** | Yes — Google Workspace (US/global), Airtable (US), DeepSeek (China) |
+| **Third-party processors** | Google Workspace, Airtable Inc., DeepSeek (China) |
 | **Retention** | Indefinite in Gmail. Extracted text indefinite in Airtable. /tmp files temporary. |
 | **Deletion process** | No automated deletion for Gmail or Airtable. /tmp cleared on reboot. |
 | **Legal considerations** | APP 11 (PDFs may contain full personal information of customers' customers). Potentially notifiable data if breached. |
@@ -138,10 +138,8 @@
 | Google Workspace | Email (Gmail), attachments | US/Global | Yes | Low |
 | Google Analytics | Website visitor data | US/Global | Yes | Low |
 | Vercel Inc. | Tracking pixel data, website hosting | US | Yes | Low |
-| Google (Gemini) | United States / Global | AI model prompts for processing client data |
-| Internal AI (DeepSeek, etc.) | Various (no client data) | Internal system operations only (no client-identifiable data) |
-| Google (Gemini) | United States / Global | AI model prompts for processing client data |
-| Internal AI (DeepSeek, etc.) | Various (no client data) | Internal system operations only (no client-identifiable data) |
+| DeepSeek | All AI model prompts (incl. client data — approved 2026-08-17) | China | No | High |
+| Google (Gemini) | AI fallback provider (reliability only, not a privacy boundary) | US | Yes | Low |
 | GoDaddy | DNS records only | US | Yes | Low |
 | GitHub (Microsoft) | Backup (code, config, memory, learnings) | US | Yes | Low |
 | orgo.ai | VPS hosting (all data at rest) | Unknown | Unclear | Medium |
@@ -166,7 +164,7 @@
     *   ☐ Client provided with standard wording
     *   ☐ Client implementation status recorded |
 | O2 | APP 7 — opt-out in outreach emails | **CLOSED** | Implemented via unsubscribe link in outreach emails. |
-| O3 | APP 8 — no "reasonable steps" for DeepSeek (China) | **CLOSED** | DeepSeek removed from client data workflows. Gemini is primary (US, DPA). |
+| O3 | APP 8 — no "reasonable steps" for DeepSeek (China) | **RE-ACCEPTED** | DeepSeek approved for client data 2026-08-17 (decision `2026-08-17-deepseek-client-data-approved`). Founders consciously accept the cross-border posture. Privacy Policy must disclose DeepSeek processing. |
 | O4 | APP 11 — no firewall | **High** | SEC-002 — enable UFW. |
 | O5 | APP 11 — automated retention not implemented | **Medium** | Deliver September commitment. |
 | O6 | APP 11 — state.db not encrypted at rest | **Medium** | Good practice but not emergency. |
@@ -176,7 +174,7 @@
 | # | Gap | Mitigation |
 |---|---|---|
 | T1 | Small business security posture | "Honest assessment" section (removed from policy - see v1.0) |
-| T2 | DeepSeek China processing | **REMOVED** — DeepSeek no longer processes client data |
+| T2 | DeepSeek China processing | **REINSTATED** — DeepSeek approved for client data 2026-08-17. Must be disclosed in Privacy Policy. |
 | T3 | Manual deletion (for now) | Policy language adjusted to reflect ongoing implementation |
 
 ---
@@ -187,7 +185,7 @@ Before this Privacy Policy can be published on the website, we must:
 
 1. **Add unsubscribe to all outreach emails** (APP 7) — **CLOSED.** Implemented in autopilot template. 
 2. **Add privacy notice to follow-up emails** (APP 5) — **CLOSED.** Implemented in autopilot template.
-3. **Decide the DeepSeek position** (APP 8) — **CLOSED.** DeepSeek removed from client-data workflows. Gemini is primary.
+3. **Decide the DeepSeek position** (APP 8) — **RE-OPENED.** DeepSeek approved for client data 2026-08-17. Privacy Policy must now disclose DeepSeek processing accurately before publication.
 
 ---
 

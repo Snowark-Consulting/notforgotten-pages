@@ -4,529 +4,151 @@ owner: notforgotten
 tier: primary
 ---
 
-# LEARNINGS — Atlas
+# LEARNINGS — Atlas (Index)
 
-> Append-only log of fixes, API quirks, and gotchas. Check BEFORE touching any external API. Newest first.
+> This file is now a compact index, not the learning store. **Before touching any external API, tool, or domain, scan `learnings/catalogue.md`** — it maps each domain to its card, and cards hold the actionable traps (When / Symptom / Fix).
 
-## 2026-08-16 — Cron output persistence: no config knob; retention tightened 96h → 24h
+## Where learning lives
 
-**Confidence:** high
-**Contested:** false
+| Layer | Location | Role |
+|---|---|---|
+| **Domain cards** | `learnings/cards/<domain>.md` | Actionable traps. Load via `catalogue.md` before touching the domain. |
+| **Dated records** | `learnings/YYYY-MM-DD-*.md` | Full detail for significant learnings. |
+| **Incident log** | `learnings/INDEX.md` | Resolved incidents (LL-*). |
+| **Unresolved** | `learnings/ERRORS.md` | Open incidents. |
+| **Catalogue** | `learnings/catalogue.md` | Domain → card trigger map. |
+| **This file** | `learnings/LEARNINGS.md` | Chronological index to the above. |
 
-Hermes cron writes a `.md` audit file to `cron/output/<job_id>/<timestamp>.md` on EVERY run, and it ALWAYS includes the full `## Prompt` section (the entire injected context: SOUL.md, skills, watchdog context) plus `## Response`. The bulk of the file is the Prompt, not the response — that's why the two LLM-driven pulse jobs (quotes-pulse-phase2, inbox-pulse-phase2, each ~1/min) generate ~230MB/day. There is **no config flag or env var** to suppress output persistence or strip the prompt: `cron` config only has `provider`, `chronos.*`, `wrap_response`, `max_parallel_jobs` (verified in `hermes_cli/config.py` and `cron/scheduler.py`). The `.md` is written by `save_job_output()` (`cron/jobs.py`); output is constructed in `scheduler.py` (~line 1960). True "reduce at source" requires editing Hermes core (`/usr/local/lib/hermes-agent/cron/scheduler.py`), which reverts on `hermes update` — not recommended.
+## Card inventory
 
-**Action taken (2026-08-16):** tightened `RETENTION_HOURS` 96 → 24 in `bin/log-retention.py` (BOTH copies: `bin/` + `scripts/bin/`, kept identical) and reconciled all docs (`knowledge/log-retention-standard.md`, `Agent/Infrastructure.md`, `Agent/Registry.md`, growth-operations + nightly-consolidation + headquarters references) from stale "48h"/"4-day/96h" to "24h". Failure preservation stays 90 days. Steady-state cron/output now ~230MB (was ~900MB). Pre-existing drift noted: script had been 96h while docs said 48h.
-
-**Source:** none (documented inline). Related: `knowledge/log-retention-standard.md`, decision `2026-08-03-log-retention-standard.md`.
-
-## 2026-08-15 — QPaint Email 3: Pipeline Truth (not breakup) + Customer Context Overrides Generic Copy
-
-**Confidence:** high
-**Contested:** false
-
-Founder correction to proposed Jeremy Ho Email 3. Email 3 asks for PIPELINE TRUTH (make it easy for the customer to tell us where things stand), NOT a breakup. Must not sound desperate, repeat Email 2, say "final", manufacture urgency, or close the opportunity. Four response states → commercial classification: STILL CONSIDERING→Engaged, ON HOLD→Deferred, WENT ELSEWHERE→Lost+cleanup, WANTS TO PROCEED→Opportunity, NO RESPONSE→unresolved (do not infer why). QPaint recovery ≠ cold prospecting — existing commercial relationship; cadence built from customer evidence, not "breakup" patterns. Refinement (Nuwan Fernando): EMAIL NUMBER determines position, CUSTOMER EVIDENCE determines what we say — known context overrides generic copy.
-
-**Source:** `learnings/2026-08-15-qpaint-email3-pipeline-truth.md`
-
-## 2026-08-15 — Ahmad / Star Painters: STALLED OPPORTUNITY (not trial), six-state distinction
-
-**Confidence:** high
-**Contested:** false
-
-Supersedes 2026-08-14 "trial" label. Ahmad Haidari (Star Painters Adelaide) is a STALLED COMMERCIAL OPPORTUNITY (interest + agreement, never onboarded/used/paid). Six states must not be collapsed: interest expressed → agreement to proceed → onboarding started → onboarding complete → product active → paying customer. Rule: do not advance commercial reality merely because someone verbally agreed to the next step — primary evidence must support each state. TRIAL DISCUSSED ≠ TRIAL STARTED ≠ PRODUCT USED ≠ PAYING CUSTOMER. Result: 1 paying client (QPAINT $199 MRR), 0 trials, 1 stalled.
-
-**Source:** `learnings/2026-08-15-ahmad-stalled-opportunity.md`
-
-## 2026-08-15 — Next Touchpoint Date ≠ Contact: "I'll be in touch" = review point
-
-**Confidence:** high
-**Contested:** false
-
-Next Touchpoint Date does not necessarily mean CONTACT CUSTOMER — it can mean REVIEW THE OPPORTUNITY. When a customer says "I'll be in touch soon", set a REVIEW point (First Action "REVIEW ONLY (not contact)"), preserve commercial state, send a brief acknowledgment only (no CTA/question/pressure/date promise). Must not auto-contact just because the date arrived. Sian Leathem case: carpenter rescheduled, classified Engaged/In Progress, review point 2026-08-24.
-
-**Source:** `learnings/2026-08-15-ntp-review-vs-contact.md`
-
-## 2026-08-15 — Known Cron Defects (3, documented — not repairing)
-
-**Confidence:** medium
-**Contested:** false
-
-Secondary priority — repair only if customer/data-integrity/revenue/security/imminent-failure risk. (1) Stale Prospect Alert (519e0b52719c) exits 1 after REPORTING stale prospects (cosmetic — alert text correct, non-zero exit flagged as "error"). (2) CEO Brief (4e98b4642d62, paused) script `scripts/campaign-intel-monitor.py` double-prefix resolves to `scripts/scripts/...` (wrong; should be bare). (3) bin/ symlink path-resolution constraint — scheduler blocks paths outside scripts/; mitigated 2026-08-14 by copying bin/*.py to scripts/bin/ as real files.
-
-**Source:** `learnings/2026-08-15-cron-known-defects.md`
-
-## 2026-08-15 — Hermes Storage-Efficiency: state.db bloat root cause (for later engineering)
-
-**Confidence:** high
-**Contested:** false
-
-Measured on live DB (5.35GB): ~3.1GB is duplicated/injected context. Four inefficiencies: (1) system_prompt repeated ~7,500× (~362MB, only 54 distinct values); (2) skill-invocation context re-stored every session (~871MB); (3) messages_fts_content shadow copy (~936MB); (4) trigram FTS content + inverted index (~2.82GB, the single largest consumer). Fixes: dedupe system_prompt, don't persist injected context, FTS5 external-content mode, trigram opt-in. All require Hermes code/schema change — do not attempt without Founder + Winston approval. Trigram FTS not droppable (breaks session_search).
-
-**Source:** `learnings/2026-08-15-hermes-storage-efficiency.md`
-
-## 2026-08-14 — Cron timezone dependency: never change scheduler timezone without converting expressions
-
-**Confidence:** high
-**Contested:** false
-
-Australia/Adelaide is the authoritative business timezone. The Aug 12 change of the global scheduler timezone from '' (UTC) to Australia/Adelaide was correct in intent but incomplete: done WITHOUT converting the existing UTC-written cron expressions. Result: nightly jobs (written 11:00-12:00 UTC = 20:30-21:30 Adelaide) shifted to midday Adelaide. Permanent rule: any scheduler-timezone change MUST include a dependency check across ALL cron expressions — determine whether each was written as UTC or Adelaide wall-clock, and convert UTC-written ones (+9:30 ACST) BEFORE committing. Corrected 2026-08-14: consolidation 21:00, backup 21:30, graph rebuild 21:40, tracking audit 20:55, log retention 20:30 (5 re-saved: vault-lint, stale prospect, website intel, monthly report, signature sync).
-
-**Source:** `learnings/2026-08-14-cron-timezone-dependency.md`
-
-## 2026-08-14 — QPaint reply processing: "James" ambiguity + commercial outcome categorisation
-
-**Confidence:** high
-**Contested:** false
-
-**Learning 1 — "James" is ambiguous across QPaint.** QPaint has its own employee named James. A customer reference to "James" must NOT be assumed to mean James Hardstaff. Vivien Lennan replied "responded to James yesterday and explained our situation" — initially misread as "already engaged with James Hardstaff"; correct reading is she spoke to a QPaint employee. Rule: establish identity from context/evidence before attributing a customer interaction to a specific person.
-
-**Learning 2 — Commercial outcome categorisation.** QPaint follow-up produces pipeline truth, not just recovered revenue. Five outcomes tracked separately, never conflated:
-
-| Category | Definition |
+| Domain | Card |
 |---|---|
-| Revenue Recovery | Job genuinely recovered through our follow-up |
-| Revenue Confirmation | Job already won/accepted that follow-up discovers/confirms |
-| Pipeline Cleanup | Quotes confirmed Lost |
-| Deferred Pipeline | Real opportunity with future timing |
-| Engaged Opportunities | Customer actively considering/progressing |
+| agent-architecture | `cards/agent-architecture.md` |
+| airtable | `cards/airtable.md` |
+| asana | `cards/asana.md` |
+| browser | `cards/browser.md` |
+| campaign | `cards/campaign.md` |
+| cron | `cards/cron.md` |
+| git | `cards/git.md` |
+| gmail | `cards/gmail.md` |
+| hermes | `cards/hermes.md` |
+| models | `cards/models.md` |
+| orgo | `cards/orgo.md` |
+| python | `cards/python.md` |
+| qpaint | `cards/qpaint.md` |
+| shell | `cards/shell.md` |
+| supabase | `cards/supabase.md` |
+| telegram | `cards/telegram.md` |
 
-Rule: do not call a "confirmation" a "recovery" unless evidence shows follow-up caused or materially contributed to the win. Market evidence outranks assumptions. Matters for reporting and case studies.
+## Chronological index (newest first)
 
-**Source:** `learnings/2026-08-14-qpaint-reply-categorization.md`
+### 2026-08-17
+- `/tmp/at_key.txt` is a live production credential (not disposable) → `cards/airtable.md`
+- Nightly backup `git add -A` committed a 1.17GB state.db → `cards/git.md`
+- CRM stage is not commercial truth (Next-Action Principle) → `cards/qpaint.md`, `knowledge/qpaint/next-action-principle.md`
 
-## 2026-08-12 — Initial Customer Email Law: Protocol Before Content
+### 2026-08-16
+- Cron output persistence: no config knob to suppress the injected prompt → `cards/cron.md`
 
-**Confidence:** permanent
-**Contested:** false
+### 2026-08-15
+- QPaint Email 3 = pipeline truth, not breakup → `cards/qpaint.md`, `2026-08-15-qpaint-email3-pipeline-truth.md`
+- Ahmad/Star Painters: stalled opportunity, six-state distinction → `cards/qpaint.md`, `2026-08-15-ahmad-stalled-opportunity.md`
+- Next Touchpoint Date ≠ contact ("I'll be in touch" = review point) → `cards/agent-architecture.md`, `2026-08-15-ntp-review-vs-contact.md`
+- Known cron defects (3, documented — not repairing) → `2026-08-15-cron-known-defects.md`
+- Hermes state.db bloat root cause (storage-efficiency) → `cards/hermes.md`, `2026-08-15-hermes-storage-efficiency.md`
 
-**Root Cause:** QPaint Email 1 drafts for Cheryl Sim, Beth McIntosh, and Julius Gloria were generated from memory instead of the canonical `qpaint-recovery-introduction` template. Drafts violated 7 of 14 mandatory elements including wrong opening, missing identity introduction, wrong signature, and missing privacy footer.
+### 2026-08-14
+- Cron timezone dependency (never change TZ without converting expressions) → `cards/cron.md`, `2026-08-14-cron-timezone-dependency.md`
+- QPaint reply processing: "James" ambiguity + outcome categorisation → `cards/qpaint.md`, `2026-08-14-qpaint-reply-categorization.md`
 
-**Permanent Law:** NO INITIAL CUSTOMER EMAIL MAY BE DRAFTED FROM MEMORY. Canonical template must be retrieved before content generation. Variable substitution only.
+### 2026-08-13
+- reconciliation-watchdog early-return undercounts sent emails → `cards/gmail.md`
 
-**Template:** `knowledge/canonical-templates/qpaint/recovery-introduction-v1.md` — authoritative QPaint first-touch introduction. Checksum: `0241bdb45a22ba13a8e9ba2b7e4e83eb53b84a458e042ec3e444a91dba18f882`.
+### 2026-08-12
+- Initial Customer Email Law: never draft from memory → `cards/agent-architecture.md`, `knowledge/decisions/2026-08-12-initial-customer-email-law.md`
 
-**Decision:** `knowledge/decisions/2026-08-12-initial-customer-email-law.md`
+### 2026-08-11
+- Certify Before Complete (ATTEMPTED ≠ COMPLETED) → `cards/agent-architecture.md`, `knowledge/incident-reviews/INC-2026-08-11-QUOTE-FALSE-COMPLETION.md`
 
-## 2026-08-11 — INC-2026-08-11-QUOTE-FALSE-COMPLETION: Certify Before Complete
+### 2026-08-10
+- Comprehensive operating lessons: 13 permanent standards + 8 incidents → `2026-08-10-operating-lessons.md`, `INDEX.md`
 
-**Confidence:** permanent
-**Contested:** false
+### 2026-08-06
+- PandaDoc React SPA invisible to DOM; use Accessibility API → `cards/browser.md`
 
-**Root Cause:** Three QPaint PandaDoc quotes marked "Quotes Completed" with incomplete Airtable records (Deal Value=$0). The "Quotes Completed" Gmail label was applied after extraction was ATTEMPTED, not after intake was CERTIFIED COMPLETE. No architectural gate existed between partial extraction and the label.
+### 2026-08-05
+- 172 emails silently undelivered (OAuth scope/expiry) → `cards/gmail.md`, `knowledge/incident-reviews/INC-2026-08-05-002.md`
+- Partial dataset caused 61 duplicate Airtable records → `cards/airtable.md`
 
-**Permanent Fixes:**
-- `scripts/intake-certification.py` — `certify_intake_complete()` hard gate
-- Gmail "Intake Exception" label (Label_1, quotes@) — fail-visible exception state
-- Quotes-pulse-phase2 cron prompt updated — cert before label
-- pandadoc-extract.py v2.1.0 — auto-retry short AX tree captures (text < 10K → re-navigate, up to 3x)
-- quote-intake skill v2.2.0 — Intake Completion Gate section
+### 2026-07-24
+- DeepSeek streaming outage (3 cron jobs down, fallback deployed) → `cards/models.md`
 
-**Permanent Operating Principle: ATTEMPTED ≠ COMPLETED.**
-For any automation where business state is at stake: WRITE → READ BACK → VERIFY → CERTIFY → PROGRESS. Never: PROCESS RAN → DONE.
+### 2026-07-03
+- Subject line philosophy (business-owner to business-owner) → `cards/campaign.md`
+- Industry fluency > company research → `cards/campaign.md`
 
-**Required QPaint intake fields:** Contact Person, Contact Email, Deal Value (>$0), First Action. Cannot be weakened without Founder Approval.
+### 2026-07-02
+- DeepSeek broken pipe burst (19 errors) → `cards/models.md`
+- Skills dual-path redundancy (Registry + SOPs) → `cards/agent-architecture.md`
+- (undated) Email sign-off duplication fix (no standalone closing above signature) → `SOUL.md`, `skills/email-draft`
 
-**Labels (quotes@):** Quotes Completed = Label_135578373843577379, Intake Exception = Label_1. Do NOT use Label_7 (atlas@ only).
+### 2026-07-01
+- Always use Adelaide timezone → `cards/python.md`
 
-Full incident: `knowledge/incident-reviews/INC-2026-08-11-QUOTE-FALSE-COMPLETION.md`
-Decision: `knowledge/decisions/2026-08-11-intake-completion-gate.md`
+### 2026-06-30
+- Epoch-zero Gmail `expiry` is working state, not broken → `cards/gmail.md`
+- Cron `--script` paths resolve relative to `scripts/` → `cards/cron.md`
 
-## 2026-08-10 — Comprehensive Operating Lessons (13 Permanent Standards + 8 Incidents)
+### 2026-06-29
+- CRM Messages gap (crm-update-send.py only updated Prospects) → `cards/gmail.md`
+- Multi-prospect campaigns need ownership overlap check → `cards/campaign.md`
 
-**Confidence:** high
-**Contested:** false
+### 2026-06-28
+- LLM cron jobs run blind without skills wired → `cards/cron.md`
+- Cron delivery mismatch (Telegram output to local file) → `cards/cron.md`
+- execute_code blocked in cron mode → `cards/cron.md`
 
-Full permanent record: `learnings/2026-08-10-operating-lessons.md`
+### 2026-06-25
+- Gmail token `expiry` stored as int crashes auth → `cards/gmail.md`
 
-**13 Permanent Operating Standards established:**
-A1. Source-Bound Fact Standard — NO PROVENANCE = NOT FACT
-A2. Fact / Inference / Recommendation Separation
-A3. Gmail Verification Standard — absence from bulk search ≠ proof of no send
-A4. Airtable Data-Integrity Standard — Outreach Notes APPEND ONLY, read-back required
-A5. Current Customer State Overrides Automation
-A6. QPaint 48-Hour No-Contact Law
-A7. QPaint Closed-Loop Intake — PROCESSED or VISIBLE EXCEPTION, never silent drop
-A8. QPaint Daily Attention — P1-P4 priority model, 36h look-ahead
-A9. QPaint Communication Philosophy — discover WHY, don't just remind
-A10. QPaint Internal Escalation Standard — escalate only when QPaint action needed
-A11. Terminal Customer States — Lost/Unsubscribe/Bounce/Positive feedback handling
-A12. James@ Signature Law (CLOSED BASELINE) — exact canonical, once, fail-closed
-A13. Verify Actual Send State Before Retry — never assume timeout = not delivered
+### 2026-06-23
+- Inbox pulse double-post (race condition) → `cards/gmail.md`
 
-**8 Incidents registered** (LL-20260810-001 through LL-20260810-008):
-- Port Adelaide Plaza Fabrication
-- Outreach Notes Overwrite
-- Gmail Bulk Search False Negative
-- Missed Fresh QPaint Quotes
-- QPaint Email 2 Backlog
-- James@ Signature/Duplicate Logo Failures
-- RE-ENG Campaign Duplicates
-- QPaint Intake 48-Hour Violation Risk
+### 2026-06-22 (cross-pollinated from AFS Vault)
+- `newer_than:15m` = 15 months → `cards/gmail.md`
+- `batchModify` 204 empty body → `cards/gmail.md`
+- Piping stdout kills interactive sessions → `cards/shell.md`
+- High-frequency cron burns tokens → `cards/cron.md`
+- macOS cron cannot access Keychain → `cards/cron.md`
+- Hardcoded versioned binary paths → `cards/shell.md`
+- Launchers echo success unconditionally → `cards/cron.md`
+- zsh does not word-split unquoted variables → `cards/shell.md`
+- Discord/Cloudflare blocks default User-Agent (403 code 1010) → `cards/shell.md`
 
-**Closed Baselines** (cannot be changed autonomously): James signature, send boundary, 48-hour rule, source-bound facts, append-only notes, sender identities, fail-closed gates.
+### 2026-06-21
+- Telegram allow lists resolve by chat ID → `cards/telegram.md`
+- Supabase onboarding data not auto-pushed to client vaults → `cards/supabase.md`
 
-**Pre-Action Memory Check** required before: customer communication, Airtable state, quote progression, campaign execution, James@ sending, QPaint journey, suppression, Won/Lost classification.
+### 2026-06-20
+- Onboarding form submit gate requires full section scroll → `cards/supabase.md`
+- Supabase anon key is INSERT-only → `cards/supabase.md`
 
-## 2026-08-06 — PandaDoc SPA invisible to DOM queries; Accessibility API required
+### 2026-06-19
+- Supabase Management API requires paid plan → `cards/supabase.md`
+- Shell echo truncates API keys → `cards/shell.md`
 
-**Confidence:** high
-**Contested:** false
-**Symptom:** PandaDoc share pages are React SPAs that render content via contenteditable `textbox` elements. Standard DOM queries return empty: `document.body.innerText` = `""`, `document.body.textContent` = `""`, `document.querySelectorAll('table tr')` = `0`, `document.querySelectorAll('[contenteditable="true"]')` = `0`. The `pandadoc-extract.py` v1 returned "No text extracted from page" for all PandaDoc URLs.
+### 2026-06-18
+- GitHub token env var naming → `cards/git.md`
+- Git case sensitivity on macOS → `cards/git.md`
+- Template render doesn't process `.css` → `cards/git.md`
 
-**Cause:** PandaDoc's React render pipeline creates a virtual DOM that the accessibility tree sees but standard DOM traversal does not. The content is visually rendered but programmatically invisible to `Runtime.evaluate`. Additionally, `browser_console` targets `chrome://new-tab-page`, not the PandaDoc tab — `document.title` returns `"New Tab"`.
-
-**Fix:**
-1. `pandadoc-extract.py` v2 uses `Accessibility.getFullAXTree` (CDP) as primary extraction method, with `document.body.innerText` as fallback.
-2. AX tree splits compound values across separate nodes — parser handles multi-line names ("Manohar" / "Ganji" / email), dates ("Date:" / "03 / 08 / 2026"), and values ("Total" / "$13,860.00").
-3. Address extracted via street-pattern heuristic (title line filter + de-duplication).
-4. Quote number extracted from document title pattern (`^(\d{5})\s*-\s*`).
-5. Page loading detected by polling AX tree until "Connecting" text disappears and node count exceeds 100.
-6. `PUT /json/new` does NOT populate the AX tree — must use `browser_navigate` or `Page.navigate` on existing tabs.
-7. Deduplication required: AX tree has identical text in multiple node types (StaticText + InlineTextBox).
-
-**Validation:** 6/6 fields verified across 2 PandaDoc quotes (NF-QPAINT-43054, QPAINT-43016). Test 3 token expired (expected — PandaDoc share links are time-limited).
-
-**Principle:** A failed extraction method does not mean the data is unavailable. When rendered content is inaccessible through the DOM, inspect the accessibility tree and network layer before escalating.
-
-**Files modified:**
-- `scripts/pandadoc-extract.py` — v2.0.0, AX-tree primary extraction
-- `skills/notforgotten/quote-intake/references/pandadoc-intake-pattern.md` — updated extraction docs
-
-## 2026-08-05 — INC-2026-08-05-002: 172 production emails silently undelivered due to OAuth scope/expiry failures
-
-**Confidence:** high
-**Contested:** false
-**Symptom:** Production communication audit discovered 172 outreach emails (156 QPaint + 16 FF1) believed sent but never delivered. Zero emails in any Gmail Sent folder. Airtable and Headquarters showed campaigns as active. Two independent failures: (1) `send-qpaint.py` used `quotes_token.json` with `gmail.modify` only — missing `gmail.send` scope; Gmail API errors silently caught. (2) `send-canonical.py` used expired `james_token.json` with missing `client_id` — refresh failed silently.
-
-**Cause:** No independent delivery verification existed. Script execution was treated as proof of completion. Seven different sending scripts, multiple token patterns, no post-send reconciliation. The system trusted itself.
-
-**Fix:**
-1. Email Verification Standard: Send → Verify in Gmail Sent → Capture IDs → Evidence Record → Update Airtable → Update HQ. Stop on failure.
-2. Production sender unified: `send-email.py` (atlas@ white-label) + `ff1-test-send.py` pattern (james@ NF outreach). All legacy senders retired.
-3. james_token.json re-authorised with `gmail.send` + `gmail.modify` scopes via OAuth flow.
-4. Staged recovery: Stage 1 (5 QPaint), Stage 2 (101 QPaint), Stage 3 (16 FF1). 122/122 verified. 0 failures.
-5. Permanent standard: All NF outreach from james@notforgotten.com.au.
-6. Incident snapshot frozen at `data/incidents/INC-2026-08-05-002/`.
-7. Six operational standards approved for implementation.
-8. Incident review: `knowledge/incident-reviews/INC-2026-08-05-002.md`
-9. Decision recorded: `knowledge/decisions/permanent-outreach-sender-james.md`
-
-**Principle:** Never trust a green tick. Every claim of external effect must be independently verified. Gmail Sent folder is the single source of truth for email delivery. Evidence before progress.
-
-## 2026-08-05 — Partial dataset caused 61 duplicate Airtable records and inaccurate pipeline reporting
-
-**Confidence:** high
-**Contested:** false
-**Symptom:** QPaint Pipeline reconciliation showed 205 records with 144 unique emails and 61 duplicates. 49 "missing" records were imported based on a cached TSV of only the first 100 pipeline records, creating duplicates for records that existed on pages 2 and 3. Atlas reported "Scenario A" and "Scenario B" hypotheses to James instead of resolving pagination to get the complete dataset.
-
-**Cause:** Airtable API `maxRecords=200` was silently capped at 100 by a view filter. Atlas treated the first 100 records as the complete table and made import decisions from that incomplete dataset. The `pageSize` pagination approach was available but not attempted with the correct auth pattern (Python `urllib` with split `'Auth' + 'orization'` header). When the import created 49 records and only 25 showed up in status changes, Atlas presented hypotheses instead of resolving the pagination issue.
-
-**Fix:**
-1. Used Python `urllib.request` with `pageSize=100` and full offset pagination to load all 205 records.
-2. Built a scored repair plan — richest record (most history, highest stage, deal value) kept, fields merged, 61 merged records deleted.
-3. Corrected 34 stage conflicts (Bridge Email 2 recipients still showing Email 1).
-4. Final state: 144 records, 144 unique emails, 0 duplicates, 0 stage conflicts.
-
-**Permanent operating principle:** No import, reconciliation, or deduplication process may rely on partial exports or cached subsets. Atlas must always reconcile against the complete production dataset via full pagination. When the API appears to return inconsistent results, resolve the pagination issue — do not hypothesise about the cause.
-
-## 2026-07-24 — DeepSeek streaming outage: 3 production cron jobs down, fallback chain deployed
-
-**Confidence:** high
-**Contested:** false
-**Symptom:** Three LLM-based cron jobs (`inbox-pulse-phase2`, `quotes-pulse-phase2`, `follow-up-autopilot`) failed on every run with `RuntimeError: [Errno 32] Broken pipe`. Phase 1 watchdog scripts (no_agent: true) were unaffected. Errors delivered to Telegram every 1-3 minutes (~40+/hour). Streaming connections established to `api.deepseek.com/v1` but zero chunks received, 180-240s stream-stale timeout, then broken pipe on termination. Non-streaming requests (curl test) succeeded with HTTP 200. All 3/3 retries exhausted on multiple runs.
-
-**Cause:** DeepSeek API streaming layer degraded — TCP connections established but no SSE chunks delivered. Isolated to streaming; non-streaming requests unaffected. Incident window: approximately 06:33-06:56 UTC (25 minutes). API self-recovered.
-
-**Fix:**
-1. **Containment (immediate):** Paused all three LLM-based cron jobs at 06:56 UTC. Left Phase 1 watchdog scripts running (no_agent: true, no LLM dependency).
-2. **Fallback chain deployed:** Configured Google Gemini (`google/gemini-2.5-flash`) as fallback provider via `hermes fallback`. Chain: deepseek-v4-pro → google/gemini-2.5-flash. Uses existing `GEMINI_API_KEY` from `.env`. Tried automatically on rate-limit, 5xx, or connection errors.
-3. **Restoration:** Staged — `follow-up-autopilot` first (local deliver), then `inbox-pulse-phase2`, then `quotes-pulse-phase2`. Monitor each for several successful runs before restoring next.
-
-**Escalation:** Crossed Tier 3 threshold per 2026-07-02 monitoring rules (repeated exhaustions within 24h, multiple jobs affected). Previous incidents were isolated bursts; this was the first multi-job simultaneous failure.
-
-**Config change:** `fallback_providers` in config.yaml changed from `[]` to `[{provider: google, model: google/gemini-2.5-flash}]`.
-
-**Related:** 2026-07-02 — DeepSeek API broken pipe burst (19 errors, 61 min, single job). 2026-06-30 — Epoch-zero Gmail token expiry misdiagnosis (similar pattern: cron agent incorrectly diagnosed broken state).
-
-
-
-Format per entry:
+## Entry format (for new dated records)
 
 ## YYYY-MM-DD — short title
 **Confidence:** high | medium | low
 **Contested:** true | false
-**Contradictions:** [YYYY-MM-DD — other-title]  (omit if none)
 **Symptom:** what broke
 **Cause:** why
 **Fix:** what works (exact commands/parameters)
 
-When a new entry contradicts a prior one: set `Contested: true` on BOTH entries, add reciprocal `Contradictions:` links. Never silently overwrite. When resolved, mark superseded entry with `**Superseded by:** [YYYY-MM-DD — title]`.
-
-## 2026-07-03: Subject line philosophy — business owner to business owner
-
-**Decision:** Subject lines shift from lowercase conversational ("your quotes", "follow-up problem") to title case business-owner-to-business-owner ("A Quick Question About Your Quoting", "Your Quoting Process").
-
-**Changes:**
-- Cold-email skill: Complete rewrite of Subject Lines section. Title case, 3-7 words, three preferred styles (Question, Observation, Context), 5-10 option generation workflow with authenticity/curiosity/professionalism scoring
-- Post-draft verification: Added subject line check as step 7
-- What NOT to Use now explicitly bans all-lowercase subjects
-
-**Three preferred styles:**
-- Question: "A Quick Question About Your Quoting"
-- Observation: "Commercial Cleaning Quotes"
-- Context: "After Looking at Your Website"
-
-**Per-campaign: generate 5-10 options, score each /10 across three dimensions, recommend strongest with explanation.**
-
-
-## 2026-07-03: Industry fluency > company research — outreach philosophy shift
-
-**Decision:** Outreach personalisation now prioritises industry operational understanding over company website facts. Prospect should feel understood at the business-model level, not researched at the About-page level.
-
-**Trigger:** James identified that company-specific personalisation ("ACS covers medical, dental, schools, offices, strata") signals "I read your website" rather than "I understand your world." The distinction matters for trust.
-
-**Changes (system-wide):**
-- Outreach Philosophy INDEX.md: Added Principle 9, rewrote Personalisation Framework, Decision Tree, Questions section, Never Do list
-- Cold-email skill: Rewrote Principle 2, Insight-led opening, Quality Check dimensions, Over-Displaying Research pitfall, Checklist, Trust signals
-- New reference file: `skills/cold-email/references/industry-quoting-dynamics.md` — 5-question framework with worked examples for cleaning, trades, agencies, IT MSPs, construction
-- Decision Library: `2026-07-03-industry-fluency-over-company-research.md`
-- SOUL.md: No change needed (principle-level change, not core identity)
-
-**The 5-question framework:**
-1. What's their business model? (recurring, project, retainer+project, transactional)
-2. What does quoting look like? (complexity, volume, creator, delivery)
-3. What's the operational tension? (structural reason follow-up is hard in this industry)
-4. What happens after a quote goes out? (process, memory, or nothing)
-5. Why would they feel the gap? (emotional/financial consequence)
-
-**Company-specific details are now seasoning, not the meal. Use only to sharpen an operational observation.**
-
-
-
-**Symptom:** Every email had "Atlas" as standalone body closing, then signature block ALSO started with "Atlas." Looked like a stutter/double sign-off.
-
-**Root cause:** The rule "body's closing word must be Atlas" (in email-draft, cold-email, memory, SOUL.md) was designed to prevent a James-vs-Atlas mismatch, but created a worse problem: the Gmail signature block already contains "Atlas" as the first line. Two "Atlas" lines stacked = awkward.
-
-**Fix:** 8 patches across 6 files. New rule: Gmail signature block IS the sign-off. No standalone closing word needed above it. Body flows naturally into signature.
-
-**Files changed:**
-- `skills/email-draft/SKILL.md` — removed body closing rule from Hard rules
-- `skills/cold-email/SKILL.md` — replaced mismatch rule with duplication rule; removed "Atlas" from 2 templates
-- `skills/cold-email/references/acs-benchmark.md` — removed manual sign-off from 2 benchmark examples
-- `memory/MEMORY.md` — updated sign-off memory entry
-- `pages/dash/data/atlas-content/63bb1b60ffa5.txt` — updated dashboard copy
-- `SOUL.md` — clarified sign-off rule refers to display name, not body closing
-
-## 2026-07-02 — DeepSeek API broken pipe burst: 19 errors in 61 min, first 3/3 retry exhaustion
-
-**Symptom:** 19 `[Errno 32] Broken pipe` errors between 08:18-09:19 Adelaide, all from `inbox-pulse-phase2` (`2d4a9ff4f06b`). One run (09:03-09:09) exhausted all 3 retries and failed entirely — first time retries weren't sufficient.
-
-**Cause:** DeepSeek API streaming layer — `Streaming failed before delivery` with `error_type=ReadError`. TCP connections to `api.deepseek.com` established then severed mid-stream. Concentrated in a 61-minute burst; normal service resumed at 09:24. Likely provider-side load event or network path degradation.
-
-**Impact:** Zero — the failed run was on a "no unread mail" cycle (adjacent runs were [SILENT]). If mail had arrived during that window, reply notification would have been delayed ~21 min until next successful run. Retry mechanism caught 18/19 attempts.
-
-**Pattern:** DeepSeek broken pipes now observed on Jun 27 (4 runs), Jul 1 (delivery class, separate), Jul 2 (19 errors, API class). Three distinct days in ~6-day window. Not a one-off.
-
-**Monitoring rule:** Three-tier escalation for DeepSeek API broken pipes on inbox-pulse-phase2:
-
-| Tier | Trigger | Action |
-|---|---|---|
-| **Log** | Isolated broken pipe on a silent (no-mail) cycle | Log to LEARNINGS, no notification |
-| **Escalate immediately** | 3/3 retry exhaustion when mail IS waiting | Flag to James — reply notification may be delayed |
-| **Escalate** | Repeated 3/3 exhaustions within a short period (≤24h) | Flag to James, recommend Hermes config change: retries 3→5 for streaming ReadError |
-
-Current pattern (Jun 27, Jul 1-delivery, Jul 2-burst) is Tier 1 only — all exhaustions were on silent cycles. No escalation needed.
-
-**Related:** Distinct from "delivery broken pipe" class (cron scheduler → Telegram Bot API, Jun 30 / Jul 1), which is self-healing with next-run success.
-
-## 2026-07-02 — Skills need dual-path redundancy: Registry + SOPs, not just the skills-list scanner
-
-**Symptom:** `website-dev` skill was created (Jun 29) but wasn't loaded for subsequent website work. The skill existed and had trigger conditions in its metadata, but neither the Registry (master map) nor SOPs (procedural triggers) pointed to it.
-
-**Cause:** The skill-matching mechanism in the system prompt scans available skills at turn start. This is a single point of failure — if the scan misses a match, there's no fallback. Pre-flight skills ("load before ANY website change") are especially vulnerable because they're context-triggered, not keyword-triggered.
-
-**Fix:** Dual-path redundancy for all pre-flight skills:
-1. **Registry.md** — skill must appear under appropriate section (Design, Operations, Publishing, etc.)
-2. **SOPs.md** — skill must have an explicit MANDATORY section with trigger conditions and load order
-3. **Self-lint** — weekly scan catches orphaned skills (Section 5 "Skills coverage check", reports in Section 7)
-4. **Same-session registration** — SOPs now require registering new skills in Registry immediately on creation
-
-**Pattern:** On-demand skills with unambiguous trigger phrases (cold-email, copywriting) can rely on the skills-list scanner. Pre-flight skills (website-dev, case-study, godaddy-dns, quote-intake, email-inbox-pulse) MUST have dual-path redundancy. A skill is only as reliable as its weakest discovery path.
-
-## 2026-07-01 — Always Use Adelaide Timezone
-
-**Symptom:** Command Centre dashboard showed dates in UTC (e.g., "2026-06-30 23:11") instead of Adelaide time.  
-**Cause:** `datetime.datetime.now()` was called without timezone specification in dash-update.py, dash-live-refresh.py, pipeline-data.py, on-error handler, and quote-intake.py. The orgo server runs UTC.  
-**Fix:** All scripts now use `ZoneInfo("Australia/Adelaide")` — pattern: `from zoneinfo import ZoneInfo; ADELAIDE = ZoneInfo("Australia/Adelaide"); datetime.now(ADELAIDE)`.  
-**Exception:** For Airtable API timestamps with `Z` suffix (e.g., "Sent at"), convert to UTC first: `datetime.now(ADELAIDE).astimezone(timezone.utc)`.  
-**Pattern protection:** session-activity hook already had this correct — other scripts should follow its pattern. New scripts must use Adelaide timezone from day one.
-
-# LEARNINGS — Snowark
-
-Append-only log of fixes, API quirks, and gotchas. Check this BEFORE touching any external API. Newest first.
-
-See [[Catalogue]] (learnings/catalogue.md) for domain cards, [[ERRORS]] (learnings/ERRORS.md) for unresolved incidents, and [[Email Integration]] (integrations/email.md) for Gmail setup.
-
-Format per entry:
-
-## YYYY-MM-DD — short title
-**Symptom:** what broke
-**Cause:** why
-**Fix:** what works (exact commands/parameters)
-
-## 2026-06-30 — Cron --script paths resolve relative to scripts/, not vault root (corrected from 2026-06-29 misdiagnosis)
-**Symptom:** Pipeline data refresh cron (251c65e49027) with `--script bin/pipeline-data.py` failed with "Script not found: /root/.hermes/scripts/bin/pipeline-data.py". Vault graph rebuild (ed054f2de399) with `--script scripts/vault-graph.py` failed with "Script not found: /root/.hermes/scripts/scripts/vault-graph.py".
-**Cause:** The 2026-06-29 pitfall was wrong. Hermes cron does NOT resolve `--script` paths from vault root (~/.hermes/). It prepends `scripts/` to every script path. `bin/pipeline-data.py` → `scripts/bin/pipeline-data.py`. `scripts/vault-graph.py` → `scripts/scripts/vault-graph.py`.
-**Fix:** Scripts in `scripts/` use bare filename (`dashboard-update.py`). Scripts in `bin/` use `../bin/name.py` or create symlink at `scripts/bin/name.py → ../../bin/name.py`. Verify: `test -f ~/.hermes/scripts/<script-path>`. Corrected growth-operations skill pitfall.
-
-## 2026-06-29 — CRM Messages gap: crm-update-send.py only updated Prospects, not Messages
-**Symptom:** After every calibration send, the Messages table remained empty. Manual backfill required after each campaign send wave. 0 of 10 calibration sends had Messages records until manual backfill (2026-06-29).
-**Cause:** `crm-update-send.py` updated the Prospects table only (Pipeline stage, dates, notes). It had no capability to create Messages records. The cold-email skill's "After Sending" workflow ran the script but never created the audit trail. The `gmail-sent-retrieval.md` reference even documented the gap as expected ("Messages table may not have sent emails recorded").
-**Fix:** Extended `crm-update-send.py` with full reconciliation: (1) Find prospect, (2) Update Prospect, (3) Create Messages record with Direction=Outbound, Body=<email text>, Sent at=now, Approval status=Approved, (4) Verify Messages record exists, (5) Report status. New --body parameter (required) captures email text at send time. New exit code 3 for partial reconciliation (Prospect updated but Messages failed). Updated cold-email skill and gmail-sent-retrieval.md to reflect Messages as primary source, Gmail as fallback. Principle codified: a successful send is not complete until all related systems reconcile automatically.
-
-## 2026-06-29 — Multi-prospect campaigns need ownership overlap check before sending
-**Symptom:** WebAlive flagged for potential ownership/infrastructure overlap with Online Marketing Gurus (Supergravity Group) during pre-send verification for the calibration campaign. Including both would produce correlated (not independent) reply data.
-**Cause:** Two prospects in the same vertical sharing ownership, infrastructure, or decision-makers produce non-independent data points. This wasn't part of the initial selection criteria — the focus was on industry/geography/size diversity, not ownership independence.
-**Fix:** Before finalising any multi-prospect campaign in the same vertical, run an ownership/infrastructure overlap check. Verify: different domains, different registrations, no shared parent companies, no shared email infrastructure. Replace any overlapping prospects before sending. Added to the standard pre-flight integrity checklist (see `cold-email` skill references).
-
-## 2026-06-28 — LLM cron jobs run blind without skills wired
-**Symptom:** Cron jobs with agent mode produced garbled output or failed to find vault files. Instructions like "read Agent/Registry.md" returned nothing.
-**Cause:** LLM cron jobs start in a fresh session with no vault context. Without `skills=[]` wired, the cron agent doesn't know where the vault lives and can't find any referenced files.
-**Fix:** Every LLM cron job must have at least one skill wired. Verify with `cronjob action=list` that every LLM job has a non-empty skills field.
-
-## 2026-06-28 — Cron delivery mismatch: Telegram output vanishes to local file
-**Symptom:** Inbox pulse Phase 2 processed replies but nobody saw them. Reports were saved to a local file instead of posted to Telegram.
-**Cause:** The cron job had `deliver=local` despite producing Telegram-worthy output. Nobody reads local deliver files.
-**Fix:** Any cron job that produces reports, alerts, or briefings for human consumption must have `deliver=telegram:<id>`. `deliver=local` is for silent background jobs only. Check delivery target with `cronjob action=list`.
-
-## 2026-06-28 — execute_code blocked in cron mode
-**Symptom:** Python scripts via `execute_code` returned `BLOCKED` with message about `approvals.cron_mode`.
-**Cause:** Cron sessions run without a user present to approve arbitrary Python execution. execute_code requires approval in cron context.
-**Fix:** For file analysis tasks in cron: use `search_files` with `target='content'` and `output_mode='content'` for regex extraction, `terminal` for `wc -l`/`find`/`test -f`, and batch independent reads. This pattern was validated during vault-lint (2026-06-28).
-
-## 2026-06-25 — Gmail token `expiry` field stored as int crashes `from_authorized_user_file`
-**Symptom:** Gmail API `google_api.py gmail search` crashed with `AttributeError: 'int' object has no attribute 'rstrip'` in `Credentials.from_authorized_user_file()`. The inbox watchdog (Phase 1) produced empty output — appearing to mean "no mail" — but was actually crashing silently on every 60s tick.
-**Cause:** `google_token.json` had `"expiry": 3599` (an int, the `expires_in` value) instead of an ISO 8601 datetime string like `"2026-06-25T08:17:03Z"`. The Google OAuth library expects `expiry` to be a string and calls `.rstrip("Z")` on it. This corrupted token was likely produced by a failed/partial token write.
-**Fix:** Patch `expiry` to `"1970-01-01T00:00:00Z"` (already-expired timestamp). On next API call, `get_credentials()` sees `creds.expired == True`, uses `refresh_token` to get a fresh token, and writes the correct ISO datetime string back to the file. One-liner: `python3 -c "import json; d=json.load(open('/root/.hermes/google_token.json')); d['expiry']='1970-01-01T00:00:00Z'; json.dump(d, open('/root/.hermes/google_token.json','w'), indent=2)"`. After fix, verify with: `python3 -c "import json; d=json.load(open('/root/.hermes/google_token.json')); assert isinstance(d['expiry'], str)"`.
-
-## 2026-06-23 — Inbox pulse double-post: race condition between Phase 1 poll and Phase 2 mark-read
-**Symptom:** Email update appeared twice in Telegram. Phase 2 summarised and posted, but Phase 1 found the same email still unread on its next 60s tick, causing Phase 2 to process it again.
-**Cause:** Phase 2 takes 30-45s to boot full identity (6 files), read email, and summarise — all before reaching the mark-as-read step. Phase 1 runs on the 60s boundary and finds the email still unread during that window.
-**Fix:** Reorder processing in pulse-bootstrap.md: mark-as-read immediately after reading, BEFORE summarising. This closes the window to under 1 second. The new order is: read → mark-read → summarise → post.
-**Source:** Not Forgotten Systems — spotted by Josh Hancock.
-
-## 2026-06-22 — Gmail `newer_than:15m` = 15 MONTHS, not minutes
-**Symptom:** Gmail searches using `newer_than:15m` returned entire unread backlog instead of the last 15 minutes.
-**Cause:** Gmail's `newer_than:` operator only accepts `d` (days), `m` (MONTHS), `y` (years). There is no minute unit. `newer_than:15m` silently widens to 15 months.
-**Fix:** Never use `newer_than` for sub-day windows. Filter by `internalDate` in code after fetching. Use `newer_than:1d` as a coarse pre-filter, then narrow with `internalDate` epoch-ms comparison.
-**Source:** Cross-pollinated from AFS Vault LRN-20260615-006 (Gary's system).
-
-## 2026-06-22 — Gmail `batchModify` returns 204 with empty body; json.load crashes
-**Symptom:** Gmail API `POST /messages/batchModify` appeared to fail with JSON parse error, but the label change had actually succeeded server-side.
-**Cause:** `batchModify` returns HTTP 204 with an empty body. `json.load()` on empty string raises `Expecting value`. The error was a parse failure, not an API failure.
-**Fix:** Check response body before parsing: `raw = r.read(); return json.loads(raw) if raw else {}`. For 204-returning endpoints, verify by re-fetching labels rather than retrying.
-**Source:** Cross-pollinated from AFS Vault LRN-20260618-001 (Gary's system).
-
-## 2026-06-22 — Piping stdout (`| tee`) kills interactive agent sessions
-**Symptom:** Agent launched via `tmux new-session ... | tee log` died instantly with "Input must be provided through stdin or as a prompt argument when using --print."
-**Cause:** Piping stdout makes the process see a non-TTY. Native agent binaries switch to headless `--print` mode and exit immediately when they detect no TTY. The `tee` success echo runs unconditionally after `tmux new-session` returns, so the restart log falsely shows success.
-**Fix:** Never pipe interactive agent stdout. Use `tmux pipe-pane -o -t <session> 'cat >> log'` after launch to capture output non-intrusively. Verify the process actually lived: `tmux ls` and check the pane log for immediate error lines.
-**Source:** Cross-pollinated from AFS Vault LRN-20260616-001 (Gary's system).
-
-## 2026-06-22 — High-frequency cron in main session burns tokens on context reloads
-**Symptom:** Cron jobs firing every 5-10 minutes reload full agent context (~30k+ tokens) each tick — expensive and unnecessary for polling/monitoring tasks.
-**Cause:** Main-session cron jobs load all boot context files on every invocation. For a job firing every 10 minutes, that's 144 full context loads per day.
-**Fix:** Use isolated sessions for high-frequency utility crons. Use `no_agent: true` with a script for pure polling (like the Atlas Watchdog). Reserve main-session loading for tasks that genuinely need full context.
-**Source:** Cross-pollinated from AFS Vault LRN-20260408-002 (Gary's system).
-
-## 2026-06-22 — macOS cron cannot access Keychain; use LaunchAgents for credential-dependent jobs
-**Symptom:** Scheduled tasks needing OAuth/Keychain-stored credentials fail with "Not logged in" when run via crontab.
-**Cause:** macOS cron runs outside the user's login session and cannot access the Keychain. LaunchAgents (`~/Library/LaunchAgents/`) run inside the login session and have Keychain access.
-**Fix:** All scheduled tasks that need credential access must use LaunchAgents or launchd services, not crontab. For Hermes cron (which runs inside the agent process), this is handled by the gateway — but external scripts triggered by cron should use launchd.
-**Source:** Cross-pollinated from AFS Vault LRN-20260410-002 (Gary's system).
-
-## 2026-06-22 — Hardcoded versioned binary paths break silently when versions change
-**Symptom:** Scripts referencing `/path/to/node/v24.4.0/bin/tool` failed silently after the version directory was cleaned up. LaunchAgents and heartbeat scripts all broke simultaneously.
-**Cause:** Version-manager directories (nvm, pyenv, asdf) are ephemeral. Hardcoding a specific version path creates a time bomb that fires when old versions are pruned.
-**Fix:** Use version-independent paths: `~/.local/bin/claude`, `/usr/local/bin/python3`, or rely on PATH lookup. Never hardcode versioned directories in plists, cron jobs, or scripts. When a binary must be pinned, use a symlink at a stable path.
-**Source:** Cross-pollinated from AFS Vault LRN-20260430-001 (Gary's system).
-
-## 2026-06-22 — Automated launchers echo success unconditionally; verify the process lived
-**Symptom:** A LaunchAgent/cron reported success (echo "started OK") but the agent process had died in under 1 second. Went undetected for days.
-**Cause:** Launcher scripts run `tmux new-session` or `nohup` and then unconditionally echo success. The success echo doesn't mean the child process survived — only that the launcher finished.
-**Fix:** After launching, verify: check process table, read the session log for immediate errors, confirm the PID exists. A "started" echo is a launch confirmation, not a liveness proof. For critical agents, add a watchdog that verifies the process is alive, not just that it was launched.
-**Source:** Cross-pollinated from AFS Vault LRN-20260615-001 (Gary's system).
-
-## 2026-06-22 — zsh does NOT word-split unquoted variables like bash
-**Symptom:** `for p in $pairs` loop ran ONCE with the entire string when run in zsh, causing data corruption (wrong IDs paired together).
-**Cause:** zsh (unlike bash) does not word-split unquoted scalar variables by default. The loop variable receives the entire string as one item.
-**Fix:** For any multi-record loop where a mismatch would corrupt data, do the iteration in Python, not shell. If shell is unavoidable in zsh, force splitting with `${=var}`. Always read back the artifact to confirm correct values before moving on.
-**Source:** Cross-pollinated from AFS Vault LRN-20260617-004 (Gary's system).
-
-## 2026-06-22 — Discord/Cloudflare blocks default Python User-Agent (HTTP 403 code 1010)
-**Symptom:** Direct API calls to Discord via Python `urllib` returned HTTP 403 with Cloudflare error code 1010 — a banned browser signature, not an auth failure.
-**Cause:** Discord's API requires a descriptive User-Agent header per their docs. Python's default `Python-urllib/3.x` gets rejected at Cloudflare's edge.
-**Fix:** Set an explicit `User-Agent` header on all direct HTTP API calls: `User-Agent: AppName (url, version)`. This applies to any service behind Cloudflare, not just Discord.
-**Source:** Cross-pollinated from AFS Vault LRN-20260612-001 (Gary's system).
-
-## 2026-06-21 — Telegram allow lists resolve by chat ID, not phone number
-**Symptom:** James Hardstaff was blocked from Atlas's group with "Unauthorized user" warnings for hours. His phone number (`+614****6029`) was in the allow list, yet every message was silently dropped.
-**Cause:** The Telegram gateway resolves authorisation by chat ID (e.g., `8782007505`), not by phone number. Adding a phone number to `allowed_chats` silently fails — no error, no log warning other than "Unauthorized user: <chat_id>". The user's chat ID is only revealed when they send their first message (appears in the gateway log as the numeric ID after "Unauthorized user:").
-**Fix:** Never add phone numbers to allow lists. After a user sends their first message, capture their chat ID from the gateway log (`grep "Unauthorized user" ~/.hermes/logs/gateway.log`) and add that numeric ID (quoted as a YAML string) to `allowed_chats` in config.yaml. Verify type is `str` not `int` with `python3 -c "import yaml; c=yaml.safe_load(open('config.yaml')); [print(type(v).__name__) for v in c['telegram']['allowed_chats']]"`.
-
-## 2026-06-21 — Supabase onboarding data not auto-pushed to client vaults
-**Symptom:** Atlas's install files on orgo were missing brand colours, fonts, and other Track B data that James had submitted via the onboarding questionnaire.
-**Cause:** The deploy pipeline renders the vault from `client.yaml`, but Track B data from Supabase's `client_responses` table was not being pushed into the YAML fixture before rendering. Data lived in Supabase only.
-**Fix:** After questionnaire submission, manually extract Track B fields from Supabase and merge them into the client's YAML fixture before rendering. Long-term: automate this as part of the deploy pipeline (a script that queries Supabase → updates client.yaml → triggers re-render). See [[supabase]] (learnings/cards/supabase.md) for API traps.
-
-## 2026-06-20 — Onboarding form submit gate requires full section scroll
-**Symptom:** Clicking "Submit" on the notforgotten onboarding form appeared to do nothing — no Supabase record, no confirmation screen. Progress indicator showed "Section 5 of 9."
-**Cause:** The form's submit button only fires after the user has scrolled through all 9 sections (a progress gate). Scrolling triggers section-visit tracking; until all sections are visited, the button is inert with no visible error.
-**Fix:** Scroll through every section before clicking submit. When testing via browser automation, scroll down through all sections until progress shows "Section 9 of 9," then click submit. For client instructions: tell them to scroll all the way to the bottom on every section before submitting.
-
-## 2026-06-20 — Supabase anon key is INSERT-only; use service_role for reads
-**Symptom:** Querying `client_responses` with the anon key returned `[]` (empty array) even though records existed.
-**Cause:** The Supabase RLS policy on `client_responses` allows the anon key to INSERT but not SELECT. Reads require the service_role key.
-**Fix:** Use `SUPABASE_SERVICE_ROLE_KEY` for read queries against `client_responses`. The anon key is for form submissions (client-side); the service_role key is for backend reads (Winston queries). Both are in `~/.hermes/.env`.
-
-## 2026-06-19 — Supabase Management API requires paid plan
-**Symptom:** Management API token (`sbp_...`) returned 401 Unauthorized for SQL/DDL operations despite "whole account" scope.
-**Cause:** Supabase Management API (api.supabase.com) SQL execution requires a paid plan. Free tier only supports PostgREST (data operations, not schema changes).
-**Fix:** Run schema changes via Supabase SQL Editor (web UI) as a one-time step. PostgREST with service_role key handles data operations from code.
-
-## 2026-06-19 — Shell echo truncates API keys with special characters
-**Symptom:** API keys containing special characters (newlines, quotes, dollar signs) were truncated when echoed via shell, producing invalid credentials.
-**Cause:** Shell variable expansion in `echo` and `export` doesn't safely handle all special characters present in some API tokens.
-**Fix:** Use `write_file` tool or Python `subprocess` to write credentials. Never echo API keys through shell. Example: `write_file(path='~/.hermes/.env', content='KEY=value')` or Python script with proper string handling.
-
-## 2026-06-18 — GitHub token env var naming
-**Symptom:** GitHub operations failed with "credentials not found" despite token being in `.env`.
-**Cause:** Code expected `GITHUB_TOKEN` but some scripts referenced `GITHUB_PAT`. Inconsistent naming.
-**Fix:** Use `GITHUB_TOKEN` consistently. Check `.env` with `grep GITHUB_TOKEN ~/.hermes/.env` (presence only, never expose value). See [[git]] (learnings/cards/git.md) for more GitHub traps.
-
-## 2026-06-18 — Git case sensitivity on macOS
-**Symptom:** `git clone` on macOS (case-insensitive filesystem) failed to find `Agent/Skills/` when searching for `Agent/skills/`. Files existed on remote but weren't found locally.
-**Cause:** macOS APFS is case-insensitive by default. Git stores paths as-is from remote (case-sensitive), but local searches using `find` or `ls` with wrong case won't match. When a repo is cloned, files at `Agent/Skills/` are accessible at both `Agent/Skills/` and `Agent/skills/` locally, but programmatic searches with exact-case patterns fail against different-case patterns.
-**Fix:** When searching cloned repos for Hermes agent files, try both `Agent/Skills/` (capital S, as stored in many AFS repos) and `Agent/skills/` (lowercase, as used locally). Use `find -iname` for case-insensitive searches. When accessing via GitHub API, use exact case as stored on remote.
-
-## 2026-06-18 — Template render doesn't process .css by default
-**Symptom:** CSS files in deploy kit templates weren't being rendered with placeholder substitution.
-**Cause:** The render script's text suffix list included `.md`, `.yaml`, `.yml`, `.json`, `.html`, `.txt` but not `.css`.
-**Fix:** Add `.css` to the text suffix list in the render script. CSS template files need placeholder substitution just like other text formats.
-
-## 2026-06-30 — Epoch-zero Gmail `expiry` flagged as broken by cron; token was fine
-**Symptom:** Prepare-Ahead cron (4a10d4135c2c) reported "⚠️ Blocker: Gmail token expired. OAuth app promoted to Production invalidated the refresh token. Token expiry shows epoch zero — unusable until James re-authenticates." Manual testing showed `gmail_auth.get_access_token()` working perfectly.
-**Cause:** The `expiry` field is `1970-01-01T00:00:00Z` (epoch zero), which is the deliberate Jun 25 fix — it forces the refresh_token flow on every call, producing a fresh access token each time. The cron agent inspected the `expiry` field, saw epoch zero, and incorrectly concluded the token was broken without testing it.
-**Fix:** Added pitfall to `growth-operations` skill: epoch-zero expiry is working state, not failure. The only valid diagnostic is calling `gmail_auth.get_access_token()` and checking for a `ya29.*` token. Never flag token status based on the `expiry` field alone.
-
-## 2026-08-13 — reconciliation-watchdog.py early-return false positive
-
-**Symptom:** reconciliation-watchdog.py flagged 30 QPaint records as "Stage Email 2 but only 1 sent message (expected ≥2)". Precise `to:email in:sent` search proved all 30 had exactly 2 sent emails (Email 1 + Email 2).
-
-**Root cause:** `check_gmail()` returns EARLY from the first date window that finds ANY message. Records with recent "Last Contacted" (Aug 7-10) hit Window 1 (`after:last_contacted-1day`), which only captures Email 2 (recent) and misses Email 1 (older). Result: undercount "1 sent".
-
-**Fix (when authorised):** replace the early-return window logic with a single definitive `to:<email> in:sent` search (no date filter), OR accumulate across all windows before returning. Never return early from a narrow window when counting sent emails.
-
-**Lesson:** A reconciliation flag is a HYPOTHESIS, not a verdict. Always verify with direct recipient-level Gmail search before correcting any CRM record. Mass-correcting based on watchdog flags alone would have falsified 30 correct records.
-
-**Related:** Pitfall 34/35 (bulk vs direct search), production-standards Section 15 (pagination).
+When a new entry contradicts a prior one: set `Contested: true` on both, add reciprocal `Contradictions:` links. Never silently overwrite. When resolved, mark the superseded entry with `**Superseded by:**`.

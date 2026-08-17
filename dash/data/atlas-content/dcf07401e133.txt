@@ -1,0 +1,93 @@
+---
+doc_type: technical-debt-handoff
+owner: winston-josh
+tier: primary
+date: 2026-08-17
+status: RESOLVED
+---
+
+# HQ / gh-pages Deployment Conflict — Handoff for Winston / Josh
+
+> **RESOLVED 2026-08-17 (Option 1 — separate repos).** The Client OS dashboard was
+> migrated off `notforgotten-pages` onto Atlas/NFS's own GitHub repo
+> (`Hardstaff08/notforgotten-client-os`, served at `hardstaff08.github.io/notforgotten-client-os/`).
+> `build-client-os.py` now uses per-owner `(owner, repo, token)` tuples; the `atlas`
+> client publishes to `Hardstaff08/notforgotten-client-os` via `ATLAS_GITHUB_TOKEN`.
+> `notforgotten-pages/gh-pages` was re-synced (client-os removed, subtree split
+> re-established) so all NFS subtree pushes fast-forward cleanly again.
+> The broader migration of ALL Atlas pages/jobs to `Hardstaff08/notforgotten-client-os` is a
+> separate, later phase (see "Next phase" below).
+
+## Next phase (not started)
+
+Josh's direction (2026-08-17): eventually migrate ALL of Atlas's GitHub Pages and
+publishing jobs off `Snowark-Consulting/*` onto `Hardstaff08/notforgotten-client-os`. The
+Client OS dashboard (this handoff) is the first item done. Still to migrate:
+`notforgotten-pages` (Command Centre `dash/`, `dashboard.html`, case studies, legal
+pages) and the jobs that push to it (`pipeline-data.py`, `dashboard-update.py`,
+`hq-update.py`, `vault-graph.py`). That is a larger move with URL implications
+(`hardstaff08.github.io` vs a custom domain) — plan before executing.
+
+## The problem in one paragraph (historical)
+
+Two separate mechanisms push to the **same** branch (`gh-pages` of
+`Snowark-Consulting/notforgotten-pages`), and their histories have diverged into
+"unrelated histories". The Command Centre (`dash/`) deploys via
+`git subtree push --prefix=pages pages gh-pages` from the main vault repo, while the
+SnowArk "Client OS dashboard - atlas" rebuild (`scripts/build-client-os.py --publish`,
+cron `ec24b19e9f7e`) pushes `client-os/index.html` directly via a shallow clone in
+`.cache/notforgotten-pages-publish`. These two no longer share a common ancestor, so the
+subtree push rejects with non-fast-forward and the reconciliation pull fails with
+"refusing to merge unrelated histories".
+
+## What breaks
+
+| Job | Mechanism | Failure |
+|---|---|---|
+| HQ refresh (`scripts/hq-update.py`) | `git subtree push` | non-fast-forward / unrelated histories |
+| Dashboard hourly refresh (`dashboard-update.py`) | `git subtree push` | same |
+| Pipeline data refresh (`pipeline-data.py`) | `git subtree push`, `check=False` | push fails **silently** — job reports ok, live `dash.json` goes stale |
+| Client OS rebuild (`client-os-rebuild.sh`) | shallow clone + direct push | works, but keeps diverging the branch |
+
+The silent failure in `pipeline-data.py` is the most dangerous: the job returns success
+while nothing reaches live. Always verify live `generated_at` / `last_updated`, never
+infer "pushed" from job exit status.
+
+## What has already been done (2026-08-17, non-destructive)
+
+1. **Backup repo fixed** — the 1.17GB `state.db.source-backup` blob and the `.cache/`
+   gitlink were purged (they were local-only, so no shared-history rewrite). `.gitignore`
+   now covers `.cache/`, `*.source-backup*`, `data/*.db`.
+2. **HQ deployed live** — via a **fast-forward worktree commit on top of the remote
+   `gh-pages` tip** (no force-push). This is the currently verified safe path:
+   ```
+   git fetch pages gh-pages
+   git worktree add -b gh-pages-deploy /tmp/gh-deploy pages/gh-pages
+   cp <regenerated hq files> /tmp/gh-deploy/dash/
+   cd /tmp/gh-deploy && git add -A && git commit -m "..." && git push pages gh-pages
+   git worktree remove /tmp/gh-deploy --force
+   ```
+3. Live read-back verified: `dash/headquarters-data.json` `generated_at` matches the
+   deploy commit.
+
+## The decision Winston / Josh need to make
+
+The Command Centre and the Client OS dashboard are fighting over one branch. Pick ONE of:
+
+1. **Separate the repos.** Client OS "atlas" should publish to its own repo (or its own
+   branch) rather than `notforgotten-pages/gh-pages`. Cleanest long-term.
+2. **Reconcile the subtree split.** Re-initialise the `pages/` subtree split so it
+   descends from the current `gh-pages` tip, and stop the client-os rebuild from
+   force-pushing/diverging it. Requires a one-time `git subtree split --rejoin` (or a
+   documented force-push), then both mechanisms fast-forward cleanly.
+3. **Single mechanism.** Have both the Command Centre and Client OS deploy through one
+   shared deploy path (e.g. both write to `pages/` and one subtree push).
+
+**Until this is resolved**, Atlas will keep HQ operational using the worktree
+fast-forward path above. Atlas will NOT force-push, rewrite gh-pages history, or redesign
+the architecture unilaterally.
+
+## Reference files (already committed)
+
+- `skills/snowark/headquarters/references/git-subtree-gh-pages-divergence.md`
+- `skills/snowark/growth-operations/references/git-embedded-repo-gitlink-trap.md`

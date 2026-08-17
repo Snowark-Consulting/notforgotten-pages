@@ -67,7 +67,7 @@ Log: ~/.hermes/logs/inbox-pulse.log
 | Weekly vault-lint | 49d0852ce5ee | Sun 17:00 ACST (07:30 UTC) | skill:weekly-vault-lint → Agent/vault-lint.md | READ-ONLY wikilink graph audit. Reports to Agent/lint-reports/ + Agent/log.md. Deliver: telegram:-1003939051249 (Updates group) |
 | Nightly backup to GitHub | d998982d2e15 | daily 21:30 ACST (12:00 UTC) | `bin/nightly-backup.sh` | Push to Snowark-Consulting/client-notforgotten (private). Excludes secrets, caches, sessions, cron output |
 | Nightly vault graph rebuild | ed054f2de399 | daily 21:40 ACST (12:10 UTC) | `scripts/vault-graph.py` | Rebuilds 3D knowledge graph JSON for Command Centre Brain tab. Fixed 2026-07-01: cron path corrected from `scripts/vault-graph.py` (double) to `vault-graph.py` |
-| Dashboard hourly refresh | 8b9563348596 | 0 * * * * | no-agent | `scripts/dashboard-update.py` — refreshes dashboard.html silently (deliver: local). This is the legacy Airtable→HTML dashboard; distinct from `bin/dash-update.py` (Atlas activity logger for dash.json) |
+| Dashboard hourly refresh | 8b9563348596 | 0 * * * * | no-agent | `scripts/dashboard-update.py` — refreshes dashboard.html silently (deliver: local). This is the legacy Airtable→HTML dashboard; distinct from `bin/dash-update.py` (Atlas activity logger for dash.json). **RESOLVED 2026-08-17** — was PAUSED for `git subtree push` gh-pages rejection (unrelated histories; HQ/gh-pages conflict). Fixed by migrating Client OS off Snowark `notforgotten-pages` to `Hardstaff08/notforgotten-client-os` + force-pushing the split; cron resumed and running OK |
 
 ### Growth Operations pipeline (LIVE — created 2026-06-28)
 
@@ -98,7 +98,7 @@ Log: ~/.hermes/logs/inbox-pulse.log
 ||| Overnight Founder Readiness | 9691ae452efa | `30 18 * * *` | telegram:-1003880645651 | growth-operations, email-inbox-pulse, decision-library, headquarters | Agent-mode: overnight founder readiness briefing. Added 2026-08-14 (detected during consolidation). |
 | V2-NEW50 Touch 1 — Group A | 858b0f5d39a0 | `30 7 18 8 *` (once, Tue 18 Aug 07:30 ACST) | origin | production-standards, v2-prospect-prioritization | One-shot: V2-NEW50 Batch 1, 11 Group A AEST recipients. APPROVED + SCHEDULED. No further Founder approval required. Added 2026-08-16 (detected during consolidation). |
 | V2-NEW50 Touch 1 — Group B | 8b12539c1d8a | `30 9 18 8 *` (once, Tue 18 Aug 09:30 ACST) | origin | production-standards, v2-prospect-prioritization | One-shot: V2-NEW50 Batch 1, 1 Group B AWST recipient (Rise Painters Perth). APPROVED + SCHEDULED. Added 2026-08-16 (detected during consolidation). |
-| Client OS rebuild | ec24b19e9f7e | `0 * * * *` (hourly) | local | — | No-agent script (`scripts/client-os-rebuild.sh` → `scripts/build-client-os.py --client atlas --local --publish`). Rebuilds + publishes SnowArk Client OS dashboard. Silent on success. Added 2026-08-16 (detected during consolidation). |
+| Client OS rebuild | ec24b19e9f7e | `0 * * * *` (hourly) | local | — | No-agent script (`scripts/client-os-rebuild.sh` → `scripts/build-client-os.py --client atlas --local --publish`). Rebuilds + publishes SnowArk Client OS dashboard → `hardstaff08.github.io/notforgotten-client-os/client-os/` (Atlas/NFS own repo, migrated 2026-08-17 off Snowark notforgotten-pages). Silent on success. Added 2026-08-16. |
 
 ## Hooks (event-driven)
 

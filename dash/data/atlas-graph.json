@@ -165,7 +165,7 @@
       "community": 3,
       "community_name": "Integrations",
       "content_hash": "4dc6ad98ba97",
-      "val": 14.0,
+      "val": 12.0,
       "color": "#60a5fa"
     },
     {
@@ -1280,6 +1280,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_qpaint_next_action_principle",
+      "label": "Next Action Principle",
+      "file_type": "doc",
+      "source_file": "knowledge/qpaint/next-action-principle.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "69e76e2d3d65",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_qpaint_qpaint_operating_model",
       "label": "Qpaint Operating Model",
       "file_type": "doc",
@@ -1287,7 +1298,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "6a301c839cf7",
-      "val": 6.0,
+      "val": 8.0,
       "color": "#a78bfa"
     },
     {
@@ -1694,7 +1705,7 @@
       "community": 5,
       "community_name": "Learnings",
       "content_hash": "5e09a1e238bf",
-      "val": 8.0,
+      "val": 6.0,
       "color": "#f472b6"
     },
     {
@@ -1716,17 +1727,6 @@
       "community": 5,
       "community_name": "Learnings",
       "content_hash": "2b20258f47c1",
-      "val": 6.0,
-      "color": "#f472b6"
-    },
-    {
-      "id": "learnings_catalogue",
-      "label": "Catalogue",
-      "file_type": "doc",
-      "source_file": "learnings/catalogue.md",
-      "community": 5,
-      "community_name": "Learnings",
-      "content_hash": "18b836042720",
       "val": 6.0,
       "color": "#f472b6"
     },
@@ -2703,6 +2703,13 @@
       "source_file": ""
     },
     {
+      "source": "agent_registry",
+      "target": "knowledge_qpaint_next_action_principle",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
       "source": "agent_sops",
       "target": "agent_registry",
       "relation": "wikilink",
@@ -3088,6 +3095,13 @@
       "source_file": ""
     },
     {
+      "source": "knowledge_qpaint_next_action_principle",
+      "target": "knowledge_qpaint_qpaint_operating_model",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
       "source": "knowledge_quote_intake_multi_signal",
       "target": "knowledge_sop_quotes_inbox",
       "relation": "wikilink",
@@ -3251,27 +3265,6 @@
     {
       "source": "learnings_errors",
       "target": "integrations_telegram",
-      "relation": "wikilink",
-      "weight": 1.0,
-      "source_file": ""
-    },
-    {
-      "source": "learnings_learnings",
-      "target": "learnings_catalogue",
-      "relation": "wikilink",
-      "weight": 1.0,
-      "source_file": ""
-    },
-    {
-      "source": "learnings_learnings",
-      "target": "learnings_errors",
-      "relation": "wikilink",
-      "weight": 1.0,
-      "source_file": ""
-    },
-    {
-      "source": "learnings_learnings",
-      "target": "integrations_email",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

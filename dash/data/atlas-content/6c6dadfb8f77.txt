@@ -2,7 +2,7 @@
 
 **Purpose:** Map how information moves through the business. Every step identifies what data is transferred, whether it is encrypted, who has access, and what the risks are.
 **Owner:** Atlas (CISO)
-**Updated:** 2026-07-25 (baseline)
+**Updated:** 2026-08-17 (DeepSeek approved for client data)
 **Review cadence:** When integrations or data paths change
 
 ---
@@ -33,7 +33,7 @@ Google Analytics (GA4 property 502899171)
 ```
 Atlas (SOUL.md + Memory + Outreach Philosophy)
   ↓ prompt (contains prospect context: name, business, industry)
-AI Provider (Google Gemini, US)
+AI Provider (DeepSeek, deepseek-v4-pro)
   ↓ generated email text
 Atlas (Voice Review 8/8 + Technical Verification)
   ↓ send-outreach.py → Gmail API (OAuth)
@@ -46,7 +46,7 @@ Prospect's Inbox (with tracking pixel → Vercel /api/track)
 
 | Step | Data | Encrypted? | Access | Risk |
 |---|---|---|---|---|
-| Atlas → Gemini | System prompt + memory + prospect context (name, business, industry) | HTTPS | Google (US) | Low |
+| Atlas → AI (DeepSeek) | System prompt + memory + prospect context (name, business, industry) | HTTPS | DeepSeek (China) | Medium (cross-border) |
 | Atlas → Gmail API | Email body, recipient address, tracking pixel HTML | HTTPS (OAuth) | Google Workspace | Low |
 | Gmail → Prospect | Email content, tracking pixel | TLS (Gmail enforces) | Recipient's email provider | Low |
 | Prospect → Vercel (pixel) | Open event (token decodes to prospect ID + timestamp) | HTTPS | Vercel (serverless) | Low |
@@ -82,8 +82,8 @@ Generated follow-up email → Gmail API → Customer
 | Atlas → Gmail API | OAuth token | HTTPS (OAuth) | quotes_token.json (600 perms) | Medium |
 | PDF text extraction | Full PDF content decoded to text | At rest on VPS (/tmp) | Root | Medium (temporary files) |
 | Atlas → Airtable | Extracted: business name, customer name, mobile, email, suburb, scope, value | HTTPS (PAT) | Airtable | Medium |
-| Airtable → Atlas (follow-up) | Quote record with all fields | HTTPS (PAT) | Atlas, then Google (Gemini) | Low |
-| Atlas → AI | Customer name, scope, value, business context | HTTPS | Google (Gemini, US) | Low |
+| Airtable → Atlas (follow-up) | Quote record with all fields | HTTPS (PAT) | Atlas, then DeepSeek | Low |
+| Atlas → AI | Customer name, scope, value, business context | HTTPS | DeepSeek (China) | Medium (cross-border) |
 | Atlas → Gmail → Customer | Follow-up email body | TLS | Google, recipient | Low |
 
 ---
@@ -158,8 +158,8 @@ Every operational flow passes through an AI provider:
 Atlas
   ↓ prompt = SOUL.md + Memory + User Message + Tool Output
 AI Provider
-  ├── Primary: Google Gemini (US)
-  └── Fallback: None (DeepSeek disabled for client data)
+  ├── Primary: DeepSeek (deepseek-v4-pro)
+  └── Fallback: None configured (single-provider dependency)
   ↓ response
 Atlas (takes action)
 ```
@@ -171,12 +171,12 @@ Atlas (takes action)
 - File contents
 
 | Data | Goes to DeepSeek? | Goes to Gemini? | Risk |
-|---|---|---|---|---|
-| Prospect names, businesses, industries | No | Yes | Low |
-| Client names, phones, emails, suburbs | No | Yes | Low |
-| Quote values, scope, customer summaries | No | Yes | Low |
-| Email bodies (full content) | No | Yes | Low |
-| System configuration (no credentials) | No | Yes | Low |
+|---|---|---|---|
+| Prospect names, businesses, industries | Yes | No (fallback only) | Medium (cross-border) |
+| Client names, phones, emails, suburbs | Yes | No (fallback only) | Medium (cross-border) |
+| Quote values, scope, customer summaries | Yes | No (fallback only) | Medium (cross-border) |
+| Email bodies (full content) | Yes | No (fallback only) | Medium (cross-border) |
+| System configuration (no credentials) | Yes | No (fallback only) | Low |
 
 ---
 
@@ -185,7 +185,7 @@ Atlas (takes action)
 | Flow | Security Risk | Privacy Risk | Reliability Risk |
 |---|---|---|---|
 | Website → GA4 | Low | Low | Low |
-| Cold Outreach (via Gemini) | Low | Low | Medium (fallback exists) |
+| Cold Outreach (via DeepSeek) | Low | Medium (cross-border) | Medium (no fallback configured) |
 | Quote Intake | Medium | Low | Medium |
 | Data at Rest (VPS) | **High** (no encryption) | **High** (state.db) | **High** (no backup) |
 | Data at Rest (Airtable/Gmail) | Low | Medium | Low |
@@ -201,6 +201,7 @@ Atlas (takes action)
 | 2026-07-25 | Baseline established | All flows documented for first time |
 | 2026-07-25 | File permissions hardened (state.db, token files → 600) | Reduced VPS at-rest risk |
 | 2026-07-25 | DeepSeek removed from client-data workflows | Significantly reduced cross-border privacy risk |
+| 2026-08-17 | DeepSeek approved as primary provider for all data (overturns 2026-07-25) | Cross-border privacy risk re-accepted by founders. Decision: `2026-08-17-deepseek-client-data-approved`. |
 
 ---
 

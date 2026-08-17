@@ -61,6 +61,17 @@ Where the flat model is straining and a topic has earned its own home. Three sha
 
 For each candidate report: the name, the evidence, and the recommended action.
 
+### 9. Retrievability (map quality - navigation test)
+
+Mechanical index drift (section 6) catches files missing from an index; this catches an index that does not actually get the agent to the answer. Take a few representative lookups an agent would run during real work, walk each from the index to the target file, and flag any route that breaks down.
+
+- Pick 3-5 representative lookups the agent must be able to resolve, drawn from recurring work: where is the pricing, the trust framework, the email conventions, the current engagement status, the client's canonical facts.
+- For each: start at `Agent/Registry.md` (and the memory index), follow the entry to its target, and confirm the target exists and still holds the named information.
+- Flag any lookup that needs more than three hops, lands on a dead index entry, or reaches a file that no longer contains the named information (moved, renamed, superseded).
+- Report each as a `retrievability` finding: the lookup, the route attempted, and the fix (re-point the entry, add the missing entry, or split an over-deep route).
+
+Keep this small and judgment-driven. Three to five lookups, not an exhaustive crawl.
+
 ## Output
 
 1. Write a dated report to `Agent/lint-reports/YYYY-MM-DD-vault-lint.md`:
@@ -73,6 +84,12 @@ For each candidate report: the name, the evidence, and the recommended action.
    `YYYY-MM-DD HH:MM | LINT | N findings (X orphans, Y stale, Z broken, W contradictions, P promotion candidates). Report: <path>`
 
 3. Post a concise summary to the designated channel: heading, counts, the 3 highest-priority items, report path. Mobile-friendly — no tables, no code blocks. If the vault is clean, say so in one line.
+
+4. Sync the recommendations ledger so findings surface in the dashboard's Recommendations tab:
+   For each surviving finding, add one entry:
+   `python3 scripts/recommendations.py add --json '{"id":"lint-<slug>","source":"lint","category":"<broken-link|index-drift|contradiction|promotion|stale|orphan|gap|retrievability>","tone":"<orange|blue|yellow>","headline":"...","detail":"...","evidence":["..."],"time_impact_mins":N}'`
+   For any finding resolved since last week:
+   `python3 scripts/recommendations.py resolve --id "<id>" --status accepted`
 
 ## NOT to do
 
