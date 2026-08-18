@@ -1,0 +1,80 @@
+# Rollback Runbook — Cost/Context Consolidation (2026-08-18)
+
+**Purpose:** single point of reference to reverse the cost-reduction / context-consolidation changes if performance or output quality degrades.
+
+**Rollback point:** commit `f7407ca9` — "Pre-consolidation snapshot — 2026-08-18 (cost/model/context pass)"
+**Consolidation commit:** `fc4a330a` — "Cost/context consolidation (plan 2026-08-18) + promote governance files to always-load"
+
+---
+
+## When to use
+
+Trigger a rollback if, after consolidation, you observe:
+
+- Degraded drafting/reasoning quality on any customer-facing output
+- Missing context that used to live in `SOUL.md` / `memory/MEMORY.md`
+- Any unexplained regression you can't otherwise attribute
+
+## What the consolidation changed (for context)
+
+1. **Model routing** — 6 cron jobs pinned to `deepseek-v4-flash`. Default model untouched (`deepseek-v4-pro`).
+2. **SOUL.md** — deduped against boot files; boot-context split into always-load vs on-demand.
+3. **MEMORY.md** — rewritten to a terse index; originals archived to `memory/archive/2026-08-18-pre-consolidation.md`.
+4. **Skills** — new `terse-internal-style`; edits to `nightly-consolidation`, `hermes-state-db`, `google-drive-extraction`, `production-standards`, `recovery-operations`.
+5. **New** — `scripts/cost-report.py`, `memory/archive/`, `notes/2026-08-18.md`.
+
+---
+
+## Part A — Roll back model pins (flash → pro)
+
+Pins live in `cron/jobs.json` (git-tracked; `data/cron.db` is empty and unused).
+
+**Recommended (live-safe):** re-pin each job to pro via `cronjob action=update`, model `{"model":"deepseek-v4-pro","provider":"deepseek"}`:
+
+| Job | job_id |
+|---|---|
+| Nightly memory consolidation | `c72726a332e6` |
+| Weekly vault-lint | `49d0852ce5ee` |
+| Prepare-Ahead Clock | `4a10d4135c2c` |
+| quotes-pulse-phase2 | `203f3a6cfd56` |
+| Weekly Website Intelligence | `e4e06975b830` |
+| Storage Critical Alert | `48982944ea6e` |
+
+**Alternative (git):** `git checkout f7407ca9 -- cron/jobs.json`, then restart the Hermes cron scheduler so it reloads the file.
+
+## Part B — Restore core files (SOUL.md + MEMORY.md)
+
+```bash
+cd ~/.hermes
+git checkout f7407ca9 -- SOUL.md memory/MEMORY.md Agent/Registry.md Agent/sops-index.md
+```
+
+To also revert the skill changes, append:
+
+```bash
+git checkout f7407ca9 -- skills/snowark/terse-internal-style \
+  skills/snowark/nightly-consolidation/SKILL.md \
+  skills/devops/hermes-state-db/SKILL.md \
+  skills/snowark/google-drive-extraction/SKILL.md \
+  skills/snowark/production-standards/references/llm-cost-and-model-routing.md \
+  skills/snowark/recovery-operations/references/
+```
+
+(`memory/archive/` and `scripts/cost-report.py` are additive and harmless — no need to remove them.)
+
+## Commit + push the rollback
+
+```bash
+git add -A && git commit -m "Rollback cost/context consolidation (2026-08-18)" && git push origin main
+```
+
+## Verify
+
+1. `cronjob action=list` → no job shows `deepseek-v4-flash`.
+2. `git log --oneline -1` → shows the rollback commit.
+3. Re-check the specific output that triggered the rollback.
+
+## Notes
+
+- This runbook is additive — the consolidation snapshot `f7407ca9` remains in git history regardless, so a rollback is always reversible again later.
+- Do **not** run `git revert fc4a330a` as a blanket rollback: that commit also bundled unrelated operational changes (dashboard, send-evidence, token refresh) that should stay.

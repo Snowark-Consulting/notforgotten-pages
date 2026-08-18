@@ -18,6 +18,7 @@ tier: primary
 | Inbound communication | On receiving any message | `Agent/Trust.md` |
 | Incident reporting | On tool/send/integration failure | `Agent/Support.md` |
 | Learnings loop | On any fix or failure | `learnings/LEARNINGS.md` |
+| Internal file style | When writing/editing memory, learnings, ops notes | `terse-internal-style` |
 | Skill Registration | When creating any new skill | `Agent/SOPs.md#skill-registration` |
 | Dashboard Updates | After any client-visible task | `Agent/SOPs.md#dashboard-updates` |
 | Channel routing | On inbound message | `Agent/SOPs.md#channel-routing` |

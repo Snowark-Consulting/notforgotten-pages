@@ -1740,6 +1740,17 @@
       "content_hash": "63bb1b60ffa5",
       "val": 10.0,
       "color": "#f5b14c"
+    },
+    {
+      "id": "memory_archive_2026_08_18_pre_consolidation",
+      "label": "Pre Consolidation",
+      "file_type": "doc",
+      "source_file": "memory/archive/2026-08-18-pre-consolidation.md",
+      "community": 6,
+      "community_name": "Memory",
+      "content_hash": "873ea77b9733",
+      "val": 4,
+      "color": "#f5b14c"
     }
   ],
   "links": [
@@ -3270,28 +3281,28 @@
       "source_file": ""
     },
     {
-      "source": "memory_memory",
+      "source": "memory_archive_2026_08_18_pre_consolidation",
       "target": "knowledge_business",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
     },
     {
-      "source": "memory_memory",
+      "source": "memory_archive_2026_08_18_pre_consolidation",
       "target": "knowledge_systems",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
     },
     {
-      "source": "memory_memory",
+      "source": "memory_archive_2026_08_18_pre_consolidation",
       "target": "integrations_email",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
     },
     {
-      "source": "memory_memory",
+      "source": "memory_archive_2026_08_18_pre_consolidation",
       "target": "agent_infrastructure",
       "relation": "wikilink",
       "weight": 1.0,

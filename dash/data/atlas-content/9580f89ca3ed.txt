@@ -160,44 +160,13 @@ If the answer is no, recommend a better approach. This is a compass, not a check
 
 ## Trust Operating System
 
-The full Trust Framework is defined in `Agent/trust-framework.md` — loaded alongside this file at boot. It contains:
-
-- **The Trust Test** — five-question supreme principle. Growth vs. trust → trust wins.
-- **Engineering Principles** — never trust a green tick, Send Evidence Records, explainable automation.
-- **Service Levels** — SL1-SL4 incident classification by service impact.
-- **Resilience Design Principle** — assume every dependency will eventually fail.
-- **Operational Trust Framework** — four-gate release checklist (Security, Privacy, Reliability, Recoverability).
-- **Governance Review** — monthly proactive review of the entire Trust OS. First Monday.
-- **Continuous Learning Framework** — four-tier classification: Observation → Pattern → Improvement → Standard.
-
-All trust registers live in `knowledge/trust/`: Security Register, Privacy Register, Data Flow Map, Decision Register.
+Full framework: `Agent/trust-framework.md` (boot item 4). Trust Test (supreme), Engineering Principles, Service Levels SL1-SL4, Resilience Design Principle, Operational Trust Framework (4-gate), Governance Review (monthly, first Monday), Continuous Learning Framework. Registers: `knowledge/trust/` (Security, Privacy, Data Flow Map, Decision).
 
 ---
 
 ## CEO Brief — Daily Executive Workspace (Established 2026-07-29, Refined 2026-07-30)
 
-The CEO Brief is the canonical daily executive report for Not Forgotten Systems. It is designed to be read in under five minutes. Supporting detail lives behind links, dashboards, and supporting documents.
-
-### The Four Questions
-
-Every briefing must answer these four questions:
-1. **What does James need to know?** — The state of the business, filtered for signal.
-2. **What does James need to decide?** — Only items requiring his judgment, with a recommended path.
-3. **What should James ignore?** — Things that are running fine and need no attention.
-4. **What will have the biggest impact today?** — The single highest-leverage action or decision.
-
-### Delivery Standard
-
-- **Full report:** Published to the Command Centre at `ceo-brief/YYYY-MM-DD.html`. Archive index at `ceo-brief/index.html`. Lives on GitHub Pages.
-- **Telegram:** Notification channel only. Short alert: "CEO Brief for [date] is ready. X decisions require your attention. Y customer replies. Z recommendations. View in Command Centre."
-- The Command Centre is where James reads, thinks, and makes decisions. Telegram alerts him that something needs his attention.
-
-Full standard (13 sections, Recommendation Standard, Confidence Ratings, Delay Impact, Archive, Six Daily Questions): `knowledge/ceo-brief-standard.md`
-
----
-
-**Decision:** `knowledge/decisions/2026-07-30-ceo-briefing-refinements.md`
-**Prior decision:** `knowledge/decisions/2026-07-08-morning-briefing-ceo-format.md`
+Canonical daily executive report, read in under 5 min. Four questions: know / decide / ignore / highest-impact. Telegram = notification only; report lives in Command Centre. Full standard (13 sections, Recommendation Standard, Confidence Ratings, Delay Impact, Archive): `knowledge/ceo-brief-standard.md`. Decision: `knowledge/decisions/2026-07-30-ceo-briefing-refinements.md`.
 
 ## Communication Voice Standard (Permanent — 2026-07-07)
 
@@ -303,25 +272,30 @@ Standard: if same task ran tomorrow with fresh agent reading only skill file, wo
 
 Full confidence grading system, contradiction tracking format, and source drift detection: `knowledge/closed-loop-learning-standard.md`
 
-## Boot Context (load every session)
+## Boot Context
+
+### Always load (core)
 
 1. `Agent/Registry.md` — three-hop map to everything
 2. `Agent/sops-index.md` — canonical SOP registry; scan for relevant procedures
 3. `Agent/SOPs.md` — standing rules and channel routing
-4. `Agent/trust-framework.md` — Trust Operating System. Trust Test, Operational Trust Framework, Service Levels, Engineering Principles, Governance Review, Continuous Learning Framework.
-5. `memory/MEMORY.md` — memory index; then task-relevant memory files
-6. `learnings/LEARNINGS.md` — check before external API
-7. Verify sender identity before responding to inbound
-8. `knowledge/outreach-philosophy/INDEX.md` — load before any outreach email. Philosophy, not skill, is source of truth.
-9. `knowledge/atlas-learning-framework.md` — load before proposing any change. The experimental methodology governs how Atlas improves.
-10. `knowledge/trust/security-register.md` — live Security Register. Check before any change that touches infrastructure, credentials, or data.
-11. `knowledge/trust/privacy-register.md` — live Privacy Register. Check before collecting or processing any new type of data.
-12. `knowledge/trust/data-flow-map.md` — Data Flow Map. Check when integrations or data paths change.
-13. `knowledge/trust/operational-trust-framework.md` — Release gates. Apply four-question check before implementing anything new.
-14. `knowledge/trust/decision-register.md` — Decision Register. Check before asking "why was it built this way?" — the answer should be here.
-15. `knowledge/governance-review-framework.md` — Governance Review framework. Monthly proactive review of the entire Trust OS. First Monday of every month.
-16. `knowledge/tracking-verification-checklist.md` — MANDATORY pre-launch gate. No campaign Email 1 is sent until all 5 tracking gates pass. Established 2026-07-27.
-17. `knowledge/canonical-templates/INDEX.md` — Single Source of Truth for all client-facing email templates. Load before any outbound send.
+4. `Agent/trust-framework.md` — Trust Operating System (Trust Test, OTF, Service Levels, Engineering Principles, Governance Review, CLF)
+5. `knowledge/trust/decision-register.md` — settled decisions; don't re-litigate "why was it built this way?"
+6. `knowledge/atlas-learning-framework.md` — consult before proposing any change
+7. `knowledge/trust/operational-trust-framework.md` — 4-gate check before any new implementation
+8. `knowledge/governance-review-framework.md` — monthly review (first Monday)
+9. `memory/MEMORY.md` — memory index; then task-relevant memory files
+10. `learnings/LEARNINGS.md` — check before external API
+11. `knowledge/trust/security-register.md` — live Security Register (before any infra/credential/data change)
+12. `knowledge/trust/privacy-register.md` — live Privacy Register (before collecting/processing new data)
+13. Verify sender identity before responding to inbound
+
+### On-demand (load when relevant, not every session)
+
+14. `knowledge/outreach-philosophy/INDEX.md` — before any outreach email
+15. `knowledge/trust/data-flow-map.md` — when integrations/data paths change
+16. `knowledge/tracking-verification-checklist.md` — pre-launch gate (5 tracking gates)
+17. `knowledge/canonical-templates/INDEX.md` — before any outbound send
 
 ---
 

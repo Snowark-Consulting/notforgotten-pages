@@ -152,3 +152,15 @@ tier: primary
 **Fix:** what works (exact commands/parameters)
 
 When a new entry contradicts a prior one: set `Contested: true` on both, add reciprocal `Contradictions:` links. Never silently overwrite. When resolved, mark the superseded entry with `**Superseded by:**`.
+
+## 2026-08-18 — Overdue-follow-up miss (root cause) + Outreach Notes overwrite
+
+**Symptom:** 6 QPaint records with Next Touchpoint Date ≤ 18 Aug were missed in the Monday deep-dive. 3 had genuine overdue SENDS (Jesse Zhao Email 3, Peter Reilly Email 2, Shalender Hingorani Email 1), 2 were MONITOR reviews, 1 was a QPaint reconciliation.
+
+**Cause:** Inherited the "0 overdue follow-ups" claim from the 17 Aug daily note (which was wrong) and bucketed the 6 records as "Atlas-owned MONITOR/WAIT" without checking the NTD field against the actual date. "MONITOR" / "WAIT / REVIEW" are planning labels, NOT evidence the underlying action was completed. This is the same trap the recovery-operations skill warns about ("Next Touchpoint Date is a plan, not evidence").
+
+**Fix:** Always compute overdue by comparing `Next Touchpoint Date` against Adelaide "today" directly, and treat every NTD ≤ today as needing a verified action (send OR review OR reclassification) — never assume "MONITOR" means "done". When the daily note says "0 overdue", verify it against a live NTD scan before trusting it.
+
+**Second symptom:** A PATCH setting `Outreach Notes` to a new string OVERWRITES the entire field (wipes history). Append-only is mandatory.
+
+**Fix:** Always read the current `Outreach Notes` from Airtable, then PATCH with `existing + "\n\n" + new_note`. Never PATCH a bare new-note string. (Restored Carlie Gunn + Alicia Campbell notes after the overwrite.)

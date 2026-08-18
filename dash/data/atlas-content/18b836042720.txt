@@ -5,7 +5,7 @@
 | Domain | Trigger keywords | Card |
 |--------|-----------------|------|
 | gmail | `gog gmail`, `newer_than`, `batchModify`, `mark.read`, `threadId`, `Gmail API` | `cards/gmail.md` |
-| hermes | `shell hook`, `matcher`, `post_tool_call`, `pre_tool_call`, `pre_llm_call`, `allowed_users`, `allowlisted`, `state.db`, `system_prompt`, `skill-injection`, `trigram` | `cards/hermes.md` |
+| hermes | `shell hook`, `matcher`, `post_tool_call`, `pre_tool_call`, `pre_llm_call`, `allowed_users`, `allowlisted`, `state.db`, `system_prompt`, `skill-injection`, `trigram`, `date hook`, `date integrity`, `inject-date` | `cards/hermes.md` |
 | shell | `zsh`, `for p in`, `\| tee`, `tmux pipe`, `nvm`, `pyenv`, `echo $`, `declare -A` | `cards/shell.md` |
 | cron | `cronjob`, `schedule`, `launchd`, `LaunchAgent`, `crontab`, `keychain` | `cards/cron.md` |
 | telegram | `allowed_chats`, `allowed_users`, `TELEGRAM`, `@mention`, `/start`, `bot` | `cards/telegram.md` |
@@ -13,13 +13,13 @@
 | supabase | `supabase`, `anon key`, `service_role`, `client_responses`, `RLS` | `cards/supabase.md` |
 | git | `git push`, `git clone`, `PAT`, `case.sensitive`, `render`, `template` | `cards/git.md` |
 | models | `gemini`, `model`, `deprecated`, `discontinued`, `404`, `provider` | `cards/models.md` |
-| campaign | `cold-email`, `campaign`, `calibration`, `prospect overlap`, `ownership check`, `pre-flight` | `cards/campaign.md` |
+| campaign | `cold-email`, `campaign`, `calibration`, `prospect overlap`, `ownership check`, `pre-flight` | [campaign.md](cards/campaign.md) |
 | python | `datetime.now`, `ZoneInfo`, `timezone`, `Adelaide time`, `UTC server`, `bare datetime` | `cards/python.md` |
-| agent-architecture | `dual-path`, `skill discovery`, `pre-flight`, `orphaned skill`, `boot context`, `Registry`, `SOPs`, `certify`, `verify`, `certification gate`, `touchpoint`, `review point`, `auto-contact` | `cards/agent-architecture.md` |
+| agent-architecture | `dual-path`, `skill discovery`, `pre-flight`, `orphaned skill`, `boot context`, `Registry`, `SOPs`, `certify`, `verify`, `certification gate`, `touchpoint`, `review point`, `auto-contact`, `CRM stage`, `customer evidence`, `commercial truth` | `cards/agent-architecture.md` |
 | asana | `asana`, `html_notes`, `POST /tasks`, `PUT /tasks`, `html_lacks_body`, `body tag` | `cards/asana.md` |
+
 | airtable | `airtable`, `Airtable`, `record`, `duplicate`, `pagination`, `maxRecords`, `pageSize` | `cards/airtable.md` |
 | browser | `Accessibility.getFullAXTree`, `CDP`, `AX tree`, `React SPA`, `contenteditable`, `DOM invisible`, `browser_console tab`, `Page.navigate`, `chrome.newtab` | `cards/browser.md` |
-| qpaint | `qpaint`, `QPaint`, `white-label`, `Email 3`, `pipeline truth`, `James ambiguity`, `commercial state`, `stalled opportunity`, `next action`, `48-hour` | `cards/qpaint.md` |
 
 ## How to use
 
