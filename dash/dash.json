@@ -164,13 +164,13 @@
       }
     ]
   },
-  "last_updated": "2026-08-18T08:30:03.110914+09:30",
+  "last_updated": "2026-08-18T10:00:07.825542+09:30",
   "pipeline": {
     "prospect_count": 322,
     "stages": {
-      "New": 178,
+      "New": 177,
       "Campaign Complete": 69,
-      "Outreach Active": 53,
+      "Outreach Active": 54,
       "Won": 1,
       "Lost": 15,
       "Not a fit": 5,
@@ -192,7 +192,7 @@
     },
     "stage_by_vertical": {
       "New": {
-        "Painter": 133,
+        "Painter": 132,
         "Marketing agency": 19,
         "Commercial cleaning": 21,
         "Other": 2,
@@ -211,7 +211,7 @@
         "Cleaning": 1
       },
       "Outreach Active": {
-        "Painter": 53
+        "Painter": 54
       },
       "Won": {
         "Painter": 1
@@ -531,6 +531,12 @@
         "suburb": "South Australia"
       },
       {
+        "name": "Rise Painters",
+        "industry": "Painter",
+        "last_contacted": "2026-08-18",
+        "suburb": "Perth, WA"
+      },
+      {
         "name": "Geelong Painters",
         "industry": "Painter",
         "last_contacted": "2026-08-12",
@@ -550,15 +556,15 @@
       }
     ],
     "active_by_vertical": {
-      "Painter": 53
+      "Painter": 54
     },
     "messages": {
-      "outbound_total": 44,
+      "outbound_total": 45,
       "inbound_total": 0,
-      "total": 44,
+      "total": 45,
       "reply_rate": 0.0,
       "last_7_days": {
-        "outbound": 44,
+        "outbound": 45,
         "inbound": 0
       }
     },
@@ -568,7 +574,7 @@
       "total_opens": 245,
       "avg_opens": 4.2
     },
-    "last_refreshed": "2026-08-17T22:30:04.364575+00:00"
+    "last_refreshed": "2026-08-18T00:30:07.823291+00:00"
   },
   "decisions": {
     "total": 42,
