@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-08-18T04:09:31+09:30",
+  "generated_at": "2026-08-19T04:08:06+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "Quiet overnight. No new customer replies across quotes@, atlas@ or james@. QPaint stable: 161 records, $5.58M book, 4 Won ($321,967), $171,682 recovered. Five follow-ups moved to overdue overnight (NTD 17 Aug) — all Atlas review items, none need your input today. V2-NEW50 Batch 1 fires today (approved, 12 recipients across two groups). The open decision is unchanged: disk/state.db remediation.",
+    "body": "Quiet overnight — no new customer replies across quotes@, atlas@ or james@. The big news is operational: the disk crisis that was yesterday's #1 risk is RESOLVED (Hermes upgraded to v0.20.4, state.db rebuilt 9.5GB → 0.93GB, disk 99% → 36%). QPaint reconciliation closed on Vivien Lennan — QPaint confirmed they'll follow up mid-October, so her record is now parked to 15 Oct. It's Founder Call Day: 10 certified candidates ready in the call briefs. V2-NEW50 Batch 1 (12 sent yesterday) is in its first 48h observation window — no replies yet, which is normal.",
     "estimated_time": "2 minutes"
   },
   "business_score": {
-    "score": 86,
-    "change": "—",
+    "score": 88,
+    "change": "+2",
     "reasons_positive": [
-      "QPaint: 4 Won totalling $321,967 — recovered $171,682 (Arno $129,750, Cheryl $29,698, Joy $12,234; Nicholas $145,008 tender, $0 recovered yet)",
-      "V2-NEW50 Batch 1 fires today (12 recipients, Group A 07:30 + Group B 09:30) — first outbound growth motion since RE-ENG",
-      "QPaint pipeline healthy: 161 records, $4.77M active, 23 lost reconciled"
+      "Disk crisis resolved overnight — Hermes v0.20.4, state.db 9.5GB → 0.93GB, disk 99% → 36%. The #1 operational risk is gone.",
+      "QPaint: 4 Won totalling $321,967 — $129,750 recovered (Arno), $47,208 assisted (Cheryl + Joy), $145,008 tender won (Nicholas, $0 attributed yet).",
+      "V2-NEW50 Batch 1 sent (12 recipients Tue 18 Aug) — first outbound growth motion since RE-ENG; first QPaint Quote & Revenue Report delivered to Tas."
     ],
     "reasons_negative": [
-      "Disk 85% (3.0GB free), state.db 9.1GB and growing — remediation decision still open",
-      "1 paying customer ($199 MRR); Star Painters/Ahmad re-engaged 17 Aug but unresponsive so far",
-      "V2 growth unproven: 0 YES across RE-ENG (147) — Batch 1 is the first real test"
+      "1 paying customer ($199 MRR); Star Painters/Ahmad re-engaged 16 Aug but unresponsive so far.",
+      "V2 growth unproven: 0 YES across RE-ENG (147) — Batch 1 is the first real test.",
+      "state.db still grows ~600MB/day from 3 high-frequency agent jobs — architectural fix deferred (not urgent now disk is clear)."
     ]
   },
   "business_health": {
@@ -26,19 +26,19 @@
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "QPaint: 161 records, 4 Won ($321,967), $171,682 recovered. 5 overdue follow-ups (Atlas review queue, not customer-critical)."
+      "detail": "QPaint: 161 records, 4 Won ($321,967), 0 overdue follow-ups (yesterday's 5 all resolved). Vivien Lennan reconciled to mid-Oct."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "V2-NEW50 Batch 1 fires today (12). RE-ENG-AUG-2026 monitoring: 147 audience, 0 YES. No bounces/unsubscribes overnight."
+      "detail": "V2-NEW50 Batch 1 (12) sent Tue, first 48h observation. RE-ENG-AUG-2026: 147 audience, 0 YES. No bounces/unsubscribes overnight."
     },
     "engineering": {
-      "status": "caution",
-      "detail": "Client OS dashboard (Hardstaff08/notforgotten-client-os) GitHub Pages build failing (8 annotations). Disk 85%, state.db 9.1GB."
+      "status": "healthy",
+      "detail": "Disk 36%, state.db 0.93GB (remediated 18 Aug). Hermes v0.20.4. Client OS Pages build still failing (infra, non-customer)."
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $321,967 Won, $171,682 recovered, $4.77M active pipeline."
+      "detail": "QPaint: $321,967 Won, $129,750 recovered, $5.58M total book."
     },
     "atlas": {
       "status": "healthy",
@@ -47,76 +47,89 @@
   },
   "waiting_for_james": [
     {
-      "id": "disk-state-db",
-      "title": "Disk & state.db remediation (85% full, state.db 9.1GB)",
-      "why_it_matters": "state.db grew 8.1GB → 9.1GB in 24h. Disk at 85% (3.0GB free). A full disk takes down Hermes entirely — email monitoring, inbox pulse, all cron. Two-part decision: disk expansion (procedure written, awaiting provider-panel action) + state.db growth architecture (Winston).",
-      "business_impact": "High — system-wide outage risk within a week",
-      "estimated_time": "15 min decision",
-      "recommended_action": "Approve disk expansion (provider-panel action) OR Hermes storage fix (Winston). Procedure: notes/2026-08-17-disk-expansion-procedure.md.",
-      "impact_sort": 92
+      "id": "founder-call-day",
+      "title": "Execute Founder Call Day — 10 certified candidates",
+      "why_it_matters": "First founder-direct growth motion since RE-ENG. 10 painting businesses, all V2-ACTIVE with zero suppression flags. Discovery-call pivot after email-silent — the highest-leverage growth action available today.",
+      "business_impact": "High — direct pipeline generation",
+      "estimated_time": "2-3 hours",
+      "recommended_action": "Work the call list in knowledge/wednesday-call-briefs-2026-08-19.md. Record outcome per call (Attempted/Connected/pain verbatim/CTA/next action).",
+      "impact_sort": 90
+    },
+    {
+      "id": "state-db-architecture",
+      "title": "state.db growth architecture (deferred)",
+      "why_it_matters": "state.db still grows ~600MB/day from 3 high-frequency agent jobs. Remediation (prune + auto-reset) is a stopgap, not a fix. Disk is clear now, but this will recur unless the storage architecture changes.",
+      "business_impact": "Medium — recurrence risk in weeks, not days",
+      "estimated_time": "Defer — review when disk > 60%",
+      "recommended_action": "Defer to Winston. Not urgent now disk is 36%. Track via storage-health monitor.",
+      "impact_sort": 60
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Quiet Tuesday. No overnight customer activity. V2-NEW50 Batch 1 fires today (approved, no action needed). The only thing that genuinely needs you is the disk/state.db remediation decision — it has been open since yesterday and the clock is running. Everything else is Atlas review work I'll handle without you.",
+    "executive_summary": "Quiet overnight on the customer front, and the disk crisis that was yesterday's #1 risk is resolved. Today is Founder Call Day — the single highest-value thing you can do is make the 10 certified discovery calls. Everything else runs without you.",
     "priorities": [
       {
-        "action": "Resolve disk/state.db remediation today",
-        "why_it_matters": "Disk 85% full, state.db growing ~1GB/day. A full disk takes down Hermes entirely — the single biggest risk this week.",
-        "expected_impact": "High — prevents system outage",
-        "estimated_time": "15 min decision",
+        "action": "Execute Founder Call Day (10 certified candidates)",
+        "why_it_matters": "First founder-direct growth motion since RE-ENG. All 10 candidates re-verified V2-ACTIVE this morning with zero suppression flags. Discovery-call pivot after email-silent is by design, not contamination.",
+        "expected_impact": "High — direct pipeline generation",
+        "estimated_time": "2-3 hours",
         "confidence": "High (90%)"
       }
     ],
     "can_wait": [
-      "5 QPaint follow-ups overdue (Carlie Gunn, Jesse Zhao $116K, Shalender Hingorani, Alicia Campbell, Peter Reilly) — Atlas review, not auto-send",
-      "Vivien Lennan due today ($9,148) — Atlas reconciliation review",
-      "V2-NEW50 Batch 1 execution (today) — approved, no action needed",
-      "Star Painters / Ahmad — re-engagement email sent 17 Aug, awaiting response",
-      "Client OS dashboard Pages build failure — Atlas/Winston infra, not customer-facing"
+      "state.db growth architecture (Winston) — deferred, disk now 36%",
+      "Disk expansion 20→40GB provider action — optional now that disk is clear",
+      "V2-NEW50 Batch 1 (12) — observing, first replies expected Day 3-5",
+      "Star Painters / Ahmad — re-engagement sent 16 Aug, awaiting response",
+      "Client OS dashboard Pages build failure — Atlas/Winston infra, non-customer"
     ],
-    "closing": "Disk/state.db is the one decision I'd act on today. Everything else runs without you."
+    "closing": "Call Day is the one thing I'd protect time for today. Everything else runs without you."
   },
   "changes": {
     "today": [
       {
         "time": "04:00",
-        "text": "No overnight customer replies — quotes@, atlas@, james@ all clear (2 james@ unread = Airtable promo + GitHub Actions noise)"
+        "text": "Disk crisis resolved — Hermes v0.20.4, state.db 9.5GB → 0.93GB, disk 99% → 36%"
       },
       {
         "time": "04:00",
-        "text": "QPaint 5 follow-ups now overdue (NTD 17 Aug) — Carlie Gunn, Jesse Zhao $116K, Shalender Hingorani, Alicia Campbell, Peter Reilly"
+        "text": "Vivien Lennan reconciled — QPaint confirmed mid-October follow-up (Angela Gleeson). NTD → 15 Oct."
       },
       {
         "time": "04:00",
-        "text": "Client OS dashboard (Hardstaff08/notforgotten-client-os) Pages build failing — 8 annotations (new since yesterday's repo migration)"
-      },
-      {
-        "time": "04:00",
-        "text": "state.db 9.1GB (up from 8.1GB), disk 85% (3.0GB free)"
+        "text": "No new customer replies overnight — quotes@, atlas@, james@ all clear"
       }
     ],
     "yesterday": [
       {
         "time": "—",
-        "text": "Ahmad re-engagement email sent (founder-direct authority) to info@starpaintersadelaide.com.au"
+        "text": "V2-NEW50 Batch 1 sent (12 Email 1s: 11 Group A + 1 Rise Painters Group B)"
       },
       {
         "time": "—",
-        "text": "DeepSeek approved for client data — overturns Gemini-only boundary (Safety Rule 7)"
+        "text": "QPaint send wave: Jesse Zhao Email 3, Shalender Hingorani Email 1, Peter Reilly Email 2"
       },
       {
         "time": "—",
-        "text": "gh-pages conflict resolved — Client OS migrated to Hardstaff08/notforgotten-client-os; dashboard cron resumed"
+        "text": "First QPaint Quote & Revenue Report delivered to Tas (17 Aug)"
+      },
+      {
+        "time": "—",
+        "text": "QPaint nudges sent (Vivien Lennan, Cathy Cochrane, Elisha Paige committee review)"
+      },
+      {
+        "time": "—",
+        "text": "Hermes upgraded v0.17.0 → v0.20.4 + state.db remediated (with Josh)"
       }
     ],
     "this_week": [
       {
         "time": "—",
-        "text": "QPaint: 4 Won totalling $321,967 ($171,682 recovered)"
+        "text": "QPaint: 4 Won totalling $321,967 ($129,750 recovered)"
       },
       {
         "time": "—",
-        "text": "V2-NEW50 cohort built (50 prospects) — Batch 1 fires Tue 18 Aug"
+        "text": "V2-NEW50 cohort built (50 prospects) — Batch 1 sent Tue 18 Aug"
       },
       {
         "time": "—",
@@ -158,15 +171,15 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "QPaint: 161 records, 4 Won ($321,967), $171,682 recovered. 5 overdue follow-ups in Atlas review queue. V2-NEW50 Batch 1 fires today. Disk 85%, state.db 9.1GB — remediation decision open.",
+  "operational_status": "QPaint: 161 records, 4 Won ($321,967), $129,750 recovered, 0 overdue. Vivien Lennan reconciled (mid-Oct). V2-NEW50 Batch 1 (12) observing. Disk 36%, state.db 0.93GB — crisis resolved. Founder Call Day today.",
   "vault_health": {
     "decisions": {
       "total": 70,
       "founding": 8
     },
     "learnings": {
-      "total": 52,
-      "resolved": 38
+      "total": 54,
+      "resolved": 40
     },
     "incidents": {
       "total": 4,
@@ -182,126 +195,114 @@
       "usage": "99%"
     },
     "infrastructure": {
-      "disk": "85% (3.0G free)",
-      "state_db": "9.1GB — growth flagged"
+      "disk": "36% (12G free)",
+      "state_db": "0.93GB — remediated 18 Aug"
     }
   },
   "qpaint_pipeline": {
     "summary": {
       "total_customers": 161,
-      "total_pipeline_value": "$4.77M",
+      "total_pipeline_value": "$5.58M",
       "won_count": 4,
       "won_value": "$321,967",
       "lost_count": 23,
-      "engaged_replied": 11,
-      "contacted": 116,
+      "engaged_replied": 12,
+      "contacted": 115,
       "not_contacted": 7
     },
     "stage_breakdown": {
-      "Email 2": 69,
+      "Email 2": 68,
       "Email 1": 46,
       "Lost": 23,
-      "New": 7,
+      "New": 6,
+      "Replied": 6,
       "Engaged": 5,
-      "Replied": 4,
       "Won": 4,
       "Email 3": 3
     },
     "priority": {
       "P1": 93,
       "P2": 53,
-      "P3": 15
+      "P3": 3
     },
     "key_customers": [
-      {
-        "name": "Nuwan Fernando",
-        "value": "$167,592",
-        "stage": "Email 3",
-        "status": "NTP 22 Aug — engaged"
-      },
       {
         "name": "Nicholas Zappacosta",
         "value": "$145,008",
         "stage": "Won",
-        "status": "Logan Village SS — tender, $0 recovered yet (QBuild paperwork)"
+        "status": "Won — tender, $0 attributed yet"
       },
       {
         "name": "Arno Hsu",
         "value": "$129,750",
         "stage": "Won",
-        "status": "Recovered $129,750 (attributed) — handover verified"
-      },
-      {
-        "name": "Jesse Zhao",
-        "value": "$116,223",
-        "stage": "Email 2",
-        "status": "OVERDUE (NTD 17 Aug) — Atlas review"
+        "status": "Won — Recovered $129,750"
       },
       {
         "name": "Elisha Paige",
         "value": "$113,907",
         "stage": "Engaged",
-        "status": "Committee review — NTP 22 Aug"
+        "status": "Engaged — NTP 08/22"
       },
       {
-        "name": "Jason Manley",
-        "value": "$46,828",
+        "name": "Nuwan Fernando",
+        "value": "$167,592",
+        "stage": "Replied",
+        "status": "Replied — NTP 08/25"
+      },
+      {
+        "name": "Richard Zhang",
+        "value": "$145,350",
+        "stage": "Email 3",
+        "status": "Email 3 — NTP 08/22"
+      },
+      {
+        "name": "Jesse Zhao",
+        "value": "$116,223",
+        "stage": "Email 3",
+        "status": "Email 3 — NTP 08/25"
+      },
+      {
+        "name": "Jenny Yang",
+        "value": "$227,084",
         "stage": "Email 2",
-        "status": "Engaged — NTP 31 Aug"
+        "status": "Email 2 — NTP 08/21"
       },
       {
-        "name": "Sian Leathem",
-        "value": "$39,996",
-        "stage": "Replied",
-        "status": "Replied — NTP 24 Aug"
+        "name": "David Delaney",
+        "value": "$123,655",
+        "stage": "Email 2",
+        "status": "Email 2 — NTP 08/20"
       },
       {
-        "name": "Terry Hamilton",
-        "value": "$30,538",
-        "stage": "Engaged",
-        "status": "NTP 7 Sep"
+        "name": "Helen Walsh",
+        "value": "$109,887",
+        "stage": "Email 2",
+        "status": "Email 2 — NTP 08/21"
       },
       {
-        "name": "Cheryl Sim",
-        "value": "$29,698",
-        "stage": "Won",
-        "status": "Won — Assisted $29,698"
-      },
-      {
-        "name": "Peter Reilly",
-        "value": "$28,936",
+        "name": "Natalie Jackson",
+        "value": "$109,725",
         "stage": "Email 1",
-        "status": "OVERDUE (NTD 17 Aug) — Atlas review"
+        "status": "Email 1 — NTP 08/21"
       },
       {
-        "name": "Carlie Gunn",
-        "value": "$19,932",
-        "stage": "Engaged",
-        "status": "OVERDUE (NTD 17 Aug) — 'still deciding'"
+        "name": "Cindy Magy",
+        "value": "$108,240",
+        "stage": "Email 1",
+        "status": "Email 1 — NTP 08/21"
       },
       {
-        "name": "Joy Ryan",
-        "value": "$17,510",
-        "stage": "Won",
-        "status": "Assisted $12,234 (split accepted)"
+        "name": "Georgina Baartz",
+        "value": "$101,530",
+        "stage": "Email 1",
+        "status": "Email 1 — NTP 08/21"
       },
       {
-        "name": "Shalender Hingorani",
-        "value": "$13,552",
-        "stage": "New",
-        "status": "OVERDUE (NTD 17 Aug) — quote intake review (not auto-send)"
-      },
-      {
-        "name": "Vivien Lennan",
-        "value": "$9,148",
-        "stage": "Replied",
-        "status": "DUE TODAY (18 Aug) — reconciliation review"
-      },
-      {
-        "name": "Alicia Campbell",
-        "value": "$8,789",
-        "stage": "Engaged",
-        "status": "OVERDUE (NTD 17 Aug) — quote link expired, awaiting Tas resend"
+        "name": "Kurt Manabat",
+        "value": "$100,259",
+        "stage": "Email 1",
+        "status": "Email 1 — NTP 08/22"
       }
     ]
   }
