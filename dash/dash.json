@@ -4169,18 +4169,18 @@
   },
   "storage_health": {
     "tier": "amber",
-    "disk_pct": 85.7,
-    "free_gb": 2.8,
-    "why": "state db (9270MB), other hermes (393MB), chrome profile (307MB). Normal system overhead.",
-    "trend": "rapidly increasing",
-    "daily_rate_pct": 5.87,
-    "forecast_days_to_95": 1.6,
-    "recommendation": "Monitor. state_db (9270.4MB) is the largest consumer. Consider pruning if growth continues.",
+    "disk_pct": 86.6,
+    "free_gb": 2.6,
+    "why": "state db (9437MB), tmp (996MB), other hermes (397MB). Normal system overhead.",
+    "trend": "increasing",
+    "daily_rate_pct": 4.2,
+    "forecast_days_to_95": 2.0,
+    "recommendation": "Monitor. state_db (9436.6MB) is the largest consumer. Consider pruning if growth continues.",
     "largest_consumers": {
-      "state_db": 9270.4,
-      "other_hermes": 393.2,
-      "chrome_profile": 307.2
+      "state_db": 9436.6,
+      "tmp": 995.8,
+      "other_hermes": 396.9
     },
-    "last_checked": "2026-08-18T06:01:00+0930"
+    "last_checked": "2026-08-18T12:00:06+0930"
   }
 }
