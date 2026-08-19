@@ -28,7 +28,7 @@ tier: primary
 4. **CURRENT STATE OVERRIDES SCHEDULE:** A scheduled follow-up must not send if the customer has replied, the stage has advanced, or a stop condition is active.
 5. **OUTREACH NOTES APPEND-ONLY:** Read → Preserve → Append timestamped → Write → Read-back.
 6. **FAIL-VISIBLE INTAKE:** No silent drop of quotes. Unclassified = surfaced.
-7. **DAILY ATTENTION:** 36-hour look-ahead. P1-P4 priority. QPAINT ACTION / ATLAS ACTION / JAMES ACTION / MONITOR.
+7. **DAILY ATTENTION:** 36-hour look-ahead. P1-P4 priority. QPaint action / ATLAS ACTION / JAMES ACTION / MONITOR.
 8. **MANDATORY NEXT TOUCHPOINT:** Every active record must have a valid Next Touchpoint Date.
 9. **AIRTABLE READ-BACK:** Verify every write with independent read-back.
 

@@ -289,13 +289,14 @@ Full confidence grading system, contradiction tracking format, and source drift 
 11. `knowledge/trust/security-register.md` — live Security Register (before any infra/credential/data change)
 12. `knowledge/trust/privacy-register.md` — live Privacy Register (before collecting/processing new data)
 13. Verify sender identity before responding to inbound
+14. `knowledge/customer-context-gate.md` — CUSTOMER CONTEXT GATE (mandatory pre-send: decision model, A–H, Customer Experience Test, review≠send, fresh/silent/recovery, commercial truth, template=framework)
 
 ### On-demand (load when relevant, not every session)
 
-14. `knowledge/outreach-philosophy/INDEX.md` — before any outreach email
-15. `knowledge/trust/data-flow-map.md` — when integrations/data paths change
-16. `knowledge/tracking-verification-checklist.md` — pre-launch gate (5 tracking gates)
-17. `knowledge/canonical-templates/INDEX.md` — before any outbound send
+15. `knowledge/outreach-philosophy/INDEX.md` — before any outreach email
+16. `knowledge/trust/data-flow-map.md` — when integrations/data paths change
+17. `knowledge/tracking-verification-checklist.md` — pre-launch gate (5 tracking gates)
+18. `knowledge/canonical-templates/INDEX.md` — before any outbound send
 
 ---
 

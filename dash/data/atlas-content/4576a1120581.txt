@@ -1,0 +1,256 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# Atlas Governance + QPaint Outbound Integrity Audit
+
+**Date:** 2026-08-19
+**Trigger:** 19 Aug QPaint generic-mail-merge incident + Josh cost/context consolidation
+**Scope:** full governance inventory, always-loaded vs on-demand, deterministic enforcement, send-path bypass, conflict audit, minimum restoration plan.
+**Status:** AUDIT ONLY — no implementation except preserving the QPaint freeze.
+
+---
+
+## 0. Executive summary
+
+**QPaint outbound readiness: FAIL.** The Customer Context Gate is documented and approved but
+not enforced by `canonical-send.py`. The exact 19 Aug failure mode (create approval → activate →
+send without proving A–H + Customer Experience Test) is still mechanically possible.
+
+**Governance integrity: FAIL.** The 2026-08-18 cost consolidation condensed MEMORY.md (137→~63
+lines) and archived the pre-consolidation version. Critical rules survive in condensed form, but
+the *new* critical governance (Customer Context Gate + decision model) is not in the always-loaded
+MEMORY.md file, the SOUL.md boot list, or the enforcement layer. It is only in the interactive
+memory notes + an on-demand file.
+
+---
+
+## 1. Current QPaint readiness truth (Part 1)
+
+- QPAINT OUTBOUND READINESS = **FAIL**.
+- `canonical-send.py` does NOT require Customer Context Gate completion. Mechanical gates only.
+- `follow-up-autopilot` = DISABLED (must remain so during this audit).
+
+---
+
+## 2. Protocol inventory (Part 2)
+
+Durable protocols located across: SOUL.md, memory/MEMORY.md, memory/archive, knowledge/decisions,
+knowledge/trust/*, knowledge/qpaint/*, knowledge/canonical-templates, learnings/, Agent/*,
+skills/*, scripts/*, cron/jobs.json.
+
+10 governance domains identified (matching James's enumeration):
+
+| Domain | # rules | Critical subset |
+|---|---|---|
+| QPaint customer communication | ~40 | white-label, context gate, review≠send, fresh/silent/recovery, no-over-personalise, unknown≠invent≠hold, WAIT/MONITOR/HOLD, Won/Lost evidence, brand "QPaint", footer, escalation Dee+Leslie, freeze |
+| James email / identity | ~10 | james@ identity, canonical sig once, no recreation/approximation, final-rendered check, fail-closed |
+| Atlas / white-label identity | ~6 | atlas@, QPaint customer-care presentation, privacy disclosure, no NF leakage |
+| Send safety | ~20 | recipient verify, no dup, Sent idempotency, reply check, DNC/suppression, thread, evidence, Sent verify, Airtable reconcile + read-back, individual=HOLD/systemic=STOP, context gate precedes mechanical |
+| Commercial truth | ~13 | primary evidence > CRM stage, Won/Lost require evidence, outcome ≠ attribution, no inflation, FACT≠interpretation, silence≠truth |
+| NF V2 outbound | ~20 | frozen=means frozen, exact copy, sequential, no batch expansion, no calls/SMS unauth, opens≠intent, evidence before optimisation |
+| Founder authority | ~10 | draft≠approval, scope-limited, report≠distribution, STOP=STOP, no invented authority |
+| Reporting / client truth | ~6 | Total Won ≠ Recovered Revenue, no unsupported causation, no internal IDs in client output |
+| Evidence / reconciliation | ~7 | preserve IDs, append-only, read-back, verified=actually verified |
+| Fail-closed | ~15 | active freeze, missing context gate, wrong sender, dup, DNC, conflict, systemic, unclear authority |
+
+**Total durable protocols: ~147** (James's enumeration, many overlapping).
+
+---
+
+## 3. Classification (Part 3)
+
+Default = **A (critical always-loaded)** for anything touching customers/prospects/sending/money/
+commercial status/identity/privacy/evidence/authority, unless deterministic code enforces it.
+
+- **A (critical, must be always-loaded):** ~40 core rules (the 10 domains' critical subset).
+- **B (important, on-demand OK):** procedures, sequences, detailed checklists (Voice Review,
+  Technical Verification detail, template bodies, escalation playbooks).
+- **C (reference/example/history):** case studies, campaign reviews, experiment archives,
+  historical decisions.
+- **D (superseded/conflicting):** pre-2026-08-18 "Email 2 due → send" cadence assumptions,
+  "template = fixed copy", "never contact Tas" (now: team channel default, Tas if authorised),
+  "scope unknown = permanent hold" (now: unknown ≠ invent ≠ permanent hold).
+
+---
+
+## 4. Before vs after Josh optimisation (Part 4)
+
+**BEFORE (pre-2026-08-18):**
+- MEMORY.md = 137-entry "second wiki" (43.8KB), always-loaded.
+- SOUL.md = 592 lines, inline Trust OS / Voice / CEO-Brief / Decision-Library summaries.
+- Boot context = 16 files / ~211KB (~50k tokens).
+- Model: all deepseek-v4-pro.
+
+**AFTER (2026-08-18 consolidation):**
+- MEMORY.md = ~63 lines (terse index), 137-entry version archived to memory/archive/.
+- SOUL.md = 334 lines (deduplicated; references trust-framework.md, voice-review-checklist, etc.).
+- Boot context = target ~8–10 files.
+- Model: 6 mechanical crons pinned deepseek-v4-flash (⅓ price); send/draft/reasoning jobs kept pro.
+
+**Critical protocols that became on-demand/archived/condensed (the risk):**
+1. Customer Context Gate + decision model → on-demand file + interactive memory notes only.
+2. "Review date ≠ send trigger" (was archive entry 130) → now implicit, not in MEMORY.md.
+3. Fresh vs silent vs stalled/recovery distinction → archived detail, not in MEMORY.md.
+4. Detailed per-domain checklists → on-demand knowledge/* + skills/*.
+5. Decision register detail (DR entries) → knowledge/trust/decision-register.md (on-demand).
+
+A critical protocol "available if Atlas searches for it" = FAIL when the process that needs it
+(cron/subagent/legacy script) cannot or will not search.
+
+---
+
+## 5. Always-loaded core governance (Part 5)
+
+Minimum compact core (guaranteed, not search-dependent):
+
+1. Six Principles (SOUL.md — already always-loaded) — YES.
+2. Ground truth / context trust / date integrity — YES (SOUL.md).
+3. Safety Rules 1–11 + Seven Rules — YES (SOUL.md).
+4. Decision model: CUSTOMER TRUTH→STATE→NEXT ACTION→OBJECTIVE→MESSAGE→COMPLIANCE→SEND — **NO** (on-demand).
+5. Customer Context Gate A–H + Customer Experience Test — **NO** (on-demand).
+6. Review date = REVIEW, not SEND — **NO** (on-demand).
+7. Fresh vs silent vs recovery — **NO** (on-demand).
+8. Won/Lost require primary evidence; no-response ≠ Lost — partial (MEMORY.md has "quiet quote ≠ lost").
+9. Sender identity + canonical signature + fail-closed — YES (SOUL.md + MEMORY.md).
+10. Send safety (dup/DNC/reply/evidence/reconcile/read-back) — YES (MEMORY.md production laws).
+11. Founder authority (draft≠approval, scope-limited, STOP=STOP) — partial (SOUL.md boundaries).
+12. Brand "QPaint" — partial (memory uses it; no explicit always-loaded rule).
+13. Escalation (Dee+Leslie; Tas if authorised) — YES (MEMORY.md).
+
+**FAILs:** #4, #5, #6, #7 — the new decision model and context gate are NOT in the always-loaded
+core. This is the central governance gap.
+
+---
+
+## 6. Deterministic enforcement audit (Part 6)
+
+| Safeguard | Today | Should be |
+|---|---|---|
+| Active QPaint freeze | MODEL only (no hard gate) | BOTH |
+| Customer Context Gate completion | MODEL only | **DETERMINISTIC GATE (missing)** |
+| Customer Experience Test result | MODEL only | BOTH |
+| Approval scope | MODEL | MODEL |
+| Sender identity | CODE (canonical-send resolver) | CODE |
+| Canonical signature | CODE (james-send-boundary) | CODE |
+| Final rendered-signature check | CODE | CODE |
+| Recipient match | MODEL + partial code | BOTH |
+| Duplicate / idempotency | CODE (Gate 0/3) | CODE |
+| Suppression / DNC | MODEL (no QPaint DNC list; status field) | MODEL |
+| Customer reply check | CODE (Gate 2) | CODE |
+| Attachment match | n/a (no attachments in scope) | n/a |
+| Evidence-write requirement | CODE (Gate 7) | CODE |
+| Airtable reconciliation requirement | CODE (Gate 8/9/10) | CODE |
+| Systemic STOP behaviour | MODEL | BOTH |
+
+**Only material gap:** Customer Context Gate + Customer Experience Test are model-only, not enforced.
+
+---
+
+## 7. Customer Context Gate enforcement (Part 7)
+
+Minimum safe change to `canonical-send.py` (and `create_approval_request`/`activate_approval`):
+
+- An approval/send artefact must carry a `context_gate` object: `{a_h_completed: true,
+  customer_experience_test: "PASS", next_action: "EMAIL", contact_today_reason: "...",
+  commercial_state: "...", evidence_refs: [...]}`.
+- `canonical_send()` refuses execution (Gate -2) if this object is absent or `customer_experience_test != "PASS"`.
+- The object must be non-trivial (a structured brief, not a bare boolean Atlas can flip). Atlas
+  sets it only after actually completing the A–H brief. Founder approval remains a separate gate.
+
+This is minimum effective enforcement: one new gate + one artefact field. Not a rebuild.
+
+---
+
+## 8. All QPaint send paths (Part 8)
+
+| Path | Trigger | Model | Can send? | Uses canonical_send? | CCG required? | Freeze enforced? | Can bypass? | Status |
+|---|---|---|---|---|---|---|---|---|
+| canonical-send.py | manual (approval+activate+send) | n/a | YES | — (is the authority) | **NO** | **NO** | **YES** | LIVE — add CCG gate |
+| follow-up-autopilot.py + cron | cron 5m (Stage New + no prior) | flash | YES (if enabled) | NO (own MIME) | NO | NO | YES | DISABLED — keep off/remove |
+| send-two-qpaint-email1.py | manual | n/a | YES | YES | NO | NO | YES | legacy — retire |
+| send-four-qpaint.py | manual | n/a | YES | YES | NO | NO | YES | legacy — retire |
+| send-email2-batch-aug8.py | manual | n/a | YES | YES | NO | NO | YES | legacy — retire |
+| send-email.py | manual | n/a | YES | unknown | NO | NO | YES | legacy — audit |
+| quotes-pulse-phase2 | cron | flash | NO (intake only) | n/a | n/a | n/a | n/a | safe |
+| QPaint Daily Attention | cron | pro | NO (review) | n/a | n/a | n/a | n/a | safe |
+| Overnight Founder Readiness | cron | pro | NO (reconcile) | n/a | n/a | n/a | n/a | safe |
+
+Every send-capable path except canonical-send.py is legacy/manual and does NOT enforce CCG or
+freeze. "Manual only" is not safe: it is how 19 Aug happened.
+
+---
+
+## 9. Follow-up autopilot (Part 9)
+
+Recommendation: **B — retain but redesign later.** Do NOT delete yet. It must NEVER return to
+"Stage New + timer → send template." Future shape: review due → context decision → appropriate
+action (the Customer Context Gate). Keep DISABLED until redesigned and Founder-approved.
+
+---
+
+## 10. Cron / subagent model safety (Part 10)
+
+Safe for Flash (mechanical, no judgment): backups, storage alerts, deterministic refreshes,
+read-only reconciliation, formatting, health checks, log retention, dashboard/graph refresh,
+cost report, tracking-tag audit, followup-queue refresh, inbox/quotes watchdog phase1.
+
+Must remain full-governance / strong model (pro): customer communication, prospect communication,
+reply interpretation, next-best-action, commercial classification, Won/Lost, attribution,
+Founder escalation, customer-specific drafting, campaign send/draft. (QPaint Daily Attention,
+Overnight Founder Readiness, Campaign Pulse, Dream, V2-NEW50 Touch 1 Group A/B, inbox/quotes
+pulse phase2 → these currently carry judgment; phase2 is intake-classify, borderline.)
+
+No model changes during this audit.
+
+---
+
+## 11. Conflict audit (Part 11)
+
+| OLD | NEW | Authoritative | Files with OLD | Cleanup |
+|---|---|---|---|---|
+| Email 2 due → send | review due → CCG → decide | NEW | follow-up-autopilot prompt; old MEMORY.md cadence entries | retire/disable autopilot; update docs |
+| Template = fixed send copy | template = framework | NEW | 2026-08-02 "frozen sequence" wording; follow-up-autopilot v8.0 "LOCKED" | clarify framework vs verbatim |
+| Scope unknown → QPaint action / permanent hold | unknown ≠ invent ≠ permanent hold; generic-accurate OK if CCG supports | NEW | next-action-principle old line; archived memory | updated next-action-principle already |
+| Never contact Tas | team channel default; Tas if authorised | NEW | MEMORY.md escalation line is already correct | verify no residual "never Tas" |
+| DeepSeek disabled (Gemini-only) | DeepSeek approved primary | NEW (2026-08-17) | archived memory entries 40, 44 | already superseded, clean |
+| QPAINT (all caps) brand | QPaint (title case) | NEW (2026-08-19) | recovery-introduction template, decision 2026-08-12, white-label protocol | **done** this session |
+
+---
+
+## 12. Current customer states (Part 12) — preserved, unchanged
+
+- Julius Gloria: SILENT; next action EMAIL; draft approved-in-principle; send BLOCKED by freeze.
+- Beth McIntosh: SILENT; scope UNKNOWN; QPaint action = NO (not now); contact = NO; future generic-accurate follow-up permitted if CCG supports.
+- Six incident customers: MONITOR; no corrective contact; 26 Aug = REVIEW only; no auto-send.
+
+---
+
+## 13. Minimum restoration plan (Part 13) — NOT implemented
+
+A. Governance restoration: promote decision model + Customer Context Gate + review≠send +
+   fresh/silent/recovery + Won/Lost-evidence into the always-loaded core (SOUL.md boot list +
+   MEMORY.md). Remove obsolete conflicts from active governance. Keep examples/templates on-demand.
+B. Mechanical enforcement: add CCG gate to canonical-send.py; add freeze check; retire legacy
+   send scripts; keep autopilot disabled.
+C. Model routing: Flash for mechanical; pro for judgment (already largely correct).
+D. Cost discipline: preserve valid token savings; this plan adds ~2 small always-loaded entries,
+   negligible cost.
+
+---
+
+## 14. Final counts
+
+- Total durable protocols: ~147
+- Critical always-loaded (should be): ~40
+- Currently always-loaded: ~33 (SOUL.md + MEMORY.md core)
+- Critical currently on-demand: ~7 (decision model, CCG A–H, review≠send, fresh/silent/recovery,
+  no-over-personalise detail, escalation detail, Won/Lost evidence)
+- Critical currently archived: ~10 (pre-consolidation MEMORY.md detail)
+- Conflicting/obsolete: 6 identified
+- Missing: 1 structural (Customer Context Gate enforcement in code)
+
+**QPaint outbound safe to restart: NO.**
+**Founder approval required: YES** (for the CCG-enforcement code change + the governance promotion).

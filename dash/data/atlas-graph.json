@@ -356,6 +356,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_customer_context_gate",
+      "label": "Customer Context Gate",
+      "file_type": "doc",
+      "source_file": "knowledge/customer-context-gate.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "6f26a793af7f",
+      "val": 12.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_customers",
       "label": "Customers",
       "file_type": "doc",
@@ -705,6 +716,17 @@
       "community_name": "Knowledge",
       "content_hash": "2e7bdc0871c6",
       "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decisions_2026_08_19_qpaint_brand_canonicalisation",
+      "label": "Qpaint Brand Canonicalisation",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-19-qpaint-brand-canonicalisation.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "124f4afbceca",
+      "val": 8.0,
       "color": "#a78bfa"
     },
     {
@@ -1265,7 +1287,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "88af706d16d6",
-      "val": 6.0,
+      "val": 8.0,
       "color": "#a78bfa"
     },
     {
@@ -1277,6 +1299,17 @@
       "community_name": "Knowledge",
       "content_hash": "50f4a95aec20",
       "val": 10.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_qpaint_white_label_send_protocol",
+      "label": "Qpaint White Label Send Protocol",
+      "file_type": "doc",
+      "source_file": "knowledge/qpaint-white-label-send-protocol.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "8b2b3d298eae",
+      "val": 6.0,
       "color": "#a78bfa"
     },
     {
@@ -1695,6 +1728,61 @@
       "community_name": "Learnings",
       "content_hash": "a553da94874a",
       "val": 6.0,
+      "color": "#f472b6"
+    },
+    {
+      "id": "learnings_2026_08_18_hermes_update_and_state_db_remediation",
+      "label": "Hermes Update And State Db Remediation",
+      "file_type": "doc",
+      "source_file": "learnings/2026-08-18-hermes-update-and-state-db-remediation.md",
+      "community": 5,
+      "community_name": "Learnings",
+      "content_hash": "b87cc7e79033",
+      "val": 6.0,
+      "color": "#f472b6"
+    },
+    {
+      "id": "learnings_2026_08_18_wakeagent_gate",
+      "label": "Wakeagent Gate",
+      "file_type": "doc",
+      "source_file": "learnings/2026-08-18-wakeagent-gate.md",
+      "community": 5,
+      "community_name": "Learnings",
+      "content_hash": "bae37cfbd1c3",
+      "val": 6.0,
+      "color": "#f472b6"
+    },
+    {
+      "id": "learnings_2026_08_19_core_product_learning",
+      "label": "Core Product Learning",
+      "file_type": "doc",
+      "source_file": "learnings/2026-08-19-core-product-learning.md",
+      "community": 5,
+      "community_name": "Learnings",
+      "content_hash": "8b6b70802064",
+      "val": 10.0,
+      "color": "#f472b6"
+    },
+    {
+      "id": "learnings_2026_08_19_governance_and_qpaint_integrity_audit",
+      "label": "Governance And Qpaint Integrity Audit",
+      "file_type": "doc",
+      "source_file": "learnings/2026-08-19-governance-and-qpaint-integrity-audit.md",
+      "community": 5,
+      "community_name": "Learnings",
+      "content_hash": "4576a1120581",
+      "val": 10.0,
+      "color": "#f472b6"
+    },
+    {
+      "id": "learnings_2026_08_19_qpaint_customer_send_incident",
+      "label": "Qpaint Customer Send Incident",
+      "file_type": "doc",
+      "source_file": "learnings/2026-08-19-qpaint-customer-send-incident.md",
+      "community": 5,
+      "community_name": "Learnings",
+      "content_hash": "0c1e48e7017e",
+      "val": 10.0,
       "color": "#f472b6"
     },
     {
@@ -2645,6 +2733,55 @@
     },
     {
       "source": "agent_registry",
+      "target": "knowledge_customer_context_gate",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "learnings_2026_08_19_qpaint_customer_send_incident",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "learnings_2026_08_19_core_product_learning",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "learnings_2026_08_19_governance_and_qpaint_integrity_audit",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_19_qpaint_brand_canonicalisation",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "learnings_2026_08_18_wakeagent_gate",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "learnings_2026_08_18_hermes_update_and_state_db_remediation",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
       "target": "knowledge_qpaint_operating_architecture",
       "relation": "wikilink",
       "weight": 1.0,
@@ -3043,6 +3180,34 @@
       "source_file": ""
     },
     {
+      "source": "knowledge_decisions_2026_08_19_qpaint_brand_canonicalisation",
+      "target": "knowledge_customer_context_gate",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decisions_2026_08_19_qpaint_brand_canonicalisation",
+      "target": "learnings_2026_08_19_qpaint_customer_send_incident",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decisions_2026_08_19_qpaint_brand_canonicalisation",
+      "target": "learnings_2026_08_19_core_product_learning",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decisions_2026_08_19_qpaint_brand_canonicalisation",
+      "target": "knowledge_qpaint_white_label_send_protocol",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
       "source": "knowledge_experiments_context_vs_curiosity_hypothesis_backlog",
       "target": "knowledge_experiments_context_vs_curiosity_readme",
       "relation": "wikilink",
@@ -3262,6 +3427,62 @@
     {
       "source": "knowledge_writing_playbook",
       "target": "knowledge_atlas_learning_framework",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "learnings_2026_08_19_core_product_learning",
+      "target": "learnings_2026_08_19_qpaint_customer_send_incident",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "learnings_2026_08_19_core_product_learning",
+      "target": "knowledge_customer_context_gate",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "learnings_2026_08_19_core_product_learning",
+      "target": "learnings_2026_08_19_governance_and_qpaint_integrity_audit",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "learnings_2026_08_19_qpaint_customer_send_incident",
+      "target": "learnings_2026_08_19_core_product_learning",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "learnings_2026_08_19_qpaint_customer_send_incident",
+      "target": "learnings_2026_08_19_governance_and_qpaint_integrity_audit",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "learnings_2026_08_19_qpaint_customer_send_incident",
+      "target": "knowledge_customer_context_gate",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "learnings_2026_08_19_qpaint_customer_send_incident",
+      "target": "knowledge_decisions_2026_08_19_qpaint_brand_canonicalisation",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "learnings_2026_08_19_qpaint_customer_send_incident",
+      "target": "knowledge_qpaint_operating_architecture",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

@@ -1,0 +1,223 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# QPaint Customer Send Incident — 2026-08-19
+
+**Status:** OPEN — full stop in effect. No QPaint customer communication authorised.
+**Reporter:** James Hardstaff (Founder)
+**Incident owner:** Atlas (self-audit)
+
+---
+
+## 1. Summary
+
+6 generic QPaint Email 1 ("recovery-introduction") emails were sent to real QPaint customers.
+The emails were mechanically correct (right recipient, right sender, right signature, right
+footer, right template checksum, no duplicate, no reply, no suppression) but **contextually
+empty**: each customer's actual quote, project, timing and decision stage were not understood
+before contacting them. The template was applied as mail-merge (name + interior/exterior)
+instead of being a framework applied only after the individual customer was understood.
+
+**Total emails sent:** 6
+**Total customers affected:** 6
+**No Email 2 / Email 3 / SMS / calls sent.** Two Email 2 sends (Beth McIntosh, Julius Gloria)
+were pending but NOT sent — the stop arrived first.
+
+---
+
+## 2. Send Ledger
+
+The email body was identical for all 6 (see §3). Subject and scope sentence varied only by
+interior/exterior. Sender: Atlas <atlas@notforgotten.com.au>. Stage: New → Email 1.
+Recovery Status: New → Contacted (reconciled). Next Touchpoint: +7d = 2026-08-26.
+
+| # | Customer | Quote # | Address | Value | Quote sent (PandaDoc) | Scope | Gmail ID | Time (ACST) |
+|---|---|---|---|---|---|---|---|---|
+| 1 | Ron Hard | 43029 | 49 Walker St, Corinda | $30,739.50 | 17 Aug (doc 03 Aug) | External painting; lead paint positive test | 1a0177aefed1983e | 10:15 |
+| 2 | Adrian Cook | 43046 | 87I Kenmore Rd, Fig Tree Pocket | $21,780.00 | 17 Aug (doc 03 Aug) | External repaint (part) — clear timber finish | 1a01780d8e6e27c0 | 10:21 |
+| 3 | Sue Barrett | 43010 | 172 Preston Rd, Manly West | $17,729.80 | 17 Aug (doc 28 Jul) | Exterior 192 m² repaint | 1a0178254073e2ba | 10:23 |
+| 4 | Georgina Martin | 43013 | 9 Mavis St, St Lucia | $13,992.00 | 17 Aug (doc 11 Aug) | Internal ceiling repaint (peeling) | 1a0178273fc27b74 | 10:23 |
+| 5 | Sara von Nordheim | 43058 | 3/12 Wilkie St, Yeerongpilly | $10,879.00 | 16 Aug (doc 04 Aug) | Internal | 1a017828e62dbfbb | 10:23 |
+| 6 | Raewyn Frost | 43032 | 23 Evergreen Pl, Forest Lake | $7,920.00 | 16 Aug (doc 02 Aug) | External + 2 options (alfresco, driveway) | 1a01782adf98bb0d | 10:23 |
+
+Common pre-send state for all 6: Current Stage = "New", Recovery Status = "New",
+Last Contacted = none, zero Gmail history (no prior send, no reply), Next Touchpoint = 2026-08-19.
+All were fresh PandaDoc intakes (quotes delivered to customers 16–17 Aug, i.e. 2–3 days prior).
+
+---
+
+## 3. Exact email sent (one template, 6 sends)
+
+Subject: `Your {exterior|interior} painting quote from QPAINT`
+
+Body:
+> Hi {First},
+>
+> I hope this email finds you well.
+>
+> My name is Atlas, and I work alongside Tas at QPAINT. My role is to make sure every client is well looked after throughout the quoting process.
+>
+> I just wanted to introduce myself and make sure you've received your quote. I can see it covers {exterior painting for your property | interior painting for your home}. I also wanted to see if you had any initial questions or if there was anything you'd like us to clarify.
+>
+> There's absolutely no pressure at all. Whether it's the scope of work, the process, or the timing of your project, I'm here to help. If there's anything you'd like to discuss with Tas directly, I'm more than happy to organise that as well.
+>
+> Whenever you're ready, simply reply to this email and I'll make sure we look after you.
+>
+> Kind regards,
+>
+> Atlas
+> Working alongside Tas at QPAINT
+>
+> ---
+> Not Forgotten Systems is helping QPAINT manage quote follow-ups. We keep your information secure and use it only in connection with this quote. Privacy policy: notforgotten.com.au/privacy. If you'd prefer not to be contacted, reply to this email.
+
+---
+
+## 4. Classification (A / B / C / D)
+
+- **A (appropriate despite generic):** none
+- **B (suboptimal, unlikely to confuse individually):** Ron Hard, Sue Barrett, Georgina Martin,
+  Sara von Nordheim, Raewyn Frost
+- **C (inappropriate given known context):** Adrian Cook — scope is "clear timber finish"
+  (Intergrain Heavy Duty), not paint; describing it as "exterior painting" is a mild
+  mischaracterisation of what he was actually quoted for.
+- **D (material customer/reputation risk):** none individually.
+
+**Collective position:** the 6 emails are individually B (with one C) — factually accurate at
+the interior/exterior level, correctly branded, non-pushy, compliant footer — but the systemic
+failure (sending generic mail-merge to 6 real customers without understanding each one) is a
+genuine **QPaint reputation risk**, which is why this is treated as serious.
+
+---
+
+## 5. Potential customer harm / QPaint reputation risk
+
+- Fresh-intake customers (quote received 2–3 days prior) were contacted by a third party
+  (Atlas) with a generic "have you received your quote" message. Risk: confusion about who
+  Atlas is and why a third party is contacting them about a very recent QPaint quote.
+- Generic wording does not reflect the individual project (lead-paint test, clear-timber
+  finish, optional extras, peeling ceilings), so it does not demonstrate that we understand
+  their job — undermining the trust QPaint entrusts to us.
+
+---
+
+## 6. Protocol expected vs actually executed
+
+**Expected:** understand the individual customer (who / what quoted / when / history / decision
+stage / correct next action) BEFORE contacting them; use the canonical template as a framework;
+HOLD if the template doesn't fit or evidence is insufficient.
+
+**Actually executed:** verified mechanical/technical correctness (recipient, sender, signature,
+footer, template checksum, no duplicate, no reply, no suppression, interior-vs-exterior), then
+sent identical template copy with name + scope substituted. No per-customer context assembly,
+no decision-stage assessment, no context-appropriateness gate.
+
+---
+
+## 7. Root cause
+
+**Primary (Atlas):** I reduced "customer communication" to "template execution." I treated
+"use the canonical template, do not modify copy" as "send identical generic copy with variables
+substituted," which is exactly the misreading flagged. I did not assemble each customer's
+project/timing/history and did not ask whether the email made sense against that customer's
+complete history.
+
+**Contributing:**
+1. **Customer-context assembly was shallow** — rich, customer-specific scope data (specific
+   areas, finishes, options, lead-paint test) and intake history were available in Airtable but
+   were reduced to "interior"/"exterior".
+2. **No Customer Context Gate existed** — Voice Review (tone/clichés/coffee test), Technical
+   Verification (em-dash, placeholder, footer, branding) and canonical_send's 10 gates
+   (delivery/duplicate/reply/suppression/state) all passed a generic, context-free email.
+3. **I over-applied "do not modify copy"** — treated the template as the whole answer rather
+   than a framework to apply only after the customer is understood (else HOLD).
+4. **Fresh-intake context not weighed** — these were 2–3-day-old quotes, not aged recovery
+   quotes; I did not consider whether the "recovery-introduction" framing fit that timing.
+
+**What did NOT fail (for accuracy):** recipient identity, duplicate/reply/suppression checks,
+sender identity, signature/footer compliance, template checksum integrity. The failure is
+specifically in the customer-understanding/context layer, not the mechanical/compliance layer.
+
+**Failure location:** customer-context assembly + personalisation + gateway validation
+(no context gate) + my over-literal reading of the template instruction. Combination.
+
+---
+
+## 8. Why the existing gateway passed
+
+The existing gateways only test mechanical/technical correctness:
+- Voice Review (9-point): tone, no clichés, no exaggeration, coffee test — a generic
+  introduction passes all of these.
+- Technical Verification: em-dash scan, placeholder scan, footer-exactly-once, NF-branding
+  only-in-footer, no value leak, correct greeting/sign-off — a generic mail-merge passes all.
+- canonical_send 10 gates: classification, idempotency, founder-approval artefact, Gmail
+  reply/duplicate, send, Sent-verify, Messages, evidence, state-transition, read-back,
+  reconciliation — none ask "is this contextually appropriate for THIS customer?"
+
+There is no gate that answers: "Given everything we know about this customer, is this the
+correct next action and is every material sentence appropriate?" — the missing
+**Customer Context Gate**.
+
+---
+
+## 9. Evidence skipped (available but not used)
+
+- Full `Extent of Work` scope (specific areas, finishes, options, lead-paint test, peeling
+  ceilings, clear-timber finish) — reduced to interior/exterior.
+- `Outreach Notes` intake history (quote doc date vs send-notification date; the fact these are
+  fresh 2–3-day-old quotes, not aged).
+- The actual PandaDoc quote document itself (token available in notes) — never opened.
+- No decision-stage / project-timing analysis was performed for any customer.
+
+---
+
+## 10. Customer replies since sends
+
+None. Gmail inbox checked for all 6 recipients: no replies, no bounces surfaced.
+
+---
+
+## 11. Immediate containment
+
+- **PASS:** all QPaint customer sends stopped immediately; no Email 2/3, no corrective emails,
+  no further contact, no record changes to conceal anything. Evidence (audit trail, send
+  evidence, approval artefacts) preserved.
+- Monitoring / reply detection may continue (per instruction).
+
+---
+
+## 12. Proposed corrective protocol (for Founder decision — NOT yet implemented)
+
+1. **Customer Context Gate (mandatory, before any send).** For each customer, assemble and
+   document: who / what quoted / when / history / QPaint prior comms / customer prior comms /
+   decision stage / correct next action / why contact today / what this email says to this
+   specific person. If any of these cannot be answered from evidence → HOLD.
+2. **Template = framework, not permission.** If the canonical template does not cleanly fit a
+   customer's circumstances, HOLD or produce a customer-specific draft under the approved
+   protocol. Silence is not permission to send generic copy.
+3. **Personalisation ≠ mail merge.** Only verified, customer-specific facts may personalise an
+   email. No invented personalisation.
+4. **Fresh-intake vs aged-recovery distinction** enforced at template selection time.
+
+---
+
+## 13. Founder decisions required
+
+1. Confirm the immediate stop remains in force until re-authorised.
+2. Whether any corrective/relationship-repair action is warranted for the 6 affected customers
+   (none recommended without your instruction; I will not contact them).
+3. Approval of the Customer Context Gate design before any new automation/architecture.
+4. Whether to re-route the 2 pending Email 2 sends (Beth McIntosh, Julius Gloria) or hold them.
+
+---
+
+## Related
+
+- [[Core Product Learning]] (learnings/2026-08-19-core-product-learning.md) — NFS value = decide the right next action, not email sequences
+- [[Governance + QPaint Integrity Audit]] (learnings/2026-08-19-governance-and-qpaint-integrity-audit.md) — ~147 protocols, CCG enforcement gap
+- [[Customer Context Gate]] (knowledge/customer-context-gate.md) — A–H mandatory pre-send gate (now code-enforced)
+- [[QPaint Brand Canonicalisation]] (knowledge/decisions/2026-08-19-qpaint-brand-canonicalisation.md) — "QPaint" title case
+- [[QPaint Operating Architecture]] (knowledge/qpaint-operating-architecture.md) — authoritative QPaint rules

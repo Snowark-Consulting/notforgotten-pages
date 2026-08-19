@@ -27,7 +27,7 @@ Every QPaint record resolves to exactly one of these, determined by evidence, no
 | SILENT | No reply, sequence running | Continue the appropriate evidence-led sequence |
 | ENGAGED | Replied, actively considering | Respond to the reply; assess the actual blocker |
 | WAITING | Customer (or third party) needs time | Deliberately do nothing until the review date |
-| QPAINT ACTION REQUIRED | QPaint must provide something | Escalate to QPaint; do not re-contact customer |
+| QPaint action required | QPaint must provide something | Escalate to QPaint; do not re-contact customer |
 | ATLAS ACTION REQUIRED | Next step is a follow-up/acknowledgement | Atlas handles within the sequence |
 | FOUNDER/COMMERCIAL JUDGMENT | Commercial judgment call (pricing, scope, negotiation, committee) | Escalate to James/Tas; do not auto-email |
 | LOST | Genuine loss evidence (customer said so) | STOP — graceful close already sent |

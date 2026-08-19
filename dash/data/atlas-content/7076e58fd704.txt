@@ -17,7 +17,7 @@
 |---|---|---|
 | `{customer_first_name}` | Airtable Customer first name (first word only) | Lee |
 | `{client_first_name}` | Airtable Clients → Clients first name | Tas |
-| `{client_business}` | Airtable Clients → Business name | QPAINT |
+| `{client_business}` | Airtable Clients → Business name | QPaint |
 | `{scope_sentence}` | Generated from scope (see below) | "I can see it covers exterior painting for your property" |
 | `{property_context}` | "your property" (exterior/roof) or "your home" (interior) | your home |
 

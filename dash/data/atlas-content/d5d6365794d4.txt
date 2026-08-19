@@ -42,6 +42,17 @@ tier: primary
 
 ## Chronological index (newest first)
 
+### 2026-08-19
+- QPaint customer send incident: 6 generic Email 1s sent without CCG → full stop → controlled restart → `2026-08-19-qpaint-customer-send-incident.md`
+- Core product learning: NFS = decide right next action, not email sequences → `2026-08-19-core-product-learning.md`
+- Governance + QPaint integrity audit: ~147 protocols, CCG enforcement gap → `2026-08-19-governance-and-qpaint-integrity-audit.md`
+- QPaint brand canonicalisation: "QPaint" title case → `knowledge/decisions/2026-08-19-qpaint-brand-canonicalisation.md`
+- Customer Context Gate now code-enforced in canonical-send.py Gate -2 → `knowledge/customer-context-gate.md`
+
+### 2026-08-18
+- Hermes v0.20.4 update + state.db FTS remediation (8.9GB→1.4GB) → `2026-08-18-hermes-update-and-state-db-remediation.md`
+- wakeAgent gate: zero-cost idle cron ticks via pre-check gate scripts → `2026-08-18-wakeagent-gate.md`
+
 ### 2026-08-17
 - `/tmp/at_key.txt` is a live production credential (not disposable) → `cards/airtable.md`
 - Nightly backup `git add -A` committed a 1.17GB state.db → `cards/git.md`

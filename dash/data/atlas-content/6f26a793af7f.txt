@@ -1,0 +1,201 @@
+# Customer Context Gate — Mandatory Protocol
+
+**Status:** Canonical. Effective immediately.
+**Established:** 2026-08-19 (incident: QPaint generic-mail-merge failure).
+**Owner:** Atlas / James Hardstaff.
+**Applies to:** ALL QPaint (and, by extension, any client) customer communication — email, SMS, call, any outbound touch.
+
+---
+
+## 0. The Decision Model (core operating principle)
+
+The correct decision model is **NOT**:
+
+> DUE + ELIGIBLE + TEMPLATE = SEND
+
+The correct model is:
+
+> CUSTOMER TRUTH
+> → CURRENT COMMERCIAL STATE
+> → CORRECT NEXT ACTION
+> → COMMUNICATION OBJECTIVE
+> → APPROPRIATE MESSAGE
+> → COMPLIANCE GATES
+> → SEND
+
+Automation executes the decision. Customer context determines the decision.
+
+---
+
+## 1. Core Product Principle
+
+**Not Forgotten is not an email sequence tool.**
+
+The value is not "send Email 1 after X days, Email 2 after Y days."
+
+The value is: **understand what is happening with every quote and determine the right next action.**
+
+Sometimes that action is follow-up. Sometimes waiting. Sometimes escalating to the client
+(QPaint). Sometimes answering a question. Sometimes founder judgment. Sometimes doing
+nothing at all.
+
+---
+
+## 2. The Gate (A–H)
+
+Before ANY customer communication, Atlas must produce an evidence-based customer brief
+answering every section. A section that cannot be answered from evidence → **HOLD**.
+
+### A. Customer
+Who is the customer? (name, property, any known context)
+
+### B. Quote
+What exactly were they quoted for?
+- Quote number
+- Value
+- Date
+- Property / project
+- Important scope details
+- Options / alternatives
+- Any unusual technical details
+
+### C. History
+What communication has already occurred?
+- What has the client (QPaint) said?
+- What has Not Forgotten said?
+- What has the customer said?
+- Has the customer spoken directly with the client?
+
+### D. Commercial state
+Is this genuinely one of:
+- NEW
+- SILENT
+- ENGAGED
+- WAITING
+- QPaint action
+- ATLAS ACTION
+- FOUNDER JUDGMENT
+- LOST
+- WON
+
+**Never determine this from CRM stage alone. Determine it from evidence.**
+
+### E. Timing
+Why is TODAY the correct time to contact this customer?
+
+"Next Touchpoint Date = today" is **not** sufficient evidence by itself.
+
+### F. Objective
+What is the purpose of contacting them? e.g.:
+- confirm receipt
+- answer a question
+- understand decision
+- acknowledge response
+- respect requested timing
+- reopen a genuinely stalled quote
+- obtain missing information
+
+### G. Next action
+Is customer contact actually the correct next action?
+
+Possible correct next actions include:
+- EMAIL
+- WAIT
+- MONITOR
+- QPaint action
+- FOUNDER ACTION
+- HOLD
+- CLOSE WON
+- CLOSE LOST
+
+**The system must be capable of deciding NOT to communicate.**
+
+### H. Message
+What should we say to THIS customer based on their evidence?
+
+Only after A–G are resolved should a template be selected.
+
+---
+
+## 3. Template Principle
+
+Templates provide: communication objective, tone, structure, brand voice, privacy/footer
+requirements, and boundaries.
+
+They are **NOT** necessarily finished customer copy.
+
+A template may be used **verbatim** ONLY when the Customer Context Gate establishes that the
+generic wording genuinely fits that customer's circumstances.
+
+Otherwise:
+- adapt using verified customer context, OR
+- HOLD if adaptation requires commercial judgment.
+
+**Never invent facts to create personalisation.**
+
+---
+
+## 4. Fresh Quotes vs Recovery Quotes
+
+This distinction is mandatory.
+
+A customer who received a quote 2–3 days ago is **NOT** a "recovery" opportunity. They are in
+the normal quote journey.
+
+An older quote that has genuinely gone quiet may be a recovery opportunity.
+
+Age alone does not determine this either — customer history and commercial state do.
+Understand where the customer actually is in the buying journey.
+
+---
+
+## 5. Customer Experience Test
+
+Final reasoning test BEFORE mechanical send certification:
+
+> "If I were this customer and knew everything I had already discussed with the client, would
+> this email feel like it was written by someone who understood my situation?"
+
+- **NO** → HOLD
+- **UNCERTAIN** → HOLD
+- **YES** → may proceed to the existing technical/compliance gateways.
+
+---
+
+## 6. Decision Appropriateness, Not Personalisation
+
+The 2026-08-19 incident failure was **NOT** that emails were insufficiently personalised.
+
+The failure was that **customer context was not considered before deciding to send.**
+
+We are not trying to make every email highly personalised. We are trying to make every
+decision appropriate.
+
+- A simple, slightly generic email can be excellent customer communication when it
+  accurately fits the customer's journey.
+- A highly personalised email can still be wrong if the timing or next action is wrong.
+
+Do not force technical quote details into emails merely to prove the quote was read.
+The objective is **relevance**, not showing off data. A short, simple, relevant email is
+often the correct email.
+
+**The standard:** "Would this message make sense to this customer at this point in their
+actual journey?"
+
+---
+
+## 7. Commercial Truth & Evidence
+
+- **Primary evidence overrides stale CRM state.** CRM stage is bookkeeping, not truth.
+- **No response alone ≠ Lost.** Silence is not commercial truth.
+- **Won requires primary award evidence; Lost requires primary loss evidence.**
+- **Unknown detail ≠ invented detail.** Never fabricate missing scope/context to look personalised.
+- **Unknown detail ≠ permanent hold.** Missing non-essential detail constrains what we SAY, not whether we communicate. A generic but accurate message (referring only to what is known: the quote, its timing, whether still under consideration) remains appropriate when the context gate supports it. Do not make "scope obtained" a prerequisite for future contact.
+
+---
+
+## 8. Cadence vs Judgment
+
+- **Review date ≠ send trigger.** A scheduled review surfaces the customer for review only.
+- **Cadence surfaces a review, not a send.** The Customer Context Gate decides what happens next.
+- **Follow-up requires a legitimate customer/commercial purpose.** "We are contacting this customer today because ______" must be answerable with a commercial reason — never "Email 2 is due" or "the CRM says so".

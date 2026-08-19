@@ -1,0 +1,68 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# Core Product Learning — Not Forgotten Is Not An Email Sequence Tool
+
+**Date:** 2026-08-19
+**Type:** Major product learning (permanent)
+**Source:** QPaint generic-mail-merge incident (6 real customers received generic Email 1 copy)
+**Owner:** Atlas / James Hardstaff
+
+---
+
+## The Learning
+
+Not Forgotten's value is **not** "send Email 1 after X days, Email 2 after Y days."
+
+The value is: **understand what is happening with every quote and determine the right next action.**
+
+Sometimes that action is follow-up.
+Sometimes it is waiting.
+Sometimes it is escalating to the client (QPaint).
+Sometimes it is answering a question.
+Sometimes it is founder judgment.
+Sometimes it is doing absolutely nothing.
+
+**Automation executes the decision. Customer context determines the decision.**
+
+---
+
+## What Broke
+
+Atlas collapsed the decision model into:
+
+> DUE + ELIGIBLE + TEMPLATE = SEND
+
+This treated canonical templates as finished copy and reduced customer understanding to a
+mail-merge of [First Name] + [interior/exterior]. Six fresh-intake customers (quotes received
+2–3 days prior) received a generic "recovery-introduction" that did not reflect their actual
+project, timing, or decision stage.
+
+## The Correct Model
+
+> CUSTOMER TRUTH → CURRENT COMMERCIAL STATE → CORRECT NEXT ACTION →
+> COMMUNICATION OBJECTIVE → APPROPRIATE MESSAGE → COMPLIANCE GATES → SEND
+
+Codified as `knowledge/customer-context-gate.md`.
+
+---
+
+## Permanent Rules Introduced
+
+1. **Customer Context Gate (A–H)** — mandatory evidence-based brief before any outbound touch.
+2. **Template = framework, not finished copy.** Verbatim only when the generic wording genuinely fits.
+3. **Fresh vs recovery distinction** is mandatory.
+4. **Customer Experience Test** — "would this feel like someone understood my situation?" NO/UNCERTAIN → HOLD.
+5. **No over-personalisation** — relevance, not data-showing-off.
+6. **The system must be able to decide NOT to communicate.**
+
+---
+
+## Related
+
+- [[QPaint Customer Send Incident]] (learnings/2026-08-19-qpaint-customer-send-incident.md) — the 6-customer generic mail-merge that triggered this learning
+- [[Customer Context Gate]] (knowledge/customer-context-gate.md) — the A–H gate codified from this incident
+- [[Governance + QPaint Integrity Audit]] (learnings/2026-08-19-governance-and-qpaint-integrity-audit.md) — protocol inventory + enforcement gap analysis

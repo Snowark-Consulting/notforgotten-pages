@@ -1,0 +1,69 @@
+---
+doc_type: technique
+owner: notforgotten
+tier: primary
+---
+
+# wakeAgent Gate — Zero-Cost Idle Cron Ticks
+
+**Status:** IMPLEMENTED for `inbox-pulse-phase2` and `quotes-pulse-phase2` on 2026-08-19 (after Winston verified the pattern on his Gmail cron). `inbox-watchdog-phase1` and `quotes-watchdog-phase1` both paused (redundant — the gate scripts now do the Gmail check). Still pending: `follow-up-autopilot` (already paused).
+
+## Problem
+
+High-frequency LLM cron jobs (e.g. `inbox-pulse-phase2`, `quotes-pulse-phase2` at `*/3 * * * *`) wake the model every tick regardless of whether there's new work. Most ticks see an empty inbox, so inference is wasted on polling.
+
+## The mechanism (native in Hermes v0.20.4)
+
+An LLM cron job can carry a **pre-check `script`** (the `script` field). Each tick the scheduler runs that script FIRST, before building the prompt, and parses the **last non-empty stdout line** as JSON:
+
+- `{"wakeAgent": false}` → agent run skipped entirely: no LLM, no delivery, $0.
+- `{"wakeAgent": true, "context": {...}}` → agent wakes; script stdout is injected as context.
+- Anything else (non-JSON, missing flag, `wakeAgent: true`) → wake normally.
+
+Implementation: `cron/scheduler.py` → `_parse_wake_gate()` (~line 3742) and the wake-gate block at ~line 4874.
+
+```python
+def _parse_wake_gate(script_output):
+    # last non-empty line -> json; returns gate.get("wakeAgent", True) is not False
+```
+
+## Difference from monitor_script (hash) mode
+
+Two distinct suppression mechanisms, both in this build:
+
+| | wakeAgent gate (`script`) | monitor mode (`monitor_script`/`monitor_url`) |
+|---|---|---|
+| Decides | Script explicitly emits `wakeAgent` | Scheduler hashes output; unchanged → suppress |
+| Fragility | None — script declares intent | Requires byte-stable output (no timestamps) |
+| Context | Script controls `context` payload | Scheduler injects diff + full output |
+| Best for | "Is there work?" questions the script answers definitively | "Alert me when this URL/command output changes" |
+
+The wakeAgent gate is the better fit for email/quote intake, where the script knows definitively whether new mail exists.
+
+## Plan (when approved)
+
+1. Modify `inbox-watchdog.sh` + `quotes-watchdog.py` to emit `{"wakeAgent": false}` when empty, or `{"wakeAgent": true, "context": {...}}` when there is new mail/quote.
+2. Attach them as the pre-check `script` on:
+   - `inbox-pulse-phase2` (`2d4a9ff4f06b`)
+   - `quotes-pulse-phase2` (`203f3a6cfd56`)
+   - `follow-up-autopilot` (`51474e46f382`, currently paused)
+3. Tighten phase-2 cadence to `*/1 * * * *` (empty ticks are now free).
+4. Verify: empty tick → "agent skipped"; test event → caught on next tick. Do one job at a time.
+
+## Implementation record (2026-08-19 — inbox)
+
+- Created `scripts/inbox-watchdog-gate.sh`: same Gmail unread check as `inbox-watchdog.sh`, but emits a single gate JSON line (`{"wakeAgent": false}` empty / `{"wakeAgent": true, "context": {"ids": [...]}}` mail) and exits 1 on any error (fails open).
+- Updated `inbox-pulse-phase2`: `script=inbox-watchdog-gate.sh`, cleared `context_from`, prompt rewritten to read `## Script Output` / `## Script Error` instead of the old `context_from` Status field. Cadence kept at `*/3` (NOT tightened to `*/1` — see Winston flag 2 below).
+- Paused `inbox-watchdog-phase1` (`d0cdcda5b237`) — its Gmail check is now done by phase-2's gate script, so it was burning ~1,440 redundant API calls/day.
+- Verified: empty tick → `agent.log` line `wakeAgent=false, skipping agent run`; phase-2 output shrinks from a ~78 KB agent session to a 150-byte skip note.
+
+### Winston's three flags (applied)
+
+1. **1-min tightening is not free** — the pre-check script is still a Gmail API call per tick. Kept `*/3` so the gate adds ~480 calls/day (not 1,440), and pausing phase-1 removes ~1,440/day, so net Gmail load DROPPED vs before.
+2. **Mark-as-read race window** — at `*/1` a slow (>60s) tick re-detects unread mail. Kept `*/3` (boot ~30-45s + mark-read fits inside 3 min) and enforced mark-read-BEFORE-summarise in the prompt. Do NOT tighten to `*/1` without first moving mark-read into the gate script (which trades double-process risk for mail-loss risk — not worth it).
+3. **"Native to v0.20.4" verified** against the actual install: `/usr/local/lib/hermes-agent/cron/scheduler.py` `_parse_wake_gate()` (line 3742) + short-circuit (line 4885) confirmed present.
+
+## Related
+
+- `learnings/cards/cron.md` — trap "Agent cron jobs persist a ~107KB session per run" fix #2 references this gate.
+- Winston (Snowark) already verified the pattern on its Gmail check cron: schedule tightened 5m → 1m, empty ticks free.

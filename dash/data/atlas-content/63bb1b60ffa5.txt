@@ -34,6 +34,10 @@ tier: primary
 - **Source-bound facts** — FACT/INFERENCE/RECOMMENDATION separated. Never fabricate. `[high]`
 - **Outreach Notes** — append-only. `[high]`
 - **Initial Customer Email Law** — no draft from memory; 13-gate + canonical template + checksum. Decision `2026-08-12-initial-customer-email-law`. `[high]`
+- **Customer Context Gate (mandatory pre-send)** — decision model CUSTOMER TRUTH→STATE→NEXT ACTION→OBJECTIVE→MESSAGE→COMPLIANCE→SEND. Review date = REVIEW not SEND. **CODE-ENFORCED** in `canonical-send.py` Gate -2 (`_validate_context_gate`: A–H fields, customer_experience_test=PASS, next_action=EMAIL, evidence_refs). INC-2026-08-19: 6 generic Email 1s sent without it. `knowledge/customer-context-gate.md`. `[high]`
+- **QPaint send freeze** — LIFTED 2026-08-19 11:59 (controlled restart: Julius Gloria + Beth McIntosh only; no mass restart). `data/qpaint-freeze.json` = authoritative; canonical-send fails closed. Incident: 6 generic Email 1s 10:15–10:23. `[high]`
+- **QPaint brand** — canonical spelling "QPaint" (title case); "QPAINT" only in "1300 QPAINT". Decision `2026-08-19-qpaint-brand-canonicalisation`. `[high]`
+- **wakeAgent gate** — pulses (inbox/quotes phase2) use gate scripts emitting `{"wakeAgent": false}` on empty ticks → $0 idle. Phase1 watchdogs PAUSED (redundant). Pulses pinned deepseek-v4-pro. `learnings/2026-08-18-wakeagent-gate.md`. `[high]`
 - **Closed baselines (7)** — signature, send boundary, 48h rule, source-bound facts, append-only notes, sender identity, fail-closed gates. Report + wait, never change autonomously. `[high]`
 
 ## QPaint

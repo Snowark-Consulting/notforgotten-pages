@@ -1,0 +1,62 @@
+---
+doc_type: decision
+owner: notforgotten
+tier: primary
+---
+
+# Decision: QPaint Brand Spelling Canonicalisation
+
+**Slug:** `2026-08-19-qpaint-brand-canonicalisation`
+**Date:** 2026-08-19
+**Status:** Made
+**Decision by:** James Hardstaff
+
+---
+
+## Decision
+
+**"QPaint"** (title case) is the canonical customer-facing brand spelling.
+
+Use **QPaint**. Do not use **QPAINT** (all caps), except where it is legitimately part of
+an existing proper reference — specifically the vanity phone number **"1300 QPAINT (772 468)"**.
+
+---
+
+## Primary evidence
+
+| Source | Finding |
+|---|---|
+| qpaint.com.au (QPaint's own site, body text) | "QPaint" (title case) — 52× |
+| qpaint.com.au (title/meta tag) | "Qpaint" (lowercase p) — 18× (the wordmark style) |
+| qpaint.com.au | "QPAINT" (all caps) — **0 occurrences** |
+| QPaint PandaDoc notification emails (own signature) | "QPaint Team"; "1300 QPAINT (772 468)" (phone vanity only) |
+| Airtable Clients table | "QPAINT" (all caps) — an admin data entry, not QPaint branding |
+
+---
+
+## What was updated (future customer-facing output)
+
+- `knowledge/canonical-templates/qpaint/recovery-introduction-v1.md` — `{client_business}` example "QPAINT" → "QPaint"
+- `knowledge/qpaint-white-label-send-protocol.md` — approved privacy footer "QPAINT" → "QPaint"
+- `knowledge/decisions/2026-08-12-qpaint-privacy-governance.md` — approved footer "QPAINT" → "QPaint"
+- `knowledge/customer-context-gate.md` — state label "QPAINT ACTION" → "QPaint action"
+- Airtable Clients → Business name: "QPAINT" → "QPaint" (source of the `{client_business}` variable)
+
+**Not changed:** historical sent emails (immutable), and unrelated internal docs/records that
+are not customer-facing (e.g. "NF-QPAINT-42640" journey IDs, old dashboard specs).
+
+---
+
+## Permanent rule
+
+> Customer-facing brand spelling is **"QPaint"**. The only legitimate use of "QPAINT"
+> (all caps) is the vanity phone number "1300 QPAINT".
+
+---
+
+## Related
+
+- [[Customer Context Gate]] (knowledge/customer-context-gate.md) — the A–H pre-send gate that must pass before any QPaint customer communication
+- [[QPaint Customer Send Incident]] (learnings/2026-08-19-qpaint-customer-send-incident.md) — same-day incident that drove the brand + governance review
+- [[Core Product Learning]] (learnings/2026-08-19-core-product-learning.md) — template = framework, not permission
+- [[QPaint White-Label Send Protocol]] (knowledge/qpaint-white-label-send-protocol.md) — approved footer now uses "QPaint"

@@ -205,6 +205,13 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 - [[Campaign Idempotency Standard]] (knowledge/campaign-idempotency-standard.md) — CAMPAIGN_ID + RECIPIENT = one send only. Mailbox identity enforced via code. From INC-2026-08-10-DUPLICATE-SEND.
 - [[Production Artifact Lock Standard]] (knowledge/production-artifact-lock-standard.md) — SHA-256 manifest, immutable after Founder Approval, 7 allowed variable fields. Any divergence = FAIL CLOSED = NO SEND.
 - [[Unknown Execution State Standard]] (knowledge/unknown-execution-state-standard.md) — Message delivery failure ≠ task failure. Verify before retry. Never assume timeout = not delivered.
+- [[Customer Context Gate]] (knowledge/customer-context-gate.md) — MANDATORY pre-send decision model: CUSTOMER TRUTH→STATE→NEXT ACTION→OBJECTIVE→MESSAGE→COMPLIANCE→SEND. Code-enforced in canonical-send.py Gate -2. INC-2026-08-19: 6 generic QPaint Email 1s sent without it.
+- [[QPaint Customer Send Incident]] (learnings/2026-08-19-qpaint-customer-send-incident.md) — 6 generic QPaint Email 1s to real customers 19 Aug. Full stop → controlled restart. CCG gap root cause.
+- [[Core Product Learning]] (learnings/2026-08-19-core-product-learning.md) — NFS value = decide right next action per quote, not email sequences. Template = framework, not permission.
+- [[Governance + QPaint Integrity Audit]] (learnings/2026-08-19-governance-and-qpaint-integrity-audit.md) — ~147 protocols, 10 domains, CCG enforcement gap, restoration plan. QPaint outbound readiness FAIL.
+- [[QPaint Brand Canonicalisation]] (knowledge/decisions/2026-08-19-qpaint-brand-canonicalisation.md) — "QPaint" title case canonical; "QPAINT" only in "1300 QPAINT".
+- [[wakeAgent Gate]] (learnings/2026-08-18-wakeagent-gate.md) — zero-cost idle cron ticks via pre-check gate scripts. Pulses pinned deepseek-v4-pro; phase1 watchdogs paused.
+- [[Hermes Update + state.db Remediation]] (learnings/2026-08-18-hermes-update-and-state-db-remediation.md) — v0.17→v0.20.4 upgrade + FTS rebuild (state.db 8.9GB→1.4GB, disk 40%).
 - [[QPaint Operating Architecture]] (knowledge/qpaint-operating-architecture.md) — Authoritative QPaint rules: 48-hour no-contact, closed-loop intake, Daily Attention P1-P4, communication philosophy, internal escalation.
 - [[Operating Lessons — Aug 2026]] (learnings/2026-08-10-operating-lessons.md) — 13 permanent standards (A1-A13) + 8 incidents (LL-001 through LL-008). Permanent training asset.
 - [[Incident: Duplicate Send]] (knowledge/incidents/INC-2026-08-10-DUPLICATE-SEND.md) — P1 campaign duplicate incident. 176 sends, 6 recipients affected. CLOSED-REMEDIATED with 11 controls.

@@ -1,0 +1,119 @@
+# Hermes Update v0.17.0 → v0.20.4 + state.db Remediation
+
+**Date:** 2026-08-18 (completed ~22:00 ACST)
+**Operator:** Atlas (with Josh Hancock)
+**Scope:** Full Hermes upgrade + the state.db disk crisis that preceded it + ongoing cron-bloat curb.
+
+---
+
+## Summary
+
+Hermes was on v0.17.0 (2026-06-19), 270 commits behind. A pre-update review surfaced a disk crisis: `state.db` had grown to 9.5 GB and the machine was at 99% disk. The session became two interleaved workstreams:
+
+1. **Unblock the disk** — back up state.db, prune the cron-session bloat, rebuild it smaller.
+2. **Upgrade** — v0.17.0 → v0.20.4, migrate config, apply session auto-reset, restart gateway.
+
+Both are complete and verified. A third workstream — **curbing the *ongoing* cron-session growth** — was started and is partially complete (see "Cron bloat curb" and "Pending").
+
+---
+
+## 1. state.db remediation
+
+**Problem:** `state.db` = 9.5 GB, disk 99% full (1.1 GB free). Root cause: ~14,700 cron sessions, each a two-message record carrying a duplicated ~77–107 KB boot-context dump. Full storage-inefficiency analysis in `learnings/2026-08-15-hermes-storage-efficiency.md`.
+
+**Backup first (fail-closed):**
+- Backed up the **source tables** (`schema_version`, `state_meta`, `sessions`, `messages`) to gzipped JSONL — deliberately **not** the FTS index tables (rebuildable, 7.2 GB of churn).
+- Result: `state-source-backup.jsonl.gz`, **869,544,654 bytes** (829 MB), 64,288 rows.
+- Uploaded as a **GitHub release asset** (not a git commit — 100 MB file cap; not LFS — cost) on the private repo `Snowark-Consulting/client-notforgotten`, release id **372265111**.
+- Verified byte-for-byte: local and GitHub both `sha256:7bf6a763144b3656313d71ee70374dd9d0fe4ab014319dceb4daf896705abfbf`.
+
+**Prune + rebuild:**
+- Pruned **cron sessions older than 3 days** (per Josh) — removed ~9,000, kept ~5,500.
+- Rebuilt `state.db` into a **fresh file** (not in-place VACUUM/DROP) because in-place WAL writes repeatedly exhausted the tiny free disk.
+- Result: `state.db` **9.5 GB → 3.7 GB**, disk **99% → ~50%**, FTS rebuilt and verified (`session_search` unicode61 + trigram both returning results).
+- Real conversations preserved: telegram 73, subagent 35, cli 1.
+
+**Final VACUUM (2026-08-18 ~22:45 ACST):** `hermes sessions optimize` (FTS merge + VACUUM + `wal_checkpoint(TRUNCATE)`) run against a **stopped** gateway — the TRUNCATE checkpoint is refused while a live gateway holds a read-mark, so running it live would have left a ~3 GB `state.db-wal` and *increased* disk. Result: `state.db` **3.89 GB → 0.93 GB** (reclaimed 2.8 GB), disk **→ 36%**, WAL folded cleanly. **Full session arc: state.db 9.5 GB → 0.93 GB; disk 99% → 36%.** Script: `/root/.hermes/scripts/state-db-vacuum.py` (double-fork daemon: stop gateway → optimize → restart).
+
+**Recreate script:** `/root/.hermes/scripts/state-db-recreate.py` (double-fork daemon; rebuilds into a fresh file on `/tmp`).
+
+---
+
+## 2. Hermes update v0.17.0 → v0.20.4
+
+- **Releases crossed:** v0.18 *Judgment*, v0.19 *Quicksilver*, v0.20 *Herald*.
+- **Config schema changed** in v0.19; `hermes config migrate` ran 30 → **37**.
+- **DeepSeek provider** (`deepseek-v4-pro`) survived intact — no change needed.
+- **Gateway restarted** to load the new code (new PID). Cron jobs (12) intact and running.
+- **Pre-update snapshot cleanup:** `hermes update` auto-created a 3.7 GB `state-snapshots/20260818-114944-pre-update/` (full state.db + config/.env/auth). Verified redundant (its data is fully contained in the live DB + the GitHub source backup), deleted with Josh's approval.
+
+---
+
+## 3. Config changes applied
+
+| Key | Before | After |
+|---|---|---|
+| `sessions.mode` | (unset → sessions never die) | `auto` |
+| `sessions.idle_minutes` | (unset) | `2880` (2 days) |
+| `sessions.min_interval_hours` | (unset) | `168` (7 days) |
+| `sessions.auto_prune` | `false` | `true` |
+| `sessions.retention_days` | `90` | `90` |
+| `updates.pre_update_backup` | (enabled) | `false` |
+
+**Session auto-reset** (`mode: auto`, 2880 idle, 168 min-interval) was Josh's gotcha #1 — without it, sessions never die.
+
+**auto_prune** (`true`, 90 days) auto-deletes *ended* sessions inactive >90 days at startup, then VACUUMs. Ages on **last activity**, never touches live sessions, and does **not** distinguish source (cron vs telegram) — so 90 days was chosen over a shorter window to protect real conversation history.
+
+---
+
+## 4. Cron bloat curb (partial)
+
+**Verified growth rate: ~600 MB/day** in state.db (with FTS amplification). Root cause is **not** the FTS indexes — it is three high-frequency **agent** jobs that each spawn a full Atlas agent and persist its ~107 KB boot context as a session:
+
+| Job | Schedule | Runs/day |
+|---|---|---|
+| `inbox-pulse-phase2` | every 3 min | ~480 |
+| `quotes-pulse-phase2` | every 3 min | ~480 |
+| `follow-up-autopilot` | every 5 min | ~288 |
+
+**Done — cap the backlog:** new `no-agent` cron job **`Cron session prune`** (`d363d9b767ba`), script `scripts/cron-prune.sh`, runs **02:00 Adelaide daily**, `deliver: local` (silent). Runs `hermes sessions prune --source cron --older-than 1 --yes` — deletes cron sessions older than 1 day, never touches real conversations. Debugging trail preserved in `cron/output/*.md` (90-day retention).
+
+**Pending — slow the growth** (needs Josh/James sign-off, touches live ops): reduce or conditionalise the three high-frequency agent jobs above.
+
+---
+
+## 5. Gotchas & lessons
+
+**Turn lease (v0.20.4) — the new one.** Hermes now uses a cross-process **session turn lease** (`session_turn_leases` table) to protect transcripts from concurrent writes. Running a *heavy* state.db write **inline** in an active session (e.g. the 4,589-session prune) holds the DB write lock long enough that the session's lease refresh times out → `"Session turn lease could not be refreshed; stopping to protect the transcript."` **Fix: run heavy state.db writes as detached/background processes (or `no-agent` cron), never inline.**
+
+**`idle_minutes: 0` is invalid** for session auto-reset — it silently falls back to 1440 and logs a warning.
+
+**Config keys live under `sessions:`** — an old `session_reset:` block does nothing.
+
+**GitHub backup is source tables, not a full DB dump.** The backup captured 4 tables; the operational tables added by the v0.19 migration (`gateway_routing`, `system_prompts`, `session_model_usage`, etc.) are only in the live DB. This is acceptable (they're small/reconstructable) but was a near-miss in how it was described.
+
+---
+
+## 6. Key decisions
+
+1. **Backup-first before any destructive state.db op** (founder fail-closed principle upheld).
+2. **Backup source tables only** (skip rebuildable FTS) to stay under GitHub limits.
+3. **GitHub release asset** (not commit/LFS) for the 829 MB backup.
+4. **Fresh-file rebuild** instead of in-place VACUUM (WAL churn kept filling the disk).
+5. **Prune cron >3 days** for the one-time backlog; **cron >1 day** for the ongoing daily prune.
+6. **auto_prune retention = 90 days** (not shorter) to protect real conversation history.
+
+## 7. Pending / deferred
+
+- **Cron growth rate** (item 4 above): decide whether to reduce `inbox-pulse-phase2` / `quotes-pulse-phase2` / `follow-up-autopilot` frequency, or gate phase-2 on phase-1 activity.
+- **npm vulnerabilities** in web/ui-tui workspaces (5 total) — cosmetic on a headless VPS.
+- **Storage-efficiency engineering** (the 4 root-cause inefficiencies) still open — requires Hermes code/schema changes + Founder/Winston approval. See `learnings/2026-08-15-hermes-storage-efficiency.md`.
+- **Install-dir deletions for transparency:** `apps/`, `website/`, `tests/`, `optional-skills/`, `node_modules` were removed from `/usr/local/lib/hermes-agent` to free headless-VPS space (verified not needed by core Python imports). Reinstall if the web UI is ever wanted on this box.
+
+## References
+
+- `learnings/2026-08-15-hermes-storage-efficiency.md` — root-cause storage analysis
+- `/root/.hermes/scripts/state-db-recreate.py` — the rebuild tool
+- `/root/.hermes/scripts/state-db-source-backup.py` — the backup tool
+- `/root/.hermes/scripts/cron-prune.sh` — the daily cron-session prune
+- GitHub release id 372265111, repo `Snowark-Consulting/client-notforgotten`
