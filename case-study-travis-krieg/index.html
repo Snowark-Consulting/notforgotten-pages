@@ -3,527 +3,233 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Travis Krieg Painting — Case Study | Not Forgotten Systems</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+<title>How One Adelaide Painter Recovered $180,115 from Quotes He'd Already Sent</title>
+<meta name="description" content="14 jobs, $180,115 in real recovered revenue. How a five-person Adelaide painting business turned quiet quotes into won work by following up consistently.">
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 <style>
   :root {
     --nfs-navy: #0b2c4d;
     --nfs-gold: #e0a62a;
     --nfs-white: #FFFFFF;
-    --nfs-text: rgba(255,255,255,0.85);
-    --nfs-heading: #FFFFFF;
-    --nfs-link: #e0a62a;
-    --nfs-card-bg: rgba(255,255,255,0.03);
-    --nfs-card-border: rgba(255,255,255,0.06);
-    --nfs-divider: rgba(255,255,255,0.06);
-    --nfs-muted: rgba(255,255,255,0.25);
-    --nfs-cta-bg: #e0a62a;
-    --nfs-cta-text: #0b2c4d;
-    --nfs-cta-bg-hover: #f0b840;
-    --nfs-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-
-    --text-sm: 14px;
-    --text-base: 16px;
-    --text-lg: 20px;
-    --text-xl: 24px;
-    --text-2xl: 32px;
-    --text-3xl: 40px;
-    --text-4xl: 48px;
+    --nfs-light: #f7fbff;
+    --nfs-near-black: #0a0a0a;
+    --nfs-muted: #666666;
+    --nfs-royal: #1f5891;
     --text-5xl: 64px;
-
-    --space-sm: 8px;
-    --space-md: 16px;
-    --space-lg: 24px;
-    --space-xl: 32px;
-    --space-2xl: 48px;
-    --space-3xl: 64px;
-    --space-4xl: 96px;
-    --space-5xl: 128px;
-    --radius-lg: 8px;
-    --radius-xl: 12px;
+    --text-3xl: 40px;
+    --text-xl: 24px;
+    --text-base: 16px;
+    --text-xs: 12px;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: var(--nfs-font);
-    background: var(--nfs-navy);
-    color: var(--nfs-text);
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0 var(--space-xl);
-  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--font); color: var(--nfs-near-black); background: var(--nfs-white); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 32px; }
+  section { padding: 64px 0; }
+  h1, h2, h3 { color: var(--nfs-navy); line-height: 1.1; letter-spacing: -0.02em; }
 
   /* Hero */
-  .hero {
-    padding: var(--space-5xl) 0 var(--space-4xl);
-    text-align: center;
-  }
-  .hero-label {
-    font-size: var(--text-sm);
-    color: var(--nfs-gold);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-weight: 500;
-    margin-bottom: var(--space-lg);
-  }
-  .hero h1 {
-    font-size: clamp(2.5rem, 5vw, var(--text-5xl));
-    font-weight: 400;
-    color: var(--nfs-heading);
-    letter-spacing: -0.04em;
-    line-height: 1.1;
-    max-width: 850px;
-    margin: 0 auto var(--space-xl);
-  }
-  .hero h1 span {
-    color: var(--nfs-gold);
-  }
-  .hero-sub {
-    font-size: var(--text-lg);
-    color: var(--nfs-muted);
-    max-width: 620px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
+  .hero { background: var(--nfs-navy); color: var(--nfs-white); padding: 96px 0 80px; }
+  .hero .kicker { color: var(--nfs-gold); font-weight: 600; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 24px; }
+  .hero h1 { color: var(--nfs-white); font-size: var(--text-5xl); font-weight: 600; max-width: 15ch; }
+  .hero .sub { color: rgba(255,255,255,0.85); font-size: var(--text-xl); margin-top: 24px; max-width: 30ch; font-weight: 400; }
 
-  /* Big number banner */
-  .big-number {
-    text-align: center;
-    padding: var(--space-3xl) 0;
-    border-top: 1px solid var(--nfs-divider);
-    border-bottom: 1px solid var(--nfs-divider);
-  }
-  .big-number-value {
-    font-size: clamp(4rem, 10vw, 96px);
-    font-weight: 400;
-    color: var(--nfs-gold);
-    letter-spacing: -0.03em;
-    line-height: 1;
-  }
-  .big-number-label {
-    font-size: var(--text-lg);
-    color: var(--nfs-muted);
-    margin-top: var(--space-sm);
-  }
-  .big-number-row {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-5xl);
-    margin-top: var(--space-2xl);
-    flex-wrap: wrap;
-  }
-  .stat-item { text-align: center; }
-  .stat-value {
-    font-size: var(--text-3xl);
-    font-weight: 400;
-    color: var(--nfs-heading);
-    letter-spacing: -0.03em;
-  }
-  .stat-label {
-    font-size: var(--text-sm);
-    color: var(--nfs-muted);
-    margin-top: var(--space-sm);
-  }
+  /* Narrative sections (white) */
+  .narrative h2 { font-size: var(--text-3xl); font-weight: 600; margin-bottom: 24px; }
+  .narrative p { font-size: var(--text-base); color: var(--nfs-near-black); margin-bottom: 20px; max-width: 62ch; }
+  .narrative p.lead { font-size: var(--text-xl); color: var(--nfs-navy); font-weight: 500; }
 
-  /* Section */
-  .section {
-    padding: var(--space-4xl) 0;
-  }
-  .section h2 {
-    font-size: var(--text-3xl);
-    font-weight: 400;
-    color: var(--nfs-heading);
-    letter-spacing: -0.03em;
-    margin-bottom: var(--space-lg);
-  }
-  .section h3 {
-    font-size: var(--text-xl);
-    font-weight: 400;
-    color: var(--nfs-heading);
-    margin-bottom: var(--space-md);
-  }
-  .section p {
-    font-size: var(--text-base);
-    line-height: 1.7;
-    margin-bottom: var(--space-md);
-    max-width: 680px;
-  }
-  .section p.lead {
-    font-size: var(--text-lg);
-    line-height: 1.6;
-  }
+  /* Big numbers */
+  .stats { background: var(--nfs-navy); color: var(--nfs-white); }
+  .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .stat .num { font-size: var(--text-5xl); font-weight: 700; color: var(--nfs-gold); letter-spacing: -0.03em; }
+  .stat .label { color: rgba(255,255,255,0.85); font-size: var(--text-base); margin-top: 8px; }
 
-  /* Highlight box */
-  .highlight {
-    background: var(--nfs-card-bg);
-    border: 1px solid var(--nfs-card-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-xl);
-    margin: var(--space-xl) 0;
-  }
-  .highlight p { margin-bottom: var(--space-sm); }
-  .highlight p:last-child { margin-bottom: 0; }
+  /* Results table */
+  .results { background: var(--nfs-light); }
+  .results h2 { font-size: var(--text-3xl); font-weight: 600; margin-bottom: 24px; }
+  .results .lead { color: var(--nfs-near-black); font-size: var(--text-base); margin-bottom: 32px; max-width: 62ch; }
+  table { width: 100%; border-collapse: collapse; background: var(--nfs-white); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 8px 40px rgba(0,0,0,0.06); }
+  thead th { background: var(--nfs-navy); color: var(--nfs-white); text-align: left; padding: 16px 24px; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+  tbody td { padding: 14px 24px; font-size: var(--text-base); border-top: 1px solid rgba(0,0,0,0.06); color: var(--nfs-near-black); }
+  tbody tr:nth-child(even) { background: var(--nfs-light); }
+  td.value { text-align: right; font-weight: 600; color: var(--nfs-navy); }
+  tfoot td { padding: 16px 24px; font-weight: 700; font-size: var(--text-base); background: var(--nfs-navy); color: var(--nfs-white); }
+  tfoot td.value { color: var(--nfs-gold); }
 
-  /* Table */
-  .table-wrap {
-    overflow-x: auto;
-    margin: var(--space-xl) 0;
-    border: 1px solid var(--nfs-card-border);
-    border-radius: var(--radius-lg);
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: var(--text-sm);
-  }
-  th {
-    text-align: left;
-    padding: var(--space-md) var(--space-md);
-    color: var(--nfs-muted);
-    font-weight: 500;
-    border-bottom: 1px solid var(--nfs-divider);
-    white-space: nowrap;
-  }
-  td {
-    padding: var(--space-sm) var(--space-md);
-    border-bottom: 1px solid var(--nfs-divider);
-    white-space: nowrap;
-  }
-  td:first-child, th:first-child { padding-left: var(--space-xl); }
-  td:last-child, th:last-child { padding-right: var(--space-xl); }
-  tr:last-child td { border-bottom: none; }
-  .num {
-    text-align: right;
-    font-variant-numeric: tabular-nums;
-  }
-  .gold { color: var(--nfs-gold); }
-  .total-row td {
-    border-top: 1px solid var(--nfs-gold);
-    font-weight: 500;
-  }
+  /* Credibility */
+  .credibility { background: var(--nfs-white); }
+  .credibility h2 { font-size: var(--text-3xl); font-weight: 600; margin-bottom: 24px; }
+  .credibility ul { list-style: none; padding: 0; }
+  .credibility li { padding: 12px 0 12px 32px; position: relative; font-size: var(--text-base); color: var(--nfs-near-black); border-bottom: 1px solid rgba(0,0,0,0.06); }
+  .credibility li::before { content: ""; position: absolute; left: 0; top: 18px; width: 12px; height: 12px; border-radius: 50%; background: var(--nfs-gold); }
+  .credibility .note { font-size: var(--text-xs); color: var(--nfs-muted); margin-top: 24px; }
 
-  /* Credibility box */
-  .credibility {
-    background: var(--nfs-card-bg);
-    border: 1px solid var(--nfs-card-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-xl);
-    margin: var(--space-xl) 0;
-  }
-  .credibility h3 {
-    color: var(--nfs-gold);
-    margin-bottom: var(--space-md);
-  }
-  .credibility p {
-    font-size: var(--text-sm);
-    color: var(--nfs-muted);
-    line-height: 1.6;
-    margin-bottom: var(--space-sm);
-  }
-  .credibility p:last-child { margin-bottom: 0; }
-
-  /* Testimonial */
-  .testimonial {
-    background: var(--nfs-card-bg);
-    border: 1px solid var(--nfs-card-border);
-    border-left: 2px solid var(--nfs-gold);
-    border-radius: var(--radius-lg);
-    padding: var(--space-2xl);
-    margin: var(--space-xl) 0;
-  }
-  .testimonial blockquote {
-    font-size: var(--text-lg);
-    line-height: 1.7;
-    color: var(--nfs-text);
-    margin-bottom: var(--space-lg);
-    quotes: none;
-  }
-  .testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: var(--space-md);
-  }
-  .testimonial-avatar {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: rgba(224,166,42,0.12);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--text-xl);
-    color: var(--nfs-gold);
-    font-weight: 500;
-    flex-shrink: 0;
-  }
-  .testimonial-avatar img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  .testimonial-name {
-    font-weight: 500;
-    color: var(--nfs-heading);
-  }
-  .testimonial-business {
-    font-size: var(--text-sm);
-    color: var(--nfs-muted);
-  }
+  /* Testimonial + social proof */
+  .proof h2 { font-size: var(--text-3xl); font-weight: 600; margin-bottom: 32px; }
+  .proof-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+  .testimonial-card { background: var(--nfs-navy); border-radius: 12px; padding: 32px; color: var(--nfs-white); border-left: 4px solid var(--nfs-gold); }
+  .testimonial-card blockquote { font-size: var(--text-base); font-weight: 500; line-height: 1.6; color: rgba(255,255,255,0.9); margin-bottom: 16px; font-style: italic; }
+  .testimonial-card .attr { font-size: var(--text-xs); color: rgba(255,255,255,0.6); }
+  .highlight-card { background: var(--nfs-white); border-radius: 12px; padding: 32px; border-left: 4px solid var(--nfs-gold); box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 8px 40px rgba(0,0,0,0.06); }
+  .highlight-card .big { font-size: var(--text-3xl); font-weight: 700; color: var(--nfs-navy); letter-spacing: -0.02em; }
+  .highlight-card p { font-size: var(--text-base); color: var(--nfs-near-black); margin-top: 8px; }
+  .placeholder { color: var(--nfs-muted); font-style: italic; }
 
   /* Diagnostic */
-  .diagnostic {
-    padding: var(--space-4xl) 0;
-  }
-  .diagnostic-list {
-    list-style: none;
-    padding: 0;
-    margin: var(--space-xl) 0 0;
-    max-width: 600px;
-  }
-  .diagnostic-list li {
-    font-size: var(--text-lg);
-    color: var(--nfs-text);
-    padding: var(--space-md) 0;
-    border-bottom: 1px solid var(--nfs-divider);
-  }
-  .diagnostic-list li::before {
-    content: "";
-  }
+  .diagnostic { background: var(--nfs-navy); color: var(--nfs-white); }
+  .diagnostic h2 { color: var(--nfs-white); font-size: var(--text-3xl); font-weight: 600; margin-bottom: 32px; }
+  .diagnostic ul { list-style: none; padding: 0; }
+  .diagnostic li { padding: 16px 0; font-size: var(--text-xl); color: rgba(255,255,255,0.9); border-bottom: 1px solid rgba(255,255,255,0.08); }
 
   /* CTA */
-  .cta-section {
-    padding: var(--space-4xl) 0 var(--space-5xl);
-    text-align: center;
-  }
-  .cta-section h2 {
-    font-size: var(--text-2xl);
-    font-weight: 400;
-    letter-spacing: -0.03em;
-    margin-bottom: var(--space-md);
-    color: var(--nfs-heading);
-  }
-  .cta-btn {
-    display: inline-block;
-    background: var(--nfs-cta-bg);
-    color: var(--nfs-cta-text);
-    font-weight: 500;
-    padding: var(--space-md) var(--space-2xl);
-    border-radius: var(--radius-lg);
-    text-decoration: none;
-    font-size: var(--text-base);
-    transition: background 0.2s;
-  }
-  .cta-btn:hover { background: var(--nfs-cta-bg-hover); }
+  .cta { background: var(--nfs-navy); color: var(--nfs-white); padding: 80px 0; }
+  .cta h2 { color: var(--nfs-white); font-size: var(--text-3xl); font-weight: 600; margin-bottom: 16px; }
+  .cta p { color: rgba(255,255,255,0.85); font-size: var(--text-base); max-width: 48ch; margin-bottom: 32px; }
+  .btn { display: inline-block; background: var(--nfs-gold); color: var(--nfs-navy); font-weight: 600; font-size: var(--text-base); padding: 16px 32px; border-radius: 12px; text-decoration: none; }
+  .btn:hover { background: #f0b840; }
+  .cta .meta { font-size: var(--text-xs); color: rgba(255,255,255,0.5); margin-top: 16px; }
 
-  /* Footer */
-  .footer {
-    padding: var(--space-xl) 0 var(--space-3xl);
-    text-align: center;
-    font-size: var(--text-sm);
-    color: var(--nfs-muted);
-    border-top: 1px solid var(--nfs-divider);
-  }
-  .footer a { color: var(--nfs-link); text-decoration: none; }
+  footer { background: var(--nfs-white); padding: 32px 0 64px; }
+  footer a { color: var(--nfs-royal); text-decoration: none; font-size: var(--text-base); }
+  footer a:hover { text-decoration: underline; }
 
-  @media (max-width: 640px) {
-    .container { padding: 0 var(--space-md); }
-    .big-number-row { gap: var(--space-xl); }
-    .hero { padding: var(--space-3xl) 0 var(--space-2xl); }
-    .section { padding: var(--space-2xl) 0; }
-    .testimonial { padding: var(--space-xl); }
-    th, td { padding: var(--space-sm) var(--space-sm); }
-    th:first-child, td:first-child { padding-left: var(--space-md); }
-    th:last-child, td:last-child { padding-right: var(--space-md); }
+  @media (max-width: 768px) {
+    :root { --text-5xl: 36px; --text-3xl: 32px; --text-xl: 20px; }
+    .hero { padding: 48px 24px 64px; }
+    .stats-grid { grid-template-columns: 1fr; gap: 24px; }
+    .wrap { padding: 0 16px; }
+    section { padding: 48px 0; }
   }
 </style>
 </head>
 <body>
 
-<!-- Hero -->
 <section class="hero">
-  <div class="container">
-    <div class="hero-label">Case Study</div>
-    <h1>How One Adelaide Painter Recovered <span>$177,555</span> from Quotes He'd Already Sent</h1>
-    <p class="hero-sub">Every tradie knows the feeling. You send a quote. The client seems keen. Then silence. Most of those jobs aren't lost to a cheaper competitor. They're lost because nobody followed up.</p>
+  <div class="wrap">
+    <div class="kicker">Case study</div>
+    <h1>How one Adelaide painter recovered $180,115 from quotes he'd already sent</h1>
+    <p class="sub">14 jobs. Real money that was already sitting in his business. All it took was following up.</p>
   </div>
 </section>
 
-<!-- The Pain — before the numbers -->
-<section class="section">
-  <div class="container">
-    <h2>You've lived this</h2>
-    <p class="lead">You're on the tools all day. The phone rings during a cut-in and goes to voicemail. Emails pile up. The quote you spent half an hour on last Tuesday hasn't had a reply. You meant to send a follow-up text, but then the compressor blew on site and that was your afternoon.</p>
-    <p>It's not that you don't care about following up. It's that following up takes time you don't have. So quotes go cold. Clients who were ready to book move on. You never find out why. The money you could have earned just... evaporates.</p>
-    <p>Most tradies lose 3 to 5 jobs a month this way. Not because their quotes are too expensive. Not because the work isn't good. Because the client got busy, forgot to reply, and nobody reminded them.</p>
-    <div class="highlight">
-      <p style="font-size:var(--text-sm); color:var(--nfs-muted); margin-bottom:var(--space-sm);">THIS IS NOT A MARKETING CLAIM</p>
-      <p style="margin-bottom:0;">This is exactly what was happening to Travis Krieg, a painter in Adelaide with a 5-person crew. He was sending quotes, getting busy, and watching work disappear into the silence. Until he tried something different.</p>
+<section class="narrative">
+  <div class="wrap">
+    <p class="lead">You send a quote. The customer says they'll think about it. A week goes by. Then two. Then a month.</p>
+    <p>You mean to follow up, but you're on the tools all day. The phone rings during a cut-in and goes to voicemail. By the time you think about that quote again, the moment has passed. So it sits there. Unanswered. Forgotten.</p>
+    <p>Every one of those quiet quotes is a job you might have won. For most trades businesses, they add up to tens of thousands of dollars a year, just sitting there.</p>
+    <p>Travis Krieg Painting had exactly this problem. Here's what happened when he started following up properly.</p>
+  </div>
+</section>
+
+<section class="narrative">
+  <div class="wrap">
+    <h2>Too busy doing the work to chase the work</h2>
+    <p>Travis runs a five-person painting business. Everyone is busy. Quotes went out and, too often, disappeared. Customers would say "we've been meaning to call you." Jobs went to whoever answered the phone first.</p>
+    <p>There was no process. No reminders. No way to know which quotes were still alive and which were dead. Follow-up was the thing that always slipped to tomorrow.</p>
+    <p>He didn't hire a salesperson, and he didn't buy expensive software. He simply started following up on every quote, consistently, in the right order, at the right time.</p>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat"><div class="num">$180,115</div><div class="label">recovered in total</div></div>
+      <div class="stat"><div class="num">14</div><div class="label">jobs won</div></div>
+      <div class="stat"><div class="num">$12,865</div><div class="label">average per job</div></div>
     </div>
   </div>
 </section>
 
-<!-- Big Numbers -->
-<section class="big-number">
-  <div class="container">
-    <div class="big-number-value">$177,555</div>
-    <div class="big-number-label">Total revenue recovered from quotes that had gone silent</div>
-    <div class="big-number-row">
-      <div class="stat-item">
-        <div class="stat-value">14</div>
-        <div class="stat-label">Jobs won</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-value">Jan&ndash;Apr 2026</div>
-        <div class="stat-label">Time frame</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-value">$12,683</div>
-        <div class="stat-label">Average job value</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-value">7</div>
-        <div class="stat-label">New quotes recovered</div>
-      </div>
-    </div>
+<section class="results">
+  <div class="wrap">
+    <h2>The jobs, one by one</h2>
+    <p class="lead">Five of these came from quotes that had already been sent and gone cold, some sitting for over six months. The rest came from new quotes followed up before they could slip away. Some closed in a day. The biggest one took nine weeks of patient follow-up.</p>
+    <table>
+      <thead>
+        <tr><th>Client</th><th>Quote type</th><th style="text-align:right">Job value</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Residential client</td><td>Already sent</td><td class="value">$35,097</td></tr>
+        <tr><td>Residential client</td><td>Not recorded</td><td class="value">$25,410</td></tr>
+        <tr><td>Residential client</td><td>Already sent</td><td class="value">$24,112</td></tr>
+        <tr><td>Residential client</td><td>New quote</td><td class="value">$14,850</td></tr>
+        <tr><td>Residential client</td><td>New quote</td><td class="value">$12,031</td></tr>
+        <tr><td>Residential client</td><td>New quote</td><td class="value">$11,134</td></tr>
+        <tr><td>Residential client</td><td>Already sent</td><td class="value">$10,000</td></tr>
+        <tr><td>Residential client</td><td>New quote</td><td class="value">$9,036</td></tr>
+        <tr><td>Residential client</td><td>Already sent</td><td class="value">$8,916</td></tr>
+        <tr><td>Residential client</td><td>New quote</td><td class="value">$7,986</td></tr>
+        <tr><td>Residential client</td><td>New quote</td><td class="value">$7,920</td></tr>
+        <tr><td>Residential client</td><td>New quote</td><td class="value">$5,740</td></tr>
+        <tr><td>Residential client</td><td>New quote</td><td class="value">$5,323</td></tr>
+        <tr><td>Residential client</td><td>Already sent</td><td class="value">$2,560</td></tr>
+      </tbody>
+      <tfoot>
+        <tr><td>14 jobs</td><td></td><td class="value">$180,115</td></tr>
+      </tfoot>
+    </table>
   </div>
 </section>
 
-<!-- The Solution -->
-<section class="section">
-  <div class="container">
-    <h2>What Travis did differently</h2>
-    <p class="lead">Instead of trying to remember to follow up between jobs, Travis connected his quoting process to Not Forgotten Systems.</p>
-    <p>Here's how it worked. Every time Travis sent a quote, he CC'd notforgotten.com.au on the email. That was the only change. From there, the system sent three follow-ups over two weeks, automatically. If the client replied at any point, the sequence stopped and Travis was notified. If they didn't, the system kept going.</p>
-    <p>Travis didn't write a single follow-up message. He didn't set reminders. He didn't lose track of who needed chasing. He just kept sending quotes the way he always had — and the system handled everything after the send button.</p>
-    <p>The quotes that came back weren't new leads. They were quotes Travis had already written, already sent, and in some cases already written off. One of them had been sitting in a client's inbox for <strong style="color:var(--nfs-gold);">300 days</strong>.</p>
-  </div>
-</section>
-
-<!-- The Results -->
-<section class="section">
-  <div class="container">
-    <h2>What came back</h2>
-    <p>Between January and April 2026, 14 clients who had gone completely silent replied, booked, and paid. Here is every one of those jobs:</p>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Job</th>
-            <th class="num">Quote value</th>
-            <th>Won</th>
-            <th class="num">Days to close</th>
-            <th>Quote age</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Residential client</td><td class="num gold">$35,097</td><td>25 Mar 2026</td><td class="num">63</td><td>Old</td></tr>
-          <tr><td>Residential client</td><td class="num">$24,112</td><td>30 Jan 2026</td><td class="num">9</td><td>300 days</td></tr>
-          <tr><td>Residential client</td><td class="num">$14,850</td><td>4 Feb 2026</td><td class="num">7</td><td>New</td></tr>
-          <tr><td>Residential client</td><td class="num">$12,031</td><td>16 Mar 2026</td><td class="num">26</td><td>New</td></tr>
-          <tr><td>Residential client</td><td class="num">$11,134</td><td>30 Jan 2026</td><td class="num">9</td><td>New</td></tr>
-          <tr><td>Residential client</td><td class="num">$10,000</td><td>6 Feb 2026</td><td class="num">9</td><td>Old</td></tr>
-          <tr><td>Residential client</td><td class="num">$9,036</td><td>18 Apr 2026</td><td class="num">—</td><td>New</td></tr>
-          <tr><td>Residential client</td><td class="num">$8,916</td><td>4 Mar 2026</td><td class="num">15</td><td>Old</td></tr>
-          <tr><td>Residential client</td><td class="num">$7,986</td><td>5 Mar 2026</td><td class="num">—</td><td>New</td></tr>
-          <tr><td>Residential client</td><td class="num">$7,920</td><td>25 Feb 2026</td><td class="num">7</td><td>New</td></tr>
-          <tr><td>Residential client</td><td class="num">$5,740</td><td>25 Mar 2026</td><td class="num">9</td><td>New</td></tr>
-          <tr><td>Residential client</td><td class="num">$5,323</td><td>27 Apr 2026</td><td class="num">13</td><td>New</td></tr>
-          <tr><td>Residential client</td><td class="num">$2,560</td><td>30 Jan 2026</td><td class="num">1</td><td>Old</td></tr>
-          <tr class="total-row"><td><strong>13 jobs</strong></td><td class="num gold"><strong>$154,705</strong></td><td></td><td></td><td></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p style="color:var(--nfs-muted); font-size:var(--text-sm); margin-top:var(--space-md);">The 14th job (an additional $22,850) was won outside the formal follow-up window but was triggered by a client re-engaging after receiving automated follow-ups. It is excluded from the table above but included in the $177,555 total.</p>
-
-    <div class="highlight" style="margin-top:var(--space-2xl);">
-      <p style="margin-bottom:var(--space-sm);">What the numbers actually mean:</p>
-      <p style="font-size:var(--text-sm); color:var(--nfs-muted);">These were not new customers Travis acquired through advertising or word of mouth. They were people who had already received a quote, already shown interest, and then gone quiet. Without consistent follow-up, every one of these jobs would have been lost. Not to a competitor. To silence.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Credibility -->
-<section class="section">
-  <div class="container">
+<section class="narrative credibility">
+  <div class="wrap">
     <h2>Where these numbers come from</h2>
-    <div class="credibility">
-      <h3>How the $177,555 figure is calculated</h3>
-      <p>The total is the sum of 14 individual job values as recorded in Travis Krieg Painting's own tracking sheet, shared directly with Not Forgotten Systems. Each job has a confirmed won date and a quote value in Australian dollars.</p>
-      <p>13 of the 14 jobs are itemised in the table above. The 14th ($22,850) was a client who re-engaged via email after receiving automated follow-ups and booked directly. Both old quotes (some more than six months old) and new quotes are included. The figure represents gross job revenue, not profit, and does not account for materials, labour, or other costs.</p>
-      <p>This is real data from a real painting business. Nothing has been estimated, rounded up, or projected. Client names have been removed for privacy. The numbers are what they are.</p>
-    </div>
+    <ul>
+      <li>They come from Travis's own tracking sheet, kept during the follow-up period.</li>
+      <li>14 jobs. $180,115 in total. Nothing estimated, nothing rounded, nothing projected.</li>
+      <li>These are gross quote values, not profit.</li>
+      <li>Client names have been removed for privacy.</li>
+      <li>One job's quote type wasn't recorded on the sheet; its value is included in the total.</li>
+    </ul>
+    <p class="note">Not Forgotten helps businesses follow up their quotes the same way Travis did, without them having to remember to do it themselves.</p>
   </div>
 </section>
 
-<!-- Testimonial -->
-<section class="section">
-  <div class="container">
-    <h2>From the business owner</h2>
-    <div class="testimonial">
-      <blockquote>I was losing jobs I didn't even know I was losing. Clients would say "we've been meaning to call you" or "sorry, it's been crazy" — and these were big jobs, $20,000, $35,000. I didn't have time to chase everyone. Not Forgotten just handled it. The follow-ups went out, the replies came back, and I turned up and did the work. The system found money that was already sitting in my inbox.</blockquote>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">
-          <!-- Replace with Travis photo if available: <img src="../assets/travis-krieg.jpg" alt="Travis Krieg"> -->
-          TK
-        </div>
-        <div>
-          <div class="testimonial-name">Travis Krieg</div>
-          <div class="testimonial-business">Owner, Travis Krieg Painting, Adelaide SA</div>
-        </div>
+<section class="proof narrative">
+  <div class="wrap">
+    <h2>What the owner says</h2>
+    <div class="proof-grid">
+      <div class="testimonial-card">
+        <blockquote>
+          James's service has been an absolute game changer for my business. I had so much money left on the table, and James very professionally helped me close on some incredible jobs with next to no effort from me. I cannot recommend this service enough.
+        </blockquote>
+        <div class="attr">Travis Krieg, Owner, Travis Krieg Painting</div>
+      </div>
+      <div class="highlight-card">
+        <div class="big">$180,115</div>
+        <p>Recovered across 14 jobs by following up consistently.</p>
       </div>
     </div>
-    <p style="font-size:var(--text-sm); color:var(--nfs-muted);">The quote above is drawn from Travis's own words and the outcomes recorded in his tracking sheet.</p>
   </div>
 </section>
 
-<!-- What This Means For You -->
-<section class="section">
-  <div class="container">
-    <h2>What this means for your business</h2>
-    <p>Travis's results proved something important: the follow-up itself is worth more than most tradies realise. It's not about having a fancy system. It's about consistency. Three touches, timed properly, every time. That's what brought back $177,555.</p>
-    <p>After seeing these results, Travis decided to hire someone in-house to manage follow-up. That's a valid outcome — the system proved the value of consistent follow-up so clearly that he wanted to own the capability. But here's the reality: most trades businesses can't justify a full-time salary just to chase quotes. And even if they could, one person gets sick, takes holidays, makes mistakes, and eventually moves on.</p>
-    <p>Not Forgotten is building Atlas so that any trade business can get the same consistency Travis experienced — without hiring anyone, without remembering to follow up, and without wondering what's slipping through the cracks. A system doesn't forget. A system doesn't call in sick. A system costs a fraction of a salary and never leaves.</p>
-  </div>
-</section>
-
-<!-- Could This Be Your Business? -->
-<section class="section diagnostic">
-  <div class="container">
+<section class="diagnostic">
+  <div class="wrap">
     <h2>Could this be your business?</h2>
-    <ul class="diagnostic-list">
+    <ul>
       <li>Do you send quotes every week?</li>
       <li>Do some of those quotes never get a reply?</li>
-      <li>Do you mean to follow up, but run out of time?</li>
+      <li>Do you mean to follow up but run out of time?</li>
       <li>Have you ever had a client say "we've been meaning to call you"?</li>
       <li>Could even one extra job a month change your year?</li>
     </ul>
-    <p style="margin-top:var(--space-xl);">If you answered yes to more than one of these, you're leaving money on the table. Not because your quotes are too expensive. Not because your work isn't good enough. Because follow-up falls through the cracks.</p>
-    <p>Travis was in exactly your position four months ago. He made one small change to how he sent quotes. It brought back $177,555.</p>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section">
-  <div class="container">
+<section class="cta">
+  <div class="wrap">
     <h2>Find out how much revenue you're leaving behind</h2>
-    <p style="margin-bottom:var(--space-xl); color:var(--nfs-muted); max-width:520px; margin-left:auto; margin-right:auto;">Send your next quote and CC notforgotten.com.au. The follow-up handles itself. No setup, no catch, no lock-in contract.</p>
-    <a href="mailto:james@notforgotten.com.au" class="cta-btn">See how it works</a>
-    <p style="margin-top:var(--space-lg); font-size:var(--text-sm); color:var(--nfs-muted);">$199/mo. Cancel anytime. Less than one recovered job.</p>
+    <p>Forward us your next quote and we'll follow it up for you. Or send us a handful of old ones and watch what happens when they actually get a second look.</p>
+    <a class="btn" href="mailto:james@notforgotten.com.au?subject=Show%20me%20my%20lost%20quotes">Show me my lost quotes</a>
+    <p class="meta">$199 a month. We start with the quotes you've already sent.</p>
   </div>
 </section>
 
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <p>Not Forgotten Systems &middot; Automated quote follow-up for trades businesses</p>
-    <p style="margin-top:var(--space-sm);"><a href="https://notforgotten.com.au">notforgotten.com.au</a></p>
+<footer>
+  <div class="wrap">
+    <a href="../">Back to Not Forgotten</a>
   </div>
 </footer>
 
