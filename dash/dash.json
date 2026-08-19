@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 191,
+    "tasks_completed": 192,
     "recent": [
+      {
+        "date": "2026-08-20 08:46",
+        "task": "Client OS Knowledge Graph tab now renders full vault brain (299 nodes) instead of empty 0; Memory tab heading fixed to 'facts indexed' (37) from misleading 'files indexed' (2)",
+        "category": "task"
+      },
       {
         "date": "2026-08-19 14:32",
         "task": "Published Travis Krieg case study (14 jobs, $180,115 recovered)",
@@ -135,11 +140,6 @@
         "date": "2026-08-06 09:53",
         "task": "New PandaDoc quote: QPaint 43054 - 1206 Anzac Ave, Kallangur. Customer: Manohar. Email + value pending enrichment from QPaint.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-06 09:12",
-        "task": "Replied to Elisha Paige (Yule Strata, 13K committee review). Committee decision-maker awareness applied. All 3 inbox emails processed and filed.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-20T08:30:49.569130+09:30",
+  "last_updated": "2026-08-20T08:46:11.484684+09:30",
   "pipeline": {
     "prospect_count": 323,
     "stages": {
