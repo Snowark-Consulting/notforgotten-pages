@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-20T00:00:44.855327+09:30",
+  "last_updated": "2026-08-20T00:30:41.338098+09:30",
   "pipeline": {
     "prospect_count": 323,
     "stages": {
@@ -1204,102 +1204,6 @@
         "rank": 5
       },
       {
-        "id": "recCaYT3wK1zEkLo5",
-        "business_name": "Cameron Davidson Painters & Decorators",
-        "contact_name": "Cameron",
-        "phone": "0418 832 500",
-        "email": "cdpainters@bigpond.com",
-        "industry": "Painter",
-        "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 65.8,
-        "confidence": "Low",
-        "ranking_reason": "high probability score (86); phone number available; core ICP industry",
-        "interaction_summary": "Sequence: Email 4 | Last contact: 2026-08-12",
-        "potential_objections": [
-          "Hasn't opened any emails \u2014 may not be aware of us at all"
-        ],
-        "conversation_starter": "'Hi Cameron, James Hardstaff here. Quick question: how many quotes does Cameron Davidson Painters & Decorators send each week, and what's your process for following them up?'",
-        "recommended_next": "Review and decide next action",
-        "james_action": [
-          "Await reply"
-        ],
-        "call_outcome": "\u2014",
-        "last_contacted": "2026-08-12",
-        "open_count": null,
-        "replied": false,
-        "employee_count": "\u2014",
-        "owner_does_quoting": false,
-        "client_probability_score": 86,
-        "suburb": "South Australia",
-        "call_date": "",
-        "buying_stage": "",
-        "interest_level": "",
-        "biggest_objection": "",
-        "what_interested_them": "",
-        "next_agreed_action": "",
-        "next_followup_date": "2026-08-19",
-        "has_been_called": false,
-        "buying_signals": [
-          "No strong signals yet \u2014 first contact exploration"
-        ],
-        "questions_to_ask": [
-          "How do you currently handle follow-up on quotes?",
-          "Roughly how many quotes do you send out each month?",
-          "What would need to be true for Cameron Davidson Painters & Decorators to consider automated quote follow-up?",
-          "Have you ever lost a job because the follow-up fell through the cracks?"
-        ],
-        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 6
-      },
-      {
-        "id": "rec9ppCpRXppccy4b",
-        "business_name": "Zoom Painting",
-        "contact_name": "Rad",
-        "phone": "0416 507 822",
-        "email": "rad@zoompainting.com.au",
-        "industry": "Painter",
-        "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 65.4,
-        "confidence": "Low",
-        "ranking_reason": "high probability score (78); phone number available; core ICP industry",
-        "interaction_summary": "Sequence: Email 4 | Opens: 1 | Last contact: 2026-08-12",
-        "potential_objections": [
-          "Standard: timing, budget, 'we're too busy right now'"
-        ],
-        "conversation_starter": "'Hi Rad, James Hardstaff here. Quick question: how many quotes does Zoom Painting send each week, and what's your process for following them up?'",
-        "recommended_next": "Review and decide next action",
-        "james_action": [
-          "Await reply"
-        ],
-        "call_outcome": "\u2014",
-        "last_contacted": "2026-08-12",
-        "open_count": 1,
-        "replied": false,
-        "employee_count": "\u2014",
-        "owner_does_quoting": false,
-        "client_probability_score": 78,
-        "suburb": "Victoria",
-        "call_date": "",
-        "buying_stage": "",
-        "interest_level": "",
-        "biggest_objection": "",
-        "what_interested_them": "",
-        "next_agreed_action": "",
-        "next_followup_date": "2026-08-19",
-        "has_been_called": false,
-        "buying_signals": [
-          "No strong signals yet \u2014 first contact exploration"
-        ],
-        "questions_to_ask": [
-          "How do you currently handle follow-up on quotes?",
-          "Roughly how many quotes do you send out each month?",
-          "What would need to be true for Zoom Painting to consider automated quote follow-up?",
-          "Have you ever lost a job because the follow-up fell through the cracks?"
-        ],
-        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 7
-      },
-      {
         "id": "recC8OMqaoCf5i1Xo",
         "business_name": "SRN Painting Contractors",
         "contact_name": "Jay",
@@ -1340,6 +1244,102 @@
           "How do you currently handle follow-up on quotes?",
           "Roughly how many quotes do you send out each month?",
           "What would need to be true for SRN Painting Contractors to consider automated quote follow-up?",
+          "Have you ever lost a job because the follow-up fell through the cracks?"
+        ],
+        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
+        "rank": 6
+      },
+      {
+        "id": "recCaYT3wK1zEkLo5",
+        "business_name": "Cameron Davidson Painters & Decorators",
+        "contact_name": "Cameron",
+        "phone": "0418 832 500",
+        "email": "cdpainters@bigpond.com",
+        "industry": "Painter",
+        "pipeline_stage": "Campaign Complete",
+        "opportunity_score": 65.0,
+        "confidence": "Low",
+        "ranking_reason": "high probability score (86); phone number available; core ICP industry",
+        "interaction_summary": "Sequence: Email 4 | Last contact: 2026-08-12",
+        "potential_objections": [
+          "Hasn't opened any emails \u2014 may not be aware of us at all"
+        ],
+        "conversation_starter": "'Hi Cameron, James Hardstaff here. Quick question: how many quotes does Cameron Davidson Painters & Decorators send each week, and what's your process for following them up?'",
+        "recommended_next": "Review and decide next action",
+        "james_action": [
+          "Await reply"
+        ],
+        "call_outcome": "\u2014",
+        "last_contacted": "2026-08-12",
+        "open_count": null,
+        "replied": false,
+        "employee_count": "\u2014",
+        "owner_does_quoting": false,
+        "client_probability_score": 86,
+        "suburb": "South Australia",
+        "call_date": "",
+        "buying_stage": "",
+        "interest_level": "",
+        "biggest_objection": "",
+        "what_interested_them": "",
+        "next_agreed_action": "",
+        "next_followup_date": "2026-08-19",
+        "has_been_called": false,
+        "buying_signals": [
+          "No strong signals yet \u2014 first contact exploration"
+        ],
+        "questions_to_ask": [
+          "How do you currently handle follow-up on quotes?",
+          "Roughly how many quotes do you send out each month?",
+          "What would need to be true for Cameron Davidson Painters & Decorators to consider automated quote follow-up?",
+          "Have you ever lost a job because the follow-up fell through the cracks?"
+        ],
+        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
+        "rank": 7
+      },
+      {
+        "id": "rec9ppCpRXppccy4b",
+        "business_name": "Zoom Painting",
+        "contact_name": "Rad",
+        "phone": "0416 507 822",
+        "email": "rad@zoompainting.com.au",
+        "industry": "Painter",
+        "pipeline_stage": "Campaign Complete",
+        "opportunity_score": 64.7,
+        "confidence": "Low",
+        "ranking_reason": "high probability score (78); phone number available; core ICP industry",
+        "interaction_summary": "Sequence: Email 4 | Opens: 1 | Last contact: 2026-08-12",
+        "potential_objections": [
+          "Standard: timing, budget, 'we're too busy right now'"
+        ],
+        "conversation_starter": "'Hi Rad, James Hardstaff here. Quick question: how many quotes does Zoom Painting send each week, and what's your process for following them up?'",
+        "recommended_next": "Review and decide next action",
+        "james_action": [
+          "Await reply"
+        ],
+        "call_outcome": "\u2014",
+        "last_contacted": "2026-08-12",
+        "open_count": 1,
+        "replied": false,
+        "employee_count": "\u2014",
+        "owner_does_quoting": false,
+        "client_probability_score": 78,
+        "suburb": "Victoria",
+        "call_date": "",
+        "buying_stage": "",
+        "interest_level": "",
+        "biggest_objection": "",
+        "what_interested_them": "",
+        "next_agreed_action": "",
+        "next_followup_date": "2026-08-19",
+        "has_been_called": false,
+        "buying_signals": [
+          "No strong signals yet \u2014 first contact exploration"
+        ],
+        "questions_to_ask": [
+          "How do you currently handle follow-up on quotes?",
+          "Roughly how many quotes do you send out each month?",
+          "What would need to be true for Zoom Painting to consider automated quote follow-up?",
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
@@ -2036,54 +2036,6 @@
         "rank": 23
       },
       {
-        "id": "recaWAWEjNomudlGc",
-        "business_name": "Clean Cut Painters",
-        "contact_name": "Waz",
-        "phone": "0400 896 913",
-        "email": "waz@cleancutpainters.com.au",
-        "industry": "Painter",
-        "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 55.0,
-        "confidence": "Low",
-        "ranking_reason": "phone number available; core ICP industry",
-        "interaction_summary": "Sequence: Email 4 | Last contact: 2026-08-12",
-        "potential_objections": [
-          "Hasn't opened any emails \u2014 may not be aware of us at all"
-        ],
-        "conversation_starter": "'Hi Waz, James Hardstaff here. Quick question: how many quotes does Clean Cut Painters send each week, and what's your process for following them up?'",
-        "recommended_next": "Review and decide next action",
-        "james_action": [
-          "Await reply"
-        ],
-        "call_outcome": "\u2014",
-        "last_contacted": "2026-08-12",
-        "open_count": null,
-        "replied": false,
-        "employee_count": "\u2014",
-        "owner_does_quoting": false,
-        "client_probability_score": null,
-        "suburb": "South Australia",
-        "call_date": "",
-        "buying_stage": "",
-        "interest_level": "",
-        "biggest_objection": "",
-        "what_interested_them": "",
-        "next_agreed_action": "",
-        "next_followup_date": "2026-08-19",
-        "has_been_called": false,
-        "buying_signals": [
-          "No strong signals yet \u2014 first contact exploration"
-        ],
-        "questions_to_ask": [
-          "How do you currently handle follow-up on quotes?",
-          "Roughly how many quotes do you send out each month?",
-          "What would need to be true for Clean Cut Painters to consider automated quote follow-up?",
-          "Have you ever lost a job because the follow-up fell through the cracks?"
-        ],
-        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 24
-      },
-      {
         "id": "rec2JWf1S0RiYcPYg",
         "business_name": "Melbourne Hose Painters",
         "contact_name": "\u2014",
@@ -2127,7 +2079,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 25
+        "rank": 24
       },
       {
         "id": "recbKACbKXgbXaXbj",
@@ -2173,7 +2125,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 26
+        "rank": 25
       },
       {
         "id": "recezxwBes1ohsE4u",
@@ -2216,6 +2168,54 @@
           "How do you currently handle follow-up on quotes?",
           "Roughly how many quotes do you send out each month?",
           "What would need to be true for Adelaide Commercial Painters to consider automated quote follow-up?",
+          "Have you ever lost a job because the follow-up fell through the cracks?"
+        ],
+        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
+        "rank": 26
+      },
+      {
+        "id": "recaWAWEjNomudlGc",
+        "business_name": "Clean Cut Painters",
+        "contact_name": "Waz",
+        "phone": "0400 896 913",
+        "email": "waz@cleancutpainters.com.au",
+        "industry": "Painter",
+        "pipeline_stage": "Campaign Complete",
+        "opportunity_score": 54.2,
+        "confidence": "Low",
+        "ranking_reason": "phone number available; core ICP industry",
+        "interaction_summary": "Sequence: Email 4 | Last contact: 2026-08-12",
+        "potential_objections": [
+          "Hasn't opened any emails \u2014 may not be aware of us at all"
+        ],
+        "conversation_starter": "'Hi Waz, James Hardstaff here. Quick question: how many quotes does Clean Cut Painters send each week, and what's your process for following them up?'",
+        "recommended_next": "Review and decide next action",
+        "james_action": [
+          "Await reply"
+        ],
+        "call_outcome": "\u2014",
+        "last_contacted": "2026-08-12",
+        "open_count": null,
+        "replied": false,
+        "employee_count": "\u2014",
+        "owner_does_quoting": false,
+        "client_probability_score": null,
+        "suburb": "South Australia",
+        "call_date": "",
+        "buying_stage": "",
+        "interest_level": "",
+        "biggest_objection": "",
+        "what_interested_them": "",
+        "next_agreed_action": "",
+        "next_followup_date": "2026-08-19",
+        "has_been_called": false,
+        "buying_signals": [
+          "No strong signals yet \u2014 first contact exploration"
+        ],
+        "questions_to_ask": [
+          "How do you currently handle follow-up on quotes?",
+          "Roughly how many quotes do you send out each month?",
+          "What would need to be true for Clean Cut Painters to consider automated quote follow-up?",
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
@@ -4122,7 +4122,7 @@
       "actionable": 46,
       "ready_to_call": 42,
       "called_count": 1,
-      "generated": "2026-08-19T22:30:39.590446+09:30"
+      "generated": "2026-08-20T00:30:41.338098+09:30"
     }
   },
   "storage_health": {
