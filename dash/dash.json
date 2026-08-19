@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-19T12:00:32.372116+09:30",
+  "last_updated": "2026-08-19T12:30:34.413857+09:30",
   "pipeline": {
     "prospect_count": 322,
     "stages": {
@@ -4164,23 +4164,23 @@
       "actionable": 47,
       "ready_to_call": 43,
       "called_count": 1,
-      "generated": "2026-08-19T10:30:19.771487+09:30"
+      "generated": "2026-08-19T12:30:34.413857+09:30"
     }
   },
   "storage_health": {
     "tier": "green",
-    "disk_pct": 39.2,
-    "free_gb": 11.9,
-    "why": "state db (1015MB), other hermes (436MB), venv (218MB). Normal system overhead.",
+    "disk_pct": 39.9,
+    "free_gb": 11.8,
+    "why": "state db (1155MB), other hermes (438MB), venv (218MB). Normal system overhead.",
     "trend": "decreasing",
-    "daily_rate_pct": -62.8,
+    "daily_rate_pct": -96.93,
     "forecast_days_to_95": null,
     "recommendation": "None \u2014 storage is healthy.",
     "largest_consumers": {
-      "state_db": 1014.9,
-      "other_hermes": 436.2,
+      "state_db": 1154.9,
+      "other_hermes": 438.3,
       "venv": 217.9
     },
-    "last_checked": "2026-08-19T06:00:44+0930"
+    "last_checked": "2026-08-19T12:00:31+0930"
   }
 }
