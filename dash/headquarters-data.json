@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T04:08:06+09:30",
+  "generated_at": "2026-08-19T13:31:30+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
     "body": "Quiet overnight — no new customer replies across quotes@, atlas@ or james@. The big news is operational: the disk crisis that was yesterday's #1 risk is RESOLVED (Hermes upgraded to v0.20.4, state.db rebuilt 9.5GB → 0.93GB, disk 99% → 36%). QPaint reconciliation closed on Vivien Lennan — QPaint confirmed they'll follow up mid-October, so her record is now parked to 15 Oct. It's Founder Call Day: 10 certified candidates ready in the call briefs. V2-NEW50 Batch 1 (12 sent yesterday) is in its first 48h observation window — no replies yet, which is normal.",
@@ -48,11 +48,11 @@
   "waiting_for_james": [
     {
       "id": "founder-call-day",
-      "title": "Execute Founder Call Day — 10 certified candidates",
-      "why_it_matters": "First founder-direct growth motion since RE-ENG. 10 painting businesses, all V2-ACTIVE with zero suppression flags. Discovery-call pivot after email-silent — the highest-leverage growth action available today.",
-      "business_impact": "High — direct pipeline generation",
+      "title": "Execute Founder Call Day — 5 primary + 5 backup (Ahmad #1)",
+      "why_it_matters": "Ahmad (Qualified Opportunity) is now #1 — progress stalled onboarding toward a paying customer. Then 4 warm/prospect discovery calls + 5 backups. All 10 V2-ACTIVE, zero suppression flags, phone + email verified.",
+      "business_impact": "High — direct pipeline generation + stalled-opportunity conversion",
       "estimated_time": "2-3 hours",
-      "recommended_action": "Work the call list in knowledge/wednesday-call-briefs-2026-08-19.md. Record outcome per call (Attempted/Connected/pain verbatim/CTA/next action).",
+      "recommended_action": "Work the Founder Call Day queue in HQ (Section 2). Start with Ahmad (progress onboarding), then Master Choice, Painting Company, Upscale, Clean Cut, then backups. Record outcome per call.",
       "impact_sort": 90
     },
     {
@@ -305,5 +305,176 @@
         "status": "Email 1 — NTP 08/22"
       }
     ]
+  },
+  "founder_call_day": {
+    "date": "Wednesday 26 August 2026",
+    "ready": 10,
+    "total": 10,
+    "call_framework": {
+      "opening": "G'day [name], James here. I emailed you recently but thought I'd give you a quick call. I've been speaking with painting businesses about what happens after they send a quote. What do you normally do once you've sent one?",
+      "if_no": "G'day, James here. Is the owner around? I wanted a quick word about how you follow up your quotes.",
+      "discovery": [
+        "What actually happens after you send a quote?",
+        "Who follows them up, and how many times?",
+        "Do you know your quote-to-job conversion rate?",
+        "Do quotes just sit in the system and go quiet?"
+      ]
+    },
+    "objection_handling": {
+      "already_have_a_system": "That's great — let's see if we can make it work harder for you.",
+      "too_busy": "That's exactly the point — this runs itself.",
+      "not_interested": "No worries at all — thanks for your time."
+    },
+    "voicemail": "G'day [name], James Hardstaff here from Not Forgotten. I'll send you a quick email so it's not a cold call next time. Cheers.",
+    "all_calls": [
+      {
+        "business": "Star Painters Adelaide",
+        "contact": "Ahmad",
+        "location": "Adelaide, SA",
+        "phone": "0422 196 814",
+        "confidence": "HIGH",
+        "brief": "PRIORITY #1 — QUALIFIED OPPORTUNITY (stalled). Agreed to trial, never completed onboarding, never paid. Founder re-engaged 16 & 19 Aug via email (no reply). NOT cold discovery. Objective: progress toward onboarding, determine readiness.",
+        "icp_fit": "Highest-value call: only prospect past 'interest' toward agreement. Closest to a paying customer.",
+        "opening": "G'day Ahmad, James here. I sent you a quick question this morning — did you get a chance to look at it?",
+        "discovery": [
+          "How are you placed to start running the system on your existing quotes?"
+        ],
+        "prior_contact": "Founder emails 16 Aug + 19 Aug ('Quick Question'). Welcome email 23 Jul. No reply to recent emails."
+      },
+      {
+        "business": "Master Choice Painting",
+        "contact": "owner (3-min chat 29 Jul)",
+        "location": "Victoria",
+        "phone": "0406 465 555",
+        "confidence": "HIGH",
+        "brief": "PRIORITY #2 — WARM (interested, not urgent). Dulux-accredited, residential repaint, family-operated. No V2 email in flight. Objective: reopen warm 29 Jul conversation, understand current follow-up process, progress toward a walkthrough.",
+        "icp_fit": "Warm lead with prior 3-min conversation — highest-probability re-engagement after Ahmad.",
+        "opening": "G'day, James here. We spoke briefly back in July. I wanted to check how quote follow-up's been going since.",
+        "discovery": [
+          "Since we spoke, how many quotes have you sent, and what happened to the ones that went quiet?"
+        ],
+        "prior_contact": "V1 Email 1-4 (Jul), 3-min call 29 Jul. No V2 email."
+      },
+      {
+        "business": "The Painting Company",
+        "contact": "owner",
+        "location": "Victoria",
+        "phone": "0403 815 757",
+        "confidence": "HIGH",
+        "brief": "PRIORITY #3 — WARM / CONSIDERING (evaluating options). Prior brief chat. V2 Email 1 sent 14 Aug (await to 21 Aug). Objective: advance 'Considering' interest toward a walkthrough or clear next step.",
+        "icp_fit": "Active buyer signal ('Considering') — best-positioned to move to a walkthrough of their own quotes.",
+        "opening": "G'day, James here. I emailed you last week. When you send a quote, what actually happens after?",
+        "discovery": [
+          "What's the one thing about follow-up you'd change if you could?"
+        ],
+        "prior_contact": "V1 Email 1-4 (Jul), brief chat, V2 Email 1 14 Aug."
+      },
+      {
+        "business": "Upscale Painting & Decorating",
+        "contact": "Esmayel",
+        "location": "Sydney",
+        "phone": "0490 094 862",
+        "confidence": "MEDIUM",
+        "brief": "PRIORITY #4 — PROSPECT. Tier A (80). Dulux Accredited, 2-5 emp, owner quotes. FF1 email 5 Aug (contaminated) + V2 Email 1 12 Aug (no reply). Objective: discovery — what happens after quotes are sent, is there a genuine follow-up problem.",
+        "icp_fit": "Top-tier ICP on paper; phone is a fresh channel after email silence.",
+        "opening": "G'day Esmayel, James here. I emailed you last week. What does quote follow-up look like at Upscale?",
+        "discovery": [
+          "How many quotes go quiet and never get a second look?"
+        ],
+        "prior_contact": "FF1 5 Aug (contaminated — email channel), V2 Email 1 12 Aug (no reply)."
+      },
+      {
+        "business": "Clean Cut Painters",
+        "contact": "Waz",
+        "location": "Adelaide, SA",
+        "phone": "0400 896 913",
+        "confidence": "MEDIUM",
+        "brief": "PRIORITY #5 — PROSPECT. 40+ yrs, SA local. V2 Email 1 12 Aug (no reply). Objective: discovery — understand current follow-up process, identify genuine pain.",
+        "icp_fit": "Established SA local — owner likely feels the follow-up pain personally.",
+        "opening": "G'day Waz, James here. I emailed you recently. What do you normally do once you've sent a quote?",
+        "discovery": [
+          "Do you ever go back through old quotes, or are they done once you've sent them?"
+        ],
+        "prior_contact": "V2 Email 1 12 Aug (no reply). V1 Campaign Complete."
+      },
+      {
+        "business": "Cameron Davidson Painters & Decorators",
+        "contact": "Cameron",
+        "location": "South Australia",
+        "phone": "0418 832 500",
+        "confidence": "MEDIUM",
+        "brief": "BACKUP — PROSPECT. 30+ yrs, commercial+residential, team. Fit 68/B. Objective: discovery — learn quote-follow-up process, confirm pain.",
+        "icp_fit": "Established multi-crew operation — likely high quote volume.",
+        "opening": "G'day Cameron, James here. I emailed you recently. What do you normally do once you've sent a quote?",
+        "discovery": [
+          "The ones you don't hear back from — do you actually know what happened to them?"
+        ],
+        "prior_contact": "V2 Email 1 12 Aug (no reply). V1 Campaign Complete."
+      },
+      {
+        "business": "One Touch Paint",
+        "contact": "Slavek",
+        "location": "South Australia",
+        "phone": "0415 392 436",
+        "confidence": "MEDIUM",
+        "brief": "BACKUP — PROSPECT. 37+ yrs, SA local. Fit 74/B. Objective: discovery — understand follow-up process and conversion awareness.",
+        "icp_fit": "Long-established operator — reputation likely drives business, but conversion tracking may be absent.",
+        "opening": "G'day Slavek, James here. I emailed you recently. What do you normally do once you've sent a quote?",
+        "discovery": [
+          "Do you know roughly what your quote conversion rate is?"
+        ],
+        "prior_contact": "V2 Email 1 12 Aug (no reply)."
+      },
+      {
+        "business": "OPC Painting",
+        "contact": "Darren",
+        "location": "Sydney",
+        "phone": "0424 845 188",
+        "confidence": "MEDIUM",
+        "brief": "BACKUP — PROSPECT. 2-5 emp, owner quotes, commercial+residential. Fit 77/B. Objective: discovery — understand quote volume and tracking.",
+        "icp_fit": "Owner quotes + multi-crew = likely real quote volume and follow-up gap.",
+        "opening": "G'day Darren, James here. I emailed you recently. What do you normally do once you've sent a quote?",
+        "discovery": [
+          "How many quotes do you have open at any one time, and how do you keep track?"
+        ],
+        "prior_contact": "V2 Email 1 12 Aug (no reply)."
+      },
+      {
+        "business": "Zoom Painting",
+        "contact": "Rad",
+        "location": "Victoria",
+        "phone": "0416 507 822",
+        "confidence": "MEDIUM",
+        "brief": "BACKUP — PROSPECT. Fit 67/B. Objective: discovery — understand who owns follow-up.",
+        "icp_fit": "Mid-tier operator — follow-up ownership question is the fastest pain probe.",
+        "opening": "G'day Rad, James here. I emailed you recently. What do you normally do once you've sent a quote?",
+        "discovery": [
+          "Who follows up your quotes — you, or someone in the office?"
+        ],
+        "prior_contact": "V2 Email 1 12 Aug (no reply)."
+      },
+      {
+        "business": "Brushworks Painting & Decorating",
+        "contact": "unknown — ask for owner",
+        "location": "Sydney",
+        "phone": "0480 032 687",
+        "confidence": "MEDIUM",
+        "brief": "BACKUP — PROSPECT. 2-5 emp, owner quotes, 4+ yrs. Fit 77/B. Objective: discovery — understand post-quote process.",
+        "icp_fit": "Owner quotes + multi-crew — likely follow-up gap.",
+        "opening": "G'day, James here. I emailed you recently. Is the owner around? I wanted a quick word about how you follow up your quotes.",
+        "discovery": [
+          "When a quote goes out, what's the next step on your end?"
+        ],
+        "prior_contact": "V2 Email 1 12 Aug (no reply)."
+      }
+    ],
+    "issues": {
+      "skipped": [
+        "Brisbane Professional Painters — excluded from queue: domain mismatch (bppainters.com.au dead; real site superiorpd.com) and owner name unverified. Needs resolution before contact."
+      ],
+      "duplicates": [],
+      "no_phone": [],
+      "phone_discrepancy": []
+    }
   }
 }
