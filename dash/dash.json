@@ -164,15 +164,15 @@
       }
     ]
   },
-  "last_updated": "2026-08-19T14:32:14.874633+09:30",
+  "last_updated": "2026-08-19T16:00:07.694142+09:30",
   "pipeline": {
     "prospect_count": 323,
     "stages": {
       "New": 177,
-      "Campaign Complete": 69,
+      "Campaign Complete": 68,
       "Outreach Active": 54,
       "Won": 1,
-      "Lost": 15,
+      "Lost": 16,
       "Not a fit": 5,
       "Qualified Opportunity": 1,
       "Contacted": 1
@@ -203,7 +203,7 @@
       "Campaign Complete": {
         "IT MSP": 3,
         "Marketing agency": 8,
-        "Painter": 45,
+        "Painter": 44,
         "Landscaper": 1,
         "Commercial cleaning": 6,
         "Construction": 2,
@@ -218,7 +218,7 @@
         "Painter": 1
       },
       "Lost": {
-        "Painter": 8,
+        "Painter": 9,
         "Commercial cleaning": 3,
         "Marketing agency": 3,
         "IT MSP": 1
@@ -578,7 +578,7 @@
       "total_opens": 245,
       "avg_opens": 4.2
     },
-    "last_refreshed": "2026-08-19T04:30:49.339819+00:00"
+    "last_refreshed": "2026-08-19T06:30:07.692325+00:00"
   },
   "decisions": {
     "total": 42,
