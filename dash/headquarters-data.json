@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-08-19T13:31:30+09:30",
+  "generated_at": "2026-08-20T04:07:04.501783+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "Quiet overnight — no new customer replies across quotes@, atlas@ or james@. The big news is operational: the disk crisis that was yesterday's #1 risk is RESOLVED (Hermes upgraded to v0.20.4, state.db rebuilt 9.5GB → 0.93GB, disk 99% → 36%). QPaint reconciliation closed on Vivien Lennan — QPaint confirmed they'll follow up mid-October, so her record is now parked to 15 Oct. It's Founder Call Day: 10 certified candidates ready in the call briefs. V2-NEW50 Batch 1 (12 sent yesterday) is in its first 48h observation window — no replies yet, which is normal.",
+    "body": "Quiet overnight on the customer front — no new replies across quotes@, atlas@ or james@. QPaint recovery kept moving: 2 more customers moved to Engaged (Raewyn Frost $7,920, Alicia Jane Campbell $8,789) and 2 closed to Lost. The Ahmad/Star Painters founder email you sent yesterday still has no reply — next step is the founder call, which I've queued for next Wednesday's Founder Call Day. V2-NEW50 Batch 1 (12 sent Tuesday) is in its first 48h observation window — no replies yet, which is normal. Everything operational is running clean.",
     "estimated_time": "2 minutes"
   },
   "business_score": {
     "score": 88,
-    "change": "+2",
+    "change": "—",
     "reasons_positive": [
-      "Disk crisis resolved overnight — Hermes v0.20.4, state.db 9.5GB → 0.93GB, disk 99% → 36%. The #1 operational risk is gone.",
-      "QPaint: 4 Won totalling $321,967 — $129,750 recovered (Arno), $47,208 assisted (Cheryl + Joy), $145,008 tender won (Nicholas, $0 attributed yet).",
-      "V2-NEW50 Batch 1 sent (12 recipients Tue 18 Aug) — first outbound growth motion since RE-ENG; first QPaint Quote & Revenue Report delivered to Tas."
+      "QPaint pipeline healthy: 164 records, $5.67M book, 4 Won ($321,967), 0 overdue follow-ups.",
+      "2 new Engaged overnight (Raewyn Frost, Alicia Jane Campbell) + 2 clean Lost closures — recovery motion is working.",
+      "Disk crisis resolved (18 Aug), all 4 pulse/monitoring jobs healthy, Airtable + Gmail all green."
     ],
     "reasons_negative": [
-      "1 paying customer ($199 MRR); Star Painters/Ahmad re-engaged 16 Aug but unresponsive so far.",
-      "V2 growth unproven: 0 YES across RE-ENG (147) — Batch 1 is the first real test.",
-      "state.db still grows ~600MB/day from 3 high-frequency agent jobs — architectural fix deferred (not urgent now disk is clear)."
+      "1 paying customer ($199 MRR); Ahmad/Star Painters founder email (19 Aug) still no reply.",
+      "V2 growth unproven: V2-NEW50 Batch 1 (12) sent, 0 replies at Day 2 (normal, first replies Day 3-5).",
+      "state.db back to 1.4GB (~600MB/day growth) — architectural fix deferred, disk still clear at 40%."
     ]
   },
   "business_health": {
@@ -26,100 +26,92 @@
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "QPaint: 161 records, 4 Won ($321,967), 0 overdue follow-ups (yesterday's 5 all resolved). Vivien Lennan reconciled to mid-Oct."
+      "detail": "QPaint: 164 records, 4 Won ($321,967), 13 Engaged, 25 Lost, 0 overdue follow-ups."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "V2-NEW50 Batch 1 (12) sent Tue, first 48h observation. RE-ENG-AUG-2026: 147 audience, 0 YES. No bounces/unsubscribes overnight."
+      "detail": "V2-NEW50 Batch 1 (12) sent Tue 18 Aug, first 48h observation, 0 replies. RE-ENG-AUG-2026 monitoring. No bounces/unsubscribes overnight."
     },
     "engineering": {
       "status": "healthy",
-      "detail": "Disk 36%, state.db 0.93GB (remediated 18 Aug). Hermes v0.20.4. Client OS Pages build still failing (infra, non-customer)."
+      "detail": "Disk 40% (12G free), state.db 1.4GB (remediated 18 Aug, regrowing). Hermes v0.20.4."
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $321,967 Won, $129,750 recovered, $5.58M total book."
+      "detail": "QPaint: $5.67M total book, 4 Won ($321,967), $129,750 recovered."
     },
     "atlas": {
       "status": "healthy",
-      "detail": "All 4 pulse jobs healthy. Airtable accessible. Dashboard hourly refresh ok."
+      "detail": "All 4 pulse jobs healthy (inbox + quotes gates active). Airtable + Gmail accessible. Dashboard hourly refresh ok."
     }
   },
   "waiting_for_james": [
     {
-      "id": "founder-call-day",
-      "title": "Execute Founder Call Day — 5 primary + 5 backup (Ahmad #1)",
-      "why_it_matters": "Ahmad (Qualified Opportunity) is now #1 — progress stalled onboarding toward a paying customer. Then 4 warm/prospect discovery calls + 5 backups. All 10 V2-ACTIVE, zero suppression flags, phone + email verified.",
-      "business_impact": "High — direct pipeline generation + stalled-opportunity conversion",
-      "estimated_time": "2-3 hours",
-      "recommended_action": "Work the Founder Call Day queue in HQ (Section 2). Start with Ahmad (progress onboarding), then Master Choice, Painting Company, Upscale, Clean Cut, then backups. Record outcome per call.",
+      "id": "ahmad-founder-call",
+      "title": "Progress Star Painters / Ahmad — founder call (queued Wed 26 Aug)",
+      "why_it_matters": "Ahmad is the only warm opportunity (Qualified Opportunity, stalled since Jul). Founder email sent 19 Aug (2nd re-engagement), no reply yet. Next step is the founder call to determine onboarding readiness. Closest thing to a 2nd paying customer.",
+      "business_impact": "High — stalled-opportunity conversion is the fastest path to MRR",
+      "estimated_time": "30 min on Wed 26 Aug Founder Call Day",
+      "recommended_action": "Call Ahmad on next Founder Call Day (Wed 26 Aug). Objective: determine onboarding readiness, restart the trial-to-paid conversation. Not cold discovery — warm re-engagement.",
       "impact_sort": 90
     },
     {
       "id": "state-db-architecture",
       "title": "state.db growth architecture (deferred)",
-      "why_it_matters": "state.db still grows ~600MB/day from 3 high-frequency agent jobs. Remediation (prune + auto-reset) is a stopgap, not a fix. Disk is clear now, but this will recur unless the storage architecture changes.",
+      "why_it_matters": "state.db is back to 1.4GB and growing ~600MB/day from high-frequency agent jobs. Remediation (prune + auto-reset) is a stopgap. Disk is 40% now, but this recurs.",
       "business_impact": "Medium — recurrence risk in weeks, not days",
       "estimated_time": "Defer — review when disk > 60%",
-      "recommended_action": "Defer to Winston. Not urgent now disk is 36%. Track via storage-health monitor.",
+      "recommended_action": "Defer to Winston. Track via storage-health monitor. Not urgent at 40% disk.",
       "impact_sort": 60
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Quiet overnight on the customer front, and the disk crisis that was yesterday's #1 risk is resolved. Today is Founder Call Day — the single highest-value thing you can do is make the 10 certified discovery calls. Everything else runs without you.",
+    "executive_summary": "No customer fires overnight. The one thing worth your attention is Ahmad/Star Painters — your founder email from yesterday has no reply, and a founder call is the natural next step (queued for next Wednesday's Founder Call Day). QPaint recovery is running itself: 2 more Engaged overnight, no overdue follow-ups. V2-NEW50 Batch 1 is observing.",
     "priorities": [
       {
-        "action": "Execute Founder Call Day (10 certified candidates)",
-        "why_it_matters": "First founder-direct growth motion since RE-ENG. All 10 candidates re-verified V2-ACTIVE this morning with zero suppression flags. Discovery-call pivot after email-silent is by design, not contamination.",
-        "expected_impact": "High — direct pipeline generation",
-        "estimated_time": "2-3 hours",
-        "confidence": "High (90%)"
+        "action": "Call Ahmad / Star Painters (founder call) — next Founder Call Day Wed 26 Aug",
+        "why_it_matters": "Only warm opportunity. Founder email 19 Aug had no reply; a call is the highest-leverage growth action. Objective: restart onboarding, determine readiness to pay.",
+        "expected_impact": "High — fastest path to a 2nd paying customer",
+        "estimated_time": "30 min",
+        "confidence": "High (85%)"
       }
     ],
     "can_wait": [
-      "state.db growth architecture (Winston) — deferred, disk now 36%",
-      "Disk expansion 20→40GB provider action — optional now that disk is clear",
-      "V2-NEW50 Batch 1 (12) — observing, first replies expected Day 3-5",
-      "Star Painters / Ahmad — re-engagement sent 16 Aug, awaiting response",
-      "Client OS dashboard Pages build failure — Atlas/Winston infra, non-customer"
+      "V2-NEW50 Batch 1 (12) — observing, first replies expected Day 3-5 (Fri-Mon)",
+      "QPaint pipeline — 0 overdue, running on schedule, 2 Engaged + 2 Lost overnight",
+      "state.db growth architecture (Winston) — deferred, disk 40%",
+      "Client OS dashboard Pages build — infra, non-customer",
+      "Tax accountant (BK Partners) acknowledged documents — no action needed"
     ],
-    "closing": "Call Day is the one thing I'd protect time for today. Everything else runs without you."
+    "closing": "Nothing needs you today that can't wait for Founder Call Day. The system is running clean."
   },
   "changes": {
     "today": [
       {
         "time": "04:00",
-        "text": "Disk crisis resolved — Hermes v0.20.4, state.db 9.5GB → 0.93GB, disk 99% → 36%"
-      },
-      {
-        "time": "04:00",
-        "text": "Vivien Lennan reconciled — QPaint confirmed mid-October follow-up (Angela Gleeson). NTD → 15 Oct."
-      },
-      {
-        "time": "04:00",
         "text": "No new customer replies overnight — quotes@, atlas@, james@ all clear"
+      },
+      {
+        "time": "04:00",
+        "text": "QPaint: 2 new Engaged (Raewyn Frost $7,920, Alicia Jane Campbell $8,789) + 2 Lost (Sue Barrett, Adrian Cook)"
+      },
+      {
+        "time": "04:00",
+        "text": "Ahmad/Star Painters founder email (19 Aug) still no reply — founder call queued Wed 26 Aug"
       }
     ],
     "yesterday": [
       {
         "time": "—",
-        "text": "V2-NEW50 Batch 1 sent (12 Email 1s: 11 Group A + 1 Rise Painters Group B)"
+        "text": "Founder email sent to Ahmad/Star Painters (2nd re-engagement, 'Quick Question')"
       },
       {
         "time": "—",
-        "text": "QPaint send wave: Jesse Zhao Email 3, Shalender Hingorani Email 1, Peter Reilly Email 2"
+        "text": "QPaint: Jesse Zhao Email 3, Shalender Hingorani Email 1, Peter Reilly Email 2 sent"
       },
       {
         "time": "—",
-        "text": "First QPaint Quote & Revenue Report delivered to Tas (17 Aug)"
-      },
-      {
-        "time": "—",
-        "text": "QPaint nudges sent (Vivien Lennan, Cathy Cochrane, Elisha Paige committee review)"
-      },
-      {
-        "time": "—",
-        "text": "Hermes upgraded v0.17.0 → v0.20.4 + state.db remediated (with Josh)"
+        "text": "Vivien Lennan reconciliation confirmed by QPaint (Angela Gleeson) — follow-up mid-October"
       }
     ],
     "this_week": [
@@ -129,11 +121,11 @@
       },
       {
         "time": "—",
-        "text": "V2-NEW50 cohort built (50 prospects) — Batch 1 sent Tue 18 Aug"
+        "text": "V2-NEW50 Batch 1 sent (12 Email 1s) Tue 18 Aug"
       },
       {
         "time": "—",
-        "text": "RE-ENG-AUG-2026: 147 audience, 0 YES (monitor only)"
+        "text": "Disk crisis resolved (Hermes v0.20.4, state.db 9.5GB → 0.93GB) 18 Aug"
       }
     ]
   },
@@ -171,7 +163,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "QPaint: 161 records, 4 Won ($321,967), $129,750 recovered, 0 overdue. Vivien Lennan reconciled (mid-Oct). V2-NEW50 Batch 1 (12) observing. Disk 36%, state.db 0.93GB — crisis resolved. Founder Call Day today.",
+  "operational_status": "QPaint: 164 records, 4 Won ($321,967), 13 Engaged, 25 Lost, 0 overdue. V2-NEW50 Batch 1 (12) observing. Disk 40%, state.db 1.4GB. Founder Call Day Wed 26 Aug — Ahmad #1.",
   "vault_health": {
     "decisions": {
       "total": 70,
@@ -195,29 +187,29 @@
       "usage": "99%"
     },
     "infrastructure": {
-      "disk": "36% (12G free)",
-      "state_db": "0.93GB — remediated 18 Aug"
+      "disk": "40% (12G free)",
+      "state_db": "1.4GB — regrowing ~600MB/day (remediated 18 Aug)"
     }
   },
   "qpaint_pipeline": {
     "summary": {
-      "total_customers": 161,
-      "total_pipeline_value": "$5.58M",
+      "total_customers": 164,
+      "total_pipeline_value": "$5.67M",
       "won_count": 4,
       "won_value": "$321,967",
-      "lost_count": 23,
-      "engaged_replied": 12,
-      "contacted": 115,
-      "not_contacted": 7
+      "lost_count": 25,
+      "engaged_replied": 13,
+      "contacted": 118,
+      "not_contacted": 4
     },
     "stage_breakdown": {
-      "Email 2": 68,
-      "Email 1": 46,
-      "Lost": 23,
-      "New": 6,
-      "Replied": 6,
-      "Engaged": 5,
+      "Email 2": 70,
+      "Email 1": 48,
+      "Lost": 25,
+      "Replied": 7,
+      "Engaged": 4,
       "Won": 4,
+      "New": 3,
       "Email 3": 3
     },
     "priority": {
@@ -227,22 +219,10 @@
     },
     "key_customers": [
       {
-        "name": "Nicholas Zappacosta",
-        "value": "$145,008",
-        "stage": "Won",
-        "status": "Won — tender, $0 attributed yet"
-      },
-      {
-        "name": "Arno Hsu",
-        "value": "$129,750",
-        "stage": "Won",
-        "status": "Won — Recovered $129,750"
-      },
-      {
-        "name": "Elisha Paige",
-        "value": "$113,907",
-        "stage": "Engaged",
-        "status": "Engaged — NTP 08/22"
+        "name": "Jenny Yang",
+        "value": "$227,084",
+        "stage": "Email 2",
+        "status": "Email 2 — NTP 08/21"
       },
       {
         "name": "Nuwan Fernando",
@@ -257,22 +237,34 @@
         "status": "Email 3 — NTP 08/22"
       },
       {
-        "name": "Jesse Zhao",
-        "value": "$116,223",
-        "stage": "Email 3",
-        "status": "Email 3 — NTP 08/25"
+        "name": "Nicholas Zappacosta",
+        "value": "$145,008",
+        "stage": "Won",
+        "status": "Won — tender, $0 attributed yet"
       },
       {
-        "name": "Jenny Yang",
-        "value": "$227,084",
-        "stage": "Email 2",
-        "status": "Email 2 — NTP 08/21"
+        "name": "Arno Hsu",
+        "value": "$129,750",
+        "stage": "Won",
+        "status": "Won — Recovered $129,750"
       },
       {
         "name": "David Delaney",
         "value": "$123,655",
         "stage": "Email 2",
         "status": "Email 2 — NTP 08/20"
+      },
+      {
+        "name": "Jesse Zhao",
+        "value": "$116,223",
+        "stage": "Email 3",
+        "status": "Email 3 — NTP 08/25"
+      },
+      {
+        "name": "Elisha Paige",
+        "value": "$113,907",
+        "stage": "Engaged",
+        "status": "Engaged — NTP 08/22"
       },
       {
         "name": "Helen Walsh",
