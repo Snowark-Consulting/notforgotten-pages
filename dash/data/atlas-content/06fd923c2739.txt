@@ -1,0 +1,127 @@
+# Decision: QPaint Daily Operations Model — Review → Decide (never Review → Send)
+
+**Slug:** `2026-08-20-qpaint-daily-ops-model`
+**Date:** 2026-08-20
+**Status:** Made
+**Review Date:** 2026-11-20
+
+---
+
+## The Decision
+
+QPaint book control is accepted as **PASS** (167 records, 167 accounted for, every open quote intentionally managed). Going forward, QPaint returns to normal daily operations governed by one rule: **a review date means REVIEW → DECIDE, never REVIEW → SEND.**
+
+Each customer is assessed individually at their review date using the full Customer Context Gate and current evidence. The correct next action is selected from: EMAIL / SMS / PHONE / WAIT / MONITOR / HOLD / QPAINT INPUT / FOUNDER ACTION / CLOSE WON / CLOSE LOST. No batch sends, no automatic Email 3, no queue processing merely because a date became due.
+
+---
+
+## The Problem
+
+The previous operating mode was cadence-driven: a review date triggered a send by default. This produced repetitive touches that did not respect the customer's actual commercial journey, and a book-control review surfaced 22 stale records, 6 historical quotes in a fresh cadence, and two QPaint escalations framed as "awaiting" rather than "surfaced → monitor". The fix is not *less* follow-up; it is *better* follow-up.
+
+---
+
+## Options Considered
+
+| # | Option | Summary |
+|---|---|---|
+| A | Cadence-driven send queue | Review date = send date. Batch processing. Repetitive, disrespects journey. Rejected. |
+| B | Review → Decide (individual) | Review date = assess individually via CCG, then pick the correct action from the full menu. **Chosen.** |
+| C | Two-touch stop rule | Stop after two unanswered emails. Rejected — persistence is part of the product; no artificial touch limit. |
+
+---
+
+## Why This Path
+
+Option B preserves persistence while eliminating repetition. Some customers legitimately require a 3rd, 4th or 5th touch where commercial context supports it. The distinction is not "how many touches" but "does each touch have a reason". Persistence is still part of the product; pestering is not. This aligns with "Sell certainty, not follow-up" and the Customer Context Gate.
+
+---
+
+## Core Principles Applied
+
+- Evidence before opinion (Six Principles #2) — each touch decided on the customer's actual journey, not the calendar
+- Trust before growth (Six Principles #1) — a natural, well-timed touch builds trust; a repetitive one erodes it
+- Human accountability (Six Principles #6) — James owns the follow-up decisions; Atlas advises and drafts
+- Persistence ≠ repetition (founder directive)
+- SURFACE ≠ MANAGE (role boundary, prior decision `2026-08-20-qpaint-role-boundary`)
+
+---
+
+## Before Recommending Another Touch — Six Questions
+
+1. What is actually happening in this customer's journey?
+2. What are we trying to achieve with this touch?
+3. Does this channel still make sense?
+4. Are we adding anything useful, or simply repeating ourselves?
+5. Has enough time passed, given this type of customer and quote?
+6. Would this communication feel natural if a good salesperson sent it?
+
+---
+
+## Daily Commercial Review Scope
+
+Do **not** dump the whole book. Surface only:
+
+- Customers requiring a decision today
+- New replies
+- New quotes/intakes requiring judgment
+- Overdue customer commitments
+- Genuine exceptions/anomalies
+- Customers where another touch may now add commercial value
+
+Each item reported with: evidence, commercial state, objective, recommended next action, and why that action makes sense now.
+
+---
+
+## Risks Identified
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| Over-correction into under-following | Med | High | Persistence remains in scope; the six questions gate, they do not suppress |
+| Review date treated as a suggestion and skipped | Med | Med | Book control baseline; every review date produces a deliberate DECIDE (even if the decision is WAIT/MONITOR) |
+| Silent cohort still batch-processed by habit | Med | Med | No batch sends; each review is individual |
+
+---
+
+## Expected Outcome
+
+Fewer, better touches. Customers who need persistence get it; customers whose journey is complete are left alone. QPaint sees higher-quality intelligence, not higher-volume contact. No repetitive "just checking in" emails.
+
+---
+
+## Success Criteria
+
+- [ ] No email sent purely because "Next Touchpoint Date = today" without a Customer Context Gate decision
+- [ ] Every additional touch has a stated commercial reason (what it achieves, why now)
+- [ ] Daily review surfaces only decision-needed items, not the full book
+- [ ] QPaint input raised only where genuine customer evidence requires their involvement
+
+---
+
+## Atlas's Challenge (Pre-Decision)
+
+> No challenge. This is a founder-directed operating model that corrects cadence-driven outreach and aligns with the Six Principles. Accepted and recorded.
+
+**James's response:** (direction given as a standing operating model; no separate challenge/override)
+
+---
+
+## Actual Outcome (Post-Review)
+
+**Date reviewed:** *(pending 2026-11-20)*
+
+---
+
+## Learnings
+
+Cadence should create a *review*, not a *send*. The product promise — "no opportunity forgotten" — is delivered by reliable, well-judged follow-up, not by maximum-touch output. Persistence is a tool; repetition is a failure of judgment. The system's job is to know the difference.
+
+---
+
+## Related Decisions
+
+- `2026-08-20-qpaint-role-boundary` — Surface ≠ Manage
+- `2026-08-06-communication-context-check` — 10-point pre-draft gate
+- `2026-08-12-initial-customer-email-law` — no initial customer email drafted from memory
+- `2026-07-28-atlas-communication-layer` — Atlas as communication layer
+- `2026-07-29-relationship-first-crm` — relationship-first CRM philosophy

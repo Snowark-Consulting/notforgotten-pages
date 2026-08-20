@@ -730,6 +730,28 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decisions_2026_08_20_qpaint_daily_ops_model",
+      "label": "Qpaint Daily Ops Model",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-20-qpaint-daily-ops-model.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "06fd923c2739",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decisions_2026_08_20_qpaint_role_boundary",
+      "label": "Qpaint Role Boundary",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-20-qpaint-role-boundary.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "46ad16489b40",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decisions_index",
       "label": "Decisions / Index",
       "file_type": "doc",
@@ -2762,6 +2784,20 @@
     {
       "source": "agent_registry",
       "target": "knowledge_decisions_2026_08_19_qpaint_brand_canonicalisation",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_20_qpaint_role_boundary",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_20_qpaint_daily_ops_model",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

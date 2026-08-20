@@ -36,6 +36,7 @@ tier: primary
 | GitHub Pages publishing | After building static content | `github-pages-deploy` |
 | Nightly memory consolidation | Daily 21:00 | `nightly-consolidation` |
 | Weekly vault-lint | Sunday 17:00 | `weekly-vault-lint` |
+| Telegram diagnostics | When Telegram read receipts/reactions or behaviour questions come up | `hermes-telegram-gateway` |
 
 ## How to use
 

@@ -128,6 +128,7 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 - `skills/snowark/decision-library/SKILL.md` — **Decision recording and review.** Record, challenge, and review every meaningful business decision. Load when James makes a decision or a review date arrives.
 - `skills/snowark/industry-research/SKILL.md` — **Industry research for outreach.** Two-pass methodology (batch-verify → browser deep-dive). Scores and ranks industries against ICP. Load before any prospect research campaign.
 - `skills/cold-email/SKILL.md` — **Cold outreach email drafting.** Industry fluency, quote-pain angles, no-pitch-first-touch rule. Load before drafting any outreach email.
+- `skills/devops/hermes-telegram-gateway/SKILL.md` — **Telegram behaviour & config.** Read receipts = emoji reactions (👀/👍/👎); `telegram.reactions` knob; diagnostic path. Load when Telegram read receipts/reactions or behaviour questions come up.
 - [[Outreach Philosophy]] (knowledge/outreach-philosophy/INDEX.md) — 9 principles + industry quoting dynamics framework. Load before any outreach work.
 - [[Campaign Review Template]] (knowledge/campaign-review-template.md) — canonical template for formal Campaign Reviews. Copy and fill for each wave.
 - [[Campaign Reviews]] (knowledge/campaign-reviews/wave-1-july-2026.md) — Wave 1 July 2026 formal review: 10 prospects, 30 sent, 0 replies, full recommendations.
@@ -210,6 +211,8 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 - [[Core Product Learning]] (learnings/2026-08-19-core-product-learning.md) — NFS value = decide right next action per quote, not email sequences. Template = framework, not permission.
 - [[Governance + QPaint Integrity Audit]] (learnings/2026-08-19-governance-and-qpaint-integrity-audit.md) — ~147 protocols, 10 domains, CCG enforcement gap, restoration plan. QPaint outbound readiness FAIL.
 - [[QPaint Brand Canonicalisation]] (knowledge/decisions/2026-08-19-qpaint-brand-canonicalisation.md) — "QPaint" title case canonical; "QPAINT" only in "1300 QPAINT".
+- [[QPaint Role Boundary]] (knowledge/decisions/2026-08-20-qpaint-role-boundary.md) — SURFACE ≠ MANAGE. Never chase QPaint decisions; exception-based escalation; no QPaint commitment to a customer without verified evidence.
+- [[QPaint Daily Operations Model]] (knowledge/decisions/2026-08-20-qpaint-daily-ops-model.md) — Review → Decide, never Review → Send. Individual CCG per customer; no batch/auto-Email3; persistence ≠ repetition.
 - [[wakeAgent Gate]] (learnings/2026-08-18-wakeagent-gate.md) — zero-cost idle cron ticks via pre-check gate scripts. Pulses pinned deepseek-v4-pro; phase1 watchdogs paused.
 - [[Hermes Update + state.db Remediation]] (learnings/2026-08-18-hermes-update-and-state-db-remediation.md) — v0.17→v0.20.4 upgrade + FTS rebuild (state.db 8.9GB→1.4GB, disk 40%).
 - [[QPaint Operating Architecture]] (knowledge/qpaint-operating-architecture.md) — Authoritative QPaint rules: 48-hour no-contact, closed-loop intake, Daily Attention P1-P4, communication philosophy, internal escalation.

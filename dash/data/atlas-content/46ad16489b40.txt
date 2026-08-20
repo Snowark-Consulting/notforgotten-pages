@@ -1,0 +1,95 @@
+# Decision: QPaint Role Boundary — Surface ≠ Manage
+
+**Slug:** `2026-08-20-qpaint-role-boundary`
+**Date:** 2026-08-20
+**Status:** Made
+**Review Date:** 2026-10-20
+
+---
+
+## The Decision
+
+Not Forgotten **surfaces** commercial intelligence to QPaint but does **not manage** QPaint. Once something requiring QPaint's commercial decision has been surfaced, responsibility transfers to QPaint and NF does not chase them for a decision. Internal escalation to QPaint is exception-based, and Atlas must never create a commitment on QPaint's behalf ("QPaint will send that", "the team will contact you") unless that commitment is supported by verified QPaint evidence.
+
+---
+
+## The Problem
+
+Atlas recommended a repeated internal nudge to QPaint (Elisha Paige cost objection) on the basis that QPaint had not responded in 3 days, and a separate review surfaced an unauthorized customer commitment (Cathy Cochrane: Atlas told her "Tas and his team will get the itemised breakdown sent through" without QPaint having agreed to that). Both flow from the same error: treating "QPaint hasn't responded" as a trigger for another NF action, and treating Atlas as able to promise QPaint deliverables.
+
+---
+
+## Options Considered
+
+| # | Option | Summary |
+|---|---|---|
+| A | Chase QPaint until they act | Repeated internal nudges on every surfaced item. Inflates QPaint workload, damages the client relationship, confuses NF's role. |
+| B | Surface then stop (MANAGE) | Surface once, then WAIT/MONITOR. QPaint decides their own commercial action. **Chosen.** |
+| C | Full autonomous management | Atlas makes pricing/scope/commitment decisions for QPaint. Violates trust and the Human Accountability principle. Rejected outright. |
+
+---
+
+## Why This Path
+
+Option B matches what QPaint actually hired NF to do: follow up quotes and pass back what NF learns. The moment NF starts chasing QPaint for decisions, it stops being a quote-follow-up function and becomes a nagging middleman. It also respects Principle 1 (Trust before growth) and Principle 6 (Human accountability — QPaint owns its commercial decisions). The trade-off accepted: a surfaced item may sit unanswered by QPaint for some time; that is QPaint's prerogative, not an NF failure.
+
+---
+
+## Core Principles Applied
+
+- Trust before growth (SOUL.md Six Principles #1)
+- Human accountability (SOUL.md Six Principles #6)
+- "Sell certainty, not follow-up" — NF's product is confidence that nothing is forgotten, not pressure applied to the client
+- Atlas as multiplier, not replacement (the client makes their own commercial decisions)
+
+---
+
+## Risks Identified
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| A genuine time-critical item sits unanswered by QPaint | Med | Med | Exception-based escalation still fires for material/time-critical issues; founder can always instruct a specific chase |
+| QPaint interprets "no chasing" as "not being kept informed" | Low | Med | Reporting (Quote & Revenue Report) remains the visibility channel; the surfacing email itself is the record |
+| Atlas over-corrects and stops surfacing at all | Low | High | SURFACE remains mandatory; only the follow-up/chase is removed |
+
+---
+
+## Expected Outcome
+
+Fewer internal QPaint messages; each escalation is material and self-contained. QPaint retains ownership of its commercial decisions. No customer is ever promised a QPaint deliverable that QPaint has not committed to.
+
+---
+
+## Success Criteria
+
+- [ ] No internal nudge sent to QPaint that is purely a "have you responded yet?" follow-up, unless James explicitly instructs it
+- [ ] No customer email containing a commitment phrase ("QPaint will…", "the team will…", "we'll get that to you by…") unless backed by a verified QPaint commitment
+- [ ] Surfacing still happens promptly for genuine exception cases (customer asks QPaint-only question, requote, material issue, comms blocked)
+
+---
+
+## Atlas's Challenge (Pre-Decision)
+
+> No challenge. This is a founder correction that aligns with the Six Principles and corrects a genuine role-boundary error. Accepted and recorded.
+
+**James's response:** (direction given as a standing correction; no separate challenge/override)
+
+---
+
+## Actual Outcome (Post-Review)
+
+**Date reviewed:** *(pending 2026-10-20)*
+
+---
+
+## Learnings
+
+The two failure modes — chasing QPaint for a decision, and promising a QPaint deliverable to a customer — are the same underlying mistake in two directions: **Atlas acting as if it owns QPaint's side of the relationship.** NF owns the customer journey (follow-up, surfacing, organising). QPaint owns commercial decisions and deliverables. The boundary is: surface it, then stop. Never promise it.
+
+---
+
+## Related Decisions
+
+- `2026-07-28-atlas-communication-layer` — Atlas as communication layer, escalate to client only when they add value
+- `2026-08-19-qpaint-brand-canonicalisation` — QPaint brand handling
+- `2026-08-12-qpaint-privacy-governance` — white-label / privacy-footer governance
