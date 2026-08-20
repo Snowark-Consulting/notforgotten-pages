@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-21T06:00:21.482816+09:30",
+  "last_updated": "2026-08-21T06:30:18.789288+09:30",
   "pipeline": {
     "prospect_count": 323,
     "stages": {
@@ -1026,8 +1026,7 @@
         "conversation_starter": "'Hi there, James from Not Forgotten. Been thinking about our chat and wanted to see if you've had a chance to consider how automated follow-up might work for Master Choice Painting.'",
         "recommended_next": "Review and decide next action",
         "james_action": [
-          "\ud83d\udcde Call Today",
-          "\ud83d\udce7 Sent Personal Email"
+          "\ud83d\udcde Call Today"
         ],
         "call_outcome": "29/07/2026 Called the client had a 3 minute conversation seemed interested i have sent him an email.  ",
         "last_contacted": "2026-07-28",
@@ -1043,7 +1042,7 @@
         "biggest_objection": "",
         "what_interested_them": "",
         "next_agreed_action": "",
-        "next_followup_date": "",
+        "next_followup_date": "2026-08-26",
         "has_been_called": true,
         "buying_signals": [
           "\ud83d\udfe1 Warm interest \u2014 interested but not urgent",
@@ -1288,102 +1287,6 @@
         "rank": 6
       },
       {
-        "id": "recCaYT3wK1zEkLo5",
-        "business_name": "Cameron Davidson Painters & Decorators",
-        "contact_name": "Cameron",
-        "phone": "0418 832 500",
-        "email": "cdpainters@bigpond.com",
-        "industry": "Painter",
-        "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 65.0,
-        "confidence": "Low",
-        "ranking_reason": "high probability score (86); phone number available; core ICP industry",
-        "interaction_summary": "Sequence: Email 4 | Last contact: 2026-08-12",
-        "potential_objections": [
-          "Hasn't opened any emails \u2014 may not be aware of us at all"
-        ],
-        "conversation_starter": "'Hi Cameron, James Hardstaff here. Quick question: how many quotes does Cameron Davidson Painters & Decorators send each week, and what's your process for following them up?'",
-        "recommended_next": "Review and decide next action",
-        "james_action": [
-          "Await reply"
-        ],
-        "call_outcome": "\u2014",
-        "last_contacted": "2026-08-12",
-        "open_count": null,
-        "replied": false,
-        "employee_count": "\u2014",
-        "owner_does_quoting": false,
-        "client_probability_score": 86,
-        "suburb": "South Australia",
-        "call_date": "",
-        "buying_stage": "",
-        "interest_level": "",
-        "biggest_objection": "",
-        "what_interested_them": "",
-        "next_agreed_action": "",
-        "next_followup_date": "2026-08-19",
-        "has_been_called": false,
-        "buying_signals": [
-          "No strong signals yet \u2014 first contact exploration"
-        ],
-        "questions_to_ask": [
-          "How do you currently handle follow-up on quotes?",
-          "Roughly how many quotes do you send out each month?",
-          "What would need to be true for Cameron Davidson Painters & Decorators to consider automated quote follow-up?",
-          "Have you ever lost a job because the follow-up fell through the cracks?"
-        ],
-        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 7
-      },
-      {
-        "id": "rec9ppCpRXppccy4b",
-        "business_name": "Zoom Painting",
-        "contact_name": "Rad",
-        "phone": "0416 507 822",
-        "email": "rad@zoompainting.com.au",
-        "industry": "Painter",
-        "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 64.7,
-        "confidence": "Low",
-        "ranking_reason": "high probability score (78); phone number available; core ICP industry",
-        "interaction_summary": "Sequence: Email 4 | Opens: 1 | Last contact: 2026-08-12",
-        "potential_objections": [
-          "Standard: timing, budget, 'we're too busy right now'"
-        ],
-        "conversation_starter": "'Hi Rad, James Hardstaff here. Quick question: how many quotes does Zoom Painting send each week, and what's your process for following them up?'",
-        "recommended_next": "Review and decide next action",
-        "james_action": [
-          "Await reply"
-        ],
-        "call_outcome": "\u2014",
-        "last_contacted": "2026-08-12",
-        "open_count": 1,
-        "replied": false,
-        "employee_count": "\u2014",
-        "owner_does_quoting": false,
-        "client_probability_score": 78,
-        "suburb": "Victoria",
-        "call_date": "",
-        "buying_stage": "",
-        "interest_level": "",
-        "biggest_objection": "",
-        "what_interested_them": "",
-        "next_agreed_action": "",
-        "next_followup_date": "2026-08-19",
-        "has_been_called": false,
-        "buying_signals": [
-          "No strong signals yet \u2014 first contact exploration"
-        ],
-        "questions_to_ask": [
-          "How do you currently handle follow-up on quotes?",
-          "Roughly how many quotes do you send out each month?",
-          "What would need to be true for Zoom Painting to consider automated quote follow-up?",
-          "Have you ever lost a job because the follow-up fell through the cracks?"
-        ],
-        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 8
-      },
-      {
         "id": "recOpD3i2j6PcQ2Tb",
         "business_name": "AJ Blunt Painting",
         "contact_name": "\u2014",
@@ -1427,7 +1330,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 9
+        "rank": 7
       },
       {
         "id": "recS6f8NyX6o9pEcu",
@@ -1473,7 +1376,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 10
+        "rank": 8
       },
       {
         "id": "recTdYInhXHr8xvAl",
@@ -1519,7 +1422,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 11
+        "rank": 9
       },
       {
         "id": "reclo8cvYzItxd1Ei",
@@ -1565,7 +1468,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 12
+        "rank": 10
       },
       {
         "id": "recUhl3ZBqwaCVF9O",
@@ -1611,7 +1514,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 13
+        "rank": 11
       },
       {
         "id": "recfTSN5xfLPimOJd",
@@ -1657,7 +1560,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 14
+        "rank": 12
       },
       {
         "id": "recC3AcFIvljfzcg8",
@@ -1703,7 +1606,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 15
+        "rank": 13
       },
       {
         "id": "recF2Q5sxyqUMrztm",
@@ -1749,7 +1652,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 16
+        "rank": 14
       },
       {
         "id": "recGo4k22wrObbdUv",
@@ -1795,7 +1698,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 17
+        "rank": 15
       },
       {
         "id": "recDrH53yiy4qktrx",
@@ -1841,7 +1744,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 18
+        "rank": 16
       },
       {
         "id": "reccy7LZp2mSlBvRW",
@@ -1887,7 +1790,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 19
+        "rank": 17
       },
       {
         "id": "recCRzG92FMqucC6l",
@@ -1933,7 +1836,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 20
+        "rank": 18
       },
       {
         "id": "rec899MjdXYfvNVlD",
@@ -1979,7 +1882,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 21
+        "rank": 19
       },
       {
         "id": "receBwSUWFOTwnsjo",
@@ -2025,7 +1928,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 22
+        "rank": 20
       },
       {
         "id": "reck3feFnBqrJvUv5",
@@ -2071,7 +1974,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 23
+        "rank": 21
       },
       {
         "id": "rec2JWf1S0RiYcPYg",
@@ -2117,7 +2020,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 24
+        "rank": 22
       },
       {
         "id": "recbKACbKXgbXaXbj",
@@ -2163,7 +2066,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 25
+        "rank": 23
       },
       {
         "id": "recezxwBes1ohsE4u",
@@ -2209,55 +2112,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 26
-      },
-      {
-        "id": "recaWAWEjNomudlGc",
-        "business_name": "Clean Cut Painters",
-        "contact_name": "Waz",
-        "phone": "0400 896 913",
-        "email": "waz@cleancutpainters.com.au",
-        "industry": "Painter",
-        "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 54.2,
-        "confidence": "Low",
-        "ranking_reason": "phone number available; core ICP industry",
-        "interaction_summary": "Sequence: Email 4 | Last contact: 2026-08-12",
-        "potential_objections": [
-          "Hasn't opened any emails \u2014 may not be aware of us at all"
-        ],
-        "conversation_starter": "'Hi Waz, James Hardstaff here. Quick question: how many quotes does Clean Cut Painters send each week, and what's your process for following them up?'",
-        "recommended_next": "Review and decide next action",
-        "james_action": [
-          "Await reply"
-        ],
-        "call_outcome": "\u2014",
-        "last_contacted": "2026-08-12",
-        "open_count": null,
-        "replied": false,
-        "employee_count": "\u2014",
-        "owner_does_quoting": false,
-        "client_probability_score": null,
-        "suburb": "South Australia",
-        "call_date": "",
-        "buying_stage": "",
-        "interest_level": "",
-        "biggest_objection": "",
-        "what_interested_them": "",
-        "next_agreed_action": "",
-        "next_followup_date": "2026-08-19",
-        "has_been_called": false,
-        "buying_signals": [
-          "No strong signals yet \u2014 first contact exploration"
-        ],
-        "questions_to_ask": [
-          "How do you currently handle follow-up on quotes?",
-          "Roughly how many quotes do you send out each month?",
-          "What would need to be true for Clean Cut Painters to consider automated quote follow-up?",
-          "Have you ever lost a job because the follow-up fell through the cracks?"
-        ],
-        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 27
+        "rank": 24
       },
       {
         "id": "rec8VPF2KvFKGAyUf",
@@ -2303,7 +2158,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 28
+        "rank": 25
       },
       {
         "id": "recEhksFt7eHzzJmB",
@@ -2349,7 +2204,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 29
+        "rank": 26
       },
       {
         "id": "recEjq7wtWJj8FL1m",
@@ -2395,7 +2250,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 30
+        "rank": 27
       },
       {
         "id": "recUPWdimlTmzu6YX",
@@ -2441,7 +2296,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 31
+        "rank": 28
       },
       {
         "id": "reccrDzBsi5ejiyuF",
@@ -2487,7 +2342,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 32
+        "rank": 29
       },
       {
         "id": "recGZuyq6fKiGP2t2",
@@ -2533,7 +2388,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 33
+        "rank": 30
       },
       {
         "id": "recM7aONwQ5kM1CIQ",
@@ -2579,7 +2434,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 34
+        "rank": 31
       },
       {
         "id": "recPRDeh0lUBgsZcZ",
@@ -2625,7 +2480,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 35
+        "rank": 32
       },
       {
         "id": "recarNrtIWrQp4dGd",
@@ -2671,7 +2526,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 36
+        "rank": 33
       },
       {
         "id": "reci8nk2n874YAr7u",
@@ -2717,7 +2572,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 37
+        "rank": 34
       },
       {
         "id": "recERtZ5Rz4vOBCbw",
@@ -2763,7 +2618,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 38
+        "rank": 35
       },
       {
         "id": "recHqZQGY7QF8c2On",
@@ -2809,7 +2664,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 39
+        "rank": 36
       },
       {
         "id": "recgl4Qep5jat3LnW",
@@ -2855,7 +2710,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 40
+        "rank": 37
       },
       {
         "id": "recZShaIoroboaVJJ",
@@ -2901,7 +2756,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 41
+        "rank": 38
       },
       {
         "id": "recBZvoNgd8SdHazG",
@@ -2947,7 +2802,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 42
+        "rank": 39
       },
       {
         "id": "recGlsgwaNZw8KFGc",
@@ -2993,7 +2848,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 43
+        "rank": 40
       },
       {
         "id": "recKdpNQ8ONYjR8kX",
@@ -3039,7 +2894,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 44
+        "rank": 41
       },
       {
         "id": "recLiJZi7gfwVYVxv",
@@ -3085,7 +2940,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 45
+        "rank": 42
       },
       {
         "id": "recOMbtTypvxv93jv",
@@ -3131,7 +2986,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 46
+        "rank": 43
       },
       {
         "id": "recjycaAF6ZXcfWBh",
@@ -3177,7 +3032,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 47
+        "rank": 44
       },
       {
         "id": "reclmZTrURJOTdi5w",
@@ -3223,7 +3078,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 48
+        "rank": 45
       },
       {
         "id": "recvY7gy2Twx7kq5N",
@@ -3269,7 +3124,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 49
+        "rank": 46
       },
       {
         "id": "rec0gRrZD4BoPQF6a",
@@ -3315,7 +3170,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 50
+        "rank": 47
       },
       {
         "id": "rec1CC0dREcxvzfE8",
@@ -3361,7 +3216,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 51
+        "rank": 48
       },
       {
         "id": "recFwGxpeSW5qMx8V",
@@ -3407,7 +3262,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 52
+        "rank": 49
       },
       {
         "id": "recsH0BGwKFxm4bgY",
@@ -3453,7 +3308,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 53
+        "rank": 50
       },
       {
         "id": "recIExV6KbgLBiOZ5",
@@ -3499,7 +3354,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 54
+        "rank": 51
       },
       {
         "id": "recHuleMmD6DMlaTc",
@@ -3545,7 +3400,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 55
+        "rank": 52
       },
       {
         "id": "recP0yQLqqI8AtHyZ",
@@ -3591,7 +3446,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 56
+        "rank": 53
       },
       {
         "id": "rec0a9uVLUxGa0O0H",
@@ -3637,7 +3492,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 57
+        "rank": 54
       },
       {
         "id": "recWhXebzuvfkWGc1",
@@ -3683,7 +3538,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 58
+        "rank": 55
       },
       {
         "id": "recoFXdlr33ayOh71",
@@ -3729,7 +3584,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 59
+        "rank": 56
       },
       {
         "id": "recpbkP8sp1oJRnve",
@@ -3775,7 +3630,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 60
+        "rank": 57
       },
       {
         "id": "recAxo1irXJ75oSp0",
@@ -3822,7 +3677,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 61
+        "rank": 58
       },
       {
         "id": "rec6Yy0tjZjek57Rb",
@@ -3869,7 +3724,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 62
+        "rank": 59
       },
       {
         "id": "recPtZe4lG0bLxkvY",
@@ -3916,7 +3771,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 63
+        "rank": 60
       },
       {
         "id": "recQ0FY1nggBGL8X8",
@@ -3963,7 +3818,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 64
+        "rank": 61
       },
       {
         "id": "recB4P5g4osyahpKM",
@@ -4010,7 +3865,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 65
+        "rank": 62
       },
       {
         "id": "recabKCC1RMMUdE8d",
@@ -4057,7 +3912,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 66
+        "rank": 63
       },
       {
         "id": "reckHc62HPBkWrUs9",
@@ -4104,7 +3959,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 67
+        "rank": 64
       }
     ],
     "health": {
@@ -4112,7 +3967,7 @@
       "calls_completed_week": 0,
       "calls_completed_total": 5,
       "positive_conversations": 2,
-      "followups_required": 3,
+      "followups_required": 0,
       "meetings_booked": 0,
       "converted_week": 0,
       "converted_total": 0,
@@ -4155,12 +4010,12 @@
       "2 warm prospects \u2014 consider targeted nurture sequence."
     ],
     "summary": {
-      "total": 67,
+      "total": 64,
       "high_confidence": 1,
-      "actionable": 46,
+      "actionable": 43,
       "ready_to_call": 42,
       "called_count": 1,
-      "generated": "2026-08-21T04:30:16.556853+09:30"
+      "generated": "2026-08-21T06:30:18.789288+09:30"
     }
   },
   "storage_health": {
