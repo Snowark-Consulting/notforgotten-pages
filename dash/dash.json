@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 192,
+    "tasks_completed": 193,
     "recent": [
+      {
+        "date": "2026-08-20 16:17",
+        "task": "Campaign pulse posted \u2014 V2: 43 Email 1 sends, 0 replies, Founder Call Day (19 Aug) outcomes not yet logged",
+        "category": "task"
+      },
       {
         "date": "2026-08-20 08:46",
         "task": "Client OS Knowledge Graph tab now renders full vault brain (299 nodes) instead of empty 0; Memory tab heading fixed to 'facts indexed' (37) from misleading 'files indexed' (2)",
@@ -135,11 +140,6 @@
         "date": "2026-08-06 18:58",
         "task": "Evening HQ refresh. Score: 95 (\u2014). Quiet stable day. Changes reorganised by day. FF1 Email 2 due Mon. 3 replies processed, 1 PandaDoc intake. All systems healthy.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-06 09:53",
-        "task": "New PandaDoc quote: QPaint 43054 - 1206 Anzac Ave, Kallangur. Customer: Manohar. Email + value pending enrichment from QPaint.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-20T16:00:57.841548+09:30",
+  "last_updated": "2026-08-20T16:17:18.162153+09:30",
   "pipeline": {
     "prospect_count": 323,
     "stages": {
