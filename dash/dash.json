@@ -164,15 +164,15 @@
       }
     ]
   },
-  "last_updated": "2026-08-21T04:30:16.556853+09:30",
+  "last_updated": "2026-08-21T06:00:21.482816+09:30",
   "pipeline": {
     "prospect_count": 323,
     "stages": {
-      "New": 177,
-      "Campaign Complete": 68,
-      "Outreach Active": 54,
+      "New": 174,
+      "Campaign Complete": 65,
+      "Outreach Active": 59,
       "Won": 1,
-      "Lost": 16,
+      "Lost": 17,
       "Not a fit": 5,
       "Qualified Opportunity": 1,
       "Contacted": 1
@@ -193,7 +193,7 @@
     },
     "stage_by_vertical": {
       "New": {
-        "Painter": 132,
+        "Painter": 129,
         "Marketing agency": 19,
         "Commercial cleaning": 21,
         "Other": 2,
@@ -203,7 +203,7 @@
       "Campaign Complete": {
         "IT MSP": 3,
         "Marketing agency": 8,
-        "Painter": 44,
+        "Painter": 41,
         "Landscaper": 1,
         "Commercial cleaning": 6,
         "Construction": 2,
@@ -212,13 +212,13 @@
         "Cleaning": 1
       },
       "Outreach Active": {
-        "Painter": 54
+        "Painter": 59
       },
       "Won": {
         "Painter": 1
       },
       "Lost": {
-        "Painter": 9,
+        "Painter": 10,
         "Commercial cleaning": 3,
         "Marketing agency": 3,
         "IT MSP": 1
@@ -237,31 +237,31 @@
       {
         "name": "M .J. Painters Melbourne",
         "industry": "Painter",
-        "last_contacted": "2026-08-14",
+        "last_contacted": "2026-08-21",
         "suburb": "Victoria"
       },
       {
         "name": "Painting Pros",
         "industry": "Painter",
-        "last_contacted": "2026-08-18",
+        "last_contacted": "2026-08-21",
         "suburb": "Caringbah (Sutherland Shire), Sydney NSW"
       },
       {
         "name": "Sydney Painting Experts",
         "industry": "Painter",
-        "last_contacted": "2026-08-12",
+        "last_contacted": "2026-08-21",
         "suburb": "Sydney"
       },
       {
         "name": "Like Painting",
         "industry": "Painter",
-        "last_contacted": "2026-08-14",
+        "last_contacted": "2026-08-21",
         "suburb": "South Australia"
       },
       {
         "name": "Inspire Painting",
         "industry": "Painter",
-        "last_contacted": "2026-08-14",
+        "last_contacted": "2026-08-21",
         "suburb": "Victoria"
       },
       {
@@ -271,21 +271,33 @@
         "suburb": "Victoria"
       },
       {
+        "name": "Zoom Painting",
+        "industry": "Painter",
+        "last_contacted": "2026-08-21",
+        "suburb": "Victoria"
+      },
+      {
         "name": "Kincoat Painting",
         "industry": "Painter",
-        "last_contacted": "2026-08-12",
+        "last_contacted": "2026-08-21",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "Cameron Davidson Painters & Decorators",
+        "industry": "Painter",
+        "last_contacted": "2026-08-21",
         "suburb": "South Australia"
       },
       {
         "name": "Procover Painting",
         "industry": "Painter",
-        "last_contacted": "2026-08-18",
+        "last_contacted": "2026-08-21",
         "suburb": "Newcastle NSW"
       },
       {
         "name": "AKP Painting & Decorating",
         "industry": "Painter",
-        "last_contacted": "2026-08-12",
+        "last_contacted": "2026-08-21",
         "suburb": "South Australia"
       },
       {
@@ -297,7 +309,7 @@
       {
         "name": "Colourland Painting",
         "industry": "Painter",
-        "last_contacted": "2026-08-18",
+        "last_contacted": "2026-08-21",
         "suburb": "Wollongong NSW"
       },
       {
@@ -315,13 +327,13 @@
       {
         "name": "Oppa Painting",
         "industry": "Painter",
-        "last_contacted": "2026-08-18",
+        "last_contacted": "2026-08-21",
         "suburb": "West Ryde, Sydney NSW"
       },
       {
         "name": "M & M Property Services SA",
         "industry": "Painter",
-        "last_contacted": "2026-08-14",
+        "last_contacted": "2026-08-21",
         "suburb": "South Australia"
       },
       {
@@ -333,7 +345,7 @@
       {
         "name": "Adelaide Premier Painters",
         "industry": "Painter",
-        "last_contacted": "2026-08-12",
+        "last_contacted": "2026-08-21",
         "suburb": "South Australia"
       },
       {
@@ -345,13 +357,13 @@
       {
         "name": "Diamond Brothers Painting Contractors",
         "industry": "Painter",
-        "last_contacted": "2026-08-18",
+        "last_contacted": "2026-08-21",
         "suburb": "Brisbane, QLD"
       },
       {
         "name": "Upscale Painting & Decorating",
         "industry": "Painter",
-        "last_contacted": "2026-08-12",
+        "last_contacted": "2026-08-21",
         "suburb": "Sydney CBD"
       },
       {
@@ -387,25 +399,25 @@
       {
         "name": "Blue Mountains Painting",
         "industry": "Painter",
-        "last_contacted": "2026-08-18",
+        "last_contacted": "2026-08-21",
         "suburb": "Faulconbridge, Blue Mountains NSW"
       },
       {
         "name": "All Melbourne Painting",
         "industry": "Painter",
-        "last_contacted": "2026-08-14",
+        "last_contacted": "2026-08-21",
         "suburb": "Victoria"
       },
       {
         "name": "Restyle Painting & Decorating",
         "industry": "Painter",
-        "last_contacted": "2026-08-14",
+        "last_contacted": "2026-08-21",
         "suburb": "South Australia"
       },
       {
         "name": "General Painting Contractors",
         "industry": "Painter",
-        "last_contacted": "2026-08-18",
+        "last_contacted": "2026-08-21",
         "suburb": "Kogarah, Sydney NSW"
       },
       {
@@ -417,7 +429,7 @@
       {
         "name": "Painting All Sorts",
         "industry": "Painter",
-        "last_contacted": "2026-08-18",
+        "last_contacted": "2026-08-21",
         "suburb": "Newcastle / Hunter / Central Coast NSW"
       },
       {
@@ -441,73 +453,79 @@
       {
         "name": "Top Painters Adelaide",
         "industry": "Painter",
-        "last_contacted": "2026-08-12",
+        "last_contacted": "2026-08-21",
         "suburb": "South Australia"
       },
       {
         "name": "Austar Painting & Renovations",
         "industry": "Painter",
-        "last_contacted": "2026-08-14",
-        "suburb": "Victoria"
-      },
-      {
-        "name": "Doctor Brush Painting Services",
-        "industry": "Painter",
-        "last_contacted": "2026-08-14",
+        "last_contacted": "2026-08-21",
         "suburb": "Victoria"
       },
       {
         "name": "Paintpal Pty Ltd",
         "industry": "Painter",
-        "last_contacted": "2026-08-12",
+        "last_contacted": "2026-08-21",
         "suburb": "Victoria"
+      },
+      {
+        "name": "Clean Cut Painters",
+        "industry": "Painter",
+        "last_contacted": "2026-08-21",
+        "suburb": "South Australia"
+      },
+      {
+        "name": "OPC Painting",
+        "industry": "Painter",
+        "last_contacted": "2026-08-21",
+        "suburb": "Sydney CBD"
       },
       {
         "name": "Adelaide Designer Painters",
         "industry": "Painter",
-        "last_contacted": "2026-08-14",
+        "last_contacted": "2026-08-21",
         "suburb": "South Australia"
       },
       {
         "name": "Melbourne\u2019s Painting and Decorating",
         "industry": "Painter",
-        "last_contacted": "2026-08-14",
+        "last_contacted": "2026-08-21",
         "suburb": "Victoria"
       },
       {
         "name": "Paint Master",
         "industry": "Painter",
-        "last_contacted": "2026-08-12",
+        "last_contacted": "2026-08-21",
         "suburb": "South Australia"
       },
       {
         "name": "Bayside Painting & Decorating",
         "industry": "Painter",
-        "last_contacted": "2026-08-12",
+        "last_contacted": "2026-08-21",
         "suburb": "Victoria"
       },
       {
         "name": "Tohmes Painting and Cleaning Services",
         "industry": "Painter",
-        "last_contacted": "2026-08-14",
+        "last_contacted": "2026-08-21",
         "suburb": "Victoria"
       },
       {
         "name": "Horizon Coatings",
         "industry": "Painter",
-        "last_contacted": "2026-08-18",
+        "last_contacted": "2026-08-21",
         "suburb": "Sydney NSW"
       },
       {
         "name": "Hunter Coast Painting",
         "industry": "Painter",
-        "last_contacted": "2026-08-18",
+        "last_contacted": "2026-08-21",
         "suburb": "Newcastle NSW"
       },
       {
         "name": "Apex Painters",
         "industry": "Painter",
-        "last_contacted": "2026-08-14",
+        "last_contacted": "2026-08-21",
         "suburb": "South Australia"
       },
       {
@@ -519,7 +537,7 @@
       {
         "name": "More than Painting",
         "industry": "Painter",
-        "last_contacted": "2026-08-14",
+        "last_contacted": "2026-08-21",
         "suburb": "South Australia"
       },
       {
@@ -537,38 +555,50 @@
       {
         "name": "Rise Painters",
         "industry": "Painter",
-        "last_contacted": "2026-08-18",
+        "last_contacted": "2026-08-21",
         "suburb": "Perth, WA"
       },
       {
         "name": "Geelong Painters",
         "industry": "Painter",
-        "last_contacted": "2026-08-12",
+        "last_contacted": "2026-08-21",
         "suburb": "Bannockburn"
+      },
+      {
+        "name": "One Touch Paint",
+        "industry": "Painter",
+        "last_contacted": "2026-08-21",
+        "suburb": "South Australia"
       },
       {
         "name": "Colour Life Painting",
         "industry": "Painter",
-        "last_contacted": "2026-08-12",
+        "last_contacted": "2026-08-21",
         "suburb": "Sydney"
+      },
+      {
+        "name": "Brushworks Painting & Decorating",
+        "industry": "Painter",
+        "last_contacted": "2026-08-21",
+        "suburb": "Sydney Inner West"
       },
       {
         "name": "Kraudelt Painting",
         "industry": "Painter",
-        "last_contacted": "2026-08-18",
+        "last_contacted": "2026-08-21",
         "suburb": "Brisbane & Gold Coast, QLD"
       }
     ],
     "active_by_vertical": {
-      "Painter": 54
+      "Painter": 59
     },
     "messages": {
-      "outbound_total": 45,
+      "outbound_total": 87,
       "inbound_total": 0,
-      "total": 45,
+      "total": 87,
       "reply_rate": 0.0,
       "last_7_days": {
-        "outbound": 26,
+        "outbound": 68,
         "inbound": 0
       }
     },
@@ -578,7 +608,7 @@
       "total_opens": 245,
       "avg_opens": 4.2
     },
-    "last_refreshed": "2026-08-20T18:30:17.619712+00:00"
+    "last_refreshed": "2026-08-20T20:30:21.480899+00:00"
   },
   "decisions": {
     "total": 42,
@@ -4135,18 +4165,18 @@
   },
   "storage_health": {
     "tier": "green",
-    "disk_pct": 42.0,
+    "disk_pct": 42.4,
     "free_gb": 11.3,
-    "why": "state db (1335MB), other hermes (426MB), chrome profile (254MB). Normal system overhead.",
+    "why": "state db (1335MB), other hermes (490MB), chrome profile (254MB). Normal system overhead.",
     "trend": "stable",
-    "daily_rate_pct": 0.13,
-    "forecast_days_to_95": 407.7,
+    "daily_rate_pct": -0.27,
+    "forecast_days_to_95": null,
     "recommendation": "None \u2014 storage is healthy.",
     "largest_consumers": {
       "state_db": 1335.3,
-      "other_hermes": 425.5,
-      "chrome_profile": 254.0
+      "other_hermes": 489.9,
+      "chrome_profile": 254.2
     },
-    "last_checked": "2026-08-21T00:00:03+0930"
+    "last_checked": "2026-08-21T06:00:18+0930"
   }
 }
