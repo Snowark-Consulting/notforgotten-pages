@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-22T00:00:16.447561+09:30",
+  "last_updated": "2026-08-22T00:30:14.510919+09:30",
   "pipeline": {
     "prospect_count": 323,
     "stages": {
@@ -1542,52 +1542,6 @@
         "rank": 11
       },
       {
-        "id": "recfTSN5xfLPimOJd",
-        "business_name": "Synergy IT",
-        "contact_name": "\u2014",
-        "phone": "\u2014",
-        "email": "hello@synergyit.com.au",
-        "industry": "IT MSP",
-        "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 60.5,
-        "confidence": "Low",
-        "ranking_reason": "strong email engagement (11 opens)",
-        "interaction_summary": "Sequence: Email 4 | Opens: 11 | Last contact: 2026-07-22",
-        "potential_objections": [
-          "No phone number on file \u2014 harder to reach"
-        ],
-        "conversation_starter": "'Hi there, James from Not Forgotten. I've been sending some information about automated quote follow-up \u2014 you've opened a few of those. Do you have 5 minutes to chat?'",
-        "recommended_next": "\ud83d\udcde Call This Week \u2014 moderate opportunity",
-        "james_action": "\u2014",
-        "call_outcome": "\u2014",
-        "last_contacted": "2026-07-22",
-        "open_count": 11,
-        "replied": false,
-        "employee_count": "\u2014",
-        "owner_does_quoting": false,
-        "client_probability_score": null,
-        "suburb": "Sydney",
-        "call_date": "",
-        "buying_stage": "",
-        "interest_level": "",
-        "biggest_objection": "",
-        "what_interested_them": "",
-        "next_agreed_action": "",
-        "next_followup_date": "",
-        "has_been_called": false,
-        "buying_signals": [
-          "Strong email engagement (11 opens)"
-        ],
-        "questions_to_ask": [
-          "How do you currently handle follow-up on quotes?",
-          "Roughly how many quotes do you send out each month?",
-          "What would need to be true for Synergy IT to consider automated quote follow-up?",
-          "Have you ever lost a job because the follow-up fell through the cracks?"
-        ],
-        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 12
-      },
-      {
         "id": "recC3AcFIvljfzcg8",
         "business_name": "Quinns Painting & Decorating",
         "contact_name": "Jeremy",
@@ -1631,7 +1585,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 13
+        "rank": 12
       },
       {
         "id": "recF2Q5sxyqUMrztm",
@@ -1677,7 +1631,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 14
+        "rank": 13
       },
       {
         "id": "recGo4k22wrObbdUv",
@@ -1720,6 +1674,52 @@
           "How do you currently handle follow-up on quotes?",
           "Roughly how many quotes do you send out each month?",
           "What would need to be true for Martino Painters to consider automated quote follow-up?",
+          "Have you ever lost a job because the follow-up fell through the cracks?"
+        ],
+        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
+        "rank": 14
+      },
+      {
+        "id": "recfTSN5xfLPimOJd",
+        "business_name": "Synergy IT",
+        "contact_name": "\u2014",
+        "phone": "\u2014",
+        "email": "hello@synergyit.com.au",
+        "industry": "IT MSP",
+        "pipeline_stage": "Campaign Complete",
+        "opportunity_score": 59.5,
+        "confidence": "Low",
+        "ranking_reason": "strong email engagement (11 opens)",
+        "interaction_summary": "Sequence: Email 4 | Opens: 11 | Last contact: 2026-07-22",
+        "potential_objections": [
+          "No phone number on file \u2014 harder to reach"
+        ],
+        "conversation_starter": "'Hi there, James from Not Forgotten. I've been sending some information about automated quote follow-up \u2014 you've opened a few of those. Do you have 5 minutes to chat?'",
+        "recommended_next": "\ud83d\udcde Call This Week \u2014 moderate opportunity",
+        "james_action": "\u2014",
+        "call_outcome": "\u2014",
+        "last_contacted": "2026-07-22",
+        "open_count": 11,
+        "replied": false,
+        "employee_count": "\u2014",
+        "owner_does_quoting": false,
+        "client_probability_score": null,
+        "suburb": "Sydney",
+        "call_date": "",
+        "buying_stage": "",
+        "interest_level": "",
+        "biggest_objection": "",
+        "what_interested_them": "",
+        "next_agreed_action": "",
+        "next_followup_date": "",
+        "has_been_called": false,
+        "buying_signals": [
+          "Strong email engagement (11 opens)"
+        ],
+        "questions_to_ask": [
+          "How do you currently handle follow-up on quotes?",
+          "Roughly how many quotes do you send out each month?",
+          "What would need to be true for Synergy IT to consider automated quote follow-up?",
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
@@ -2140,98 +2140,6 @@
         "rank": 24
       },
       {
-        "id": "rec8VPF2KvFKGAyUf",
-        "business_name": "Whistle Clean Australia",
-        "contact_name": "Ivan",
-        "phone": "03 7003 2223",
-        "email": "hello@whistlecleanaustralia.com.au",
-        "industry": "Commercial cleaning",
-        "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 54.0,
-        "confidence": "Low",
-        "ranking_reason": "some email engagement (3 opens); phone number available",
-        "interaction_summary": "Sequence: Email 4 | Opens: 3 | Last contact: 2026-07-22",
-        "potential_objections": [
-          "Standard: timing, budget, 'we're too busy right now'"
-        ],
-        "conversation_starter": "'Hi Ivan, James Hardstaff from Not Forgotten. Wondering if you've had a chance to look at the info I sent about quote follow-up automation.'",
-        "recommended_next": "\ud83d\udce7 Send Personal Email \u2014 test engagement before calling",
-        "james_action": "\u2014",
-        "call_outcome": "\u2014",
-        "last_contacted": "2026-07-22",
-        "open_count": 3,
-        "replied": false,
-        "employee_count": "\u2014",
-        "owner_does_quoting": false,
-        "client_probability_score": null,
-        "suburb": "MELBOURNE",
-        "call_date": "",
-        "buying_stage": "",
-        "interest_level": "",
-        "biggest_objection": "",
-        "what_interested_them": "",
-        "next_agreed_action": "",
-        "next_followup_date": "",
-        "has_been_called": false,
-        "buying_signals": [
-          "No strong signals yet \u2014 first contact exploration"
-        ],
-        "questions_to_ask": [
-          "How do you currently handle follow-up on quotes?",
-          "Roughly how many quotes do you send out each month?",
-          "What would need to be true for Whistle Clean Australia to consider automated quote follow-up?",
-          "Have you ever lost a job because the follow-up fell through the cracks?"
-        ],
-        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 25
-      },
-      {
-        "id": "recEhksFt7eHzzJmB",
-        "business_name": "Beem Cleaners",
-        "contact_name": "Stefany",
-        "phone": "03 9989 9914",
-        "email": "stefany@beemcleaners.com.au",
-        "industry": "Commercial cleaning",
-        "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 54.0,
-        "confidence": "Low",
-        "ranking_reason": "some email engagement (3 opens); phone number available",
-        "interaction_summary": "Sequence: Email 4 | Opens: 3 | Last contact: 2026-07-22",
-        "potential_objections": [
-          "Standard: timing, budget, 'we're too busy right now'"
-        ],
-        "conversation_starter": "'Hi Stefany, James Hardstaff from Not Forgotten. Wondering if you've had a chance to look at the info I sent about quote follow-up automation.'",
-        "recommended_next": "\ud83d\udce7 Send Personal Email \u2014 test engagement before calling",
-        "james_action": "\u2014",
-        "call_outcome": "\u2014",
-        "last_contacted": "2026-07-22",
-        "open_count": 3,
-        "replied": false,
-        "employee_count": "\u2014",
-        "owner_does_quoting": false,
-        "client_probability_score": null,
-        "suburb": "MELBOURNE",
-        "call_date": "",
-        "buying_stage": "",
-        "interest_level": "",
-        "biggest_objection": "",
-        "what_interested_them": "",
-        "next_agreed_action": "",
-        "next_followup_date": "",
-        "has_been_called": false,
-        "buying_signals": [
-          "No strong signals yet \u2014 first contact exploration"
-        ],
-        "questions_to_ask": [
-          "How do you currently handle follow-up on quotes?",
-          "Roughly how many quotes do you send out each month?",
-          "What would need to be true for Beem Cleaners to consider automated quote follow-up?",
-          "Have you ever lost a job because the follow-up fell through the cracks?"
-        ],
-        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 26
-      },
-      {
         "id": "recEjq7wtWJj8FL1m",
         "business_name": "Freshy Painters",
         "contact_name": "\u2014",
@@ -2275,53 +2183,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 27
-      },
-      {
-        "id": "recUPWdimlTmzu6YX",
-        "business_name": "In Tec Commercial Cleaning",
-        "contact_name": "Paul",
-        "phone": "0403 368 650",
-        "email": "paul@in-tec.com.au",
-        "industry": "Commercial cleaning",
-        "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 54.0,
-        "confidence": "Low",
-        "ranking_reason": "some email engagement (3 opens); phone number available",
-        "interaction_summary": "Sequence: Email 4 | Opens: 3 | Last contact: 2026-07-22",
-        "potential_objections": [
-          "Standard: timing, budget, 'we're too busy right now'"
-        ],
-        "conversation_starter": "'Hi Paul, James Hardstaff from Not Forgotten. Wondering if you've had a chance to look at the info I sent about quote follow-up automation.'",
-        "recommended_next": "\ud83d\udce7 Send Personal Email \u2014 test engagement before calling",
-        "james_action": "\u2014",
-        "call_outcome": "\u2014",
-        "last_contacted": "2026-07-22",
-        "open_count": 3,
-        "replied": false,
-        "employee_count": "\u2014",
-        "owner_does_quoting": false,
-        "client_probability_score": null,
-        "suburb": "BRISBANE",
-        "call_date": "",
-        "buying_stage": "",
-        "interest_level": "",
-        "biggest_objection": "",
-        "what_interested_them": "",
-        "next_agreed_action": "",
-        "next_followup_date": "",
-        "has_been_called": false,
-        "buying_signals": [
-          "No strong signals yet \u2014 first contact exploration"
-        ],
-        "questions_to_ask": [
-          "How do you currently handle follow-up on quotes?",
-          "Roughly how many quotes do you send out each month?",
-          "What would need to be true for In Tec Commercial Cleaning to consider automated quote follow-up?",
-          "Have you ever lost a job because the follow-up fell through the cracks?"
-        ],
-        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 28
+        "rank": 25
       },
       {
         "id": "reccrDzBsi5ejiyuF",
@@ -2364,6 +2226,144 @@
           "How do you currently handle follow-up on quotes?",
           "Roughly how many quotes do you send out each month?",
           "What would need to be true for North Side Painters to consider automated quote follow-up?",
+          "Have you ever lost a job because the follow-up fell through the cracks?"
+        ],
+        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
+        "rank": 26
+      },
+      {
+        "id": "rec8VPF2KvFKGAyUf",
+        "business_name": "Whistle Clean Australia",
+        "contact_name": "Ivan",
+        "phone": "03 7003 2223",
+        "email": "hello@whistlecleanaustralia.com.au",
+        "industry": "Commercial cleaning",
+        "pipeline_stage": "Campaign Complete",
+        "opportunity_score": 53.0,
+        "confidence": "Low",
+        "ranking_reason": "some email engagement (3 opens); phone number available",
+        "interaction_summary": "Sequence: Email 4 | Opens: 3 | Last contact: 2026-07-22",
+        "potential_objections": [
+          "Standard: timing, budget, 'we're too busy right now'"
+        ],
+        "conversation_starter": "'Hi Ivan, James Hardstaff from Not Forgotten. Wondering if you've had a chance to look at the info I sent about quote follow-up automation.'",
+        "recommended_next": "\ud83d\udce7 Send Personal Email \u2014 test engagement before calling",
+        "james_action": "\u2014",
+        "call_outcome": "\u2014",
+        "last_contacted": "2026-07-22",
+        "open_count": 3,
+        "replied": false,
+        "employee_count": "\u2014",
+        "owner_does_quoting": false,
+        "client_probability_score": null,
+        "suburb": "MELBOURNE",
+        "call_date": "",
+        "buying_stage": "",
+        "interest_level": "",
+        "biggest_objection": "",
+        "what_interested_them": "",
+        "next_agreed_action": "",
+        "next_followup_date": "",
+        "has_been_called": false,
+        "buying_signals": [
+          "No strong signals yet \u2014 first contact exploration"
+        ],
+        "questions_to_ask": [
+          "How do you currently handle follow-up on quotes?",
+          "Roughly how many quotes do you send out each month?",
+          "What would need to be true for Whistle Clean Australia to consider automated quote follow-up?",
+          "Have you ever lost a job because the follow-up fell through the cracks?"
+        ],
+        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
+        "rank": 27
+      },
+      {
+        "id": "recEhksFt7eHzzJmB",
+        "business_name": "Beem Cleaners",
+        "contact_name": "Stefany",
+        "phone": "03 9989 9914",
+        "email": "stefany@beemcleaners.com.au",
+        "industry": "Commercial cleaning",
+        "pipeline_stage": "Campaign Complete",
+        "opportunity_score": 53.0,
+        "confidence": "Low",
+        "ranking_reason": "some email engagement (3 opens); phone number available",
+        "interaction_summary": "Sequence: Email 4 | Opens: 3 | Last contact: 2026-07-22",
+        "potential_objections": [
+          "Standard: timing, budget, 'we're too busy right now'"
+        ],
+        "conversation_starter": "'Hi Stefany, James Hardstaff from Not Forgotten. Wondering if you've had a chance to look at the info I sent about quote follow-up automation.'",
+        "recommended_next": "\ud83d\udce7 Send Personal Email \u2014 test engagement before calling",
+        "james_action": "\u2014",
+        "call_outcome": "\u2014",
+        "last_contacted": "2026-07-22",
+        "open_count": 3,
+        "replied": false,
+        "employee_count": "\u2014",
+        "owner_does_quoting": false,
+        "client_probability_score": null,
+        "suburb": "MELBOURNE",
+        "call_date": "",
+        "buying_stage": "",
+        "interest_level": "",
+        "biggest_objection": "",
+        "what_interested_them": "",
+        "next_agreed_action": "",
+        "next_followup_date": "",
+        "has_been_called": false,
+        "buying_signals": [
+          "No strong signals yet \u2014 first contact exploration"
+        ],
+        "questions_to_ask": [
+          "How do you currently handle follow-up on quotes?",
+          "Roughly how many quotes do you send out each month?",
+          "What would need to be true for Beem Cleaners to consider automated quote follow-up?",
+          "Have you ever lost a job because the follow-up fell through the cracks?"
+        ],
+        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
+        "rank": 28
+      },
+      {
+        "id": "recUPWdimlTmzu6YX",
+        "business_name": "In Tec Commercial Cleaning",
+        "contact_name": "Paul",
+        "phone": "0403 368 650",
+        "email": "paul@in-tec.com.au",
+        "industry": "Commercial cleaning",
+        "pipeline_stage": "Campaign Complete",
+        "opportunity_score": 53.0,
+        "confidence": "Low",
+        "ranking_reason": "some email engagement (3 opens); phone number available",
+        "interaction_summary": "Sequence: Email 4 | Opens: 3 | Last contact: 2026-07-22",
+        "potential_objections": [
+          "Standard: timing, budget, 'we're too busy right now'"
+        ],
+        "conversation_starter": "'Hi Paul, James Hardstaff from Not Forgotten. Wondering if you've had a chance to look at the info I sent about quote follow-up automation.'",
+        "recommended_next": "\ud83d\udce7 Send Personal Email \u2014 test engagement before calling",
+        "james_action": "\u2014",
+        "call_outcome": "\u2014",
+        "last_contacted": "2026-07-22",
+        "open_count": 3,
+        "replied": false,
+        "employee_count": "\u2014",
+        "owner_does_quoting": false,
+        "client_probability_score": null,
+        "suburb": "BRISBANE",
+        "call_date": "",
+        "buying_stage": "",
+        "interest_level": "",
+        "biggest_objection": "",
+        "what_interested_them": "",
+        "next_agreed_action": "",
+        "next_followup_date": "",
+        "has_been_called": false,
+        "buying_signals": [
+          "No strong signals yet \u2014 first contact exploration"
+        ],
+        "questions_to_ask": [
+          "How do you currently handle follow-up on quotes?",
+          "Roughly how many quotes do you send out each month?",
+          "What would need to be true for In Tec Commercial Cleaning to consider automated quote follow-up?",
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
@@ -2784,52 +2784,6 @@
         "rank": 38
       },
       {
-        "id": "recBZvoNgd8SdHazG",
-        "business_name": "Parkview Constructions",
-        "contact_name": "\u2014",
-        "phone": "\u2014",
-        "email": "enquiries@parkview.com.au",
-        "industry": "Construction",
-        "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 50.0,
-        "confidence": "Low",
-        "ranking_reason": "some email engagement (4 opens)",
-        "interaction_summary": "Sequence: Email 4 | Opens: 4 | Last contact: 2026-07-22",
-        "potential_objections": [
-          "No phone number on file \u2014 harder to reach"
-        ],
-        "conversation_starter": "'Hi there, James Hardstaff from Not Forgotten. Wondering if you've had a chance to look at the info I sent about quote follow-up automation.'",
-        "recommended_next": "\ud83d\udce7 Send Personal Email \u2014 test engagement before calling",
-        "james_action": "\u2014",
-        "call_outcome": "\u2014",
-        "last_contacted": "2026-07-22",
-        "open_count": 4,
-        "replied": false,
-        "employee_count": "\u2014",
-        "owner_does_quoting": false,
-        "client_probability_score": null,
-        "suburb": "Sydney",
-        "call_date": "",
-        "buying_stage": "",
-        "interest_level": "",
-        "biggest_objection": "",
-        "what_interested_them": "",
-        "next_agreed_action": "",
-        "next_followup_date": "",
-        "has_been_called": false,
-        "buying_signals": [
-          "No strong signals yet \u2014 first contact exploration"
-        ],
-        "questions_to_ask": [
-          "How do you currently handle follow-up on quotes?",
-          "Roughly how many quotes do you send out each month?",
-          "What would need to be true for Parkview Constructions to consider automated quote follow-up?",
-          "Have you ever lost a job because the follow-up fell through the cracks?"
-        ],
-        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 39
-      },
-      {
         "id": "recGlsgwaNZw8KFGc",
         "business_name": "Orchid House Painters",
         "contact_name": "\u2014",
@@ -2873,53 +2827,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 40
-      },
-      {
-        "id": "recKdpNQ8ONYjR8kX",
-        "business_name": "Cleaning & Caretaking Corp",
-        "contact_name": "Bill",
-        "phone": "02 2730 3742",
-        "email": "admin@commercialcleaning.com.au",
-        "industry": "Commercial cleaning",
-        "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 50.0,
-        "confidence": "Low",
-        "ranking_reason": "phone number available",
-        "interaction_summary": "Sequence: Email 4 | Opens: 1 | Last contact: 2026-07-22",
-        "potential_objections": [
-          "Standard: timing, budget, 'we're too busy right now'"
-        ],
-        "conversation_starter": "'Hi Bill, James Hardstaff here. Quick question: how many quotes does Cleaning & Caretaking Corp send each week, and what's your process for following them up?'",
-        "recommended_next": "\ud83d\udce7 Send Personal Email \u2014 test engagement before calling",
-        "james_action": "\u2014",
-        "call_outcome": "\u2014",
-        "last_contacted": "2026-07-22",
-        "open_count": 1,
-        "replied": false,
-        "employee_count": "\u2014",
-        "owner_does_quoting": false,
-        "client_probability_score": null,
-        "suburb": "SYDNEY",
-        "call_date": "",
-        "buying_stage": "",
-        "interest_level": "",
-        "biggest_objection": "",
-        "what_interested_them": "",
-        "next_agreed_action": "",
-        "next_followup_date": "",
-        "has_been_called": false,
-        "buying_signals": [
-          "No strong signals yet \u2014 first contact exploration"
-        ],
-        "questions_to_ask": [
-          "How do you currently handle follow-up on quotes?",
-          "Roughly how many quotes do you send out each month?",
-          "What would need to be true for Cleaning & Caretaking Corp to consider automated quote follow-up?",
-          "Have you ever lost a job because the follow-up fell through the cracks?"
-        ],
-        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 41
+        "rank": 39
       },
       {
         "id": "recLiJZi7gfwVYVxv",
@@ -2965,7 +2873,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 42
+        "rank": 40
       },
       {
         "id": "recOMbtTypvxv93jv",
@@ -3011,7 +2919,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 43
+        "rank": 41
       },
       {
         "id": "recjycaAF6ZXcfWBh",
@@ -3057,7 +2965,7 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 44
+        "rank": 42
       },
       {
         "id": "reclmZTrURJOTdi5w",
@@ -3103,6 +3011,98 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
+        "rank": 43
+      },
+      {
+        "id": "recBZvoNgd8SdHazG",
+        "business_name": "Parkview Constructions",
+        "contact_name": "\u2014",
+        "phone": "\u2014",
+        "email": "enquiries@parkview.com.au",
+        "industry": "Construction",
+        "pipeline_stage": "Campaign Complete",
+        "opportunity_score": 49.0,
+        "confidence": "Low",
+        "ranking_reason": "some email engagement (4 opens)",
+        "interaction_summary": "Sequence: Email 4 | Opens: 4 | Last contact: 2026-07-22",
+        "potential_objections": [
+          "No phone number on file \u2014 harder to reach"
+        ],
+        "conversation_starter": "'Hi there, James Hardstaff from Not Forgotten. Wondering if you've had a chance to look at the info I sent about quote follow-up automation.'",
+        "recommended_next": "\ud83d\udce7 Send Personal Email \u2014 test engagement before calling",
+        "james_action": "\u2014",
+        "call_outcome": "\u2014",
+        "last_contacted": "2026-07-22",
+        "open_count": 4,
+        "replied": false,
+        "employee_count": "\u2014",
+        "owner_does_quoting": false,
+        "client_probability_score": null,
+        "suburb": "Sydney",
+        "call_date": "",
+        "buying_stage": "",
+        "interest_level": "",
+        "biggest_objection": "",
+        "what_interested_them": "",
+        "next_agreed_action": "",
+        "next_followup_date": "",
+        "has_been_called": false,
+        "buying_signals": [
+          "No strong signals yet \u2014 first contact exploration"
+        ],
+        "questions_to_ask": [
+          "How do you currently handle follow-up on quotes?",
+          "Roughly how many quotes do you send out each month?",
+          "What would need to be true for Parkview Constructions to consider automated quote follow-up?",
+          "Have you ever lost a job because the follow-up fell through the cracks?"
+        ],
+        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
+        "rank": 44
+      },
+      {
+        "id": "recKdpNQ8ONYjR8kX",
+        "business_name": "Cleaning & Caretaking Corp",
+        "contact_name": "Bill",
+        "phone": "02 2730 3742",
+        "email": "admin@commercialcleaning.com.au",
+        "industry": "Commercial cleaning",
+        "pipeline_stage": "Campaign Complete",
+        "opportunity_score": 49.0,
+        "confidence": "Low",
+        "ranking_reason": "phone number available",
+        "interaction_summary": "Sequence: Email 4 | Opens: 1 | Last contact: 2026-07-22",
+        "potential_objections": [
+          "Standard: timing, budget, 'we're too busy right now'"
+        ],
+        "conversation_starter": "'Hi Bill, James Hardstaff here. Quick question: how many quotes does Cleaning & Caretaking Corp send each week, and what's your process for following them up?'",
+        "recommended_next": "\ud83d\udce7 Send Personal Email \u2014 test engagement before calling",
+        "james_action": "\u2014",
+        "call_outcome": "\u2014",
+        "last_contacted": "2026-07-22",
+        "open_count": 1,
+        "replied": false,
+        "employee_count": "\u2014",
+        "owner_does_quoting": false,
+        "client_probability_score": null,
+        "suburb": "SYDNEY",
+        "call_date": "",
+        "buying_stage": "",
+        "interest_level": "",
+        "biggest_objection": "",
+        "what_interested_them": "",
+        "next_agreed_action": "",
+        "next_followup_date": "",
+        "has_been_called": false,
+        "buying_signals": [
+          "No strong signals yet \u2014 first contact exploration"
+        ],
+        "questions_to_ask": [
+          "How do you currently handle follow-up on quotes?",
+          "Roughly how many quotes do you send out each month?",
+          "What would need to be true for Cleaning & Caretaking Corp to consider automated quote follow-up?",
+          "Have you ever lost a job because the follow-up fell through the cracks?"
+        ],
+        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
         "rank": 45
       },
       {
@@ -3113,7 +3113,7 @@
         "email": "projects@kapitol.com",
         "industry": "Construction",
         "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 50.0,
+        "opportunity_score": 49.0,
         "confidence": "Low",
         "ranking_reason": "some email engagement (4 opens)",
         "interaction_summary": "Sequence: Email 4 | Opens: 4 | Last contact: 2026-07-22",
@@ -3159,7 +3159,7 @@
         "email": "engage@klyp.co",
         "industry": "Marketing agency",
         "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 49.8,
+        "opportunity_score": 48.8,
         "confidence": "Low",
         "ranking_reason": "strong email engagement (5 opens)",
         "interaction_summary": "Sequence: Email 4 | Opens: 5 | Last contact: 2026-07-22",
@@ -3205,7 +3205,7 @@
         "email": "hello@simple.com.au",
         "industry": "Marketing agency",
         "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 49.8,
+        "opportunity_score": 48.8,
         "confidence": "Low",
         "ranking_reason": "strong email engagement (5 opens)",
         "interaction_summary": "Sequence: Email 4 | Opens: 5 | Last contact: 2026-07-22",
@@ -3251,7 +3251,7 @@
         "email": "enquiries@nextandco.com.au",
         "industry": "Marketing agency",
         "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 49.2,
+        "opportunity_score": 48.2,
         "confidence": "Low",
         "ranking_reason": "some email engagement (3 opens); phone number available",
         "interaction_summary": "Sequence: Email 4 | Opens: 3 | Last contact: 2026-07-22",
@@ -3297,7 +3297,7 @@
         "email": "hello@excelcleaning.com.au",
         "industry": "Cleaning",
         "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 49.2,
+        "opportunity_score": 48.2,
         "confidence": "Low",
         "ranking_reason": "some email engagement (4 opens)",
         "interaction_summary": "Sequence: Email 4 | Opens: 4 | Last contact: 2026-07-22",
@@ -3343,7 +3343,7 @@
         "email": "admin@dcenviro.com.au",
         "industry": "Commercial cleaning",
         "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 48.0,
+        "opportunity_score": 47.0,
         "confidence": "Low",
         "ranking_reason": "phone number available",
         "interaction_summary": "Sequence: Email 4 | Last contact: 2026-07-22",
@@ -3389,7 +3389,7 @@
         "email": "admin@seomarketer.com.au",
         "industry": "Marketing agency",
         "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 47.8,
+        "opportunity_score": 46.8,
         "confidence": "Low",
         "ranking_reason": "phone number available",
         "interaction_summary": "Sequence: Email 4 | Opens: 1 | Last contact: 2026-07-22",
@@ -3435,7 +3435,7 @@
         "email": "hello@beaumontpeople.com.au",
         "industry": "B2B Services",
         "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 47.0,
+        "opportunity_score": 46.0,
         "confidence": "Low",
         "ranking_reason": "some email engagement (4 opens)",
         "interaction_summary": "Sequence: Email 4 | Opens: 4 | Last contact: 2026-07-22",
@@ -3481,7 +3481,7 @@
         "email": "sales@netlogyx.com.au",
         "industry": "IT MSP",
         "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 46.5,
+        "opportunity_score": 45.5,
         "confidence": "Low",
         "ranking_reason": "some email engagement (3 opens)",
         "interaction_summary": "Sequence: Email 4 | Opens: 3 | Last contact: 2026-07-22",
@@ -3527,7 +3527,7 @@
         "email": "sydney@gsquared.com.au",
         "industry": "Marketing agency",
         "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 46.2,
+        "opportunity_score": 45.2,
         "confidence": "Low",
         "ranking_reason": "some email engagement (2 opens)",
         "interaction_summary": "Sequence: Email 4 | Opens: 2 | Last contact: 2026-07-22",
@@ -3564,98 +3564,6 @@
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
         "rank": 55
-      },
-      {
-        "id": "recoFXdlr33ayOh71",
-        "business_name": "Performance Cleaning",
-        "contact_name": "\u2014",
-        "phone": "1300 867 872",
-        "email": "info@performancegroup.com.au",
-        "industry": "Commercial cleaning",
-        "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 45.5,
-        "confidence": "Low",
-        "ranking_reason": "phone number available",
-        "interaction_summary": "Sequence: Email 4 | Last contact: 2026-07-22",
-        "potential_objections": [
-          "Hasn't opened any emails \u2014 may not be aware of us at all"
-        ],
-        "conversation_starter": "'Hi there, James Hardstaff here. Quick question: how many quotes does Performance Cleaning send each week, and what's your process for following them up?'",
-        "recommended_next": "\ud83d\udce7 Send Personal Email \u2014 test engagement before calling",
-        "james_action": "\u2014",
-        "call_outcome": "\u2014",
-        "last_contacted": "2026-07-22",
-        "open_count": null,
-        "replied": false,
-        "employee_count": "\u2014",
-        "owner_does_quoting": false,
-        "client_probability_score": null,
-        "suburb": "MELBOURNE",
-        "call_date": "",
-        "buying_stage": "",
-        "interest_level": "",
-        "biggest_objection": "",
-        "what_interested_them": "",
-        "next_agreed_action": "",
-        "next_followup_date": "",
-        "has_been_called": false,
-        "buying_signals": [
-          "No strong signals yet \u2014 first contact exploration"
-        ],
-        "questions_to_ask": [
-          "How do you currently handle follow-up on quotes?",
-          "Roughly how many quotes do you send out each month?",
-          "What would need to be true for Performance Cleaning to consider automated quote follow-up?",
-          "Have you ever lost a job because the follow-up fell through the cracks?"
-        ],
-        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 56
-      },
-      {
-        "id": "recpbkP8sp1oJRnve",
-        "business_name": "Click Click Media",
-        "contact_name": "\u2014",
-        "phone": "1300 781 961",
-        "email": "service@clickclickmedia.com.au",
-        "industry": "Marketing agency",
-        "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 45.2,
-        "confidence": "Low",
-        "ranking_reason": "phone number available",
-        "interaction_summary": "Sequence: Email 4 | Opens: 1 | Last contact: 2026-07-22",
-        "potential_objections": [
-          "Standard: timing, budget, 'we're too busy right now'"
-        ],
-        "conversation_starter": "'Hi there, James Hardstaff here. Quick question: how many quotes does Click Click Media send each week, and what's your process for following them up?'",
-        "recommended_next": "\ud83d\udce7 Send Personal Email \u2014 test engagement before calling",
-        "james_action": "\u2014",
-        "call_outcome": "\u2014",
-        "last_contacted": "2026-07-22",
-        "open_count": 1,
-        "replied": false,
-        "employee_count": "\u2014",
-        "owner_does_quoting": false,
-        "client_probability_score": null,
-        "suburb": "Sydney",
-        "call_date": "",
-        "buying_stage": "",
-        "interest_level": "",
-        "biggest_objection": "",
-        "what_interested_them": "",
-        "next_agreed_action": "",
-        "next_followup_date": "",
-        "has_been_called": false,
-        "buying_signals": [
-          "No strong signals yet \u2014 first contact exploration"
-        ],
-        "questions_to_ask": [
-          "How do you currently handle follow-up on quotes?",
-          "Roughly how many quotes do you send out each month?",
-          "What would need to be true for Click Click Media to consider automated quote follow-up?",
-          "Have you ever lost a job because the follow-up fell through the cracks?"
-        ],
-        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
-        "rank": 57
       },
       {
         "id": "recAxo1irXJ75oSp0",
@@ -3702,6 +3610,98 @@
           "Have you ever lost a job because the follow-up fell through the cracks?"
         ],
         "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
+        "rank": 56
+      },
+      {
+        "id": "recoFXdlr33ayOh71",
+        "business_name": "Performance Cleaning",
+        "contact_name": "\u2014",
+        "phone": "1300 867 872",
+        "email": "info@performancegroup.com.au",
+        "industry": "Commercial cleaning",
+        "pipeline_stage": "Campaign Complete",
+        "opportunity_score": 44.5,
+        "confidence": "Low",
+        "ranking_reason": "phone number available",
+        "interaction_summary": "Sequence: Email 4 | Last contact: 2026-07-22",
+        "potential_objections": [
+          "Hasn't opened any emails \u2014 may not be aware of us at all"
+        ],
+        "conversation_starter": "'Hi there, James Hardstaff here. Quick question: how many quotes does Performance Cleaning send each week, and what's your process for following them up?'",
+        "recommended_next": "\ud83d\udce7 Send Personal Email \u2014 test engagement before calling",
+        "james_action": "\u2014",
+        "call_outcome": "\u2014",
+        "last_contacted": "2026-07-22",
+        "open_count": null,
+        "replied": false,
+        "employee_count": "\u2014",
+        "owner_does_quoting": false,
+        "client_probability_score": null,
+        "suburb": "MELBOURNE",
+        "call_date": "",
+        "buying_stage": "",
+        "interest_level": "",
+        "biggest_objection": "",
+        "what_interested_them": "",
+        "next_agreed_action": "",
+        "next_followup_date": "",
+        "has_been_called": false,
+        "buying_signals": [
+          "No strong signals yet \u2014 first contact exploration"
+        ],
+        "questions_to_ask": [
+          "How do you currently handle follow-up on quotes?",
+          "Roughly how many quotes do you send out each month?",
+          "What would need to be true for Performance Cleaning to consider automated quote follow-up?",
+          "Have you ever lost a job because the follow-up fell through the cracks?"
+        ],
+        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
+        "rank": 57
+      },
+      {
+        "id": "recpbkP8sp1oJRnve",
+        "business_name": "Click Click Media",
+        "contact_name": "\u2014",
+        "phone": "1300 781 961",
+        "email": "service@clickclickmedia.com.au",
+        "industry": "Marketing agency",
+        "pipeline_stage": "Campaign Complete",
+        "opportunity_score": 44.2,
+        "confidence": "Low",
+        "ranking_reason": "phone number available",
+        "interaction_summary": "Sequence: Email 4 | Opens: 1 | Last contact: 2026-07-22",
+        "potential_objections": [
+          "Standard: timing, budget, 'we're too busy right now'"
+        ],
+        "conversation_starter": "'Hi there, James Hardstaff here. Quick question: how many quotes does Click Click Media send each week, and what's your process for following them up?'",
+        "recommended_next": "\ud83d\udce7 Send Personal Email \u2014 test engagement before calling",
+        "james_action": "\u2014",
+        "call_outcome": "\u2014",
+        "last_contacted": "2026-07-22",
+        "open_count": 1,
+        "replied": false,
+        "employee_count": "\u2014",
+        "owner_does_quoting": false,
+        "client_probability_score": null,
+        "suburb": "Sydney",
+        "call_date": "",
+        "buying_stage": "",
+        "interest_level": "",
+        "biggest_objection": "",
+        "what_interested_them": "",
+        "next_agreed_action": "",
+        "next_followup_date": "",
+        "has_been_called": false,
+        "buying_signals": [
+          "No strong signals yet \u2014 first contact exploration"
+        ],
+        "questions_to_ask": [
+          "How do you currently handle follow-up on quotes?",
+          "Roughly how many quotes do you send out each month?",
+          "What would need to be true for Click Click Media to consider automated quote follow-up?",
+          "Have you ever lost a job because the follow-up fell through the cracks?"
+        ],
+        "call_objective": "First contact \u2014 introduce yourself, understand their business, and gauge interest in quote follow-up automation",
         "rank": 58
       },
       {
@@ -3712,7 +3712,7 @@
         "email": "allseasons34@gmail.com",
         "industry": "Landscaper",
         "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 42.8,
+        "opportunity_score": 41.8,
         "confidence": "Low",
         "ranking_reason": "limited signals \u2014 needs human assessment",
         "interaction_summary": "Sequence: Email 4 | Last contact: 2026-07-22",
@@ -3759,7 +3759,7 @@
         "email": "hello@safaridigital.com.au",
         "industry": "Marketing agency",
         "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 42.2,
+        "opportunity_score": 41.2,
         "confidence": "Low",
         "ranking_reason": "limited signals \u2014 needs human assessment",
         "interaction_summary": "Sequence: Email 4 | Last contact: 2026-07-22",
@@ -3806,7 +3806,7 @@
         "email": "info@marketingeye.com.au",
         "industry": "Marketing agency",
         "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 42.2,
+        "opportunity_score": 41.2,
         "confidence": "Low",
         "ranking_reason": "limited signals \u2014 needs human assessment",
         "interaction_summary": "Sequence: Email 4 | Last contact: 2026-07-22",
@@ -3853,7 +3853,7 @@
         "email": "hello@atcom.technology",
         "industry": "IT MSP",
         "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 40.5,
+        "opportunity_score": 39.5,
         "confidence": "Low",
         "ranking_reason": "limited signals \u2014 needs human assessment",
         "interaction_summary": "Sequence: Email 4 | Last contact: 2026-07-22",
@@ -3900,7 +3900,7 @@
         "email": "admin@matrixgroup.net.au",
         "industry": "Engineering",
         "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 39.8,
+        "opportunity_score": 38.8,
         "confidence": "Low",
         "ranking_reason": "limited signals \u2014 needs human assessment",
         "interaction_summary": "Sequence: Email 4 | Last contact: 2026-07-22",
@@ -3947,7 +3947,7 @@
         "email": "info@davidsonwp.com",
         "industry": "B2B Services",
         "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 39.0,
+        "opportunity_score": 38.0,
         "confidence": "Low",
         "ranking_reason": "limited signals \u2014 needs human assessment",
         "interaction_summary": "Sequence: Email 4 | Last contact: 2026-07-22",
@@ -4040,7 +4040,7 @@
       "actionable": 43,
       "ready_to_call": 42,
       "called_count": 1,
-      "generated": "2026-08-21T22:30:10.472319+09:30"
+      "generated": "2026-08-22T00:30:14.510919+09:30"
     }
   },
   "storage_health": {
