@@ -164,16 +164,17 @@
       }
     ]
   },
-  "last_updated": "2026-08-21T12:30:27.898029+09:30",
+  "last_updated": "2026-08-21T14:00:30.789862+09:30",
   "pipeline": {
     "prospect_count": 323,
     "stages": {
       "New": 174,
       "Campaign Complete": 65,
-      "Outreach Active": 59,
+      "Outreach Active": 58,
       "Won": 1,
       "Lost": 17,
       "Not a fit": 5,
+      "Engaged": 1,
       "Qualified Opportunity": 1,
       "Contacted": 1
     },
@@ -212,7 +213,7 @@
         "Cleaning": 1
       },
       "Outreach Active": {
-        "Painter": 59
+        "Painter": 58
       },
       "Won": {
         "Painter": 1
@@ -225,6 +226,9 @@
       },
       "Not a fit": {
         "Painter": 5
+      },
+      "Engaged": {
+        "Painter": 1
       },
       "Qualified Opportunity": {
         "Painter": 1
@@ -257,12 +261,6 @@
         "industry": "Painter",
         "last_contacted": "2026-08-21",
         "suburb": "South Australia"
-      },
-      {
-        "name": "Inspire Painting",
-        "industry": "Painter",
-        "last_contacted": "2026-08-21",
-        "suburb": "Victoria"
       },
       {
         "name": "The Painting Company",
@@ -590,7 +588,7 @@
       }
     ],
     "active_by_vertical": {
-      "Painter": 59
+      "Painter": 58
     },
     "messages": {
       "outbound_total": 87,
@@ -608,7 +606,7 @@
       "total_opens": 245,
       "avg_opens": 4.2
     },
-    "last_refreshed": "2026-08-21T02:30:30.996549+00:00"
+    "last_refreshed": "2026-08-21T04:30:30.788401+00:00"
   },
   "decisions": {
     "total": 42,
