@@ -13,7 +13,7 @@ tier: primary
 - **Airtable PAT** — `.env` AIRTABLE_API_KEY, `.airtable_pat`, `/tmp/at_key.txt` (LIVE prod dep, not disposable). canonical-send reads `.env`. `[high]`
 - **Airtable tables** — Base `appgw8Q993yOh4xpQ`. Prospects `tblceVflumXdl23JJ`, Clients `tbldt1bS2DfbQqyEi`, QPaint Pipeline `tblHPx8o6qp81e60b`, V2 Outreach Activity `tblvu8kJ41BuZ0QrT`. `[high]`
 - **Gmail** — atlas@ via OAuth (`google_token.json`), deps in `/root/.hermes/venv/`. Send/search/labels/reply working. `[high]`
-- **Mailbox scope** — james@ READ-ONLY (no send/read/label). quotes@ full (dedicated `quotes_token.json`). `[high]`
+- **Mailbox scope** — james@ READ-ONLY (no send/read/label), monitored by `james-pulse-phase2` (c130a8d0475d, */5, seen-ID dedup, never mutates) since 2026-08-21. quotes@ full (dedicated `quotes_token.json`). `[high]`
 - **Git backup** — nightly `bin/nightly-backup.sh` → GitHub `Snowark-Consulting/client-notforgotten.git`. `.gitignore` excludes state.db/cache/cron-output. `[high]`
 
 ## Sender identity & comms
@@ -49,6 +49,8 @@ tier: primary
 - **Commercial progression** — interest→agree→onboard-start→onboard-complete→product-active→paying. Never collapse. Ahmad/Star Painters = STALLED, not trial. `[high]`
 - **QPaint role boundary** — SURFACE ≠ MANAGE. Never chase QPaint decisions; exception-based escalation; never promise "QPaint will…" without verified evidence. Decision `2026-08-20-qpaint-role-boundary`. `[high]`
 - **QPaint daily ops** — review date = REVIEW→DECIDE, never auto-send. Individual CCG per customer. No batch/auto-Email3/queue-by-date. Persistence ≠ repetition (no 2-touch limit). Decision `2026-08-20-qpaint-daily-ops-model`. `[high]`
+- **Govt/QBuild tenders** — QPaint-managed → HOLD, no customer follow-up (tender ≠ quote; 90-day validity, school holidays). Pre-outbound check BOTH mailboxes (atlas@ + james@) for existing conversation. `learnings/2026-08-21-relationship-aware-followup-govt.md`. `[high]`
+- **Name inference** — never infer first name from email local-part; verify from website/correspondence, else "Hi there,". Decision `2026-08-21-v2-email2-observation-monitoring`. `[high]`
 
 ## Operations
 

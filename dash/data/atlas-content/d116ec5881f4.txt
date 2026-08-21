@@ -1,0 +1,118 @@
+# Decision: V2 Email 2 — Post-Send Observation & james@ Reply Monitoring
+
+**Slug:** `2026-08-21-v2-email2-observation-monitoring`
+**Date:** 2026-08-21
+**Status:** Made
+**Review Date:** 2026-09-21
+
+---
+
+## The Decision
+
+V2 Email 2 ("14 jobs, $180,115") was sent to 42 eligible prospects from james@ and independently verified (42 in Gmail Sent, correct sender/copy/signature; 42 Activity records; 42 Prospect records reconciled to "Await reply" / Next Follow-up 2026-08-28).
+
+From this point the 42 prospects enter an **observation period**. Three standing rules govern it:
+
+1. **28 August is REVIEW → DECIDE, never REVIEW → SEND.** Each prospect is assessed individually through the Customer Context Gate. No automatic Email 3.
+2. **No batch progression based purely on cadence.** A reply or a review date never triggers a send by itself.
+3. **Replies are surfaced as they occur, never held to the review date.** Every reply is interpreted individually on commercial intent.
+
+Additionally: james@ (the mailbox V2 replies and bounces land in) is now monitored in real-time by a new cron job `james-pulse-phase2` (every 5 min, read-only, dedup via seen-ID state file), alongside the existing atlas@ and quotes@ pulses.
+
+---
+
+## The Problem
+
+V2 outreach sends from james@ (Single-Identity, James-Led). Replies and bounces therefore land in james@ — a mailbox that had **no real-time monitoring** (only the daily Overnight Founder Readiness scan). The first manual scan of james@ found 9 unread items that had been sitting unprocessed, including a genuine Email-2 bounce (Doctor Brush Painting Services) and several stale-but-unreconciled bounce/closure notifications. Without a monitor, replies were invisible until the next review date — contradicting "Do not wait until 28 August to surface a reply."
+
+---
+
+## Options Considered
+
+| # | Option | Summary |
+|---|---|---|
+| A | Wait until 28 Aug to review replies | Simple, but replies (and opt-outs) sit for days. Rejected. |
+| B | Real-time james@ pulse + interpret-each-reply | New wake-gate cron mirroring atlas@/quotes@ pulses; reply-by-reply commercial-intent interpretation. **Chosen.** |
+| C | Fold james@ into an existing pulse | Risk of mailbox-identity confusion (Pitfall 37); james@ is read-only, distinct handling. Rejected. |
+
+---
+
+## Why This Path
+
+The learning objective of Email 2 is to test whether **persistence plus a different second message creates conversations**. That test is only measurable if replies, bounces, opt-outs, and time-to-reply are captured as they occur. Option B gives prompt surfacing with a hard read-only boundary on james@ (no mark-read, no send), plus dedup so an unread reply is surfaced once rather than every tick.
+
+---
+
+## Core Principles Applied
+
+- Trust before growth (#1) — honour opt-outs immediately; never auto-reply a prospect
+- Evidence before opinion (#2) — measure what actually happens next, don't conclude cold outreach works/doesn't work prematurely
+- Security before convenience (#3) — james@ is read-only; no label/send mutation from automation
+- Privacy by design (#4) — no new data collection; monitoring only reads existing mail
+- Human accountability (#6) — every reply surfaced to James for a decision; Atlas never auto-progresses a sequence
+
+---
+
+## Name Data Quality Rule (permanent)
+
+For any prospect whose first name may have been derived **only from their email local-part** (e.g. `harry@` → "Harry"), before any future outbound touch:
+
+- Verify the name from primary evidence (business website, or existing correspondence).
+- If independently verified, retain it.
+- If not verified, **remove the inferred name** and use the natural no-name greeting ("Hi there,").
+- Do **not** infer identity from an email address alone, and do **not** contact the prospect as part of this verification.
+
+---
+
+## Learning Objective — Capture (Touch 1 = insight-led, Touch 2 = proof-led)
+
+For the 42 Touch-2 prospects, capture: replies, meaningful replies, positive interest, objections, calls requested, demos/walkthroughs, opt-outs, bounces, and time from Touch 2 to reply. Do not prematurely conclude cold outreach works or does not work. Wednesday warm calls (Ahmad / Star Painters Adelaide, The Painting Company, Master Choice Painting) remain excluded from automated V2 outreach.
+
+---
+
+## Risks Identified
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| james@ re-alert loop (read-only, can't mark-read) | Med | Med | seen-ID dedup state file in the gate script; daily Overnight scan as backstop |
+| Third Phase-2 cron adds state.db cost | Low | Low | wakeAgent gate skips LLM on empty inbox; */5 cadence; toolsets restricted to terminal+file |
+| Email-1-era bounces still in cohort | Low | Low | per-recipient suppression check at send time + bounce reconciliation on detection |
+
+---
+
+## Success Criteria
+
+- [ ] Every V2 reply/bounce/opt-out surfaced to James within minutes, not held to a review date
+- [ ] No Email 3 sent without an individual Customer Context Gate decision on 28 Aug
+- [ ] No prospect name inferred from email local-part alone survives the next touch
+- [ ] Learning objective metrics captured for the 42-prospect observation cohort
+
+---
+
+## Atlas's Challenge (Pre-Decision)
+
+> No challenge. This is a founder-directed operating model consistent with the Six Principles and the QPaint Daily Operations Model. Accepted and recorded.
+
+**James's response:** (direction given as a standing operating model; no separate challenge/override)
+
+---
+
+## Actual Outcome (Post-Review)
+
+**Date reviewed:** *(pending 2026-09-21)*
+
+---
+
+## Learnings
+
+Replies to james@-sent outreach were invisible because monitoring existed for atlas@ and quotes@ but not james@. The fix is a read-only pulse that surfaces, dedupes, and never mutates. This is the same lesson as Pitfall 37 (mailbox identity gate): the mailbox you *send from* is the mailbox you must *watch*.
+
+---
+
+## Related Decisions
+
+- `2026-08-20-qpaint-daily-ops-model` — Review → Decide (never Review → Send)
+- `2026-08-20-qpaint-role-boundary` — Surface ≠ Manage
+- `2026-07-29-single-identity-james-led` — all NF comms from james@
+- `2026-08-05-permanent-outreach-sender-james` — james@ permanent outreach sender
+- `2026-07-28-atlas-communication-layer` — Atlas as communication layer

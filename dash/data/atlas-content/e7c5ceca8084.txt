@@ -1,0 +1,49 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# Relationship-Aware Follow-Up + Government/QBuild Handling — 2026-08-21
+
+## 1. Relationship-aware follow-up (product requirement)
+
+Multiple Airtable quote records belonging to the same human/business must be recognised as ONE
+relationship, not independent customer journeys. Before any customer outbound, Atlas must check
+whether that person has: multiple active quotes, previous quotes, previous replies/conversations,
+Won work with QPaint, Lost work with QPaint, an existing relationship with James/QPaint, or
+another active NF communication thread.
+
+**Evidence:** Dean Baker (3 QBuild quotes to one contact), Nicholas Zappacosta (Won Logan Village +
+open Beenleigh quote).
+
+**Status:** Requirement identified. No infrastructure/Airtable redesign/automation authorised yet.
+
+## 2. Government / QBuild = QPaint-managed, not customer follow-up
+
+QBuild/government work arrives as "QBUILD PAINTING WORKS … As per QBuild specifications" with
+90-day validity and school-holiday timing. These are formal tender/procurement submissions, NOT
+customer quotes requiring follow-up. QPaint manages the QBuild relationship directly
+(James ↔ Tas ↔ QBuild). NF's role is tender facilitation/observation, not Email 1 follow-up.
+
+A "have you received your quote, any questions?" email to a QBuild procurement officer would be
+inappropriate and damage QPaint's credibility.
+
+**Evidence:** Logan Village SS RFT (Won), Nicholas Beenleigh Ambulance Station (HOLD), Dean Baker
+3 quotes (Caboolture/Kallangur/Tullawong — QBuild tender).
+
+## 3. Customer history review must include BOTH mailboxes
+
+Vivien Lennan (14 Aug 2026): Atlas sent Email 2 while Vivien was already in a James (james@)
+conversation. She replied "responded to James yesterday." Root cause: communication-history review
+covered atlas@ only, not james@.
+
+A customer actively speaking with James must not receive an unrelated Atlas follow-up simply
+because Airtable says a touch is due. This belongs inside **CUSTOMER HISTORY REVIEW**
+(the `communication_history_reviewed` step of the Customer Context Gate), not a standalone workflow.
+
+## Related
+
+- [[Customer Context Gate]] (knowledge/customer-context-gate.md) — communication_history_reviewed step
+- [[QPaint Role Boundary]] (knowledge/decisions/2026-08-20-qpaint-role-boundary.md) — SURFACE ≠ MANAGE
+- [[QPaint Daily Ops Model]] (knowledge/decisions/2026-08-20-qpaint-daily-ops-model.md) — REVIEW → DECIDE

@@ -1,0 +1,56 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-08-20
+status: PREPARATION — review due 2026-08-24
+prepared_by: Atlas
+---
+
+# Review Prep — Provider Failover: Gemini Fallback Chain
+
+> Outcome data gathered ahead of the 2026-08-24 review of `2026-07-24-provider-failover-gemini-fallback`. Decision review workflow per `skills/snowark/decision-library/SKILL.md`. Verdict to be assigned at review (James's call).
+
+## Decision being reviewed
+
+**Slug:** `2026-07-24-provider-failover-gemini-fallback`
+**What was decided:** Deploy Google Gemini (`google/gemini-2.5-flash`) as fallback provider. Chain: `deepseek-v4-pro → google/gemini-2.5-flash`. Falls back on rate-limit, 5xx, connection errors.
+**Review date:** 2026-08-24
+
+## Success criteria — actuals (verified 2026-08-20 22:00 ACST)
+
+| Criterion | Expected | Actual | Status |
+|---|---|---|---|
+| No Telegram error spam during next DeepSeek degradation | Auto-fallback contains spam | No DeepSeek degradation since Jul 24 (0 provider incidents in LEARNINGS.md since). Gap untested in the wild | PASS by default (no event) |
+| Fallback provider used at least once | Cron output shows fallback run | **Fallback chain NOT configured.** `hermes fallback list` = "No fallback providers configured". `config.yaml` line 9: `fallback_providers: '[]'`. Git history shows `[]` back to at least 2026-06-21 — the Jul 24 decision was never implemented, or was reverted | ❌ NOT MET |
+| No quality degradation on fallback runs | Spot-check output | N/A — never ran | N/A |
+
+## Current resilience posture (what actually protects us)
+
+- **Pulses pinned `deepseek-v4-pro`** with wakeAgent gate scripts (`inbox-pulse-phase2`, `quotes-pulse-phase2`) — verified today: both ok, failure streak 0.
+- **wakeAgent gate** (`learnings/2026-08-18-wakeagent-gate.md`): empty ticks emit `{"wakeAgent": false}` → agent skipped → $0 idle. Net effect: a DeepSeek outage would now surface as *missed pulses*, not error spam. The original containment goal (stop the spam) is achieved by the gate, not by the fallback chain.
+- Cron health tonight: 34 jobs. 31 ok/enabled. `inbox-pulse-phase2` + `quotes-pulse-phase2` deepseek-v4-pro ok. `Prepare-Ahead Clock` ok (deepseek-v4-flash).
+- Known non-provider errors: `Stale Prospect Alert` (exit 1 = by-design detection alert, produced output, found stale prospects), `Monthly Outreach Intelligence Report` (known, next run Sep 1).
+
+## Policy context (post-decision)
+
+- `2026-08-17-deepseek-client-data-approved` (Safety Rule 7): DeepSeek is approved primary for ALL workflows including client data. **Gemini explicitly remains permitted as a fallback for reliability** — "not as a privacy boundary". So configuring the Gemini fallback chain is consistent with current policy; no new trust decision required.
+
+## Verdict options for review (James decides)
+
+1. **Restore the chain** — add `google/gemini-2.5-flash` fallback to config (permitted by Aug 17 decision). Restores original intent: automatic failover on DeepSeek rate-limit/5xx/connection errors.
+2. **Accept single-provider posture formally** — DeepSeek primary only; wakeAgent gate is the containment mechanism; outages surface as missed pulses (quiet), not spam. Record as conscious decision with review date.
+3. **Defer** — no change now, revisit when provider stability evidence changes.
+
+## Evidence files
+
+- `hermes fallback list` (2026-08-20) — empty
+- `config.yaml` line 9 — `fallback_providers: '[]'`
+- `git log -S fallback_providers --all` — config committed nightly; `[]` present since Jun 21
+- `learnings/2026-08-18-wakeagent-gate.md` — containment mechanism
+- `learnings/2026-08-19-*.md` — pulses pinned deepseek-v4-pro, gate deployed
+- `knowledge/decisions/2026-08-17-deepseek-client-data-approved.md` — Gemini permitted as reliability fallback
+
+## Prepared by
+
+Prepare-Ahead Clock 2026-08-20 22:00 ACST. Next step: James assigns verdict at Aug 24 review (Right / Partially Right / Wrong). If verdict = Partially Right or Wrong, decide option 1/2/3 above.
