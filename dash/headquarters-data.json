@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-08-21T04:07:04+09:30",
+  "generated_at": "2026-08-22T04:06:28+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "Quiet overnight — no new customer replies across quotes@, atlas@ or james@. QPaint book holds at 167 records, $5.69M, 4 Won ($321,967: $129,750 recovered, $192,216 assisted), 13 Engaged, 25 Lost, and no overdue follow-ups (book control PASS). Two items in your inbox are both already handled: your tax accountant (BK Partners) acknowledged your documents, and QPaint's Angela Gleeson confirmed the Vivien Lennan reconciliation (they follow up mid-October). The one open growth item is Ahmad/Star Painters — your 19 Aug email has no reply, and the founder call is queued for next Wednesday's Founder Call Day. One gap to close: the 19 Aug Founder Call Day outcomes (10 candidates) are still unlogged, which means the 26 Aug call list can't be built accurately until we record what happened.",
+    "body": "Quiet overnight — no new customer replies across quotes@, atlas@ or james@. QPaint book holds at 167 records, $5.69M, 4 Won ($321,967: $129,750 recovered, $192,216 assisted), 13 Engaged, 26 Lost. V2 Email 2 went out 42/42 yesterday from james@ and is now in observation — next decision 28 Aug (REVIEW, never auto-send). Two small things worth a glance: james@ has 9 stale unread items but all are already reconciled (4 bounces, 1 business-closed, 1 auto-reply, 3 DMARC reports), and the 19 Aug Founder Call Day outcomes are still unlogged — needed before the Wed 26 Aug list is finalised.",
     "estimated_time": "2 minutes"
   },
   "business_score": {
     "score": 88,
     "change": "—",
     "reasons_positive": [
-      "QPaint pipeline healthy: 167 records, $5.69M book, 4 Won ($321,967 — $129,750 causally recovered), 13 Engaged, 0 overdue follow-ups.",
-      "Recovery motion working: 4 Won + 25 Lost cleanly reconciled, 13 Engaged actively managed under the Review→Decide model.",
-      "System health green: disk 40% (12G free), all pulse jobs healthy, Airtable + Gmail accessible, dashboard refresh current."
+      "QPaint pipeline healthy: 167 records, $5.69M book, 4 Won ($321,967 — $129,750 causally recovered), 13 Engaged, 26 Lost reconciled.",
+      "V2 Email 2 executed cleanly: 42/42 sent 21 Aug from james@, verified in Gmail Sent, now in observation period (28 Aug REVIEW→DECIDE).",
+      "System health green: disk 40% (12G free), all pulse jobs healthy, Airtable + Gmail accessible, dashboard refresh current (04:00)."
     ],
     "reasons_negative": [
-      "1 paying customer ($199 MRR). Ahmad/Star Painters founder email (19 Aug) still no reply — founder call pending Wed 26 Aug.",
-      "V2 growth unproven: 44 Email 1s sent (12-18 Aug), 0 replies. 19 Aug Founder Call Day outcomes still unlogged.",
-      "state.db 1.4GB and regrowing ~600MB/day — architectural fix deferred, disk clear at 40%."
+      "1 paying customer ($199 MRR). Ahmad/Star Painters founder email (19 Aug) still no reply — founder call queued Wed 26 Aug.",
+      "V2 growth unproven: 44 Email 1s + 42 Email 2s sent, 0 replies to date. 19 Aug Founder Call Day outcomes still unlogged.",
+      "Nightly backup failing (git push code 128 — recurring large-file issue). state.db 1.4GB."
     ]
   },
   "business_health": {
@@ -26,15 +26,15 @@
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "QPaint: 167 records, 4 Won ($321,967), 13 Engaged, 25 Lost, 0 overdue follow-ups."
+      "detail": "QPaint: 167 records, 4 Won ($321,967), 13 Engaged, 26 Lost, 6 New. Review→Decide queue ~104 records with NTD in past (normal, not missed sends)."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "V2: 44 Email 1s sent (12-18 Aug), 0 replies. NEW50 Batch 1 (12) observing, next 24 Aug. Insight-Proof 14 Aug cohort follow-up due today."
+      "detail": "V2: 44 Email 1s + 42 Email 2s sent (12-18 Aug / 21 Aug), 0 replies. Observation period open — 28 Aug REVIEW→DECIDE, no auto Email 3."
     },
     "engineering": {
       "status": "healthy",
-      "detail": "Disk 40% (12G free), state.db 1.4GB (regrowing ~600MB/day). Hermes v0.20.4."
+      "detail": "Disk 40% (12G free), state.db 1.4GB. Nightly backup failing (git push code 128)."
     },
     "finance": {
       "status": "healthy",
@@ -42,63 +42,64 @@
     },
     "atlas": {
       "status": "healthy",
-      "detail": "All pulse jobs healthy (inbox + quotes gates active). Airtable + Gmail accessible. Dashboard refresh ok (03:00)."
+      "detail": "All pulse jobs healthy (inbox + quotes + james gates active). Airtable + Gmail accessible. Dashboard refresh ok (04:00)."
     }
   },
   "waiting_for_james": [
     {
-      "id": "ahmad-founder-call",
-      "title": "Progress Star Painters / Ahmad — founder call (queued Wed 26 Aug)",
-      "why_it_matters": "Ahmad is the only warm opportunity (Qualified Opportunity, stalled since Jul). Founder email sent 19 Aug, no reply. Founder call is the next step to determine onboarding readiness. Closest thing to a 2nd paying customer.",
-      "business_impact": "High — stalled-opportunity conversion is the fastest path to MRR",
-      "estimated_time": "30 min on Wed 26 Aug Founder Call Day",
-      "recommended_action": "Call Ahmad on Wed 26 Aug Founder Call Day. Objective: determine onboarding readiness, restart the trial-to-paid conversation.",
-      "impact_sort": 90
-    },
-    {
       "id": "log-founder-call-outcomes",
       "title": "Log 19 Aug Founder Call Day outcomes (10 candidates)",
-      "why_it_matters": "The 26 Aug call list is being built blind — 10 candidates were briefed for 19 Aug but ZERO call outcomes (connected/no answer/voicemail/objection) are logged in V2 Outreach Activity. Without this, we risk calling the same people cold twice.",
-      "business_impact": "Medium — data integrity for the next Founder Call Day",
+      "why_it_matters": "Zero outcomes logged means the 26 Aug call list is built blind. 10 candidates were briefed for 19 Aug but no connected/no-answer/voicemail results are in V2 Outreach Activity.",
+      "business_impact": "Medium — data integrity for the next Founder Call Day (Wed 26 Aug)",
       "estimated_time": "10-15 min (dictate outcomes, Atlas logs them)",
-      "recommended_action": "Tell Atlas what happened on each of the 10 calls from 19 Aug (or confirm none were made). Atlas will log Activity Type = Founder Call with Outcome + Next Action.",
-      "impact_sort": 70
+      "recommended_action": "Tell Atlas what happened on each 19 Aug call (or confirm none were made). Atlas logs Activity Type = Founder Call with Outcome + Next Action.",
+      "impact_sort": 75
     },
     {
-      "id": "state-db-architecture",
-      "title": "state.db growth architecture (deferred)",
-      "why_it_matters": "state.db is 1.4GB and growing ~600MB/day from high-frequency agent jobs. Remediation is a stopgap. Disk is 40% now, but this recurs.",
-      "business_impact": "Medium — recurrence risk in weeks, not days",
-      "estimated_time": "Defer — review when disk > 60%",
-      "recommended_action": "Defer to Winston. Track via storage-health monitor. Not urgent at 40% disk.",
-      "impact_sort": 60
+      "id": "ahmad-founder-call",
+      "title": "Call Ahmad / Star Painters — Wed 26 Aug Founder Call Day",
+      "why_it_matters": "Only warm opportunity (Qualified Opportunity, stalled since Jul). Founder email 19 Aug no reply. Highest-leverage growth action.",
+      "business_impact": "High — fastest path to a 2nd paying customer",
+      "estimated_time": "30 min on Wed 26 Aug",
+      "recommended_action": "Call Ahmad on Wed 26 Aug. Objective: determine onboarding readiness, restart trial-to-paid conversation.",
+      "impact_sort": 85
+    },
+    {
+      "id": "provider-failover-review",
+      "title": "Provider-failover decision review — Mon 24 Aug",
+      "why_it_matters": "Fallback chain was never configured (fallback_providers empty since Jun 21). Review prep is ready with 3 verdict options.",
+      "business_impact": "Medium — resilience posture",
+      "estimated_time": "15 min on Mon 24 Aug",
+      "recommended_action": "Assign verdict on the provider-failover review (prep file ready). Option 1/2/3 in knowledge/decision-reviews/2026-08-24-provider-failover-review-prep.md.",
+      "impact_sort": 55
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "No customer fires overnight. Two things are worth your attention: (1) Ahmad/Star Painters — your 19 Aug email has no reply, founder call queued for Wed 26 Aug; (2) log the 19 Aug Founder Call Day outcomes so the 26 Aug list isn't built blind. QPaint recovery is running itself under the Review→Decide model — 4 Won, 13 Engaged, no overdue follow-ups.",
+    "executive_summary": "No customer fires overnight — quotes@, atlas@ and james@ all clean of new commercial replies. V2 Email 2 (42/42) is now in observation until 28 Aug. The two things worth your attention are (1) log the 19 Aug Founder Call Day outcomes so Wed 26 Aug's list isn't built blind, and (2) the Mon 24 Aug provider-failover review. QPaint recovery is running itself under Review→Decide.",
     "priorities": [
       {
         "action": "Log 19 Aug Founder Call Day outcomes (10 candidates)",
-        "why_it_matters": "Zero outcomes logged means the 26 Aug call list is built blind. 10 minutes now prevents double-calling cold prospects next Wednesday.",
-        "expected_impact": "Medium — data integrity for the next Founder Call Day",
+        "why_it_matters": "Zero outcomes logged means the 26 Aug call list is built blind. 10 minutes now prevents double-calling cold prospects.",
+        "expected_impact": "Medium — data integrity for Wed 26 Aug Founder Call Day",
         "estimated_time": "10-15 min",
         "confidence": "High (90%)"
       },
       {
         "action": "Call Ahmad / Star Painters — Wed 26 Aug Founder Call Day",
-        "why_it_matters": "Only warm opportunity. Founder email 19 Aug had no reply; a call is the highest-leverage growth action.",
+        "why_it_matters": "Only warm opportunity; founder email 19 Aug had no reply. Highest-leverage growth action.",
         "expected_impact": "High — fastest path to a 2nd paying customer",
         "estimated_time": "30 min",
         "confidence": "High (85%)"
       }
     ],
     "can_wait": [
-      "V2-NEW50 Batch 1 (12) — observing, first replies expected Day 3-5",
-      "QPaint pipeline — 0 overdue, running on schedule under Review→Decide",
-      "state.db growth architecture (Winston) — deferred, disk 40%",
-      "Tax accountant (BK Partners) acknowledged documents — no action needed"
+      "V2 Email 2 observation (42) — next review 28 Aug, no auto Email 3",
+      "QPaint pipeline — Review→Decide queue, no urgent escalations",
+      "james@ 9 stale unread — all already reconciled (4 bounces, 1 closed, 1 auto-reply, 3 DMARC)",
+      "Nightly backup fix (git push code 128) — P4, recurring",
+      "state.db growth architecture (Winston) — disk 40%, not urgent"
     ],
-    "closing": "Nothing needs you today that can't wait for Founder Call Day. The system is running clean. The single most useful thing you can do today is log the 19 Aug call outcomes."
+    "closing": "Nothing needs you today. The system is running clean. If you do one thing, log the 19 Aug call outcomes so Wednesday's list is accurate."
   },
   "changes": {
     "today": [
@@ -108,25 +109,25 @@
       },
       {
         "time": "04:00",
-        "text": "QPaint: state stable at 167 records, 4 Won, 13 Engaged, 25 Lost — no overnight Won/Lost changes"
+        "text": "james@ 9 stale unread items all reconciled (4 bounces→Lost, 1 business-closed→Lost, 1 auto-reply→Active, 3 DMARC)"
       },
       {
         "time": "04:00",
-        "text": "QPaint confirmed Vivien Lennan reconciliation (Angela Gleeson) — follow-up mid-October, already in CRM"
+        "text": "QPaint stable: 167 records, $5.69M, 4 Won, 26 Lost — 1 Contacted→Lost overnight"
       }
     ],
     "yesterday": [
       {
         "time": "—",
-        "text": "QPaint Daily Operations Model + Role Boundary decisions locked (Review→Decide, Surface≠Manage)"
+        "text": "V2 Email 2 sent 42/42 from james@ (14 jobs, $180,115) — verified in Gmail Sent, observation period opened"
       },
       {
         "time": "—",
-        "text": "Nuwan Fernando ($167,592) acknowledgment sent — committee deciding, deliberate wait"
+        "text": "Doctor Brush Painting bounce → marked Lost + suppressed"
       },
       {
         "time": "—",
-        "text": "QPaint book control PASS — 167 records, every open quote intentionally managed"
+        "text": "james-pulse-phase2 deployed (read-only james@ monitoring, */5)"
       }
     ],
     "this_week": [
@@ -136,11 +137,11 @@
       },
       {
         "time": "—",
-        "text": "V2-NEW50 Batch 1 sent (12 Email 1s) Tue 18 Aug; 44 total Email 1s since 12 Aug"
+        "text": "V2 Email 1 (44, 12-18 Aug) + Email 2 (42, 21 Aug) sent, 0 replies to date"
       },
       {
         "time": "—",
-        "text": "Disk crisis resolved (Hermes v0.20.4, state.db 9.5GB → 0.93GB) 18 Aug"
+        "text": "Disk crisis resolved 18 Aug (state.db 9.5GB → 0.93GB, Hermes v0.20.4)"
       }
     ]
   },
@@ -178,7 +179,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "QPaint: 167 records, 4 Won ($321,967), 13 Engaged, 25 Lost, 0 overdue. V2: 44 Email 1s sent, 0 replies, NEW50 Batch 1 observing. Disk 40%, state.db 1.4GB. Founder Call Day Wed 26 Aug — Ahmad #1, log 19 Aug outcomes first.",
+  "operational_status": "QPaint: 167 records, 4 Won ($321,967), 13 Engaged, 26 Lost, Review→Decide queue active. V2: 44 Email 1s + 42 Email 2s sent, 0 replies, observation period open (28 Aug review). Disk 40%, state.db 1.4GB, backup failing (code 128). Founder Call Day Wed 26 Aug — Ahmad #1; log 19 Aug outcomes first.",
   "vault_health": {
     "decisions": {
       "total": 73,
@@ -203,7 +204,7 @@
     },
     "infrastructure": {
       "disk": "40% (12G free)",
-      "state_db": "1.4GB — regrowing ~600MB/day (remediated 18 Aug)"
+      "state_db": "1.4GB (remediated 18 Aug)"
     }
   },
   "qpaint_pipeline": {
@@ -212,19 +213,19 @@
       "total_pipeline_value": "$5.69M",
       "won_count": 4,
       "won_value": "$321,967",
-      "lost_count": 25,
+      "lost_count": 26,
       "engaged_replied": 13,
-      "contacted": 119,
+      "contacted": 118,
       "not_contacted": 6
     },
     "stage_breakdown": {
-      "Email 2": 71,
+      "Email 2": 70,
       "Email 1": 47,
-      "Lost": 25,
+      "Lost": 26,
       "Replied": 7,
       "New": 6,
-      "Engaged": 4,
       "Won": 4,
+      "Engaged": 4,
       "Email 3": 3
     },
     "priority": {
