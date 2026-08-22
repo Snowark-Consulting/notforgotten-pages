@@ -1,0 +1,53 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-08-21
+status: PREPARATION — review due 2026-08-27
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — Recipient Validation Safeguard v1.0
+
+> Outcome data gathered ahead of the 2026-08-27 review of `2026-07-27-recipient-validation-safeguard`.
+
+## Decision being reviewed
+
+**What was decided (2026-07-27):** Two-layer recipient validation safeguard in the outbound pipeline:
+- Layer 1: Prospect ID as primary identifier (email is an attribute, not identity); canonical email from Airtable used for send
+- Layer 2: Ambiguity detection for short local-parts (≤8 chars, e.g. `tas@`) — 2+ matches blocked, exit 6
+- Every validation logged to `logs/send-validation.log`
+
+**Review date:** 2026-08-27
+
+## Success criteria — actuals (verified 2026-08-21 22:00 ACST)
+
+| Criterion | Expected | Actual | Status |
+|---|---|---|---|
+| No phantom-recipient sends | Tas Moulis class of bug never recurs | **No phantom-recipient incident since deployment.** V2 Email 2 (2026-08-21): 42/42 recipients independently verified in Gmail Sent against Airtable (decision `2026-08-21-v2-email2-observation-monitoring`). | ✅ MET |
+| Validation logged for every send | `send-validation.log` records validation events | Log has 173 entries, ALL dated 2026-07-29 (QPaint batch validation, NOT_FOUND for QPaint Pipeline contacts not in Prospects table — expected: QPaint uses separate table and `gmail-html-send.py` path, not `send-outreach.py`). **No log entries since Jul 29** — V2 sends use `canonical_send.py` / `send-canonical.py` which do not write to `send-validation.log`. | ⚠️ PARTIAL |
+| Ambiguity detection blocks short-prefix collisions | exit 6 blocks | No exit-6 event recorded (no collision attempted since deployment). | ✅ PASS by default |
+| Audit trail supports post-incident investigation | Every send traceable | V2 Email 2: 42 Gmail Sent + 42 Activity records + 42 Prospect reconciliations (evidence SEND-2026-08-21T040025-1a0207038a44). | ✅ MET |
+
+## Key finding
+
+**The safeguard works for the pipeline it was built for, but the send path has evolved.** `send-outreach.py` (which carries `validate_recipient()`) is no longer the primary send path — canonical send authority (`send-canonical.py`, Phase 1 Production Cutover 2026-08-08) is. Recipient validation for canonical sends is enforced by mailbox-identity checks and the Airtable-reconciliation gate, but `send-validation.log` no longer receives entries. The audit trail is now distributed across send-evidence records and Activity records.
+
+**Recommendation option:** decide whether `send-validation.log` should be superseded by the send-evidence architecture (formalise) or whether canonical send should also emit validation entries (belt-and-braces). Either is defensible; the review should pick one to avoid an audit gap.
+
+## Verdict options for review (James decides)
+
+1. **Formalise current architecture** — recipient validation is now code-enforced in the canonical pipeline; retire `send-validation.log` as legacy (document supersession).
+2. **Extend canonical send to emit validation entries** — keep a single validation log across all send paths.
+3. **Accept as-is** — no change; current controls sufficient.
+
+## Evidence files
+
+- `knowledge/decisions/2026-07-27-recipient-validation-safeguard.md` — decision under review
+- `logs/send-validation.log` — 173 entries, all 2026-07-29 (last active date)
+- `knowledge/decisions/2026-08-21-v2-email2-observation-monitoring.md` — 42/42 verification evidence
+- `knowledge/decisions/decision-2026-08-08-phase-1-certified.md` — canonical send authority
+
+## Prepared by
+
+Prepare-Ahead Clock 2026-08-21 22:00 ACST. Next step: James assigns verdict at Aug 27 review.

@@ -1,0 +1,50 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-08-21
+status: PREPARATION — review due 2026-08-25
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — EXP-001: End-to-End Attribution
+
+> Outcome data gathered ahead of the 2026-08-25 review of `knowledge/experiments/EXP-001-end-to-end-attribution.md`.
+
+## Decision being reviewed
+
+**What changed:** Every external link carries standardised UTM parameters (UTM naming convention, `knowledge/utm-naming-convention.md`, established 2026-07-25). Hypothesis: UTM-tagged links reveal which channels drive traffic, enquiries, and paying clients.
+
+**Review date:** 2026-08-25
+
+## Success criteria — actuals (verified 2026-08-21 22:00 ACST)
+
+| Criterion (30-day) | Expected | Actual | Status |
+|---|---|---|---|
+| 0% of traffic shows as "(direct)/(none)" from known outreach recipients | UTM applied to outbound links | **UTM NOT DEPLOYED to outbound templates.** No `utm_` parameters found in: canonical templates (`knowledge/canonical-templates/`), outreach sequences (`knowledge/outreach-sequences/`), or `scripts/send-canonical.py`. Only QPaint privacy-policy footer links carry `notforgotten.com.au` (no UTM). | ❌ NOT MET |
+| At least one channel emerges as dominant traffic driver | GA4 shows channel data | GA4 credential valid (`atlas-analytics-reader@not-forgotten-atlas.iam.gserviceaccount.com`, key present). No recent GA4 intelligence output found (no weekly intel since ~Jul 26). Baseline: all direct traffic, 31 users/week. | ⚠️ UNVERIFIED |
+| Weekly intelligence report includes "Traffic by Channel" | Phase 3 implemented | Phase 3 (update weekly intelligence for attribution) = Pending per experiment file. No evidence of implementation. | ❌ NOT MET |
+| Trace at least one enquiry to source channel | Attribution works | No enquiry yet traced to a channel. | ❌ NOT MET |
+
+## Key finding
+
+**Phase 2 ("Apply to all outbound links") appears incomplete or reverted.** The UTM naming convention document exists (Phase 1 complete), but no outbound template or send script carries UTM parameters. Since the convention was established Jul 25, outbound sends (RE-ENG Aug 10, V2 Email 1 Aug 14-17, V2 Email 2 Aug 21) have not carried UTM tags. The attribution experiment cannot produce channel data until links are tagged.
+
+This mirrors the provider-failover pattern: decision documented, implementation not verified end-to-end. The convention exists as policy; enforcement (Canon Verification Gate per `2026-08-01-single-source-of-truth`) does not check UTM presence.
+
+## Verdict options for review (James decides)
+
+1. **Extend the Canon Verification Gate** to require UTM parameters on all customer-facing links (code-enforced, like checksum verification). Closes the gap permanently.
+2. **Accept UTM as phase-2-incomplete** — mark EXP-001 as "policy only", defer attribution measurement until the next outbound campaign carries tags.
+3. **Retire EXP-001** as failed (attribution not measurable without tags) and redesign when the next campaign launches.
+
+## Evidence files
+
+- `knowledge/utm-naming-convention.md` — standard exists (Phase 1)
+- `grep -rl "utm_" knowledge/canonical-templates/ knowledge/outreach-sequences/ scripts/send-canonical.py` — 0 matches (Phase 2 gap)
+- `scripts/ga4-intel.py` — GA4 data script (last modified Jul 26)
+- `.env` `GA4_SERVICE_ACCOUNT_KEY_B64` — valid credential (client_email resolves)
+
+## Prepared by
+
+Prepare-Ahead Clock 2026-08-21 22:00 ACST. Next step: James assigns verdict at Aug 25 review.

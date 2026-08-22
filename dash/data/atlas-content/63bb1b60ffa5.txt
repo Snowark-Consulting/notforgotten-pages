@@ -14,7 +14,7 @@ tier: primary
 - **Airtable tables** — Base `appgw8Q993yOh4xpQ`. Prospects `tblceVflumXdl23JJ`, Clients `tbldt1bS2DfbQqyEi`, QPaint Pipeline `tblHPx8o6qp81e60b`, V2 Outreach Activity `tblvu8kJ41BuZ0QrT`. `[high]`
 - **Gmail** — atlas@ via OAuth (`google_token.json`), deps in `/root/.hermes/venv/`. Send/search/labels/reply working. `[high]`
 - **Mailbox scope** — james@ READ-ONLY (no send/read/label), monitored by `james-pulse-phase2` (c130a8d0475d, */5, seen-ID dedup, never mutates) since 2026-08-21. quotes@ full (dedicated `quotes_token.json`). `[high]`
-- **Git backup** — nightly `bin/nightly-backup.sh` → GitHub `Snowark-Consulting/client-notforgotten.git`. `.gitignore` excludes state.db/cache/cron-output. `[high]`
+- **Git backup** — nightly `bin/nightly-backup.sh` → GitHub `Snowark-Consulting/client-notforgotten.git`. `.gitignore` excludes state.db/cache/cron-output + volatile runtime (ticker, jobs.json, executions.db, OAuth tokens) since 2026-08-22 race fix; retries 3× on exit 128. OAuth tokens still in git HISTORY — rotation pending James sign-off. `[high]`
 
 ## Sender identity & comms
 

@@ -42,6 +42,10 @@ tier: primary
 
 ## Chronological index (newest first)
 
+### 2026-08-22
+- git add -A race: "confused by unstable object source data" (exit 128) — volatile runtime files rewritten mid-hash by cron ticker + OAuth refreshes → untrack + .gitignore + retry → `cards/git.md`, `skills/devops/self-lint/references/nightly-backup-git-race.md`
+- no_agent cron failure diagnosis: stderr lives at `cron/output/<job_id>/<timestamp>.md` (older "no captured stdout" claim was wrong) → `skills/devops/self-lint/references/cron-job-failure-diagnosis.md`
+
 ### 2026-08-21
 - Relationship-aware follow-up + Government/QBuild handling (Dean Baker 3 QBuild quotes, Nicholas Zappacosta, Vivien Lennan case) → `2026-08-21-relationship-aware-followup-govt.md`
 

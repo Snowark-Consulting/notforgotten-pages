@@ -1,0 +1,50 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-08-21
+status: PREPARATION — review due 2026-08-28
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — Atlas as Communication Layer (Not Follow-Up Engine)
+
+> Outcome data gathered ahead of the 2026-08-28 review of `2026-07-28-atlas-communication-layer`.
+
+## Decision being reviewed
+
+**What was decided (2026-07-28):** Atlas's role is to manage customer relationships until the client (e.g. Tas) is genuinely needed. Atlas is the communication layer. Only escalate when the client adds value. Four outcomes measured separately: Opportunities Recovered, New Opportunities Generated, Customer Relationships Managed, Business Intelligence Discovered.
+
+**Review date:** 2026-08-28
+
+## Four outcomes — actuals (verified 2026-08-21 22:00 ACST)
+
+| Outcome | Evidence | Status |
+|---|---|---|
+| **Opportunities Recovered** | QPaint pipeline: 167 records (118 Contacted, 13 Engaged, 4 Won). Recovery sequence active. V2 Email 2 sent today to 42 prospects (new-quote follow-ups). Travis case study converted Tas Moulis (paying) + Star Painters (trial, later corrected to stalled). | ✅ ACTIVE |
+| **New Opportunities Generated** | Nicholas Zappacosta (QBuild): one calibration email generated 2 government engagements (Logan Village + QAS Beenleigh) same day (Day 0 evidence). QPaint govt/QBuild = tender facilitation model established (2026-08-21 learning). | ✅ DEMONSTRATED |
+| **Customer Relationships Managed** | QPaint Daily Attention model (Review→Decide, P1-P4), 48h no-contact rule, role boundary (Surface≠Manage). james@ pulse deployed (2026-08-21) so V2 replies surface in minutes. | ✅ ACTIVE |
+| **Business Intelligence Discovered** | Relationship-aware follow-up (multi-quote = one relationship), government/QBuild handling (tender ≠ quote follow-up), name-from-local-part rule, Customer Context Gate (A–H). Monthly Recovery Intelligence Report due Sep 7. | ✅ GROWING |
+
+## Key developments since decision
+
+1. **james@ monitoring deployed (2026-08-21)** — the mailbox V2 replies land in is now read-only monitored every 5 min (seen-ID dedup). Found 9 unread items in first scan including a genuine Email-2 bounce. Directly serves "replies surfaced as they occur."
+2. **QPaint Role Boundary (2026-08-20)** — Surface ≠ Manage; exception-based escalation; never promise "QPaint will…" without evidence.
+3. **QPaint Daily Ops Model (2026-08-20)** — Review → Decide, never Review → Send; individual CCG per customer; persistence ≠ repetition.
+4. **V2 Email 2 observation (2026-08-21)** — 42 prospects in observation; 28 Aug = REVIEW→DECIDE, no auto Email 3.
+5. **Customer Context Gate** (mandatory pre-send, code-enforced in canonical-send.py Gate -2) — after INC-2026-08-19 (6 generic QPaint Email 1s).
+
+## Verdict framing for review
+
+The decision is operating as designed: Atlas manages relationships, escalates to Tas/James only when they add value, measures outcomes separately. The Aug 28 review should assess whether the four outcomes are being captured adequately and whether any interaction type is still falling through (e.g. QPaint manual touches, tender facilitation).
+
+## Evidence files
+
+- `knowledge/decisions/2026-07-28-atlas-communication-layer.md` — decision under review
+- `knowledge/decisions/2026-08-20-qpaint-role-boundary.md`, `2026-08-20-qpaint-daily-ops-model.md`, `2026-08-21-v2-email2-observation-monitoring.md`
+- `learnings/2026-08-21-relationship-aware-followup-govt.md` — BI examples
+- `knowledge/customer-context-gate.md` — CCG (mandatory pre-send)
+
+## Prepared by
+
+Prepare-Ahead Clock 2026-08-21 22:00 ACST. Next step: James assigns verdict at Aug 28 review.
