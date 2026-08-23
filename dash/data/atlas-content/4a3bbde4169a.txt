@@ -45,6 +45,7 @@ Three hops max: Registry → Domain Index → Detail Card → Source.
 - [[Tracking Verification Checklist]] (knowledge/tracking-verification-checklist.md) — MANDATORY pre-launch gate. GA4, Clarity, tracking pixel, test open, landing page events. No campaign launches without full pass. Established 2026-07-27.
 - [[Production Operating Protocol]] (knowledge/production-operating-protocol.md) — Protocol v1.1.0. Phase 1 Production Cutover CERTIFIED (2026-08-08). Canonical Send Authority with 11-gate pipeline. Send Classification (CUSTOMER/SYSTEM_INTERNAL/TEST_NON_PRODUCTION). Founder Approval code-enforced. Send window enforced. Idempotency enforced. 15/15 regression. Scheduling incident lesson. Load at boot.
 - [[Recovery Bootstrap]] (knowledge/recovery-bootstrap.md) — Complete operating knowledge for model restart / provider failure. Critical architecture, data paths, recovery sequence. Load after any model or provider failure.
+- [[Rollback Cost Consolidation]] (Agent/rollback-cost-consolidation.md) — Rollback runbook for the 2026-08-18 cost/context consolidation. Only load if a rollback is under consideration.
 
 ## Knowledge (domain indexes — follow the pointers)
 
@@ -116,6 +117,9 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 - [[Autonomous Quote Pipeline]] (knowledge/proposals/autonomous-quote-follow-up.md) — Phase A design proposal. Awaiting James review.
 - [[Star Painters Conversion]] (knowledge/research/star-painters-adelaide-conversion.md) — Ahmad Haidari replied to Email 3 (Travis), asked 3 buying questions, converted same day. Second Travis-triggered painter conversion.
 - [[Tas Moulis Conversion]] (knowledge/research/tas-moulis-conversion.md) — Tas called James after Email 3 (Travis). First Travis-triggered conversion. 3 emails, 11 opens, 10 days.
+- [[Travis Case Study]] (knowledge/case-studies/travis.md) — Travis Krieg Painting: dormant-quote follow-up recovered 14 jobs / $177,555 over 4 months. 2-for-2 Email-3 conversion trigger. Bridge, not opener. Internal asset; $180,115 pilot figure unreconciled.
+- [[Painter Distribution Validation]] (knowledge/campaigns/pdv-july-2026.md) — Jul 2026 A/B test campaign, 20 painters (10A/10B), 4-email sequence. Outcomes in painter campaign review.
+- [[Decision Review Preps]] (knowledge/decision-reviews/INDEX.md) — 7 review preps with scheduled review dates (Aug 24-29). Preparation, not decisions.
 
 ## Operations
 
@@ -145,6 +149,10 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 - [[SMS Integration Readiness]] (knowledge/sms-integration-readiness-report.md) — Interface design, schema recommendations, template library. Design frozen 2026-07-27.
 - [[SMS Phase 1 Validation]] (knowledge/sms-phase-1-validation-plan.md) — 5-scenario validation plan for Twilio. Test recipient: James only.
 - [[Decision: Atlas Communication Layer]] (knowledge/decisions/2026-07-28-atlas-communication-layer.md) — Atlas redefined as communication layer and relationship manager, not follow-up engine. Four outcome metrics. Daily intelligence summary. Review: Aug 28.
+- [[Founder Revenue Plan]] (knowledge/founder-revenue-plan-2026-08-18.md) — Tuesday desk prep + Wednesday Founder Call Day execution plan (Aug 18-19). Execution-ready.
+- [[Founder Call Execution Sheet]] (knowledge/founder-call-execution-sheet.md) — Founder Call Day execution sheet (final). Execute only.
+- [[Founder Call Briefs]] (knowledge/wednesday-call-briefs-2026-08-19.md) — Founder Call Day briefs (final). Execute only.
+- [[QPaint Report Delivery]] (knowledge/qpaint-report-delivery-2026-08-18.md) — August Monthly Quote & Revenue Report V4 send evidence (Gmail 1a011d491c96d5d6).
 - [[QPaint Recovery Sequence]] (knowledge/qpaint-recovery-sequence.md) — 5-email recovery sequence for QPaint. Active: 8 calibration contacts. Includes Email 1 template, review framework. Established 2026-07-28.
 - [[Recovery Email Template]] (knowledge/recovery-email-template.md) — Introduction email for QPaint recovery. Not a follow-up. Approved by James.
 - [[Sequence Review Framework]] (knowledge/sequence-review-framework.md) — Post-sequence review methodology. Every completed sequence feeds knowledge base.
@@ -168,8 +176,8 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 - [[Founder-to-Founder Sequence]] (knowledge/outreach-sequences/founder-to-founder-sequence.md) — 3-email cold outreach sequence, FROZEN. Protected Asset. Script: `scripts/send-canonical.py`. Decision: 2026-08-02-founder-to-founder-sequence-frozen.
 - [[FF1 Painter Wave 1]] (knowledge/experiments/EXP-2026-08-02-FF1-painter-wave-1.md) — 16 new painters, founder-to-founder sequence. Send: Aug 3. Frozen. Metrics: open/reply/conversion rates. Experiment ID: EXP-2026-08-02-FF1.
 - [[Travis-Led Email 1 Pilot]] (knowledge/experiments/travis-led-email-1-pilot.md) — 19 prospects. Testing Travis case study at Email 1 vs July curiosity-led baseline. Awaiting James approval.
-- [[QPaint Recovery Sequence]] (knowledge/outreach-sequences/qpaint-recovery-sequence.md) — 5-email sequence for QPaint (Tas Moulis). Protected Asset. v1.0 FROZEN. White-label, atlas@ sender.
-- [[QPaint Customer Journey]] (knowledge/outreach-sequences/qpaint-customer-journey-production-emails.md) — Five production emails v2. Customer: Sarah. Tas woven naturally. Awaiting James approval.
+- [[QPaint Customer Journey — v1.0 FROZEN]] (knowledge/outreach-sequences/qpaint-recovery-sequence.md) — 5-email sequence for QPaint (Tas Moulis). Protected Asset. v1.0 FROZEN. White-label, atlas@ sender.
+- [[QPaint Customer Journey — Five Production Emails (v2)]] (knowledge/outreach-sequences/qpaint-customer-journey-production-emails.md) — Five production emails v2. Customer: Sarah. Tas woven naturally. Awaiting James approval.
 - [[QPaint Monday Send Plan]] (knowledge/outreach-sequences/qpaint-monday-send-plan.md) — 156 customers, 3 batches. Bridge Email 2 (34) + Canonical Email 1 (119 new + 3 Dineo). Send: Aug 3.
 - [[Headquarters Skill]] (skills/snowark/headquarters/SKILL.md) — Five-tab Command Centre generation: War Room, Pipeline, Customers, Brain, Activity. Dual-source architecture. Decision: 2026-08-02-headquarters-complete.
 - [[Decision: Operational Phase]] (knowledge/decisions/2026-08-02-operational-phase.md) — Five permanent directives: Knowledge Preservation, HQ as OS, Telegram Exception-Only, Continuous Improvement, Focus on Not Forgotten.

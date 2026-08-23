@@ -92,6 +92,17 @@
       "color": "#e0a62a"
     },
     {
+      "id": "agent_rollback_cost_consolidation",
+      "label": "Rollback Cost Consolidation",
+      "file_type": "doc",
+      "source_file": "Agent/rollback-cost-consolidation.md",
+      "community": 0,
+      "community_name": "Agent",
+      "content_hash": "73edb8a6add7",
+      "val": 6.0,
+      "color": "#e0a62a"
+    },
+    {
       "id": "agent_sops_index",
       "label": "SOPs Index",
       "file_type": "doc",
@@ -275,7 +286,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "ab1a834342b7",
-      "val": 6.0,
+      "val": 8.0,
       "color": "#a78bfa"
     },
     {
@@ -301,6 +312,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_campaigns_pdv_july_2026",
+      "label": "Pdv July 2026",
+      "file_type": "doc",
+      "source_file": "knowledge/campaigns/pdv-july-2026.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "7819b564ea30",
+      "val": 8.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_canonical_templates_index",
       "label": "Canonical Templates / Index",
       "file_type": "doc",
@@ -309,6 +331,17 @@
       "community_name": "Knowledge",
       "content_hash": "855a43370377",
       "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_case_studies_travis",
+      "label": "Travis",
+      "file_type": "doc",
+      "source_file": "knowledge/case-studies/travis.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "6e371860dc3f",
+      "val": 10.0,
       "color": "#a78bfa"
     },
     {
@@ -374,6 +407,94 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "430ea7cf79d5",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decision_reviews_2026_08_24_provider_failover_review_prep",
+      "label": "Provider Failover Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-08-24-provider-failover-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "9233e37482f6",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decision_reviews_2026_08_25_exp001_attribution_review_prep",
+      "label": "Exp001 Attribution Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-08-25-exp001-attribution-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "3a95a6f7d29a",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decision_reviews_2026_08_27_recipient_validation_review_prep",
+      "label": "Recipient Validation Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-08-27-recipient-validation-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "155639d04257",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decision_reviews_2026_08_28_atlas_communication_layer_review_prep",
+      "label": "Atlas Communication Layer Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-08-28-atlas-communication-layer-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "59675d5d3eca",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decision_reviews_2026_08_29_loss_intelligence_review_prep",
+      "label": "Loss Intelligence Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-08-29-loss-intelligence-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "1704c78ca23b",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decision_reviews_2026_08_29_relationship_continuation_review_prep",
+      "label": "Relationship Continuation Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-08-29-relationship-continuation-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "612c5b0283a5",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decision_reviews_2026_08_29_relationship_first_crm_review_prep",
+      "label": "Relationship First CRM Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-08-29-relationship-first-crm-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "9ee59a1df995",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decision_reviews_index",
+      "label": "Decision Reviews / Index",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/INDEX.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "85699afa5698",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -770,7 +891,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "45a68634d126",
-      "val": 12.0,
+      "val": 14.0,
       "color": "#a78bfa"
     },
     {
@@ -869,7 +990,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "8f1508ddd092",
-      "val": 6.0,
+      "val": 8.0,
       "color": "#a78bfa"
     },
     {
@@ -891,6 +1012,28 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "85140642e0c2",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_founder_call_execution_sheet",
+      "label": "Founder Call Execution Sheet",
+      "file_type": "doc",
+      "source_file": "knowledge/founder-call-execution-sheet.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "b1431af07767",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_founder_revenue_plan_2026_08_18",
+      "label": "Founder Revenue Plan",
+      "file_type": "doc",
+      "source_file": "knowledge/founder-revenue-plan-2026-08-18.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "0fbc908e4e02",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -1012,7 +1155,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "de42a761e128",
-      "val": 8.0,
+      "val": 10.0,
       "color": "#a78bfa"
     },
     {
@@ -1210,7 +1353,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "e73de579551e",
-      "val": 6.0,
+      "val": 8.0,
       "color": "#a78bfa"
     },
     {
@@ -1335,6 +1478,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_qpaint_report_delivery_2026_08_18",
+      "label": "Qpaint Report Delivery",
+      "file_type": "doc",
+      "source_file": "knowledge/qpaint-report-delivery-2026-08-18.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "e306e040c129",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_qpaint_white_label_send_protocol",
       "label": "Qpaint White Label Send Protocol",
       "file_type": "doc",
@@ -1441,7 +1595,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "dea18c304331",
-      "val": 6.0,
+      "val": 8.0,
       "color": "#a78bfa"
     },
     {
@@ -1452,7 +1606,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "66b099ae52eb",
-      "val": 6.0,
+      "val": 8.0,
       "color": "#a78bfa"
     },
     {
@@ -1727,6 +1881,17 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "8b182162d04e",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_wednesday_call_briefs_2026_08_19",
+      "label": "Wednesday Call Briefs",
+      "file_type": "doc",
+      "source_file": "knowledge/wednesday-call-briefs-2026-08-19.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "8efb8d63c771",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -2015,6 +2180,13 @@
     {
       "source": "agent_registry",
       "target": "knowledge_recovery_bootstrap",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "agent_rollback_cost_consolidation",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
@@ -2315,6 +2487,27 @@
     },
     {
       "source": "agent_registry",
+      "target": "knowledge_case_studies_travis",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_campaigns_pdv_july_2026",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decision_reviews_index",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
       "target": "knowledge_campaign_review_template",
       "relation": "wikilink",
       "weight": 1.0,
@@ -2393,6 +2586,34 @@
     {
       "source": "agent_registry",
       "target": "knowledge_decisions_2026_07_28_atlas_communication_layer",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_founder_revenue_plan_2026_08_18",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_founder_call_execution_sheet",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_wednesday_call_briefs_2026_08_19",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_qpaint_report_delivery_2026_08_18",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
@@ -3098,6 +3319,41 @@
       "source_file": ""
     },
     {
+      "source": "knowledge_campaigns_pdv_july_2026",
+      "target": "knowledge_campaign_reviews_painter_campaigns_july_2026",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_case_studies_travis",
+      "target": "knowledge_research_tas_moulis_conversion",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_case_studies_travis",
+      "target": "knowledge_research_star_painters_adelaide_conversion",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_case_studies_travis",
+      "target": "knowledge_interviews_james_hardstaff_2026_06_27",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_case_studies_travis",
+      "target": "knowledge_experiments_travis_led_email_1_pilot",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
       "source": "knowledge_customers",
       "target": "knowledge_business",
       "relation": "wikilink",
@@ -3107,6 +3363,62 @@
     {
       "source": "knowledge_customers",
       "target": "knowledge_services",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decisions_index",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_08_24_provider_failover_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_08_25_exp001_attribution_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_08_27_recipient_validation_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_08_28_atlas_communication_layer_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_08_29_relationship_continuation_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_08_29_relationship_first_crm_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_08_29_loss_intelligence_review_prep",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
@@ -3336,6 +3648,13 @@
       "source_file": ""
     },
     {
+      "source": "knowledge_qpaint_recovery_sequence",
+      "target": "knowledge_outreach_sequences_qpaint_recovery_sequence",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
       "source": "knowledge_qpaint_next_action_principle",
       "target": "knowledge_qpaint_qpaint_operating_model",
       "relation": "wikilink",
@@ -3380,6 +3699,27 @@
     {
       "source": "knowledge_research_star_painters_adelaide_conversion",
       "target": "knowledge_experiments_context_vs_curiosity_readme",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_research_star_painters_adelaide_conversion",
+      "target": "knowledge_case_studies_travis",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_research_tas_moulis_conversion",
+      "target": "knowledge_campaigns_pdv_july_2026",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_research_tas_moulis_conversion",
+      "target": "knowledge_case_studies_travis",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

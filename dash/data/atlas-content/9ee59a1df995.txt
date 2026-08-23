@@ -1,0 +1,50 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-08-22
+status: PREPARATION — review due 2026-08-29
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — Relationship-First CRM Philosophy
+
+> Outcome data gathered ahead of the 2026-08-29 review of `2026-07-29-relationship-first-crm`.
+
+## Decision being reviewed
+
+**What was decided (2026-07-29):** The CRM's organising principle shifts from "opportunity management" to "relationship storytelling." One record per customer relationship, chronological narrative in Outreach Notes, structured-but-human entries, glanceable in 30 seconds, six-month test on every entry. Governing question: "Does this create a clearer picture of the customer's journey?" Test question: "Will this make it easier to understand this customer's history six months from now?"
+
+**Review date:** 2026-08-29
+
+## Success criteria — actuals (verified 2026-08-22 22:00 ACST)
+
+| Criterion | Actual | Status |
+|---|---|---|
+| Every pipeline record has structured, chronological Outreach Notes | 85/323 Prospects (26%) have `[YYYY-MM-DD]` structured entries. QPaint Pipeline: 167 records with structured notes on active/recovery records (Nicholas, Nuwan, Beth all structured). | 🟡 PARTIAL — V2 Prospects lag (Email 1/2 auto-logged in V2 Outreach Activity, notes not always updated) |
+| Timeline entries use consistent event type markers | `[YYYY-MM-DD] Campaign: X — Email N sent`, `V2 REPLY from`, `[date] Email 1 SENT` patterns consistent in V2-era records. Relationship-timeline-standard exists (`knowledge/relationship-timeline-standard.md`). | ✅ WORKING |
+| Nicholas Zappacosta record as reference example | Two Nicholas records exist (see continuation-prep). The Multi-Opportunity Active record reads as the reference: structured chapters Logan Village → QAS Beenleigh → Port Adelaide, Win Attribution. But duplication undermines the "one record" test. | ⚠️ VERIFY |
+| Six-month test | V2 Outreach Activity ledger now shows full per-prospect event history (Email 1, Email 2, replies). Prospect records hold state; ledger holds events. Division of labour is clean and glanceable. | ✅ WORKING |
+| Future client pipelines adopt philosophy from day one | QPaint Pipeline is the only client pipeline; structure present. New client onboarding must bake this in. | 🟡 PARTIAL |
+
+## Key developments since decision
+
+1. **V2 Outreach Activity ledger matured** — 89 records (Email 1 x44, Email 2 x42, Founder Call x1, Reply Received x1, Follow-up x1 as of 2026-08-22). The event ledger gives every V2 prospect a chronological story without bloating Outreach Notes.
+2. **First inbound reply logged (2026-08-22)** — Inspire Painting reply + James's clarifying response added to ledger, closing the Campaign Pulse reconciliation gap. Ledger now complete for the 42-prospect observation cohort.
+3. **Relationship-aware follow-up learning (2026-08-21)** — strengthened the governing question with mailbox-history scope (check both atlas@ and james@).
+4. **Customer Context Gate (A–H)** — `communication_history_reviewed` step operationalises the six-month test before every send.
+
+## Verdict framing for review
+
+The philosophy is embedded in operating procedure (CCG, ledger, structured notes) but penetration is partial: 26% of Prospects carry structured notes, and the Nicholas reference example has a duplication question. The review should decide: (1) how to handle the Nicholas duplicate, (2) whether structured notes are required for all Prospects or only active/recovery cohorts, (3) whether V2 Outreach Activity should become the canonical timeline for V2 prospects (leaving Outreach Notes for state only).
+
+## Evidence files
+
+- `knowledge/decisions/2026-07-29-relationship-first-crm.md` — decision under review
+- `knowledge/relationship-timeline-standard.md` — format standard
+- `knowledge/decisions/2026-07-29-relationship-continuation-protocol.md` — companion decision
+- V2 Outreach Activity table (89 records) + Prospects table (323 records) — penetration audit
+
+## Prepared by
+
+Prepare-Ahead Clock 2026-08-22 22:00 ACST. Next step: James assigns verdict at Aug 29 review.

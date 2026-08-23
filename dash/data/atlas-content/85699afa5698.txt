@@ -1,0 +1,23 @@
+---
+doc_type: index
+owner: notforgotten
+tier: primary
+---
+
+# Decision Review Preps — Index
+
+> Review preparations for the [[Decision Library]] (knowledge/decisions/INDEX.md). Each prep gathers outcome evidence ahead of its scheduled review date. James assigns the verdict at review; preps are preparation, not decisions.
+
+| Prep file | Review date | Decision under review |
+|---|---|---|
+| [[Provider Failover Review Prep]] (knowledge/decision-reviews/2026-08-24-provider-failover-review-prep.md) | 2026-08-24 | `2026-07-24-provider-failover-gemini-fallback` |
+| [[EXP-001 Attribution Review Prep]] (knowledge/decision-reviews/2026-08-25-exp001-attribution-review-prep.md) | 2026-08-25 | `2026-08-01-campaign-pulse-reporting-standard` (EXP-001) |
+| [[Recipient Validation Review Prep]] (knowledge/decision-reviews/2026-08-27-recipient-validation-review-prep.md) | 2026-08-27 | `2026-07-27-recipient-validation-safeguard` |
+| [[Atlas Communication Layer Review Prep]] (knowledge/decision-reviews/2026-08-28-atlas-communication-layer-review-prep.md) | 2026-08-28 | `2026-07-28-atlas-communication-layer` |
+| [[Relationship Continuation Review Prep]] (knowledge/decision-reviews/2026-08-29-relationship-continuation-review-prep.md) | 2026-08-29 | `2026-07-29-relationship-continuation-protocol` |
+| [[Relationship-First CRM Review Prep]] (knowledge/decision-reviews/2026-08-29-relationship-first-crm-review-prep.md) | 2026-08-29 | `2026-07-29-relationship-first-crm` |
+| [[Loss Intelligence Review Prep]] (knowledge/decision-reviews/2026-08-29-loss-intelligence-review-prep.md) | 2026-08-29 | `2026-07-29-loss-intelligence-framework` |
+
+---
+
+Created 2026-08-23 to close the zero-inbound-ref gap (vault lint 4.2 / 7.1). Review calendar lives in the Decision INDEX (`## Review Calendar`).

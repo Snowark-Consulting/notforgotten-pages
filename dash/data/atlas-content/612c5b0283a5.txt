@@ -1,0 +1,49 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-08-22
+status: PREPARATION — review due 2026-08-29
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — Relationship Continuation Protocol
+
+> Outcome data gathered ahead of the 2026-08-29 review of `2026-07-29-relationship-continuation-protocol`.
+
+## Decision being reviewed
+
+**What was decided (2026-07-29):** New scope from an existing customer relationship is classified as "Relationship Progress" and checked for CRM duplication before any new record is created. If the customer exists: update the existing record (append scope, set Multi-Opportunity Active, record value + date). If uncertain: flag for James review, never assume duplicate. Forward new scope to the client within minutes; acknowledge professionally same day.
+
+**Review date:** 2026-08-29
+
+## Success criteria — actuals (verified 2026-08-22 22:00 ACST)
+
+| Criterion | Actual | Status |
+|---|---|---|
+| Zero duplicate records by email in pipeline tables | QPaint Pipeline: 167 records. Nicholas Zappacosta appears in **2 records** — one Multi-Opportunity Active / Relationship Progress — New Project (Logan Village + QAS Beenleigh + Port Adelaide, Win Attribution Assisted), one separate record ("no follow-up required, formal paperwork pending", Review 31 Aug). ⚠️ May be intentional (separate tender thread) or fragmentation — needs James's judgment at review. | ⚠️ VERIFY |
+| Forward-to-client time < 30 min for new scope | Nicholas QBuild scope (Aug 3-10) forwarded same-day per record notes. Dean Baker 3 QBuild quotes consolidated as one relationship (2026-08-21 learning). | ✅ WORKING |
+| Every new scope acknowledged within 4 business hours | No missed-acknowledgement incident found in notes since decision. | ✅ WORKING |
+| `Opportunity Type` populated on 100% of pipeline records | **16/167 populated (9.6%)**: 15 "PandaDoc (QPaint)" (intake-generated), 1 "Relationship Progress — New Project" (Nicholas). 151 empty. Field exists but is not populated by default — intake sets PandaDoc, recovery sets Relationship Progress only when manually applied. | ❌ GAP |
+| CEO Brief separates Relationship Progress from New Opportunities | New Opportunities Generated tracked in Atlas-communication-layer prep (Nicholas = demonstrated). Relationship Progress distinct category present in four-outcome framework. | ✅ WORKING |
+
+## Key developments since decision
+
+1. **Relationship-aware follow-up codified (2026-08-21)** — `learnings/2026-08-21-relationship-aware-followup-govt.md`: multiple quote records for the same human/business = ONE relationship (Dean Baker 3 QBuild quotes); government/QBuild tenders are QPaint-managed, not customer follow-up journeys; history review must cover BOTH mailboxes (Vivien Lennan incident 14 Aug).
+2. **Customer Context Gate (A–H)** now mandatory pre-send (INC-2026-08-19) — communication_history_reviewed step enforces relationship check before any outbound.
+3. **V2 Outreach Activity ledger** — the V2 event ledger now has its first inbound row (Inspire Painting reply logged 2026-08-22, reconciling the Campaign Pulse gap).
+
+## Verdict framing for review
+
+The protocol works where applied (Nicholas, Dean Baker) but is only 9.6% implemented as a field. Two questions for James: (1) Is the duplicate Nicholas record fragmentation or an intentional separate thread? (2) Should `Opportunity Type` be enforced at intake (auto-set "PandaDoc (QPaint)" already happens) and at recovery (auto-set "Relationship Progress" when dedup match fires)?
+
+## Evidence files
+
+- `knowledge/decisions/2026-07-29-relationship-continuation-protocol.md` — decision under review
+- `knowledge/relationship-continuation-protocol.md` — formal SOP
+- `learnings/2026-08-21-relationship-aware-followup-govt.md` — Dean Baker / Vivien Lennan / QBuild evidence
+- QPaint Pipeline table (167 records) — Opportunity Type / Engagement Stage audit
+
+## Prepared by
+
+Prepare-Ahead Clock 2026-08-22 22:00 ACST. Next step: James assigns verdict at Aug 29 review.

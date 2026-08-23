@@ -1,0 +1,50 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-08-22
+status: PREPARATION — review due 2026-08-29
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — Loss Intelligence Framework
+
+> Outcome data gathered ahead of the 2026-08-29 review of `2026-07-29-loss-intelligence-framework`.
+
+## Decision being reviewed
+
+**What was decided (2026-07-29):** Replace per-loss notifications with three-tier reporting: Tier 1 Critical Alerts (immediate, only for genuinely significant events: 3+ same issue, systemic, major complaint, high-value relationship at risk), Tier 2 Weekly Loss Intelligence Report (COB Friday), Tier 3 Monthly Client Insight Report (end of month). Core principle: Atlas reduces noise, not creates it. "Data points are information. Consistent data points are intelligence."
+
+**Review date:** 2026-08-29
+
+## Success criteria — actuals (verified 2026-08-22 22:00 ACST)
+
+| Criterion | Actual | Status |
+|---|---|---|
+| Zero individual loss notifications unless Critical Alert criteria met | Beth McIntosh closed Lost 21 Aug: handled per CCG (SILENT, scope UNKNOWN, contact=NO, CCG holds), no individual loss notification sent. Doctor Brush bounce → Lost reconciled silently. | ✅ WORKING |
+| Weekly Loss Intelligence Report delivered every Friday COB | **No cron job found for Weekly Loss Intelligence.** Framework file exists (`knowledge/loss-intelligence-framework.md`) but the scheduled report was never implemented. Only "Weekly Website Intelligence" and "Weekly vault-lint" jobs exist. | ❌ GAP |
+| Monthly Client Insight Report by end of first week of new month | Monthly Outreach Intelligence Report cron exists but **errored Aug 1**: `Script not found: /root/.hermes/scripts/bin/monthly-outreach-report.py` (path traversal issue — see LEARNINGS: cron --script paths resolve relative to scripts/). Next run Sep 1. Quote Insights V1 (retention tool) designed Aug 8 but not yet in production. Monthly Recovery Intelligence Report due Sep 7 (first Monday). | ⚠️ PARTIAL |
+| At least one actionable recommendation per monthly report | No monthly report has been produced since the decision (Aug monthly not delivered). | ❌ GAP |
+
+## Key developments since decision
+
+1. **Loss Intelligence Framework file exists** (`knowledge/loss-intelligence-framework.md`) — decision tree + three-tier architecture documented.
+2. **CCG holds silent losses** — Beth McIntosh is the model case: no noise, hold decision, review date.
+3. **Reporting infrastructure fragmented** — three separate report concepts (Weekly Loss Intelligence, Monthly Outreach Intelligence, Monthly Recovery Intelligence, Quote Insights V1) with no unified delivery. Risk of duplicate/competing reports once built.
+4. **QPaint live book** — 4 Won, 13 Engaged, 7 Replied (167 records as of Aug 22). Loss events are being captured in Daily Attention, but no structured loss report exists.
+
+## Verdict framing for review
+
+The noise-reduction principle is working (Beth, Doctor Brush handled silently). The reporting engine is not built: no Weekly Loss Intelligence cron, Monthly Outreach Intelligence broken (path bug), no monthly reports delivered since decision. The review should decide: (1) build the Weekly Loss Intelligence cron now (small script, reuses existing patterns), (2) fix the Monthly Outreach Intelligence script path before Sep 1 run, (3) consolidate the four report concepts into one delivery lane to avoid duplication.
+
+## Evidence files
+
+- `knowledge/decisions/2026-07-29-loss-intelligence-framework.md` — decision under review
+- `knowledge/loss-intelligence-framework.md` — framework (decision tree)
+- `knowledge/decisions/2026-08-08-quote-insights-retention-layer.md` — Quote Insights V1
+- `knowledge/monthly-recovery-intelligence-report.md` — Sep 7 first report
+- Cron registry: no weekly loss job; monthly-outreach-report.py path error (last run 2026-08-01)
+
+## Prepared by
+
+Prepare-Ahead Clock 2026-08-22 22:00 ACST. Next step: James assigns verdict at Aug 29 review.

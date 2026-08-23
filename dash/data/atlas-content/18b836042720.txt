@@ -5,6 +5,8 @@
 | Domain | Trigger keywords | Card |
 |--------|-----------------|------|
 | gmail | `gog gmail`, `newer_than`, `batchModify`, `mark.read`, `threadId`, `Gmail API` | `cards/gmail.md` |
+| gmail-auth | `gmail_auth.py`, `OAuth`, `token refresh`, `google_token`, `401`, `Gmail API auth` | `cards/gmail-auth.md` |
+| qpaint | `QPaint`, `white-label`, `Customer Care`, `Email 3`, `pipeline truth`, `daily attention`, `Atlas / Customer Care` | `cards/qpaint.md` |
 | hermes | `shell hook`, `matcher`, `post_tool_call`, `pre_tool_call`, `pre_llm_call`, `allowed_users`, `allowlisted`, `state.db`, `system_prompt`, `skill-injection`, `trigram`, `date hook`, `date integrity`, `inject-date` | `cards/hermes.md` |
 | shell | `zsh`, `for p in`, `\| tee`, `tmux pipe`, `nvm`, `pyenv`, `echo $`, `declare -A` | `cards/shell.md` |
 | cron | `cronjob`, `schedule`, `launchd`, `LaunchAgent`, `crontab`, `keychain`, `wakeAgent`, `wakeagent`, `script gate`, `token burn` | `cards/cron.md` |

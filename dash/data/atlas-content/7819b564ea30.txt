@@ -1,0 +1,127 @@
+---
+doc_type: knowledge
+owner: notforgotten
+tier: primary
+status: COMPLETE — see campaign review for outcomes
+---
+
+# Painter Distribution Validation — Jul 2026
+
+> Campaign: First delegated outreach wave under distribution-validation phase. 20 painters (10 Control A / 10 Test B), 4-email sequence, A/B test on framing and length. Promoted from draft 2026-08-23 (was `drafts/archive/painter-distribution-validation-jul-2026.md`).
+
+**Campaign:** First delegated outreach wave under distribution-validation phase
+**Vertical:** Painters (residential + commercial)
+**Prospects:** 20 selected from 121 uncontacted painters in Airtable
+**Decision ref:** `2026-07-12-distribution-validation-phase`
+**Proposals approved:** 1 (A/B test), 2 (3-day cadence), 3 (parallel vertical testing)
+
+**Outcomes:** see [[Painter Campaign Review]] (knowledge/campaign-reviews/painter-campaigns-july-2026.md) — Travis case study identified as conversion engine.
+
+---
+
+## Experiment Design
+
+| Variable | Control (A) — 10 prospects | Test (B) — 10 prospects |
+|---|---|---|
+| **Approach** | Industry-fluent observation → curiosity question → why asking | Direct question → minimal frame → why asking |
+| **Length** | 70-120 words | 40-60 words |
+| **Philosophy** | Demonstrates understanding before asking | Leads with the question, context is minimal |
+| **Hypothesis** | If we demonstrate industry understanding first, prospects feel understood and reply | If we reduce friction and get straight to the point, busy owners are more likely to reply |
+
+**Prediction:** Both variants will outperform the 0% reply rate from Wave 1 calibration (different vertical mix, different timing). Test (B) may produce higher reply volume; Control (A) may produce higher reply quality. Confidence: Low — first controlled A/B test.
+
+**Single variable changed:** Email body framing and length. Subject line, sender, timing, CTA, and all principles remain identical.
+
+---
+
+## 4-Email Sequence
+
+### Cadence (Proposal 2 approved — shortened from 5-3-7 to 3-3-7)
+
+| Touch | Days from Email 1 | Date |
+|---|---|---|
+| Email 1 | Day 0 | Mon Jul 13 |
+| Email 2 | Day +3 | Thu Jul 16 |
+| Email 3 | Day +6 | Sun Jul 19 → Mon Jul 20 (weekend push) |
+| Email 4 | Day +13 | Sun Jul 26 → Mon Jul 27 (weekend push) |
+
+### Email 1 — First Contact (both variants)
+
+**Subject:** Your Painting Quotes
+
+**Control (A):**
+```
+Hi [Name],
+
+[Observation grounded in how painting businesses operate — quoting rhythm, time cost, the gap between quote and follow-up. Specific to this prospect's geography or niche where possible.]
+
+[One genuine question that bridges to follow-up — makes them think about what happens after a quote goes out. Not leading. Not rhetorical.]
+
+[One sentence on why asking — honest, no pitch.]
+```
+
+**Test (B):**
+```
+Hi [Name],
+
+[One direct question about how they handle quote follow-up. Gets straight to the point. No preamble observation.]
+
+[One sentence of context — why asking, honest and brief.]
+```
+
+### Email 2 — Second Touch (Day +3, both variants)
+
+**Subject:** Re: Your Painting Quotes
+
+Adds a new observation or angle. Does not reference Email 1 as if they read it. No false engagement. New value: a different aspect of the quoting problem (e.g., time cost of quoting vs. painting, or the emotional weight of silent quotes).
+
+**Control (A):** New industry observation, different angle. ~70-100 words.
+**Test (B):** Second question, different angle. ~40-50 words.
+
+### Email 3 — Travis Bridge (Day +6, both variants)
+
+**Subject:** A painter in Adelaide recovered $177K
+
+First introduction of social proof. No pitch — just the Travis Krieg story as a bridge. "This painter had the same problem. Here's what happened. Does any of this resonate?"
+
+**Control (A):** Travis story with context about why it matters. ~100-120 words.
+**Test (B):** Travis story, shorter. ~60-80 words.
+
+### Email 4 — Breakup (Day +13, both variants)
+
+**Subject:** Last one from me
+
+Leave the door open. No pressure. "If this isn't the right time, no worries." Both variants use the same breakup template. ~50-70 words.
+
+---
+
+## Exit Conditions
+
+| Condition | Action |
+|---|---|
+| Reply received (any) | Move to conversation. Do not send next touchpoint. |
+| Bounce | Mark Lost. Remove from sequence. |
+| Unsubscribe / opt-out request | Mark Lost. Respect immediately. |
+| Sequence complete (4 emails, no reply) | Move to Campaign Complete. Door remains open. |
+| James manually stops | Pause. Flag for review. |
+
+---
+
+## Industry Quoting Dynamics — Painters
+
+- **Business model:** Project-based. Residential (homeowners) + commercial (builders, property managers). Mix varies by business.
+- **Quoting rhythm:** Quotes done evenings/weekends between jobs. Time quoting = time not painting = time not earning.
+- **Quote volume:** 5-30 quotes per week depending on business size. Higher in spring/summer.
+- **Structural tension:** Owner does the quoting AND the painting. Follow-up gets deprioritised because there's always another job to start, another quote to write, another client to meet.
+- **After a quote goes out:** Usually silence. "Just checking in" text or call after a week or two. No system. Memory and hope.
+- **Why they'd feel the gap:** Every silent quote is time invested with no return. The money is already half-won — they did the work of quoting. A painter who sends 15 quotes a week at $3K average is letting $45K in potential revenue sit in other people's inboxes.
+
+---
+
+## Airtable Tracking
+
+- **Outreach Sequence:** "Painter Distribution Validation — Jul 2026"
+- **Wave:** 1
+- **Variant:** "Control A" or "Test B" — recorded in Outreach notes
+- **Pipeline stage:** New → Outreach Active (on send)
+- **Standard cadence:** +3, +3, +7 (auto-calculated by send-outreach.py)

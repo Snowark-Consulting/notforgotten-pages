@@ -1,0 +1,40 @@
+---
+doc_type: case-study
+owner: notforgotten
+tier: primary
+status: INTERNAL — conversion asset (not client-publication)
+---
+
+# Travis Case Study
+
+> Travis Krieg Painting: dormant-quote follow-up recovered 14 jobs / $177,555 over 4 months. 2-for-2 conversion trigger at Email 3 in painter outreach. Bridge, not opener.
+
+**⚠️ Number discrepancy on file (flag, do not guess):** the Email 3 text quoted in both conversion files states **$177,555** (14 jobs, 4 months). `knowledge/experiments/travis-led-email-1-pilot.md` states **$180,115 recovered**. The $177,555 figure is the verbatim email text (canonical for outreach); the pilot's $180,115 needs reconciliation before any external use. Do not quote either figure without checking the source of truth first.
+
+---
+
+## The Story
+
+Travis Krieg Painting is a painting business in Adelaide, five crew, mostly residential. He started following up quotes that had gone quiet — the ones where the client said they'd think about it and never came back. Over four months, 14 of those jobs came back. Same quotes, same prices, just systematic follow-up instead of hoping.
+
+## Role in Outreach
+
+The Travis story is the conversion engine of the painter outreach sequence:
+
+- **2-for-2 at Email 3.** Both [[Tas Moulis Conversion]] (knowledge/research/tas-moulis-conversion.md) and [[Star Painters Conversion]] (knowledge/research/star-painters-adelaide-conversion.md) converted after Email 3 carried the Travis story. Tas called James directly; Ahmad replied with three buying questions and converted same day.
+- **Bridge, not opener (founding decision).** Per `founding-travis-case-study-as-bridge`, the case study is deployed only after the prospect recognises their gap — never as the cold open. See [[Founder Interview]] (knowledge/interviews/james-hardstaff-2026-06-27.md).
+- **Active pilot.** Testing Travis as Email 1 (vs July's curiosity-led baseline) for 19 prospects: [[Travis-Led Email 1 Pilot]] (knowledge/experiments/travis-led-email-1-pilot.md). Awaiting James approval.
+
+## Evidence Trail
+
+| Source | What it establishes |
+|---|---|
+| `knowledge/research/tas-moulis-conversion.md` | Tas converted after Email 3 (Travis). 3 emails, 11 opens, 10 days. |
+| `knowledge/research/star-painters-adelaide-conversion.md` | Ahmad converted after Email 3 (Travis). Same-day reply with 3 buying questions. |
+| `knowledge/experiments/travis-led-email-1-pilot.md` | Email-1 pilot hypothesis + the $180,115 figure (unreconciled). |
+| `knowledge/decisions/INDEX.md` (`founding-travis-case-study-as-bridge`) | Founding decision: bridge, not opener. |
+
+## Status
+
+- **Internal conversion asset.** Not a client-publication case study (that pipeline is `knowledge/case-studies/INDEX.md`, CS-2026-001/002 for QPaint).
+- Created 2026-08-23 from existing vault evidence to close the 5-reference broken-link gap (vault lint 3.1, 2nd consecutive lint).
