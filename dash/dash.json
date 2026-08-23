@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 194,
+    "tasks_completed": 195,
     "recent": [
+      {
+        "date": "2026-08-23 19:56",
+        "task": "Flipped 5 agent crons to deepseek-v4-flash (inbox/quotes/james pulse phase2, Dream, Campaign Pulse); resolved dream-cost-cache-read-bloat",
+        "category": "task"
+      },
       {
         "date": "2026-08-22 16:25",
         "task": "Campaign pulse posted \u2014 V2 Email 2 first reply (Inspire Painting) 2.4% at Day 1; lead-gen misunderstanding flagged; ledger reconciliation gap noted",
@@ -135,11 +140,6 @@
         "date": "2026-08-07 11:58",
         "task": "Full operational audit published. 10-section report + Weekend Action Plan. Score: 92 (-3). Critical: 32 QPaint Email 2 overdue (.1M+). Audit page: dash/audit/. HQ refreshed with new priorities.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-06 19:14",
-        "task": "Massive HQ audit & refresh. Vault: 48 decisions, 4 learnings, 3 incidents (resolved), 7 CEO Briefs, 13 BK principles. QPaint: 147 customers, $5.24M pipeline, 1 Won ($129,750), 7 engaged. 419 messages. 2 new dashboard sections: Vault Health + QPaint Pipeline. All systems healthy.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-23T18:30:51.760284+09:30",
+  "last_updated": "2026-08-23T19:56:13.356883+09:30",
   "pipeline": {
     "prospect_count": 323,
     "stages": {
