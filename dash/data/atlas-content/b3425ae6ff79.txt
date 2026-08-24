@@ -1,0 +1,54 @@
+---
+doc_type: decision
+owner: notforgotten
+tier: operational
+---
+
+# Decision: Provider Failover — Deferred (DeepSeek Healthy, Fallback Drift Acknowledged)
+
+**Slug:** `2026-08-24-provider-failover-deferred`
+**Status:** 🟢 Made
+**Date:** 2026-08-24
+**Review Date:** 2026-09-24
+**Type:** Operational (Tier 1)
+**Principle:** System over person; Trust before growth
+
+## Context
+
+The scheduled review of `2026-07-24-provider-failover-gemini-fallback` was due today (2026-08-24). That decision deployed a Gemini fallback chain (deepseek-v4-pro → gemini-2.5-flash) after a DeepSeek streaming outage.
+
+## Review finding — config drift
+
+Current `config.yaml` shows:
+
+```yaml
+model:
+  default: deepseek-v4-pro
+  provider: deepseek
+fallback_providers: '[]'   # EMPTY — no fallback configured
+```
+
+The Gemini fallback documented in the July 24 decision is **no longer present** in the running config. `providers` contains only `deepseek`; Gemini is referenced only under `auxiliary.vision` (gemini-3.5-flash for image analysis), not as a model fallback. This is drift between decision and implementation — the fallback was deployed in July but is now absent.
+
+## Current risk (accepted, deferred)
+
+- Primary = DeepSeek (deepseek-v4-pro). Healthy.
+- If DeepSeek fails: 3 API retries, then hard halt of all LLM-driven work (quote intake, inbox pulse, monitoring, briefings, cron).
+- Impact: no new quote processing, no follow-up monitoring, no briefings until recovery or manual intervention.
+
+## Decision
+
+**DEFER.** Do not implement the Gemini fallback today.
+
+1. DeepSeek is healthy; this is not blocking live customer work and does not outrank QPaint commercial control.
+2. The drift is recorded as an **acknowledged operational risk** requiring a future decision.
+3. Next review: 2026-09-24 — re-assess whether to re-deploy a fallback (Gemini or alternative) and reconcile the config with the decision record.
+
+## Rationale
+
+Operational resilience matters, but re-wiring the provider chain now would be a change made without a live outage driving it, in the middle of higher-priority commercial work. Evidence-before-action: the outage that justified the July 24 fallback has not recurred, and DeepSeek is currently stable.
+
+## Related
+
+- `2026-07-24-provider-failover-gemini-fallback` — original fallback decision (now drifted)
+- `2026-08-17-deepseek-client-data-approved` — DeepSeek as primary for client-data workflows; Gemini = reliability fallback, not privacy boundary

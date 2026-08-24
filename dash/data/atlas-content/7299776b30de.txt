@@ -16,7 +16,32 @@ Before executing any steps, load these files:
 
 ## Steps
 
-### 0. SESSION DETECTION & NOTES (CRITICAL — do first)
+### 0. RECONCILE OPEN RECOMMENDATIONS (PHASE 0 — do before everything else)
+
+Before any other step, re-verify every `status=="open"` entry in `Agent/recommendations.json` against current ground truth and apply decisions via `recommendations.py reconcile`. This stops a recommendation from rotting on the dashboard's Recommendations tab after it was fixed in a normal chat session.
+
+For each open item, check the category against the live vault:
+
+- **broken-link** → grep for the target path; if it now resolves, the item is stale.
+- **contradiction** → re-read BOTH cited sources; if they now agree, stale.
+- **orphan** → re-run the graph check (`search_files` inbound-link scan); if it now has inbound links, stale.
+- **index-drift** → re-check the index vs disk; if the entry was added, stale.
+- **memory-drift** → `diff` the cited memory lines against current; if reconciled, stale.
+- **credential** → re-check the expiry date; if still future, keep.
+
+Map each to a decision and apply atomically:
+
+```bash
+python3 scripts/recommendations.py reconcile --decisions '[{"id":"<id>","action":"accept|dismiss|keep","note":"<one line why>"}]'
+```
+
+- `accept` = the finding is real and you are acting on it now (sets status accepted).
+- `dismiss` = re-verified, the underlying problem is already fixed (sets status dismissed).
+- `keep` = still genuinely open, nothing to do yet (leaves status open, stamps re-verified).
+
+`reconcile` only touches `status=="open"` entries; already-closed items are skipped automatically. Report a `Reconciled: X accepted, Y dismissed, Z kept open` line in the summary.
+
+### 0.5. SESSION DETECTION & NOTES (CRITICAL — do first)
 
 Check for sessions that may not have left notes. Use `session_search()` to query today and yesterday (client-local timezone). For either date that has activity but whose notes file is missing or is only the auto-created session-activity stub, read the most recent transcript and write a proper summary to `notes/<date>.md` with sections: Worked On, Open Threads, Decisions, Follow Up.
 
@@ -32,7 +57,7 @@ Check if any workflows from today should become skills. If a repeated multi-step
 
 ### 3. WIKILINKS
 
-Scan any files created or edited today for plain-text references to vault pages that should be wikilinks. Add missing ``[[PageName]] (path/to/file.md)`` per the conventions in `Agent/wikilinks.md`.
+Scan any files created or edited today for plain-text references to vault pages that should be wikilinks. Add missing `[[PageName]] (path/to/file.md)` per the conventions in `Agent/wikilinks.md`.
 
 ### 4. CONNECTION GENERATION
 
@@ -88,7 +113,7 @@ If there are no new learnings, note it and move on.
 
 ### 13. RECOMMENDATIONS LEDGER SYNC
 
-If tonight produced anything needing Josh's attention, append each to `Agent/recommendations.json` so it surfaces in the dashboard's Recommendations tab:
+If tonight produced anything needing the owner's attention, append each to `Agent/recommendations.json` so it surfaces in the dashboard's Recommendations tab:
 
 `python3 scripts/recommendations.py add --json '{"id":"consolidation-<slug>","source":"consolidation","category":"<credential|skill|stale|anomaly>","tone":"<orange|yellow>","headline":"...","detail":"...","evidence":["..."]}'`
 

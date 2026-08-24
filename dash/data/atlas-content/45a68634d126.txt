@@ -36,7 +36,7 @@
 | | `2026-07-12-distribution-validation-phase` | Distribution validation phase — infrastructure closed, customer acquisition begins. Atlas Tier 1 outreach delegation. | Jul 2026 | 🟢 Made | 2026-10-12 |
 | | `2026-07-13-diagnose-before-change-ceo-briefing-scope` | Diagnose-before-change framework + CEO Briefing scope: routine execution delegated, strategic decisions only | Jul 2026 | 🟢 Made | 2026-09-13 |
 | | `2026-07-24-stage-1-approved-learning-phase` | Stage 1 approved: Design phase complete, learning phase begins. Writing Playbook established. Evidence-based improvement only. | Jul 2026 | 🟢 Made | 2026-10-24 |
-| | `2026-07-24-provider-failover-gemini-fallback` | Provider failover: Gemini fallback chain deployed after DeepSeek streaming outage | Jul 2026 | 🟢 Made | 2026-08-24 |
+| | `2026-07-24-provider-failover-gemini-fallback` | Provider failover: Gemini fallback chain deployed after DeepSeek streaming outage | Jul 2026 | ✅ Reviewed | 2026-08-24 |
 | | `2026-07-27-sms-strategic-capability-design` | SMS as strategic platform capability — design framework, cold outreach prohibited, consent model | Jul 2026 | 🟢 Made | 2026-10-27 |
 | | `2026-07-28-atlas-communication-layer` | Atlas as communication layer — role is customer relationship management, not follow-up engine. Four outcomes measured. Daily OIS. Escalate to client only when they add value. | Jul 2026 | 🟢 Made | 2026-08-28 |
 | | `2026-07-28-inclusion-principle` | Inclusion principle: every customer deserves an attempt. Scoring = sequencing, not exclusion. | Jul 2026 | 🟢 Made | 2026-10-28 |
@@ -89,6 +89,8 @@
 | | `2026-08-20-qpaint-role-boundary` | QPaint Role Boundary — Surface ≠ Manage. Never chase QPaint decisions; exception-based escalation; no QPaint commitment to a customer without verified QPaint evidence | Aug 2026 | 🟢 Made | 2026-10-20 |
 | | `2026-08-20-qpaint-daily-ops-model` | QPaint Daily Operations Model — Review → Decide (never Review → Send). Individual CCG per customer; no batch sends; persistence ≠ repetition | Aug 2026 | 🟢 Made | 2026-11-20 |
 | | `2026-08-21-v2-email2-observation-monitoring` | V2 Email 2 post-send observation — james@ real-time reply monitoring, REVIEW→DECIDE on 28 Aug, name-from-email-local-part rule | Aug 2026 | 🟢 Made | 2026-09-21 |
+| | `2026-08-24-provider-failover-deferred` | Provider failover deferred — DeepSeek healthy, fallback_providers empty (drift from Jul-24 decision), acknowledged operational risk | Aug 2026 | 🟢 Made | 2026-09-24 |
+| | `2026-08-24-travis-proof-figure-canonical` | Travis proof figure — $180,115 canonical; $177,555 was a tracking-sheet formula error | Aug 2026 | 🟢 Made | — |
 
 ---
 
@@ -98,7 +100,7 @@
 |---|---|---|---|
 | 2026-08-05 | `2026-07-05-airtable-audit-crm-reconciliation` | Airtable audit | 🟢 |
 | 2026-08-08 | `2026-07-08-morning-briefing-ceo-format` | Morning Briefing: operations log to CEO briefing | 🟢 |
-| 2026-08-24 | `2026-07-24-provider-failover-gemini-fallback` | Provider failover: Gemini fallback chain | 🟢 |
+| 2026-08-24 | `2026-07-24-provider-failover-gemini-fallback` | Provider failover: Gemini fallback chain | ✅ |
 | 2026-08-27 | `2026-07-27-recipient-validation-safeguard` | Recipient validation safeguard | 🟢 |
 | 2026-08-28 | `2026-07-28-atlas-communication-layer` | Atlas as communication layer | 🟢 |
 | 2026-08-29 | `2026-07-29-relationship-continuation-protocol` | Relationship Continuation Protocol | 🟢 |
@@ -114,6 +116,7 @@
 | 2026-09-06 | `2026-08-06-communication-context-check` | Communication Context Check — 10-point mandatory pre-draft gate | 🟢 |
 | 2026-09-13 | `2026-07-13-diagnose-before-change-ceo-briefing-scope` | Diagnose-before-change + CEO Briefing scope | 🟢 |
 | 2026-09-21 | `2026-08-21-v2-email2-observation-monitoring` | V2 Email 2 post-send observation + james@ monitoring | 🟢 |
+| 2026-09-24 | `2026-08-24-provider-failover-deferred` | Provider failover deferred | 🟢 |
 | 2026-09-28 | `2026-06-28-calibration-outreach-living-system` | Calibration outreach strategy as living system | 🟢 |
 | 2026-09-29 | `2026-07-29-single-identity-james-led` | Single-Identity, James-Led Communication | 🟢 |
 | 2026-09-29 | `2026-07-29-atlas-elevates-every-interaction` | Atlas Elevates Every Interaction | 🟢 |
@@ -270,5 +273,5 @@ Based on patterns observed, Atlas should watch for:
 
 ---
 
-*Last updated: 2026-08-21*
-*8 founding + 66 living = 74 decisions recorded. 0 decisions reviewed. 5 challenges logged.*
+*Last updated: 2026-08-24*
+*8 founding + 67 living = 75 decisions recorded. 1 decision reviewed. 5 challenges logged.*

@@ -1,0 +1,34 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# Observation-Window Handoff — Operational Interruption, Not Pipeline Failure
+
+**Date:** 2026-08-24
+**Scope:** QPaint quote follow-up (John Wilson, Steve Liversidge, Sharon Fleay)
+**Category:** Operating model / process ownership
+
+## Symptom
+Three fresh PandaDoc quotes (20 Aug) had their 48-hour observation windows expire (22 Aug) and received zero NF contact. All three records were correctly created and correctly dated — the only missing step was the human REVIEW → DECIDE handoff.
+
+## Root cause
+- Intake worked (quotes-pulse-phase2 running) — records created correctly.
+- Observation window worked — NTD set to +48h correctly.
+- **The handoff `NEW QUOTE → 48h OBSERVATION → REVIEW → DECISION` did not run.**
+- `follow-up-autopilot` (the automation that surfaced/acted on expired windows) was disabled/retired, and the manual review step was suspended while QPaint outbound work was deliberately stopped during the operating-model correction.
+
+## Classification
+This was an **operational interruption**, NOT evidence that the intake pipeline is broken. No infrastructure change is warranted from these three records.
+
+## The learning (standing rule)
+1. An observation window expiring **must surface the customer for REVIEW → DECIDE**.
+2. It must **never** mean automatic Email 1.
+3. It must **also never disappear** simply because automated outbound is disabled — a disabled autopilot must fall through to a human review signal, not a silent gap.
+
+## Action taken
+- John Wilson, Steve Liversidge, Sharon Fleay each individually reviewed and (after founder approval) sent Email 1 through canonical_send. Reconciled in Airtable. Next date = REVIEW only (31 Aug).
+
+## Status
+Closed for the three records. Operating-model gap to be addressed separately once the customer book is controlled.

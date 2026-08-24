@@ -1,0 +1,85 @@
+---
+doc_type: qpaint-context-reconstruction
+owner: james
+tier: primary
+date: 2026-08-24
+status: REVIEW ONLY — awaiting James decision, no contact
+prepared_by: Atlas
+---
+
+# QPaint Context Reconstruction — Georgina Baartz + Ian Lea
+
+Correction: earlier "current follow-up" classification was based on STRIPPED Airtable fields. Primary evidence (Aug 5 backup) shows both are STALE (90+d) quotes.
+
+---
+
+## GEORGINA BAARTZ — $101,530
+
+### Verified (primary evidence: backup qpaint-pipeline-backup-2026-08-05)
+- **Quote date:** 2026-03-04 · **146 days (~4.8 months)**
+- **Scope:** External
+- **Segment:** Stale (90+d)
+- **Referral:** QPaint Website
+- **Phone:** 0447 725 808
+- **Category:** Corporate · Tier P1 · Score 60 · Recommended Channel: Email + Phone
+- **Deal:** 42266 - 17 Armadale St, St Lucia (Hermitage Court)
+
+### Still UNKNOWN (no primary evidence)
+- Decision type: who Georgina is (owner / committee member / body-corp / strata manager). "Hermitage Court" = unit-complex name; "Corporate" = label, not evidence. Do NOT assume body corporate.
+- No company/body-corp identifiers in any record.
+
+### Connected quotes
+- None (searched Armadale / Hermitage / St Lucia / "Baartz").
+
+### Communication history
+- Email 1 — 5 Aug (`19fcef3b859e9243`) generic "make sure you received the quote". Zero replies.
+
+### Commercial truth
+- Stale (146d) external quote, 1 generic re-engagement touch, zero reply, never asked "is this still live?"
+
+### Why another touch adds value (beyond review date)
+- Age is within the re-engagement window (younger than Natalie's 11 months). One generic touch only; a re-engagement asks a genuinely new question.
+
+### Recommendation
+- **EMAIL (historical re-engagement)** — consistent with Natalie/Caylah — subject to founder's call on the decision-type gap.
+
+---
+
+## IAN LEA — $99,000
+
+### Verified (primary evidence)
+- **Quote date:** 2025-10-28 · **273 days (~9 months)**
+- **Scope:** External
+- **Segment:** Stale (90+d)
+- **Referral:** QPaint Website
+- **Phone:** 0448 763 121
+- **Category:** Corporate · Tier P2 · Score 52 · Recommended Channel: Email
+- **Deal:** 41907 - 39 Magazine St, Sherwood
+
+### Still UNKNOWN
+- Decision type: why "Corporate" (joint personal email ian_janine@iinet.net.au is ambiguous). Owner? Commercial? Builder? No evidence.
+- No company identifiers.
+
+### Connected quotes
+- None (searched Magazine / Sherwood / "Lea").
+
+### Communication history
+- Email 1 — 5 Aug (`19fcef59df6894cd`) generic. Zero replies.
+
+### Commercial truth
+- Stale (273d) external quote, 1 generic touch, zero reply, never asked "still live?"
+
+### Why another touch adds value
+- Age within re-engagement window (< Natalie's 11 months). New question.
+
+### Recommendation
+- **EMAIL (historical re-engagement)** — subject to founder's call on decision-type gap.
+
+---
+
+## Systemic finding (data integrity)
+**31 records have empty Quote Date / Segment in the LIVE Airtable** — their "Stale (90+d)" segment and quote dates were stripped during the 5 Aug re-import, making stale quotes look "current". Georgina + Ian are 2 of these 31. This is the "control weakness" at scale: high-value stale quotes masquerading as current, inflating the apparent "current backlog".
+
+The other 29 include: Barbara Andrew $72K, Maddison Ashman $62K, Julia Slykerman $59K, Annette Hancock $54K, Fiona Parker $49K, Matt Savage $44K, Cecilia Cheung $39K, Chelsey Huang $33K, Amanda Cornford $29K, Rachel Stephenson $28K, Oliver Forbes-Pryer $27K, Tracy Schadendorss $24K, Sanela Milinkovic $21K, etc.
+
+**Implication:** the "current follow-up" set is smaller than it appears. These 31 should be re-classified as HISTORICAL, not current.

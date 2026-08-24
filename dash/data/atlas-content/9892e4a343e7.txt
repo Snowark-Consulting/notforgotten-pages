@@ -1,0 +1,48 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# Data-Loss Through Import — Preserve Commercial Context — 2026-08-24
+
+## The issue
+
+The 5 August re-import stripped commercial fields from 31 records. Contact data (name, email, quote value, deal title) survived, but decision-critical context was lost:
+
+- Quote date
+- Scope / extent of work
+- Segment / customer type (fresh vs stale vs government)
+- Relationship / referral / source
+- Procurement / government status
+- Previous-client status
+- Recovery score / tier / channel / action reason
+
+Because those fields were missing, subsequent reviews saw historical quotes as "current" and government/procurement records as ordinary residential quotes — producing the wrong follow-up decision even though the contact data itself was correct.
+
+## The principle
+
+A customer record is NOT adequately preserved merely because name, email and quote value survive an import or update. Decision-critical commercial context must survive too.
+
+## The rule (for any future import/update/migration)
+
+Before/after any bulk data operation, verify the following survive (or are intentionally and explicitly excluded):
+1. Quote date
+2. Scope / extent of work
+3. Segment / customer type
+4. Relationship / referral / source
+5. Procurement / government status
+6. Previous-client status
+7. Communication history
+8. Current commercial state
+
+Loss of these fields can cause the system to make the wrong follow-up decision even when the contact data itself is correct.
+
+## Status
+
+Recorded only. No infrastructure work, no schema redesign, no automation changes authorised. The 31 affected records were restored field-by-field from the 5-Aug pre-import backup, supported values only (UNKNOWN stayed UNKNOWN).
+
+## Related
+
+- [[Relationship-Aware Follow-Up + Government/QBuild Handling]] (2026-08-21)
+- [[Customer Context Gate]] (knowledge/customer-context-gate.md)

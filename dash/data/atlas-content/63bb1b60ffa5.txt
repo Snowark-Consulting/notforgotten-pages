@@ -14,7 +14,7 @@ tier: primary
 - **Airtable tables** — Base `appgw8Q993yOh4xpQ`. Prospects `tblceVflumXdl23JJ`, Clients `tbldt1bS2DfbQqyEi`, QPaint Pipeline `tblHPx8o6qp81e60b`, V2 Outreach Activity `tblvu8kJ41BuZ0QrT`. `[high]`
 - **Gmail** — atlas@ via OAuth (`google_token.json`), deps in `/root/.hermes/venv/`. Send/search/labels/reply working. `[high]`
 - **Mailbox scope** — james@ READ-ONLY (no send/read/label), monitored by `james-pulse-phase2` (c130a8d0475d, */5, seen-ID dedup, never mutates) since 2026-08-21. quotes@ full (dedicated `quotes_token.json`). `[high]`
-- **Git backup** — nightly `bin/nightly-backup.sh` → GitHub `Snowark-Consulting/client-notforgotten.git`. `.gitignore` excludes state.db/cache/cron-output + volatile runtime (ticker, jobs.json, executions.db, OAuth tokens) since 2026-08-22 race fix; retries 3× on exit 128. OAuth tokens still in git HISTORY — rotation pending James sign-off. `[high]`
+- **Git backup** — nightly `bin/nightly-backup.sh` → GitHub `Snowark-Consulting/client-notforgotten.git`. `.gitignore` excludes state.db/cache/cron-output + volatile runtime (ticker, jobs.json, executions.db, OAuth tokens) since 2026-08-22 race fix; retries 3× on exit 128. OAuth tokens still in git HISTORY — rotation recommendation SKIPPED by James 2026-08-24 (accepted risk; tokens remain). `[high]`
 
 ## Sender identity & comms
 
@@ -59,6 +59,8 @@ tier: primary
 - **Timezone** — never change scheduler tz without converting expressions. `[high]`
 - **Telegram gate** — 3,800 chars. Compress or multi-part. `[high]`
 - **Data integrity** — bulk search ≠ proof; direct `to:` = verification. Reconciliation flag = hypothesis. `[high]`
+- **state.db rotation 2026-08-24** — live DB rebuilt fresh (torn checkpoint corruption; 1.4G archived). session_search now covers only post-rotation sessions. Snapshot cron 8ed9962a3929 (backup-state-db.sh, 11:45 daily) + Weekly VACUUM d84ff606097d (duplicate 7753a0cb9e74 to disable). Verify snapshot push tomorrow. `[high]`
+- **GitHub backup auth** — stale `http.extraheader` overrides URL token; `state/` must stay anchored `/state/` or it swallows `backups/state`. Fixed 2026-08-24; re-check after any git config change. `[high]`
 
 ## Model & cost (2026-08-18)
 

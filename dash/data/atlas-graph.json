@@ -389,6 +389,28 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_commercial_growth_review_2026_08_24",
+      "label": "Commercial Growth Review",
+      "file_type": "doc",
+      "source_file": "knowledge/commercial-growth-review-2026-08-24.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "adc7b51a8503",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_customer_2_growth_pack_2026_08_24",
+      "label": "Customer 2 Growth Pack",
+      "file_type": "doc",
+      "source_file": "knowledge/customer-2-growth-pack-2026-08-24.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "fadc92af8f5e",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_customer_context_gate",
       "label": "Customer Context Gate",
       "file_type": "doc",
@@ -396,7 +418,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "6f26a793af7f",
-      "val": 14.0,
+      "val": 16.0,
       "color": "#a78bfa"
     },
     {
@@ -1445,6 +1467,72 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_qpaint_context_reconstruction_georgina_ian_2026_08_24",
+      "label": "Qpaint Context Reconstruction Georgina Ian",
+      "file_type": "doc",
+      "source_file": "knowledge/qpaint-context-reconstruction-georgina-ian-2026-08-24.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "26da21c017f0",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_qpaint_current_followup_georgina_ian_2026_08_24",
+      "label": "Qpaint Current Followup Georgina Ian",
+      "file_type": "doc",
+      "source_file": "knowledge/qpaint-current-followup-georgina-ian-2026-08-24.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "cf112c87b5f2",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_qpaint_final_assurance_2026_08_24",
+      "label": "Qpaint Final Assurance",
+      "file_type": "doc",
+      "source_file": "knowledge/qpaint-final-assurance-2026-08-24.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "77e125b71878",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_qpaint_historical_review_janita_caylah_2026_08_24",
+      "label": "Qpaint Historical Review Janita Caylah",
+      "file_type": "doc",
+      "source_file": "knowledge/qpaint-historical-review-janita-caylah-2026-08-24.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "b50f97cf226c",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_qpaint_historical_review_jenny_natalie_2026_08_24",
+      "label": "Qpaint Historical Review Jenny Natalie",
+      "file_type": "doc",
+      "source_file": "knowledge/qpaint-historical-review-jenny-natalie-2026-08-24.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "44b99ecfa2e1",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_qpaint_historical_review_lloyd_simpson_2026_08_24",
+      "label": "Qpaint Historical Review Lloyd Simpson",
+      "file_type": "doc",
+      "source_file": "knowledge/qpaint-historical-review-lloyd-simpson-2026-08-24.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "28a7b6b05764",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_qpaint_new_opportunity_qas_beenleigh_2026_07_28",
       "label": "Qpaint New Opportunity Qas Beenleigh",
       "file_type": "doc",
@@ -1991,6 +2079,17 @@
       "community": 5,
       "community_name": "Learnings",
       "content_hash": "e7c5ceca8084",
+      "val": 4,
+      "color": "#f472b6"
+    },
+    {
+      "id": "learnings_2026_08_24_data_loss_through_import",
+      "label": "Data Loss Through Import",
+      "file_type": "doc",
+      "source_file": "learnings/2026-08-24-data-loss-through-import.md",
+      "community": 5,
+      "community_name": "Learnings",
+      "content_hash": "9892e4a343e7",
       "val": 4,
       "color": "#f472b6"
     },
@@ -3144,6 +3243,62 @@
       "source_file": ""
     },
     {
+      "source": "agent_registry",
+      "target": "knowledge_commercial_growth_review_2026_08_24",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_customer_2_growth_pack_2026_08_24",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_qpaint_historical_review_janita_caylah_2026_08_24",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_qpaint_historical_review_jenny_natalie_2026_08_24",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_qpaint_historical_review_lloyd_simpson_2026_08_24",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_qpaint_context_reconstruction_georgina_ian_2026_08_24",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_qpaint_current_followup_georgina_ian_2026_08_24",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_qpaint_final_assurance_2026_08_24",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
       "source": "agent_sops",
       "target": "agent_registry",
       "relation": "wikilink",
@@ -3909,6 +4064,13 @@
     {
       "source": "learnings_2026_08_21_relationship_aware_followup_govt",
       "target": "knowledge_decisions_2026_08_20_qpaint_daily_ops_model",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "learnings_2026_08_24_data_loss_through_import",
+      "target": "knowledge_customer_context_gate",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

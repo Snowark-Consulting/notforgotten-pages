@@ -1,0 +1,43 @@
+---
+slug: 2026-08-24-travis-proof-figure-canonical
+date: 2026-08-24
+status: Made
+type: Corrective (fact / evidence)
+owner: james
+review_date: none
+---
+
+# Decision: Travis Proof Figure — $180,115 Canonical ($177,555 was a formula error)
+
+## The Decision
+
+**$180,115** is the canonical Travis Krieg Painting proof figure (14 jobs, 4 months, Jan–Apr 2026).
+
+**$177,555** is retired from all new outbound, website copy, sales material, and conversation. It was a tracking-sheet formula error, not the true total.
+
+## The Evidence (primary)
+
+The reconciliation is documented in `skills/snowark/case-study/references/testimonial-sourcing-and-data-integrity.md` (2026-08-19):
+
+> "the tracking sheet's totals row said $177,555, but the 14 job rows actually summed to $180,115. The difference ($2,560) was exactly the first row, which the total formula had silently excluded."
+
+- Travis's tracking sheet has 14 job rows. Manually re-summing them gives **$180,115**.
+- The sheet's own "totals row" (a SUM formula) reported **$177,555** because its range started at the second row, silently excluding the first job ($2,560).
+
+## Where the $177,555 error leaked
+
+- The July Email 3 texts (Tas Moulis, Ahmad Haidari) quoted "$177,555 in total" — written before the tracking sheet was re-summed. These are historical emails and are not altered.
+- The founding decision `founding-travis-case-study-as-bridge` recorded $177,555 (immutable — not altered).
+- The website case study's itemised table was built from the buggy formula result (13 jobs = $154,705 + "14th" $22,850 = $177,555), while its headline correctly used $180,115. The table is internally inconsistent and needs correction against the tracking sheet.
+
+## What is NOT changing
+
+- Historical emails sent with $177,555 (July Email 3s) are not altered.
+- The immutable founding decision is not altered.
+
+## Actions
+
+1. $180,115 is the single canonical public figure.
+2. All forward-looking files (skills, sequences, briefs, business.md, website source) use $180,115.
+3. The website case study itemised table is flagged for correction — it does not sum to $180,115 (built from the buggy formula result). Verify against Travis's tracking sheet before redeploy.
+4. Rahamed / Inspire Painting kept INTERESTED / NEEDS CLARIFICATION — monitor, do not chase.

@@ -1,0 +1,50 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# Learning: Quote Intelligence Requires Commercial Context, Not Just Data
+
+**Date:** 2026-08-24
+**Source:** QPaint new-quote intake audit (14 Sunday quotes) — Founder directive.
+**Status:** Active learning. No schema/infra change authorised.
+
+## The core insight
+
+Not Forgotten cannot reduce a quote to: customer + email + value + address + basic scope.
+
+The intelligence layer needs enough context to understand, for every quote:
+
+1. **WHO** is being followed up (owner, builder, strata manager, body corporate committee, business)
+2. **WHAT** was quoted (full meaningful scope, not just "interior/exterior")
+3. **WHAT relationship already exists** (new customer vs repeat contact vs multi-quote relationship)
+4. **WHAT type of commercial decision** is occurring (residential purchase, builder project, body-corporate tender, government procurement)
+5. **WHO is likely involved** in that decision (individual, committee, strata manager, procurement officer)
+6. **WHAT timing/dependencies exist** (committee meetings, builder schedule, expiry, access)
+7. **WHAT makes this journey different** from a normal quote
+
+## Consequences
+
+- **Customer Segment is commercially meaningful context, not CRM metadata.** A "Residential" label on a body-corporate complex quote is not a cosmetic error — it changes the follow-up decision (who to contact, how decisions get made, cycle length).
+- **Evidence over inference.** Segment must be established from primary source (the quote's own text: CTS designation, "body corporate complex", "NEW WORK", QBCC HWI, scaffolding-exclusion, complex scale), combined with organisation/property signals — NOT from email domain alone.
+
+## What is being lost (intake audit finding)
+
+| Field | Status | Cause |
+|---|---|---|
+| Scope, value, GST, dates, expiry, name, email, address | Captured well | Extracted correctly from PandaDoc |
+| Customer phone | Blank on ALL quotes | **SOURCE UNAVAILABLE** — QPaint's PandaDoc template has no customer-phone field (only QPaint's own numbers) |
+| Customer Segment | Blank / defaulted "Residential" | Not classified at intake; body-corp/builder/business signals present in source but unused |
+| Estimator | Inconsistent | "Prepared by" field blank on some PandaDoc docs, present on others (e.g. James Gooley) |
+
+## Product decision (Founder, 2026-08-24)
+
+1. **Do NOT redesign Airtable. Do NOT add fields. Do NOT change intake infrastructure.** Continue gathering evidence from real quote journeys first.
+2. **Phone = SOURCE UNAVAILABLE.** Do NOT ask QPaint to change their PandaDoc template. Not Forgotten adapts to the client's existing workflow rather than requiring the client to redesign around us. Later: evaluate phone enrichment or alternative capture.
+3. **Correct segment where evidence clearly establishes it** (body corporate / builder / business vs residential), but do not infer from email domain alone.
+
+## Applied this session
+
+- 4 of 14 Sunday quotes reclassified: Brooke Warren, Ramona Jackson, Ani Darlapudi → Corporate (body corporate); Claire → Commercial (builder). Evidence: CTS designation, "body corporate complex", QBCC HWI, "NEW WORK" + scaffolding exclusion.
+- Tom Clark (TKC Projects) flagged NOT auto-corrected — evidence is email-domain only; quote text doesn't clearly establish "business".

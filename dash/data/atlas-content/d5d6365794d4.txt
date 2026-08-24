@@ -182,3 +182,58 @@ When a new entry contradicts a prior one: set `Contested: true` on both, add rec
 **Second symptom:** A PATCH setting `Outreach Notes` to a new string OVERWRITES the entire field (wipes history). Append-only is mandatory.
 
 **Fix:** Always read the current `Outreach Notes` from Airtable, then PATCH with `existing + "\n\n" + new_note`. Never PATCH a bare new-note string. (Restored Carlie Gunn + Alicia Campbell notes after the overwrite.)
+
+## 2026-08-24 — GitHub backup silently broken (two failure modes)
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** Nightly "backup to GitHub" cron reported "ok" for ~36h but nothing was actually pushed. Repo sat 43 commits ahead of origin/main, and state.db snapshots never reached GitHub at all.
+
+**Cause (two independent bugs):**
+1. Stale `http.extraheader` in `.git/config` (Basic auth, token `ghp_bLx`) overrode the correct URL-embedded token (`ghp_bJO` = `SNOWARK_GITHUB_TOKEN`). `git ls-remote origin` returned "Repository not found" even with a valid token, because the extraheader wins over URL credentials.
+2. `.gitignore` rule `state/` (un-anchored) matched ANY `state/` directory, including `backups/state/` where the snapshot script writes. `git add backups/state/` silently staged nothing, so the snapshot was never committed or pushed.
+
+**Fix:**
+1. Update `http.extraheader` to the working token: `git config http.extraheader "Authorization: Basic $(printf 'hancockjluke:%s' "$SNOWARK_GITHUB_TOKEN" | base64 -w0)"`.
+2. Anchor the gitignore rule: `state/` → `/state/` (only ignores the repo-root runtime dir).
+3. Add `backups/*.corrupted*` to gitignore (a 1.4GB corrupted DB must never be committed — exceeds GitHub 100MB limit).
+
+## 2026-08-24 — Data-Loss Through Import — Preserve Commercial Context
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** The 5 August re-import stripped commercial fields from 31 records. Contact data (name, email, quote value) survived, but decision-critical context was lost: quote date, scope, segment, relationship/source, procurement status, previous-client status, recovery score. Subsequent reviews then saw historical quotes as "current" and government records as ordinary residential — producing wrong follow-up decisions.
+
+**Fix (rule):** Before/after any bulk data operation, verify these survive (or are intentionally excluded): 1) quote date, 2) scope/extent, 3) segment/customer type, 4) relationship/referral/source, 5) procurement/government status, 6) previous-client status, 7) communication history, 8) current commercial state. 31 affected records restored field-by-field from 5-Aug pre-import backup (supported values only).
+
+**Source:** learnings/2026-08-24-data-loss-through-import.md
+
+## 2026-08-24 — Government Requires Procurement-Aware Follow-Up
+
+**Confidence:** high
+**Contested:** false (corrects earlier "Government = HOLD" standing rule)
+**Symptom:** Using "Government = HOLD" as a blanket rule was wrong. The system must understand the buying process, not just the word "government".
+
+**Fix:** QBuild = VERIFIED QPaint-managed procurement relationship → HOLD (no NF Email 1). Other government = per-case evidence before classification: formal procurement/RFQ → HOLD or procurement-specific; direct govt customer with ordinary supplier comms → follow-up may be appropriate; UNKNOWN → HOLD until context exists. Case evidence: Tracy Schadendorss reclassified Commercial (Eden Academy Bardon, childcare, no govt evidence); Leah Powell (Yeronga State High) HOLD pending review.
+
+**Source:** learnings/2026-08-24-government-procurement-aware-followup.md
+
+## 2026-08-24 — Observation-Window Handoff — Operational Interruption, Not Pipeline Failure
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** Three fresh PandaDoc quotes (20 Aug) had 48-hour observation windows expire (22 Aug) with zero NF contact. Intake worked, observation window worked — the REVIEW → DECIDE handoff did not run (autopilot disabled/retired during operating-model correction).
+
+**Fix (standing rule):** An observation window expiring MUST surface the customer for REVIEW → DECIDE. It must never mean automatic Email 1, and must never disappear because automated outbound is disabled — a disabled autopilot falls through to a human review signal, not a silent gap. John Wilson / Steve Liversidge / Sharon Fleay individually reviewed and Email 1 sent (founder-approved) via canonical_send; reconciled; next date REVIEW only (31 Aug).
+
+**Source:** learnings/2026-08-24-observation-window-handoff.md
+
+## 2026-08-24 — Quote Intelligence Requires Commercial Context, Not Just Data
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** NFS cannot reduce a quote to customer + email + value + address + basic scope. Intelligence needs WHO/WHAT/relationship/decision-type/decision-makers/timing/differentiator. Customer Segment is commercially meaningful context, not CRM metadata — a "Residential" label on a body-corporate complex changes the follow-up decision.
+
+**Founder decision (2026-08-24):** Do NOT redesign Airtable / add fields / change intake infra. Phone = SOURCE UNAVAILABLE (QPaint PandaDoc template has no customer-phone field); do NOT ask QPaint to change their template — NFS adapts to client workflow. Correct segment where evidence clearly establishes it (4 of 14 Sunday quotes reclassified: Brooke Warren, Ramona Jackson, Ani Darlapudi → Corporate; Claire → Commercial); do not infer from email domain alone (Tom Clark flagged, not auto-corrected).
+
+**Source:** learnings/2026-08-24-quote-intelligence-context.md

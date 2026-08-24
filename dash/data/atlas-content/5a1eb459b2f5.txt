@@ -1,0 +1,110 @@
+---
+doc_type: qpaint-follow-up
+owner: james
+tier: primary
+date: 2026-08-24
+status: REVIEW ONLY — awaiting James decision, no contact
+prepared_by: Atlas
+---
+
+# QPaint Follow-Up Recovery — Phase 1 (sends 11 & 12 verified; fresh-quote root cause)
+
+## Sends verified this turn
+
+| Customer | Gmail ID | Thread | Stage | NTD |
+|---|---|---|---|---|
+| Feng Teo | 1a030c3f148c658d | 19fe9611d9c24214 ✓ | Email 3 | 2026-08-31 (review only) |
+| David Hood | 1a030c402a173c80 | 19fe9615169f7654 ✓ | Email 3 | 2026-08-31 (review only) |
+
+Both: exact approved copy, canonical signature + privacy footer, correct recipient/thread, Airtable reconciled.
+
+---
+
+## ROOT CAUSE — why John, Steve and Sharon passed their observation windows with no Email 1
+
+**All three share the SAME cause. It is a process-ownership gap, not an intake or data fault.**
+
+Evidence chain (from cron job state + Airtable):
+1. All three intake'd via PandaDoc send notification on Thu 20 Aug (sent by Leslie Pamintuan, QPaint).
+2. All three correctly created: Stage=New, Recovery Status=New, First Action="Begin follow-up sequence", Next Touchpoint Date = 22 Aug (Quote Date + 48h). Intake worked correctly.
+3. Observation windows expired Sat 22 Aug. Today is Mon 24 Aug (2 days past).
+4. The automation that sends Email 1 for fresh quotes — `follow-up-autopilot` (cron id 51474e46f382) — is **DISABLED** (`enabled: False`, retired per recovery-operations).
+5. The manual fallback — `QPaint Daily Attention` (id e859ea8b1c8c, 7:30am, running) — surfaces these for review, but the "prepare Email 1 + present to James" action was not executed during 20–24 Aug, when the founder directive was "STOP QPaint work unless a genuine exception."
+
+**Classification:** NOT "expected observation behaviour" (windows expired 2 days ago). NOT an "intake/state problem" (records are correct). It is a **genuine missed follow-up**: the automated Email 1 sender was retired and the manual step was suspended by the founder's STOP directive.
+
+**Same cause for all three** — same intake batch (20 Aug), same window expiry (22 Aug), same gap.
+
+**Is Email 1 still appropriate now? YES.** Quotes are 4 days old (fresh conversion window). The miss is only 2 days.
+
+---
+
+## CUSTOMER 11 — John Wilson — $12,914 → EMAIL 1
+
+- **Quote** #43092, $12,914.00, 20 Aug (4d), Residential, EXTERNAL, 85 Sinnamon Rd, Sinnamon Park.
+- **Scope:** clean, prepare and paint/stain timber screens to house, timber fences and gates; metal pole to rear deck (Intergrain UltraDeck timber stain). Optional: house wash $1,800.
+- **Contact:** ix_101@yahoo.com. No phone on record. **Not a previous QPaint customer** (single record).
+- **Decision type:** Residential (homeowner).
+- **QPaint comms outside NF journey:** none beyond the quote issuance (PandaDoc, 20 Aug).
+- **History:** zero NF touches. No reply.
+- **Channel:** EMAIL (Email 1, first-touch introduction). CX Test: PASS.
+
+### Draft (Email 1 — canonical introduction)
+
+**Subject:** Your exterior painting quote from QPaint
+
+Hi John,
+
+I hope this email finds you well.
+
+My name is Atlas, and I work alongside Tas at QPaint. My role is to make sure every client is well looked after throughout the quoting process.
+
+I just wanted to introduce myself and make sure you've received your quote. I can see it covers exterior painting for your property. I also wanted to see if you had any initial questions or if there was anything you'd like us to clarify.
+
+There's absolutely no pressure at all. Whether it's the scope of work, the process, or the timing of your project, I'm here to help. If there's anything you'd like to discuss with Tas directly, I'm more than happy to organise that as well.
+
+Whenever you're ready, simply reply to this email and I'll make sure we look after you.
+
+Kind regards,
+
+Atlas
+Working alongside Tas at QPaint
+
+---
+
+## CUSTOMER 12 — Steve Liversidge — $6,468 → EMAIL 1
+
+- **Quote** #43102, $6,468.00, 20 Aug (4d), Residential, EXTERNAL, 14 Gilmore St, Tarragindi.
+- **Scope:** external painting (Dulux Weathershield) — front staircase (posts, beams, handrails, balustrade, stringers, treads, risers). Optional: refresh peeling front windows @ $350 + GST each.
+- **Contact:** splive69@gmail.com. No phone on record. **Not a previous QPaint customer** (single record).
+- **Decision type:** Residential (homeowner).
+- **QPaint comms outside NF journey:** none beyond the quote issuance.
+- **History:** zero NF touches. No reply.
+- **Channel:** EMAIL (Email 1). CX Test: PASS.
+
+### Draft (Email 1 — canonical introduction)
+
+**Subject:** Your exterior painting quote from QPaint
+
+Hi Steve,
+
+I hope this email finds you well.
+
+My name is Atlas, and I work alongside Tas at QPaint. My role is to make sure every client is well looked after throughout the quoting process.
+
+I just wanted to introduce myself and make sure you've received your quote. I can see it covers exterior painting for your property. I also wanted to see if you had any initial questions or if there was anything you'd like us to clarify.
+
+There's absolutely no pressure at all. Whether it's the scope of work, the process, or the timing of your project, I'm here to help. If there's anything you'd like to discuss with Tas directly, I'm more than happy to organise that as well.
+
+Whenever you're ready, simply reply to this email and I'll make sure we look after you.
+
+Kind regards,
+
+Atlas
+Working alongside Tas at QPaint
+
+---
+
+## Note for James
+
+The Email 1 draft follows the canonical `qpaint-recovery-introduction` template (the "Single Source of Truth" first-touch, signature "Working alongside Tas at QPaint"). Note: some recent first-touch emails (Cindy, Amy, Aug 5) used an earlier "make sure you received the quote" wording rather than this "introduce myself" wording — worth deciding which wording is the current standard before these two go out. Sharon Fleay remains uncontacted per instruction.
