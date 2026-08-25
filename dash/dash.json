@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 201,
+    "tasks_completed": 202,
     "recent": [
+      {
+        "date": "2026-08-26 06:56",
+        "task": "Replied to QPaint customer Rhonda Bourke (quote #42950) resolving 'quote not received' \u2014 QPaint confirmed sent/viewed, pointed customer to spam, no resend promised. Record kept Engaged.",
+        "category": "task"
+      },
       {
         "date": "2026-08-25 14:21",
         "task": "QPaint white-label: sent Seckin Akgul Email 2 (Mantra on Queen) + Kurt Manabat/Collcon final builder touch (Wavey St). Both verified in Gmail Sent and reconciled in Airtable.",
@@ -135,11 +140,6 @@
         "date": "2026-08-10 13:07",
         "task": "QPaint Recovery Dashboard refreshed \u2014 150 records, .39M pipeline, 2 Won, 11 Lost, 7 Engaged. Replaced stale Day 0 (July 28) data with full Aug 10 state.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-10 12:59",
-        "task": "HQ full refresh \u2014 QPaint certified, 33 emails today, 5 replies actioned, Daily Attention + intake active, 0 exceptions.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-26T06:30:48.351014+09:30",
+  "last_updated": "2026-08-26T06:56:35.167585+09:30",
   "pipeline": {
     "prospect_count": 323,
     "stages": {
