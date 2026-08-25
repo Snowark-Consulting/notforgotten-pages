@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 200,
+    "tasks_completed": 201,
     "recent": [
+      {
+        "date": "2026-08-25 14:21",
+        "task": "QPaint white-label: sent Seckin Akgul Email 2 (Mantra on Queen) + Kurt Manabat/Collcon final builder touch (Wavey St). Both verified in Gmail Sent and reconciled in Airtable.",
+        "category": "task"
+      },
       {
         "date": "2026-08-25 11:55",
         "task": "Maria Reid: QPaint address clarification sent (15 vs 25 Raphael Place). 8 Pashen St (Civium): reconciled to Lost (committee chose alternative contractor at AGM).",
@@ -135,11 +140,6 @@
         "date": "2026-08-10 12:59",
         "task": "HQ full refresh \u2014 QPaint certified, 33 emails today, 5 replies actioned, Daily Attention + intake active, 0 exceptions.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-10 12:47",
-        "task": "Messages table updated \u2014 8 new records for today's 5 QPaint customer replies + 3 Atlas responses. 150 QPaint records reconciled. 0 issues.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-25T14:00:47.373331+09:30",
+  "last_updated": "2026-08-25T14:21:36.251494+09:30",
   "pipeline": {
     "prospect_count": 323,
     "stages": {
