@@ -1,9 +1,12 @@
 {
-  "generated_at": "2026-08-25T04:05:00+09:30",
+  "generated_at": "2026-08-26T04:09:48+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
     "body": [
-      "No new customer replies overnight across quotes@, atlas@ or james@. The 11 james@ unread are all stale or system noise (4 bounces, 1 business-closed, 1 auto-reply already reconciled; 2 Airtable billing + 3 DMARC reports). QPaint Email 3 wave went out Monday (6 sends) plus Richard Zhang Email 4, now monitoring for 31 Aug review. A second price signal surfaced overnight: Nishant Saini ($17,838) wants the job but says price is too high — joins Beth McIntosh ($9,680 lost Sunday) as a combined price objection for QPaint. Jesse Zhao ($116,223) Email 3 review is due today. Provider-failover was deferred yesterday (next 24 Sep). Founder Call Day is tomorrow (Wed 26 Aug)."
+      "Founder Call Day is TODAY — 3 warm calls ready (Ahmad / Star Painters #1, The Painting Company #2, Master Choice #3). No new customer replies overnight across quotes@, atlas@ or james@.",
+      "Yesterday's decisions landed cleanly: Jesse Zhao ($116,223) → monitor/no action; price objections surfaced (Nishant Saini to QPaint) and closed (Beth McIntosh, lost on price). No residual action.",
+      "QPaint: 184 records, $6.17M book, 4 Won ($321,967). 12 New quotes got Email 1 sent yesterday (incl. Brooke Warren $106k, Claire $77k). 8 New quotes remain for Email 1 review — largest Dean Baker $56,144, Maria Reid $49,474.",
+      "Two QPaint loops closed overnight: Rhonda Bourke quote confirmed sent + viewed (resolves 'not received'), Maria Reid address confirmed 25 Raphael Place."
     ],
     "estimated_time": "2 minutes"
   },
@@ -11,15 +14,15 @@
     "score": 88,
     "change": "—",
     "reasons_positive": [
-      "QPaint pipeline: 181 records, $6.11M book, 4 Won totalling $321,966 ($129,750 recovered, $192,216 assisted).",
-      "QPaint Email 3 wave sent Monday (6) + Richard Zhang Email 4 — recovery sequence progressing into later stages.",
-      "System health green: disk 35% (13G free), state.db 22M (rotated), all pulse jobs healthy, Airtable + Gmail accessible.",
-      "Dashboard hourly refresh + nightly backup both fixed and passing (were intermittent) — infra stabilised."
+      "QPaint pipeline: 184 records, $6.17M book, 4 Won totalling $321,967.",
+      "12 New quotes progressed to Email 1 sent yesterday — recovery intake moving.",
+      "System health green: disk 36% (13G free), state.db 27M (healthy), all pulse jobs live, Airtable + Gmail accessible.",
+      "Yesterday's decisions all landed — Jesse Zhao decided, price objections surfaced/closed."
     ],
     "reasons_negative": [
-      "1 paying customer ($199 MRR). Ahmad/Star Painters founder emails no reply — founder call queued tomorrow Wed 26 Aug.",
-      "Two open price objections to surface to QPaint: Nishant Saini ($17,838) + Beth McIntosh ($9,680 lost Sunday).",
-      "james@ 11 stale unread accumulate — read-only mailbox, cannot auto-archive (minor hygiene debt)."
+      "1 paying customer ($199 MRR). Ahmad/Star Painters no reply to founder emails — Founder Call Day is today, the decisive re-engagement attempt.",
+      "8 New quotes still queue for Email 1 review (largest Dean Baker $56,144).",
+      "james@ read-only mailbox — a few DMARC reports accumulate (harmless noise, cannot auto-archive)."
     ]
   },
   "business_health": {
@@ -29,156 +32,121 @@
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "QPaint: 181 records, 4 Won ($321,966), 14 Engaged, 27 Lost, 20 New. Email 3 wave sent Monday; 6 Email 3s + 1 Email 4 monitor for 31 Aug review."
+      "detail": "QPaint: 184 records, 4 Won ($321,967), 16 Engaged, 28 Lost, 8 New. Email 3/4 monitor cohort for 31 Aug review."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "V2: 44 Email 1s + 42 Email 2s sent (12-18 Aug / 21 Aug). 1 reply (Rahamed, handled). Observation period — 28 Aug REVIEW→DECIDE, no auto Email 3."
+      "detail": "V2: 44 Email 1s + 42 Email 2s sent. 1 reply (Rahamed, handled). Observation open — 28 Aug REVIEW→DECIDE, no auto Email 3."
     },
     "engineering": {
       "status": "healthy",
-      "detail": "Disk 35% (13G free), state.db 22M (rotated 24 Aug from 1.4GB). Nightly backup ok 24 Aug. Dashboard push fix verified."
+      "detail": "Disk 36% (13G free), state.db 27M (quick_check ok). Pulse jobs all healthy. Draft surfacer had 2 failed runs (btree errors, transient) — watch."
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $6.11M total book. 4 Won = $321,966 ($129,750 recovered, $192,216 assisted)."
+      "detail": "QPaint: $6.17M total book. 4 Won = $321,967."
     },
     "atlas": {
       "status": "healthy",
-      "detail": "All pulse jobs healthy (inbox + quotes + james gates). Airtable + Gmail accessible. Dashboard hourly refresh passing after fix."
+      "detail": "All pulse jobs healthy (inbox + quotes + james gates). Airtable + Gmail accessible."
     }
   },
   "waiting_for_james": [
     {
-      "id": "ahmad-founder-call",
-      "title": "Call Ahmad / Star Painters — Wed 26 Aug Founder Call Day (tomorrow)",
-      "why_it_matters": "Only warm opportunity (Qualified Opportunity, stalled since Jul). Founder email 19 Aug no reply. Highest-leverage growth action.",
+      "id": "founder-call-day",
+      "title": "Founder Call Day — 3 warm calls TODAY (Ahmad #1)",
+      "why_it_matters": "Only warm opportunities. Ahmad/Star Painters stalled since Jul — today is the decisive restart-or-close call. The Painting Company (considering) and Master Choice (warm) follow.",
       "business_impact": "High — fastest path to a 2nd paying customer",
-      "estimated_time": "30 min Wed 26 Aug",
-      "recommended_action": "Call Ahmad Wed 26 Aug (opener briefed). Objective: restart onboarding or close honestly — no vague ending.",
-      "impact_sort": 85
+      "estimated_time": "60-90 min (dedicated day)",
+      "recommended_action": "Run the 3 calls in order: Ahmad first (restart onboarding or close honestly), then The Painting Company, then Master Choice.",
+      "impact_sort": 90
     },
     {
-      "id": "qpaint-price-objections",
-      "title": "Surface 2 price objections to QPaint (Nishant Saini + Beth McIntosh)",
-      "why_it_matters": "Nishant Saini ($17,838) wants the job, price too high (new). Beth McIntosh ($9,680) lost Sunday on price. Two recurring price/competitor objections QPaint should see.",
-      "business_impact": "Medium — loss intelligence for QPaint pricing",
-      "estimated_time": "5 min (Atlas drafts ack + james@ note, you approve)",
-      "recommended_action": "Approve consolidated price-signal note to QPaint. Atlas drafts, you review, james@ sends.",
-      "impact_sort": 65
-    },
-    {
-      "id": "jesse-zhao-email3-review",
-      "title": "Jesse Zhao ($116,223) — Email 3 review due today",
-      "why_it_matters": "Largest-value customer at Email 3. No reply since 18 Aug. Review today per First Action.",
-      "business_impact": "Medium — $116k deal in recovery pipeline",
-      "estimated_time": "5 min",
-      "recommended_action": "Decide: move to Email 4, or mark no-response (do not infer disinterest).",
-      "impact_sort": 55
-    },
-    {
-      "id": "exp001-decision-review",
-      "title": "EXP-001 decision review (UTM gap) — due today",
-      "why_it_matters": "Scheduled decision review. Prep verified current (no utm_ in canonical templates).",
-      "business_impact": "Low — tracking hygiene",
-      "estimated_time": "10 min",
-      "recommended_action": "Review EXP-001 UTM coverage prep and assign verdict.",
-      "impact_sort": 45
-    },
-    {
-      "id": "qpaint-email1-review-decide",
-      "title": "QPaint Email 1 — REVIEW→DECIDE for remaining New quotes",
-      "why_it_matters": "20 New quotes still queue for Email 1 review (largest Brooke Warren $106,249). Nothing auto-sends.",
+      "id": "qpaint-new-email1-review",
+      "title": "QPaint — review Email 1 for 8 New quotes",
+      "why_it_matters": "8 New quotes queue for Email 1 (largest Dean Baker $56,144, Maria Reid $49,474, Ramona Jackson $46,695). Nothing auto-sends.",
       "business_impact": "Medium — recovery pipeline intake",
-      "estimated_time": "20-30 min (review drafts, decide)",
-      "recommended_action": "Review Email 1 drafts for New quotes (Atlas prepares). Largest: Brooke Warren $106,249, Claire $76,778.",
+      "estimated_time": "20-30 min (after calls)",
+      "recommended_action": "Review Email 1 drafts for the 8 New quotes. Maria Reid address now confirmed (25 Raphael Place).",
       "impact_sort": 50
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "No customer fires overnight. The QPaint recovery sequence advanced — Email 3 wave sent Monday (6 sends) plus Richard Zhang Email 4, now monitoring for 31 Aug. The freshest signal is a second price objection (Nishant Saini $17,838) joining Beth McIntosh — worth one consolidated surface to QPaint. Jesse Zhao ($116,223) Email 3 review is due today. Founder Call Day is tomorrow (Ahmad first). Provider-failover was deferred yesterday — no longer due. System is green and stabilised after the state.db rotation and dashboard/backup fixes.",
+    "executive_summary": "No customer fires overnight. Founder Call Day is today — the 3 warm calls are the highest-leverage action this week, with Ahmad/Star Painters the decisive restart-or-close. Yesterday's decisions all landed (Jesse Zhao decided, price objections surfaced/closed), so nothing carries over except the New-quote Email 1 review. QPaint grew to 184 records ($6.17M) with two loops closed overnight (Rhonda quote confirmed sent, Maria address confirmed).",
     "priorities": [
       {
-        "action": "Consolidated price signal to QPaint (Nishant Saini + Beth McIntosh)",
-        "why_it_matters": "Two recurring price/competitor objections in one week. QPaint should see the pattern before it costs more deals.",
-        "expected_impact": "Medium — loss intelligence",
-        "estimated_time": "5 min",
-        "confidence": "High (85%)"
+        "action": "Run Founder Call Day — Ahmad/Star Painters first",
+        "why_it_matters": "Only stalled Qualified Opportunity. Today is the restart-onboarding-or-close decision.",
+        "expected_impact": "High — 2nd paying customer",
+        "estimated_time": "30 min (Ahmad)",
+        "confidence": "High (90%)"
       },
       {
-        "action": "Jesse Zhao ($116,223) Email 3 review (due today)",
-        "why_it_matters": "Highest-value customer at Email 3 with no reply since 18 Aug. Decide next step today.",
-        "expected_impact": "Medium — $116k recovery deal",
-        "estimated_time": "5 min",
-        "confidence": "High (85%)"
-      },
-      {
-        "action": "Prepare Founder Call Day (tomorrow) — confirm 19 Aug outcomes logged",
-        "why_it_matters": "Wed 26 Aug has 3 warm calls (Ahmad #1). Call list integrity depends on 19 Aug outcomes being logged first.",
-        "expected_impact": "Medium — growth",
-        "estimated_time": "10-15 min",
+        "action": "Review QPaint Email 1 drafts for 8 New quotes",
+        "why_it_matters": "Recovery intake stalled until reviewed. Largest Dean Baker $56,144.",
+        "expected_impact": "Medium — pipeline intake",
+        "estimated_time": "20-30 min",
         "confidence": "High (85%)"
       }
     ],
     "can_wait": [
-      "V2 Email 2 observation (42) — next review 28 Aug, no auto Email 3",
-      "Rahamed (Inspire Painting) — awaiting his response to your clarification + call offer",
-      "QPaint Email 3/4 monitor cohort (6 + Richard Zhang) — review 31 Aug",
-      "james@ 11 stale unread — all reconciled or noise (read-only, cannot auto-archive)",
-      "Provider-failover — deferred 24 Aug, next review 24 Sep",
-      "QPaint New quotes Email 1 drafts — can review after Founder Call Day prep"
+      "V2 Email 2 observation (42) — 28 Aug REVIEW→DECIDE",
+      "Rahamed (Inspire Painting) — awaiting his reply to your clarification + call offer",
+      "QPaint Email 3/4 monitor cohort — 31 Aug review",
+      "james@ DMARC reports — harmless noise, read-only",
+      "Provider-failover — deferred to 24 Sep"
     ],
-    "closing": "The system is running clean and stabilised. Two things worth your time today: approve the consolidated QPaint price signal, and review Jesse Zhao Email 3. Then it is prep for tomorrow's Founder Call Day."
+    "closing": "Today is a call day. Run Ahmad first — the honest close matters more than the outcome. QPaint Email 1 review can wait until after the calls."
   },
   "changes": {
     "today": [
       {
         "time": "04:05",
-        "text": "No new customer replies overnight — quotes@, atlas@, james@ all clear of new mail"
+        "text": "Founder Call Day — 3 warm calls ready (Ahmad #1, The Painting Company #2, Master Choice #3)"
       },
       {
         "time": "04:05",
-        "text": "QPaint Email 3 wave sent Monday (6) + Richard Zhang Email 4 — now monitoring for 31 Aug"
+        "text": "No new customer replies overnight — quotes@, atlas@, james@ clean"
       },
       {
         "time": "04:05",
-        "text": "New price objection: Nishant Saini ($17,838) wants job, price too high — joins Beth McIntosh"
+        "text": "Rhonda Bourke quote confirmed sent + viewed (resolves 'not received' escalation)"
       },
       {
         "time": "04:05",
-        "text": "Jesse Zhao ($116,223) Email 3 review due today"
+        "text": "Maria Reid address confirmed 25 Raphael Place (resolves discrepancy)"
       }
     ],
     "yesterday": [
       {
         "time": "—",
-        "text": "QPaint 20 Email 1s verified sent (Mon 24 Aug) + Email 3/4 wave — heavy recovery send day"
+        "text": "Jesse Zhao ($116,223) decided — monitor/no action (3 touches, no reply)"
       },
       {
         "time": "—",
-        "text": "Provider-failover decision DEFERRED (next review 24 Sep)"
+        "text": "Nishant Saini price objection surfaced to QPaint; Beth McIntosh closed (lost on price)"
       },
       {
         "time": "—",
-        "text": "state.db rotated (1.4GB → fresh, corruption resolved); disk 41% → 35%"
+        "text": "12 New quotes progressed to Email 1 sent (Brooke Warren $106k, Claire $77k, others)"
       },
       {
         "time": "—",
-        "text": "Dashboard hourly push fix + GitHub backup fix both verified passing"
+        "text": "QPaint pipeline 181 → 184 records, $6.11M → $6.17M"
       }
     ],
     "this_week": [
       {
         "time": "—",
-        "text": "QPaint: 4 Won totalling $321,966 ($129,750 recovered, $192,216 assisted)"
+        "text": "QPaint: 4 Won totalling $321,967"
       },
       {
         "time": "—",
-        "text": "V2 Email 1 (44, 12-18 Aug) + Email 2 (42, 21 Aug) sent, 1 reply (Rahamed, handled)"
+        "text": "V2 Email 1 (44) + Email 2 (42) sent, 1 reply (Rahamed, handled)"
       },
       {
         "time": "—",
-        "text": "Travis case study figure canonicalised to $180,115 (14 jobs, 4 months)"
+        "text": "Founder Call Day executed Wed 26 Aug (3 warm calls)"
       }
     ]
   },
@@ -216,7 +184,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "QPaint: 181 records, $6.11M, 4 Won ($321,966), 14 Engaged, 27 Lost, 20 New — Email 3 wave sent Monday, 6 Email 3s + 1 Email 4 monitor for 31 Aug. V2: 44 Email 1s + 42 Email 2s sent, 1 reply (Rahamed — handled), observation open (28 Aug review). Disk 35%, state.db 22M (rotated), backup + dashboard fixes passing. Two price objections to surface to QPaint (Nishant Saini + Beth McIntosh). Jesse Zhao Email 3 review due today. Founder Call Day tomorrow (Wed 26 Aug) — 3 warm calls (Ahmad #1).",
+  "operational_status": "QPaint: 184 records, $6.17M, 4 Won ($321,967), 16 Engaged, 28 Lost, 8 New. 12 New got Email 1 sent yesterday; 8 remain. Founder Call Day TODAY (3 warm calls — Ahmad #1). V2: 44 Email 1s + 42 Email 2s, 1 reply (Rahamed — handled), observation open (28 Aug review). Disk 36%, state.db 27M. Two QPaint loops closed overnight (Rhonda quote sent+viewed, Maria address confirmed).",
   "vault_health": {
     "decisions": {
       "total": 73,
@@ -240,31 +208,32 @@
       "usage": "99%"
     },
     "infrastructure": {
-      "disk": "35% (13G free)",
-      "state_db": "22M (rotated 24 Aug from 1.4GB)"
+      "disk": "36% (13G free)",
+      "state_db": "27M (healthy, quick_check ok)"
     }
   },
   "qpaint_pipeline": {
     "summary": {
-      "total_customers": 181,
-      "total_pipeline_value": "$6.11M",
+      "total_customers": 184,
+      "total_pipeline_value": "$6.17M",
       "won_count": 4,
-      "won_value": "$321,966",
-      "lost_count": 27,
-      "engaged_replied": 14,
-      "contacted": 116,
-      "not_contacted": 20
+      "won_value": "$321,967",
+      "lost_count": 28,
+      "engaged_replied": 16,
+      "contacted": 128,
+      "not_contacted": 8
     },
     "stage_breakdown": {
-      "Email 2": 71,
-      "Email 1": 41,
-      "Lost": 27,
-      "New": 17,
-      "Replied": 8,
+      "Email 2": 72,
+      "Email 1": 48,
+      "Lost": 28,
+      "New": 8,
+      "Replied": 10,
       "Email 3": 8,
       "Engaged": 4,
       "Won": 4,
-      "Email 4": 1
+      "Email 4": 1,
+      "Awaiting Reply": 1
     },
     "priority": {
       "P1": 93,
