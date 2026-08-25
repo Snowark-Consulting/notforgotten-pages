@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 199,
+    "tasks_completed": 200,
     "recent": [
+      {
+        "date": "2026-08-25 11:55",
+        "task": "Maria Reid: QPaint address clarification sent (15 vs 25 Raphael Place). 8 Pashen St (Civium): reconciled to Lost (committee chose alternative contractor at AGM).",
+        "category": "task"
+      },
       {
         "date": "2026-08-25 09:08",
         "task": "QPaint: Kay Crawley scope-addition surfaced to QPaint (Dee/Leslie) + Email 1 sent to Katie Schotel & Arna Lancashire (both verified in Gmail, Airtable reconciled)",
@@ -135,11 +140,6 @@
         "date": "2026-08-10 12:47",
         "task": "Messages table updated \u2014 8 new records for today's 5 QPaint customer replies + 3 Atlas responses. 150 QPaint records reconciled. 0 issues.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-10 12:39",
-        "task": "Final QPaint reconciliation \u2014 150 records, 137 active, 2 won, 11 lost, 6 engaged. 33 emails sent today. Inbox clean. QPaint Daily Attention active.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-25T10:30:40.232152+09:30",
+  "last_updated": "2026-08-25T11:55:19.310770+09:30",
   "pipeline": {
     "prospect_count": 323,
     "stages": {
