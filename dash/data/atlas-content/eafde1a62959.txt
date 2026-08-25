@@ -1,0 +1,100 @@
+---
+doc_type: qpaint-context-reconstruction
+owner: james
+tier: primary
+date: 2026-08-25
+status: REVIEW ONLY — awaiting James decision, no contact, no QPaint escalation
+prepared_by: Atlas
+---
+
+# QPaint Context Reconstruction — David Delaney + Barbara Andrew
+
+Two customers, reconstructed individually from primary evidence (Airtable QPaint Pipeline + live Gmail atlas@/james@/quotes@). No sends. No QPaint contact. No batch.
+
+---
+
+## DAVID DELANEY — $123,654.96 — Wavell State High School
+
+### Verified (Airtable `recvs9ZDyrtAdoxBi` + Gmail)
+- **Quote:** 42598 — 70 Telopia Avenue, Wavell Heights (Wavell State High School)
+- **Value:** $123,654.96 · **Date:** 2026-06-01 (85 days old; QPaint 90-day validity → expires ~30 Aug)
+- **Scope:** External (school exterior)
+- **Contact:** David Delaney · `ddela64@eq.edu.au` · 0420 388 608
+- **Email domain = Education Queensland** (eq.edu.au), NOT QBuild (hpw.qld.gov.au / epw.qld.gov.au)
+- **Referral:** QPaint Website (school engaged QPaint directly, not via QBuild tender)
+- **Category:** Government · Segment "Government — Procurement" · Score 79 · P1 · Channel "Phone then Email"
+- **Stage:** Email 2 · Status Contacted · Last Contacted 2026-08-10 · NTP 2026-08-20 (passed)
+- **Has Drive Folder:** True (not accessible — gmail-only tokens)
+
+### Communication history (verified Gmail)
+- **Email 1** — 28 Jul (`19fab1b7094f911b`), "Your quote from QPaint": intro / confirm receipt. *Defect: carried BOTH white-label and NF-branded signature (Gmail auto-signature leak).*
+- **Email 2** — 10 Aug (`19fe9617205bf662`), "Your QPaint quote — 70 Telopia Avenue": discovery "what's stopping you from moving forward" (residential framing to a government school).
+- **Zero replies.** No inbound from David. No james@ conversation. No quotes@ intake (quote predates NF, came via Pipedrive import).
+
+### Relationship / overlap
+- Only 1 record for David / Wavell / Telopia. No other quotes for the school or department in the book.
+
+### Classification
+**NOT a QBuild tender (≠ category A).** QBuild tenders in the book share: hpw/epw.qld.gov.au email, Referral "QBuild", "QBUILD PAINTING WORKS … As per QBuild specifications" scope. David has none. eq.edu.au + QPaint Website referral = direct government school customer.
+
+**Classification: C (direct government customer) with procurement model UNVERIFIED (leans D).** Role, approval process, budget cycle, and whether departmental/QBuild procurement applies at $123K are all UNKNOWN.
+
+### Whether another touch adds value: NO (not now)
+- 2 touches, zero reply. Government school silence is normal (budget/funding cycles).
+- Email 2 already asked discovery (poorly framed); a third touch risks QPaint's credibility.
+- Quote ~5 days from expiry — re-quote/re-validation is QPaint's commercial call, not NF's.
+- Can't craft a third touch that targets the model without knowing role/process.
+
+### Recommendation
+**HOLD / MONITOR.** No customer contact. No QPaint escalation. The hold rationale is evidence (2 unanswered touches + near-expiry + unknown model), NOT "government = hold". Correction vs 24 Aug assurance report, which lumped David into "Government/QBuild (11)" — that rationale was wrong. If the school re-engages, treat as a direct customer, not a QBuild tender.
+
+---
+
+## BARBARA ANDREW — $72,122.60 — Body Corporate
+
+### Verified (Airtable `rec073lr4SaM2X5BZ` + Gmail)
+- **Quote:** 42463 — 340 Annerley Road, Annerley CTS 43578
+- **Value:** $72,122.60 · **Date:** 2026-04-24 (123 days old ~4 months, past 90-day validity)
+- **Scope:** External (body-corporate common property)
+- **Contact:** Barbara Andrew · `barbara@smaccountants.com.au` (accounting-firm domain) · 0409 094 669
+- **Referral:** Dulux · **Category:** Corporate (label) · Segment "Stale (90+d)" · Score 50 · P2
+- **Stage:** Email 1 · Status Contacted · Last Contacted 2026-08-05 · NTP 2026-08-21 (passed)
+- **Data note:** Quote Date/Segment/Scope were stripped in the 5 Aug re-import and restored 24 Aug from backup. Record was masquerading as current; actually stale.
+
+### Relationship / overlap
+- **Unique.** Only 1 record for Barbara / smaccountants.com.au / CTS 43578. No overlap.
+- "Annerley" in book = 3 different properties (Barbara 340 Annerley Rd; Tracey Anderson 24 Villa St [Lost]; Cheryl Sim 53 Junction Tce [Won]) — separate, no relationship overlap.
+- **No strata manager on the record** (unlike most body-corp records which carry yulestrata/civium/acebcm). Contact is a direct accountant email. Role UNKNOWN — do not infer committee/owner/treasurer/strata role from "body corporate".
+
+### Communication history
+- **Email 1** — 5 Aug (`19fcef1ce88ee45f`), "Your quote from QPaint": generic "make sure you received the quote" version. **Zero replies.** No james@ conversation. No quotes@ intake.
+
+### Decision
+Evidence supports normal body-corporate re-engagement (unique relationship, no overlap, stale quote, 1 generic touch). Email 2 objective = DISCOVERY (learn where the quote sits), NOT closure. Do NOT assume committee/budget/price/timing/other-contractor.
+
+### Draft — adapted Email 2 (FOR APPROVAL, DO NOT SEND)
+```
+Subject: Re: Your quote from QPaint
+
+Hi Barbara,
+
+Just checking back in on the painting quote for 340 Annerley Road, Annerley.
+
+May I ask where things are sitting at the moment? Whether it's the scope, the
+timing, the budget, or something else entirely, it would help me understand
+where the quote sits. There may be something we can clarify or help with.
+
+There's no pressure from our side. I'd simply rather understand what's
+happening than keep following up without knowing.
+
+Kind regards,
+
+Atlas
+Customer Care — QPaint
+
+---
+Not Forgotten Systems is helping QPaint manage quote follow-ups. We keep your information secure and use it only in connection with this quote. Privacy policy: notforgotten.com.au/privacy. If you'd prefer not to be contacted, reply to this email.
+```
+
+### Recommendation
+**Present draft for James approval. DO NOT SEND.** Subject "Re: Your quote from QPaint" = thread continuation (matches canonical template; per instruction, threading is assessed customer-by-customer, no global change).

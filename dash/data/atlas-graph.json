@@ -510,6 +510,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decision_reviews_2026_08_30_ceo_briefing_refinements_review_prep",
+      "label": "Ceo Briefing Refinements Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-08-30-ceo-briefing-refinements-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "34018049cc14",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decision_reviews_index",
       "label": "Decision Reviews / Index",
       "file_type": "doc",
@@ -1463,6 +1474,28 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "f80cbe8f9afc",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_qpaint_20_new_quotes_audit_2026_08_25",
+      "label": "Qpaint 20 New Quotes Audit",
+      "file_type": "doc",
+      "source_file": "knowledge/qpaint-20-new-quotes-audit-2026-08-25.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "2a3213c1b019",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_qpaint_context_reconstruction_delaney_andrew_2026_08_25",
+      "label": "Qpaint Context Reconstruction Delaney Andrew",
+      "file_type": "doc",
+      "source_file": "knowledge/qpaint-context-reconstruction-delaney-andrew-2026-08-25.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "eafde1a62959",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -3299,6 +3332,20 @@
       "source_file": ""
     },
     {
+      "source": "agent_registry",
+      "target": "knowledge_qpaint_20_new_quotes_audit_2026_08_25",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_qpaint_context_reconstruction_delaney_andrew_2026_08_25",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
       "source": "agent_sops",
       "target": "agent_registry",
       "relation": "wikilink",
@@ -3574,6 +3621,13 @@
     {
       "source": "knowledge_decision_reviews_index",
       "target": "knowledge_decision_reviews_2026_08_29_loss_intelligence_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_08_30_ceo_briefing_refinements_review_prep",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

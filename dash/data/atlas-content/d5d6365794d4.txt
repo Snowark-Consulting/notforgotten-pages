@@ -237,3 +237,22 @@ When a new entry contradicts a prior one: set `Contested: true` on both, add rec
 **Founder decision (2026-08-24):** Do NOT redesign Airtable / add fields / change intake infra. Phone = SOURCE UNAVAILABLE (QPaint PandaDoc template has no customer-phone field); do NOT ask QPaint to change their template — NFS adapts to client workflow. Correct segment where evidence clearly establishes it (4 of 14 Sunday quotes reclassified: Brooke Warren, Ramona Jackson, Ani Darlapudi → Corporate; Claire → Commercial); do not infer from email domain alone (Tom Clark flagged, not auto-corrected).
 
 **Source:** learnings/2026-08-24-quote-intelligence-context.md
+
+## 2026-08-25 — rich_sent_index truncation → reconstructed approved copy
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** The Telegram message presenting Alys + Kay Email 1 drafts was stored in `state/rich_sent_index.json` truncated mid-word at "windo" (Kay's full body never reached James and was unrecoverable from disk — "Hi Kay" appears nowhere on the machine). Reconstructing from primary sources failed to find the exact reviewed Kay copy.
+
+**Fix (standing rule):** `rich_sent_index.json` is a delivery index, NOT a source of truth for exact outbound copy — it can store truncated text. When an approved customer email's exact copy is unrecoverable, reconstruct from the FROZEN template + verified Airtable scope (never fabricate scope; never change a value/address), send via canonical-send, and transparently flag the reconstruction to James in the same report. Do not silently substitute. Kay Crawley Email 1 reconstructed and sent 25 Aug (Gmail 1a035f7dd04102d2) with full disclosure.
+
+## 2026-08-25 — Missing Data ≠ Automatic Hold
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** Two QPaint quotes had data gaps at draft time. Tom Clark: relationship context unknown (homeowner vs builder). Russ Dee: surname ambiguous ("Russ Dee" vs email "dunster"). Default instinct was to HOLD both.
+
+**Fix (standing rule):** Hold ONLY when the missing information is material to a safe or commercially appropriate contact decision. Test: "would knowing this change what we say, or whether it's safe to say anything?" Tom → material (builder vs homeowner changes framing) → resolved via primary evidence → reclassified Residential→Commercial, builder Email 1. Russ → immaterial (first name source-verified, surname unneeded) → proceeded with "Hi Russ". UNKNOWN remains UNKNOWN, but UNKNOWN must not unnecessarily paralyse the journey.
+
+**Source:** learnings/2026-08-25-missing-data-not-automatic-hold.md
+

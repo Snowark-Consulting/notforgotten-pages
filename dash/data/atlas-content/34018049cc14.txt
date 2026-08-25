@@ -1,0 +1,73 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-08-24
+status: PREPARATION — review due 2026-08-30
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — CEO Briefing: Six Operational Refinements
+
+> Outcome data gathered ahead of the 2026-08-30 review of `2026-07-30-ceo-briefing-refinements`.
+
+## Decision being reviewed
+
+**What was decided (2026-07-30):** Six refinements to the CEO Briefing standard: (1) recommend, don't just present options; (2) Confidence Ratings on every recommendation; (3) Delay Impact on every decision requiring approval; (4) CEO Priorities section at top; (5) Decision Standard — do the analysis before asking; (6) keep the brief executive, under five minutes.
+
+**Review date:** 2026-08-30
+
+## Critical context: the briefing pipeline changed
+
+**The standalone CEO Brief cron (`4e98b4642d62`, 08:00 daily) was PAUSED 2026-08-10 21:20 UTC** (last run Aug 10, last status ok). The daily briefing function was absorbed into **Overnight Founder Readiness (`9691ae452efa`, 04:00 daily)** which now generates the Founder Brief per the CEO Brief standard and delivers to the Telegram Home channel. The HTML archive in `pages/ceo-brief/` stops at 2026-08-10.
+
+**Implication for review:** the six refinements were written for the CEO Brief as a standalone document. The current briefing is the Overnight Founder Readiness output. The review must assess whether the refinements survived the pipeline change, not just whether the old cron still runs.
+
+## Six refinements — actuals (verified 2026-08-24 22:00 ACST)
+
+| Refinement | Expected | Actual in current Founder Brief (verified in 2026-08-24 04:09 run) | Status |
+|---|---|---|---|
+| **1. Recommend, don't just present options** | Clear preferred path per decision | Present: "Today's #1: Do the provider-failover review" with single recommendation; priorities carry recommended actions (e.g. "Approve the ack + QPaint note"). | ✅ WORKING |
+| **2. Confidence Ratings** | Every recommendation carries High/Medium/Low | **Not present.** 3 "Confidence" string matches are prompt text, not brief content. The actual brief output contains no confidence ratings on recommendations. | ❌ GAP |
+| **3. Delay Impact** | Every decision requiring approval carries Low/Medium/High | **Not present.** 0 matches in brief content. "Needs James" lists decisions but no delay-impact tiering. | ❌ GAP |
+| **4. CEO Priorities at top** | Three highest-value items, ranked | Present as "Today's priorities" (renamed but same function): provider-failover review, Beth McIntosh ack, QPaint Email 1 decisions, each with effort estimate (~15 min / ~5 min / ~20-30 min). | ✅ WORKING (renamed) |
+| **5. Decision Standard** | Do the analysis before asking; recommend one path | Partially working: recommendations are decisive. "Provider-failover verdict (today)" still presents 3 verdict options in the prep file — but that is the decision-review pattern (James assigns verdict), not a briefing menu. | ✅ WORKING |
+| **6. Under five minutes** | Executive brief, detail behind links | Brief is ~1,100 chars of content — comfortably under the 3,800 Telegram gate. | ✅ WORKING |
+
+## Key findings
+
+1. **The pipeline change (Aug 10/11) is itself a review finding.** The CEO Brief cron pause predates this review by 20 days. Was this a conscious consolidation (briefing absorbed into 04:00 readiness) or an accidental pause? The Overnight Founder Readiness prompt explicitly says "Generate the final Founder Brief using the CEO Brief standard" — so consolidation appears intentional, but there is no decision record of it in the Decision Library. **Flag: is there a decision authorising the CEO Brief cron pause?** If not, the review should either formalise the consolidation or re-enable the standalone cron.
+
+2. **Confidence Ratings and Delay Impact did not survive the pipeline change.** The 04:00 Founder Brief structure ("Good Morning James, Today's Priorities, Needs James, New Commercial Signals, QPaint, NF Growth, System Health, Today's #1, Ignore Today") omits both metadata fields. The success criteria ("Confidence Ratings are accurate", "Delay Impact is present on every decision item") cannot be verified against current briefings because neither field is emitted.
+
+3. **Priorities and brevity are working well.** The 2026-08-24 brief is decisive, short, and prioritised. The structural refinements (1, 4, 5, 6) are embedded; the metadata refinements (2, 3) are not.
+
+## Success criteria — actuals
+
+| Criterion | Actual | Status |
+|---|---|---|
+| CEO Priorities consistently surfaces the right three items | "Today's priorities" present daily in Founder Brief; Aug 24 example ranked provider-failover (due), Beth ack (relationship), QPaint Email 1 (revenue). | ✅ WORKING |
+| No options where a recommendation should exist | Founder Brief is decisive; no option menus observed in current format. | ✅ WORKING |
+| Confidence Ratings accurate (High >90%, Med >75%, Low <75%) | **No ratings emitted** — criterion not measurable against current briefings. | ❌ NOT MEASURABLE |
+| Delay Impact present on every decision item | **Not emitted** in Founder Brief. "Needs James" has no delay tiering. | ❌ GAP |
+| Briefing read time under five minutes | Yes — ~1,100 chars, well under limits. | ✅ WORKING |
+| ≥1 "I hadn't thought of that" per week | No explicit tracking in briefings. | ⚠️ UNVERIFIED |
+
+## Verdict options for review (James decides)
+
+1. **Formalise the consolidation and re-add the missing refinements** — record the CEO Brief → Overnight Founder Readiness consolidation as a decision, and update the 04:00 prompt to emit Confidence Rating + Delay Impact per priority/decision item. Closes the gap at the current delivery point.
+2. **Re-enable the standalone CEO Brief cron** — restore the Aug 10-era pipeline with all six refinements intact (Confidence + Delay Impact were present in the Aug 10 HTML brief).
+3. **Accept current state** — the Founder Brief is working well without Confidence/Delay Impact; formally retire those two refinements from the standard.
+
+## Evidence files
+
+- `knowledge/decisions/2026-07-30-ceo-briefing-refinements.md` — decision under review
+- `cron/output/9691ae452efa/2026-08-24_04-09-57.md` — current Founder Brief output (verified: no Confidence/Delay Impact)
+- `cron/jobs.json` — CEO Brief cron `4e98b4642d62` paused 2026-08-10 21:20 UTC; Overnight Founder Readiness `9691ae452efa` enabled
+- `pages/ceo-brief/2026-08-10.html` — last standalone CEO Brief (contains CEO Priorities ×2, Delay Impact ×2, Recommendation ×5 — all six refinements present in the old pipeline)
+- `knowledge/ceo-brief-standard.md` — current standard (13 sections incl. Confidence Ratings + Delay Impact)
+- `skills/snowark/headquarters/references/overnight-readiness-architecture.md` — consolidation architecture
+
+## Prepared by
+
+Prepare-Ahead Clock 2026-08-24 22:00 ACST. Next step: James assigns verdict at Aug 30 review.

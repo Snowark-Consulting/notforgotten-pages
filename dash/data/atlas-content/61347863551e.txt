@@ -1,0 +1,45 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# Learning: Missing Data ≠ Automatic Hold
+
+**Date:** 2026-08-25
+**Source:** Founder directive — Tom Clark (TKC Projects) and Russ Dee classification decisions.
+**Status:** Active learning. Standing rule, no schema/infra change authorised.
+
+## The core insight
+
+**A customer should only be HOLDed when the missing information is material to making a safe or commercially appropriate contact decision.**
+
+Missing data constrains what we SAY. It does not automatically determine whether we COMMUNICATE.
+
+The test, applied to every gap:
+
+> Would knowing this missing fact change what we say, or change whether it is safe / commercially appropriate to say anything at all?
+
+- If **yes** → HOLD, resolve the gap first.
+- If **no** → proceed with what is source-verified, and keep the unknown OUT of the message.
+
+## The two worked examples (this session)
+
+| Customer | Missing data | Was it material? | Outcome |
+|---|---|---|---|
+| **Tom Clark** (#43072, Isedale Street) | Relationship context — was he a homeowner or a builder/B2B? | **Yes** — changes the entire framing (project vs property, builder vs homeowner language). | Evidence resolved it (Director/Founder/Principal of TKC Projects, architectural building business, business email, building/renovation scope). → Reclassified Residential → Commercial. → Builder-specific Email 1. |
+| **Russ Dee** (#43047, Ellendale Circuit) | Surname ambiguous (source "Russ Dee" vs email local-part "dunster"). | **No** — first name is source-verified (PandaDoc recipient field) and the surname is unnecessary for the greeting/communication. | Follow-up proceeds safely with "Hi Russ". Surname mismatch noted internally, source identity preserved, no surname used. |
+
+The contrast is the lesson: **Tom** needed the gap resolved because the answer changed the message. **Russ** did not, because the answer would not change the message.
+
+## The rule
+
+1. **UNKNOWN remains UNKNOWN.** Do not invent the missing fact to create false personalisation.
+2. **UNKNOWN must not unnecessarily paralyse the customer journey.** A gap that does not change the message or the safety/appropriateness of contact is not a reason to HOLD.
+3. **Materiality is the gate.** Hold when the missing fact is material to a safe or commercially appropriate decision; otherwise proceed on source-verified truth.
+4. **Primary evidence overrides inference.** When the gap IS material, resolve it from primary source (quote document, verified identity), never from email domain alone.
+
+## Where this lives
+
+- Canonical gate: `knowledge/customer-context-gate.md` §7 (sharpened 2026-08-25).
+- Adjacent prior learning: `learnings/2026-08-24-quote-intelligence-context.md` (segment needs commercial context; do not infer from email domain alone).

@@ -1,0 +1,112 @@
+# Decision: Jesse Zhao — Monitor / No Action (silent previous client, three touches)
+
+**Slug:** `2026-08-25-jesse-zhao-monitor-no-action`
+**Date:** 2026-08-25
+**Status:** Made
+**Review Date:** Event-driven — reopen only on new evidence (no scheduled date)
+
+---
+
+## The Decision
+
+Jesse Zhao (previous QPaint client, quote #42655, $116,222.85, Indooroopilly) is placed in **MONITOR / NO ACTION**. No Email 4. No outbound contact. No surfacing to QPaint. Not marked Lost. No date-driven follow-up obligation is created — a calendar review date alone does not trigger another touch. The record reopens only if new evidence justifies it (a reply, QPaint information, a material project/quote event, new relationship context, or a founder-directed personal touch).
+
+---
+
+## The Problem
+
+Jesse has received three appropriate follow-up emails (Email 1 → Email 2 → Email 3). Email 3 directly asked whether the project is still being considered, is on hold, or has gone another direction. He has not responded. A fourth email adds no new commercial value and risks turning a warm previous-client relationship into an overly persistent follow-up sequence. There is nothing substantive to surface to QPaint — Jesse has raised no objection, asked no question, requested no change, indicated no intent to proceed, and created no QPaint action.
+
+---
+
+## Options Considered
+
+| # | Option | Summary |
+|---|---|---|
+| A | Send Email 4 | Repeats the same status question with no new commercial reason. Risks pestering a warm previous client. |
+| B | Mark Lost | No loss evidence exists. Silence is not loss. |
+| C | Surface to QPaint | No objection, question, or QPaint action has arisen from the customer — nothing to surface. |
+| D | Monitor / No Action | Record the three-touch history, stop outbound, reopen only on new evidence. **Chosen.** |
+
+---
+
+## Why This Path
+
+Silence alone is not a reason for Not Forgotten to keep contacting a customer or to start managing QPaint's relationship with them. Jesse differs from an engaged contact (e.g. Nishant): he has raised no objection, asked no question, requested no change, and signalled no intent to proceed. Persistence is part of the product; repetition is not. The correct expression of persistence here is to hold the relationship warm and be ready to act on real evidence — not to manufacture a fourth touch because a review date arrived.
+
+---
+
+## Core Principles Applied
+
+- Trust before growth (Six Principles #1) — protecting a warm previous-client relationship outweighs another touch.
+- Evidence before opinion (Six Principles #2) — no loss evidence and no engagement evidence; the evidence is "silent after a direct status question."
+- Persistence ≠ repetition (decision `2026-08-20-qpaint-daily-ops-model`).
+- Review date ≠ send trigger (Customer Context Gate §8).
+- SURFACE ≠ MANAGE (decision `2026-08-20-qpaint-role-boundary`) — silence does not justify managing QPaint's relationship.
+
+---
+
+## Risks Identified
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| A genuinely live opportunity goes quiet because we stopped touching it | Low–Med | Med | Reopen on any new evidence (reply, QPaint info, project event). History preserved; nothing forgotten. |
+| Over-correction into "never re-engage a silent previous client" | Low | Med | The pattern is specific to Jesse's evidence (three touches, direct status question, no reply). Each future customer is judged on their own evidence. |
+
+---
+
+## Expected Outcome
+
+Jesse receives no further contact without new evidence. The record remains Contacted (not Lost), with the three-touch history preserved and a clear "reopen on evidence" instruction. No daily-review noise.
+
+---
+
+## Success Criteria
+
+- [ ] No Email 4 sent to Jesse
+- [ ] No auto outbound triggered by a future review date
+- [ ] Record not marked Lost without loss evidence
+- [ ] Reopen (and escalate to founder) if Jesse replies or new evidence arrives
+
+---
+
+## Atlas's Challenge (Pre-Decision)
+
+> No challenge. This decision is consistent with the Customer Context Gate, the Next-Action Principle (no response alone ≠ Lost), and the persistence ≠ repetition standard. It corrects the cadence-driven instinct to send Email 4 because a review date arrived.
+
+**James's response:** (founder decision given directly; no separate challenge/override)
+
+---
+
+## Actual Outcome (Post-Review)
+
+**Date reviewed:** (event-driven — none scheduled)
+
+---
+
+## Learnings
+
+A silent previous client who has received a direct status question (Email 3) and not replied is best held in MONITOR — not chased further and not marked Lost. The difference between persistence and pestering is whether each additional touch adds new commercial value or a new reason to respond. When it does not, the right next action is to stop and be ready, not to manufacture a touch to satisfy a calendar.
+
+---
+
+## Related Decisions
+
+- `2026-08-20-qpaint-daily-ops-model` — Review → Decide, persistence ≠ repetition
+- `2026-08-20-qpaint-role-boundary` — Surface ≠ Manage
+- `2026-08-12-initial-customer-email-law` — no outbound without gates
+- `2026-07-28-atlas-communication-layer` — escalate to client only when they add value
+
+---
+
+## Three-Touch History (preserved, Gmail-verified)
+
+| Touch | Date | Gmail ID | Subject |
+|---|---|---|---|
+| Email 1 | 2026-07-28 | `19fab1b60cede48b` | Your quote from QPaint |
+| Email 2 | 2026-08-07 | `19fda9d56916baa3` | Your QPaint quote — Finney Road |
+| Email 3 | 2026-08-17 | `1a011485b6ea036a` | Re: Your QPaint quote — Finney Road |
+
+**Replies:** zero (atlas@ + james@, verified 2026-08-25).
+
+**Quote:** #42655 — Lot 1 & 2, 86 Finney Rd, Indooroopilly — $116,222.85 — Residential — Previous Client — jessezhao@me.com · 0413 625 001.

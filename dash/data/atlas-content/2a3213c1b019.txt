@@ -1,0 +1,102 @@
+---
+doc_type: qpaint-audit
+owner: james
+tier: primary
+date: 2026-08-25
+status: DELIVERED — audit only, nothing sent
+prepared_by: Atlas
+---
+
+# QPaint 20 New Quotes — Intake & Follow-Up Audit
+
+**Date:** Tuesday 25 Aug 2026 (ACST)
+**Method:** Fresh pull of QPaint Pipeline (181 records). The "20 new quotes" = the 20 records with `Recovery Status = New`. Cross-checked full book for repeat contacts (email, case-insensitive) and live Gmail (atlas@ + james@, both directions). No sends, no Airtable changes except the Jesse Zhao decision record (below).
+
+---
+
+## Verdict (headline)
+
+All 20 new quotes entered Airtable correctly — quote number, value, date, address, scope, and sender provenance are captured on every record. Intake is working. The follow-up gap is cadence, not data: 12 fresh quotes have passed their 48-hour observation window (expired 25 Aug) with no Email 1 yet, and 3 received Email 1 on 24 Aug.
+
+---
+
+## Classification (20 records → 5 buckets)
+
+| Bucket | Count | Records |
+|---|---|---|
+| QPaint-managed / HOLD | 4 | Dean Baker ×3, Ramona Jackson ×1 |
+| Data / context issue | 1 | Maria Reid |
+| Wait / observation (Email 1 sent) | 3 | Sharon Fleay, Steve Liversidge, John Wilson |
+| Contact appropriate now | 12 | see ranked list below |
+
+---
+
+## 1. QPAINT-MANAGED / HOLD (4 records, 2 relationships)
+
+**Dean Baker — 3 QBuild tenders (ONE relationship, government procurement).**
+- #43079 Caboolture State School Block D — $16,027.00
+- #43105 Kallangur State School — $56,144.00
+- #43081 Tullawong State High School — $14,207.60
+- All: dean.baker2@epw.qld.gov.au, Category Government, Opportunity PandaDoc (QPaint), Referral QBuild.
+- **HOLD.** Founder-approved 21 Aug: QPaint manages QBuild tenders directly, no NF customer follow-up. Three records = three tenders for one decision-maker, not three customers. Monitor only. No Email 1.
+
+**Ramona Jackson — Civium (repeat contact, new project).**
+- #41616 645 Nudgee Road, Nundah (Nudgee Gardens CTS53683) — $46,695.00
+- Repeat contact: same email holds #42916 Springwood (Email 2 sent 10 Aug). This is a NEW project for an existing Civium strata-manager relationship, not a duplicate.
+- **HOLD.** Founder decision 24 Aug: Civium multi-complex relationship. No NF contact, no QPaint contact. Reassess only on new commercial evidence.
+
+---
+
+## 2. DATA / CONTEXT ISSUE (1)
+
+**Maria Reid — #43064, 25 Raphael Place, Mackenzie — $49,473.60**
+- smereid@bigpond.net.au · Residential · Full repaint + roof restoration.
+- **Flag:** document `Address` field = "15 Raphael Place" but subject/title = "25 Raphael Place". Discrepancy needs QPaint verification before any contact. Hold until resolved.
+
+---
+
+## 3. WAIT / OBSERVATION — Email 1 already sent (3)
+
+| Customer | Quote | Value | Email 1 |
+|---|---|---|---|
+| John Wilson | #43092 Sinnamon Park | $12,914 | sent 24 Aug (Gmail `1a030cbc8d39b15a`) |
+| Steve Liversidge | #43102 Tarragindi | $6,468 | sent 24 Aug (Gmail `1a030cbd97ed0a4a`) |
+| Sharon Fleay | #43091 Elimbah | $2,871 | sent 24 Aug (Gmail `1a030d89e91bc615`) |
+
+All three verified in Gmail Sent. Now awaiting reply; review ~31 Aug. Correctly handled.
+
+---
+
+## 4. CONTACT APPROPRIATE NOW (12, ranked by commercial value)
+
+48-hour observation window expired 25 Aug. No prior outbound (verified atlas@ + james@ = zero). No customer reply received. First touch (Email 1, confirm receipt) is now appropriate.
+
+| # | Customer | Quote | Value | Type / context |
+|---|---|---|---|---|
+| 1 | Brooke Warren | #42980 Bowen Hills | $106,249 | Body corp (CTS 43865) |
+| 2 | Claire (LK Building) | #43048 Bulimba | $76,777.75 | Builder |
+| 3 | Tom Clark (TKC Projects) | #43072 Wooloowin | $29,483.17 | Residential — flag: builder domain |
+| 4 | Alys Dee Le-Bhers | #43071 Wishart | $20,542.50 | Residential |
+| 5 | Kay Crawley | #43070 Norman Park | $18,636.20 | Residential |
+| 6 | Russ Dee | #43047 Eight Mile Plains | $18,619.70 | Residential — flag: blank category + name/email mismatch |
+| 7 | Katie Schotel | #43034 Brookwater | $15,345.00 | Residential |
+| 8 | Arna Lancashire | #43097 Taringa | $8,580.00 | Residential |
+| 9 | Trevor Strow | #43096 Yeronga | $8,573.40 | Residential |
+| 10 | Rhonda Bourke | #42950 Hillcrest | $8,360.00 | Residential |
+| 11 | Suzie Caskey | #43083 Milton | $5,544.00 | Residential |
+| 12 | Ani Darlapudi | #43093 Camira | $3,245.00 | Body corp (ACE BCM strata mgr, CTS 30186) |
+
+---
+
+## Flags raised (do not block, note for draft)
+
+1. **Tom Clark** — `tom@tkcprojects.com.au` ("TKC Projects") reads builder/trades, but record is classified Residential with no referral source. Verify builder vs homeowner at draft time.
+2. **Russ Dee** — Category Type blank; contact name "Russ Dee" vs email `russell.dunster@gmail.com`. Verify name against quote document.
+3. **Claire (LK Building)** — last name not in PandaDoc; first name only.
+4. **Canonical template drift** — `canonical-templates/qpaint/recovery-introduction-v1.md` is the old "Atlas introduction" Email 1; the current standard (used for the 3 sends on 24 Aug) is the "project-first" Email 1. The library has not been updated. Recommend canonicalising the project-first format.
+
+---
+
+## Two customers for founder approval (see Telegram)
+
+Full evidence, commercial truth, and drafts for **Brooke Warren** and **Claire (LK Building)** are presented in the accompanying Telegram message. Nothing sent.
