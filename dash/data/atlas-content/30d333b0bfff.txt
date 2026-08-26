@@ -1,0 +1,61 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-08-25
+status: PREPARATION — review due 2026-08-28
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — V2 Email 2 Observation Cohort: 28 Aug REVIEW → DECIDE
+
+> Outcome data gathered ahead of the 2026-08-28 REVIEW→DECIDE checkpoint for `2026-08-21-v2-email2-observation-monitoring`. This is a REVIEW, never a SEND. Each of the 42 prospects is assessed individually through the Customer Context Gate. No automatic Email 3. No batch progression.
+
+## Decision being reviewed
+
+**What happened:** V2 Email 2 ("14 jobs, $180,115") was sent to 42 eligible prospects from james@ on 2026-08-21 and independently verified (42 in Gmail Sent, correct sender/copy/signature; 42 V2 Outreach Activity records; 42 Prospect records reconciled to "Await reply" / Next Follow-up 2026-08-28). The 42 prospects entered a 7-day observation period ending 28 Aug.
+
+**Standing rules (from the decision):**
+1. 28 August is REVIEW → DECIDE, never REVIEW → SEND.
+2. No batch progression based purely on cadence.
+3. Replies are surfaced as they occur, never held to the review date.
+
+## Outcome data (verified as of 2026-08-25 22:00 ACST)
+
+| Metric | Value | Notes |
+|---|---|---|
+| Cohort size | 42 | Sent 2026-08-21, james@, verified in Gmail Sent |
+| Replies | 1 | Inspire Painting (Rahamed) — positive, interested, asked about job wait time + leads. Reply rate 1/42 = 2.4% |
+| Bounces | 1 | Doctor Brush Painting Services — Email 2 bounce; reconciled to Lost (verified 2026-08-22) |
+| Silent | 40 | No reply as of 2026-08-25 (Day 4) |
+| James's response to reply | Logged | Inspire Painting: James replied 2026-08-21 clarifying no leads / no job promise, offered a call. NFD 2026-08-24 (James action: Await reply) |
+| james@ monitoring | ACTIVE | james-pulse-phase2 (`c130a8d0475d`, */5, read-only, seen-ID dedup). 28 IDs in seen-state as of 2026-08-25 12:30 UTC |
+
+## Campaign split (from V2 Outreach Activity)
+
+- V2-v1-Insight-Proof: Email 1 = 31, Email 2 = 30
+- V2-NEW50-AUG15-2026: Email 1 = 12, Email 2 = 12
+- Total Email 2 = 42. One prospect received Email 1 (V2-v1) but not Email 2 — candidate to identify at review (possible exclusion per Name Data Quality Rule or suppression).
+
+## Open items to resolve at/for the review
+
+1. **Inspire Painting (Rahamed) call status** — James was to call if Rahamed replied; unconfirmed whether the call happened and its outcome. Confirm before/at review.
+2. **19 Aug Founder Call outcomes unlogged** — 19 Aug Founder Call Day outcomes not yet logged into V2 Outreach Activity (Activity Type = Founder Call, Outcome + Next Action). Required before the 26 Aug call list is finalised.
+3. **17 legacy Active prospects outside V2 tracking** — 17 prospects with Pipeline stage = Outreach Active, Sequence Status = Active, Current Touchpoint = Email 1, Next Touchpoint Date = 2026-08-10 (stale), Last contacted 2026-08-05 or empty, and ZERO V2 Outreach Activity records. Not part of the 42-cohort; appear to be legacy tracking orphans (no Outreach Sequence). Candidates for the Stale Prospect Alert (14+ day rule) / cleanup decision. Names: Ron & Robin The Painters, 1800 All Painting, Superior Painters and Decorators, Redefine Painting, Ryan Painting, Vicpainter, One Day Paint, PSA Painting, Brush Paint Wall, CN Painters Melbourne, Newline Painting, Harris and Co Painting Solutions, Southeast Painters, Top Coat Painting Melbourne, SA Quality Painting, Celtic Deco, John's Painting.
+4. **Next Follow-up Date coverage** — only some 42-cohort prospects show `Next Follow-up Date` populated on the Prospects table (V2 tracking lives in V2 Outreach Activity). Verify all 42 have the Aug 28 review date represented before the checkpoint.
+
+## Learning objective capture (decision file)
+
+For the 42 Touch-2 prospects, capture: replies, meaningful replies, positive interest, objections, calls requested, demos/walkthroughs, opt-outs, bounces, and time from Touch 2 to reply. Early data: 1 meaningful reply at ~9h post-send (strong early signal, n=1, Medium confidence per Campaign Pulse Aug 22). Lead-gen misunderstanding likely to recur — proof point reads as "you find jobs for me."
+
+## Evidence files
+
+- `knowledge/decisions/2026-08-21-v2-email2-observation-monitoring.md` — decision + standing rules
+- `knowledge/experiments/context-vs-curiosity/` — V2-v1 baseline context
+- V2 Outreach Activity table (`tblvu8kJ41BuZ0QrT`) — 42 Email 2 records, 1 inbound reply
+- `notes/2026-08-21.md`, `notes/2026-08-22.md`, `notes/2026-08-23.md` — observation narrative
+- `state/james-pulse-seen.json` — james@ pulse seen-IDs
+
+## Prepared by
+
+Prepare-Ahead Clock 2026-08-25 22:00 ACST. Next step: James assigns per-prospect REVIEW→DECIDE verdicts at 28 Aug checkpoint. Prep is preparation, not a decision.

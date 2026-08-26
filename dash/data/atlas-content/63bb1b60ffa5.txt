@@ -49,7 +49,7 @@ tier: primary
 - **Commercial progression** — interest→agree→onboard-start→onboard-complete→product-active→paying. Never collapse. Ahmad/Star Painters = STALLED, not trial. `[high]`
 - **QPaint role boundary** — SURFACE ≠ MANAGE. Never chase QPaint decisions; exception-based escalation; never promise "QPaint will…" without verified evidence. Decision `2026-08-20-qpaint-role-boundary`. `[high]`
 - **QPaint daily ops** — review date = REVIEW→DECIDE, never auto-send. Individual CCG per customer. No batch/auto-Email3/queue-by-date. Persistence ≠ repetition (no 2-touch limit). Decision `2026-08-20-qpaint-daily-ops-model`. `[high]`
-- **Govt/QBuild tenders** — QPaint-managed → HOLD, no customer follow-up (tender ≠ quote; 90-day validity, school holidays). Pre-outbound check BOTH mailboxes (atlas@ + james@) for existing conversation. `learnings/2026-08-21-relationship-aware-followup-govt.md`. `[high]`
+- **Govt/QBuild tenders** — QPaint-managed → HOLD, no customer follow-up (tender ≠ quote; 90-day validity, school holidays). Pre-outbound check BOTH mailboxes (atlas@ + james@) for existing conversation. Decisive classifier = `Referral Source` (QBuild→HOLD; govt-other/school eq.edu.au→per-case): `skills/snowark/recovery-operations/references/qpaint-government-procurement-classification.md`. `learnings/2026-08-21-relationship-aware-followup-govt.md`. `[high]`
 - **Name inference** — never infer first name from email local-part; verify from website/correspondence, else "Hi there,". Decision `2026-08-21-v2-email2-observation-monitoring`. `[high]`
 
 ## Operations
@@ -59,7 +59,7 @@ tier: primary
 - **Timezone** — never change scheduler tz without converting expressions. `[high]`
 - **Telegram gate** — 3,800 chars. Compress or multi-part. `[high]`
 - **Data integrity** — bulk search ≠ proof; direct `to:` = verification. Reconciliation flag = hypothesis. `[high]`
-- **state.db rotation 2026-08-24 + 2nd corruption 2026-08-25** — rebuilt fresh 24 Aug (torn checkpoint, 1.4G archived; session_search covers post-rotation only). SECOND FTS corruption 25 Aug (Tree 50; fix VACUUM corrupted messages table; restored from 24 Aug snapshot, integrity OK). Watchdog c8232ee06f3e (`scripts/state-db-watchdog.py`, 6h) + snapshot cron 8ed9962a3929 (11:45 daily; failed 2×) + Weekly VACUUM d84ff606097d (duplicate 7753a0cb9e74 to disable). `[high]`
+- **state.db rotation 2026-08-24 + 2nd corruption 2026-08-25** — rebuilt fresh 24 Aug (torn checkpoint, 1.4G archived; session_search covers post-rotation only). SECOND FTS corruption 25 Aug (Tree 50; fix VACUUM corrupted messages table; restored from 24 Aug snapshot, integrity OK). Watchdog c8232ee06f3e (`scripts/state-db-watchdog.py`, 6h) + snapshot cron 8ed9962a3929 (11:45 daily; failed 2×, FIRST CLEAN RUN 26 Aug c9e75fc5) + Weekly VACUUM d84ff606097d (duplicate 7753a0cb9e74 to disable). `[high]`
 - **GitHub backup auth** — stale `http.extraheader` overrides URL token; `state/` must stay anchored `/state/` or it swallows `backups/state`. Fixed 2026-08-24; re-check after any git config change. `[high]`
 
 ## Model & cost (2026-08-18)
