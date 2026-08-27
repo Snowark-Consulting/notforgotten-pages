@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 203,
+    "tasks_completed": 204,
     "recent": [
+      {
+        "date": "2026-08-28 06:46",
+        "task": "V2 Email 3 sent to 32 prospects (persistence test) \u2014 'A quick clarification', 32/32 Gmail-verified + Airtable-reconciled",
+        "category": "task"
+      },
       {
         "date": "2026-08-26 16:37",
         "task": "Campaign pulse posted \u2014 V2 Email 2 Day 5: no material change, 40 silent, review prep ready for Aug 28",
@@ -135,11 +140,6 @@
         "date": "2026-08-13 18:43",
         "task": "Overnight readiness (18:41 ACST drift run): QPaint 154 recs / 138 active / 0 new replies. RE-ENG 99 observing. HQ refreshed + verified live. Flagged: cron timezone drift + inbox-pulse-phase2 missing.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-12 16:48",
-        "task": "Processed 3 QPaint customer replies: Cathryn Cochrane (engaged \u2014 itemised breakdown requested, Tas notified via James), David Schneideman (lost \u2014 went elsewhere, 9,888), Catherine Kumar (lost \u2014 not proceeding). All replied, verified in Gmail Sent, filed to Quotes Completed, Airtable updated.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-28T06:30:30.728934+09:30",
+  "last_updated": "2026-08-28T06:46:39.594491+09:30",
   "pipeline": {
     "prospect_count": 323,
     "stages": {
