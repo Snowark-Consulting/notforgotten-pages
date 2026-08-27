@@ -3,7 +3,7 @@ doc_type: decision-review-prep
 owner: notforgotten
 tier: primary
 date: 2026-08-25
-status: PREPARATION — review due 2026-08-28
+status: PREPARATION — review due 2026-08-28 (REFRESHED 2026-08-26 22:00 ACST — Day 5 verified, no change)
 prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
 ---
 
@@ -20,14 +20,14 @@ prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
 2. No batch progression based purely on cadence.
 3. Replies are surfaced as they occur, never held to the review date.
 
-## Outcome data (verified as of 2026-08-25 22:00 ACST)
+## Outcome data (verified 2026-08-25 22:00 ACST; refreshed 2026-08-26 22:00 ACST)
 
 | Metric | Value | Notes |
 |---|---|---|
 | Cohort size | 42 | Sent 2026-08-21, james@, verified in Gmail Sent |
 | Replies | 1 | Inspire Painting (Rahamed) — positive, interested, asked about job wait time + leads. Reply rate 1/42 = 2.4% |
 | Bounces | 1 | Doctor Brush Painting Services — Email 2 bounce; reconciled to Lost (verified 2026-08-22) |
-| Silent | 40 | No reply as of 2026-08-25 (Day 4) |
+| Silent | 40 | No reply as of 2026-08-26 (Day 5) — refreshed, no new replies since Aug 25 prep |
 | James's response to reply | Logged | Inspire Painting: James replied 2026-08-21 clarifying no leads / no job promise, offered a call. NFD 2026-08-24 (James action: Await reply) |
 | james@ monitoring | ACTIVE | james-pulse-phase2 (`c130a8d0475d`, */5, read-only, seen-ID dedup). 28 IDs in seen-state as of 2026-08-25 12:30 UTC |
 
@@ -58,4 +58,4 @@ For the 42 Touch-2 prospects, capture: replies, meaningful replies, positive int
 
 ## Prepared by
 
-Prepare-Ahead Clock 2026-08-25 22:00 ACST. Next step: James assigns per-prospect REVIEW→DECIDE verdicts at 28 Aug checkpoint. Prep is preparation, not a decision.
+Prepare-Ahead Clock 2026-08-25 22:00 ACST. **Refreshed 2026-08-26 22:00 ACST (Day 5):** fresh Airtable scan confirms no new replies (still 1 inbound: Inspire/Rahamed Aug 21), 40 silent, 42-cohort Next Follow-up Date = 2026-08-28 intact. No change to verdict framing. Next step: James assigns per-prospect REVIEW→DECIDE verdicts at 28 Aug checkpoint. Prep is preparation, not a decision.
