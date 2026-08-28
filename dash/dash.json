@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 204,
+    "tasks_completed": 205,
     "recent": [
+      {
+        "date": "2026-08-28 16:42",
+        "task": "Campaign pulse posted \u2014 V2 REVIEW\u2192DECIDE complete: 32 Email 3s sent (verified), 2.4% reply at Day 7, 8 prospects unadvanced",
+        "category": "task"
+      },
       {
         "date": "2026-08-28 06:46",
         "task": "V2 Email 3 sent to 32 prospects (persistence test) \u2014 'A quick clarification', 32/32 Gmail-verified + Airtable-reconciled",
@@ -135,11 +140,6 @@
         "date": "2026-08-14 13:19",
         "task": "QPaint: Cheryl Sim #43031 marked Won (signature verified by James). Attribution pending.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-13 18:43",
-        "task": "Overnight readiness (18:41 ACST drift run): QPaint 154 recs / 138 active / 0 new replies. RE-ENG 99 observing. HQ refreshed + verified live. Flagged: cron timezone drift + inbox-pulse-phase2 missing.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-28T16:30:46.815328+09:30",
+  "last_updated": "2026-08-28T16:42:49.265590+09:30",
   "pipeline": {
     "prospect_count": 323,
     "stages": {
