@@ -1,0 +1,42 @@
+---
+doc_type: decision
+owner: james
+tier: primary
+date: 2026-08-28
+status: ADOPTED
+---
+
+# V2 Persistence ≠ Repetition (2026-08-28)
+
+## Decision
+
+The V2 outreach sequence does NOT stop at two touches. Silence is not a rejection. A third, fourth or
+fifth touch is commercially legitimate where the prospect remains valid and there is no stop signal.
+
+The Customer Context Gate (not the touch number) determines whether we continue.
+
+## Principle
+
+**PERSISTENCE ≠ REPETITION.**
+
+- No artificial two-touch limit.
+- A legitimate reason for another touch can simply be: *the prospect has not yet responded and remains a
+  valid commercial prospect.* Persistence itself is part of sales.
+- Persistence must not become repetition: each touch should be materially different, add a new angle, or
+  shift channel (email → phone → SMS), not re-send the same message.
+
+## Stop signals (only these halt continuation)
+
+no opt-out · no negative response · no bounce · no evidence the business is unsuitable or closed ·
+no conflicting conversation · invalid contact · no commercial reason to continue.
+
+## Working model
+
+Touch 1 → 2 → 3 → 4 → 5, where commercially justified. This does NOT mean every prospect receives five
+touches automatically — every touch remains REVIEW → DECIDE.
+
+## Supersedes
+
+The earlier stance of "do not automatically progress silent prospects to Email 3" for the V2 sequence.
+Classification is now A (Email 3) / B (founder call) / C (wait) / D (stop), with no arbitrary cap on the
+number passing the gate.

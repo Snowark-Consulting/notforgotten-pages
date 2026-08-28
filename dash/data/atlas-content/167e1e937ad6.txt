@@ -1,0 +1,46 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-08-27
+status: PREPARATION — review due 2026-09-03
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — 48-Hour Quote Follow-Up Delay
+
+> Outcome data gathered ahead of the 2026-09-03 review of `2026-08-03-quote-follow-up-delay`.
+
+## Decision being reviewed
+
+**What was decided (2026-08-03):** Quote follow-ups wait 48 hours from quote receipt before Email 1 is sent. Applies to all QPaint and future client quote intake. Follow-up-autopilot filters Quotes where `Quote date >= 48 hours ago`. Rationale: gives customers time to read and process the quote; prevents appearing overeager; follow-up feels helpful, not impatient; still timely enough to stay top-of-mind.
+
+## Success criteria — actuals
+
+| Criterion | Expected | Actual | Status |
+|---|---|---|---|
+| No Email 1 within 48h of quote receipt | Respect customer reading time | QPaint Daily Attention model enforces 48h no-contact rule; intake → 48h observation → Email 1 REVIEW→DECIDE (never auto-send). Verified in QPaint Operating Architecture. | ✅ MET |
+| Follow-up feels helpful, not impatient | Customer experience signal | Brooke Warren reply (Aug 27): positive acknowledgment, quote presented to Body Corp committee — no impatience signal. Rhonda Bourke delivery contradiction handled with customer-first framing (Aug 26). | ✅ MET |
+| Still timely enough to stay top-of-mind | Not so slow we're forgotten | Maria Reid: quote received, observation window, Email 1 REVIEW→DECIDE NTD 30 Aug. Within the 48h+ cadence. | ✅ MET |
+| Applied to all quote intake | QPaint + future clients | 48h rule embedded in quote-intake skill + QPaint operating architecture (closed-loop intake). | ✅ MET |
+
+## Key finding
+
+**The 48-hour delay is now part of the intake architecture, not just a script filter.** The original implementation was a `follow-up-autopilot.py` date check; the current operating model is stronger: QPaint daily attention uses a 48h observation window before Email 1 REVIEW→DECIDE, and the Customer Context Gate (INC-2026-08-19 post-incident) requires per-customer context before any send. The delay itself has held without incident — no customer has reported feeling neglected because of the wait, and no quote has been observed to go cold in 48h. One open thread: Maria Reid NTD 30 Aug (Email 1 REVIEW→DECIDE) is the next live test of the cadence in the new model.
+
+## Verdict options for review (James decides)
+
+1. **Confirm the standard** — 48h delay validated; keep.
+2. **Tune the window** — if evidence later shows quotes going cold or customers expecting faster contact, consider 24h or 72h; no evidence today supports a change.
+3. **Formalise into canonical pipeline** — codify the 48h rule as an explicit gate in the canonical send pipeline (currently enforced by workflow/operating model, not code).
+
+## Evidence files
+
+- `knowledge/decisions/2026-08-03-quote-follow-up-delay.md` — decision under review
+- `knowledge/qpaint-operating-architecture.md` — 48h no-contact rule
+- `knowledge/decisions/2026-08-05-quote-intake-standard.md` — intake standard (48h observation)
+- `notes/2026-08-26.md` (Maria Reid NTD 30 Aug), `notes/2026-08-27.md` (Brooke Warren reply)
+
+## Prepared by
+
+Prepare-Ahead Clock 2026-08-27 22:00 ACST. Next step: James assigns verdict at Sep 3 review.

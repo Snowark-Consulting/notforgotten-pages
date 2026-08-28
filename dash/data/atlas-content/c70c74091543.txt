@@ -1,0 +1,93 @@
+---
+doc_type: decision-pack
+owner: james
+tier: primary
+date: 2026-08-28
+status: FOR FOUNDER DECISION
+---
+
+# CUSTOMER #2 DECISION PACK — Friday 28 August 2026
+
+## 1. V2 COHORT VERDICT (42 Email 2 prospects)
+
+**Outcome data (verified 28 Aug):** 42 sent · **1 reply** (Inspire/Rahamed, 2.4%) · **1 bounce** (Doctor Brush → Lost) · **40 silent**. No new replies since 25 Aug.
+
+### Classification
+| Category | Count | Who |
+|---|---|---|
+| **A. Email 3 justified** | **0** | No silent prospect deserves a 3rd cold email |
+| **B. Founder call candidate** | **~13** | Named owner + direct email + phone |
+| **C. Wait / monitor** | **~27** | Generic inbox, no name, no engagement |
+| **D. Close / suppress** | **1** | Doctor Brush (bounce → Lost) |
+| **E. Insufficient evidence** | **0** | — |
+
+### Strongest 5 (named decision-maker + direct email + phone)
+1. **Clean Cut Painters** (Waz, `waz@`, fit 74, SA)
+2. **Paint Master** (Dave, `dave@`, fit 60, 5 opens)
+3. **Zoom Painting** (Rad, `rad@`, fit 67, 1 open)
+4. **One Touch Paint** (Slavek, `slavek@`, fit 74)
+5. **Cameron Davidson Painters** (Cameron, `cdpainters@bigpond.com`, fit 68, SA)
+
+### Weakest — stop spending time on
+Doctor Brush (bounced), and the D-tier generic-inbox prospects with no name/engagement (Tohmes, Oppa, Blue Mountains, General Painting Contractors, Horizon Coatings, Diamond Brothers).
+
+### What the experiment taught us
+1. **The proof is the only trigger.** July + V2 combined: ~175 Email 1-2 sends → 0 replies; every reply (Tas, Star Painters, Rahamed) came at the Travis proof touchpoint.
+2. **The proof reads as lead-gen.** Rahamed replied "interested… asked about job wait time + leads" — he thought Not Forgotten finds jobs. The mechanism must be stated unmistakably.
+3. **Cold email is low-yield for painters** (~2% reply, 0 conversions beyond the original Tas/QPaint at Email 3).
+
+### Email 3 recommendation
+**Do not mass-send Email 3.** The 40 silent prospects ignored two emails; a third adds no value and the V2 Email 2 already produced 0 replies. The proof-led message belongs on **fresh prospects as a first touch**, not as a third touch to the silent. Rahamed remains the only live thread (James's clarification + call offer already out; NFD 24 Aug, await reply).
+
+> ⚠️ **SUPERSEDED 2026-08-28 (same day):** the founder decision *[[V2 Persistence ≠ Repetition]] (knowledge/decisions/2026-08-28-v2-persistence-not-repetition.md)* overrode the "do not mass-send Email 3" stance, with founder-direct authority granted for the approved A-list. 32 Email 3s were sent and verified that day — see [[V2 Email 3 Decision Pack]] (knowledge/v2-email3-decision-pack-2026-08-28.md). This pack's classification and Travis-led pilot proposal remain valid evidence.
+
+---
+
+## 2. TRAVIS-LED EMAIL 1 PILOT (proposed, do not send)
+
+**Status:** the 2-Aug cohort of 19 is stale — 2 were swept into the V2 cohort, ~14 are "legacy Active" orphans (marked contacted 05 Aug but ZERO actual V2 send), 3 have no email. **Recommend re-selecting 19 fresh painters** from the 162 uncontacted painters in Airtable, prioritising named contacts + verified email + phone.
+
+### Exact Email 1 challenger (mechanism-explicit, proof-led)
+
+**Subject:** A painter recovered $180,115 from quotes he'd already sent
+
+> Hi [Name],
+>
+> I'll be direct about what we do, because it's easy to get wrong.
+>
+> We don't generate leads. We don't find you new customers. We work with the quotes your business has already sent out, and we follow them up so the ones that went quiet actually come back.
+>
+> Example: Travis Krieg Painting in Adelaide CC'd us on his quotes over four months. From the quotes he'd already sent, 14 jobs came back from clients who'd gone completely silent. $180,115 recovered.
+>
+> No new leads. Just the quotes already sitting in his book.
+>
+> Is that something you've dealt with — quotes that go quiet and don't come back?
+
+### ONE principal hypothesis
+A mechanism-explicit proof-led Email 1 ("we follow up your existing quotes, not generate leads") produces a higher rate of **correctly-understood** meaningful replies than the V2 "Insight-Proof" Email 1 (which produced 1 reply that misread the offer as lead generation).
+
+### Success / failure criteria
+- **Success:** ≥2 meaningful (T3+) replies with correct understanding (no lead-gen confusion), and ≥1 walkthrough/meeting booked.
+- **Failure:** 0 meaningful replies → retire proof-led cold email as the acquisition path; redirect all effort to founder-to-founder calls.
+
+### Proposed sequence (4 touches, $180,115 throughout, no $177K)
+Email 1 (Travis proof + mechanism, Day 0) → Email 2 ("the interesting part was the time window", Day +5) → Email 3 (process question, Day +8) → Email 4 (breakup, Day +15).
+
+---
+
+## 3. RECOMMENDED NEXT ACTION (highest-probability path to Customer #2)
+
+1. **Reconcile the three founder-call outcomes first.** Master Choice, The Painting Company, Ahmad are the warmest opportunities in the book. Their outcomes determine whether we already have a live walkthrough.
+2. **Approve the Travis-led Email 1 pilot** (corrected, fresh cohort) — the only proven trigger, now mechanism-explicit, tested as a first touch.
+3. **Do not mass-send Email 3.** Retire the silent 40 to monitor; re-engage only via founder call if a named decision-maker is worth a personal touch.
+4. **Fold the 5 strongest named prospects into the founder-to-founder call list** (not cold email).
+
+---
+
+## 4. WHAT JAMES NEEDS TO DO
+
+1. **Dictate the three founder-call outcomes** (Master Choice / The Painting Company / Ahmad) so they can be reconciled accurately.
+2. **Approve or reject the Travis-led Email 1 pilot** (the single highest-leverage next email action).
+3. **Recipient Validation Safeguard verdict** — formalise / extend / accept-as-is (prep ready; recommendation below).
+
+**Recipient validation recommendation (Priority 4):** **Option 1 — formalise.** The two-layer safeguard (Prospect ID as identity + ambiguity detection) is working (no phantom-recipient incident since Jul 27; 42/42 V2 Email 2 verified). The `send-validation.log` is now legacy — canonical sends enforce the same controls via mailbox-identity + Airtable reconciliation, but don't write to that log. Recommend formally retiring the log and documenting the canonical-send evidence architecture as the superseding audit trail. No code changes, no new infrastructure — a documentation/decision only.

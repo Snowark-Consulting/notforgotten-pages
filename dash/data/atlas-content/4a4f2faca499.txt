@@ -1,0 +1,135 @@
+---
+doc_type: decision-pack
+owner: james
+tier: primary
+date: 2026-08-28
+status: EXECUTED — SENT 2026-08-28 (32/32 verified)
+---
+
+## EXECUTION RESULT (2026-08-28)
+
+- **Sent:** 32/32 Email 3 ("A quick clarification") from james@notforgotten.com.au.
+- **Excluded at send-time:** 0. All 32 passed fresh pre-send gates.
+- **AKP/Tony:** VERIFIED before send (ABN active Pty Ltd SA since 2016 + live WordPress at akppainters.com.au). Included.
+- **Gmail verification:** 32/32 in Gmail Sent (independent cross-check: 32 messages, 0 evidence-ID mismatch).
+- **Airtable reconciliation:** 32/32 — 32 "Email 3" V2 Outreach Activity records, Outcomes all "Sent", Prospects updated to "Await reply", Next Follow-up Date +7d.
+- **Cohort state:** 32 prospects "Outreach Active / Await reply".
+- **Observation / review date:** 2026-09-04 (7 days).
+- **Not contacted:** Rahamed (Engaged), Doctor Brush (Lost/bounce), 8 founder-call candidates.
+
+---
+
+# V2 EMAIL 3 DECISION PACK — Friday 28 August 2026
+
+## Background
+
+42 Email 2 sent 21 Aug (V2-v1-Insight-Proof 30 + V2-NEW50-AUG15 12). Result:
+- 1 reply (Rahamed / Inspire Painting) — lead-gen misunderstanding, already clarified + call invited, stage Engaged.
+- 1 bounce (Doctor Brush) — stage Lost, suppressed.
+- **40 silent.**
+
+Founder decision override 28 Aug: silence ≠ lost. Persistence ≠ repetition. No artificial two-touch
+limit. Customer Context Gate (not touch number) decides continuation ([[V2 Persistence ≠ Repetition]]
+(knowledge/decisions/2026-08-28-v2-persistence-not-repetition.md)). This pack reviews the 40 silent
+prospects for Email 3.
+
+## What Email 1 and Email 2 already said (so Email 3 does not repeat them)
+
+- **Email 1 (Insight-Proof, 30):** "a quiet quote isn't necessarily a lost quote" + single-quote proof
+  ($129,750.50, 365 days).
+- **Email 1 (NEW50, 12):** "what happens after you send a quote?" — no proof.
+- **Email 2 (all 42):** "14 jobs, $180,115 recovered" aggregate proof. Subject "14 jobs, $180,115".
+
+The Rahamed reply proved Email 2 reads as **lead generation** ("you supply leads/jobs"). Email 3 must
+fix that misunderstanding: mechanism-first, lead-gen distinction explicit.
+
+## Classification (40 silent)
+
+| Class | Count | Meaning |
+|---|---|---|
+| A — Email 3 now | **32** | valid contact, no stop signal, genuine commercial reason to continue |
+| B — Founder call instead | **8** | named decision-maker + mobile + tier-B fit — a call beats a 3rd email |
+| C — Wait | **0** | no genuine wait reason (Email 2 is 7 days old; no conflicts) |
+| D — Stop / suppress | **0** in the 40 silent | Doctor Brush (bounce→Lost) already excluded and suppressed |
+
+No prospect is WAIT merely for having received two emails. Every silent prospect has: no opt-out, no
+negative response, no bounce, no evidence of closure, no conflicting conversation, a valid deliverable
+email, and a genuine commercial reason to continue.
+
+## A. EMAIL 3 NOW (32) — recipient list
+
+Named contacts: Gavin (Hunter Coast 51), Jihad (Colourland 51), Ibby (Rise 51), Bob (Painting Pros 46),
+Jimmy (Painting All Sorts 46), Harry (Procover 46), Tony (AKP 60), Fabs (Adelaide Premier 60), Stefan
+(Top Painters Adelaide 60), Kristian (All Melbourne 58), louise (Kraudelt 41).
+
+Generic inbox / no name: OPC (77), Brushworks (77), Sydney Painting Experts (75), Colour Life (67),
+Kincoat (62, 7 opens), Geelong (62), Like Painting (56), Austar (55), Melbourne's Painting (55),
+M.J. Painters (52, 3 opens), M&M Property (50, 5 opens), Restyle (50), Adelaide Designer (50),
+Apex (50, 5 opens), More than Painting (50), Tohmes (48), Horizon (41), General Painting Contractors
+(41), Oppa (41), Blue Mountains (41), Diamond Brothers (41).
+
+**Flags within the 32:**
+- **Tony / AKP (fit 60)** — `V2 Exclusion Reason` = "NO WEBSITE FOUND … NXDOMAIN. No web presence."
+  Email is deliverable (2 sends, no bounce) and Tony is named + mobile, but business web presence is
+  unverifiable. Recommend a 60-second verify (ABN lookup / call) before Email 3, not a stop.
+- **10 tier-D (fit < 50)** — Bob, Jimmy, Harry, louise, Horizon, General Painting Contractors, Oppa,
+  Blue Mountains, Diamond Brothers, Tohmes. Lowest commercial priority but all valid. Included per the
+  persistence principle; James may cut these to tighten focus (would reduce to 22).
+
+## B. FOUNDER CALL INSTEAD (8) — strongest prospects
+
+Named decision-maker + mobile + tier-B fit — a founder call is more likely to start a conversation than
+a third email. Ordered by commercial strength:
+
+1. **Esmayel Nazari** — Upscale Painting, 80/A, mobile ✓ (SA, highest fit)
+2. **Waz** — Clean Cut Painters, 74/B, waz@, mobile ✓
+3. **Slavek** — One Touch Paint, 74/B, slavek@, mobile ✓
+4. **Cameron Davidson** — Cameron Davidson Painters, 68/B, cdpainters@bigpond, mobile ✓ (SA)
+5. **Rad** — Zoom Painting, 67/B, rad@, mobile ✓, 1 open
+6. **Fred** — Paintpal, 67/B, fred@, mobile ✓
+7. **Raoul** — Bayside Painting, 65/B, mobile ✓
+8. **Dave** — Paint Master, 60/C, dave@, mobile ✓, 5 opens (engaged)
+
+## EXACT EMAIL 3 (draft, do not send)
+
+**Subject:** A quick clarification
+
+> Hi [Name],
+>
+> Just so we're clear on what I actually do, because it's easy to get it wrong.
+>
+> I don't generate leads, and I don't find you new customers.
+>
+> I follow up the quotes you've already sent out, so the ones that went quiet come back to you. The
+> $180,115 and 14 jobs I mentioned came from that alone, no new leads anywhere in it.
+>
+> If that's not what you're after, no worries at all.
+>
+> If it is, just reply 'yes' and I'll explain how it works.
+>
+> No pressure either way.
+
+**Why this copy:** (1) reinforces $180,115/14 jobs as a callback, not a re-lead; (2) makes the mechanism
+unmistakable ("I follow up the quotes you've already sent out"); (3) explicitly distinguishes from lead
+generation ("I don't generate leads… I don't find you new customers"); (4) next step is a one-word reply;
+(5) James's voice, no em dashes, no manual sign-off (canonical signature appended). ~95 words. No
+promises, no pressure.
+
+## Timing + Touch 4 / Touch 5
+
+- **Email 3 (32):** send next window (29–31 Aug) once James approves. 7-day gap from Email 2 is clean.
+- **Touch 4:** founder calls for the 8 B-list (and, if desired, for named contacts in the A-list who
+  stay silent after Email 3). Discovery-first, not a pitch.
+- **Touch 5 (Email 4):** the already-drafted break-up ("a quick look at your quotes" — "I'll leave it
+  with you after this") for any final non-responders. This is the honest last touch, not a repeat.
+
+## What I need from James
+
+1. Approve (or amend) the Email 3 copy.
+2. Approve the A-list (32) — or cut the 10 tier-D to tighten to 22.
+3. Approve the 8 founder-call candidates and whether to call them this week or after Email 3.
+4. Confirm AKP handling (verify-then-send vs hold).
+
+Nothing was sent at pack time. Superseded same day by founder-direct authority (James, Telegram
+2026-08-28) — the approved Email 3 cohort was sent and verified; see EXECUTION RESULT at the top of
+this file (32/32 sent, Gmail-verified, Airtable-reconciled).

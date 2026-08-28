@@ -400,6 +400,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_customer_2_decision_pack_2026_08_28",
+      "label": "Customer 2 Decision Pack",
+      "file_type": "doc",
+      "source_file": "knowledge/customer-2-decision-pack-2026-08-28.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "c70c74091543",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_customer_2_growth_pack_2026_08_24",
       "label": "Customer 2 Growth Pack",
       "file_type": "doc",
@@ -528,6 +539,72 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "34018049cc14",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decision_reviews_2026_09_01_build_foundation_review_prep",
+      "label": "Build Foundation Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-09-01-build-foundation-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "25c96d497707",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decision_reviews_2026_09_01_single_source_of_truth_review_prep",
+      "label": "Single Source Of Truth Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-09-01-single-source-of-truth-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "76ba4e2ad18a",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decision_reviews_2026_09_02_operational_phase_review_prep",
+      "label": "Operational Phase Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-09-02-operational-phase-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "7c956386604b",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decision_reviews_2026_09_03_industry_fluency_review_prep",
+      "label": "Industry Fluency Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-09-03-industry-fluency-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "039774615bb2",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decision_reviews_2026_09_03_log_retention_review_prep",
+      "label": "Log Retention Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-09-03-log-retention-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "345de8e731e9",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decision_reviews_2026_09_03_quote_follow_up_delay_review_prep",
+      "label": "Quote Follow Up Delay Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-09-03-quote-follow-up-delay-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "167e1e937ad6",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -925,6 +1002,17 @@
       "community_name": "Knowledge",
       "content_hash": "d116ec5881f4",
       "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decisions_2026_08_28_v2_persistence_not_repetition",
+      "label": "V2 Persistence Not Repetition",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-28-v2-persistence-not-repetition.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "e01a1d042feb",
+      "val": 8.0,
       "color": "#a78bfa"
     },
     {
@@ -1995,6 +2083,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_v2_email3_decision_pack_2026_08_28",
+      "label": "V2 Email3 Decision Pack",
+      "file_type": "doc",
+      "source_file": "knowledge/v2-email3-decision-pack-2026-08-28.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "4a4f2faca499",
+      "val": 8.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_voice_review_checklist",
       "label": "Voice Review Checklist",
       "file_type": "doc",
@@ -2875,6 +2974,27 @@
     },
     {
       "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_28_v2_persistence_not_repetition",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_v2_email3_decision_pack_2026_08_28",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_customer_2_decision_pack_2026_08_28",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
       "target": "knowledge_outreach_sequences_founder_to_founder_sequence",
       "relation": "wikilink",
       "weight": 1.0,
@@ -3567,6 +3687,20 @@
       "source_file": ""
     },
     {
+      "source": "knowledge_customer_2_decision_pack_2026_08_28",
+      "target": "knowledge_decisions_2026_08_28_v2_persistence_not_repetition",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_customer_2_decision_pack_2026_08_28",
+      "target": "knowledge_v2_email3_decision_pack_2026_08_28",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
       "source": "knowledge_customers",
       "target": "knowledge_business",
       "relation": "wikilink",
@@ -3646,6 +3780,48 @@
     {
       "source": "knowledge_decision_reviews_index",
       "target": "knowledge_decision_reviews_2026_08_28_v2_email2_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_09_01_build_foundation_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_09_01_single_source_of_truth_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_09_02_operational_phase_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_09_03_industry_fluency_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_09_03_log_retention_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_09_03_quote_follow_up_delay_review_prep",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

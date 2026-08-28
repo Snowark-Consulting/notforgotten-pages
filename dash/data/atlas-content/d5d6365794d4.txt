@@ -256,3 +256,12 @@ When a new entry contradicts a prior one: set `Contested: true` on both, add rec
 
 **Source:** learnings/2026-08-25-missing-data-not-automatic-hold.md
 
+## 2026-08-27 — Skill file updated but live cron job prompt not resynced: stale instructions silently override
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** After updating a skill/reference file (e.g. `cron-prompt.md`), a live cron job kept using the old embedded prompt. A mention/tag directed at the agent was suppressed ~24h because the job's stale prompt said "Josh actor → SILENT" even though the reference file correctly said "Tier 4 action, deliver work."
+**Cause:** A cron job's embedded prompt is set at job creation/update time (`hermes cronjob update`), NOT read from the skill file at runtime. Updating the skill file alone never reaches the running job; there is no auto-sync.
+**Fix:** After updating any skill file or reference a cron job depends on: (1) update the live job prompt with `hermes cronjob update <job-id>`; (2) keep the on-disk reference updated too; (3) verify divergence is gone with `hermes cronjob list <job-id>` (diff live prompt vs reference); (4) never treat reference files as source of truth for running cron jobs — the job's own prompt is operative.
+**Source:** 2026-08-27 — Winston cron job 679ee866e13b; Josh's Asana @mention replied ~24h late. Full detail: `learnings/cards/cron.md`. Indexed by consolidation 2026-08-28.
+

@@ -1,0 +1,46 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-08-27
+status: PREPARATION — review due 2026-09-03
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — Log Retention Standard
+
+> Outcome data gathered ahead of the 2026-09-03 review of `2026-08-03-log-retention-standard`.
+
+## Decision being reviewed
+
+**What was decided (2026-08-03):** Tiered log retention for high-frequency cron outputs — routine logs >48h auto-deleted daily (20:30 ACST), failure logs preserved 90 days, protected records never purged, daily summaries, storage health monitoring every 6h with >85% warning / >92% critical, dry-run mode first. Immediate result at the time: 17,414 files deleted, disk 93% → 89%.
+
+## Success criteria — actuals
+
+| Criterion | Expected | Actual | Status |
+|---|---|---|---|
+| Disk never exceeds 90% under normal operation | Green envelope | Storage GREEN 38.5% (Aug 27), trend stable (+0.4%/day, ~141 days to 95%). Down from 93% at decision time. | ✅ MET |
+| Failure records available 90 days | Incident investigation support | 28 failure files preserved (verified Aug 26 log retention run); failure preservation path active. | ✅ MET |
+| Protected records never purged | Decisions, learnings, memory, trust docs, experiments, drafts | No protected-path purge observed; vault intact. | ✅ MET |
+| Daily summaries | Long-term visibility without raw retention | `logs/daily-summaries/` writing; log retention run verified (33 dirs / 362 files, 89 deleted, 0.5MB recovered Aug 26). | ✅ MET |
+| Storage monitoring surfaces before critical | HQ threshold alerts | Storage Critical Alert cron runs 12:02 + 18:01 daily, correctly SILENT while GREEN (verified Aug 27). | ✅ MET |
+
+## Key finding
+
+**Standard is working and quiet.** The storage crisis that motivated the decision is fully resolved: 93% → 38.5% and stable, with a ~141-day runway to the 95% threshold. The failure-preservation path was exercised (28 files) and protected paths untouched. The remaining question is whether the 90-day failure retention window is the right length now that disk pressure is low — but there is no evidence of pressure to extend it. Also note: state.db remediation (2026-08-18, 8.9GB → 1.4GB) was a separate storage win outside the log-retention standard; it belongs in the review as context, not credit to this decision.
+
+## Verdict options for review (James decides)
+
+1. **Confirm the standard** — all six requirements holding; no change.
+2. **Extend failure retention** — if 90 days is too short for incident archaeology (e.g. Aug incidents still being analysed), extend to 180 days; disk has headroom.
+3. **Raise the warning threshold** — with 38.5% baseline and stable trend, consider whether >85% warning / >92% critical remains appropriate or should tighten to catch growth earlier.
+
+## Evidence files
+
+- `knowledge/decisions/2026-08-03-log-retention-standard.md` — decision under review
+- `notes/2026-08-26.md`, `notes/2026-08-27.md` — storage GREEN + retention run evidence
+- `learnings/2026-08-18-hermes-update-and-state-db-remediation.md` — state.db storage remediation (context)
+
+## Prepared by
+
+Prepare-Ahead Clock 2026-08-27 22:00 ACST. Next step: James assigns verdict at Sep 3 review.

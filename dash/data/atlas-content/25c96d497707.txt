@@ -1,0 +1,49 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-08-27
+status: PREPARATION — review due 2026-09-01
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — Build Foundation Before Customers (Founding Decision)
+
+> Outcome data gathered ahead of the 2026-09-01 review of `founding-build-foundation-before-customers`.
+
+## Decision being reviewed
+
+**What was decided (Early 2026):** Delay customer acquisition until the core platform delivers genuine value on day one. Build CRM, quote intake pipeline, outreach capability, and automation infrastructure before approaching paying customers. Defined pause with a hard endpoint: customer acquisition begins by October 2026. Success criteria: platform delivers value without James's personal involvement; first 5 customers experience consistent, automated follow-up from day one.
+
+## Success criteria — actuals
+
+| Criterion | Expected | Actual | Status |
+|---|---|---|---|
+| CRM fully operational | Prospect/client/quote lifecycle automation | Prospects (323), Clients, QPaint Pipeline (184 records), V2 Outreach Activity (89 records) all live and reconciled. Airtable operational source of truth (BK-013). | ✅ MET |
+| Quote intake pipeline | Detect, extract, route without human intervention | Quote intake → PandaDoc extractor v2.0.0 certified (2026-08-06) → intake certification gate (INC-2026-08-11) → 48h observation → Email 1 REVIEW→DECIDE. | ✅ MET |
+| Outreach engine | Drafts personalised follow-ups for any prospect | V2 outreach live (Email 1 = 43, Email 2 = 42 sent Aug 21), Founder-to-Founder sequence frozen (Protected Asset), canonical send authority certified (Phase 1, 2026-08-08). | ✅ MET |
+| First customer signs up, value within 24h | Automated follow-up without James | QPaint is the first paying customer ($199 MRR, white-label recovery). Follow-ups run through canonical pipeline. | ✅ MET |
+| Zero manual intervention for product to work | No James-dependent processes | Mostly met, but founder-in-the-loop remains for strategic decisions: Founder Call Days (Wed), Daily Attention verdicts, REVIEW→DECIDE checkpoints (V2 Email 2, 28 Aug). This is by design (Human accountability), not a gap. | ✅ MET (by design) |
+| Customer acquisition begins by Oct 2026 | Hard deadline for pause | **Acquisition ALREADY started** — ahead of deadline. V2 Email 1/2 waves (Aug 12/21), 3 founder calls (Aug 26), FF1 painter wave (Aug 3). Pause ended 2026-08-03 (`2026-08-03-foundation-complete`). | ✅ MET (ahead) |
+
+## Key finding
+
+**The pause ended early and deliberately.** `2026-08-03-foundation-complete` declared the foundation phase complete and shifted to execution. Acquisition is underway, not waiting for October. The review question is no longer "when do we start?" but "is the foundation holding while we execute?" Early evidence: V2 Email 2 reply rate 2.4% (1/42) at Day 6, 1 conversion-class reply (Inspire/Rahamed, needs clarification), QPaint book stable at 184 records / $6.17M. Commercial truth: 1 paying client (QPaint $199 MRR), 1 stalled opportunity (Star Painters — trial only, never paying; corrected 2026-08-14).
+
+## Verdict options for review (James decides)
+
+1. **Confirm the pause is ended** — formalise: acquisition phase is live, October deadline obsolete.
+2. **Reassess readiness** — if foundation gaps emerged under execution pressure (CCG enforcement gap INC-2026-08-19, duplicate-send INC-2026-08-10), decide whether acquisition pace should throttle until closed.
+3. **Adjust the "zero manual" standard** — acknowledge founder-in-the-loop is architectural (Human accountability), not a foundation gap.
+
+## Evidence files
+
+- `knowledge/decisions/founding-build-foundation-before-customers.md` — decision under review
+- `knowledge/decisions/2026-08-03-foundation-complete.md` — foundation declared complete
+- `knowledge/decisions/2026-08-14-star-painters-trial-correction.md` — commercial truth correction
+- `knowledge/commercial-growth-review-2026-08-24.md` — growth review, funnel tables (323 prospects)
+- `knowledge/decisions/2026-08-21-v2-email2-observation-monitoring.md` — V2 Email 2 observation
+
+## Prepared by
+
+Prepare-Ahead Clock 2026-08-27 22:00 ACST. Next step: James assigns verdict at Sep 1 review.

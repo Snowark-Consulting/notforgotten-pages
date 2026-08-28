@@ -1,0 +1,47 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-08-27
+status: PREPARATION — review due 2026-09-02
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — Operational Phase Begins
+
+> Outcome data gathered ahead of the 2026-09-02 review of `2026-08-02-operational-phase`.
+
+## Decision being reviewed
+
+**What was decided (2026-08-02):** Five permanent operating directives — (1) Knowledge Preservation, (2) Headquarters as Operating System (not a dashboard — where James runs the business), (3) Telegram Exception-Only, (4) Continuous Improvement, (5) Focus on Not Forgotten (win customers, recover revenue, better product, better decisions).
+
+## Success criteria — actuals
+
+| Directive | Expected | Actual | Status |
+|---|---|---|---|
+| Knowledge Preservation | Every meaningful lesson becomes permanent knowledge; James never repeats himself | Decision Library: 76 decisions recorded, 5 challenges logged, review calendar maintained. Learnings: cards + LEARNINGS.md + 13 permanent operating standards (A1-A13). Skill references updated continuously (4 new on 2026-08-26 alone). | ✅ MET |
+| Headquarters as OS | James opens HQ and immediately understands business state; Atlas updates proactively | HQ regenerated daily (generated_at timestamped, atomic regen+deploy+verify). HQ used as decision tool (Dashboard V2 = CLOSED BASELINE). Overnight Founder Readiness updates (04:08 Aug 27). | ✅ MET |
+| Telegram Exception-Only | Routine updates in HQ; Telegram for exceptions/approvals/questions | Telegram volume reduced to exceptions: Daily Attention (QPaint), replies, system warnings, prepare-ahead. CEO Brief standard moved to Command Centre. | ✅ MET |
+| Continuous Improvement | Atlas better every week; every experiment/mistake/customer teaches | CvC retired with learning (LL-20260804-005, 105 prospects, 0 meaningful replies). FF1 founder-to-founder hypothesis primary. EXP-001 attribution live. Campaign Pulse every 48h. | ✅ MET |
+| Focus on Not Forgotten | Win more customers, recover revenue | V2 Email 1 (43) + Email 2 (42) waves, 3 founder calls (Aug 26), QPaint book stable 184/$6.17M, 1 reply at Day 6 of V2 Email 2 observation. Growth is the sole focus per Commercial Growth Review (Aug 24). | ✅ MET |
+
+## Key finding
+
+**All five directives operational, but two watch points.** (1) Telegram exception-only held — the channel is quieter, and exception-class messages (replies, Daily Attention, system warnings) are the only pushes. (2) The tension between "HQ is the OS" and "Telegram for exceptions" is healthy, but James's actual interaction pattern still leans on Telegram for verdicts (REVIEW→DECIDE checkpoints, founder call outcomes). If that persists, the review should confirm whether HQ's decision surfaces (or the daily CEO Brief) are genuinely reducing Telegram dependence or merely documenting it after the fact.
+
+## Verdict options for review (James decides)
+
+1. **Confirm directives hold** — no change; HQ-as-OS and Telegram-exception-only working as intended.
+2. **Re-tune the exception definition** — if Daily Attention / prepare-ahead pushes are still frequent, decide whether they belong in HQ only.
+3. **Strengthen HQ decision flow** — move the daily CEO Brief fully to HQ-first so James's default morning action is HQ, not Telegram.
+
+## Evidence files
+
+- `knowledge/decisions/2026-08-02-operational-phase.md` — decision under review
+- `knowledge/decisions/2026-08-02-headquarters-complete.md` — HQ declared complete
+- `knowledge/decisions/2026-08-11-dashboard-v2.md` — Dashboard V2 CLOSED BASELINE
+- `notes/2026-08-27.md` — daily ops evidence (HQ regen, Telegram pushes)
+
+## Prepared by
+
+Prepare-Ahead Clock 2026-08-27 22:00 ACST. Next step: James assigns verdict at Sep 2 review.

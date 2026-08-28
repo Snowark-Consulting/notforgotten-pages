@@ -1,0 +1,49 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-08-27
+status: PREPARATION — review due 2026-09-01
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — Single Source of Truth Principle
+
+> Outcome data gathered ahead of the 2026-09-01 review of `2026-08-01-single-source-of-truth`.
+
+## Decision being reviewed
+
+**What was decided (2026-08-01):** For every client-facing communication, there must only ever be one canonical template. Automations never contain their own copy of an email body. All outbound emails load the canonical template at send time (checksum-verified). Canon Verification Gate: which template, what version, does the generated email match (SHA256), are variable differences the only differences. "Never trust a green tick."
+
+## Success criteria — actuals
+
+| Criterion | Expected | Actual | Status |
+|---|---|---|---|
+| No script contains an email body | Hardcoded bodies banned | `send-canonical.py` + canonical-send authority load templates via `canonical_template.py`; follow-up-autopilot converted (2026-08-01). | ✅ MET |
+| Canonical templates directory | Versioned, checksummed, registered | `knowledge/canonical-templates/INDEX.md` + per-client dirs (qpaint/recovery-introduction-v1 active). | ✅ MET |
+| Canon Verification Gate before every send | 4 questions answered with evidence | Code-enforced in canonical send pipeline (Phase 1, 11 gates). | ✅ MET |
+| Template update propagates automatically | One source, one version | Loading at send time; template updates flow through. | ✅ MET |
+
+## Key finding
+
+**The principle holds; enforcement gaps surfaced at the edges.** Two incidents tested the standard:
+
+1. **INC-2026-08-19 (6 generic QPaint Email 1s):** The CCG (Customer Context Gate) was missing from the send path — the templates were canonical, but the *decision to send the right message to the right customer* wasn't. The incident was about context, not template duplication. CCG is now code-enforced in `canonical-send.py` Gate -2.
+2. **Canonical template drift (flagged 2026-08-26):** Project-first QPaint Email 1 (used for recent customers) is NOT canonicalised in `canonical-templates/qpaint/` — `recovery-introduction-v1` is still the registered Active template. Two parallel templates exist in practice, which violates the spirit of the decision. Needs a James decision: either canonicalise project-first Email 1 as v2 or retire it.
+
+## Verdict options for review (James decides)
+
+1. **Formalise + close drift** — canonicalise project-first Email 1 (as v2 or superseding), register, checksum, retire or archive recovery-introduction-v1.
+2. **Accept as-is** — drift is minor and project-first Email 1 is covered by CCG per-customer; document the parallel.
+3. **Extend SSOT to decision-level artifacts** — apply the same single-source principle beyond email bodies (e.g. QPaint book numbers, campaign definitions).
+
+## Evidence files
+
+- `knowledge/decisions/2026-08-01-single-source-of-truth.md` — decision under review
+- `knowledge/canonical-templates/INDEX.md` — template registry
+- `learnings/2026-08-19-qpaint-customer-send-incident.md` — CCG enforcement gap
+- `notes/2026-08-26.md` — canonical template drift flagged (open thread)
+
+## Prepared by
+
+Prepare-Ahead Clock 2026-08-27 22:00 ACST. Next step: James assigns verdict at Sep 1 review.
