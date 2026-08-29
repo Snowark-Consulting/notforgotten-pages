@@ -1,25 +1,25 @@
 {
-  "generated_at": "2026-08-29T07:07:48+09:30",
+  "generated_at": "2026-08-30T04:05:54+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
     "body": [
-      "Saturday, quiet overnight. quotes@ and atlas@ are clean (0 unread). james@ has 8 unread but all are stale (7-10 Aug) and already reconciled: 4 bounces + 1 business-closed (Tatnell) = Lost/suppressed, plus 2 DMARC reports + 1 auto-reply (noise). Nothing new to act on.",
-      "V2 progressed yesterday: 32 Email 3 clarification sends went out to painters (28 Aug). They are now awaiting reply with next follow-up 4 Sep.",
-      "QPaint stable: 184 records, $6.17M book, 4 Won ($321,967). 8 New intakes, of which 4 residential are awaiting Email 1 (QPaint Daily Attention owns the sequence), 3 are QBuild government holds, 1 is Civium hold.",
-      "Three 'Call Today' tasks are overdue since 26 Aug: Star Painters (Ahmad), The Painting Company, Master Choice Painting. Fold them into the next Founder Call Day (Wed 2 Sep)."
+      "Sunday, quiet overnight. quotes@ and atlas@ are clean (0 unread). james@ has 2 unread, both DMARC aggregate reports (Microsoft + Zoho, system noise, no action). No new replies, bounces, unsubscribes, or YES responses overnight.",
+      "V2 is in its await-reply window: 32 Email 3 clarification sends went out Thu 27 Aug (ACST 28 Aug). Next follow-up window opens 4 Sep.",
+      "QPaint stable: 184 records, $6.17M book, 4 Won ($321,967), 28 Lost, 17 Engaged, 8 New. No overnight state changes.",
+      "Carry-over unchanged: 3 'Call Today' tasks overdue since 26 Aug (Star Painters/Ahmad, The Painting Company, Master Choice Painting) and the QPaint 89-record review backlog both sit on the Daily Attention model, one at a time."
     ],
     "estimated_time": "5 minutes"
   },
   "business_score": {
     "score": 88,
-    "change": "\u2014",
+    "change": "—",
     "reasons_positive": [
-      "QPaint book control PASS \u2014 184 records, $6.17M, 4 Won ($321,967), stable overnight.",
-      "V2 campaign moving \u2014 32 Email 3 clarification sends out 28 Aug, now in await-reply window.",
-      "System healthy \u2014 disk 36%, state.db 41M, all inboxes clean overnight."
+      "QPaint book control PASS — 184 records, $6.17M, 4 Won ($321,967), stable overnight.",
+      "V2 campaign moving — 32 Email 3 clarification sends out 28 Aug, now in await-reply window.",
+      "System healthy — disk 36%, state.db 43M, gateway + supervisor running, all inboxes clean overnight."
     ],
     "reasons_negative": [
-      "1 paying customer ($199 MRR) \u2014 Customer #2 remains the metric.",
+      "1 paying customer ($199 MRR) — Customer #2 remains the metric.",
       "3 'Call Today' tasks overdue since 26 Aug (Star Painters/Ahmad, The Painting Co, Master Choice)."
     ]
   },
@@ -38,7 +38,7 @@
     },
     "engineering": {
       "status": "healthy",
-      "detail": "Disk 36% (12G free), state.db 41M. Pulse jobs healthy (inbox/quotes/james gates). Inboxes clean overnight."
+      "detail": "Disk 36% (12G free), state.db 43M. Pulse jobs healthy (inbox/quotes/james gates). Inboxes clean overnight."
     },
     "finance": {
       "status": "healthy",
@@ -52,66 +52,70 @@
   "waiting_for_james": [
     {
       "id": "founder-calls-overdue",
-      "title": "3 'Call Today' tasks overdue since 26 Aug \u2014 fold into Wed 2 Sep call day",
+      "title": "3 'Call Today' tasks overdue since 26 Aug — fold into Wed 2 Sep call day",
       "why_it_matters": "Three warm opportunities (Star Painters/Ahmad, The Painting Company, Master Choice Painting) carry a stale 'Call Today' flag. They are the Customer #2 pipeline; outcomes need to be logged.",
-      "business_impact": "High \u2014 three warm calls for Customer #2",
+      "business_impact": "High — three warm calls for Customer #2",
       "estimated_time": "3 x 5-min calls on Wed 2 Sep",
       "recommended_action": "On Wed 2 Sep Founder Call Day, call these three first and report outcomes so I can update V2 Outreach Activity + Prospects.",
       "impact_sort": 88
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Saturday is a light-touch morning. Nothing new arrived overnight \u2014 inboxes clean, no replies, bounces, or unsubscribes. The one real carry is three overdue 'Call Today' tasks that belong on the next Founder Call Day (Wed 2 Sep). V2 is running on autopilot: 32 Email 3 clarifications went out yesterday and sit in the await-reply window until 4 Sep. QPaint runs on exception monitoring with 4 residential intakes queued for Email 1 under Daily Attention.",
+    "executive_summary": "Saturday is a light-touch morning. Nothing new arrived overnight — inboxes clean, no replies, bounces, or unsubscribes. The one real carry is three overdue 'Call Today' tasks that belong on the next Founder Call Day (Wed 2 Sep). V2 is running on autopilot: 32 Email 3 clarifications went out yesterday and sit in the await-reply window until 4 Sep. QPaint runs on exception monitoring with 4 residential intakes queued for Email 1 under Daily Attention.",
     "priorities": [
       {
         "action": "Schedule the 3 overdue calls for Wed 2 Sep Founder Call Day",
-        "why_it_matters": "Star Painters (Ahmad), The Painting Company, Master Choice are warm opportunities with stale call flags \u2014 the Customer #2 pipeline.",
-        "expected_impact": "High \u2014 advances 3 warm opportunities",
+        "why_it_matters": "Star Painters (Ahmad), The Painting Company, Master Choice are warm opportunities with stale call flags — the Customer #2 pipeline.",
+        "expected_impact": "High — advances 3 warm opportunities",
         "estimated_time": "15 minutes of calls",
         "confidence": "High"
       }
     ],
     "can_wait": [
-      "QPaint recovery sends \u2014 exception monitoring, Daily Attention owns (94 overdue, no new replies)",
-      "V2 Email 3 replies \u2014 monitor until 4 Sep follow-up window",
-      "james@ stale unread (4 bounces, 1 business-closed, 1 auto-reply, 2 DMARC) \u2014 all reconciled to Lost/suppressed, read-only mailbox",
-      "QPaint 4 residential New intakes (Kristen Watt, David Upton, Bryanne Brooke, Maria Reid) \u2014 Daily Attention sequence"
+      "QPaint recovery sends — exception monitoring, Daily Attention owns (94 overdue, no new replies)",
+      "V2 Email 3 replies — monitor until 4 Sep follow-up window",
+      "james@ stale unread (4 bounces, 1 business-closed, 1 auto-reply, 2 DMARC) — all reconciled to Lost/suppressed, read-only mailbox",
+      "QPaint 4 residential New intakes (Kristen Watt, David Upton, Bryanne Brooke, Maria Reid) — Daily Attention sequence"
     ],
     "closing": "Nothing requires a decision today. I'll hold the V2 await-reply window (4 Sep) and the Wed 2 Sep call list ready, and reconcile the CRM the moment you report any call outcomes."
   },
   "changes": {
     "today": [
       {
-        "time": "2026-08-29T07:07",
-        "text": "Overnight inbox scan clean \u2014 quotes@ + atlas@ 0 unread, james@ 8 stale unread (all reconciled). No new replies/bounces."
+        "time": "2026-08-30T04:05",
+        "text": "Overnight inbox scan clean — quotes@ + atlas@ 0 unread, james@ 2 DMARC reports (noise). No new replies/bounces/unsubscribes."
       },
       {
-        "time": "2026-08-29T07:07",
-        "text": "V2 await-reply window open \u2014 32 Email 3 clarifications out 28 Aug, next follow-up 4 Sep."
+        "time": "2026-08-30T04:05",
+        "text": "QPaint stable overnight — 184 records, $6.17M, 4 Won ($321,967), 28 Lost. No state changes."
       }
     ],
     "yesterday": [
       {
-        "time": "\u2014",
-        "text": "V2 Email 3 clarification \u2014 32 sent to painters (28 Aug)."
+        "time": "—",
+        "text": "Gateway outage resolved — supervisor daemon deployed (root cause: memory exhaustion + exit 75 with no service manager). Gateway + supervisor running."
       },
       {
-        "time": "\u2014",
-        "text": "QPaint stable \u2014 184 records, $6.17M book, 4 Won ($321,967)."
+        "time": "—",
+        "text": "QPaint Daily Attention — Kay Crawley PandaDoc COMPLETE flagged for QPaint signature verification (unverified Won signal)."
       }
     ],
     "this_week": [
       {
-        "time": "\u2014",
+        "time": "—",
         "text": "QPaint: 4 Won totalling $321,967 (Arno Hsu recovered; 3 assisted)."
       },
       {
-        "time": "\u2014",
+        "time": "—",
         "text": "V2: Email 1 (44) + Email 2 (42) + Email 3 clarification (32) sent."
       },
       {
-        "time": "\u2014",
-        "text": "Founder Call Day Wed 26 Aug \u2014 3 warm calls; outcomes pending."
+        "time": "—",
+        "text": "Founder Call Day Wed 26 Aug — 3 warm calls; outcomes pending."
+      },
+      {
+        "time": "—",
+        "text": "Gateway outage (28-29 Aug) root-caused and fixed — supervisor daemon deployed."
       }
     ]
   },
@@ -120,21 +124,21 @@
     "recent": [
       {
         "id": "INC-2026-08-11",
-        "title": "QPaint Quote Intake \u2014 False Completion",
+        "title": "QPaint Quote Intake — False Completion",
         "status": "Closed",
         "summary": "3 quotes marked complete with $0 deal values. Root cause: no certification gate between extraction and label. Fixed: certify_intake_complete() + Intake Exception state."
       },
       {
         "id": "BK-014",
-        "title": "ATTEMPTED \u2260 COMPLETED",
+        "title": "ATTEMPTED ≠ COMPLETED",
         "status": "Permanent",
-        "summary": "Automation success \u2260 business outcome success. Every critical workflow must verify the business state, not just the process completion."
+        "summary": "Automation success ≠ business outcome success. Every critical workflow must verify the business state, not just the process completion."
       },
       {
         "id": "BK-015",
-        "title": "HTTP 200 \u2260 Application Success",
+        "title": "HTTP 200 ≠ Application Success",
         "status": "Permanent",
-        "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy \u2192 verify dependencies \u2192 verify render \u2192 certify."
+        "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy → verify dependencies → verify render → certify."
       }
     ]
   },
@@ -149,7 +153,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "QPaint: CONTROLLED / EXCEPTION MONITORING \u2014 184 records, $6.17M book, 4 Won ($321,967), 28 Lost, 17 Engaged. V2: 32 Email 3 clarification out (28 Aug), await-reply window until 4 Sep. RE-ENG-AUG-2026: 147 monitoring. 3 'Call Today' tasks overdue (fold into Wed 2 Sep). No new replies/bounces overnight.",
+  "operational_status": "QPaint: CONTROLLED / EXCEPTION MONITORING — 184 records, $6.17M book, 4 Won ($321,967), 28 Lost, 17 Engaged. V2: 32 Email 3 clarification out (28 Aug), await-reply window until 4 Sep. RE-ENG-AUG-2026: 147 monitoring (41 completed, 5 Lost, 1 Unsubscribed). 3 'Call Today' tasks overdue (fold into Wed 2 Sep). No new replies/bounces overnight. System: gateway + supervisor running, disk 36%.",
   "vault_health": {
     "decisions": {
       "total": 73,
@@ -174,7 +178,7 @@
     },
     "infrastructure": {
       "disk": "36% (12G free)",
-      "state_db": "41M (healthy)"
+      "state_db": "43M (healthy)"
     }
   },
   "qpaint_pipeline": {
