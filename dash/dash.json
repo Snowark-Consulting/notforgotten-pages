@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 205,
+    "tasks_completed": 206,
     "recent": [
+      {
+        "date": "2026-08-30 06:21",
+        "task": "QPaint WIN \u2014 Kay Crawley signed quote #43070 (60 Brentnall St Norman Park, $18,636.20, Assisted). Marked Won + recorded in Airtable.",
+        "category": "task"
+      },
       {
         "date": "2026-08-28 16:42",
         "task": "Campaign pulse posted \u2014 V2 REVIEW\u2192DECIDE complete: 32 Email 3s sent (verified), 2.4% reply at Day 7, 8 prospects unadvanced",
@@ -135,11 +140,6 @@
         "date": "2026-08-14 15:59",
         "task": "Campaign pulse posted \u2014 QPaint Email 2 batch (54 sent, $956K contacted, 3 same-day replies all deferred-not-lost); V2 Insight-Proof at 31 Email 1 sends, 0 replies",
         "category": "task"
-      },
-      {
-        "date": "2026-08-14 13:19",
-        "task": "QPaint: Cheryl Sim #43031 marked Won (signature verified by James). Attribution pending.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-30T06:00:42.896536+09:30",
+  "last_updated": "2026-08-30T06:21:18.962539+09:30",
   "pipeline": {
     "prospect_count": 323,
     "stages": {
