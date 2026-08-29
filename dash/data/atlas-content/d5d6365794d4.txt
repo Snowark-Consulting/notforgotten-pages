@@ -265,3 +265,12 @@ When a new entry contradicts a prior one: set `Contested: true` on both, add rec
 **Fix:** After updating any skill file or reference a cron job depends on: (1) update the live job prompt with `hermes cronjob update <job-id>`; (2) keep the on-disk reference updated too; (3) verify divergence is gone with `hermes cronjob list <job-id>` (diff live prompt vs reference); (4) never treat reference files as source of truth for running cron jobs — the job's own prompt is operative.
 **Source:** 2026-08-27 — Winston cron job 679ee866e13b; Josh's Asana @mention replied ~24h late. Full detail: `learnings/cards/cron.md`. Indexed by consolidation 2026-08-28.
 
+## 2026-08-29 — Gateway exit 75 = planned restart, NOT a crash; host memory exhaustion kills without suspected_oom
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** Hermes gateway down 8.5h overnight (28 Aug 22:19 → 29 Aug 06:59 ACST) with "no exit path ran — SIGKILL / OOM / VM death". `suspected_oom=False` in the lifecycle ledger while the host had ~452MB available of 3.94GB with ZERO swap — the flag judges the gateway's OWN RSS, not host-wide memory. Second outage same day (36 min): exit 75.
+**Cause:** (1) 4GB/0-swap host starved by desktop stack (~450-500MB) + Chrome + kanban workers; memory pressure throttling ran until ~46s before the kill. (2) Exit 75 = EX_TEMPFAIL = planned-restart signal from Hermes source; gateway expects a service manager to revive it — this box has NO systemd/NO crond, and the Hermes cron scheduler is EMBEDDED in the gateway, so any exit left it down until manual restart.
+**Fix (standing rule):** Standalone double-fork supervisor daemon `scripts/gateway-supervisor.py` (outside the gateway, polls 30s, relaunches, crash-loop guard at 5 rapid failures). Memory mitigations: `kanban.max_in_progress=3`, Chrome idle-close watchdog cron b9720c204989. Recommended not applied: 2-4GB swapfile. Diagnose via `skills/devops/hermes-gateway-ops/SKILL.md` + `gateway-unclean-exit-forensics.md`. Never trust `suspected_oom`; read `mem_available_kib` in the last heartbeat.
+**Source:** 2026-08-29 outage investigation session (147 msgs). Full detail: `skills/devops/hermes-gateway-ops/references/gateway-outage-2026-08-28.md`, `skills/devops/hermes-gateway-ops/references/gateway-exit-75-planned-restart.md`, `skills/devops/hermes-gateway-ops/references/gateway-supervisor-daemon.md`.
+

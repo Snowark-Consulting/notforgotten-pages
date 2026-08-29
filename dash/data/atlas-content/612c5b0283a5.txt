@@ -21,10 +21,10 @@ prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
 
 | Criterion | Actual | Status |
 |---|---|---|
-| Zero duplicate records by email in pipeline tables | QPaint Pipeline: 167 records. Nicholas Zappacosta appears in **2 records** — one Multi-Opportunity Active / Relationship Progress — New Project (Logan Village + QAS Beenleigh + Port Adelaide, Win Attribution Assisted), one separate record ("no follow-up required, formal paperwork pending", Review 31 Aug). ⚠️ May be intentional (separate tender thread) or fragmentation — needs James's judgment at review. | ⚠️ VERIFY |
+| Zero duplicate records by email in pipeline tables | QPaint Pipeline: **184 records** (was 167 at prep 2026-08-22). Nicholas Zappacosta still appears in **2 records** — one Won / Relationship Progress — New Project (reclassified 2026-08-16, 4th QPaint win), one at Email 1 (reconciliation logged 2026-08-13). Nicholas Hanna (stage Lost) is a separate person, not a duplicate. ⚠️ The Zappacosta split remains unresolved at review time — one record now Won, one still mid-sequence. Needs James's judgment at review. | ⚠️ VERIFY |
 | Forward-to-client time < 30 min for new scope | Nicholas QBuild scope (Aug 3-10) forwarded same-day per record notes. Dean Baker 3 QBuild quotes consolidated as one relationship (2026-08-21 learning). | ✅ WORKING |
 | Every new scope acknowledged within 4 business hours | No missed-acknowledgement incident found in notes since decision. | ✅ WORKING |
-| `Opportunity Type` populated on 100% of pipeline records | **16/167 populated (9.6%)**: 15 "PandaDoc (QPaint)" (intake-generated), 1 "Relationship Progress — New Project" (Nicholas). 151 empty. Field exists but is not populated by default — intake sets PandaDoc, recovery sets Relationship Progress only when manually applied. | ❌ GAP |
+| `Opportunity Type` populated on 100% of pipeline records | **32/184 populated (17.4%)** (was 16/167, 9.6% at prep 2026-08-22): 31 "PandaDoc (QPaint)" (intake-generated), 1 "Relationship Progress — New Project" (Nicholas). 152 empty. Field exists but is not populated by default — intake sets PandaDoc, recovery sets Relationship Progress only when manually applied. Penetration nearly doubled in 6 days but still 82.6% empty. | ❌ GAP |
 | CEO Brief separates Relationship Progress from New Opportunities | New Opportunities Generated tracked in Atlas-communication-layer prep (Nicholas = demonstrated). Relationship Progress distinct category present in four-outcome framework. | ✅ WORKING |
 
 ## Key developments since decision
@@ -46,4 +46,4 @@ The protocol works where applied (Nicholas, Dean Baker) but is only 9.6% impleme
 
 ## Prepared by
 
-Prepare-Ahead Clock 2026-08-22 22:00 ACST. Next step: James assigns verdict at Aug 29 review.
+Prepare-Ahead Clock 2026-08-22 22:00 ACST; figures refreshed 2026-08-28 22:05 ACST (QPaint 184, Opportunity Type 32/184, Nicholas split verified live). Next step: James assigns verdict at Aug 29 review.

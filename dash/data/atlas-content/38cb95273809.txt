@@ -37,6 +37,7 @@ tier: primary
 | Nightly memory consolidation | Daily 21:00 | `nightly-consolidation` |
 | Weekly vault-lint | Sunday 17:00 | `weekly-vault-lint` |
 | Telegram diagnostics | When Telegram read receipts/reactions or behaviour questions come up | `hermes-telegram-gateway` |
+| Gateway diagnostics | When the Hermes gateway crashed, was killed, or restarted unexpectedly | `hermes-gateway-ops` |
 
 ## How to use
 
