@@ -227,6 +227,7 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 - [[QPaint Brand Canonicalisation]] (knowledge/decisions/2026-08-19-qpaint-brand-canonicalisation.md) — "QPaint" title case canonical; "QPAINT" only in "1300 QPAINT".
 - [[QPaint Role Boundary]] (knowledge/decisions/2026-08-20-qpaint-role-boundary.md) — SURFACE ≠ MANAGE. Never chase QPaint decisions; exception-based escalation; no QPaint commitment to a customer without verified evidence.
 - [[QPaint Daily Operations Model]] (knowledge/decisions/2026-08-20-qpaint-daily-ops-model.md) — Review → Decide, never Review → Send. Individual CCG per customer; no batch/auto-Email3; persistence ≠ repetition.
+- [[QPaint Operational Handover]] (knowledge/decisions/2026-08-30-qpaint-operational-handover.md) — Atlas owns routine QPaint ops end-to-end; Wednesday = Founder Sales Day; fail-closed exception escalation. Review: Nov 30.
 - [[wakeAgent Gate]] (learnings/2026-08-18-wakeagent-gate.md) — zero-cost idle cron ticks via pre-check gate scripts. Pulses pinned deepseek-v4-pro; phase1 watchdogs paused.
 - [[Hermes Update + state.db Remediation]] (learnings/2026-08-18-hermes-update-and-state-db-remediation.md) — v0.17→v0.20.4 upgrade + FTS rebuild (state.db 8.9GB→1.4GB, disk 40%).
 - [[QPaint Operating Architecture]] (knowledge/qpaint-operating-architecture.md) — Authoritative QPaint rules: 48-hour no-contact, closed-loop intake, Daily Attention P1-P4, communication philosophy, internal escalation.
@@ -241,11 +242,13 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 - [[Decision: Intake Completion Gate]] (knowledge/decisions/2026-08-11-intake-completion-gate.md) — Hard architectural gate between extraction and Gmail label. `intake-certification.py`. INC-2026-08-11.
 - [[QPaint Privacy Governance]] (knowledge/decisions/2026-08-12-qpaint-privacy-governance.md) — White-label/privacy-footer governance conflict resolved. Single approved exception with certification logic.
 - [[Initial Customer Email Law]] (knowledge/decisions/2026-08-12-initial-customer-email-law.md) — NO INITIAL CUSTOMER EMAIL DRAFTED FROM MEMORY. 13-gate canonical template pipeline.
-- [[QPaint Operating Model]] (knowledge/qpaint/qpaint-operating-model.md) — One customer at a time. Atlas selects, verifies, recommends. James decides.
+- [[QPaint Operating Model]] (knowledge/qpaint/qpaint-operating-model.md) — One customer at a time. Atlas decides + executes routine work; James sees exceptions only. Updated 2026-08-30.
 - [[Next-Action Principle]] (knowledge/qpaint/next-action-principle.md) — CRM stage is not commercial truth. Eight states resolved by evidence, not CRM field. Optimise for the right next action.
 - [[Commercial Growth Review — Aug 24]] (knowledge/commercial-growth-review-2026-08-24.md) — DELIVERED. QPaint held; Ramona/Civium HOLD; growth sole focus. V1 vs V2 funnel tables (323 prospects, 43 V2 contacted).
 - [[Customer 2 Growth Pack — Aug 24]] (knowledge/customer-2-growth-pack-2026-08-24.md) — RESEARCH ONLY, nothing sent. Second-customer acquisition research.
+- [[Full Business Review — Aug 30]] (knowledge/full-business-review-2026-08-30.md) — 16-part founder review, FOR FOUNDER DECISION. Verdict: working service that cannot yet be sold; 1 paying customer, 0.4% acquisition; next customer comes from founder calls, not email. Drove QPaint Operational Handover decision same day.
 - [[QPaint Historical Review — Janita/Caylah]] (knowledge/qpaint-historical-review-janita-caylah-2026-08-24.md) — REVIEW ONLY, awaiting James decision, no contact.
+- [[QPaint Follow-Up Phase 1]] (knowledge/qpaint-follow-up-phase1-customers-1-2.md) — 7-file REVIEW-ONLY batch (customers 1-12 + Sharon Fleay), awaiting James approval, nothing sent. Phase-1 recovery prep, highest-value customers first. Created 2026-08-23.
 - [[QPaint Historical Review — Jenny/Natalie]] (knowledge/qpaint-historical-review-jenny-natalie-2026-08-24.md) — REVIEW ONLY, awaiting James decision, no contact.
 - [[QPaint Historical Review — Lloyd Simpson]] (knowledge/qpaint-historical-review-lloyd-simpson-2026-08-24.md) — REVIEW ONLY, awaiting James decision, no contact.
 - [[QPaint Context Reconstruction — Georgina/Ian]] (knowledge/qpaint-context-reconstruction-georgina-ian-2026-08-24.md) — REVIEW ONLY, awaiting James decision, no contact.

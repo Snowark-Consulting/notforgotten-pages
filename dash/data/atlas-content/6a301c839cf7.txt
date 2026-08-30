@@ -6,11 +6,13 @@ tier: primary
 
 # QPaint Operating Model — One Customer at a Time
 
-> ONE CUSTOMER → COMPLETE CONTEXT → ONE DECISION → COMPLETE EXECUTION → VERIFIED STATE → NEXT CUSTOMER. Atlas selects, verifies, recommends. James decides.
+> ONE CUSTOMER → COMPLETE CONTEXT → ONE DECISION → COMPLETE EXECUTION → VERIFIED STATE → NEXT CUSTOMER. Atlas selects, verifies, decides and executes routine work. James sees genuine exceptions only.
 
 **Established:** 2026-08-12
 **Approved by:** James Hardstaff, Founder
 **Principle:** ONE CUSTOMER → COMPLETE CONTEXT → ONE DECISION → COMPLETE EXECUTION → VERIFIED STATE → NEXT CUSTOMER
+
+> **UPDATED 2026-08-30** — Founder-directed operational handover (`2026-08-30-qpaint-operational-handover`). Atlas now owns routine QPaint decisions end-to-end (decide + execute). James is surfaced to only for genuine exceptions. The one-customer-at-a-time processing discipline still applies; the Founder-approval step now applies to exceptions only. See "Escalation Boundary" below.
 
 ---
 
@@ -18,7 +20,7 @@ tier: primary
 
 For QPaint customer-facing work, Atlas does not present large batches of emails for approval unless James specifically requests batch review.
 
-Instead, Atlas intelligently selects the next highest-priority customer, verifies their complete context, determines the correct action, and presents James with ONE decision at a time.
+Atlas intelligently selects the next highest-priority customer, verifies their complete context, determines the correct action, and — for routine work within approved sequences — decides and executes end-to-end, then moves to the next customer. Only genuine exceptions are surfaced to James.
 
 ## Atlas Responsibilities
 
@@ -27,20 +29,40 @@ Instead, Atlas intelligently selects the next highest-priority customer, verifie
 3. **Understand the customer** — quote, scope, value, history, previous QPaint opportunities, Gmail history, replies, QPaint/Tas instructions, current Airtable state, suppression/stop conditions, NTP, special commercial context.
 4. **Determine the correct action** — may be Email 1, Email 2, another approved communication, monitor, hold, escalate to James, or no action. Do not assume every record needs an email.
 5. **Retrieve the authoritative protocol/template** BEFORE generating communication.
-6. **Present ONE concise approval decision** — who the customer is, why they need action, important context, exact proposed communication, SEND/HOLD recommendation.
-7. **Wait for Founder decision** where required.
+6. **For routine work: decide and execute** — apply the Customer Context Gate, send within authority, verify delivery, reconcile Airtable (stage, Last Contacted, Next Touchpoint Date, Sequence Status), read back. No Founder approval required for standard approved-sequence outreach.
+7. **For genuine exceptions: surface to James** — material complaint, legal/reputational, privacy/compliance, identity conflict, conflicting evidence, QPaint pricing/scope, contractual commitment, government/procurement uncertainty, high-value/high-risk, customer request outside authority, evidence the protocol would produce a poor outcome, or ambiguity where contact could damage trust.
 8. **Execute exactly what was approved** — send, verify delivery, update Airtable, record Last Contacted, update Stage/Sequence Status correctly, set valid future NTP, read-back, confirm consistent state.
 9. **Only after COMPLETE** — suggest the next customer.
 10. **Continue learning** from each completed case.
 
+## Escalation Boundary (fail-closed)
+
+Surface to James only when founder judgment is genuinely required. Do **not** escalate merely because a review date arrived, a customer hasn't replied, a choice between WAIT and another touch must be made, the record is old, the quote is valuable, or the decision requires normal commercial judgment. SURFACE ≠ MANAGE (QPaint commercial decisions) remains unchanged.
+
+## Routine Reply Authority (standing — 2026-08-30)
+
+**Supersession:** This supersedes the legacy "Tier 2 draft-and-ask" / "non-outreach requires founder approval" rule for routine QPaint operations. The fact that a communication is "one-off" does NOT make it founder-approval-required. Founder approval is preserved for genuine exceptions only.
+
+Atlas has standing authority to decide and execute appropriate routine responses to QPaint customer replies, within existing white-label, compliance, identity and evidence controls. This includes: definitive LOST acknowledgements, WON acknowledgements where no QPaint commitment is required, status updates, "still considering" responses, timing/deferred responses, clarification acknowledgements, thank-you/closing responses, and other low-risk replies clearly supported by customer context.
+
+DECIDE AND ACT. Do not ask "would you like me to draft/send this?" when the response is routine, reversible, evidence-supported and within QPaint boundaries.
+
+**LOST handling:** record LOST, capture the customer's actual reason (verbatim language preserved), clear future follow-up, send a brief white-label courtesy acknowledgement where normal service supports it, reconcile Gmail + Airtable, and close. Do not reopen a definitive decision unless the customer's message itself invites further discussion. Do not add another sales pitch. *(Gotcha: canonical-send's default state transition writes "MONITOR — await reply" + a +7 day review date. For a LOST acknowledgement, after send set First Action to "JOURNEY CLOSED" and clear Next Touchpoint Date.)*
+
+**Loss intelligence:** capture structured reasons where supported (PRICE, REFERRAL/RECOMMENDATION, TIMING, SCOPE, COMPETITOR, NO LONGER PROCEEDING, NO RESPONSE, PROCUREMENT, OTHER). Preserve the customer's actual language underneath. Do not force a single reason where multiple factors are stated, and never invent details (e.g. competitor pricing, "too expensive") beyond what the customer said.
+
+**Founder interruption standard:** before interrupting James, ask "does this genuinely require founder judgment?" If NO, handle it. If YES, surface the decision with evidence and a recommendation ("here is the exception and my recommended decision"), not "what would you like me to do?".
+
 ## Founder Experience
 
-James should not manually choose the next record. Atlas manages the pipeline and brings James the next highest-value appropriate action.
+James should not manually choose or approve the next record. Atlas manages the pipeline end-to-end and brings James only genuine exceptions, plus a short weekly exception brief (5–10 min).
 
-Ideal interaction:
-> **Atlas:** "This is the next customer. Here is what I found. Here is what I recommend. Here is the exact communication."
-> **James:** "Send."
-> **Atlas:** "Sent, verified, Airtable updated, next action scheduled. Next customer is X."
+Ideal interaction (routine):
+> **Atlas:** "Processed customer X — reviewed context, decided Email 2 was justified, sent, verified, Airtable reconciled, next review set."
+
+Ideal interaction (exception):
+> **Atlas:** "Customer Y needs your judgment — [evidence]. Here is my recommendation."
+> **James:** "[decision]"
 
 ## Edge Case Handling
 
@@ -52,7 +74,7 @@ Do not create unnecessary governance, rules, audits or infrastructure for Type A
 
 ## Scope
 
-This applies to customer-specific QPaint decisions requiring Founder review. Atlas continues to monitor the full pipeline, identify overdue work, detect replies, reconcile state, and process routine authorised work independently.
+Atlas owns the full QPaint book: monitor, intake, record, classify, decide, execute, reconcile, set next-review dates, and surface exceptions. James reviews only genuine exceptions via the weekly brief. SURFACE ≠ MANAGE (QPaint commercial decisions) remains unchanged.
 
 ## Pipeline Priority
 

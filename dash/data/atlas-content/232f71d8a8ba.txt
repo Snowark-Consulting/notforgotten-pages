@@ -1,0 +1,428 @@
+---
+doc_type: business-review
+owner: james
+tier: primary
+date: 2026-08-30
+status: FOR FOUNDER DECISION
+prepared_by: Atlas
+scope: full-business-review
+---
+
+# NOT FORGOTTEN SYSTEMS — FULL BUSINESS REVIEW
+**Sunday 30 August 2026. Analysis only. Nothing changed, sent, or contacted.**
+
+---
+
+## PART 1 — EXECUTIVE VERDICT
+
+### What business are we actually building?
+We *say* "a SaaS platform that automates quote follow-up." We are *actually* running a **white-label managed follow-up service** delivered by Atlas (AI orchestration + scripts) and James (escalation + relationships), with Airtable as the operating database. There is **no software product a customer can log into or use.** The word "SaaS" in our own brief is aspirational, not descriptive. That gap matters: it means the business today is bounded by how much follow-up Atlas and James can personally deliver, not by software economics.
+
+### What problem are we solving?
+Service businesses send quotes, then lose track of who has replied, who hasn't, and why. Revenue leaks through **inaction, not customer decisions.** A quiet quote is treated as dead when it is often just un-followed-up.
+
+### Is the problem painful enough that businesses will pay?
+**Evidence YES (strong):**
+- Arno Hsu: a $129,750 quote sat dormant **365 days**, then converted **4 hours** after one follow-up email. The customer was waiting for contact; the body-corporate AGM had already approved.
+- Travis Krieg Painting: $180,115 across 14 jobs recovered in 4 months from quotes that had "gone quiet."
+- QPaint: 5 wins totalling **$340,603**, plus $5.17M still sitting in 151 open quotes.
+
+**Evidence NOT YET (the uncomfortable part):** We have **zero** recorded discovery conversations with *painters* (the ICP) about whether *they* feel this pain. The only confirmed pain is QPaint's — a client we already serve. Our 26 Aug founder calls (Master Choice, The Painting Company, Ahmad) — the exact mechanism to validate this — are **still unlogged four days later**. We are selling to a pain we have never heard a prospect describe in their own words.
+
+### Do we have product-market fit?
+**No.** PMF = repeatable acquisition + retention + value. We have value (QPaint results) and early retention (QPaint, ~6 weeks, no churn) but **no repeatable acquisition.** 239 people contacted → 1 paying customer (0.4%).
+
+### Do we have early product-market signal?
+**Weak and buried.** The QPaint results are genuine proof the *service works*. We have not converted that proof into a second customer, or even into a published, named case study (Tas's written approval required and not yet obtained).
+
+### What is genuinely working?
+1. **The follow-up itself works.** Dormant quotes convert. Arno, Travis, and 5 QPaint wins are real.
+2. **Atlas-as-Customer-Care builds rapport.** Customers thank Atlas by name ("Thank you so much").
+3. **Production integrity.** Verification, reconciliation, and evidence discipline are genuinely strong (born from real incidents).
+
+### What is not working?
+1. **Customer acquisition is broken.** ~239 contacts → 1 customer. Reply rate ~2%, end-to-end 0.4%.
+2. **The message misfires.** The $180,115 proof reads as "we supply you jobs" (Rahamed's reply is direct evidence), not "we recover money from quotes you already sent."
+3. **Founder sales follow-through.** Founder calls unlogged; Ahmad stalled 6+ weeks; zero discovery conversations captured.
+
+### What are we pretending is progress that isn't?
+- 323 prospects, 121 V2 activities, 78 decision records, 13 business-knowledge principles, dashboards, governance reviews, evidence dossiers. **None of this is revenue.** We have built a beautifully-governed, meticulously-documented **one-customer business.**
+- Sending Email 3 to 32 silent prospects is activity dressed as progress. It tests persistence, but the root problem (message → offer → channel) was not fixed before sending.
+
+### Scorecard (/10)
+
+| Dimension | Score | Why |
+|---|---|---|
+| Problem strength | **8** | Real, evidenced (Arno $129,750 in 4h; Travis $180,115) |
+| Offer | **4** | Unclear; selling certainty + follow-up + recovery + intelligence at once |
+| Product/service delivery | **7** | Follow-up works; but manual, Atlas+James-dependent |
+| Customer value | **8** | Recovering six figures is enormous value |
+| Proof | **6** | Travis is real but reads as lead-gen; one case study; not published/named |
+| Positioning | **4** | Confused; too many ideas; no single problem/promise |
+| Pricing | **3** | $199 ≈ 1/50th of delivered value; but not even the bottleneck |
+| ICP clarity | **5** | Painters assumed, never discovery-validated; DB 75% unverified |
+| Customer acquisition | **1** | No repeatable channel; 0.4% end-to-end |
+| Retention potential | **7** | QPaint sticky; value is recurring and compounding |
+| Scalability | **3** | Manual delivery; no software product |
+| Founder execution | **4** | Strong strategy, weak sales follow-through |
+| **Overall commercial health** | **3/10** | A real, working service that cannot yet be sold |
+
+---
+
+## PART 2 — CUSTOMER TRUTH
+
+| Relationship | Attracted by | Cared about | Misunderstood | Why progressed | Why stalled / didn't buy | State |
+|---|---|---|---|---|---|---|
+| **QPaint (Tas Moulis)** | Travis proof (Email 3) | 144 dormant quotes, no process | — | Proof → called James → founder conversation → confidence | n/a (bought) | **PAYING, $199/mo, 5 wins $340k** |
+| **Travis Krieg Painting** | Early engagement (Jan–Apr 2026) | Quiet quotes worth recovering | — | The recovery worked (14 jobs) | Not a current paying client (not in Clients table) | **Proof subject only** |
+| **Ahmad / Star Painters** | Travis proof (Email 3) | Cost, method, volume (3 buying questions) | — | Same-day reply, agreed trial 23 Jul | **Ghosted onboarding. 6+ weeks. UNKNOWN why.** | **Stalled Qualified Opportunity** |
+| **Rahamed / Inspire** | "14 jobs, $180,115" (Email 2) | Job wait time, leads | **Believes we supply leads/jobs** | Positive reply | Misunderstood; corrected + offered call; no reply since 21 Aug | **Engaged, misunderstood** |
+| **Master Choice Painting** | V1 + 3-min call 29 Jul | Interest, no objection recorded | — | Warm, highest probability (83) | **Founder call 26 Aug UNLOGGED** | **Warm, unlogged** |
+| **The Painting Company** | V1 + brief chat 29 Jul | "Considering" | — | Warm | **Founder call 26 Aug UNLOGGED** | **Warm, unlogged** |
+
+**Negative replies seen:** "already have a system" (1), "went with another provider" (5 of 28 QPaint losses), "please stop contacting" (1), "price/budget" (3).
+
+### FACT / INFERENCE / UNKNOWN
+- **FACT:** Travis proof generated the only two V1 conversions (Tas, Ahmad) and the only V2 reply (Rahamed). Curiosity-led Email 1 produced 0 replies across ~108 V1+V2 sends.
+- **FACT:** We have never logged a single discovery conversation with a painter about their follow-up pain.
+- **INFERENCE:** The proof reads as lead-gen; Rahamed's words are direct evidence.
+- **UNKNOWN:** Why Ahmad stalled. Whether painters feel the pain. Whether founder calls happened on 26 Aug.
+
+**What this teaches the market:** The trigger is real (proof) but the *message* is unreliable, and the *conversion* has only ever happened through founder conversation. We are not selling — we are hoping.
+
+---
+
+## PART 3 — QPAINT AS PRODUCT EVIDENCE
+
+**Total managed:** 184 quotes, $6,167,271.
+**Outcomes:** Won 5 ($340,603) · Lost 28 ($653,983) · Open 151 ($5,172,685).
+**Attribution:** Recovered 1 ($129,750, Arno) · Assisted 4 ($205,576).
+**Re-engagement reply rate:** ~6.6% (7 replies / 106 Wave-1 emails).
+**Quote-delivery failures discovered:** 172 undelivered emails (INC-002); Rhonda Bourke quote not received.
+**Pricing objections discovered:** none from QPaint customers (their objections are "went elsewhere" / "budget", not NF pricing).
+**Decision intelligence gathered:** 28 losses with reasons (competitor selected 5, price/budget 3, no reason 17); body-corporate timelines; insurance-pending wait states; government/QBuild cycles.
+**Operational burden:** high. Atlas runs daily attention, reconciliation, classification. James escalates. QPaint needs ~daily monitoring.
+**Founder involvement:** escalation + approvals + one founder call (that produced QPaint itself).
+**Atlas involvement:** substantial — the entire follow-up engine is Atlas.
+
+**What QPaint proves:** The follow-up mechanism recovers real revenue from dormant quotes. A painter *will* pay $199/mo. White-label customer care creates rapport.
+
+**What QPaint does NOT prove:** Repeatable acquisition. Scale economics. Whether $199 covers delivery. Whether the results generalise beyond QPaint's specific book.
+
+**Is QPaint — A (customer), B (case study), C (product-dev partner), D (all three)?**
+- **A: YES** (paying customer).
+- **B: PARTLY** (internal evidence dossier only; not a named/public case study — Tas's written approval not obtained).
+- **C: YES** (the 184-record book produced the recovery playbook, objection patterns, BK principles).
+- **Current:** A + C. Not yet B.
+
+**To become compelling proof for selling NF:** (1) a named, published QPaint case study with Tas's written approval; (2) clean attribution (recovered vs assisted); (3) a before/after narrative (144 dormant quotes → 5 wins, $340k).
+
+---
+
+## PART 4 — OFFER REVIEW
+
+**What a customer believes they're buying:** unclear. Could be lead-gen (Rahamed), automation, recovery, or "peace of mind." We have never made it unambiguous.
+
+**What we actually deliver:** white-label managed follow-up — Atlas and James follow up a business's existing quotes until the customer decides.
+
+**Alignment:** broken. We *say* "certainty" but *prove* "$180,115 recovered," which people read as "find me jobs."
+
+**We are trying to sell too many ideas at once:** quote follow-up · revenue recovery · quote intelligence · win/loss understanding · customer re-engagement · pipeline visibility. That is six messages, none sharp.
+
+**ONE PROBLEM:** Quotes go quiet and revenue leaks because nobody follows up consistently.
+**ONE PROMISE:** No quote you send will be forgotten — we follow up every one until the customer decides.
+**ONE MECHANISM:** We take over your quote follow-up (email, SMS, phone), professionally and persistently, so you don't have to.
+**ONE OUTCOME:** More of the quotes you've already sent turn into paid jobs.
+
+(No marketing fluff. This is the plain truth of what the service actually does.)
+
+---
+
+## PART 5 — PRICING
+
+**History:** early $750/$1,250/$1,750 concepts → $199 Premium + $99 setup → "first-10 clients" strategy → proposed $500 → long-term ~$1,000 thinking.
+
+**Is $199 right?** It was a defensible market-entry bet when we had zero proof. It is now a liability:
+- First-year cost $2,487 ≈ **1/50th** of Travis's $180,115 recovery, and ≈ **1/50th** of Arno's single $129,750 win.
+- It signals "cheap service," not "valuable outcome."
+- It is almost certainly **below cost-to-serve** once James's time is counted.
+
+**Estimated cost-to-serve QPaint:** 184 records, daily attention, classification, reconciliation, escalation, plus James's founder-level involvement. Even with Atlas absorbing most execution, the setup + ongoing management + James's time is material. At $199/mo, **QPaint is profitable only because it doubles as proof-of-concept and product development.** It is not a sustainable unit economics model.
+
+**Recommendation (tied to value, not "higher = better"):**
+- **Customers 2–5: $299–$349/mo + $99 setup** — still accessible, but no longer insulting to the value.
+- **Customers 6–10: $399–$499/mo** — once a named case study + retention data exists.
+- **Long-term: value-based** — price to quote volume and recovery potential (a multi-crew painter recovering $50k+/yr can justify $500–$1,000/mo).
+
+**Caveat: price is NOT the bottleneck.** Acquisition is. Do not spend founder energy on pricing before the message and channel are fixed.
+
+---
+
+## PART 6 — CUSTOMER ACQUISITION REVIEW
+
+| Channel | Volume | Replies | Meaningful | Qualified | Customers | Revenue |
+|---|---|---|---|---|---|---|
+| Cold Email V1 (curiosity) | ~65 E1 | 0 | 0 | 0 | 0 | $0 |
+| Cold Email V1 (proof @ E3) | ~60 | 2 | 2 | 1 | 1 | $199/mo |
+| RE-ENG (Aug) | ~147 | several | ~3 | 0 | 0 | $0 |
+| V2 (insight→proof→clarify) | 44/42/32 | 1 | 0 (misunderstood) | 0 | 0 | $0 |
+| Founder calls | ~2-3 | n/a | ~2 | 1 | 1 (via QPaint) | $199/mo |
+| Referrals / content / inbound | 0 | UNKNOWN | UNKNOWN | UNKNOWN | 0 | $0 |
+
+**End-to-end:** ~239 contacted → ~5-7 replies → ~3 positive → **1 paying (0.4%).**
+
+**Why still one customer — ranked causes:**
+1. **J. Founder sales execution / time** — founder calls unlogged, no follow-through, no discovery.
+2. **C. Messaging** — proof reads as lead-gen; unclear what we sell.
+3. **D. Offer** — six ideas, none sharp.
+4. **H. Insufficient volume of *qualified* conversation** (not raw email volume).
+5. **B. List quality** — 247 painters but only 61 named (19%).
+6. **I. Persistence** — partly fixed by the 28 Aug decision, but untested.
+7. **K. Product** — the service works, but there is no product to "see."
+8. **F. Price** — not the bottleneck.
+9. **A/E/G** — ICP and trust are secondary to the above.
+
+---
+
+## PART 7 — CURRENT SALES PIPELINE (reconstructed, not trusting labels)
+
+| Stage | Who | Prob. | Next action | Evidence |
+|---|---|---|---|---|
+| **WARM** | Ahmad / Star Painters | ~20% | Founder call — diagnose the 6-week stall | Agreed trial 23 Jul, never onboarded |
+| **WARM** | Master Choice Painting | ~25% | Founder call — re-open warm (highest prob 83) | 3-min call 29 Jul, no objection |
+| **WARM** | The Painting Company | ~20% | Founder call — convert "considering" | Brief chat 29 Jul |
+| **WARM** | Rahamed / Inspire | ~10% | Call — correct misunderstanding, discover pain | Replied 21 Aug, lead-gen confusion |
+| **DEVELOPING** | 8 founder-call candidates | ~5% | After Email 3 observation (to 4 Sep) | Named + mobile + tier-B fit |
+| **DEVELOPING** | 32 Email-3 prospects | ~3% | Observation to 4 Sep | Sent 28 Aug, 0 replies yet |
+| **COLD** | ~280 remaining | <1% | Source fresh verified cohort | 75% unverified |
+
+**Genuine opportunities: ~4** (Ahmad, Master Choice, The Painting Company, Rahamed).
+
+**If James could do only FIVE sales actions next week:**
+1. Call **Ahmad** — diagnose the stall (why did onboarding die?).
+2. Call **Master Choice** — re-open the warmest lead.
+3. Call **The Painting Company** — convert "considering."
+4. Call **Rahamed** — correct the misunderstanding, discover real pain.
+5. **Log every outcome immediately** (verbatim pain language), then decide the next 5.
+
+---
+
+## PART 8 — ICP REVIEW
+
+**Painters (evidence):** QPaint proves a painter pays. But 247 painters in DB with only 61 named (19%), and **zero discovery validation** that painters feel the follow-up pain. The pain is assumed, not confirmed.
+
+**Adjacent (evidenced but unvalidated):** commercial cleaning (30), marketing agencies (30), IT MSP (4). No evidence any is *better*.
+
+**Recommendation:** **Stay on painters until ~5 customers.** The problem is not ICP — it's that we haven't validated the message with a single painter conversation. Switching ICP now would repeat the same mistake in a new market. Validate painters first.
+
+---
+
+## PART 9 — PRODUCT VS SERVICE
+
+**Currently:** a **managed service** (Atlas + James deliver follow-up via scripts; Airtable is the backend). **Not SaaS** — no customer-facing product.
+
+**Should become:** a **software-enabled service** first (Atlas does more; human judgment for edge cases), then, only after the workflow is proven, a genuine product.
+
+**What must be proven manually BEFORE we deserve to automate:**
+1. The follow-up cadence (email vs SMS vs phone, and when).
+2. Reply classification (win / loss / objection / wait).
+3. The recovery playbook (which quotes to re-engage, in what order).
+4. The trust model (white-label customer care that doesn't damage the client's brand).
+5. The conversion path (how a reply becomes a paid job).
+
+Automate *after* the manual playbook is proven at 5–10 customers — not before.
+
+---
+
+## PART 10 — COMPETITIVE ADVANTAGE
+
+**CURRENT ADVANTAGE:** none. Follow-up is replicable; Airtable, scripts, and Atlas are replicable.
+
+**POTENTIAL ADVANTAGE (moat if built):**
+- **Quote outcome intelligence** — data on *why* quotes win/lose (28 QPaint losses with reasons).
+- **The recovery playbook** — BK principles + objection patterns + body-corp/government/insurance wait-state knowledge.
+- **Trust + white-label customer care** — businesses trust us with their reputation.
+- **Longitudinal quote history** — compounding data that improves with every customer.
+
+**NOT A MOAT (yet):** Airtable, Atlas, the scripts, the governance, the dashboard.
+
+The moat, *if* built, is **accumulated decision data on quote follow-up that gets smarter every customer** — but we have one customer, so we have not yet accumulated enough for it to matter.
+
+---
+
+## PART 11 — FOUNDER REVIEW (unflattering, as requested)
+
+**Strong decisions:** owner-led ICP; market-entry pricing; trust-first principles; "persistence ≠ repetition"; Travis-as-bridge; "sell certainty, not follow-up"; "never trust a green tick."
+
+**Avoiding uncomfortable work:** not making the founder calls (4 days unlogged); not diagnosing Ahmad's stall; not doing the discovery conversations that would actually validate the business.
+
+**Overbuilding:** the governance machine — 78 decisions, 13 BK principles, dashboards, evidence dossiers, production standards, decision-review preps — is far more governance than a one-customer business needs.
+
+**Overthinking:** messaging/positioning has been through 4+ website audits and multiple belief-architecture versions while the core problem (no conversations, no customers) stays unsolved.
+
+**Changing direction too quickly:** curiosity → insight-proof → proof → clarification, and a 2-touch limit → 5-touch persistence, all within ~3 weeks — message churn without discovery grounding.
+
+**Appropriately persistent:** on integrity, verification, and trust-first.
+
+**Automotive advantage:** reading buyer psychology, objection handling ("I'll think about it" → "what's the biggest thing?"), relationship-first sales.
+
+**Where automotive instincts mislead:** automotive is high-ticket, high-involvement, face-to-face, with showroom foot traffic. Painters are low-involvement and require *outbound* effort; car-sales pressure tactics don't transfer, and the "close the deal now" instinct can feel wrong to a busy tradie. The "persistence ≠ repetition" instinct is right; the "push for the close" instinct needs tempering.
+
+**Where Atlas helps:** compensates for systems/documentation weakness; executes the follow-up; prevents production mistakes.
+
+**Where Atlas creates complexity rather than leverage:** Atlas has built a governance machine that may have become a *substitute for selling*. James reviews certification packs and decision preps instead of making calls.
+
+**DO MORE OF:** founder calls, discovery conversations, actually selling.
+**DO LESS OF:** governance, messaging iteration, infrastructure.
+**STOP ENTIRELY:** building more systems until there is a second customer; treating email volume as progress.
+
+---
+
+## PART 12 — ATLAS REVIEW (self-criticism)
+
+**Where Atlas improved the business:** production integrity; CRM accuracy; follow-up execution; the QPaint recovery (5 wins, $340k); evidence discipline.
+
+**Where Atlas prevented mistakes:** 172 undelivered emails (INC-002); wrong proof number ($177,555 → $180,115); duplicate records; stale CRM stages.
+
+**Where Atlas created unnecessary complexity:** 78 decisions, 13 BK principles, decision-review preps, dashboards, evidence dossiers — over-built governance for a one-customer business.
+
+**Where Atlas became too conservative:** the "do not auto-progress silent prospects" stance James had to override; a bias toward "review and hold" over "test and learn."
+
+**Where Atlas confused activity with progress:** 32 Email 3s, 121 activities, dashboards — activity, not customers.
+
+**Where Atlas made unsupported assumptions:** assumed painter pain (never validated); assumed email was the channel.
+
+**Where Atlas required too much founder supervision:** staged approvals and certification packs require James to review everything, which may have displaced actual selling.
+
+**Core self-critique:** Atlas has optimised for **avoiding mistakes instead of winning customers.** The governance is partly a substitute for sales. That is the opposite of the mandate ("make James more responsive, organised, informed, valuable to clients").
+
+**Behaviour changes (not new infrastructure):**
+1. Prioritise helping James make calls + capture outcomes, over generating more review preps.
+2. Reduce governance output; raise discovery output.
+3. Stop treating email as the growth engine; treat founder conversation as primary.
+
+---
+
+## PART 13 — FINANCIAL PATH
+
+| Customers | @$199/mo MRR | @$199 ARR | @$349/mo ARR | Delivery burden |
+|---|---|---|---|---|
+| 5 | $995 | $11,940 | $20,940 | Atlas heavy; James ~escalation only |
+| 10 | $1,990 | $23,880 | $41,880 | **James can no longer personally service** |
+| 20 | $3,980 | $47,760 | $83,760 | Delegation + automation required |
+| 30 | $5,970 | $71,640 | $125,640 | A real (small) business |
+| 40 | $7,960 | $95,520 | $167,520 | Needs a product, not a service |
+
+**Point where James cannot personally service:** roughly **5–10 customers** (QPaint alone is ~daily attention). Beyond that, the model must become software-enabled or delegated.
+
+**Replacing employment income:** if James's income is ~$100–150k, at $199/mo he'd need **42–63 customers (net revenue, not profit)**; at $349–$500/mo, **17–36 customers**. At the current rate (~1 customer in ~2 months), that is **years away** — and only achievable if either (a) price rises substantially, or (b) the service becomes software with non-linear margins.
+
+**No fantasy SaaS margins here.** This is a service business until proven otherwise.
+
+---
+
+## PART 14 — 90-DAY PLAN
+
+**THE ONE OBJECTIVE:** Go from 1 → 3 paying customers by proving that founder-led sales + a corrected proof message can close painters.
+
+**NEXT 7 DAYS:** Make the 5 founder calls (Ahmad, Master Choice, Painting Co, Rahamed + 1 B-list). Log every outcome with verbatim pain language. Do not send any more cold email.
+
+**NEXT 30 DAYS:** Convert calls into 1–2 walkthroughs of prospects' *own* quotes. Fix the offer to the ONE problem/promise/mechanism/outcome. Get Tas's written approval for a named QPaint case study.
+
+**DAYS 31–60:** Onboard 1–2 new customers. Publish the QPaint case study. Source a fresh, *verified* cohort (named owner + multi-crew).
+
+**DAYS 61–90:** 3–4 paying customers. Capture retention + referral signals. Decide the customers-6+ price.
+
+Every action maps to: CUSTOMERS, CONVERSATIONS, LEARNING, RETENTION, REVENUE. Anything else is cut.
+
+---
+
+## PART 15 — KILL LIST
+
+**STOP NOW**
+- New governance / infrastructure / dashboards / decision-review machinery.
+- Cold email volume into the drained, unverified pool.
+- Message iteration without discovery grounding.
+
+**PAUSE**
+- Website/positioning work (until the offer is validated by conversations).
+- Case-study publishing (until Tas approves + a 2nd customer exists).
+- New verticals / ICP expansion.
+
+**CONTINUE**
+- QPaint service (it is paying and generating proof).
+- Fresh, *verified* prospect sourcing.
+
+**DOUBLE DOWN**
+- Founder-led sales (calls → walkthroughs).
+- Discovery conversations (capture painter pain verbatim).
+- Turning QPaint into *published* proof.
+
+---
+
+## PART 16 — THE HARD QUESTIONS
+
+**Would I invest my own money today?** No — not as a financial investment. One customer, 0.4% acquisition, no repeatable channel, no software product. But the QPaint results are a genuine signal the *service* works; the open question is whether it can be packaged and sold.
+
+**If James continues exactly as he has for 12 months:** 2–4 customers, $400–$800 MRR, still not replacing income, still over-governed, still no product. The service would keep working for QPaint, but the business would not have momentum.
+
+**Biggest risk:** James's time/energy (day job + family + a 1-customer side project with no momentum) runs out, and the business stalls at one customer indefinitely.
+
+**Biggest opportunity:** the follow-up recovery demonstrably works (Arno, Travis, QPaint). If we can sell it to even 1–2 painters/month, it compounds — but it must be *sold*, not emailed.
+
+**Assumption most likely wrong:** that painters feel the follow-up pain as acutely as we assume. We have never asked one.
+
+**What would cause failure:** founder stops selling; Atlas keeps "preparing" without converting.
+
+**What would cause success:** founder makes 20–30 discovery/sales calls, validates the message, converts 3–5 painters, then systematises.
+
+**Evidence that would make me say shut it down:** 20+ founder calls with zero walkthroughs/interest, AND QPaint churns, AND no repeatable proof.
+
+**Evidence that would make me say go all-in:** 3–4 paying customers from founder calls with a repeatable script, AND a named case study, AND retention data.
+
+**Single most important thing Monday morning:** call the 3–4 warm leads (Ahmad, Master Choice, The Painting Company, Rahamed) and log the outcomes.
+
+---
+
+## FINAL OUTPUT
+
+### A. Full Business Review
+This document.
+
+### B. One-Page Founder Summary
+Not Forgotten is a **working service that cannot yet be sold.** The follow-up recovery is real (Arno $129,750 in 4 hours; Travis $180,115; QPaint 5 wins $340k). But after ~239 contacts we have **one paying customer**, because we have never validated the message with a single painter conversation, the proof reads as lead-gen, and founder sales follow-through is missing. The governance is world-class; the sales are not. **The next customer will come from a founder phone call, not an email.**
+
+### C. Updated Commercial Priorities for HQ
+1. Founder calls → walkthroughs → paying customers (the only revenue channel).
+2. Validate the message through discovery (not iteration).
+3. Turn QPaint into published, named proof.
+4. Source a fresh verified cohort.
+5. Pause governance/infrastructure until a 2nd customer.
+
+### D. Top 5 Founder Actions
+1. Call Ahmad — diagnose the stall.
+2. Call Master Choice — re-open warm.
+3. Call The Painting Company — convert "considering."
+4. Call Rahamed — correct misunderstanding, discover pain.
+5. Log all outcomes immediately, then schedule the next 5.
+
+### E. Stop / Pause / Continue / Double-Down (table)
+| Stop now | Pause | Continue | Double down |
+|---|---|---|---|
+| New governance/infra | Website/positioning | QPaint service | Founder-led sales |
+| Cold email into drained pool | Case-study publishing | Verified prospect sourcing | Discovery conversations |
+| Message iteration w/o discovery | New verticals | — | QPaint → published proof |
+
+### F. 90-Day Plan
+One objective: 1 → 3 customers. 7d = 5 calls + log. 30d = 1–2 walkthroughs + fix offer + Tas approval. 31–60d = onboard 1–2 + publish case study + fresh cohort. 61–90d = 3–4 customers + retention + price decision.
+
+### G. Risks & Assumptions Register
+- **R1 (highest):** founder time/energy runs out → business stalls at 1 customer. *Mitigation: 90-day plan front-loads the only activity that matters (calls).*
+- **R2:** painter pain is weaker than assumed → no buyers. *Mitigation: validate via discovery before scaling.*
+- **R3:** $199 is below cost-to-serve → every new customer loses money. *Mitigation: raise to $299–$349 at customer 2–5.*
+- **A1:** proof reads as lead-gen unless mechanism-explicit. *Mitigation: corrected message (done for Email 3), verify in conversation.*
+- **A2:** QPaint is a one-off, not a repeatable model. *Mitigation: get 2 more customers before calling it validated.*
+- **A3:** "managed service" is not a scalable business. *Mitigation: prove the manual playbook first, then automate.*
+
+---
+*End of review. Prepared 30 Aug 2026. Analysis only — no strategy changed, no governance updated, nothing built, sent, or contacted. Awaiting founder decision.*

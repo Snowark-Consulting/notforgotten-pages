@@ -1,0 +1,114 @@
+# Decision: QPaint Operational Handover — Atlas owns routine operations, Wednesday becomes Founder Sales Day
+
+**Slug:** `2026-08-30-qpaint-operational-handover`
+**Date:** 2026-08-30
+**Status:** Made
+**Review Date:** 2026-11-30
+
+---
+
+## The Decision
+
+Atlas takes full operational responsibility for routine QPaint book control under existing QPaint protocols — quote intake, record creation, evidence capture, customer history/relationship review, classification, next-action selection (Email 1/2/3 and later touches where context supports them), WAIT/MONITOR/HOLD, reply handling within authority, reconciliation, next-review dates, suppression, white-label integrity, and the "nothing has been forgotten" check.
+
+James no longer re-audits the book on Wednesday. He sees only genuine exceptions, via a short weekly QPaint exception brief plus a random 5-record quality audit result. Wednesday becomes primarily a **Founder Sales Day** (immediate milestone: 10 real owner conversations).
+
+The fail-closed escalation boundary is unchanged and explicit: James is surfaced to only for founder judgment — material complaint, legal/reputational concern, unusual privacy/compliance issue, unresolved identity conflict, conflicting evidence, pricing/discount or scope change requiring QPaint, contractual commitment, sensitive government/procurement uncertainty, unusual high-value/high-risk situation, a customer request Atlas is not authorised to answer, evidence the protocol would produce a poor outcome, or genuine ambiguity where contacting the customer could damage trust. Atlas does **not** escalate merely because a review date arrived, a customer hasn't replied, the record is old, or the quote is valuable.
+
+---
+
+## Clarification (same day, 2026-08-30) — Routine Reply Authority
+
+James clarified that routine QPaint customer replies (definitive LOST acknowledgement, WON acknowledgement with no QPaint commitment, status updates, "still considering", timing/deferred, clarification acknowledgement, thank-you/closing, other low-risk) are Atlas's to decide and execute autonomously — do NOT ask "would you like me to draft/send this?". Escalate only genuine exceptions (complaint, legal, privacy/compliance, refund/compensation, reputational risk, aggressive/highly-sensitive, unclear intent, pricing/discount or scope change requiring QPaint, contractual, procurement, identity/evidence conflict, outside authority, potential save requiring QPaint, trust damage). LOST replies carry loss-intelligence capture: structured reason (PRICE/REFERRAL/TIMING/SCOPE/COMPETITOR/etc.) plus verbatim customer language, never simplified or invented. This is a permanent clarification, not temporary autonomy.
+
+---
+
+## The Problem
+
+James was spending a significant part of his Wednesdays manually reviewing the QPaint book to confirm nothing had been forgotten. That founder time is the business's scarcest resource and the only proven path to a second customer. The 30 Aug Full Business Review established the hard truth: ~239 contacts → 1 paying customer (0.4%); "the next customer will come from a founder phone call, not an email." The QPaint book (184 records, $6.17M) is now reconciled and every open record is in an intentional state. Atlas has been trained, tested and calibrated sufficiently to own the routine. The founder needs to be freed to sell.
+
+---
+
+## Options Considered
+
+| # | Option | Summary |
+|---|---|---|
+| A | James keeps auditing QPaint weekly | Founder time consumed by an already-controlled process; acquisition starved. |
+| B | Atlas owns routine QPaint ops; James sees exceptions only | Founder freed to sell; Atlas exercises trained judgment within protocol; fail-closed escalation. **Chosen.** |
+| C | Full autonomous management including QPaint commercial decisions | Violates SURFACE ≠ MANAGE and human accountability; Atlas would make pricing/scope decisions for QPaint. Rejected. |
+
+---
+
+## Why This Path
+
+Option B matches the business's real bottleneck (acquisition) while preserving the QPaint integrity controls already built. The book is reconciled and controlled; the routine is now judgment-within-protocol, not novel decision-making. This is a division of labour, not a loosening of standards — the Customer Context Gate, white-label integrity, verification, and reconciliation disciplines still apply to every action; only the reviewer changes (Atlas for routine correct decisions, James for exceptions). The evidence (30 Aug review) is unambiguous that founder conversation is the only revenue-critical activity, and that over-governance has been substituting for selling.
+
+---
+
+## Core Principles Applied
+
+- Human accountability (Six Principles #6) — James owns commercial decisions; Atlas owns routine execution within authority. Exceptions escalate.
+- Evidence before opinion (#2) — the 30 Aug review established founder calls, not more email/governance, as the only path to customer #2.
+- Trust before growth (#1) — the fail-closed boundary means James is interrupted only for genuine exceptions, not noise.
+- Atlas as multiplier, not replacement (founding decision) — Atlas operates so James can do what only James can do: build relationships and sell.
+- SURFACE ≠ MANAGE (decision `2026-08-20-qpaint-role-boundary`) — unchanged; QPaint commercial decisions remain QPaint's.
+
+---
+
+## Risks Identified
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| Atlas misjudges a routine decision a human would escalate | Med | Med | Fail-closed escalation list; weekly random 5-record audit; every action evidenced and auditable |
+| James loses visibility/trust in QPaint control | Low | High | Weekly exception brief (5–10 min) + audit result, never a full-book dump |
+| "Don't build anything new" drifts into "don't maintain" | Low | Med | This decision reconciles the operating-model doc; no new infrastructure created |
+| Calls happen but still no customers | Med | High | Voice-of-customer capture + explicit call outcomes; message validated by discovery before further iteration |
+
+---
+
+## Expected Outcome
+
+James's Wednesday becomes founder sales; Atlas runs QPaint with zero forgotten opportunities and exception-only escalation. The measure of success is "James should not need to check QPaint to feel safe," and the immediate founder milestone is 10 real owner conversations.
+
+> **Founder's crystallised standard (30 Aug 2026):** "Can Atlas run the operation well enough to give the founder his time back?" The unit of value is James's founder time. Atlas succeeds when James can walk away from the operation and feel safe, not when Atlas is merely busy.
+
+---
+
+## Success Criteria
+
+- [ ] No QPaint opportunity forgotten; every open record in an intentional, evidenced state
+- [ ] No inappropriate customer contact, white-label/identity failure, or compliance failure
+- [ ] James interrupted only for genuine exceptions (not "review date arrived" / "no reply" / "old record" / "valuable quote")
+- [ ] Weekly 5-record random audit run; failures surfaced and triaged (isolated vs systemic)
+- [ ] 10 real owner conversations (milestone), then 3 serious opportunities, then customer #2
+- [ ] Wednesday Founder Sales Brief readable in ~5–10 min (not a full-book dump)
+
+---
+
+## Atlas's Challenge (Pre-Decision)
+
+> No challenge. This corrects the exact failure the 30 Aug Full Business Review identified (Atlas over-governed; founder under-sold) and redeploys the scarcest resource to the only revenue-critical activity. The fail-closed boundary and evidence discipline are preserved, so trust is maintained while the division of labour shifts.
+
+**James's response:** (direction given as a standing operating model; no separate challenge/override)
+
+---
+
+## Actual Outcome (Post-Review)
+
+**Date reviewed:** *(pending 2026-11-30)*
+
+---
+
+## Learnings
+
+*Pending review.*
+
+---
+
+## Related Decisions
+
+- `2026-08-20-qpaint-daily-ops-model` — Review → Decide (never Review → Send)
+- `2026-08-20-qpaint-role-boundary` — SURFACE ≠ MANAGE
+- `2026-08-02-operational-phase` — Operational Phase Begins
+- `2026-08-03-foundation-complete` — Foundation Complete, shift to execution
+- `founding-atlas-multiplier-not-replacement` — Atlas as multiplier, not replacement

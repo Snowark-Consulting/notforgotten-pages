@@ -609,6 +609,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decision_reviews_2026_09_04_v2_persistence_review_prep",
+      "label": "V2 Persistence Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-09-04-v2-persistence-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "4147009024de",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decision_reviews_index",
       "label": "Decision Reviews / Index",
       "file_type": "doc",
@@ -1016,6 +1027,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decisions_2026_08_30_qpaint_operational_handover",
+      "label": "Qpaint Operational Handover",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-08-30-qpaint-operational-handover.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "6be4337b0310",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decisions_index",
       "label": "Decisions / Index",
       "file_type": "doc",
@@ -1166,6 +1188,17 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "0fbc908e4e02",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_full_business_review_2026_08_30",
+      "label": "Full Business Review",
+      "file_type": "doc",
+      "source_file": "knowledge/full-business-review-2026-08-30.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "232f71d8a8ba",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -1628,6 +1661,17 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "77e125b71878",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_qpaint_follow_up_phase1_customers_1_2",
+      "label": "Qpaint Follow Up Phase1 Customers 1 2",
+      "file_type": "doc",
+      "source_file": "knowledge/qpaint-follow-up-phase1-customers-1-2.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "9fb668d7b764",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -3317,6 +3361,13 @@
     },
     {
       "source": "agent_registry",
+      "target": "knowledge_decisions_2026_08_30_qpaint_operational_handover",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
       "target": "learnings_2026_08_18_wakeagent_gate",
       "relation": "wikilink",
       "weight": 1.0,
@@ -3422,7 +3473,21 @@
     },
     {
       "source": "agent_registry",
+      "target": "knowledge_full_business_review_2026_08_30",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
       "target": "knowledge_qpaint_historical_review_janita_caylah_2026_08_24",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_qpaint_follow_up_phase1_customers_1_2",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
@@ -3822,6 +3887,13 @@
     {
       "source": "knowledge_decision_reviews_index",
       "target": "knowledge_decision_reviews_2026_09_03_quote_follow_up_delay_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_09_04_v2_persistence_review_prep",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

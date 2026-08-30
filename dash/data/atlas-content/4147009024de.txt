@@ -1,0 +1,52 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-08-29
+status: PREPARATION — review due 2026-09-04
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — V2 Persistence ≠ Repetition (Email 3 Observation Checkpoint)
+
+> Outcome data gathered ahead of the 2026-09-04 review of `2026-08-28-v2-persistence-not-repetition` — the V2 Email 3 observation checkpoint.
+
+## Decision being reviewed
+
+**What was decided (2026-08-28):** V2 outreach does NOT stop at two touches. Silence ≠ lost. The Customer Context Gate (not the touch number) decides continuation. Up to 5 touches, each materially different (new angle or channel shift). Only stop signals halt: opt-out, negative response, bounce, business unsuitable/closed, conflicting conversation, invalid contact, no commercial reason. Every touch remains REVIEW → DECIDE. Classified A (Email 3 now) / B (founder call) / C (wait) / D (stop).
+
+**Review date:** 2026-09-04 — this is the Email 3 observation checkpoint.
+
+## Success criteria — actuals (verified 2026-08-29 22:00 ACST)
+
+| Criterion | Actual | Status |
+|---|---|---|
+| Email 3 sent to 32 A-list prospects | 32/32 sent 28 Aug james@, subject "A quick clarification" | ✅ SENT+VERIFIED (32/32 Gmail Sent, 32/32 Airtable reconciled) |
+| 8 B-list founder-call candidates held, not emailed | Zoom, Cameron Davidson, Upscale, Paintpal, Clean Cut, Paint Master, Bayside, One Touch — NOT advanced, awaiting James verdict on founder calls | ⚠️ PENDING — Next Follow-up 2026-08-28 now 1d overdue, no verdict logged |
+| Replies to Email 3 tracked at checkpoint | james-pulse active. As of 28 Aug close: 0 external messages since Aug 27. Verify at 4 Sep checkpoint. | ⏳ OBSERVATION (Day 1 of 7) |
+| No duplicates / no stop signals in cohort | No opt-outs, bounces, or negative responses observed in the 32 since send | ✅ CLEAN so far |
+
+## Key developments since decision
+
+1. **Email 3 executed 28 Aug** (founder-direct authority, `knowledge/authority/founder-direct-v2-email3-cohort-2026-08-28.json`). Copy fixed the Email 2 lead-gen misread: "I don't generate leads… I follow up the quotes you've already sent out." 32/32 verified.
+2. **8 B-list candidates untouched** — the strongest prospects (named decision-maker + mobile + tier-B fit) were deliberately NOT emailed. Decision pack ordered them for founder calls (Esmayel Nazari/Upscale 80/A highest). James has not yet ruled: call this week, call after Email 3, or hold.
+3. **Email 2 baseline for comparison:** 42 sent Aug 21 → 1 reply (Rahamed/Inspire, 2.4%, lead-gen misunderstanding, now Engaged + call invited), 1 bounce (Doctor Brush → Lost), 40 silent. Email 3's success bar: ≥1 reply, or any reply that starts a conversation.
+4. **Inspire (Rahamed) call status unconfirmed** — open item carried from Aug 24; call invitation awaiting acceptance.
+5. **Campaign Intelligence Report delivered 28 Aug** — Travis-led Email 1 pilot (19 prospects) + Recipient Validation Safeguard verdict still awaiting James (open items carried).
+
+## Verdict framing for review
+
+The Sep 4 checkpoint decides the next chapter for the 32 silent Email 3 recipients (per persistence decision): Touch 4 = founder calls (8 B-list first, then named contacts in A-list who stayed silent) and/or Touch 5 = Email 4 break-up ("a quick look at your quotes" — already drafted per decision pack, honest last touch). Before recommending, collect: (1) reply count/quality from james-pulse across the 7-day window, (2) opens (V2 activity / Gmail), (3) any stop signals. Compare against Email 2 baseline (2.4% reply). Key decision James makes: when do the 8 B-list calls happen, and does a 0-reply Email 3 cohort trigger them immediately?
+
+## Evidence files
+
+- `knowledge/decisions/2026-08-28-v2-persistence-not-repetition.md` — decision under review
+- `knowledge/v2-email3-decision-pack-2026-08-28.md` — classification, recipient list, Email 3 copy, Touch 4/5 plan
+- `knowledge/customer-2-decision-pack-2026-08-28.md` — V2 cohort verdict + Travis-led Email 1 pilot proposal
+- `knowledge/authority/founder-direct-v2-email3-cohort-2026-08-28.json` — founder-direct authority record
+- `notes/2026-08-28.md`, `notes/2026-08-29.md` — execution + daily context
+- V2 Outreach Activity ledger (121 records; 32 Email 3 entries 28 Aug, Next Follow-up 2026-09-04)
+
+## Prepared by
+
+Prepare-Ahead Clock 2026-08-29 22:00 ACST. Next step: james-pulse collects reply data through Sep 4; Atlas compiles checkpoint analysis at review; James assigns verdict.
