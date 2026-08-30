@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 209,
+    "tasks_completed": 210,
     "recent": [
+      {
+        "date": "2026-08-30 16:48",
+        "task": "Campaign pulse 30 Aug: Email 3 (32) Day 2, 0 replies; 9 new Email 1s sent under founder autonomy (Gmail-verified); founder call day Mon 31 Aug (9 calls)",
+        "category": "task"
+      },
       {
         "date": "2026-08-30 12:36",
         "task": "Autonomy test round 2: +5 verified new painting prospects contacted (Pure Painting, Easy Cut, Bakers & Co, VPG, Fine Paint Works) via OpenStreetMap discovery. Total 9 new sends today. Discovery sources now exhausted (search engines rate-limited/CAPTCHA'd, directories Cloudflare-blocked).",
@@ -135,11 +140,6 @@
         "date": "2026-08-19 14:32",
         "task": "Published Travis Krieg case study (14 jobs, $180,115 recovered)",
         "category": "task"
-      },
-      {
-        "date": "2026-08-18 16:11",
-        "task": "Campaign pulse posted \u2014 V2 cold outreach 43 Email 1s sent (31 Insight-Proof Day 4-6 + 12 NEW50 Day 0), 0 replies. Cold-email pattern vs QPaint recovery contrast surfaced.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-08-30T16:30:52.735518+09:30",
+  "last_updated": "2026-08-30T16:48:21.467569+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
