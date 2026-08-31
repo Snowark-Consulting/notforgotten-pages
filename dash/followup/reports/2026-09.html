@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Outreach Intelligence Report — September 2026</title>
+<link rel="icon" type="image/png" href="../../assets/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0b2c4d; --gold: #e0a62a; --white: #fff; --gray-50: #f8f9fa;
+    --gray-100: #f1f3f5; --gray-300: #dee2e3; --gray-500: #6c757d;
+    --gray-700: #495057; --gray-900: #212529; --green: #2b8a3e;
+    --red: #c92a2a; --orange: #e8590c; --blue: #1c7ed6;
+    --radius: 8px; --radius-lg: 12px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;background:var(--gray-50);color:var(--gray-900);line-height:1.6}
+  .report{max-width:900px;margin:0 auto;padding:32px 24px}
+  .report h1{font-size:24px;color:var(--navy);margin-bottom:4px}
+  .report .subtitle{font-size:14px;color:var(--gray-500);margin-bottom:24px}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
+  .stat{background:var(--white);padding:20px;border-radius:var(--radius-lg);text-align:center;font-size:13px;color:var(--gray-500);box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+  .stat .num{display:block;font-size:28px;font-weight:700;color:var(--navy);margin-bottom:4px}
+  .stat .num.green{color:var(--green)}
+  .stat .num.gold{color:var(--gold)}
+  .section{background:var(--white);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+  .section h2{font-size:16px;font-weight:600;color:var(--navy);margin-bottom:14px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;padding:8px 12px;background:var(--gray-50);font-weight:600;color:var(--gray-500);font-size:11px;text-transform:uppercase;letter-spacing:0.04em}
+  td{padding:8px 12px;border-top:1px solid var(--gray-100)}
+  .bar-group{display:flex;flex-direction:column;gap:10px}
+  .bar-wrap{display:flex;align-items:center;gap:10px}
+  .bar-label{width:70px;font-size:13px;font-weight:500;text-align:right;flex-shrink:0}
+  .bar-track{flex:1;height:20px;background:var(--gray-100);border-radius:10px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:10px;transition:width 0.5s}
+  .bar-fill.hot{background:var(--red)}
+  .bar-fill.warm{background:var(--orange)}
+  .bar-fill.cold{background:var(--blue)}
+  .bar-val{width:30px;font-size:13px;font-weight:600;flex-shrink:0}
+  .conv-list,.int-list{list-style:none;padding:0}
+  .conv-list li,.int-list li{padding:6px 0;font-size:13px;border-bottom:1px solid var(--gray-100)}
+  .conv-list li::before{content:'✅ '}
+  .rec-card{background:var(--gray-50);padding:16px;border-radius:var(--radius);font-size:13px}
+  .rec-card ul{padding-left:20px;margin-top:8px}
+  .rec-card li{padding:3px 0}
+  .empty-state{text-align:center;padding:60px 20px;color:var(--gray-500)}
+  .empty-state h2{color:var(--navy);margin-bottom:12px}
+  .btn{display:inline-block;margin-top:16px;padding:10px 20px;background:var(--navy);color:var(--white);border-radius:var(--radius);text-decoration:none;font-size:13px;font-weight:500}
+  .header{background:var(--navy);color:var(--white);padding:18px 24px;display:flex;align-items:center;justify-content:space-between}
+  .header a{color:var(--gold);text-decoration:none;font-size:14px}
+  @media(max-width:768px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <strong>Not Forgotten Systems</strong> — Personal Outreach Intelligence
+  </div>
+  <a href="../">← Follow-Up Queue</a>
+</div>
+<div class="report">
+  <h1>September 2026 — Personal Outreach Intelligence Report</h1>
+  <div class="subtitle">Generated 01 September 2026 · 0 total calls analysed</div>
+  
+        <div class="empty-state">
+          <h2>No Calls This Month</h2>
+          <p>No prospects were called in September 2026.</p>
+          <p>The report will be generated automatically when call data is available.</p>
+          <a href="../" class="btn">Back to Queue</a>
+        </div>
+</div>
+</body>
+</html>
