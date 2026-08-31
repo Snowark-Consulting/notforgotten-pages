@@ -1,35 +1,35 @@
 {
-  "generated_at": "2026-08-31T04:10:03+09:30",
+  "generated_at": "2026-09-01T04:09:03+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "QPaint book stable overnight: 184 records, $6.17M total value. 4 customers replied Sunday with 'not proceeding / went elsewhere' — all reconciled to Lost (now 32 total) and classified. 5 Won stand ($340,603 deal value; $171,682 attributed recovered). RE-ENG campaign unchanged (99 observing). All inboxes clean.",
+    "body": "The QPaint portfolio is stable. 188 total records, 150 active journeys. Production Operating Protocol v1.0.0 governs all operations. Canonical send authority live.",
     "estimated_time": "2 minutes"
   },
   "business_score": {
     "score": 88,
-    "change": "—",
+    "change": "\u2014",
     "reasons_positive": [
-      "QPaint book control PASS — 184 records, $6.17M, 5 Won ($340,603 deal / $171,682 recovered), 32 Lost classified.",
-      "RE-ENG-AUG-2026 stable — 99 observing, 40 completed, 7 lost, 1 unsubscribed. No overnight changes.",
-      "System healthy — disk 37%, state.db 46M, gateway running, all 3 pulse jobs present."
+      "QPaint book control PASS \u2014 188 records, $6.24M, 5 Won ($340,603 deal / $171,682 recovered), 33 Lost classified.",
+      "RE-ENG-AUG-2026 stable \u2014 no overnight changes; no new replies, bounces, or unsubscribes.",
+      "System healthy \u2014 disk 37%, state.db 52M, all 3 pulse jobs present."
     ],
     "reasons_negative": [
-      "1 paying customer ($199 MRR) — Customer #2 remains the metric.",
+      "1 paying customer ($199 MRR) \u2014 Customer #2 remains the metric.",
       "3 'Call Today' tasks overdue since 26 Aug (Star Painters/Ahmad, The Painting Co, Master Choice)."
     ]
   },
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "QPaint: Active. Portfolio certified. 147 active journeys. 4 overnight Lost classified."
+      "detail": "QPaint: Active. Portfolio certified. 150 active journeys with complete Next Action coverage."
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "✅ 147 active QPaint journeys. 124 contacted. 5 Won ($340,603 deal / $171,682 recovered). 32 Lost. 4 new Lost reconciled overnight."
+      "detail": "\u2705 150 active QPaint journeys certified. 122 contacted. 0 exceptions. Pipeline: $5,115,186. Won: $340,603."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "3 Email 2 scheduled (Jeremy Ho, Skyla Garvey, Jordan Forrest). FF1 Wave 1 on hold. Founder re-engagement pending."
+      "detail": "V2 Email 3 (32 sent 28 Aug) awaiting reply \u2014 follow-up window 4 Sep. 9 founder-autonomy Email 1s (30 Aug), Email 2 window 4 Sep. RE-ENG-AUG-2026: 99 observing."
     },
     "engineering": {
       "status": "healthy",
@@ -37,7 +37,7 @@
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $171,682 recovered (5 Won, $340,603 deal value). Active pipeline $5.06M."
+      "detail": "QPaint: $340,603 Won. $5,115,186 active pipeline."
     },
     "atlas": {
       "status": "healthy",
@@ -47,70 +47,66 @@
   "waiting_for_james": [
     {
       "id": "founder-calls-overdue",
-      "title": "3 'Call Today' tasks overdue since 26 Aug — fold into Wed 2 Sep call day",
+      "title": "3 'Call Today' tasks overdue since 26 Aug \u2014 fold into Wed 2 Sep call day",
       "why_it_matters": "Three warm opportunities (Star Painters/Ahmad, The Painting Company, Master Choice Painting) carry a stale 'Call Today' flag. They are the Customer #2 pipeline; outcomes need to be logged.",
-      "business_impact": "High — three warm calls for Customer #2",
+      "business_impact": "High \u2014 three warm calls for Customer #2",
       "estimated_time": "3 x 5-min calls on Wed 2 Sep",
       "recommended_action": "On Wed 2 Sep Founder Call Day, call these three first and report outcomes so I can update V2 Outreach Activity + Prospects.",
       "impact_sort": 88
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Monday is a light-touch morning. The only overnight change is 4 QPaint customers replying Sunday with 'not proceeding / went elsewhere' — all already reconciled to Lost and classified (Recovery Outcome). Inboxes clean, RE-ENG campaign unchanged, system healthy. The real carry remains the three overdue 'Call Today' tasks (Star Painters/Ahmad, The Painting Company, Master Choice) that fold into the Wed 2 Sep Founder Call Day.",
+    "executive_summary": "Tuesday is light-touch. QPaint grew to 188 records / $6.24M overnight (4 new quote records: Dean Baker x3 + Ramona Jackson). Arno Hsu Won confirmed at $129.7K recovered. Inboxes clean \u2014 9 james@ unread are all old (7-10 Aug) DMARC/bounce/auto-reply, already reconciled to Lost. No new RE-ENG signals. System healthy. Two decision reviews due today (build-foundation, single-source-of-truth) \u2014 preps ready. The three overdue warm calls fold into Wed 2 Sep Founder Call Day.",
     "priorities": [
       {
-        "action": "Schedule the 3 overdue calls for Wed 2 Sep Founder Call Day",
-        "why_it_matters": "Star Painters (Ahmad), The Painting Company, Master Choice are warm opportunities with stale call flags — the Customer #2 pipeline.",
-        "expected_impact": "High — advances 3 warm opportunities",
-        "estimated_time": "15 minutes of calls",
+        "action": "Fold the 3 overdue warm calls (Star Painters/Ahmad, The Painting Co, Master Choice) into Wed 2 Sep Founder Call Day",
+        "why_it_matters": "Customer #2 pipeline \u2014 warm opportunities with stale call flags.",
+        "expected_impact": "High \u2014 advances 3 warm opportunities",
+        "estimated_time": "15 min of calls",
         "confidence": "High"
       }
     ],
     "can_wait": [
-      "QPaint recovery sends — exception monitoring, Daily Attention owns.",
-      "V2 Email 3 replies — monitor until 4 Sep follow-up window.",
-      "james@ stale unread (4 bounces, 1 business-closed, 1 auto-reply, 3 DMARC) — all reconciled to Lost/suppressed, read-only mailbox.",
-      "QPaint 4 new Lost (Sunday replies) — fully reconciled + classified overnight."
+      "QPaint recovery sends \u2014 exception monitoring, Daily Attention owns.",
+      "V2 Email 3 replies \u2014 monitor until 4 Sep follow-up window.",
+      "james@ stale unread (4 bounces, 1 business-closed, 1 auto-reply, 3 DMARC) \u2014 all reconciled to Lost, read-only mailbox.",
+      "QPaint fresh quotes (Dean Baker x3, Ramona Jackson) \u2014 quote-intake handles; Atlas sets NTD."
     ],
     "closing": "Nothing requires a decision today. I'll hold the V2 await-reply window (4 Sep) and the Wed 2 Sep call list ready, and reconcile the CRM the moment you report any call outcomes."
   },
   "changes": {
     "today": [
       {
-        "time": "2026-08-31T04:10",
-        "text": "Overnight inbox scan clean — quotes@ + atlas@ 0 unread. 4 QPaint customers replied Sunday (not proceeding / went elsewhere): Paula Donato, Michelle Zhang, Maria Reid, Garry Gibson — reconciled to Lost + classified."
+        "time": "2026-09-01T04:45",
+        "text": "Overnight scan clean: quotes@ + atlas@ 0 unread. james@ 9 unread all old (7-10 Aug): 4 bounces + 1 business-closed (all already Lost), 1 auto-reply, 3 DMARC. Tas/Arno reply (31 Aug) already reflected \u2014 Arno Won."
       },
       {
-        "time": "2026-08-31T04:10",
-        "text": "QPaint: 32 Lost (up 4). 5 Won unchanged. RE-ENG campaign stable (99 observing). No new replies/bounces/unsubscribes."
+        "time": "2026-09-01T04:45",
+        "text": "QPaint: 188 records, $6.24M (up 4 records: Dean Baker x3 + Ramona Jackson). 5 Won unchanged, 33 Lost. Arno Hsu Won confirmed $129.7K recovered."
       }
     ],
     "yesterday": [
       {
-        "time": "—",
-        "text": "Gateway outage resolved — supervisor daemon deployed (root cause: memory exhaustion + exit 75 with no service manager). Gateway + supervisor running."
+        "time": "\u2014",
+        "text": "QPaint handover founder-confirmed ('Locked in'). Atlas running QPaint under standing authority."
       },
       {
-        "time": "—",
-        "text": "QPaint Daily Attention — Kay Crawley PandaDoc COMPLETE; now confirmed Won ($18,636, Assisted)."
+        "time": "\u2014",
+        "text": "Arno Hsu signed + accepted quote \u2014 Won ($129,750.50). Jenny Erickson new quote $21,318."
       }
     ],
     "this_week": [
       {
-        "time": "—",
-        "text": "QPaint: 5 Won — $171,682 recovered (Arno Hsu recovered; Joy Ryan, Cheryl Sim, Kay Crawley assisted; Nicholas Zappacosta tender facilitation)."
+        "time": "\u2014",
+        "text": "QPaint: 5 Won \u2014 $171,682 recovered (Arno Hsu recovered; Joy Ryan, Cheryl Sim, Kay Crawley assisted; Nicholas Zappacosta tender facilitation)."
       },
       {
-        "time": "—",
+        "time": "\u2014",
         "text": "V2: Email 1 (44) + Email 2 (42) + Email 3 clarification (32) sent."
       },
       {
-        "time": "—",
-        "text": "Founder Call Day Wed 26 Aug — 3 warm calls; outcomes pending."
-      },
-      {
-        "time": "—",
-        "text": "Gateway outage (28-29 Aug) root-caused and fixed — supervisor daemon deployed."
+        "time": "\u2014",
+        "text": "Gateway outage (28-29 Aug) root-caused and fixed \u2014 supervisor daemon deployed."
       }
     ]
   },
@@ -119,21 +115,21 @@
     "recent": [
       {
         "id": "INC-2026-08-11",
-        "title": "QPaint Quote Intake — False Completion",
+        "title": "QPaint Quote Intake \u2014 False Completion",
         "status": "Closed",
         "summary": "3 quotes marked complete with $0 deal values. Root cause: no certification gate between extraction and label. Fixed: certify_intake_complete() + Intake Exception state."
       },
       {
         "id": "BK-014",
-        "title": "ATTEMPTED ≠ COMPLETED",
+        "title": "ATTEMPTED \u2260 COMPLETED",
         "status": "Permanent",
-        "summary": "Automation success ≠ business outcome success. Every critical workflow must verify the business state, not just the process completion."
+        "summary": "Automation success \u2260 business outcome success. Every critical workflow must verify the business state, not just the process completion."
       },
       {
         "id": "BK-015",
-        "title": "HTTP 200 ≠ Application Success",
+        "title": "HTTP 200 \u2260 Application Success",
         "status": "Permanent",
-        "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy → verify dependencies → verify render → certify."
+        "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy \u2192 verify dependencies \u2192 verify render \u2192 certify."
       }
     ]
   },
@@ -148,7 +144,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "✅ QPaint portfolio certified. 147 active journeys. 4 overnight Lost classified. Protocol v1.0.0. Phase 1 hardening shadow-ready.",
+  "operational_status": "\u2705 QPaint portfolio certified. 150 active journeys. Protocol v1.0.0. Send authority live.",
   "vault_health": {
     "decisions": {
       "total": 73,
@@ -178,31 +174,31 @@
   },
   "qpaint_pipeline": {
     "summary": {
-      "total_customers": 184,
-      "total_pipeline_value": "$5.06M",
+      "total_customers": 188,
+      "total_pipeline_value": 5115186,
       "won_count": 5,
-      "won_value": "$340,603 deal / $171,682 rec",
-      "lost_count": 32,
-      "engaged_replied": 30,
-      "contacted": 124,
-      "not_contacted": 7
+      "won_value": 340603,
+      "lost_count": 33,
+      "engaged_replied": 17,
+      "contacted": 122,
+      "not_contacted": 11
     },
     "stage_breakdown": {
       "Email 1": 45,
+      "Email 3": 42,
       "Email 2": 38,
-      "Email 3": 44,
-      "Email 4": 1,
-      "Lost": 32,
-      "Replied": 9,
+      "Lost": 33,
+      "Replied": 10,
+      "New": 8,
       "Engaged": 5,
       "Won": 5,
-      "New": 4,
-      "Awaiting Reply": 1
+      "Awaiting Reply": 1,
+      "Email 4": 1
     },
     "priority": {
       "P1": 93,
       "P2": 53,
-      "P3": 38
+      "P3": 42
     },
     "key_customers": [
       {
