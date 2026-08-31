@@ -274,3 +274,10 @@ When a new entry contradicts a prior one: set `Contested: true` on both, add rec
 **Fix (standing rule):** Standalone double-fork supervisor daemon `scripts/gateway-supervisor.py` (outside the gateway, polls 30s, relaunches, crash-loop guard at 5 rapid failures). Memory mitigations: `kanban.max_in_progress=3`, Chrome idle-close watchdog cron b9720c204989. Recommended not applied: 2-4GB swapfile. Diagnose via `skills/devops/hermes-gateway-ops/SKILL.md` + `gateway-unclean-exit-forensics.md`. Never trust `suspected_oom`; read `mem_available_kib` in the last heartbeat.
 **Source:** 2026-08-29 outage investigation session (147 msgs). Full detail: `skills/devops/hermes-gateway-ops/references/gateway-outage-2026-08-28.md`, `skills/devops/hermes-gateway-ops/references/gateway-exit-75-planned-restart.md`, `skills/devops/hermes-gateway-ops/references/gateway-supervisor-daemon.md`.
 
+
+## 2026-08-30 — One-day founder autonomy: 4 operational learnings
+
+**Confidence:** high
+**Contested:** false
+**Learnings:** (1) Lead-gen confusion is structural — prospects interpret automated outreach as a lead-gen pitch; de-confused first-touch ("I don't generate leads") is a hypothesis to test, not proven doctrine. (2) Prospect research files deplete — of 49 pre-researched candidates only 4 were uncontacted; treat research as a consumable resource, do fresh sourcing. (3) Owner names extractable from on-site JSON-LD schema (founder/jobTitle/owner Person objects) — better than email local-part inference, which is forbidden. (4) Standing per-prospect instructions ALWAYS outrank general autonomy delegations — Rahamed case: "Monitor for reply, do NOT chase" won over persistence under autonomy.
+**Source:** notes/2026-08-30-autonomy.md. Full detail: `learnings/cards/campaign.md` (TRAPs 1-3), `learnings/cards/agent-architecture.md` (TRAP 4). Indexed by consolidation 2026-08-31.
