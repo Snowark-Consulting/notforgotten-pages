@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 210,
+    "tasks_completed": 211,
     "recent": [
+      {
+        "date": "2026-09-01 16:52",
+        "task": "Campaign pulse posted \u2014 V2 Email 3 cohort Day 4: 0 replies (32 sent Aug 28); 9 Email 1s sent Aug 30 (de-confused first-touch), 0 replies; Sep 4 per-prospect checkpoint next",
+        "category": "task"
+      },
       {
         "date": "2026-08-30 16:48",
         "task": "Campaign pulse 30 Aug: Email 3 (32) Day 2, 0 replies; 9 new Email 1s sent under founder autonomy (Gmail-verified); founder call day Mon 31 Aug (9 calls)",
@@ -135,11 +140,6 @@
         "date": "2026-08-20 08:46",
         "task": "Client OS Knowledge Graph tab now renders full vault brain (299 nodes) instead of empty 0; Memory tab heading fixed to 'facts indexed' (37) from misleading 'files indexed' (2)",
         "category": "task"
-      },
-      {
-        "date": "2026-08-19 14:32",
-        "task": "Published Travis Krieg case study (14 jobs, $180,115 recovered)",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-09-01T16:30:19.333976+09:30",
+  "last_updated": "2026-09-01T16:52:03.305784+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
