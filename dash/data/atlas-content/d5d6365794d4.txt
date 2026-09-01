@@ -281,3 +281,12 @@ When a new entry contradicts a prior one: set `Contested: true` on both, add rec
 **Contested:** false
 **Learnings:** (1) Lead-gen confusion is structural — prospects interpret automated outreach as a lead-gen pitch; de-confused first-touch ("I don't generate leads") is a hypothesis to test, not proven doctrine. (2) Prospect research files deplete — of 49 pre-researched candidates only 4 were uncontacted; treat research as a consumable resource, do fresh sourcing. (3) Owner names extractable from on-site JSON-LD schema (founder/jobTitle/owner Person objects) — better than email local-part inference, which is forbidden. (4) Standing per-prospect instructions ALWAYS outrank general autonomy delegations — Rahamed case: "Monitor for reply, do NOT chase" won over persistence under autonomy.
 **Source:** notes/2026-08-30-autonomy.md. Full detail: `learnings/cards/campaign.md` (TRAPs 1-3), `learnings/cards/agent-architecture.md` (TRAP 4). Indexed by consolidation 2026-08-31.
+
+## 2026-09-01 — Bounce suppression gap + cron exit-code semantics
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** (1) 12 hard-bounced prospects stayed `ACTIVE` in Airtable (Superior Painters, Redefine Painting still in Outreach Active) — inbox-pulse watches for replies, not mailer-daemon bounces, so deliverability suppression never happened. (2) Stale Prospect Alert cron reported `Status: script failed` every Monday despite correct alert output. (3) Monthly Outreach Intelligence Report falsely flagged "erroring" — script ran fine, reported "No calls this month" because founder call outcomes are unlogged.
+**Cause:** (1) No bounce-handling step in the intake pipeline. (2) Script used `sys.exit(1)` to signal "stale found"; no_agent cron treats non-zero exit as scheduler failure. (3) Audit converted missing evidence (unlogged calls) into a failure claim.
+**Fix:** (1) Scoped: add bounce detection to inbox-pulse — mailer-daemon → QUARANTINED (recommendation `consolidation-bounce-suppression-gap`). (2) Changed to `sys.exit(0)` 2026-09-01 — alert is the deliverable, exit code is scheduler health only. (3) Evidence discipline: FACT vs UNKNOWN, never convert missing evidence into a claim.
+**Source:** 2026-09-01 3-inbox cleanup + control audit session. Full detail: `learnings/2026-09-01-bounce-suppression-and-cron-exit-codes.md`, `knowledge/notes/2026-09-01-control-audit-response.md`. Indexed by consolidation 2026-09-01.

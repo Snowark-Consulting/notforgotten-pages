@@ -1,0 +1,30 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-09-01
+---
+
+# 2026-09-01 — Bounce suppression gap + cron exit-code semantics
+
+**Discovered:** 2026-09-01 full 3-inbox cleanup + reconciliation (atlas@ / james@ / quotes@, 2,135 messages). Root-cause work from the control audit.
+
+## 1. Bounces are not auto-suppressed (systemic control failure)
+
+Inbox-pulse watches for *replies* but does NOT process *bounce* notifications (mailer-daemon) into deliverability suppression. Result: 12 hard-bounced prospects stayed `ACTIVE` in Airtable — two (Superior Painters, Redefine Painting) still in "Outreach Active" with dead addresses. Repeated sends to dead addresses = deliverability risk + false "reachable" state.
+
+**Fix (minimum correction, scoped 2026-09-01):** add bounce detection to the existing inbox-pulse flow — mailer-daemon notification → mark prospect QUARANTINED. Not new infrastructure, just a missing step in the existing watcher. Recommendation `consolidation-bounce-suppression-gap` added.
+
+**Verification:** 12 bounces corrected to QUARANTINED during the audit (Airtable-verified). 0 missed customer replies, 0 missed prospect replies, 0 missed quote intakes, 0 unresolved handoffs.
+
+## 2. no_agent cron: non-zero exit = script failure, even when output is the intended alert
+
+`scripts/stale-prospect-alert.py` used `sys.exit(1)` to signal "stale prospects found". The no_agent cron runner treats any non-zero exit as failure → `Status: script failed` despite correct alert output. Recurred weekly (Aug 17, Aug 24, Aug 31) before fix.
+
+**Fix (2026-09-01):** `sys.exit(0)`. The alert is the deliverable; exit code is for scheduler health only. Open recommendation `consolidation-stale-prospect-alert-exit1` → RESOLVED.
+
+## 3. Verify job output before declaring failure (false-alarm lesson)
+
+Monthly Outreach Intelligence Report was flagged "erroring" in a prior audit. Actual state: script ran successfully on 2026-09-01, reported "No calls this month" — correct, because founder call outcomes are unlogged. The "failure" was missing evidence, not a broken job. Evidence discipline: FACT (call outcomes not logged) vs UNKNOWN (whether calls occurred). Never convert missing evidence into a claim.
+
+**Source:** `knowledge/notes/2026-09-01-control-audit-response.md`, session `20260901_041854_0ff0cb`

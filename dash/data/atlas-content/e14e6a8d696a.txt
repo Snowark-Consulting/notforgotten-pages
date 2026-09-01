@@ -1,0 +1,44 @@
+---
+doc_type: note
+owner: notforgotten
+date: 2026-09-01
+---
+
+# Control Audit Response — 2026-09-01
+
+Audit verdict accepted as AMBER. QPaint handover continues. James is NOT taking routine QPaint back.
+
+## Corrections executed this session
+
+1. **Loop closure** — added to QPaint operating model: SURFACE → RECORD OWNER → SET REVIEW → MONITOR → VERIFY → RECONCILE → CLOSE LOOP. Root cause of the Arno/Tas miss.
+2. **64 stale monitor dates** — reviewed 73 stale/blank records individually. Classification:
+   - A (future review / QPaint-managed): 1 (Nicholas Zappacosta #43019, set review 2026-09-15)
+   - B (MONITOR, no auto next touch): 62 — corrected First Action + cleared stale NTD
+   - C (new evidence → action): 0
+   - D (reclassify/close): 0
+   - E (genuine missed action): 0
+   - Blank NTD records (10) already correct (event-driven).
+   - Result: 0 stale NTD remain; 72 blank (event-driven) + 83 future.
+3. **Attribution** — resolved "Recovered Value" inconsistency. Standard: Recovered Value = Tier 1 (Recovered) only. Cleared Recovered Value on Joy Ryan and Cheryl Sim (both Assisted). Final: Recovered $129,750 (Arno, 1) + Assisted $210,852 (4).
+4. **Failed jobs**:
+   - Stale Prospect Alert — root cause: script used `sys.exit(1)` to signal "stale found"; no_agent cron treats non-zero exit as failure. Fixed: `sys.exit(0)`. Script now delivers the alert as a normal message.
+   - Monthly Outreach Intelligence Report — NOT actually failing. Ran 2026-09-01 successfully; reported "No calls this month" (correct, because founder calls are unlogged). Prior audit flagged it as "erroring" — that was incorrect.
+5. **Evidence language** — corrected. FACT: call outcomes are not logged. UNKNOWN: whether every planned call occurred.
+
+## Standing behaviours now in force
+
+- Loop closure on every surfaced item (verify resolution, close loop).
+- Recovered Value = Tier 1 only.
+- Evidence discipline: FACT vs UNKNOWN, never convert missing evidence into a claim.
+
+## Connections
+
+- [[QPaint Operating Model]] (knowledge/qpaint/qpaint-operating-model.md) — loop closure + attribution + evidence sections added today (2026-09-01).
+- [[Full Business Review]] (knowledge/full-business-review-2026-08-30.md) — AMBER verdict context; handover continues.
+- [[Founder Call Outcome Capture]] (knowledge/founder-call-outcome-capture.md) — pipeline for logging the 10-conversation milestone.
+- [[2026-08-31]] (notes/2026-08-31.md) — prior day: handover confirmed "Locked in".
+
+## Founder call pipeline (ranked, 2026-09-01)
+
+Warm leads (call first): Rahamed/Inspire, Master Choice, The Painting Company, Ahmad/Star Painters.
+Cold FACT-evidence candidates: Brisbane Professional Painters, Upscale Painting & Decorating, Sydney Painting Experts, Superior Painters and Decorators, OPC Painting, J'Sydney Painters, WA Painters, Fresh Coat Painters Sydney.

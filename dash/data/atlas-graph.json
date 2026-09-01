@@ -1181,6 +1181,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_founder_call_outcome_capture",
+      "label": "Founder Call Outcome Capture",
+      "file_type": "doc",
+      "source_file": "knowledge/founder-call-outcome-capture.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "ada7c5076523",
+      "val": 8.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_founder_revenue_plan_2026_08_18",
       "label": "Founder Revenue Plan",
       "file_type": "doc",
@@ -1199,7 +1210,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "232f71d8a8ba",
-      "val": 6.0,
+      "val": 10.0,
       "color": "#a78bfa"
     },
     {
@@ -1420,6 +1431,17 @@
       "community_name": "Knowledge",
       "content_hash": "60de02e5e8e1",
       "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_notes_2026_09_01_control_audit_response",
+      "label": "Control Audit Response",
+      "file_type": "doc",
+      "source_file": "knowledge/notes/2026-09-01-control-audit-response.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "e14e6a8d696a",
+      "val": 8.0,
       "color": "#a78bfa"
     },
     {
@@ -1782,7 +1804,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "6a301c839cf7",
-      "val": 8.0,
+      "val": 12.0,
       "color": "#a78bfa"
     },
     {
@@ -3452,6 +3474,20 @@
     },
     {
       "source": "agent_registry",
+      "target": "knowledge_notes_2026_09_01_control_audit_response",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_founder_call_outcome_capture",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
       "target": "knowledge_qpaint_next_action_principle",
       "relation": "wikilink",
       "weight": 1.0,
@@ -4074,6 +4110,27 @@
       "source_file": ""
     },
     {
+      "source": "knowledge_founder_call_outcome_capture",
+      "target": "knowledge_qpaint_qpaint_operating_model",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_founder_call_outcome_capture",
+      "target": "knowledge_full_business_review_2026_08_30",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_founder_call_outcome_capture",
+      "target": "knowledge_notes_2026_09_01_control_audit_response",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
       "source": "knowledge_future_capabilities",
       "target": "knowledge_systems",
       "relation": "wikilink",
@@ -4083,6 +4140,27 @@
     {
       "source": "knowledge_monthly_recovery_intelligence_report",
       "target": "knowledge_atlas_learning_framework",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_notes_2026_09_01_control_audit_response",
+      "target": "knowledge_qpaint_qpaint_operating_model",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_notes_2026_09_01_control_audit_response",
+      "target": "knowledge_full_business_review_2026_08_30",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_notes_2026_09_01_control_audit_response",
+      "target": "knowledge_founder_call_outcome_capture",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

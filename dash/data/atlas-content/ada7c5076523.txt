@@ -1,0 +1,60 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+date: 2026-09-01
+---
+
+# Founder Call Outcome Capture
+
+Atlas converts James's rough call notes (verbal or text) into structured CRM truth. Preserve Voice of Customer verbatim, separate from Atlas interpretation. Do not embellish James's notes. UNKNOWN remains UNKNOWN.
+
+## Capture Fields
+
+- CALL COMPLETED: [y/n — did a real conversation happen?]
+- PERSON: [name]
+- ROLE: [owner / decision-maker / estimator / receptionist / other]
+- DATE/TIME: [Australia/Adelaide]
+- ACTUAL CUSTOMER LANGUAGE: [verbatim — the owner's exact words, untouched]
+- QUOTE VOLUME: [if stated — e.g. "~20 quotes/month", else UNKNOWN]
+- CURRENT FOLLOW-UP PROCESS: [what they actually do — verbatim where possible]
+- PAIN: [if stated — the problem, in their words]
+- NO PAIN: [if stated — e.g. "we already follow everything up"]
+- OBJECTION: [verbatim objection if raised]
+- MISUNDERSTANDING: [if they misunderstood the offer — e.g. "I thought you provided leads"]
+- INTEREST LEVEL: [Hot / Warm / Cold / None — based on evidence]
+- NEXT ACTION: [agreed action]
+- NEXT ACTION DATE: [when]
+- OWNER: [Atlas / James / other]
+- QUALIFICATION STATE: [QUALIFIED / NOT A FIT / NO PAIN / PRICE OBJECTION / ALREADY SOLVED / ONLY WANTS LEADS / NO ANSWER / VOICEMAIL / CALL BACK / OTHER]
+
+## Voice of Customer Preservation Rule
+
+Voice of Customer wording is captured VERBATIM and stored SEPARATELY from Atlas interpretation. FACT first, INTERPRETATION second. Never translate the customer's words into Not Forgotten terminology before recording them.
+
+Examples to preserve exactly:
+- "I don't have time to chase them."
+- "We already follow everything up."
+- "People ghost us."
+- "We don't want to annoy customers."
+- "My estimator handles it."
+- "Most of our work is repeat business."
+- "$199 is cheap."
+- "I wouldn't pay for that."
+- "I thought you provided leads."
+
+## Milestone Counting (10 Real Owner Conversations)
+
+Count only genuine owner/decision-maker conversations. Do NOT count: emails, opens, voicemail, no-answer calls, generic receptionist conversations, weak social interactions.
+
+Purpose: learn whether the market genuinely experiences the problem Not Forgotten is designed to solve.
+
+## Pattern Analysis
+
+After enough conversations, identify recurring patterns. Never create doctrine or conclusions from one conversation.
+
+## Connections
+
+- [[QPaint Operating Model]] (knowledge/qpaint/qpaint-operating-model.md) — Wednesday Founder Sales Day context; milestone 10 owner conversations.
+- [[Full Business Review]] (knowledge/full-business-review-2026-08-30.md) — verdict: next customer comes from founder calls, not email.
+- [[Control Audit Response]] (knowledge/notes/2026-09-01-control-audit-response.md) — call outcomes not logged is the FACT driving this capture standard.
