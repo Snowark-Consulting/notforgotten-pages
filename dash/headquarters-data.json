@@ -1,112 +1,115 @@
 {
-  "generated_at": "2026-09-02T04:07:36+09:30",
+  "generated_at": "2026-09-02T07:51:53+09:30",
   "atlas_brief": {
-    "greeting": "Good morning James.",
-    "body": "Wednesday is Founder Call Day. QPaint portfolio stable at 194 records / $6.34M (155 active). Inboxes clean overnight. No new replies, bounces, or unsubscribes. The three overdue warm calls plus your B-list candidates are certified and ready.",
-    "estimated_time": "3 minutes"
+    "greeting": "Good morning James. Today is Founder Outreach Day.",
+    "body": "Your one job today is to talk to owners. QPaint is under Atlas control — 0 founder actions. The source-to-Airtable reconciliation is complete and the intake completion gate is live. 12 prospects verified clean and ranked. Start with the call marked CALL THIS PERSON NOW.",
+    "estimated_time": "2 minutes"
   },
   "business_score": {
     "score": 88,
     "change": "—",
     "reasons_positive": [
-      "QPaint book stable: 194 records, $6.34M, 5 Won ($340,603: $129,750 recovered + $210,852 assisted), 34 Lost classified.",
-      "RE-ENG-AUG-2026 stable: no overnight changes; no new replies, bounces, or unsubscribes.",
-      "System healthy: disk 38%, state.db 60M, all 3 pulse jobs present, gateway + supervisor running."
+      "QPaint book reconciled: 210 records, $5.92M active, 5 Won ($340,603). Source-to-Airtable reconciliation complete (209→210 identity closed).",
+      "Intake completion gate hardened + daily reverse control live (no QPaint quote email completes until Airtable reconciliation passes).",
+      "12 founder-call prospects freshly verified clean — no suppression, bounce, or closed states."
     ],
     "reasons_negative": [
-      "1 paying customer ($199 MRR). Customer #2 remains the metric.",
-      "3 \"Call Today\" tasks overdue since 26 Aug (Star Painters/Ahmad, The Painting Co, Master Choice). Today is the slot to clear them."
+      "1 paying customer ($199 MRR). Customer #2 remains the metric — today is the day to move it.",
+      "26 Aug founder calls had no logged outcome — re-queued today. Capture outcomes this time."
     ]
   },
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "QPaint: Active. 194 records, 155 active journeys with complete Next Action coverage."
+      "detail": "QPaint: 210 records, $5.92M active, under Atlas control. 0 founder actions."
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "155 active QPaint journeys. 121 contacted. 17 engaged. Won: $340,603. Active pipeline: $5,192,959."
+      "detail": "QPaint recovery under Atlas control. 5 Won ($340,603). 171 active journeys."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "V2 Email 3 (32 sent 28 Aug) awaiting reply: follow-up window 4 Sep. 9 founder-autonomy Email 1s (30 Aug): Email 2 window 4 Sep. RE-ENG-AUG-2026: 99 observing. Today = Founder Call Day."
+      "detail": "Founder Outreach Day: 12 prospects verified clean and ranked. V2 email follow-up continues under Atlas."
     },
     "engineering": {
       "status": "healthy",
-      "detail": "All systems healthy. Canonical send authority (Phase 1) shadow-ready. Production Operating Protocol v1.0.0 live."
+      "detail": "Intake completion gate live. All systems healthy."
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $340,603 Won ($129,750 recovered, $210,852 assisted). $5,192,959 active pipeline."
+      "detail": "QPaint $340,603 Won ($129,750 recovered, $210,852 assisted). $5.92M active pipeline."
     },
     "atlas": {
       "status": "healthy",
-      "detail": "Memory healthy. Protocol v1.0.0 enforced. Model recovery standard active."
+      "detail": "QPaint operational control confirmed. Intake gate + reverse control deployed."
     }
   },
   "waiting_for_james": [
     {
-      "id": "founder-call-day-wed-2-sep",
-      "title": "Founder Call Day: 3 overdue warm calls + 8 B-list candidates",
-      "why_it_matters": "Three warm opportunities (Star Painters/Ahmad, The Painting Company, Master Choice Painting) carry a stale \"Call Today\" flag. 8 B-list candidates still have no logged verdict. All 12 verified clean (no unsubscribe, suppression, bounce, or closed). These are the Customer #2 pipeline.",
-      "business_impact": "High: the next customer comes from founder calls, not email.",
-      "estimated_time": "12 calls, 5 min each.",
-      "recommended_action": "Call the 3 warm leads first (Star Painters/Ahmad, The Painting Company, Master Choice), then work the B-list (Rahamed/Inspire, Esmayel/Upscale, Waz/Clean Cut, Slavek/One Touch, Cameron Davidson, Rad/Zoom, Fred/Paintpal, Raoul/Bayside, Dave/Paint Master). Report outcomes so I can update V2 Outreach Activity + Prospects.",
-      "impact_sort": 90
+      "id": "founder-outreach-wed-2-sep",
+      "title": "Run Founder Outreach Day — 12 verified prospects",
+      "why_it_matters": "Customer #2 comes from owner conversations, not email. Ahmad (Star Painters) is a qualified opportunity ready to progress. 11 more ranked by commercial usefulness, all verified clean (no unsubscribe, suppression, bounce, or closed).",
+      "business_impact": "High: the next customer is decided by these calls.",
+      "estimated_time": "Start with Ahmad, then work the NEXT 4, then backup queue.",
+      "recommended_action": "Call Ahmad first (qualified opportunity). Then Rahamed (correct the lead-gen misunderstanding), The Painting Company + Master Choice (warm), Esmayel (top ICP fit). Report outcomes in rough notes — Atlas reconciles the CRM.",
+      "impact_sort": 95
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Wednesday is Founder Call Day. QPaint grew to 194 records / $6.34M overnight (6 new quotes: Bronwyn Hoch, Denise Pacitto, Jason Manley x2, Jim Stevenson, Nelly Bolda). 1 new Lost (34 total). Inboxes clean: 0 unread atlas@/quotes@; james@ 10 unread are all old (7 Aug-1 Sep) DMARC/bounce/auto-reply, already reconciled. No new RE-ENG signals. System healthy. One genuine QPaint gap remains: Ramona Jackson #41616 (Nudgee Gardens, $46,695, quoted 23 Aug) still has no Next Touchpoint Date, flagged for 2 days.",
+    "executive_summary": "Today is Founder Outreach Day. QPaint is under Atlas control (0 founder actions). Your whole job is owner conversations: 10 real conversations → 3 serious opportunities → Customer #2. Ahmad (Star Painters) is the #1 call — a qualified opportunity that stalled. Rahamed needs the lead-generation misunderstanding corrected. Everything else is ranked and ready.",
     "priorities": [
       {
-        "action": "Run Founder Call Day: 3 warm calls first, then B-list candidates",
-        "why_it_matters": "Customer #2 comes from founder calls. Three warm opportunities plus 8 uncalled candidates are all verified clean.",
-        "expected_impact": "High: advances the Customer #2 pipeline",
-        "estimated_time": "12 calls, 5 min each",
+        "action": "Call Ahmad (Star Painters Adelaide) — progress the stalled qualified opportunity",
+        "why_it_matters": "The single clearest path to Customer #2. Former trial, went quiet, founder re-engagement eligible.",
+        "expected_impact": "High: could move directly to onboarding",
+        "estimated_time": "10-20 min conversation",
+        "confidence": "High"
+      },
+      {
+        "action": "Then the NEXT 4: Rahamed, The Painting Company, Master Choice, Esmayel",
+        "why_it_matters": "Warm + engaged + top-ICP. These are the next-best commercial opportunities.",
+        "expected_impact": "Medium-High: builds toward the 3 serious opportunities",
+        "estimated_time": "4 calls",
         "confidence": "High"
       }
     ],
     "can_wait": [
-      "QPaint recovery sends: exception monitoring, Daily Attention owns.",
-      "V2 Email 3 replies: monitor until 4 Sep follow-up window.",
-      "james@ stale unread (4 bounces, 1 business-closed, 1 auto-reply, 4 DMARC): all reconciled, read-only mailbox.",
-      "QPaint fresh quotes (6 new, 1 Sep): quote-intake set NTD 3 Sep; Daily Attention handles first touch."
+      "All QPaint operations (intake, recovery, follow-up) — Atlas owns.",
+      "V2 email follow-up replies — monitor under standing authority.",
+      "Gmail/housekeeping/reconciliation — Atlas owns.",
+      "Prospect research + system maintenance — Atlas owns."
     ],
-    "closing": "The single highest-value action today is the founder call block. Everything else is running under standing authority. Report call outcomes and I will reconcile the CRM immediately."
+    "closing": "Discover first, sell when the problem is real. Capture what owners actually say, in their words. Atlas reconciles the CRM."
   },
   "changes": {
     "today": [
       {
-        "time": "2026-09-02T04:07:36+09:30",
-        "text": "Overnight scan clean: quotes@ + atlas@ 0 unread. james@ 10 unread all old (7 Aug-1 Sep): 4 bounces + 1 business-closed (already Lost), 1 auto-reply, 4 DMARC noise. No new commercial activity."
+        "time": "2026-09-02T07:51:53+09:30",
+        "text": "HQ rebuilt as Founder Outreach execution surface: 12 verified prospects ranked, scoreboard + milestones live, QPaint shown as 'under control'."
       },
       {
-        "time": "2026-09-02T04:07:36+09:30",
-        "text": "QPaint: 194 records, $6.34M (up 6: Bronwyn Hoch, Denise Pacitto, Jason Manley x2, Jim Stevenson, Nelly Bolda). 5 Won unchanged, 34 Lost (up 1). Ramona Jackson #41616 NTD still empty (flagged 2 days)."
+        "time": "2026-09-02T07:51:53+09:30",
+        "text": "QPaint intake completion gate hardened + daily reverse control deployed. Source-to-Airtable reconciliation closed (210 = 210)."
       }
     ],
     "yesterday": [
       {
         "time": "—",
-        "text": "QPaint handover founder-confirmed (\"Locked in\"). Control audit AMBER accepted: loop closure + attribution + evidence standards in force."
+        "text": "Source reconciliation: 15 missing quotes (~$702K) recovered; +1 identity (#43124) closed the 209→210 gap."
       },
       {
         "time": "—",
-        "text": "Arno Hsu Won confirmed $129.7K recovered. Recovered Value standardised to Tier 1 only ($129,750 recovered + $210,852 assisted)."
+        "text": "QPaint operational handover founder-confirmed. Wednesday set as Founder Sales Day."
       }
     ],
     "this_week": [
       {
         "time": "—",
-        "text": "QPaint: 5 Won: $129,750 recovered (Arno Hsu) + $210,852 assisted (Nicholas Zappacosta, Cheryl Sim, Kay Crawley, Joy Ryan)."
+        "text": "QPaint: 210 records, $5.92M active, 5 Won ($340,603), 34 Lost, 17 engaged."
       },
       {
         "time": "—",
-        "text": "V2: Email 1 (44) + Email 2 (42) + Email 3 clarification (32) sent. Founder autonomy Email 1s (9) sent 30 Aug."
-      },
-      {
-        "time": "—",
-        "text": "Gateway outage (28-29 Aug) root-caused and fixed: supervisor daemon deployed."
+        "text": "Intake completion gate + reverse control: no quote email completes without Airtable reconciliation."
       }
     ]
   },
@@ -144,10 +147,10 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "QPaint portfolio certified: 194 records, 155 active journeys, 5 Won ($340,603). Protocol v1.0.0. Founder Call Day ready.",
+  "operational_status": "QPaint: 210 records, $5.92M active, 5 Won ($340,603), 34 Lost, 17 engaged. Under Atlas control — 0 founder actions. Intake completion gate live. Founder Outreach Day ready.",
   "vault_health": {
     "decisions": {
-      "total": 73,
+      "total": 80,
       "founding": 8
     },
     "learnings": {
@@ -174,14 +177,14 @@
   },
   "qpaint_pipeline": {
     "summary": {
-      "total_customers": 194,
-      "total_pipeline_value": 5192958,
+      "total_customers": 210,
+      "total_pipeline_value": 5924745,
       "won_count": 5,
       "won_value": 340603,
       "lost_count": 34,
       "engaged_replied": 17,
-      "contacted": 121,
-      "not_contacted": 17
+      "contacted": 125,
+      "not_contacted": 33
     },
     "stage_breakdown": {
       "Email 1": 45,
@@ -298,5 +301,367 @@
         "status": "Contacted"
       }
     ]
+  },
+  "founder_call_day": {
+    "date": "Wednesday 2 September 2026",
+    "ready": 12,
+    "total": 12,
+    "priority": {
+      "title": "TODAY'S #1 PRIORITY",
+      "headline": "FOUNDER CONVERSATIONS",
+      "objective": "Talk directly with painting-business owners and learn whether the problem Not Forgotten solves is real enough for them to pay to solve it.",
+      "progression": "10 REAL OWNER CONVERSATIONS  →  3 SERIOUS OPPORTUNITIES  →  CUSTOMER #2"
+    },
+    "milestones": {
+      "owner_conversations": {
+        "target": 10,
+        "current": 0
+      },
+      "serious_opportunities": {
+        "target": 3,
+        "current": 1
+      },
+      "customer_2": "NOT YET"
+    },
+    "qpaint_control": {
+      "status": "UNDER ATLAS CONTROL",
+      "founder_actions": 0
+    },
+    "scoreboard": {
+      "call_attempts": 0,
+      "owners_reached": 0,
+      "owner_conversations": 0,
+      "problem_confirmed": 0,
+      "problem_not_confirmed": 0,
+      "qualified_opportunities": 0,
+      "followups_booked": 0,
+      "customers_won": 0
+    },
+    "first_call": {
+      "business": "Star Painters Adelaide",
+      "contact": "Ahmad",
+      "role": "Owner (inferred)",
+      "phone": "0422 196 814",
+      "location": "South Australia",
+      "priority": "QUALIFIED OPPORTUNITY",
+      "confidence": "HIGH",
+      "why_now": "Past discovery. Former trial that stalled. Founder re-engagement eligible. The single clearest path to Customer #2.",
+      "what_happened": "Email 3 sent 19 Aug, no reply. Reserved for founder call (26 Aug), outcome not logged. No unsubscribe/suppression/bounce.",
+      "what_we_know": "Ahmad trialled Not Forgotten and went quiet. Still a qualified opportunity, not lost. Needs a decision on onboarding.",
+      "objective": "Progress the stalled opportunity toward onboarding. Find the real blocker and either move him forward or learn why not.",
+      "opening": "G'day Ahmad, James Hardstaff. We started something and it went quiet — I just want to understand where you landed.",
+      "discovery": [
+        "Where did the trial leave you — what worked, what didn't?",
+        "What's the main thing that stopped it becoming paid?",
+        "What would need to be true for this to be worth doing?",
+        "How are you handling quote follow-up right now?"
+      ],
+      "next_step": "Onboard-start, or a clear reason recorded if he's out.",
+      "not_assume": "Don't assume he's still in. Don't push price. Find the real status first.",
+      "last_contact": "19 Aug (Email 3, no reply)",
+      "crm_state": "Qualified Opportunity · Founder Re-engagement Eligible"
+    },
+    "next_four": [
+      {
+        "business": "Inspire Painting",
+        "contact": "Rahamed",
+        "role": "Owner (inferred)",
+        "phone": "0450 724 858",
+        "location": "Victoria",
+        "priority": "ENGAGED — NEEDS CLARIFICATION",
+        "confidence": "HIGH",
+        "why_now": "He replied and is interested, but misunderstood Not Forgotten as a lead-generation service. A live conversation corrects that.",
+        "what_happened": "Replied (sequence=Replied). Kept INTERESTED / NEEDS CLARIFICATION per founder. CRM note: 'call when he replies' — light touch, don't chase.",
+        "what_we_know": "He's engaged but has the offer wrong. The misunderstanding is the blocker, not disinterest.",
+        "objective": "Correct the misunderstanding: NF works quotes you've already sent — it does not generate leads. Confirm the problem is real for him.",
+        "opening": "G'day Rahamed, James Hardstaff. I think there was a crossed wire — we don't generate leads. I want to make sure you understand what this actually does before you decide.",
+        "discovery": [
+          "What did you understand us to do?",
+          "How do you follow up the quotes you've already sent?",
+          "Do any of those quotes slip through without a result?",
+          "Would visibility into what happens after the quote help?"
+        ],
+        "next_step": "Problem confirmed → walkthrough. Wants leads only → note 'ONLY WANTS LEADS', not a fit.",
+        "not_assume": "Don't assume the misunderstanding is resolved. Confirm in his own words.",
+        "last_contact": "21 Aug (Email 4)",
+        "crm_state": "Engaged · Replied · Awaiting his reply to call invitation"
+      },
+      {
+        "business": "The Painting Company",
+        "contact": "—",
+        "role": "Unknown (no contact name on record)",
+        "phone": "0403 815 757",
+        "location": "Victoria",
+        "priority": "WARM — CONSIDERING",
+        "confidence": "HIGH",
+        "why_now": "Warm (interested, not urgent) and considering options. 10 opens. Explicitly reserved for founder call.",
+        "what_happened": "V2 Email 1-4 sent. Interest = Warm, Buying = Considering. 10 opens. Reserved for founder call 26 Aug, outcome not logged.",
+        "what_we_know": "They've engaged with the content and are evaluating. Warm enough that a call beats another email.",
+        "objective": "Move from 'considering' to a real conversation. Confirm the problem exists and gauge fit/interest.",
+        "opening": "G'day, James Hardstaff from Not Forgotten. You've been reading the emails — I wanted to ask directly what your quoting follow-up looks like today.",
+        "discovery": [
+          "What happens to a quote once it goes out?",
+          "Who chases it, and what happens when it gets busy?",
+          "Do quotes ever just disappear without a clear outcome?",
+          "Do you know why you win or lose the work?"
+        ],
+        "next_step": "Walkthrough if problem confirmed; schedule a proper demo.",
+        "not_assume": "Don't assume the contact name. Ask who handles quoting.",
+        "last_contact": "14 Aug (Email 4)",
+        "crm_state": "Warm · Considering · Email 4 sent · 10 opens"
+      },
+      {
+        "business": "Master Choice Painting",
+        "contact": "—",
+        "role": "Unknown (no contact name on record)",
+        "phone": "0406 465 555",
+        "location": "Victoria",
+        "priority": "WARM",
+        "confidence": "MEDIUM",
+        "why_now": "Warm (interested, not urgent), 6 opens. High client-probability score (83). Reserved for founder call.",
+        "what_happened": "Campaign Email 1-4 sent (Jul). Interest = Warm. 6 opens. Reserved for founder call 26 Aug, outcome not logged.",
+        "what_we_know": "Engaged with content and flagged warm, but no reply. A call tests whether the interest is real.",
+        "objective": "Confirm whether the warm signal is a real problem worth solving.",
+        "opening": "G'day, James Hardstaff. You showed interest in the emails — I wanted to understand how you currently keep track of quotes after they go out.",
+        "discovery": [
+          "Who owns quote follow-up?",
+          "What happens when things get busy?",
+          "Do quotes ever slip without a clear result?",
+          "Would you pay to fix that?"
+        ],
+        "next_step": "Walkthrough if problem confirmed.",
+        "not_assume": "Don't assume the contact. Don't assume the warm signal means a sale.",
+        "last_contact": "28 Jul (Email 4)",
+        "crm_state": "Warm · Campaign Complete · 6 opens"
+      },
+      {
+        "business": "Upscale Painting & Decorating",
+        "contact": "Esmayel",
+        "role": "Owner does quoting (verified)",
+        "phone": "0490 094 862",
+        "location": "Sydney CBD",
+        "priority": "COLD — TOP ICP FIT",
+        "confidence": "MEDIUM",
+        "why_now": "Highest ICP fit in the list (V2 A-tier). Owner does quoting confirmed. Cold, but the best cold bet.",
+        "what_happened": "Email 2 sent 21 Aug (14 jobs, $180,115). No reply. Email 1 in Aug.",
+        "what_we_know": "Confirmed owner-quotes (ICP). Sydney CBD. No engagement signal yet.",
+        "objective": "Discovery. Does the owner actually experience the problem?",
+        "opening": "G'day Esmayel, James Hardstaff. I emailed you about quote follow-up — I wanted to ask how you keep track of quotes once they go out.",
+        "discovery": [
+          "How are quotes followed up today?",
+          "Who owns that process?",
+          "What happens when it gets busy?",
+          "Do quotes ever disappear without an outcome?"
+        ],
+        "next_step": "If pain + fit → walkthrough. Else note and move on.",
+        "not_assume": "Cold — don't assume any prior engagement.",
+        "last_contact": "21 Aug (Email 2)",
+        "crm_state": "A-tier ICP · Email 2 sent · No reply"
+      }
+    ],
+    "backup": [
+      {
+        "business": "Zoom Painting",
+        "contact": "Rad",
+        "role": "Owner (inferred)",
+        "phone": "0416 507 822",
+        "location": "Victoria",
+        "priority": "COLD — B TIER",
+        "confidence": "LOW",
+        "why_now": "B-tier ICP fit. Email 2 sent. No reply. Backup cold call.",
+        "what_happened": "Email 1 (12 Aug) + Email 2 (21 Aug). No reply.",
+        "what_we_know": "B-tier fit. No engagement signal.",
+        "objective": "Discovery — does the owner experience the follow-up problem?",
+        "opening": "G'day Rad, James Hardstaff. Quick question — how do you follow up quotes after they go out?",
+        "discovery": [
+          "How are quotes followed up today?",
+          "Who owns it?",
+          "Do quotes ever slip without a result?"
+        ],
+        "next_step": "Pain + fit → walkthrough. Else note.",
+        "not_assume": "Cold — no prior engagement.",
+        "last_contact": "21 Aug (Email 2)",
+        "crm_state": "B-tier · Email 2 sent"
+      },
+      {
+        "business": "Cameron Davidson Painters & Decorators",
+        "contact": "Cameron",
+        "role": "Owner (inferred)",
+        "phone": "0418 832 500",
+        "location": "South Australia",
+        "priority": "COLD — B TIER",
+        "confidence": "LOW",
+        "why_now": "B-tier ICP. Email 2 sent, no reply.",
+        "what_happened": "Email 1 (12 Aug) + Email 2 (21 Aug). No reply.",
+        "what_we_know": "B-tier fit, South Australia. No engagement.",
+        "objective": "Discovery.",
+        "opening": "G'day Cameron, James Hardstaff. How do you keep track of quotes once they go out?",
+        "discovery": [
+          "How are quotes followed up?",
+          "Who owns it?",
+          "Do any slip without a result?"
+        ],
+        "next_step": "Pain + fit → walkthrough.",
+        "not_assume": "Cold.",
+        "last_contact": "21 Aug (Email 2)",
+        "crm_state": "B-tier · Email 2 sent"
+      },
+      {
+        "business": "Clean Cut Painters",
+        "contact": "Waz",
+        "role": "Owner (inferred)",
+        "phone": "0400 896 913",
+        "location": "South Australia",
+        "priority": "COLD — B TIER",
+        "confidence": "LOW",
+        "why_now": "B-tier ICP, certified eligible.",
+        "what_happened": "Email 1 (12 Aug) + Email 2 (21 Aug). No reply.",
+        "what_we_know": "B-tier fit, SA. No engagement.",
+        "objective": "Discovery.",
+        "opening": "G'day Waz, James Hardstaff. How do you follow up quotes after they go out?",
+        "discovery": [
+          "How are quotes followed up?",
+          "Who owns it?",
+          "Do quotes slip without a result?"
+        ],
+        "next_step": "Pain + fit → walkthrough.",
+        "not_assume": "Cold.",
+        "last_contact": "21 Aug (Email 2)",
+        "crm_state": "B-tier · Email 2 sent"
+      },
+      {
+        "business": "One Touch Paint",
+        "contact": "Slavek",
+        "role": "Owner (inferred)",
+        "phone": "0415 392 436",
+        "location": "South Australia",
+        "priority": "COLD — B TIER",
+        "confidence": "LOW",
+        "why_now": "B-tier ICP, certified eligible.",
+        "what_happened": "Email 1 (12 Aug) + Email 2 (21 Aug). No reply.",
+        "what_we_know": "B-tier fit, SA.",
+        "objective": "Discovery.",
+        "opening": "G'day Slavek, James Hardstaff. How do you follow up quotes after they go out?",
+        "discovery": [
+          "How are quotes followed up?",
+          "Who owns it?",
+          "Do quotes slip without a result?"
+        ],
+        "next_step": "Pain + fit → walkthrough.",
+        "not_assume": "Cold.",
+        "last_contact": "21 Aug (Email 2)",
+        "crm_state": "B-tier · Email 2 sent"
+      },
+      {
+        "business": "Bayside Painting & Decorating",
+        "contact": "Raoul",
+        "role": "Owner (inferred)",
+        "phone": "0432 987 587",
+        "location": "Victoria",
+        "priority": "COLD — B TIER",
+        "confidence": "LOW",
+        "why_now": "B-tier ICP. Site was dead at scoring (provisional).",
+        "what_happened": "Email 1 (12 Aug) + Email 2 (21 Aug). No reply.",
+        "what_we_know": "B-tier, provisional score. No engagement.",
+        "objective": "Discovery.",
+        "opening": "G'day Raoul, James Hardstaff. How do you follow up quotes after they go out?",
+        "discovery": [
+          "How are quotes followed up?",
+          "Who owns it?",
+          "Do quotes slip without a result?"
+        ],
+        "next_step": "Pain + fit → walkthrough.",
+        "not_assume": "Cold, provisional data.",
+        "last_contact": "21 Aug (Email 2)",
+        "crm_state": "B-tier (provisional) · Email 2 sent"
+      },
+      {
+        "business": "Paintpal Pty Ltd",
+        "contact": "Fred",
+        "role": "Owner (verified — fred@ owner-accessible)",
+        "phone": "0481 140 140",
+        "location": "Victoria",
+        "priority": "COLD — B TIER",
+        "confidence": "LOW",
+        "why_now": "B-tier ICP, owner-accessible email. National (cautionary flag).",
+        "what_happened": "Email 1 (12 Aug) + Email 2 (21 Aug). No reply.",
+        "what_we_know": "B-tier, national + commercial flag.",
+        "objective": "Discovery.",
+        "opening": "G'day Fred, James Hardstaff. How do you follow up quotes after they go out?",
+        "discovery": [
+          "How are quotes followed up?",
+          "Who owns it?",
+          "Do quotes slip without a result?"
+        ],
+        "next_step": "Pain + fit → walkthrough.",
+        "not_assume": "Cold. National scale may differ.",
+        "last_contact": "21 Aug (Email 2)",
+        "crm_state": "B-tier · Email 2 sent"
+      },
+      {
+        "business": "Paint Master",
+        "contact": "Dave",
+        "role": "Owner (inferred)",
+        "phone": "0414 475 594",
+        "location": "South Australia",
+        "priority": "COLD — C TIER",
+        "confidence": "LOW",
+        "why_now": "C-tier ICP. 5 opens. Backup.",
+        "what_happened": "Campaign Email 1-4 + V2 Email 1-2. 5 opens. No reply.",
+        "what_we_know": "C-tier fit. Some opens, no reply.",
+        "objective": "Discovery.",
+        "opening": "G'day Dave, James Hardstaff. How do you follow up quotes after they go out?",
+        "discovery": [
+          "How are quotes followed up?",
+          "Who owns it?",
+          "Do quotes slip without a result?"
+        ],
+        "next_step": "Pain + fit → walkthrough.",
+        "not_assume": "Cold.",
+        "last_contact": "21 Aug (Email 2)",
+        "crm_state": "C-tier · Email 4 · 5 opens"
+      }
+    ],
+    "call_framework": {
+      "opening": "G'day, James Hardstaff from Not Forgotten. I help painting businesses make sure the quotes they've already sent don't just disappear. Just wanted to understand how you keep track of quotes once they go out.",
+      "if_no": "If they haven't seen the email: 'No worries — short version: we work with the quotes you've already sent and make sure they get followed up, and you can see what happened after each one.'",
+      "discovery": [
+        "How are quotes currently followed up once they go out?",
+        "Who owns that process?",
+        "What happens when things get busy?",
+        "Do quotes ever just disappear without a clear outcome?",
+        "Do you know why you're winning or losing the work?"
+      ]
+    },
+    "offer_clarity": {
+      "what_nf_is": "Not Forgotten does NOT generate leads. It works with opportunities you've already generated and quoted. It makes sure those quotes don't disappear because nobody followed them up — and gives you visibility into what happened after each quote.",
+      "proof": "$180,115 across 14 jobs came from following up existing quotes.",
+      "do_not_imply": "No guaranteed jobs, revenue, or conversion. No lead generation. No unsupported recovery attribution."
+    },
+    "outcomes": [
+      "OWNER CONVERSATION",
+      "PROBLEM CONFIRMED",
+      "NO PAIN",
+      "NEEDS CLARIFICATION",
+      "INTERESTED",
+      "WALKTHROUGH/DEMO",
+      "FOLLOW-UP SCHEDULED",
+      "PRICE OBJECTION",
+      "NOT FIT",
+      "ONLY WANTS LEADS",
+      "NO ANSWER",
+      "VOICEMAIL",
+      "CALLBACK",
+      "BAD NUMBER"
+    ],
+    "issues": {
+      "skipped": [
+        "No candidates excluded for suppression — all 12 verified ACTIVE, no unsubscribe/suppression/bounce/closed.",
+        "26 Aug founder-call reservations have NO logged outcome (Call Outcome field empty for all). Re-queued for today with fresh evidence."
+      ],
+      "duplicates": [],
+      "no_phone": [],
+      "phone_discrepancy": []
+    }
   }
 }
