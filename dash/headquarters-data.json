@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-02T07:51:53+09:30",
+  "generated_at": "2026-09-02T08:54:57+09:30",
   "atlas_brief": {
-    "greeting": "Good morning James. Today is Founder Outreach Day.",
-    "body": "Your one job today is to talk to owners. QPaint is under Atlas control — 0 founder actions. The source-to-Airtable reconciliation is complete and the intake completion gate is live. 12 prospects verified clean and ranked. Start with the call marked CALL THIS PERSON NOW.",
-    "estimated_time": "2 minutes"
+    "greeting": "Good morning James.",
+    "body": "Founder outreach day complete: 12 calls attempted (mostly voicemail), SMS follow-up sent to all 12. QPaint remains under Atlas control. Awaiting SMS replies — next review Friday 5 Sep.",
+    "estimated_time": "1 minute"
   },
   "business_score": {
     "score": 88,
@@ -83,6 +83,10 @@
   },
   "changes": {
     "today": [
+      {
+        "time": "2026-09-02T08:54:57+09:30",
+        "text": "Founder outreach day complete: 12 calls attempted (mostly voicemail), SMS follow-up sent to all 12 prospects. Awaiting SMS replies."
+      },
       {
         "time": "2026-09-02T07:51:53+09:30",
         "text": "HQ rebuilt as Founder Outreach execution surface: 12 verified prospects ranked, scoreboard + milestones live, QPaint shown as 'under control'."
@@ -328,7 +332,7 @@
       "founder_actions": 0
     },
     "scoreboard": {
-      "call_attempts": 0,
+      "call_attempts": 12,
       "owners_reached": 0,
       "owner_conversations": 0,
       "problem_confirmed": 0,
