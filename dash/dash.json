@@ -164,18 +164,18 @@
       }
     ]
   },
-  "last_updated": "2026-09-02T08:30:06.231732+09:30",
+  "last_updated": "2026-09-02T10:00:11.263884+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
       "New": 174,
       "Campaign Complete": 65,
-      "Outreach Active": 58,
+      "Outreach Active": 57,
       "Won": 1,
       "Lost": 17,
       "Not a fit": 5,
       "Engaged": 1,
-      "Contacted": 10,
+      "Contacted": 11,
       "Qualified Opportunity": 1
     },
     "verticals": {
@@ -213,7 +213,7 @@
         "Cleaning": 1
       },
       "Outreach Active": {
-        "Painter": 58
+        "Painter": 57
       },
       "Won": {
         "Painter": 1
@@ -231,7 +231,7 @@
         "Painter": 1
       },
       "Contacted": {
-        "Painter": 10
+        "Painter": 11
       },
       "Qualified Opportunity": {
         "Painter": 1
@@ -265,13 +265,13 @@
       {
         "name": "The Painting Company",
         "industry": "Painter",
-        "last_contacted": "2026-08-14",
+        "last_contacted": "2026-09-02",
         "suburb": "Victoria"
       },
       {
         "name": "Zoom Painting",
         "industry": "Painter",
-        "last_contacted": "2026-08-21",
+        "last_contacted": "2026-09-02",
         "suburb": "Victoria"
       },
       {
@@ -283,7 +283,7 @@
       {
         "name": "Cameron Davidson Painters & Decorators",
         "industry": "Painter",
-        "last_contacted": "2026-08-21",
+        "last_contacted": "2026-09-02",
         "suburb": "South Australia"
       },
       {
@@ -357,12 +357,6 @@
         "industry": "Painter",
         "last_contacted": "2026-08-28",
         "suburb": "Brisbane, QLD"
-      },
-      {
-        "name": "Upscale Painting & Decorating",
-        "industry": "Painter",
-        "last_contacted": "2026-08-21",
-        "suburb": "Sydney CBD"
       },
       {
         "name": "Vicpainter",
@@ -463,13 +457,13 @@
       {
         "name": "Paintpal Pty Ltd",
         "industry": "Painter",
-        "last_contacted": "2026-08-21",
+        "last_contacted": "2026-09-02",
         "suburb": "Victoria"
       },
       {
         "name": "Clean Cut Painters",
         "industry": "Painter",
-        "last_contacted": "2026-08-21",
+        "last_contacted": "2026-09-02",
         "suburb": "South Australia"
       },
       {
@@ -493,13 +487,13 @@
       {
         "name": "Paint Master",
         "industry": "Painter",
-        "last_contacted": "2026-08-21",
+        "last_contacted": "2026-09-02",
         "suburb": "South Australia"
       },
       {
         "name": "Bayside Painting & Decorating",
         "industry": "Painter",
-        "last_contacted": "2026-08-21",
+        "last_contacted": "2026-09-02",
         "suburb": "Victoria"
       },
       {
@@ -565,7 +559,7 @@
       {
         "name": "One Touch Paint",
         "industry": "Painter",
-        "last_contacted": "2026-08-21",
+        "last_contacted": "2026-09-02",
         "suburb": "South Australia"
       },
       {
@@ -588,7 +582,7 @@
       }
     ],
     "active_by_vertical": {
-      "Painter": 58
+      "Painter": 57
     },
     "messages": {
       "outbound_total": 129,
@@ -606,7 +600,7 @@
       "total_opens": 245,
       "avg_opens": 4.2
     },
-    "last_refreshed": "2026-09-01T22:30:05.395382+00:00"
+    "last_refreshed": "2026-09-02T00:30:11.262526+00:00"
   },
   "decisions": {
     "total": 42,
