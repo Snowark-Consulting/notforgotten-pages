@@ -98,6 +98,14 @@ Win Attribution: **Recovered / Assisted / Observed / Pending.**
 
 **Recovered Value = Tier 1 (Recovered) ONLY.** Assisted and Observed wins must have a BLANK Recovered Value. Never populate Recovered Value on an Assisted/Observed win. WON VALUE ≠ ASSISTED VALUE ≠ RECOVERED VALUE.
 
+## Quote Identity (2026-09-02)
+
+**CONTACT EMAIL IS NEVER THE UNIQUE IDENTITY OF A QPAINT QUOTE.** One contact may legitimately have multiple quotes/properties/projects (e.g. Ramona Jackson/Civium has 4; Elisha Paige/Yule Strata has 3; Pat Dare/Woodford has 3; Mal McCabe/UCC has 3). Quote/deal identity = **quote number** (in Deal Title). Relationship context connects related opportunities; it does not collapse them.
+
+**Root cause (2026-09-02):** the initial 28-Jul Pipedrive import deduplicated by contact email and silently dropped 15 additional quotes (~$702K) for contacts who were already in the book under a different quote. All 15 re-imported.
+
+**Current intake is correct:** `quote-intake.py` v2.2.4 dedups against QPaint Pipeline via **Deal Title (quote number) + Contact Email**, not email alone. A new quote number for an existing email creates a new record ("New project, not a duplicate").
+
 ## Evidence Discipline (2026-09-01)
 
 FACT vs UNKNOWN. "Call outcomes not logged" is FACT. "Calls not made" is UNKNOWN unless James confirms. Never convert missing evidence into a factual claim. State what is proven; leave the rest as UNKNOWN.

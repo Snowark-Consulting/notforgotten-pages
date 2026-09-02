@@ -25,7 +25,7 @@ See [[Consolidation SOP]] (Agent/consolidation-sop.md) and [[Vault Lint]] (Agent
 | Phase | Job | Cron ID | Schedule | Mode |
 | ----- | --- | ------- | -------- | ---- |
 | Phase 1 — unread scan | inbox-watchdog-phase1 | d0cdcda5b237 | */3 * * * * (24/7) | no-agent (script-only) — **PAUSED 2026-08-19** (redundant; phase-2 gate script does the Gmail check) |
-| Phase 2 — process + summarise | inbox-pulse-phase2 | 2d4a9ff4f06b | */3 * * * * (24/7) | agent (full identity boot on mail found; pre-check gate script `scripts/inbox-watchdog-gate.sh`; model deepseek-v4-pro) |
+| Phase 2 — process + summarise | inbox-pulse-phase2 | 2d4a9ff4f06b | */3 * * * * (24/7) | agent (full identity boot on mail found; pre-check gate script `scripts/inbox-watchdog-gate.sh`; model deepseek-v4-flash) |
 
 ### Quote intake pipeline (LIVE)
 
@@ -44,7 +44,7 @@ Detection → extraction (pymupdf + Gemini vision fallback) → Airtable cross-r
 | Phase | Job | Cron ID | Schedule | Mode |
 | ----- | --- | ------- | -------- | ---- |
 | Phase 1 — unread scan | quotes-watchdog-phase1 | 20810e75d779 | */1 * * * * | no-agent (script-only: `scripts/quotes-watchdog.py`) — **PAUSED 2026-08-19** (redundant; phase-2 gate script does the check) |
-| Phase 2 — process | quotes-pulse-phase2 | 203f3a6cfd56 | */1 * * * * | agent (skills: email-inbox-pulse, quote-intake; deliver: telegram; pre-check gate script `scripts/quotes-watchdog-gate.py`; model deepseek-v4-pro) |
+| Phase 2 — process | quotes-pulse-phase2 | 203f3a6cfd56 | */1 * * * * | agent (skills: email-inbox-pulse, quote-intake; deliver: telegram; pre-check gate script `scripts/quotes-watchdog-gate.py`; model deepseek-v4-flash) |
 
 Monitors `quotes@notforgotten.com.au` inbox. Phase 1 detects unread; Phase 2 runs quote-intake on every new email. Cross-references Client records, creates Quote records. SOP: `knowledge/sop-quotes-inbox.md`. Added 2026-07-23.
 
@@ -52,7 +52,7 @@ Monitors `quotes@notforgotten.com.au` inbox. Phase 1 detects unread; Phase 2 run
 
 | Phase | Job | Cron ID | Schedule | Mode |
 | ----- | --- | ------- | -------- | ---- |
-| Phase 2 — surface V2 replies | james-pulse-phase2 | c130a8d0475d | */5 * * * * (24/7) | agent (skills: email-inbox-pulse; deliver: telegram:-1003880645651; pre-check gate script `scripts/james-watchdog-gate.py`; model deepseek-v4-pro) |
+| Phase 2 — surface V2 replies | james-pulse-phase2 | c130a8d0475d | */5 * * * * (24/7) | agent (skills: email-inbox-pulse; deliver: telegram:-1003880645651; pre-check gate script `scripts/james-watchdog-gate.py`; model deepseek-v4-flash) |
 
 Monitors james@notforgotten.com.au **READ-ONLY** (never mark-read/send/label). V2 Email 1 + Email 2 send from james@, so replies/bounces/opt-outs land here. Classifies: bounce → Airtable Lost; V2 reply → commercial-intent read + ONE suggested next action; opt-out → flag immediately (Spam Act); auto-reply → FYI; DMARC → ignore. Dedup via seen-ID state file (`state/james-pulse-seen.json`). Added 2026-08-21. Decision: `knowledge/decisions/2026-08-21-v2-email2-observation-monitoring.md`.
 
@@ -95,7 +95,7 @@ Log: ~/.hermes/logs/inbox-pulse.log
 | Morning Briefing | 28304a6e23c3 | daily 8:30am | telegram:-1003939051249 | growth-operations, email-inbox-pulse, decision-library | Structured status report: inbox, campaign, deadlines, system health, one recommendation — **PAUSED 2026-08-04** |
 | Campaign Pulse | eb8826841606 | every 48h | telegram:-1003939051249 | growth-operations, cold-email, decision-library | Deep dive: reply rates by vertical/greeting, patterns, hypothesis, forecast, recommendation. Silent when no active campaign |
 | Nightly tracking tag audit | dc044588c680 | daily 8:55pm | local | — | No-agent script (`scripts/tracking-tag-audit.py`). Fetches sitemap, checks every page for GA4 + Clarity tags. Silent when clean; failures injected into nightly consolidation via `context_from`. Added 2026-07-05. |
-| Stale Prospect Alert | 519e0b52719c | Mondays 08:00 ACST | telegram:-1003939051249 | — | No-agent script (`scripts/stale-prospect-alert.py`). Checks Outreach Active prospects for Last contacted date >14 days. Silent when clean; alerts with prospect names, days stale, and recommended actions. Added 2026-07-05. KNOWN: exits 1 when stale found (rec `consolidation-stale-prospect-alert-exit1` open). |
+| Stale Prospect Alert | 519e0b52719c | Mondays 08:00 ACST | telegram:-1003939051249 | — | No-agent script (`scripts/stale-prospect-alert.py`). Checks Outreach Active prospects for Last contacted date >14 days. Silent when clean; alerts with prospect names, days stale, and recommended actions. Added 2026-07-05. **FIXED 2026-09-01**: `sys.exit(1)`→`0` (alert is the deliverable; exit code is scheduler health only — no_agent cron treats non-zero as script failure). Next run Mon 2026-09-07 confirms. |
 | Campaign Review — Group 2 Wave 1 | 471242dad1d3 | ~~once at 2026-07-17 09:00 ACST~~ **COMPLETED** | origin | campaign-review, cold-email | Formal post-mortem after Wave 1 and Group 2 outreach sequences. Report: `knowledge/campaign-reviews/wave-1-july-2026.md`. Completed 2026-07-17. |
 | Context vs Curiosity — Day 7 Checkpoint | c02a3e330fa4 | ~~once at 2026-07-21 08:00 ACST~~ **COMPLETED** | origin | email-inbox-pulse, growth-operations | Experiment checkpoint: A/B test mid-point. Result: 0 replies from 38 prospects. Report: `knowledge/experiments/context-vs-curiosity/replies/day7.json`. Completed 2026-07-21. |
 ||| Context vs Curiosity — Day 21 Final | bc65c833dc72 | ~~once at 2026-08-04 08:00 ACST~~ **COMPLETED** | origin | email-inbox-pulse, growth-operations, campaign-review | Experiment checkpoint: A/B test final analysis. Completed 2026-08-03. Report published: pages/cvc-day21/. Learning: LL-20260804-005. |
@@ -121,6 +121,7 @@ Log: ~/.hermes/logs/inbox-pulse.log
 | Dream — nightly recommendations | c2d8c77ae689 | daily 22:00 ACST | local | — | Agent cron: nightly Dream review. Scans recent activity (errors, cost, cron state, anomalies) and writes recommendations to `Agent/recommendations.json` for the dashboard Recommendations tab. **Added to doc 2026-08-23** (was running active, undocumented). |
 | Nicholas tender check-in | 439f630391a5 | ~~once at 2026-08-05~~ **PAUSED 2026-08-10, never ran** | telegram:-1003880645651 | — | One-shot: Nicholas Zappacosta tender check-in (Beenleigh Ambulance Station, QBuild HOLD). Paused before first run; superseded by QBuild = QPaint-managed rule (2026-08-21). Awaiting restoration/removal decision. Added to doc 2026-08-21 (was running paused, undocumented). |
 | Wednesday Founder Sales Brief (2 Sep) | 773ba494acea | once at 2026-09-02 04:30 ACST | origin | — | One-shot (added 2026-08-30 with QPaint Operational Handover, decision `2026-08-30-qpaint-operational-handover`): prepares Wednesday Founder Sales Brief — QPaint exception brief (genuine exceptions only, no full-book dump) + random 5-record quality audit + founder sales block. Deliver: origin. |
+| QPaint Completed-Label Reverse Control | 535899707838 | daily 07:00 ACST | local | — | No-agent script (`scripts/quotes-completed-reverse-control.py`): cross-references every "Quotes Completed" email → Airtable by quote number. Silent when 100% clean; reports CONTROL FAILURE on any mismatch. Added 2026-09-02 with decision `2026-09-02-qpaint-intake-completion-gate-permanent-control` (retrospective: 61 emails / 56 identities / 56 matched / 0 unmatched). First run: 2026-09-03 07:00 ACST. |
 
 ## Hooks (event-driven)
 

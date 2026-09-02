@@ -1,0 +1,96 @@
+---
+doc_type: decision
+owner: notforgotten
+tier: primary
+---
+
+# Decision: QPaint Intake Completion Gate — Permanent Control (2026-09-02)
+
+**Status:** 🟢 Made
+**Founder Approval:** James Hardstaff, 2026-09-02 (directive)
+**Builds on:** `2026-08-11-intake-completion-gate.md` (INC-2026-08-11-QUOTE-FALSE-COMPLETION)
+
+## The Invariant (permanent, fail-closed)
+
+> **NO QPaint quote email enters "Quotes Completed" until Airtable
+> reconciliation has passed.**
+
+`Quotes Completed` (quotes@) means:
+
+    SOURCE PROCESSED + AIRTABLE RECORD EXISTS + DATA VERIFIED
+    + OPERATIONAL STATE ESTABLISHED + RECONCILIATION PASSED.
+
+It does NOT mean "Atlas read this email."
+
+## Why
+
+The 2 September source reconciliation surfaced a critical semantic risk: the
+completion label must be PROOF OF RECONCILIATION, not proof of reading.  The
+related root cause — the 28-July email-deduplication failure that dropped 15
+quotes (~$702,050) — proved that contact email must never be the unique
+identity of a quote.
+
+## What changed
+
+1. **`scripts/intake-certification.py`** — hardened to a two-gate contract:
+   - `certify_intake_complete(persisted)` — now requires 8 fields, including
+     the quote number (in Deal Title), Quote Date, and Extent of Work.
+   - `certify_reconciliation(source, persisted)` — NEW. Verifies the read-back
+     Airtable record matches source quote number + email + value.
+   - Both operate on the READ-BACK record, never the intended write.
+   - 12/12 regression + conceptual tests (cases A, B, C, F, F2, F3, H).
+
+2. **`quote-intake` skill v2.3.0** — completion gate requires quote identity,
+   read-back of the persisted record, and source↔Airtable reconciliation;
+   multi-quote rule and quote-identity-by-number rule codified.
+
+3. **`references/intake-certification-gate.md`** — full gate contract,
+   invariant, 8 conceptual test cases, reverse control.
+
+4. **`quotes-pulse-phase2` cron prompt** — POST-PROCESSING replaced with a
+   HARD COMPLETION GATE: process → verify → reconcile → complete.  Sequence
+   is mandatory; never move-to-completed then process.
+
+5. **`scripts/quotes-completed-reconcile.py`** — reverse-control script.
+   Cross-references every "Quotes Completed" email → Airtable by quote number.
+
+6. **Reverse control cron** (`535899707838`, daily 07:00 ACST, no_agent) —
+   silent when 100% clean; reports CONTROL FAILURE on any mismatch.
+
+## Retrospective validation result (2 Sep 2026)
+
+| Metric | Result |
+|---|---|
+| Completed quote emails checked | 61 |
+| Quote identities represented | 56 |
+| Matched to Airtable | 56 |
+| Unmatched | 0 (after fixing Carol #42991 title) |
+| Partial | 0 (after removing 3 non-quote internal emails) |
+| Ambiguous | 0 |
+
+Two routine corrections made: Carol Beardsall #42991 title gained the quote
+number; 3 internal process emails (folder/sales-process forwards) removed from
+the "Quotes Completed" label.
+
+## Quote Identity Rule (permanent)
+
+CONTACT EMAIL IS NEVER THE UNIQUE IDENTITY OF A QPAINT QUOTE.  Quote/deal
+identity = the 5-digit quote number.  One contact may have multiple quotes/
+properties/projects.  Relationship context connects records; it does not
+collapse them.
+
+## Scope note (no overbuild)
+
+No new agent, dashboard, or subsystem was created.  The control is enforced
+through the existing intake script + cron prompt + one lightweight no_agent
+watchdog.
+
+## References
+
+- Script: `scripts/intake-certification.py`
+- Script: `scripts/quotes-completed-reconcile.py`
+- Script: `scripts/quotes-completed-reverse-control.py`
+- Skill: `skills/notforgotten/quote-intake/SKILL.md` v2.3.0
+- Reference: `skills/notforgotten/quote-intake/references/intake-certification-gate.md`
+- Note: `knowledge/notes/2026-09-02-qpaint-source-reconciliation.md`
+- Cron: `quotes-pulse-phase2` (`203f3a6cfd56`), reverse control (`535899707838`)

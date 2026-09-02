@@ -1,0 +1,29 @@
+---
+doc_type: note
+owner: notforgotten
+tier: primary
+date: 2026-09-02
+---
+
+# QPaint Source-to-Airtable Reconciliation — 2 Sept 2026
+
+## Finding: 15 missing quotes (~$702,050)
+
+The initial 28-Jul Pipedrive import (156 deals) deduplicated by **contact email** and dropped 15 additional quotes for contacts already in the book under a different quote. All 15 re-imported 2026-09-02 with full source evidence.
+
+Missing + imported: #42018 Manlee Lodge $61,158 · #42338 Auchenflower doors $8,250 · #42349/$42350 Kurt Manabat builder $51,319/$56,501 · #42355 The Rocks $161,832 · #42402 Toombul Gardens $87,962 · #42462 Loriel Lodge $18,150 · #42577 Ipswich Rd $2,200 · #42607/$42608 Woodford $7,920/$18,213 · #42725/$42726 Melton Rd $26,787/$29,913 · #42846 Hawthorne $157,795 · #42898 Scott St $2,992 · #42958 Delafield floors $11,058.
+
+## Root cause (locked)
+
+**Contact email must never be the unique identity of a QPaint quote.** One contact = many quotes/properties/projects. Quote identity = quote number. Current intake (`quote-intake.py` v2.2.4) correctly dedups via Deal Title (quote number) + Contact Email — NOT email alone. No correction required to current intake.
+
+## Identity reconciliation 209 → 210
+
+- Pipedrive register: 156 (disjoint from quotes@)
+- quotes@ PandaDoc: 53 (my pull) + **#43124** (arrived 1 Sep 19:29 UTC / 2 Sep ACST, after the pull) = 54
+- Distinct source = 156 + 54 = **210**
+- Airtable records = **210** (209 with quote number in title + Carol Beardsall #42991 whose title is name/address-based, matched by property)
+
+**+1 = #43124 Shane Harmer (2 Niagara Close, Forest Lake), a legitimate new quote that arrived after the source-count snapshot was taken. Not a duplicate, not an orphan.**
+
+Final equation: 210 source quotes = 210 Airtable records (1:1).

@@ -1038,6 +1038,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decisions_2026_09_02_qpaint_intake_completion_gate_permanent_control",
+      "label": "Qpaint Intake Completion Gate Permanent Control",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-09-02-qpaint-intake-completion-gate-permanent-control.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "d55fe5349777",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decisions_index",
       "label": "Decisions / Index",
       "file_type": "doc",
@@ -2929,6 +2940,13 @@
     {
       "source": "agent_registry",
       "target": "knowledge_qpaint_recovery_sequence",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_09_02_qpaint_intake_completion_gate_permanent_control",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

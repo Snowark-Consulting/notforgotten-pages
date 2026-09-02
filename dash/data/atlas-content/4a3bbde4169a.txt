@@ -155,6 +155,7 @@ Design system assets ingested from the Power Design library (github.com/ItsssssJ
 - [[Founder Call Briefs]] (knowledge/wednesday-call-briefs-2026-08-19.md) — Founder Call Day briefs (final). Execute only.
 - [[QPaint Report Delivery]] (knowledge/qpaint-report-delivery-2026-08-18.md) — August Monthly Quote & Revenue Report V4 send evidence (Gmail 1a011d491c96d5d6).
 - [[QPaint Recovery Sequence]] (knowledge/qpaint-recovery-sequence.md) — 5-email recovery sequence for QPaint. Active: 8 calibration contacts. Includes Email 1 template, review framework. Established 2026-07-28.
+- [[Decision: QPaint Intake Completion Gate]] (knowledge/decisions/2026-09-02-qpaint-intake-completion-gate-permanent-control.md) — PERMANENT CONTROL: no QPaint quote email enters "Quotes Completed" until Airtable reconciliation passes. Quote identity = 5-digit quote number, never contact email. Reverse control cron 535899707838 daily 07:00 ACST, silent when clean. Established 2026-09-02.
 - [[Recovery Email Template]] (knowledge/recovery-email-template.md) — Introduction email for QPaint recovery. Not a follow-up. Approved by James.
 - [[Sequence Review Framework]] (knowledge/sequence-review-framework.md) — Post-sequence review methodology. Every completed sequence feeds knowledge base.
 - [[Business Opportunity Report — Jul 29]] (reports/business-opportunity-report-2026-07-29.md) — 624-line phone call sheet. 100 CRM prospects ranked by probability score. 63 with phone numbers.
