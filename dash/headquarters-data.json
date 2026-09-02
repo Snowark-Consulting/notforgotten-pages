@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T04:11:03+09:30",
+  "generated_at": "2026-09-03T04:13:58+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
     "body": "The QPaint portfolio is stable. 213 total records, 174 active journeys. Production Operating Protocol v1.0.0 governs all operations. Canonical send authority live.",
@@ -46,43 +46,51 @@
   },
   "waiting_for_james": [
     {
-      "id": "founder-outreach-wed-2-sep",
-      "title": "Run Founder Outreach Day \u2014 12 verified prospects",
-      "why_it_matters": "Customer #2 comes from owner conversations, not email. Ahmad (Star Painters) is a qualified opportunity ready to progress. 11 more ranked by commercial usefulness, all verified clean (no unsubscribe, suppression, bounce, or closed).",
-      "business_impact": "High: the next customer is decided by these calls.",
-      "estimated_time": "Start with Ahmad, then work the NEXT 4, then backup queue.",
-      "recommended_action": "Call Ahmad first (qualified opportunity). Then Rahamed (correct the lead-gen misunderstanding), The Painting Company + Master Choice (warm), Esmayel (top ICP fit). Report outcomes in rough notes \u2014 Atlas reconciles the CRM.",
-      "impact_sort": 95
+      "id": "founder-call-outcome-logging",
+      "title": "Log 2-Sep founder call outcomes (still unlogged)",
+      "why_it_matters": "The 26-Aug calls (Ahmad/Star Painters, Master Choice, The Painting Co) and 2-Sep B-list verdicts were never dictated to CRM. Without them, the founder-call scoreboard and follow-up dates are wrong.",
+      "business_impact": "Medium: keeps the CRM story accurate and protects tomorrow's follow-up windows.",
+      "estimated_time": "5 min of dictation, Atlas reconciles.",
+      "recommended_action": "Dictate rough outcomes (connected/voicemail/no-answer/SMS-reply) for Ahmad, Master Choice, The Painting Co, and the 8 B-list candidates. Atlas captures verbatim per founder-call-outcome-capture.md.",
+      "impact_sort": 80
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Today is Founder Outreach Day. QPaint is under Atlas control (0 founder actions). Your whole job is owner conversations: 10 real conversations \u2192 3 serious opportunities \u2192 Customer #2. Ahmad (Star Painters) is the #1 call \u2014 a qualified opportunity that stalled. Rahamed needs the lead-generation misunderstanding corrected. Everything else is ranked and ready.",
+    "executive_summary": "Thursday. No founder call day today. QPaint is under Atlas control: 4 residential Email 1s and 1 check-in due, 2 QBuild schools correctly on HOLD. Nothing is P1. The single useful James action today is logging yesterday's call outcomes so the CRM stays accurate before tomorrow's V2 checkpoint.",
     "priorities": [
       {
-        "action": "Call Ahmad (Star Painters Adelaide) \u2014 progress the stalled qualified opportunity",
-        "why_it_matters": "The single clearest path to Customer #2. Former trial, went quiet, founder re-engagement eligible.",
-        "expected_impact": "High: could move directly to onboarding",
-        "estimated_time": "10-20 min conversation",
+        "action": "Log 2-Sep founder call outcomes (Ahmad, Master Choice, Painting Co + 8 B-list)",
+        "why_it_matters": "Ahmad awaits an SMS reply (next follow-up 5 Sep) but the 26-Aug and 2-Sep outcomes were never dictated. The scoreboard is incomplete.",
+        "expected_impact": "Medium: accurate CRM + clean handoff into tomorrow's follow-up windows.",
+        "estimated_time": "5 min",
         "confidence": "High"
       },
       {
-        "action": "Then the NEXT 4: Rahamed, The Painting Company, Master Choice, Esmayel",
-        "why_it_matters": "Warm + engaged + top-ICP. These are the next-best commercial opportunities.",
-        "expected_impact": "Medium-High: builds toward the 3 serious opportunities",
-        "estimated_time": "4 calls",
+        "action": "Prepare for tomorrow (4 Sep) V2 checkpoint",
+        "why_it_matters": "V2 Email 3 (32) observation closes + de-confused Email 2 (9) window opens + v2-persistence decision review. Atlas prepares today; James decides tomorrow.",
+        "expected_impact": "Medium-High: the persistence decision shapes the next outreach wave.",
+        "estimated_time": "Read the decision pack, 10 min",
         "confidence": "High"
       }
     ],
     "can_wait": [
-      "All QPaint operations (intake, recovery, follow-up) \u2014 Atlas owns.",
-      "V2 email follow-up replies \u2014 monitor under standing authority.",
-      "Gmail/housekeeping/reconciliation \u2014 Atlas owns.",
-      "Prospect research + system maintenance \u2014 Atlas owns."
+      "All QPaint operations (Email 1s, check-ins, HOLDs) \u2014 Atlas owns.",
+      "QPaint reverse-control cron first run (7:00am) \u2014 silent unless exception.",
+      "V2 email reply monitoring \u2014 standing authority, no replies overnight.",
+      "System health \u2014 disk 38%, state.db 65MB, backup clean."
     ],
-    "closing": "Discover first, sell when the problem is real. Capture what owners actually say, in their words. Atlas reconciles the CRM."
+    "closing": "Nothing is urgent today. Log the call outcomes when convenient, and glance at the 4-Sep decision pack ahead of tomorrow."
   },
   "changes": {
     "today": [
+      {
+        "time": "2026-09-03T04:13:58+09:30",
+        "text": "Overnight reconciliation: quotes@/atlas@ clean, james@ unread = stale 09-Aug bounces (4) + Tatnell 'closed' + Top Rank auto-reply + DMARC noise \u2014 all already reconciled in CRM."
+      },
+      {
+        "time": "2026-09-03T04:13:58+09:30",
+        "text": "QPaint overnight: 4 residential Email 1s due today, 1 engaged check-in, 2 QBuild schools on HOLD. No new customer replies."
+      },
       {
         "time": "2026-09-02T09:13:06+09:30",
         "text": "QPaint full review: 11 follow-ups sent (Jenny Erickson + Kishor Chandra Email 1; 9 Email 2 check-ins), 3 held. Every open quote intentionally classified."
@@ -159,7 +167,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "\u2705 QPaint portfolio certified. 174 active journeys. Protocol v1.0.0. Send authority live.",
+  "operational_status": "QPaint portfolio stable (213 records, 5 Won $340,603, 34 Lost). 4 Email 1s + 1 check-in due today, 2 QBuild HOLD. No overnight customer replies. Protocol v1.0.0.",
   "vault_health": {
     "decisions": {
       "total": 80,
