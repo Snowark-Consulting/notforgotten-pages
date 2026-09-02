@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-09-02T10:00:11.263884+09:30",
+  "last_updated": "2026-09-02T10:30:08.850736+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
@@ -1059,20 +1059,20 @@
         "email": "info@rezmcp.com.au",
         "industry": "Painter",
         "pipeline_stage": "Campaign Complete",
-        "opportunity_score": 71.0,
+        "opportunity_score": 74.5,
         "confidence": "High",
         "ranking_reason": "\ud83d\udfe1 Warm from personal call; high probability score (83); strong email engagement (6 opens); phone number available; core ICP industry",
-        "interaction_summary": "Sequence: Email 4 | Called:  | Interest: \ud83d\udfe1 Warm \u2014 interested but not urgent | Opens: 6 | Last contact: 2026-07-28",
+        "interaction_summary": "Sequence: Email 4 | Called:  | Interest: \ud83d\udfe1 Warm \u2014 interested but not urgent | Opens: 6 | Last contact: 2026-09-02",
         "potential_objections": [
           "Standard: timing, budget, 'we're too busy right now'"
         ],
         "conversation_starter": "'Hi there, James from Not Forgotten. Been thinking about our chat and wanted to see if you've had a chance to consider how automated follow-up might work for Master Choice Painting.'",
         "recommended_next": "Review and decide next action",
         "james_action": [
-          "\ud83d\udcde Call Today"
+          "Await reply"
         ],
         "call_outcome": "29/07/2026 Called the client had a 3 minute conversation seemed interested i have sent him an email.  ",
-        "last_contacted": "2026-07-28",
+        "last_contacted": "2026-09-02",
         "open_count": 6,
         "replied": false,
         "employee_count": "\u2014",
@@ -1085,7 +1085,7 @@
         "biggest_objection": "",
         "what_interested_them": "",
         "next_agreed_action": "",
-        "next_followup_date": "2026-08-26",
+        "next_followup_date": "2026-09-05",
         "has_been_called": true,
         "buying_signals": [
           "\ud83d\udfe1 Warm interest \u2014 interested but not urgent",
@@ -4008,9 +4008,9 @@
     "health": {
       "waiting_for_call": 63,
       "calls_completed_week": 0,
-      "calls_completed_total": 5,
+      "calls_completed_total": 6,
       "positive_conversations": 2,
-      "followups_required": 1,
+      "followups_required": 0,
       "meetings_booked": 0,
       "converted_week": 0,
       "converted_total": 0,
@@ -4019,7 +4019,7 @@
         {
           "rank": 1,
           "name": "Master Choice Painting",
-          "score": 71.0,
+          "score": 74.5,
           "reason": "\ud83d\udfe1 Warm from personal call; high probability score (83); strong email engagement (6 opens); phone num"
         },
         {
@@ -4049,7 +4049,7 @@
       ]
     },
     "insights": [
-      "Most common objection: 'Not recorded' (3 calls) \u2014 prepare counterpoints for this.",
+      "Most common objection: 'Not recorded' (4 calls) \u2014 prepare counterpoints for this.",
       "2 warm prospects \u2014 consider targeted nurture sequence."
     ],
     "summary": {
@@ -4058,7 +4058,7 @@
       "actionable": 43,
       "ready_to_call": 42,
       "called_count": 1,
-      "generated": "2026-09-02T08:30:06.231732+09:30"
+      "generated": "2026-09-02T10:30:08.850736+09:30"
     }
   },
   "storage_health": {
