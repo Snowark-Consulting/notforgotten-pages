@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 211,
+    "tasks_completed": 212,
     "recent": [
+      {
+        "date": "2026-09-03 16:57",
+        "task": "Campaign pulse posted \u2014 V2 Email 3 (32) at 0 replies Day 6; de-confused Email 1 (9) at 0 replies Day 4; Sep 4 checkpoint tomorrow",
+        "category": "task"
+      },
       {
         "date": "2026-09-01 16:52",
         "task": "Campaign pulse posted \u2014 V2 Email 3 cohort Day 4: 0 replies (32 sent Aug 28); 9 Email 1s sent Aug 30 (de-confused first-touch), 0 replies; Sep 4 per-prospect checkpoint next",
@@ -135,11 +140,6 @@
         "date": "2026-08-20 16:17",
         "task": "Campaign pulse posted \u2014 V2: 43 Email 1 sends, 0 replies, Founder Call Day (19 Aug) outcomes not yet logged",
         "category": "task"
-      },
-      {
-        "date": "2026-08-20 08:46",
-        "task": "Client OS Knowledge Graph tab now renders full vault brain (299 nodes) instead of empty 0; Memory tab heading fixed to 'facts indexed' (37) from misleading 'files indexed' (2)",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-09-03T16:30:18.212440+09:30",
+  "last_updated": "2026-09-03T16:57:02.865316+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
