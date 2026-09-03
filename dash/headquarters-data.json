@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T04:08:00+09:30",
+  "generated_at": "2026-09-04T04:45:29+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
     "body": "QPaint portfolio stable at 217 records, $7.29M total book, 5 Won ($340,603). Arno Hsu contract confirmed by QPaint team. No overnight replies, bounces, or exceptions. Production Operating Protocol v1.0.0 governs all operations.",
@@ -83,6 +83,14 @@
   "changes": {
     "today": [
       {
+        "time": "2026-09-04T04:45:29+09:30",
+        "text": "Autonomy execution: 10 QPaint sends, Mal McCabe HOLD, Christopher Farr QBuild, V2 HOLD, 9 de-confused Email 2 sent."
+      },
+      {
+        "time": "2026-09-04T04:45:29+09:30",
+        "text": "V2 persistence decision: HOLD email (32 Email 3 silent, 0 replies). De-confused Email 2 cohort sent (9, new angle)."
+      },
+      {
         "time": "2026-09-04T04:08:00+09:30",
         "text": "Overnight reconciliation: all three mailboxes clean. No new customer replies (last 2 Sep). quotes@ = routine PandaDoc notifications. james@ unread = stale 9-Aug bounces + DMARC noise, all already reconciled."
       },
@@ -150,7 +158,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "QPaint portfolio stable (217 records, $7.29M book, 5 Won $340,603, 34 Lost). 3 follow-ups overdue since 2 Sep — Atlas to action. Arno Hsu contract confirmed by QPaint. No overnight exceptions. Protocol v1.0.0.",
+  "operational_status": "Morning Readiness handled autonomously (4 Sep): QPaint — 9 Email 1 + Raewyn check-in sent, Mal McCabe HOLD (3 stale quotes), Christopher Farr #43080 QBuild verified/PROCUREMENT. NF — V2 Email 3 cohort HOLD (0 replies, no Email 4), de-confused Email 2 sent (9). All routine decisions executed by Atlas; no founder actions required.",
   "vault_health": {
     "decisions": {
       "total": 80,
