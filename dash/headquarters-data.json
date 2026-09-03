@@ -1,135 +1,118 @@
 {
-  "generated_at": "2026-09-03T04:13:58+09:30",
+  "generated_at": "2026-09-04T04:08:00+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "The QPaint portfolio is stable. 213 total records, 174 active journeys. Production Operating Protocol v1.0.0 governs all operations. Canonical send authority live.",
+    "body": "QPaint portfolio stable at 217 records, $7.29M total book, 5 Won ($340,603). Arno Hsu contract confirmed by QPaint team. No overnight replies, bounces, or exceptions. Production Operating Protocol v1.0.0 governs all operations.",
     "estimated_time": "2 minutes"
   },
   "business_score": {
     "score": 88,
-    "change": "\u2014",
+    "change": "—",
     "reasons_positive": [
-      "QPaint book reconciled: 210 records, $5.92M active, 5 Won ($340,603). Source-to-Airtable reconciliation complete (209\u2192210 identity closed).",
-      "Intake completion gate hardened + daily reverse control live (no QPaint quote email completes until Airtable reconciliation passes).",
-      "12 founder-call prospects freshly verified clean \u2014 no suppression, bounce, or closed states."
+      "QPaint book grown to 217 records, $7.29M ($6.14M active). 5 Won ($340,603): Arno Hsu $129,750 RECOVERED + 4 Assisted.",
+      "Arno Hsu (Algester) signed — Tas confirmed 31 Aug \"contract signed, team will handle from here.\" First NF-attributed recovery.",
+      "Intake completion gate + daily reverse control live. No intake exceptions overnight."
     ],
     "reasons_negative": [
-      "1 paying customer ($199 MRR). Customer #2 remains the metric \u2014 today is the day to move it.",
-      "26 Aug founder calls had no logged outcome \u2014 re-queued today. Capture outcomes this time."
+      "1 paying customer ($199 MRR). Customer #2 remains the metric.",
+      "2-Sep founder call outcomes still unlogged — dictation overdue."
     ]
   },
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "QPaint: Active. Portfolio certified. 174 active journeys with complete Next Action coverage."
+      "detail": "QPaint: Active. 217 records reconciled. Portfolio certified with complete Next Action coverage."
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "\u2705 174 active QPaint journeys certified. 121 contacted. 0 exceptions. Pipeline: $6,064,757. Won: $340,603."
+      "detail": "QPaint: 5 Won ($340,603), 34 Lost ($811,775), 19 Engaged, 121 Contacted, 38 New. 3 follow-ups overdue since 2 Sep (Atlas to action)."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "V2 Email 3 (32 sent 28 Aug) awaiting reply \u2014 follow-up window 4 Sep. 9 founder-autonomy Email 1s (30 Aug), Email 2 window 4 Sep. RE-ENG-AUG-2026: 99 observing."
+      "detail": "RE-ENG-AUG-2026: 147 prospects, 136 ACTIVE, no overnight state changes. V2 Email 3 (32 sent 28 Aug) follow-up window 4 Sep. Founder call day = Wednesday (none today)."
     },
     "engineering": {
       "status": "healthy",
-      "detail": "All systems healthy. Canonical send authority (Phase 1) shadow-ready. Production Operating Protocol v1.0.0 live."
+      "detail": "All systems healthy. Canonical send authority live. Production Operating Protocol v1.0.0."
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $340,603 Won. $6,064,757 active pipeline."
+      "detail": "QPaint: $340,603 Won (1 Recovered + 4 Assisted). $6.14M active pipeline. $199 MRR recurring."
     },
     "atlas": {
       "status": "healthy",
-      "detail": "Memory healthy. Protocol v1.0.0 enforced. Model recovery standard active."
+      "detail": "Memory healthy. Protocol v1.0.0 enforced."
     }
   },
   "waiting_for_james": [
     {
       "id": "founder-call-outcome-logging",
       "title": "Log 2-Sep founder call outcomes (still unlogged)",
-      "why_it_matters": "The 26-Aug calls (Ahmad/Star Painters, Master Choice, The Painting Co) and 2-Sep B-list verdicts were never dictated to CRM. Without them, the founder-call scoreboard and follow-up dates are wrong.",
-      "business_impact": "Medium: keeps the CRM story accurate and protects tomorrow's follow-up windows.",
-      "estimated_time": "5 min of dictation, Atlas reconciles.",
-      "recommended_action": "Dictate rough outcomes (connected/voicemail/no-answer/SMS-reply) for Ahmad, Master Choice, The Painting Co, and the 8 B-list candidates. Atlas captures verbatim per founder-call-outcome-capture.md.",
+      "why_it_matters": "Ahmad/Star Painters (NFD 5 Sep), Master Choice, and The Painting Co outcomes were never dictated. The founder-call scoreboard and follow-up dates are stale ahead of tomorrow's window.",
+      "business_impact": "Medium: keeps the CRM story accurate and protects tomorrow's Star Painters follow-up.",
+      "estimated_time": "5 min dictation, Atlas reconciles.",
+      "recommended_action": "Dictate rough outcomes (connected/voicemail/no-answer/SMS-reply) for Ahmad/Star Painters, Master Choice, The Painting Co. Atlas captures verbatim.",
       "impact_sort": 80
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Thursday. No founder call day today. QPaint is under Atlas control: 4 residential Email 1s and 1 check-in due, 2 QBuild schools correctly on HOLD. Nothing is P1. The single useful James action today is logging yesterday's call outcomes so the CRM stays accurate before tomorrow's V2 checkpoint.",
+    "executive_summary": "Friday — no founder call day. QPaint is under Atlas control (217 records, 5 Won, 3 follow-ups Atlas will action). No new replies or exceptions overnight. The single useful James action today is logging the 2-Sep founder call outcomes so the CRM is accurate ahead of tomorrow's Star Painters follow-up (5 Sep).",
     "priorities": [
       {
-        "action": "Log 2-Sep founder call outcomes (Ahmad, Master Choice, Painting Co + 8 B-list)",
-        "why_it_matters": "Ahmad awaits an SMS reply (next follow-up 5 Sep) but the 26-Aug and 2-Sep outcomes were never dictated. The scoreboard is incomplete.",
-        "expected_impact": "Medium: accurate CRM + clean handoff into tomorrow's follow-up windows.",
+        "action": "Log 2-Sep founder call outcomes (Ahmad/Star Painters, Master Choice, The Painting Co)",
+        "why_it_matters": "Star Painters follow-up is due tomorrow (5 Sep). The 2-Sep call/SMS outcomes were never dictated, so the scoreboard is incomplete.",
+        "expected_impact": "Medium: accurate CRM + clean handoff into tomorrow's follow-up window.",
         "estimated_time": "5 min",
         "confidence": "High"
       },
       {
-        "action": "Prepare for tomorrow (4 Sep) V2 checkpoint",
-        "why_it_matters": "V2 Email 3 (32) observation closes + de-confused Email 2 (9) window opens + v2-persistence decision review. Atlas prepares today; James decides tomorrow.",
-        "expected_impact": "Medium-High: the persistence decision shapes the next outreach wave.",
-        "estimated_time": "Read the decision pack, 10 min",
+        "action": "Glance at the two warm NF prospects ahead of next week",
+        "why_it_matters": "Inspire Painting (Engaged, prob 66) and Star Painters Adelaide (Qualified Opportunity) are the two live paths to customer #2. No call day today, but worth a mental note for next week.",
+        "expected_impact": "Medium: keeps the customer #2 motion moving.",
+        "estimated_time": "5 min",
         "confidence": "High"
       }
     ],
     "can_wait": [
-      "All QPaint operations (Email 1s, check-ins, HOLDs) \u2014 Atlas owns.",
-      "QPaint reverse-control cron first run (7:00am) \u2014 silent unless exception.",
-      "V2 email reply monitoring \u2014 standing authority, no replies overnight.",
-      "System health \u2014 disk 38%, state.db 65MB, backup clean."
+      "All QPaint operations (Email 1s, check-ins, 3 overdue follow-ups) — Atlas owns.",
+      "RE-ENG-AUG-2026 campaign monitoring — 147 observing, no overnight changes.",
+      "System health — disk 38%, state.db 73MB, dashboard current."
     ],
-    "closing": "Nothing is urgent today. Log the call outcomes when convenient, and glance at the 4-Sep decision pack ahead of tomorrow."
+    "closing": "Nothing is urgent today. Log the call outcomes when convenient and glance at the two warm NF prospects. QPaint is handled."
   },
   "changes": {
     "today": [
       {
-        "time": "2026-09-03T04:13:58+09:30",
-        "text": "Overnight reconciliation: quotes@/atlas@ clean, james@ unread = stale 09-Aug bounces (4) + Tatnell 'closed' + Top Rank auto-reply + DMARC noise \u2014 all already reconciled in CRM."
+        "time": "2026-09-04T04:08:00+09:30",
+        "text": "Overnight reconciliation: all three mailboxes clean. No new customer replies (last 2 Sep). quotes@ = routine PandaDoc notifications. james@ unread = stale 9-Aug bounces + DMARC noise, all already reconciled."
       },
       {
-        "time": "2026-09-03T04:13:58+09:30",
-        "text": "QPaint overnight: 4 residential Email 1s due today, 1 engaged check-in, 2 QBuild schools on HOLD. No new customer replies."
+        "time": "2026-09-04T04:08:00+09:30",
+        "text": "QPaint: 217 records, $7.29M book. Arno Hsu (Algester) contract confirmed by Tas 31 Aug — flagship Recovered win $129,750."
       },
       {
-        "time": "2026-09-02T09:13:06+09:30",
-        "text": "QPaint full review: 11 follow-ups sent (Jenny Erickson + Kishor Chandra Email 1; 9 Email 2 check-ins), 3 held. Every open quote intentionally classified."
-      },
-      {
-        "time": "2026-09-02T09:00:01+09:30",
-        "text": "Founder outreach reconciled: 12 attempts, 1 owner conversation (Esmayel/Upscale \u2014 reviewing, SMS sent), 11 voicemail + SMS. Atlas owns follow-up."
-      },
-      {
-        "time": "2026-09-02T08:54:57+09:30",
-        "text": "Founder outreach day complete: 12 calls attempted (mostly voicemail), SMS follow-up sent to all 12 prospects. Awaiting SMS replies."
-      },
-      {
-        "time": "2026-09-02T07:51:53+09:30",
-        "text": "HQ rebuilt as Founder Outreach execution surface: 12 verified prospects ranked, scoreboard + milestones live, QPaint shown as 'under control'."
-      },
-      {
-        "time": "2026-09-02T07:51:53+09:30",
-        "text": "QPaint intake completion gate hardened + daily reverse control deployed. Source-to-Airtable reconciliation closed (210 = 210)."
+        "time": "2026-09-04T04:08:00+09:30",
+        "text": "3 QPaint follow-ups overdue since 2 Sep: James Wilson ($25.6K) + Paul Eaton ($6.6K) fresh Email 1s, Raewyn Frost ($7.9K) gentle check-in. Atlas to action in Daily Attention."
       }
     ],
     "yesterday": [
       {
-        "time": "\u2014",
-        "text": "Source reconciliation: 15 missing quotes (~$702K) recovered; +1 identity (#43124) closed the 209\u2192210 gap."
+        "time": "—",
+        "text": "QPaint Email 2 wave (2 Sep): 9 check-ins + 2 Email 1s sent. 11 follow-ups total."
       },
       {
-        "time": "\u2014",
-        "text": "QPaint operational handover founder-confirmed. Wednesday set as Founder Sales Day."
+        "time": "—",
+        "text": "Founder outreach day (2 Sep): 12 attempts, 1 owner conversation (Esmayel/Upscale), 11 voicemail + SMS. Awaiting SMS replies."
       }
     ],
     "this_week": [
       {
-        "time": "\u2014",
-        "text": "QPaint: 210 records, $5.92M active, 5 Won ($340,603), 34 Lost, 17 engaged."
+        "time": "—",
+        "text": "QPaint: 217 records, $7.29M, 5 Won ($340,603), 34 Lost ($811,775), 19 Engaged."
       },
       {
-        "time": "\u2014",
-        "text": "Intake completion gate + reverse control: no quote email completes without Airtable reconciliation."
+        "time": "—",
+        "text": "Arno Hsu (Algester $129,750) signed — first Recovered win. QPaint team confirmed handling."
       }
     ]
   },
@@ -138,21 +121,21 @@
     "recent": [
       {
         "id": "INC-2026-08-11",
-        "title": "QPaint Quote Intake \u2014 False Completion",
+        "title": "QPaint Quote Intake — False Completion",
         "status": "Closed",
         "summary": "3 quotes marked complete with $0 deal values. Root cause: no certification gate between extraction and label. Fixed: certify_intake_complete() + Intake Exception state."
       },
       {
         "id": "BK-014",
-        "title": "ATTEMPTED \u2260 COMPLETED",
+        "title": "ATTEMPTED ≠ COMPLETED",
         "status": "Permanent",
-        "summary": "Automation success \u2260 business outcome success. Every critical workflow must verify the business state, not just the process completion."
+        "summary": "Automation success ≠ business outcome success. Every critical workflow must verify the business state, not just the process completion."
       },
       {
         "id": "BK-015",
-        "title": "HTTP 200 \u2260 Application Success",
+        "title": "HTTP 200 ≠ Application Success",
         "status": "Permanent",
-        "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy \u2192 verify dependencies \u2192 verify render \u2192 certify."
+        "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy → verify dependencies → verify render → certify."
       }
     ]
   },
@@ -167,7 +150,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "QPaint portfolio stable (213 records, 5 Won $340,603, 34 Lost). 4 Email 1s + 1 check-in due today, 2 QBuild HOLD. No overnight customer replies. Protocol v1.0.0.",
+  "operational_status": "QPaint portfolio stable (217 records, $7.29M book, 5 Won $340,603, 34 Lost). 3 follow-ups overdue since 2 Sep — Atlas to action. Arno Hsu contract confirmed by QPaint. No overnight exceptions. Protocol v1.0.0.",
   "vault_health": {
     "decisions": {
       "total": 80,
@@ -192,26 +175,26 @@
     },
     "infrastructure": {
       "disk": "38% (12G free)",
-      "state_db": "60M (healthy)"
+      "state_db": "73M (healthy)"
     }
   },
   "qpaint_pipeline": {
     "summary": {
-      "total_customers": 213,
-      "total_pipeline_value": 6064757,
+      "total_customers": 217,
+      "total_pipeline_value": "$7.29M",
       "won_count": 5,
-      "won_value": 340603,
+      "won_value": "$340,603",
       "lost_count": 34,
       "engaged_replied": 19,
       "contacted": 121,
-      "not_contacted": 34
+      "not_contacted": 38
     },
     "stage_breakdown": {
       "Email 2": 46,
       "Email 3": 41,
       "Email 1": 37,
       "Lost": 34,
-      "New": 31,
+      "New": 35,
       "Replied": 12,
       "Engaged": 5,
       "Won": 5,
@@ -221,7 +204,7 @@
     "priority": {
       "P1": 93,
       "P2": 53,
-      "P3": 67
+      "P3": 3
     },
     "key_customers": [
       {
@@ -255,12 +238,6 @@
         "status": "Assisted"
       },
       {
-        "name": "Jenny Yang",
-        "value": "$227,084",
-        "stage": "Email 2",
-        "status": "Contacted"
-      },
-      {
         "name": "Nuwan Fernando",
         "value": "$167,592",
         "stage": "Replied",
@@ -273,39 +250,15 @@
         "status": "Contacted"
       },
       {
-        "name": "David Delaney",
-        "value": "$123,655",
-        "stage": "Email 2",
-        "status": "Contacted"
-      },
-      {
-        "name": "Jesse Zhao",
-        "value": "$116,223",
-        "stage": "Email 3",
-        "status": "Contacted"
-      },
-      {
         "name": "Elisha Paige",
         "value": "$113,907",
         "stage": "Engaged",
         "status": "Engaged"
       },
       {
-        "name": "Helen Walsh",
-        "value": "$109,887",
-        "stage": "Email 3",
-        "status": "Contacted"
-      },
-      {
-        "name": "Natalie Jackson",
-        "value": "$109,725",
-        "stage": "Email 2",
-        "status": "Contacted"
-      },
-      {
-        "name": "Cindy Magy",
-        "value": "$108,240",
-        "stage": "Email 2",
+        "name": "Kurt Manabat",
+        "value": "$100,259",
+        "stage": "Awaiting Reply",
         "status": "Contacted"
       },
       {
@@ -315,10 +268,40 @@
         "status": "Engaged"
       },
       {
+        "name": "Helen Walsh",
+        "value": "$109,887",
+        "stage": "Email 3",
+        "status": "Contacted"
+      },
+      {
+        "name": "Cindy Magy",
+        "value": "$108,240",
+        "stage": "Email 2",
+        "status": "Contacted"
+      },
+      {
+        "name": "David Delaney",
+        "value": "$123,655",
+        "stage": "Email 2",
+        "status": "Contacted"
+      },
+      {
+        "name": "Natalie Jackson",
+        "value": "$109,725",
+        "stage": "Email 2",
+        "status": "Contacted"
+      },
+      {
         "name": "Georgina Baartz",
         "value": "$101,530",
         "stage": "Email 2",
         "status": "Contacted"
+      },
+      {
+        "name": "Jenny Erickson",
+        "value": "$21,318",
+        "stage": "Replied",
+        "status": "Engaged"
       }
     ]
   }
