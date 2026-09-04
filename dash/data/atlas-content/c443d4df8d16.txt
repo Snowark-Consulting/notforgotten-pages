@@ -1,0 +1,59 @@
+---
+doc_type: dated-learning
+owner: notforgotten
+date: 2026-09-04
+---
+
+# canonical-send Gate 1 find_approval bug — same-day same-thread reply blocked by earlier approval hash
+
+## Symptom
+
+Second customer reply in the SAME thread on the SAME day (Matthew Collard, Deal 43119 —
+13:16 quote-link re-delivery, then 15:26 scope-question ack) failed at Gate 1 with:
+
+```
+Body hash mismatch — content changed since approval
+expected: 5fca9ec220dfd40e  actual: e2bce05b0981330d
+```
+
+The approval created for the NEW body (APR-...152600) was FOUNDER_APPROVED and on disk,
+but Gate 1 still raised. No send occurred (correct fail-closed behaviour, wrong reason).
+
+## Root cause
+
+`find_approval()` in `scripts/canonical-send.py` iterates `approved/APR-*.json` and, on the
+first artefact matching recipient + stage + subject, **raised GateFailure immediately if the
+body hash differed** — instead of continuing to look for an artefact whose hash DOES match.
+The earlier same-day approval (APR-...131628, quote-link body, same recipient/stage/subject
+`Reply`/`Re: Your QPaint quote — 30 Napier Street, Ascot`) sorts first in glob order, so its
+hash mismatch aborted the search before the new matching approval was reached.
+
+Same recipient + stage + subject + DIFFERENT body across approvals is a legitimate pattern:
+multiple in-thread replies to the same customer in one day. The gate treated the first
+lookalike as proof the content changed, which is wrong when a newer approval exists.
+
+## Fix (applied 2026-09-04)
+
+Changed the hash-mismatch branch from `raise` to `continue`:
+
+```python
+if art.get('body_sha256') != body_hash:
+    continue
+```
+
+Fail-closed semantics preserved: if NO FOUNDER_APPROVED artefact exists for the exact body
+being sent, the loop ends and Gate 1 raises "No valid FOUNDER_APPROVED artefact found".
+The raise-on-first-mismatch was both a false positive (lookalike earlier approval) AND a
+weaker check than intended (it never verified a hash match at all — it just verified the
+first matching recipient/stage/subject artefact existed and bailed on the first mismatch).
+
+## Verification
+
+- Re-run of the Collard scope-ack send: STATUS COMPLETE, Gmail 1a06afcdaa1971ad,
+  thread 1a068ac420b80515, verified in Sent.
+- Body integrity is still enforced: only an approval created for that exact body passes.
+
+## Related
+
+- First discovered while processing Matthew Collard Deal 43119 scope-question reply,
+  2026-09-04 (routine reply authority path).

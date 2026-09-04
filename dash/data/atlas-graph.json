@@ -620,6 +620,50 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decision_reviews_2026_09_05_permanent_outreach_sender_review_prep",
+      "label": "Permanent Outreach Sender Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-09-05-permanent-outreach-sender-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "5d8c8e460542",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decision_reviews_2026_09_06_communication_context_check_review_prep",
+      "label": "Communication Context Check Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-09-06-communication-context-check-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "181923f45a73",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decision_reviews_2026_09_07_production_operating_protocol_review_prep",
+      "label": "Production Operating Protocol Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-09-07-production-operating-protocol-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "772fb7102b0d",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decision_reviews_2026_09_08_phase_1_certified_review_prep",
+      "label": "Phase 1 Certified Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-09-08-phase-1-certified-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "7fd1fb5b0541",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decision_reviews_index",
       "label": "Decision Reviews / Index",
       "file_type": "doc",
@@ -1045,6 +1089,17 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "d55fe5349777",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decisions_2026_09_04_v2_persistence_hold",
+      "label": "V2 Persistence Hold",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-09-04-v2-persistence-hold.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "f968b3f68b9c",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -3072,6 +3127,13 @@
     },
     {
       "source": "agent_registry",
+      "target": "knowledge_decisions_2026_09_04_v2_persistence_hold",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
       "target": "knowledge_customer_2_decision_pack_2026_08_28",
       "relation": "wikilink",
       "weight": 1.0,
@@ -3948,6 +4010,34 @@
     {
       "source": "knowledge_decision_reviews_index",
       "target": "knowledge_decision_reviews_2026_09_04_v2_persistence_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_09_05_permanent_outreach_sender_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_09_06_communication_context_check_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_09_07_production_operating_protocol_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_09_08_phase_1_certified_review_prep",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

@@ -5,10 +5,8 @@
 | Domain | Trigger keywords | Card |
 |--------|-----------------|------|
 | gmail | `gog gmail`, `newer_than`, `batchModify`, `mark.read`, `threadId`, `Gmail API` | `cards/gmail.md` |
-| gmail-auth | `gmail_auth.py`, `google_token`, `token refresh`, `OAuth`, `send_james_email`, `Gmail API auth layer` | `cards/gmail-auth.md` |
-| qpaint | `QPaint`, `QPAINT`, `PandaDoc`, `white-label`, `book control`, `Dee`, `Leslie`, `customer journey`, `atlas@` | `cards/qpaint.md` |
 | hermes | `shell hook`, `matcher`, `post_tool_call`, `pre_tool_call`, `pre_llm_call`, `allowed_users`, `allowlisted`, `state.db`, `system_prompt`, `skill-injection`, `trigram`, `date hook`, `date integrity`, `inject-date` | `cards/hermes.md` |
-| shell | `zsh`, `for p in`, `\| tee`, `tmux pipe`, `nvm`, `pyenv`, `echo $`, `declare -A` | `cards/shell.md` |
+|| shell | `zsh`, `for p in`, `\| tee`, `tmux pipe`, `nvm`, `pyenv`, `echo $`, `declare -A`, `terminal`, `background` | `cards/shell.md` |
 | cron | `cronjob`, `schedule`, `launchd`, `LaunchAgent`, `crontab`, `keychain`, `wakeAgent`, `wakeagent`, `script gate`, `token burn` | `cards/cron.md` |
 | telegram | `allowed_chats`, `allowed_users`, `TELEGRAM`, `@mention`, `/start`, `bot` | `cards/telegram.md` |
 | orgo | `orgo.ai`, `bash API`, `504`, `gateway`, `UUID`, `computer` | `cards/orgo.md` |

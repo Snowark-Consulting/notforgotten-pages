@@ -296,3 +296,12 @@ When a new entry contradicts a prior one: set `Contested: true` on both, add rec
 **Cause:** (1) Botched earlier patch left unreachable lines inside the function body. (2) No persistent Chrome running at pulse time on this box. (3) Chrome ≥136 rejects CDP WebSocket connections from non-allowlisted origins by default.
 **Fix:** (1) Removed orphaned lines 99-113; script compiles. (2) Start Chrome before extraction: `/usr/bin/google-chrome --headless=new --disable-gpu --no-sandbox --remote-debugging-port=9222 --remote-allow-origins=* --user-data-dir=/tmp/chrome-cdp-pulse --window-size=1400,2000 about:blank` (background). (3) Use fresh-tab AX pattern (poll to ≥10,000 chars + scroll pass) rather than the on-disk script, which stops at >200 chars and never scrolls.
 **Source:** 2026-09-02 QPaint #43131 Mark Hughes intake. Skill note added to quote-intake SKILL.md.
+
+## 2026-09-04 — canonical-send Gate 1 find_approval false positive on same-day same-thread reply
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** Second reply to the same customer in the same thread on the same day (Matthew Collard, Deal 43119 — scope-question ack after the 13:16 quote-link re-delivery) was BLOCKED at Gate 1 with `Body hash mismatch — content changed since approval`, even though a fresh FOUNDER_APPROVED artefact for the new body existed on disk.
+**Cause:** `find_approval()` iterated `approved/APR-*.json` and RAISED on the FIRST artefact matching recipient+stage+subject whose body hash differed, instead of continuing to find the artefact whose hash matches. The earlier same-day approval (APR-...131628, quote-link body) sorts first in glob order, so its mismatch aborted the search before the matching approval (APR-...152600) was reached. Same recipient + stage + subject + different body across approvals is a legitimate pattern: multiple in-thread replies in one day.
+**Fix:** Changed the hash-mismatch branch from `raise` to `continue`. Fail-closed semantics preserved: if NO FOUNDER_APPROVED artefact exists for the exact body being sent, the loop ends and Gate 1 raises "No valid FOUNDER_APPROVED artefact found". Verified: re-run COMPLETE (Gmail 1a06afcdaa1971ad, thread 1a068ac420b80515, Sent-verified).
+**Source:** 2026-09-04 Matthew Collard scope-question reply processing. Full detail: `learnings/2026-09-04-canonical-send-gate1-find-approval-bug.md`.

@@ -1,0 +1,64 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-09-03
+status: PREPARATION — review due 2026-09-08
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — Phase 1 Production Cutover Certified (2026-09-08)
+
+> Outcome data gathered ahead of the 2026-09-08 review of `decision-2026-08-08-phase-1-certified` — Canonical Send Authority as sole production send path.
+
+## Decision being reviewed
+
+**What was decided (2026-08-08):** Phase 1 Production Cutover CERTIFIED. `scripts/canonical-send.py` = sole production customer Gmail send path. 11-gate pipeline (Classification → Idempotency → Founder Approval → Pre-Send → Duplicate → Gmail → Verify → Messages → Evidence → State → Read-Back → Reconciliation). Send Classification CUSTOMER / SYSTEM_INTERNAL / TEST_NON_PRODUCTION. Fail-closed (UNKNOWN = BLOCKED). Idempotency (SENT_RECONCILIATION_REQUIRED = repair, never resend). 4/4 paths migrated, 0 alternative paths, 15/15 regression.
+
+**Review date:** 2026-09-08 (30 days).
+
+## Outcome data — what has happened since
+
+1. **V2 Email 3 (32/32) sent 2026-08-28 via founder-direct authority.** Gmail-verified 32/32, Airtable-reconciled 32/32, authority record `knowledge/authority/founder-direct-v2-email3-cohort-2026-08-28.json`. Demonstrates the Founder Approval gate + evidence record working at scale.
+
+2. **QPaint controlled restart (Aug 19+) and daily sends.** Sep 2: 11 follow-ups (Email 1 ×2 + Email 2 ×9) — all Gmail-SENT verified + Airtable reconciled + approval records APR-20260902-091208..091229. Canonical send path + CCG Gate -2 operating.
+
+3. **INC-2026-08-10-DUPLICATE-SEND** — occurred 2 days after certification. 176 sends, 6 duplicates. Campaign Idempotency Standard established (CAMPAIGN_ID + RECIPIENT). Tests whether the 11-gate pipeline's duplicate protection (Gate 3) held; root cause and controls documented.
+
+4. **INC-2026-08-19 — 6 generic QPaint Email 1s.** Sent 10:15–10:23 via canonical path without CCG → CCG became code-enforced Gate -2. The incident occurred THROUGH the certified path, which is the critical review question: the gates fired but the context gate wasn't yet code-enforced at that point.
+
+5. **CCG code enforcement (post Aug 19).** `_validate_context_gate` (A–H fields, customer_experience_test=PASS, next_action=EMAIL, evidence_refs) now mandatory in canonical-send. QPaint freeze file authoritative; fail-closed when freeze active.
+
+6. **Intake Completion Gate (2026-09-02).** Reverse control daily 07:00 (first run clean Sep 3). Two-gate certification on intake before Gmail "Quotes Completed" label.
+
+## Acceptance criteria — actuals
+
+| Criterion | At certification (Aug 8) | Now (Sep 3) |
+|---|---|---|
+| Customer send paths migrated | 4/4 | Still 4/4 (no new paths added outside canonical) |
+| Alternative customer send paths | 0 | 0 (verify no drift — e.g. send-canonical.py, ff1-batch all routed) |
+| NO APPROVAL → BLOCKED | Enforced | Enforced + founder-direct authority records standardised |
+| Fail-closed verification | Enforced | Enforced + CCG Gate -2 added post INC-08-19 |
+| Idempotency | Enforced | Enforced + Campaign Idempotency Standard (Aug 10) |
+| Regression tests | 15/15 PASS | Verify still passing after CCG addition |
+
+## Verdict framing
+
+1. Did the certified path hold as the SOLE send path? Any send that bypassed canonical-send since Aug 8? (Check: V2 sends, QPaint sends, founder-direct sends — all should carry evidence records.)
+2. Was Gate -2 (CCG) addition a protocol amendment requiring change control? Was it recorded properly?
+3. Does the 11-gate pipeline now reflect the post-Aug-19 reality (CCG, idempotency standard, intake gate)? Is the decision record stale vs the current protocol?
+4. Rollback availability: still YES? Any reason Phase 1 needs re-verification or can be declared fully stable?
+
+## Evidence files
+
+- `knowledge/decisions/decision-2026-08-08-phase-1-certified.md` — decision under review
+- `knowledge/production-operating-protocol.md` — protocol v1.1.0 (11-gate pipeline reference)
+- `knowledge/authority/founder-direct-v2-email3-cohort-2026-08-28.json` — V2 Email 3 authority record
+- `knowledge/incidents/INC-2026-08-10-DUPLICATE-SEND.md` — duplicate incident + idempotency standard
+- `learnings/2026-08-19-qpaint-customer-send-incident.md` — CCG enforcement gap + fix
+- `knowledge/decisions/2026-09-02-qpaint-intake-completion-gate-permanent-control.md` — intake gate
+- `knowledge/production-evidence/2026-08-08-qpaint-email2-production-run.md` — first certified production run evidence
+
+## Prepared by
+
+Prepare-Ahead Clock 2026-09-03 22:00 ACST.

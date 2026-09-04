@@ -1,0 +1,66 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-09-03
+status: PREPARATION — review due 2026-09-07
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — Production Operating Protocol v1.0.0 (2026-09-07)
+
+> Outcome data gathered ahead of the 2026-09-07 review of `2026-08-07-production-operating-protocol` — 20-rule single permanent production reference.
+
+## Decision being reviewed
+
+**What was decided (2026-08-07):** All production operating rules codified into one enforceable protocol (20 rules: verified reality vs intention, Gmail authority, state transitions, Founder Approval, pre-send verification, duplicate protection, quote intake, PandaDoc extraction, Last Contacted semantics, Messages reconciliation, pagination, model recovery, journey timing, communication quality, customer-facing timing, QPaint baseline, Founder attention, failure behaviour, architecture over memory, change control). 6 CODE-enforced, 2 WATCHDOG-enforced, 12 DOC-enforced. Six hardening gaps flagged (Founder Approval CRITICAL, Model Failure Recovery HIGH, 4 MEDIUM).
+
+**Review date:** 2026-09-07 (30 days).
+
+## Outcome data — what has happened since
+
+1. **Protocol version progressed.** v1.0.0 (Aug 7) → v1.1.0 (Aug 8, Phase 1 Certified) → referenced as Protocol v1.1.0 in Registry. Production Operating Protocol standard now sits at `knowledge/production-operating-protocol.md` (20 permanent rules, established 2026-08-07).
+
+2. **Phase 1 Production Cutover CERTIFIED (2026-08-08).** Canonical Send Authority sole production send path. 11-gate pipeline, 15/15 regression, 4/4 paths migrated, 0 customer emails triggered by cutover. Review due Sep 8 (separate prep next).
+
+3. **INC-2026-08-10-DUPLICATE-SEND (P1).** 176 sends, 6 recipients affected by duplicate. CLOSED-REMEDIATED with 11 controls. Campaign Idempotency Standard established (CAMPAIGN_ID + RECIPIENT = one send only, mailbox identity enforced via code). Directly tests the duplicate-protection rules (CODE-enforced L1+L2).
+
+4. **INC-2026-08-11-QUOTE-FALSE-COMPLETION (S1).** 3 QPaint quotes falsely Completed with Deal Value=$0. Intake certification gate deployed (CERTIFY BEFORE COMPLETE). Tests intake state machine + Last Contacted semantics rules.
+
+5. **INC-2026-08-19 — QPaint customer send incident.** 6 generic QPaint Email 1s sent without Customer Context Gate. Full stop → controlled restart. Tests Founder Approval, pre-send verification, communication quality rules. Led to CCG code enforcement (Gate -2) — the protocol's DOC-enforced rules demonstrably needed architectural backing.
+
+6. **wakeAgent gate (2026-08-18).** Pulses pinned flash; phase1 watchdogs paused. Idle cron cost eliminated. Tests model recovery / failure behaviour rules.
+
+7. **Operating lessons (2026-08-10).** 13 permanent standards (A1-A13) + 8 incidents (LL-001 through LL-008) — permanent training asset feeding the protocol.
+
+## Hardening gap status (from decision)
+
+| Gap | Priority | Status Aug 7 → Sep 3 |
+|---|---|---|
+| Founder Approval Mode | CRITICAL | Code-enforced in canonical-send Gate 1; founder-direct authority records now used (V2 Email 3 cohort file) |
+| Model Failure Recovery | HIGH | wakeAgent + provider failover deferred decision (2026-08-24, DeepSeek healthy); recovery-bootstrap.md complete |
+| Pre-Send Verification | MEDIUM | CCG Gate -2 code-enforced post INC-08-19; Production Readiness Check mandatory |
+| Last Contacted validation | MEDIUM | QPaint daily ops + reverse control cron (535899707838) |
+| Messages/Send Evidence reconciliation | MEDIUM | V2 Outreach Activity ledger + Gmail two-source verification standard |
+| Failure Behaviour surfacing | MEDIUM | CEO Brief + Campaign Pulse + incident reviews active |
+
+## Verdict framing
+
+1. Did the protocol prevent or contain the Aug 10-19 incidents? (Incidents still occurred — assess whether protocol gaps or execution gaps caused them.)
+2. Have the 6 DOC-enforced hardening gaps been closed architecturally, or do they remain doc-only?
+3. Is the protocol still accurate as the single source of truth (v1.1.0)? Any drift between protocol doc and actual code-enforced gates?
+4. Does Atlas still require James to re-teach any operating rule? (Success criterion: no.)
+
+## Evidence files
+
+- `knowledge/decisions/2026-08-07-production-operating-protocol.md` — decision under review
+- `knowledge/production-operating-protocol.md` — full protocol (v1.1.0)
+- `knowledge/incidents/INC-2026-08-10-DUPLICATE-SEND.md` — P1 duplicate incident
+- `knowledge/incident-reviews/INC-2026-08-11-QUOTE-FALSE-COMPLETION.md` — S1 false completion
+- `learnings/2026-08-19-qpaint-customer-send-incident.md` — CCG enforcement gap
+- `learnings/2026-08-10-operating-lessons.md` — A1-A13 permanent standards
+- `knowledge/foundational-lessons/2026-08-05-production-foundations.md` — INC-002/003 root reviews
+
+## Prepared by
+
+Prepare-Ahead Clock 2026-09-03 22:00 ACST. Sep 7 also carries Monthly Recovery Intelligence Report (first Monday) + Governance Review — separate deliverables, same day.

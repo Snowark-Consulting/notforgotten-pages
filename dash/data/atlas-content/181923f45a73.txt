@@ -1,0 +1,62 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-09-03
+status: PREPARATION — review due 2026-09-06
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — Communication Context Check (2026-09-06)
+
+> Outcome data gathered ahead of the 2026-09-06 review of `2026-08-06-communication-context-check` — the 10-point mandatory pre-draft gate.
+
+## Decision being reviewed
+
+**What was decided (2026-08-06):** Communication starts with context, not content. Before writing any email, Atlas completes a 10-point Communication Context Check (recipient, customer vs client, relationship owner, next-action owner, identity, actual need, prior knowledge, unknowns, assumptions to avoid, desired outcome). Order: Understand → Decide → Draft → Review → Approve → Send. Fires before any draft is written.
+
+**Review date:** 2026-09-06 (30 days after decision).
+
+## Outcome data — what has happened since
+
+1. **INC-2026-08-19 — the gate's critical test.** 6 generic QPaint Email 1s were sent to real customers (10:15–10:23) without the Customer Context Gate. Root cause: the CCG existed as documentation but was not code-enforced at send time. Full incident: `learnings/2026-08-19-qpaint-customer-send-incident.md`. This is the single most important data point for this review: a context gate that is doc-only fails under production pressure.
+
+2. **Code enforcement response (post-Aug 19).** The Customer Context Gate is now CODE-ENFORCED in `canonical-send.py` Gate -2 (`_validate_context_gate`: A–H fields, customer_experience_test=PASS, next_action=EMAIL, evidence_refs). Per `knowledge/customer-context-gate.md` — decision model CUSTOMER TRUTH → STATE → NEXT ACTION → OBJECTIVE → MESSAGE → COMPLIANCE → SEND. A missing or incomplete context record now fails closed. The review should assess whether code enforcement is the right architecture and whether it held.
+
+3. **QPaint controlled restart (Aug 19 11:59).** Julius Gloria + Beth McIntosh only; no mass restart. `data/qpaint-freeze.json` = authoritative; canonical-send fails closed when freeze is active.
+
+4. **QPaint Daily Operations Model (2026-08-20).** Review → Decide, never Review → Send. Individual CCG per customer; no batch/auto-Email 3. Reinforces the context-first principle at the operating level.
+
+5. **Governance + QPaint Integrity Audit (2026-08-19).** ~147 protocols, 10 domains, CCG enforcement gap identified, restoration plan. QPaint outbound readiness was FAIL at that point; restored under the freeze → controlled restart → daily ops model sequence.
+
+6. **QPaint Operational Handover (2026-08-30).** Atlas owns routine QPaint ops end-to-end; Wednesday = Founder Sales Day. Routine replies Atlas-autonomous; exceptions escalate. The handover raises the bar on context checks — autonomy without per-send review makes the CCG the primary safety mechanism for routine sends.
+
+7. **Intake Completion Gate (2026-09-02).** Permanent control on quote intake; quote identity = quote number, not email. Reverse control cron daily 07:00, first run clean/silent Sep 3. Adjacent control — intake context integrity upstream of any customer communication.
+
+## Evidence of gate holding (post-fix)
+
+- QPaint sends since controlled restart: 11 follow-ups Sep 2 (Email 1 ×2 + Email 2 ×9), all Gmail-SENT verified + Airtable reconciled + approval records APR-20260902-091208..091229. CCG per customer.
+- Intake certification two-gate passing on all intakes since v2.3.0 (Sep 2-3: Mark Hughes, Matthew Collard, Christopher Farr, Jono Mazz, Steve Clare, Catherine Curtis — all certified + reconciled).
+- No new customer-facing send incidents recorded since Aug 19 (check daily notes Aug 20 – Sep 3: none flag a CCG bypass).
+- Reverse control cron 535899707838 first run Sep 3 07:00 CLEAN/SILENT.
+
+## Verdict framing
+
+Questions for James at review:
+1. Does the 10-point CCG remain the right pre-draft gate, given it is now code-enforced at send (Gate -2) rather than merely pre-draft? Is there redundancy or a gap between the pre-draft 10-point check and the send-time A–H gate?
+2. Has the post-Aug 19 record (0 CCG bypass incidents, all sends verified) held long enough to certify the fix as permanent?
+3. Should the CCG extend to non-QPaint outbound (V2 Email 2/3/4, founder calls) with the same code enforcement, or is the current coverage correct?
+4. The Aug 19 incident showed doc-only gates fail. What OTHER doc-only gates in the 147-protocol inventory carry customer-facing risk and need code enforcement next?
+
+## Evidence files
+
+- `knowledge/decisions/2026-08-06-communication-context-check.md` — decision under review
+- `knowledge/customer-context-gate.md` — current CCG decision model (code-enforced)
+- `learnings/2026-08-19-qpaint-customer-send-incident.md` — the critical test
+- `learnings/2026-08-19-governance-and-qpaint-integrity-audit.md` — restoration plan
+- `knowledge/decisions/2026-08-20-qpaint-daily-ops-model.md`, `2026-08-30-qpaint-operational-handover.md`, `2026-09-02-qpaint-intake-completion-gate-permanent-control.md` — operating context
+- `notes/2026-08-19.md` through `notes/2026-09-03.md` — daily record of gate holding
+
+## Prepared by
+
+Prepare-Ahead Clock 2026-09-03 22:00 ACST. Note: Sep 7 (production-operating-protocol) and Sep 8 (phase-1-certified) reviews also due this week — preps to be created in upcoming runs.

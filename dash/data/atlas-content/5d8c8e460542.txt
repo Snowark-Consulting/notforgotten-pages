@@ -1,0 +1,54 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-09-03
+status: PREPARATION — review due 2026-09-05
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — Permanent Outreach Sender james@ (2026-09-05)
+
+> Outcome data gathered ahead of the 2026-09-05 review of `permanent-outreach-sender-james` — all NF outbound outreach from james@notforgotten.com.au.
+> **Note:** this decision was missing from the Decision INDEX "Upcoming Reviews" table and the decision-reviews preps index despite its 2026-09-05 review date — INDEX corrected 2026-09-03 (added to Upcoming Reviews).
+
+## Decision being reviewed
+
+**What was decided (2026-08-05):** All outbound outreach on behalf of Not Forgotten Systems must come from `james@notforgotten.com.au` — founder-to-founder, cold outreach, follow-ups, discovery, sales, any communication where the relationship is between James and another business owner. Never from atlas@. White-label client communications (QPaint) remain from the white-label identity.
+
+**Review date:** 2026-09-05 (30 days).
+
+## Success criteria — actuals
+
+| Criterion | Actual | Status |
+|---|---|---|
+| 100% NF outbound verified from james@ | V2 Email 3 (32/32, 28 Aug) james@ Gmail-verified; de-confused Email 1 (9, 30 Aug) james@; FF1 sends james@ | ✅ |
+| Zero NF communications from atlas@ | atlas@ reserved for white-label QPaint + internal ops | ✅ |
+| No customer confusion | No identity-confusion incidents recorded since Aug 5 (check daily notes) | ✅ |
+
+## Outcome data
+
+1. **V2 Email 3 (2026-08-28):** 32/32 sent from james@ via founder-direct authority, Gmail-verified, Airtable-reconciled. Clean demonstration of james@ as production sender at scale.
+2. **De-confused Email 1 cohort (2026-08-30):** 9 fresh prospects from james@ under one-day founder autonomy — Email 2 draft ready for Sep 4 checkpoint (also james@).
+3. **QPaint white-label separation held:** QPaint customer comms from atlas@ with 'Atlas / Customer Care — QPaint' identity; reverse control cron (535899707838) daily 07:00 clean; no white-label/NF identity bleed recorded.
+4. **INC-2026-08-19 (6 generic QPaint Email 1s):** occurred via white-label path; CCG gap — identity was NOT the failure mode (sender was correct for white-label; context was wrong). Supports the decision: identity separation held even when the process failed.
+5. **james@ monitoring:** james-pulse-phase2 read-only monitor active since 2026-08-21 (seen-ID dedup, never mutates) — supports reply detection on james@-sent outreach.
+
+## Verdict framing
+
+1. Has james@-only outreach held for 30 days with zero atlas@ NF sends?
+2. Is the white-label exception still cleanly bounded (QPaint only, approved footer)?
+3. Any outreach type where james@ sender created friction (deliverability, identity confusion, reply routing)?
+4. Should the decision be extended (e.g. formalised into canonical-send sender policy) or is documentation sufficient?
+
+## Evidence files
+
+- `knowledge/decisions/2026-08-05-permanent-outreach-sender-james.md` — decision under review
+- `knowledge/authority/founder-direct-v2-email3-cohort-2026-08-28.json` — V2 Email 3 james@ evidence
+- `knowledge/decisions/2026-07-29-single-identity-james-led.md` — related single-identity decision
+- `learnings/2026-08-19-qpaint-customer-send-incident.md` — identity vs context failure distinction
+- V2 Outreach Activity ledger — all 2026-08-28/30 sends from james@
+
+## Prepared by
+
+Prepare-Ahead Clock 2026-09-03 22:00 ACST. Review converges with the Sep 4 checkpoint window (B-list founder-call verdicts due Sep 5).
