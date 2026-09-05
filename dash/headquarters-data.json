@@ -1,335 +1,331 @@
 {
-  "generated_at": "2026-09-05T16:24:46+09:30",
-  "atlas_brief": {
-    "greeting": "Good afternoon James.",
-    "body": "The QPaint portfolio is stable. 222 total records, 182 active journeys. Production Operating Protocol v1.0.0 governs all operations. Canonical send authority live.",
-    "estimated_time": "2 minutes"
-  },
-  "business_score": {
-    "score": 88,
-    "change": "\u2014",
-    "reasons_positive": [
-      "QPaint book 217 records, $7.29M ($6.14M active). 5 Won ($340,603): Arno Hsu $129,750 RECOVERED + 4 Assisted.",
-      "Matthew Collard (30 Napier St, $47,773) actively reviewing with scope questions \u2014 QPaint handoff executed same-day.",
-      "No intake exceptions overnight. All customer replies reconciled to CRM within hours."
-    ],
-    "reasons_negative": [
-      "1 paying customer ($199 MRR). Customer #2 remains the metric.",
-      "Star Painters (Ahmad) no reply to Wed 2 Sep call + SMS. Stalled opportunity, NFD today."
-    ]
-  },
-  "business_health": {
-    "clients": {
-      "status": "healthy",
-      "detail": "QPaint: Active. Portfolio certified. 182 active journeys with complete Next Action coverage."
-    },
-    "recovery_operations": {
-      "status": "healthy",
-      "detail": "\u2705 182 active QPaint journeys certified. 129 contacted. 0 exceptions. Pipeline: $6,194,902. Won: $348,963."
-    },
-    "outreach": {
-      "status": "healthy",
-      "detail": "V2 Email 3 (32 sent 28 Aug) awaiting reply \u2014 follow-up window 4 Sep. 9 founder-autonomy Email 1s (30 Aug), Email 2 window 4 Sep. RE-ENG-AUG-2026: 99 observing."
-    },
-    "engineering": {
-      "status": "healthy",
-      "detail": "All systems healthy. Canonical send authority (Phase 1) shadow-ready. Production Operating Protocol v1.0.0 live."
-    },
-    "finance": {
-      "status": "healthy",
-      "detail": "QPaint: $348,963 Won. $6,194,902 active pipeline."
-    },
-    "atlas": {
-      "status": "healthy",
-      "detail": "Memory healthy. Protocol v1.0.0 enforced. Model recovery standard active."
-    }
-  },
-  "waiting_for_james": [
-    {
-      "id": "star-painters-ahmad-followup",
-      "title": "Star Painters (Ahmad) \u2014 no reply to Wed 2 Sep SMS, follow-up due today",
-      "why_it_matters": "Ahmad is the #1 path to customer #2. James called + SMS'd on Wed 2 Sep with no reply. Next Follow-up Date is today (5 Sep). A decision is needed: send one more nudge, or hold.",
-      "business_impact": "High: customer #2 is the single most important growth metric. This is the warmest live opportunity.",
-      "estimated_time": "5 min to decide; Atlas drafts any message.",
-      "recommended_action": "Decide: one more brief SMS/email nudge to Ahmad today, or hold and reassess. If nudge, Atlas drafts it for approval.",
-      "impact_sort": 90
-    },
-    {
-      "id": "accountant-tax-documents",
-      "title": "BK Partners (accountant) chasing business tax return supporting documents",
-      "why_it_matters": "Monica Tam (BK Partners) sent two emails Thu 3 Sep requesting supporting documents for the business tax return. Outside Atlas authority \u2014 needs your input/action.",
-      "business_impact": "Medium: tax filing deadline risk. Not customer-facing, but time-sensitive.",
-      "estimated_time": "10 min to review + respond or forward documents.",
-      "recommended_action": "Review the two emails from Monica Tam and provide the requested supporting documents (or tell Atlas what to forward).",
-      "impact_sort": 70
-    }
+ "generated_at": "2026-09-06T04:07:07+09:30",
+ "atlas_brief": {
+  "greeting": "Good morning James.",
+  "body": "Quiet overnight. No new customer or prospect replies in any mailbox. QPaint portfolio stable at 222 records, 6 Won ($348,963), 20 Engaged. Production Operating Protocol v1.0.0 governs all operations. Canonical send authority live.",
+  "estimated_time": "2 minutes"
+ },
+ "business_score": {
+  "score": 88,
+  "change": "steady",
+  "reasons_positive": [
+   "QPaint book 222 records, $7.36M total ($6.19M active). 6 Won ($348,963): Arno Hsu $129,750 RECOVERED + 5 Assisted.",
+   "Matthew Collard (30 Napier St, $47,773) actively reviewing with scope questions. QPaint handoff executed. Review Mon 7 Sep.",
+   "5 new quotes intaken Sat 5 Sep, all certified and reconciled. No intake exceptions overnight."
   ],
-  "atlas_recommendation": {
-    "executive_summary": "Saturday \u2014 no founder call day. QPaint is fully under Atlas control (217 records, 5 Won, 2 replies reconciled, Collard handed to QPaint). The two items genuinely needing you are: (1) the Star Painters/Ahmad follow-up decision (customer #2), and (2) your accountant's tax document request. Everything else runs itself.",
-    "priorities": [
-      {
-        "action": "Decide on the Star Painters (Ahmad) follow-up",
-        "why_it_matters": "Warmest live path to customer #2. No reply to Wed 2 Sep call + SMS. NFD is today.",
-        "expected_impact": "High: could unblock customer #2 conversion.",
-        "estimated_time": "5 min",
-        "confidence": "High"
-      },
-      {
-        "action": "Respond to BK Partners (accountant) on business tax return documents",
-        "why_it_matters": "Two chasing emails since Thu 3 Sep. Tax deadline risk if ignored.",
-        "expected_impact": "Medium: keeps tax filing on schedule.",
-        "estimated_time": "10 min",
-        "confidence": "High"
-      }
-    ],
-    "can_wait": [
-      "All QPaint operations (Email 1 follow-ups, check-ins, Collard QPaint review Mon, 3 new quotes due Mon) \u2014 Atlas owns.",
-      "RE-ENG-AUG-2026 campaign monitoring \u2014 147 observing, no overnight changes.",
-      "System health \u2014 disk 38%, state.db 81M, dashboard current."
-    ],
-    "closing": "Two things need you: the Ahmad follow-up decision and the accountant's documents. Neither is urgent this morning (Saturday), but both are worth clearing today. QPaint is handled."
+  "reasons_negative": [
+   "1 paying customer ($199 MRR). Customer #2 remains the metric.",
+   "Star Painters (Ahmad) no reply to Wed 2 Sep call + SMS. Stalled opportunity, NFD passed 5 Sep."
+  ]
+ },
+ "business_health": {
+  "clients": {
+   "status": "healthy",
+   "detail": "QPaint: Active. Portfolio certified. 182 active journeys with complete Next Action coverage."
   },
-  "changes": {
-    "today": [
-      {
-        "time": "2026-09-05T04:07:20+09:30",
-        "text": "Overnight reconciliation: all three mailboxes scanned. atlas@ 0 unread (2 replies from 4-Sep already reconciled), quotes@ 0 unread, james@ unread = stale 9-Aug bounces (already reconciled) + DMARC noise + BK Partners tax docs (new)."
-      },
-      {
-        "time": "2026-09-05T04:07:20+09:30",
-        "text": "QPaint: 2 customer replies from 4-Sep reconciled \u2014 Matthew Collard (scope questions \u2192 QPaint handoff sent, review Mon 7-Sep) + Paul Eaton (positive ack, pre-expiry check-in 23-Sep)."
-      },
-      {
-        "time": "2026-09-05T04:07:20+09:30",
-        "text": "QPaint: 3 new quotes entered overnight via PandaDoc (Dansie St, St Vincents Rd, Cliftonville Pl). Email 1 follow-up due Monday (weekend)."
-      },
-      {
-        "time": "2026-09-05T04:07:20+09:30",
-        "text": "NF: Star Painters (Ahmad) no reply to Wed 2 Sep call + SMS. NFD today. Pipeline data refresh manually cleared (was 2 failures in a row \u2014 git push now succeeded)."
-      }
-    ],
-    "yesterday": [
-      {
-        "time": "\u2014",
-        "text": "QPaint Email 1 wave + de-confused Email 2 cohort (9) sent."
-      },
-      {
-        "time": "\u2014",
-        "text": "Matthew Collard replied with 4 scope questions \u2192 QPaint handoff to Dee + Leslie via james@."
-      },
-      {
-        "time": "\u2014",
-        "text": "Paul Eaton replied (positive ack, still reviewing)."
-      }
-    ],
-    "this_week": [
-      {
-        "time": "\u2014",
-        "text": "QPaint: 217 records, $7.29M, 5 Won ($340,603), 34 Lost, 20 Engaged."
-      },
-      {
-        "time": "\u2014",
-        "text": "Arno Hsu (Algester $129,750) \u2014 first Recovered win. QPaint confirmed handling."
-      },
-      {
-        "time": "\u2014",
-        "text": "Matthew Collard ($47,773) engaged with scope questions \u2014 active opportunity."
-      }
-    ]
+  "recovery_operations": {
+   "status": "healthy",
+   "detail": "182 active QPaint journeys certified. 129 contacted, 20 engaged. 0 exceptions. Active pipeline: $6,194,902. Won: $348,963 (1 Recovered $129,750 + 5 Assisted)."
   },
-  "lessons_learned": {
-    "total": 3,
-    "recent": [
-      {
-        "id": "INC-2026-08-11",
-        "title": "QPaint Quote Intake \u2014 False Completion",
-        "status": "Closed",
-        "summary": "3 quotes marked complete with $0 deal values. Root cause: no certification gate between extraction and label. Fixed: certify_intake_complete() + Intake Exception state."
-      },
-      {
-        "id": "BK-014",
-        "title": "ATTEMPTED \u2260 COMPLETED",
-        "status": "Permanent",
-        "summary": "Automation success \u2260 business outcome success. Every critical workflow must verify the business state, not just the process completion."
-      },
-      {
-        "id": "BK-015",
-        "title": "HTTP 200 \u2260 Application Success",
-        "status": "Permanent",
-        "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy \u2192 verify dependencies \u2192 verify render \u2192 certify."
-      }
-    ]
+  "outreach": {
+   "status": "healthy",
+   "detail": "V2 Email 3 (32 sent 28 Aug) 0 replies, HOLD decision standing. De-confused Email 2 (9 sent 4 Sep) in observation to 11 Sep. RE-ENG-AUG-2026: 99 observing, no overnight changes."
+  },
+  "engineering": {
+   "status": "healthy",
+   "detail": "All systems healthy. Canonical send authority (Phase 1) shadow-ready. Production Operating Protocol v1.0.0 live."
+  },
+  "finance": {
+   "status": "healthy",
+   "detail": "QPaint: $348,963 Won (6). $129,750 recovered (Arno Hsu). $6,194,902 active pipeline."
+  },
+  "atlas": {
+   "status": "healthy",
+   "detail": "Memory healthy. Protocol v1.0.0 enforced. Model recovery standard active."
+  }
+ },
+ "waiting_for_james": [
+  {
+   "id": "star-painters-ahmad-followup",
+   "title": "Star Painters (Ahmad) - no reply to Wed 2 Sep SMS, follow-up now overdue",
+   "why_it_matters": "Ahmad is the #1 path to customer #2. James called + SMS'd on Wed 2 Sep with no reply. Next Follow-up Date (5 Sep) has passed. A decision is needed: send one more nudge, or hold.",
+   "business_impact": "High: customer #2 is the single most important growth metric. This is the warmest live opportunity.",
+   "estimated_time": "5 min to decide; Atlas drafts any message.",
+   "recommended_action": "Decide: one more brief SMS/email nudge to Ahmad, or hold and reassess. If nudge, Atlas drafts it for approval.",
+   "impact_sort": 90
+  },
+  {
+   "id": "accountant-tax-documents",
+   "title": "BK Partners (accountant) business tax return supporting documents",
+   "why_it_matters": "Monica Tam (BK Partners) sent two emails Thu 3 Sep requesting supporting documents. Outside Atlas authority. No longer showing unread in james@ (may have been opened).",
+   "business_impact": "Medium: tax filing deadline risk. Not customer-facing, but time-sensitive.",
+   "estimated_time": "10 min to review + respond or forward documents.",
+   "recommended_action": "Confirm the tax documents have been actioned, or tell Atlas what to forward to Monica Tam.",
+   "impact_sort": 70
+  }
+ ],
+ "atlas_recommendation": {
+  "executive_summary": "Sunday. Quiet overnight: no new replies, no bounces, no exceptions. QPaint is fully under Atlas control (222 records, 6 Won, 20 engaged, 5 quotes intaken Sat). Two items genuinely need you: (1) the Star Painters/Ahmad follow-up decision (customer #2), and (2) confirming the accountant's tax document request is handled.",
+  "priorities": [
+   {
+    "action": "Decide on the Star Painters (Ahmad) follow-up",
+    "why_it_matters": "Warmest live path to customer #2. No reply to Wed 2 Sep call + SMS. NFD passed 5 Sep.",
+    "expected_impact": "High: could unblock customer #2 conversion.",
+    "estimated_time": "5 min",
+    "confidence": "High"
+   },
+   {
+    "action": "Confirm BK Partners (accountant) tax documents are actioned",
+    "why_it_matters": "Two chasing emails since Thu 3 Sep. Tax deadline risk if ignored.",
+    "expected_impact": "Medium: keeps tax filing on schedule.",
+    "estimated_time": "10 min",
+    "confidence": "High"
+   }
+  ],
+  "can_wait": [
+   "All QPaint operations (Email 1 follow-ups, check-ins, Collard review Mon 7 Sep, 5 quotes due Mon) - Atlas owns.",
+   "RE-ENG-AUG-2026 campaign monitoring - 99 observing, no overnight changes.",
+   "System health - disk 38%, state.db 84M, dashboard current (04:00 refresh)."
+  ],
+  "closing": "Two things need you: the Ahmad follow-up decision and the accountant's documents. Neither is urgent this morning (Sunday), but both are worth clearing before Monday's cluster. QPaint is handled."
+ },
+ "changes": {
+  "today": [
+   {
+    "time": "2026-09-06T04:07:07+09:30",
+    "text": "Overnight reconciliation: all three mailboxes scanned. atlas@ 0 unread, quotes@ 0 unread, james@ unread = 2 new system items (DMARC report + Stripe invoice) + 9 stale Aug 7-9 items (5 bounces already reconciled Lost, 1 auto-reply, 3 DMARC)."
+   },
+   {
+    "time": "2026-09-06T04:07:07+09:30",
+    "text": "QPaint: no overnight changes. 6 Won ($348,963) confirmed stable. 5 quotes intaken Sat 5 Sep due Mon 7 Sep."
+   },
+   {
+    "time": "2026-09-06T04:07:07+09:30",
+    "text": "NF: Star Painters (Ahmad) NFD passed 5 Sep, still no reply to Wed 2 Sep call + SMS. Stalled opportunity."
+   }
+  ],
+  "yesterday": [
+   {
+    "time": "2026-09-05",
+    "text": "Rhonda Bourke #42950 WIN recorded ($8,360) - 6th Won, Assisted attribution. Portfolio now 6 Won / $348,963."
+   },
+   {
+    "time": "2026-09-05",
+    "text": "5 QPaint quotes intaken and certified (Tapley, Oliveira, Harvison, O'Donnell, Ellis). Due Mon 7 Sep."
+   },
+   {
+    "time": "2026-09-05",
+    "text": "GitHub Pages push auth fixed (dead PAT removed from http.extraheader). ORIGIN nightly backup still needs Josh/James PAT."
+   }
+  ],
+  "this_week": [
+   {
+    "time": "-",
+    "text": "QPaint: 222 records, $7.36M total, 6 Won ($348,963), 34 Lost, 20 Engaged."
+   },
+   {
+    "time": "-",
+    "text": "Arno Hsu (Algester $129,750) - only Recovered win. 5 Assisted wins totalling $219,213."
+   },
+   {
+    "time": "-",
+    "text": "Matthew Collard ($47,773) engaged with scope questions - active opportunity, review Mon 7 Sep."
+   }
+  ]
+ },
+ "lessons_learned": {
+  "total": 3,
+  "recent": [
+   {
+    "id": "INC-2026-08-11",
+    "title": "QPaint Quote Intake — False Completion",
+    "status": "Closed",
+    "summary": "3 quotes marked complete with $0 deal values. Root cause: no certification gate between extraction and label. Fixed: certify_intake_complete() + Intake Exception state."
+   },
+   {
+    "id": "BK-014",
+    "title": "ATTEMPTED ≠ COMPLETED",
+    "status": "Permanent",
+    "summary": "Automation success ≠ business outcome success. Every critical workflow must verify the business state, not just the process completion."
+   },
+   {
+    "id": "BK-015",
+    "title": "HTTP 200 ≠ Application Success",
+    "status": "Permanent",
+    "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy → verify dependencies → verify render → certify."
+   }
+  ]
+ },
+ "business_knowledge": {
+  "description": "",
+  "principles": []
+ },
+ "production_incidents": {
+  "description": "",
+  "total": 0,
+  "recent": []
+ },
+ "production_sender": {},
+ "communications": {},
+ "operational_status": "QPaint portfolio certified. 182 active journeys. Protocol v1.0.0. Send authority live. Overnight clean.",
+ "vault_health": {
+  "decisions": {
+   "total": 80,
+   "founding": 8
+  },
+  "learnings": {
+   "total": 54,
+   "resolved": 40
+  },
+  "incidents": {
+   "total": 4,
+   "resolved": 4
+  },
+  "ceo_briefs": {
+   "published": 8
   },
   "business_knowledge": {
-    "description": "",
-    "principles": []
+   "principles": 15
   },
-  "production_incidents": {
-    "description": "",
-    "total": 0,
-    "recent": []
+  "memory": {
+   "usage": "99%"
   },
-  "production_sender": {},
-  "communications": {},
-  "operational_status": "\u2705 QPaint portfolio certified. 182 active journeys. Protocol v1.0.0. Send authority live.",
-  "vault_health": {
-    "decisions": {
-      "total": 80,
-      "founding": 8
-    },
-    "learnings": {
-      "total": 54,
-      "resolved": 40
-    },
-    "incidents": {
-      "total": 4,
-      "resolved": 4
-    },
-    "ceo_briefs": {
-      "published": 8
-    },
-    "business_knowledge": {
-      "principles": 15
-    },
-    "memory": {
-      "usage": "99%"
-    },
-    "infrastructure": {
-      "disk": "38% (12G free)",
-      "state_db": "81M (healthy)"
-    }
-  },
-  "qpaint_pipeline": {
-    "summary": {
-      "total_customers": 222,
-      "total_pipeline_value": 6194902,
-      "won_count": 6,
-      "won_value": 348963,
-      "lost_count": 34,
-      "engaged_replied": 20,
-      "contacted": 129,
-      "not_contacted": 33
-    },
-    "stage_breakdown": {
-      "Email 2": 47,
-      "Email 1": 44,
-      "Email 3": 40,
-      "Lost": 34,
-      "New": 31,
-      "Replied": 14,
-      "Won": 6,
-      "Engaged": 4,
-      "Awaiting Reply": 1,
-      "Email 4": 1
-    },
-    "priority": {
-      "P1": 93,
-      "P2": 53,
-      "P3": 76
-    },
-    "key_customers": [
-      {
-        "name": "Nuwan Fernando",
-        "value": "$167,592",
-        "stage": "Replied",
-        "status": "Engaged"
-      },
-      {
-        "name": "Nicholas Zappacosta",
-        "value": "$145,008",
-        "stage": "Won",
-        "status": "Assisted"
-      },
-      {
-        "name": "Richard Zhang",
-        "value": "$145,350",
-        "stage": "Email 4",
-        "status": "Contacted"
-      },
-      {
-        "name": "Arno Hsu",
-        "value": "$129,750",
-        "stage": "Won",
-        "status": "Recovered"
-      },
-      {
-        "name": "David Delaney",
-        "value": "$123,655",
-        "stage": "Email 2",
-        "status": "Contacted"
-      },
-      {
-        "name": "Elisha Paige",
-        "value": "$113,907",
-        "stage": "Engaged",
-        "status": "Engaged"
-      },
-      {
-        "name": "Helen Walsh",
-        "value": "$109,887",
-        "stage": "Email 3",
-        "status": "Contacted"
-      },
-      {
-        "name": "Natalie Jackson",
-        "value": "$109,725",
-        "stage": "Email 2",
-        "status": "Contacted"
-      },
-      {
-        "name": "Cindy Magy",
-        "value": "$108,240",
-        "stage": "Email 2",
-        "status": "Contacted"
-      },
-      {
-        "name": "Brooke Warren",
-        "value": "$106,249",
-        "stage": "Replied",
-        "status": "Engaged"
-      },
-      {
-        "name": "Georgina Baartz",
-        "value": "$101,530",
-        "stage": "Email 2",
-        "status": "Contacted"
-      },
-      {
-        "name": "Kurt Manabat",
-        "value": "$100,259",
-        "stage": "Awaiting Reply",
-        "status": "Contacted"
-      },
-      {
-        "name": "Matthew Collard",
-        "value": "$47,773",
-        "stage": "Replied",
-        "status": "Engaged"
-      },
-      {
-        "name": "Cheryl Sim",
-        "value": "$29,698",
-        "stage": "Won",
-        "status": "Assisted"
-      },
-      {
-        "name": "Jenny Erickson",
-        "value": "$21,318",
-        "stage": "Replied",
-        "status": "Engaged"
-      },
-      {
-        "name": "Kay Crawley",
-        "value": "$18,636",
-        "stage": "Won",
-        "status": "Assisted"
-      },
-      {
-        "name": "Joy Ryan",
-        "value": "$17,510",
-        "stage": "Won",
-        "status": "Assisted"
-      }
-    ]
+  "infrastructure": {
+   "disk": "38% (12G free)",
+   "state_db": "84M (healthy)"
   }
+ },
+ "qpaint_pipeline": {
+  "summary": {
+   "total_customers": 222,
+   "total_pipeline_value": 6194902,
+   "won_count": 6,
+   "won_value": 348963,
+   "lost_count": 34,
+   "engaged_replied": 20,
+   "contacted": 129,
+   "not_contacted": 33
+  },
+  "stage_breakdown": {
+   "Email 2": 47,
+   "Email 1": 44,
+   "Email 3": 40,
+   "Lost": 34,
+   "New": 31,
+   "Replied": 14,
+   "Won": 6,
+   "Engaged": 4,
+   "Awaiting Reply": 1,
+   "Email 4": 1
+  },
+  "priority": {
+   "P1": 93,
+   "P2": 53,
+   "P3": 76
+  },
+  "key_customers": [
+   {
+    "name": "Nuwan Fernando",
+    "value": "$167,592",
+    "stage": "Replied",
+    "status": "Engaged"
+   },
+   {
+    "name": "Nicholas Zappacosta",
+    "value": "$145,008",
+    "stage": "Won",
+    "status": "Assisted"
+   },
+   {
+    "name": "Richard Zhang",
+    "value": "$145,350",
+    "stage": "Email 4",
+    "status": "Contacted"
+   },
+   {
+    "name": "Arno Hsu",
+    "value": "$129,750",
+    "stage": "Won",
+    "status": "Recovered"
+   },
+   {
+    "name": "David Delaney",
+    "value": "$123,655",
+    "stage": "Email 2",
+    "status": "Contacted"
+   },
+   {
+    "name": "Elisha Paige",
+    "value": "$113,907",
+    "stage": "Engaged",
+    "status": "Engaged"
+   },
+   {
+    "name": "Helen Walsh",
+    "value": "$109,887",
+    "stage": "Email 3",
+    "status": "Contacted"
+   },
+   {
+    "name": "Natalie Jackson",
+    "value": "$109,725",
+    "stage": "Email 2",
+    "status": "Contacted"
+   },
+   {
+    "name": "Cindy Magy",
+    "value": "$108,240",
+    "stage": "Email 2",
+    "status": "Contacted"
+   },
+   {
+    "name": "Brooke Warren",
+    "value": "$106,249",
+    "stage": "Replied",
+    "status": "Engaged"
+   },
+   {
+    "name": "Georgina Baartz",
+    "value": "$101,530",
+    "stage": "Email 2",
+    "status": "Contacted"
+   },
+   {
+    "name": "Kurt Manabat",
+    "value": "$100,259",
+    "stage": "Awaiting Reply",
+    "status": "Contacted"
+   },
+   {
+    "name": "Matthew Collard",
+    "value": "$47,773",
+    "stage": "Replied",
+    "status": "Engaged"
+   },
+   {
+    "name": "Cheryl Sim",
+    "value": "$29,698",
+    "stage": "Won",
+    "status": "Assisted"
+   },
+   {
+    "name": "Jenny Erickson",
+    "value": "$21,318",
+    "stage": "Replied",
+    "status": "Engaged"
+   },
+   {
+    "name": "Kay Crawley",
+    "value": "$18,636",
+    "stage": "Won",
+    "status": "Assisted"
+   },
+   {
+    "name": "Joy Ryan",
+    "value": "$17,510",
+    "stage": "Won",
+    "status": "Assisted"
+   }
+  ]
+ }
 }
