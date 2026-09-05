@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-09-05T04:07:20+09:30",
+  "generated_at": "2026-09-05T16:24:46+09:30",
   "atlas_brief": {
-    "greeting": "Good morning James.",
-    "body": "QPaint portfolio stable at 217 records, $7.29M book, 5 Won ($340,603). Two customer replies from yesterday (Matthew Collard, Paul Eaton) both reconciled. Collard's scope questions handed to QPaint (review Mon). No overnight replies, bounces, or exceptions. One non-customer item for you: BK Partners (your accountant) is chasing business tax return supporting documents.",
+    "greeting": "Good afternoon James.",
+    "body": "The QPaint portfolio is stable. 222 total records, 182 active journeys. Production Operating Protocol v1.0.0 governs all operations. Canonical send authority live.",
     "estimated_time": "2 minutes"
   },
   "business_score": {
     "score": 88,
-    "change": "—",
+    "change": "\u2014",
     "reasons_positive": [
       "QPaint book 217 records, $7.29M ($6.14M active). 5 Won ($340,603): Arno Hsu $129,750 RECOVERED + 4 Assisted.",
-      "Matthew Collard (30 Napier St, $47,773) actively reviewing with scope questions — QPaint handoff executed same-day.",
+      "Matthew Collard (30 Napier St, $47,773) actively reviewing with scope questions \u2014 QPaint handoff executed same-day.",
       "No intake exceptions overnight. All customer replies reconciled to CRM within hours."
     ],
     "reasons_negative": [
@@ -21,33 +21,33 @@
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "QPaint: Active, $199 MRR, Green. 217 records reconciled with complete Next Action coverage."
+      "detail": "QPaint: Active. Portfolio certified. 182 active journeys with complete Next Action coverage."
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "QPaint: 5 Won ($340,603), 34 Lost, 20 Engaged, 130 Contacted, 28 New. Arno Hsu (Won) monitor date 3 Sep passed — awaiting QPaint commencement date."
+      "detail": "\u2705 182 active QPaint journeys certified. 129 contacted. 0 exceptions. Pipeline: $6,194,902. Won: $348,963."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "RE-ENG-AUG-2026: 147 prospects, 136 ACTIVE, no overnight state changes. 41 completed, 5 lost, 1 unsubscribed, 6 quarantined."
+      "detail": "V2 Email 3 (32 sent 28 Aug) awaiting reply \u2014 follow-up window 4 Sep. 9 founder-autonomy Email 1s (30 Aug), Email 2 window 4 Sep. RE-ENG-AUG-2026: 99 observing."
     },
     "engineering": {
       "status": "healthy",
-      "detail": "All systems healthy. Gmail (3 mailboxes) + Airtable verified. Pulse cron pairing intact (inbox/quotes/james phase-2 all present)."
+      "detail": "All systems healthy. Canonical send authority (Phase 1) shadow-ready. Production Operating Protocol v1.0.0 live."
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $340,603 Won (1 Recovered + 4 Assisted). $6.14M active pipeline. $199 MRR recurring."
+      "detail": "QPaint: $348,963 Won. $6,194,902 active pipeline."
     },
     "atlas": {
       "status": "healthy",
-      "detail": "Memory healthy. Overnight reconciliation complete — all three mailboxes scanned, CRM cross-referenced."
+      "detail": "Memory healthy. Protocol v1.0.0 enforced. Model recovery standard active."
     }
   },
   "waiting_for_james": [
     {
       "id": "star-painters-ahmad-followup",
-      "title": "Star Painters (Ahmad) — no reply to Wed 2 Sep SMS, follow-up due today",
+      "title": "Star Painters (Ahmad) \u2014 no reply to Wed 2 Sep SMS, follow-up due today",
       "why_it_matters": "Ahmad is the #1 path to customer #2. James called + SMS'd on Wed 2 Sep with no reply. Next Follow-up Date is today (5 Sep). A decision is needed: send one more nudge, or hold.",
       "business_impact": "High: customer #2 is the single most important growth metric. This is the warmest live opportunity.",
       "estimated_time": "5 min to decide; Atlas drafts any message.",
@@ -57,7 +57,7 @@
     {
       "id": "accountant-tax-documents",
       "title": "BK Partners (accountant) chasing business tax return supporting documents",
-      "why_it_matters": "Monica Tam (BK Partners) sent two emails Thu 3 Sep requesting supporting documents for the business tax return. Outside Atlas authority — needs your input/action.",
+      "why_it_matters": "Monica Tam (BK Partners) sent two emails Thu 3 Sep requesting supporting documents for the business tax return. Outside Atlas authority \u2014 needs your input/action.",
       "business_impact": "Medium: tax filing deadline risk. Not customer-facing, but time-sensitive.",
       "estimated_time": "10 min to review + respond or forward documents.",
       "recommended_action": "Review the two emails from Monica Tam and provide the requested supporting documents (or tell Atlas what to forward).",
@@ -65,7 +65,7 @@
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Saturday — no founder call day. QPaint is fully under Atlas control (217 records, 5 Won, 2 replies reconciled, Collard handed to QPaint). The two items genuinely needing you are: (1) the Star Painters/Ahmad follow-up decision (customer #2), and (2) your accountant's tax document request. Everything else runs itself.",
+    "executive_summary": "Saturday \u2014 no founder call day. QPaint is fully under Atlas control (217 records, 5 Won, 2 replies reconciled, Collard handed to QPaint). The two items genuinely needing you are: (1) the Star Painters/Ahmad follow-up decision (customer #2), and (2) your accountant's tax document request. Everything else runs itself.",
     "priorities": [
       {
         "action": "Decide on the Star Painters (Ahmad) follow-up",
@@ -83,9 +83,9 @@
       }
     ],
     "can_wait": [
-      "All QPaint operations (Email 1 follow-ups, check-ins, Collard QPaint review Mon, 3 new quotes due Mon) — Atlas owns.",
-      "RE-ENG-AUG-2026 campaign monitoring — 147 observing, no overnight changes.",
-      "System health — disk 38%, state.db 81M, dashboard current."
+      "All QPaint operations (Email 1 follow-ups, check-ins, Collard QPaint review Mon, 3 new quotes due Mon) \u2014 Atlas owns.",
+      "RE-ENG-AUG-2026 campaign monitoring \u2014 147 observing, no overnight changes.",
+      "System health \u2014 disk 38%, state.db 81M, dashboard current."
     ],
     "closing": "Two things need you: the Ahmad follow-up decision and the accountant's documents. Neither is urgent this morning (Saturday), but both are worth clearing today. QPaint is handled."
   },
@@ -97,7 +97,7 @@
       },
       {
         "time": "2026-09-05T04:07:20+09:30",
-        "text": "QPaint: 2 customer replies from 4-Sep reconciled — Matthew Collard (scope questions → QPaint handoff sent, review Mon 7-Sep) + Paul Eaton (positive ack, pre-expiry check-in 23-Sep)."
+        "text": "QPaint: 2 customer replies from 4-Sep reconciled \u2014 Matthew Collard (scope questions \u2192 QPaint handoff sent, review Mon 7-Sep) + Paul Eaton (positive ack, pre-expiry check-in 23-Sep)."
       },
       {
         "time": "2026-09-05T04:07:20+09:30",
@@ -105,35 +105,35 @@
       },
       {
         "time": "2026-09-05T04:07:20+09:30",
-        "text": "NF: Star Painters (Ahmad) no reply to Wed 2 Sep call + SMS. NFD today. Pipeline data refresh manually cleared (was 2 failures in a row — git push now succeeded)."
+        "text": "NF: Star Painters (Ahmad) no reply to Wed 2 Sep call + SMS. NFD today. Pipeline data refresh manually cleared (was 2 failures in a row \u2014 git push now succeeded)."
       }
     ],
     "yesterday": [
       {
-        "time": "—",
+        "time": "\u2014",
         "text": "QPaint Email 1 wave + de-confused Email 2 cohort (9) sent."
       },
       {
-        "time": "—",
-        "text": "Matthew Collard replied with 4 scope questions → QPaint handoff to Dee + Leslie via james@."
+        "time": "\u2014",
+        "text": "Matthew Collard replied with 4 scope questions \u2192 QPaint handoff to Dee + Leslie via james@."
       },
       {
-        "time": "—",
+        "time": "\u2014",
         "text": "Paul Eaton replied (positive ack, still reviewing)."
       }
     ],
     "this_week": [
       {
-        "time": "—",
+        "time": "\u2014",
         "text": "QPaint: 217 records, $7.29M, 5 Won ($340,603), 34 Lost, 20 Engaged."
       },
       {
-        "time": "—",
-        "text": "Arno Hsu (Algester $129,750) — first Recovered win. QPaint confirmed handling."
+        "time": "\u2014",
+        "text": "Arno Hsu (Algester $129,750) \u2014 first Recovered win. QPaint confirmed handling."
       },
       {
-        "time": "—",
-        "text": "Matthew Collard ($47,773) engaged with scope questions — active opportunity."
+        "time": "\u2014",
+        "text": "Matthew Collard ($47,773) engaged with scope questions \u2014 active opportunity."
       }
     ]
   },
@@ -142,21 +142,21 @@
     "recent": [
       {
         "id": "INC-2026-08-11",
-        "title": "QPaint Quote Intake — False Completion",
+        "title": "QPaint Quote Intake \u2014 False Completion",
         "status": "Closed",
         "summary": "3 quotes marked complete with $0 deal values. Root cause: no certification gate between extraction and label. Fixed: certify_intake_complete() + Intake Exception state."
       },
       {
         "id": "BK-014",
-        "title": "ATTEMPTED ≠ COMPLETED",
+        "title": "ATTEMPTED \u2260 COMPLETED",
         "status": "Permanent",
-        "summary": "Automation success ≠ business outcome success. Every critical workflow must verify the business state, not just the process completion."
+        "summary": "Automation success \u2260 business outcome success. Every critical workflow must verify the business state, not just the process completion."
       },
       {
         "id": "BK-015",
-        "title": "HTTP 200 ≠ Application Success",
+        "title": "HTTP 200 \u2260 Application Success",
         "status": "Permanent",
-        "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy → verify dependencies → verify render → certify."
+        "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy \u2192 verify dependencies \u2192 verify render \u2192 certify."
       }
     ]
   },
@@ -171,7 +171,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "Overnight readiness (5 Sep): all three mailboxes reconciled. QPaint — 2 replies from 4-Sep reconciled (Collard → QPaint handoff; Eaton → check-in 23-Sep), 3 new quotes due Mon. NF — Star Painters/Ahmad follow-up decision due (customer #2). RE-ENG unchanged (147). System healthy: disk 38%, state.db 81M, pulse pairing intact. No founder actions required beyond the two surfaced items.",
+  "operational_status": "\u2705 QPaint portfolio certified. 182 active journeys. Protocol v1.0.0. Send authority live.",
   "vault_health": {
     "decisions": {
       "total": 80,
@@ -201,31 +201,31 @@
   },
   "qpaint_pipeline": {
     "summary": {
-      "total_customers": 217,
-      "total_pipeline_value": "$7.29M",
-      "won_count": 5,
-      "won_value": "$340,603",
+      "total_customers": 222,
+      "total_pipeline_value": 6194902,
+      "won_count": 6,
+      "won_value": 348963,
       "lost_count": 34,
       "engaged_replied": 20,
-      "contacted": 130,
-      "not_contacted": 28
+      "contacted": 129,
+      "not_contacted": 33
     },
     "stage_breakdown": {
       "Email 2": 47,
       "Email 1": 44,
-      "Email 3": 41,
+      "Email 3": 40,
       "Lost": 34,
-      "New": 26,
-      "Replied": 13,
-      "Engaged": 5,
-      "Won": 5,
+      "New": 31,
+      "Replied": 14,
+      "Won": 6,
+      "Engaged": 4,
       "Awaiting Reply": 1,
       "Email 4": 1
     },
     "priority": {
       "P1": 93,
       "P2": 53,
-      "P3": 3
+      "P3": 76
     },
     "key_customers": [
       {
