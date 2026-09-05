@@ -31,6 +31,8 @@ prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
 
 6. **Intake Completion Gate (2026-09-02).** Reverse control daily 07:00 (first run clean Sep 3). Two-gate certification on intake before Gmail "Quotes Completed" label.
 
+7. **canonical-send Gate 1 find_approval bug (2026-09-04, FIXED).** Same-day same-thread reply blocked at Gate 1 by raise-on-first-hash-mismatch; changed to `continue` — fail-closed preserved. Directly tests the 11-gate pipeline's Founder Approval gate under live conditions: the gate fired (correctly blocked then released after fix), and the fix kept fail-closed semantics. Record: `learnings/2026-09-04-canonical-send-gate1-find-approval-bug.md`.
+
 ## Acceptance criteria — actuals
 
 | Criterion | At certification (Aug 8) | Now (Sep 3) |

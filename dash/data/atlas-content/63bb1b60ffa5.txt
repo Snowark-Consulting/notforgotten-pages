@@ -65,7 +65,7 @@ tier: primary
 - **V2 Email 3 sent 2026-08-28** — 32/32 james@, founder-direct authority (knowledge/authority/founder-direct-v2-email3-cohort-2026-08-28.json), Gmail-verified, Airtable-reconciled. Persistence ≠ repetition decision ADOPTED (`2026-08-28-v2-persistence-not-repetition`): no 2-touch cap, CCG decides, stop signals only. **HOLD 2026-09-04**: 0 replies Day 6 → no Email 4, all 32 → MONITOR, 4 B-tier = founder-phone candidates (`2026-09-04-v2-persistence-hold`). De-confused Email 2 (9) sent 4 Sep james@. 8 B-list founder-call candidates; 8 Email-2 prospects NOT advanced — flag for James. `[high]`
 - **state.db rotation 2026-08-24 + 2nd corruption 2026-08-25** — rebuilt fresh 24 Aug (torn checkpoint; session_search covers post-rotation only). 2nd FTS corruption 25 Aug (Tree 50) fixed via restore-snapshot (24 Aug snapshot, integrity OK). Watchdog c8232ee06f3e (6h) + snapshot cron 8ed9962a3929 (11:45 daily; clean since 26 Aug) + Weekly VACUUM d84ff606097d (passed 29 Aug; duplicate 7753a0cb9e74 still to disable). `[high]`
 - **Gateway supervisor 2026-08-29** — exit 75 = PLANNED RESTART (EX_TEMPFAIL), not crash; gateway expects service manager; box has NO systemd/crond; cron scheduler embedded in gateway (dies with it). `scripts/gateway-supervisor.py` = standalone double-fork daemon (30s poll, relaunch, crash-loop guard 5 rapid failures → `state/gateway-crash-loop-alert`); manual start after reboot. Mitigations: kanban.max_in_progress=3, Chrome idle-close b9720c204989 (4h). Host 4GB/0-swap — swapfile 2-4GB recommended not applied. Diagnose: `skills/devops/hermes-gateway-ops`. Never trust `suspected_oom` — read `mem_available_kib`. `[high]`
-- **GitHub backup auth** — stale `http.extraheader` overrides URL token; `state/` must stay anchored `/state/` or it swallows `backups/state`. Fixed 2026-08-24; re-check after any git config change. `[high]`
+- **GitHub backup auth** — stale `http.extraheader` overrides URL token; `state/` must stay anchored `/state/` or it swallows `backups/state`. Fixed 2026-08-24; re-check after any git config change. **REGRESSED 2026-09-05**: extraheader + embedded URL PAT (SNOWARK `ghp_bJO…`) both died; dropped extraheader + cleaned pages URL → pages push works (credential store `ghp_bLx…`). **ORIGIN (nightly backup, private client-notforgotten) STILL BROKEN**: dead token embedded + Hardstaff08 lacks repo access — backup fails until Josh refreshes SNOWARK_GITHUB_TOKEN or grants access. `[high]`
 
 ## Model & cost (2026-08-18)
 
@@ -74,5 +74,5 @@ tier: primary
 
 ## Business state
 
-- **Clients** — 1 paying (QPaint $199 MRR). Trials 0. Star Painters = stalled opportunity. `[high]`
+- **Clients** — 1 paying (QPaint $199 MRR). Trials 0. Star Painters = stalled opportunity. QPaint won portfolio: 6 Won · $348,963 total won · Recovered $129,750.50 (Arno Hsu Tier-1 only; Assisted stays blank). 6th win: Rhonda Bourke #42950 5 Sep. `[high]`
 - **Foundation complete** (2026-08-03) → execution phase. Measured by outcomes. `[high]`

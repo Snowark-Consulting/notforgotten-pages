@@ -36,9 +36,10 @@ prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
 ## Evidence of gate holding (post-fix)
 
 - QPaint sends since controlled restart: 11 follow-ups Sep 2 (Email 1 ×2 + Email 2 ×9), all Gmail-SENT verified + Airtable reconciled + approval records APR-20260902-091208..091229. CCG per customer.
+- **Sep 4 execution (QPaint daily ops + Collard):** 9 Email 1s + Raewyn Frost check-in executed (04:38-04:46), each CCG-passed; Matthew Collard #43119 engaged (13:06 + 15:09 replies, scope questions) — white-label ack sent via routine reply authority with context gate passed; internal handoff to QPaint team. No CCG bypass.
 - Intake certification two-gate passing on all intakes since v2.3.0 (Sep 2-3: Mark Hughes, Matthew Collard, Christopher Farr, Jono Mazz, Steve Clare, Catherine Curtis — all certified + reconciled).
-- No new customer-facing send incidents recorded since Aug 19 (check daily notes Aug 20 – Sep 3: none flag a CCG bypass).
-- Reverse control cron 535899707838 first run Sep 3 07:00 CLEAN/SILENT.
+- No new customer-facing send incidents recorded since Aug 19 (check daily notes Aug 20 – Sep 4: none flag a CCG bypass).
+- Reverse control cron 535899707838 first run Sep 3 07:00 CLEAN/SILENT; Sep 4 run also CLEAN.
 
 ## Verdict framing
 

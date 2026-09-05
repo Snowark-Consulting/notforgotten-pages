@@ -33,6 +33,8 @@ prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
 
 7. **Operating lessons (2026-08-10).** 13 permanent standards (A1-A13) + 8 incidents (LL-001 through LL-008) — permanent training asset feeding the protocol.
 
+8. **canonical-send Gate 1 find_approval bug (2026-09-04, FIXED).** Same-day same-thread reply aborted at Gate 1: raise-on-first-hash-mismatch blocked matching the second approval artefact (lookalike earlier approval aborted search before matching the correct one). Changed mismatch branch to `continue` — fail-closed preserved (no matching hash → "No valid FOUNDER_APPROVED artefact found"). Record: `learnings/2026-09-04-canonical-send-gate1-find-approval-bug.md`. Tests the Founder Approval + failure behaviour rules and shows doc/CODED gates still need live-incident hardening.
+
 ## Hardening gap status (from decision)
 
 | Gap | Priority | Status Aug 7 → Sep 3 |
