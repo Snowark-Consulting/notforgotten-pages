@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-09-05T22:30:49.103904+09:30",
+  "last_updated": "2026-09-06T00:00:55.508004+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
@@ -600,7 +600,7 @@
       "total_opens": 245,
       "avg_opens": 4.2
     },
-    "last_refreshed": "2026-09-05T12:30:47.468384+00:00"
+    "last_refreshed": "2026-09-05T14:30:55.506129+00:00"
   },
   "decisions": {
     "total": 42,
@@ -4071,18 +4071,18 @@
   },
   "storage_health": {
     "tier": "green",
-    "disk_pct": 41.2,
-    "free_gb": 11.5,
-    "why": "other hermes (978MB), chrome profile (462MB), tmp (319MB). Normal system overhead.",
-    "trend": "stable",
-    "daily_rate_pct": 0.2,
-    "forecast_days_to_95": 269.0,
+    "disk_pct": 40.8,
+    "free_gb": 11.6,
+    "why": "other hermes (983MB), chrome profile (462MB), tmp (319MB). Normal system overhead.",
+    "trend": "increasing",
+    "daily_rate_pct": 1.0,
+    "forecast_days_to_95": 54.2,
     "recommendation": "None \u2014 storage is healthy.",
     "largest_consumers": {
-      "other_hermes": 977.8,
+      "other_hermes": 983.2,
       "chrome_profile": 462.2,
-      "tmp": 319.1
+      "tmp": 319.2
     },
-    "last_checked": "2026-09-05T18:00:33+0930"
+    "last_checked": "2026-09-06T00:00:52+0930"
   }
 }
