@@ -1104,6 +1104,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decisions_2026_09_06_qpaint_daily_attention_execute_not_report",
+      "label": "Qpaint Daily Attention Execute Not Report",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-09-06-qpaint-daily-attention-execute-not-report.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "9d8163aeb1b4",
+      "val": 8.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decisions_index",
       "label": "Decisions / Index",
       "file_type": "doc",
@@ -1243,6 +1254,17 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "b1431af07767",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_founder_call_list_2026_08_31",
+      "label": "Founder Call List",
+      "file_type": "doc",
+      "source_file": "knowledge/founder-call-list-2026-08-31.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "ff1c918ad8d9",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -3470,6 +3492,13 @@
     },
     {
       "source": "agent_registry",
+      "target": "knowledge_decisions_2026_09_06_qpaint_daily_attention_execute_not_report",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
       "target": "learnings_2026_08_18_wakeagent_gate",
       "relation": "wikilink",
       "weight": 1.0,
@@ -4219,6 +4248,13 @@
     },
     {
       "source": "knowledge_founder_call_outcome_capture",
+      "target": "knowledge_founder_call_list_2026_08_31",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_founder_call_outcome_capture",
       "target": "knowledge_qpaint_qpaint_operating_model",
       "relation": "wikilink",
       "weight": 1.0,
@@ -4304,6 +4340,13 @@
     {
       "source": "knowledge_qpaint_new_opportunity_qas_beenleigh_2026_07_28",
       "target": "knowledge_intelligence_summaries_2026_07_28",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_qpaint_operating_architecture",
+      "target": "knowledge_decisions_2026_09_06_qpaint_daily_attention_execute_not_report",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

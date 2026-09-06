@@ -1,0 +1,85 @@
+---
+doc_type: decision_review_prep
+owner: notforgotten
+tier: internal
+---
+
+# Monthly Recovery Intelligence Report — Data Prep (Sep 2026, covering August)
+
+> Due: Mon 2026-09-07 (first Monday). Standard: `knowledge/monthly-recovery-intelligence-report.md`.
+> This prep gathers verified evidence ahead of the report. Prepared 2026-09-05 by Prepare-Ahead clock. Data pulled from Airtable QPaint Pipeline (`tblHPx8o6qp81e60b`) 2026-09-05 22:20 ACST. All figures FACT unless marked INFERENCE.
+
+## 1. Headline Numbers (verified)
+
+| Metric | Value |
+|---|---|
+| QPaint Pipeline records | 222 |
+| Won (all-time, portfolio) | 6 · $348,963.14 total |
+| Recovered (Tier-1 only, Arno Hsu) | 1 · $129,750.50 |
+| Assisted (5) | $213,212.64 combined (Joy Ryan, Nicholas Zappacosta, Cheryl Sim, Kay Crawley, Rhonda Bourke) |
+| Lost (30) | 9 "Lost - Not Proceeding" + 21 "Lost - Went Elsewhere" |
+| Contacted pipeline (open) | $4,388,179.21 (129 records) |
+| New pipeline (open, 48h window) | $1,056,337.47 (33 records) |
+| Recovery Status distribution | Lost 34 · Contacted 129 · New 33 · Engaged 20 · Won 6 |
+
+## 2. Wins in coverage window (Aug 5 – Sep 5, 2026)
+
+| Customer | Quote | Value | Attribution | Outcome Date |
+|---|---|---|---|---|
+| Arno Hsu | 41529 - 72 Learoyd Rd Algester | $129,750.50 | Recovered | 2026-08-05 |
+| Joy Ryan | 42922 - 6 Warenda Close Middle Park | $17,510.30 | Assisted | 2026-08-10 |
+| Nicholas Zappacosta | 42864 - Logan Village State School | $145,008.34 | Assisted | 2026-08-10 |
+| Cheryl Sim | 43031 - Unit 1/53 Junction Tce Annerley | $29,697.80 | Assisted | 2026-08-14 |
+| Kay Crawley | 43070 - 60 Brentnall St Norman Park | $18,636.20 | Assisted | 2026-08-30 |
+| Rhonda Bourke | 42950 - 53 Federation Dr Hillcrest | $8,360.00 | Assisted | 2026-09-05 |
+
+**Attribution standard:** Recovered Value = Tier-1 (Recovered) ONLY. Assisted wins carry blank Recovered Value. (decision 2026-09-01 loop closure + attribution standard; reference `skills/snowark/recovery-operations/references/recovered-value-tier1-only.md`)
+
+## 3. Segment / Referral Source (verified counts)
+
+| Referral Source | Records |
+|---|---|
+| (blank) | 57 |
+| QPaint Website | 38 |
+| Body Corp | 24 |
+| FB - Launch Leads | 23 |
+| FB - Ryan | 16 |
+| Google | 13 |
+| QBuild | 10 |
+| Suburb-Stack | 8 |
+| Builder | 6 |
+| Dulux | 5 |
+| Previous Client | 4 |
+| Real Estate | 4 |
+
+**Govt/procurement note:** QBuild = 10 records → all HOLD/PROCUREMENT (QPaint-managed tenders, per government procurement classification). Do not count as outreach-eligible.
+
+## 4. Quote intake volume (Quote Date field)
+
+| Month | Quotes | Value |
+|---|---|---|
+| Aug 2026 | 40 | $992,514 |
+| Sep 2026 (to date) | 23 | $846,190 |
+
+## 5. Email performance by stage — GAP (data to be mined)
+
+Reply-rate-by-email-number and conversion-by-stage require mining Outreach Notes / Messages free-text on QPaint records (no structured per-stage reply fields on the QPaint table). Recommended method for report day:
+- Count canonical sends per stage from Outreach Notes (Email 1/2/3 timestamps + Gmail IDs are recorded per record)
+- Count replies from Recovery Status transitions / Engagement Stage / notes
+- Known anchors: Email 3 wave sent 2026-08-30 (32 records, "pipeline truth" email), Email 2 wave 2026-08-30 (subset), Email 1s executed 2026-09-04 (9 + Raewyn). 32 Email 3 recipients → MONITOR with review date 2026-09-06. 0 replies as of 2026-09-05 across that wave (per Campaign Pulse) — verify on report day.
+
+## 6. Recovery Score Calibration — GAP
+
+Recovery Score / Priority Tier fields are blank on most Contacted records (only populated where scored). Calibration analysis not possible until scoring density improves. Flag as limitation in report.
+
+## 7. Cross-reference notes (verified 2026-09-05)
+
+- Daily notes source: `notes/2026-09-05.md` (Rhonda Bourke win 16:25, 5 intakes 11:07-11:59, Campaign Pulse 16:58).
+- V2 (Not Forgotten's own prospecting) is NOT part of this report — report covers QPaint client recovery sequences only.
+- De-confused Email 2 (9, 4 Sep) is V2 outreach, not QPaint recovery — exclude.
+
+## Next Actions
+
+1. On Mon 2026-09-07 (report day): mine Outreach Notes per record for Email 1/2/3 reply counts → fill Section 5.
+2. Build report from this prep + standard structure. Deliver via CEO Brief flow.
+3. Governance Review (first Monday) also due — separate process, template at `knowledge/governance-reviews/` (2026-08 template exists, unpopulated).

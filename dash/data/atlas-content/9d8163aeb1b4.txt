@@ -1,0 +1,46 @@
+---
+doc_type: decision
+owner: notforgotten
+tier: primary
+---
+
+# Decision: QPaint Daily Attention — Execute, Not Report (2026-09-06)
+
+**Status:** 🟢 Made
+**Authority:** Founder directive (James, 6 Sep 2026)
+
+## What changed
+
+The QPaint Daily Attention cron was surfacing routine work as a P1–P4 report for James instead of completing it. This inverted the operating model.
+
+## New permanent standard
+
+- **Purpose of QPaint Daily Attention is NOT** "tell James what Atlas thinks should happen."
+- **Purpose IS:** "identify what needs attention, then execute everything Atlas has authority to execute."
+- **Workflow order:** SCAN → INVESTIGATE → DECIDE → EXECUTE ROUTINE ACTIONS → VERIFY → RECONCILE → MONITOR → REPORT ONLY EXCEPTIONS.
+- **James sees only genuine founder exceptions** (legal/privacy/compliance, serious complaint, refund/compensation, pricing/scope outside authority, contractual commitment, reputational risk, info only in James's memory, high-value founder conversation).
+
+## Hard founder-action test
+
+Before anything appears under "FOUNDER ACTION": *Can Atlas handle this safely with existing evidence and authority?* If yes — handle it. Routine follow-up is never a founder exception.
+
+## Corrected behaviours (anti-patterns retired)
+
+1. **No blanket "No Email 4" cap** — a 3rd/4th/5th contact may be appropriate; decide per record from evidence. But never send Email 4 merely because Email 3 was silent.
+2. **No uncontrolled "assess" states** — every open quote must have an intentional state (FOLLOW UP / WAIT / MONITOR / HOLD / QPAINT ACTION / ENGAGED / PROCUREMENT).
+3. **No date administration in place of decisions** — clearing a stale NTD, advancing a stage, or "roll to Monday" is an Atlas action, not a report item.
+4. **Nothing becomes overdue because Atlas waited** — if due tomorrow, Atlas schedules/executes; James does not manage Atlas's calendar.
+
+## Preferred output format
+
+```
+QPAINT STATUS: UNDER CONTROL
+ATLAS EXECUTED: X follow-ups sent, X CRM corrections, X handoff checks, X records held
+FOUNDER ACTION REQUIRED: 0
+EXCEPTIONS: None
+```
+
+## Implementation
+
+- Cron `e859ea8b1c8c` ("QPaint Daily Attention") prompt rewritten to the execute-not-report standard (6 Sep 2026).
+- First full execution under the new standard: 6 Sep 2026 (12 sends + 41 CRM corrections + Monday cohort scheduled).
