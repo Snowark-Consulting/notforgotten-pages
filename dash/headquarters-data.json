@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-07T04:06:33+09:30",
+  "generated_at": "2026-09-08T04:04:25+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "Monday 7 September. Quiet overnight — no new replies in atlas@ or quotes@. james@ unread is 9 stale system items (DMARC reports, Aug 9 bounces already reconciled Lost, Stripe invoice) plus 1 QPaint ack from Tas that is already recorded. QPaint stable at 222 records, 6 Won ($348,963: 1 Recovered + 5 Assisted), 22 Engaged, $6.17M active. Kristen Watt ($14,843) quote redelivered Sun and Tas has acknowledged — review due Tue 8 Sep. Star Painters (Ahmad) still awaiting reply to the 2 Sep SMS.",
-    "estimated_time": "3 minutes"
+    "body": "The QPaint portfolio is stable. 222 total records, 181 active journeys. Production Operating Protocol v1.0.0 governs all operations. Canonical send authority live.",
+    "estimated_time": "2 minutes"
   },
   "business_score": {
     "score": 88,
@@ -11,7 +11,7 @@
     "reasons_positive": [
       "QPaint 222 records, $7.36M total book. 6 Won: $348,963 total, of which $129,750 is Recovered (Arno Hsu) and $219,213 Assisted (5 records). Honest separation maintained.",
       "Kristen Watt ($14,843, #43121) quote redelivered Sun 6 Sep; QPaint team acknowledged. Buying signal (30 Sept availability ask). Review Tue 8 Sep.",
-      "0 overdue QPaint touchpoints — no customer waiting on us. 22 Engaged, 132 Contacted, all Next Actions covered."
+      "0 overdue QPaint touchpoints \u2014 no customer waiting on us. 22 Engaged, 132 Contacted, all Next Actions covered."
     ],
     "reasons_negative": [
       "1 paying customer ($199 MRR). Customer #2 remains the single most important metric.",
@@ -21,27 +21,27 @@
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "QPaint: Active, Green, onboarding complete, $199 MRR. Portfolio certified."
+      "detail": "QPaint: Active. Portfolio certified. 181 active journeys with complete Next Action coverage."
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "222 QPaint records. 0 overdue touchpoints. 22 Engaged, 132 Contacted. Won $348,963 (1 Recovered $129,750 + 5 Assisted $219,213). Active pipeline $6.17M."
+      "detail": "\u2705 181 active QPaint journeys certified. 133 contacted. 0 exceptions. Pipeline: $6,165,001. Won: $348,963."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "RE-ENG-AUG-2026: 147 audience, 139 eligible, 9 suppressed (all reconciled), 41 completed, 1 unsubscribed. No overnight changes."
+      "detail": "V2 Email 3 (32 sent 28 Aug) awaiting reply \u2014 follow-up window 4 Sep. 9 founder-autonomy Email 1s (30 Aug), Email 2 window 4 Sep. RE-ENG-AUG-2026: 99 observing."
     },
     "engineering": {
       "status": "healthy",
-      "detail": "All systems healthy. Disk 38%, state.db 89M. Canonical send authority live."
+      "detail": "All systems healthy. Canonical send authority (Phase 1) shadow-ready. Production Operating Protocol v1.0.0 live."
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint Won $348,963 (6). Recovered $129,750 (Arno Hsu). Assisted $219,213 (5). Active pipeline $6.17M."
+      "detail": "QPaint: $348,963 Won. $6,165,001 active pipeline."
     },
     "atlas": {
       "status": "healthy",
-      "detail": "Memory healthy. Protocol enforced. All pulse/watchdog cron jobs present and green."
+      "detail": "Memory healthy. Protocol v1.0.0 enforced. Model recovery standard active."
     }
   },
   "waiting_for_james": [
@@ -134,21 +134,21 @@
     "recent": [
       {
         "id": "INC-2026-08-11",
-        "title": "QPaint Quote Intake — False Completion",
+        "title": "QPaint Quote Intake \u2014 False Completion",
         "status": "Closed",
         "summary": "3 quotes marked complete with $0 deal values. Root cause: no certification gate between extraction and label. Fixed: certify_intake_complete() + Intake Exception state."
       },
       {
         "id": "BK-014",
-        "title": "ATTEMPTED ≠ COMPLETED",
+        "title": "ATTEMPTED \u2260 COMPLETED",
         "status": "Permanent",
-        "summary": "Automation success ≠ business outcome success. Every critical workflow must verify the business state, not just the process completion."
+        "summary": "Automation success \u2260 business outcome success. Every critical workflow must verify the business state, not just the process completion."
       },
       {
         "id": "BK-015",
-        "title": "HTTP 200 ≠ Application Success",
+        "title": "HTTP 200 \u2260 Application Success",
         "status": "Permanent",
-        "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy → verify dependencies → verify render → certify."
+        "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy \u2192 verify dependencies \u2192 verify render \u2192 certify."
       }
     ]
   },
@@ -163,7 +163,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "QPaint portfolio certified. 222 records. 0 overdue touchpoints. 6 Won ($348,963). Protocol v1.0.0. Send authority live. Overnight clean.",
+  "operational_status": "\u2705 QPaint portfolio certified. 181 active journeys. Protocol v1.0.0. Send authority live.",
   "vault_health": {
     "decisions": {
       "total": 80,
@@ -198,17 +198,17 @@
       "won_count": 6,
       "won_value": 348963,
       "lost_count": 35,
-      "engaged_replied": 22,
-      "contacted": 132,
-      "not_contacted": 27
+      "engaged_replied": 26,
+      "contacted": 133,
+      "not_contacted": 22
     },
     "stage_breakdown": {
-      "Email 3": 44,
-      "Email 1": 44,
-      "Email 2": 43,
+      "Email 1": 47,
+      "Email 3": 43,
+      "Email 2": 42,
       "Lost": 35,
-      "New": 28,
-      "Replied": 16,
+      "New": 23,
+      "Replied": 20,
       "Won": 6,
       "Engaged": 4,
       "Awaiting Reply": 1,
@@ -217,7 +217,7 @@
     "priority": {
       "P1": 93,
       "P2": 53,
-      "P3": 3
+      "P3": 76
     },
     "key_customers": [
       {
