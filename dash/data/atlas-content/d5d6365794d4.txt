@@ -322,3 +322,12 @@ When a new entry contradicts a prior one: set `Contested: true` on both, add rec
 4. Verify: `git ls-remote pages` OK → `git subtree push --prefix=pages pages gh-pages` succeeded (`e42d051d..33c3fff0`) → remote HEAD confirmed 33c3fff0f9 → dash.json live on raw.githubusercontent + GitHub Pages.
 **⚠️ Origin (nightly backup → private `client-notforgotten`) still broken:** origin URL still embeds dead `ghp_bJO…`, and the valid stored token (Hardstaff08) returns "Repository not found" (no access to private repo). Backup cron d998982d2e15 (21:30 ACST) will FAIL until SNOWARK_GITHUB_TOKEN is refreshed (Josh domain) or Hardstaff08 is granted repo access. The `http.extraheader` fix from 2026-08-24 regressed because token rotation must update ALL of: origin URL, pages URL, extraheader, credential store — or drop the extraheader entirely (this time: dropped).
 **Source:** 2026-09-05 Campaign Pulse infra fix. See also 2026-08-24 entry (same failure, inverted tokens).
+
+## 2026-09-07 — canonical-send `reply_to_message_id` must reference our own prior outbound, not the customer's inbound reply
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** Sending an in-thread reply via `canonical_send(...)` with `reply_to_message_id` set to the customer's inbound reply (the email they sent us) returned `status=BLOCKED` with `Threading: prior message recipient mismatch - BLOCK`. No email sent. Occurred on Scott O'Donnell #43149 same-day price-objection ack (2026-09-07).
+**Cause:** `_resolve_threading()` verifies the thread anchor by checking the current recipient appears in the prior message's `To` header. The customer's inbound reply is `To: atlas@...` (not the customer), so the recipient check fails and it fail-closes correctly.
+**Fix:** Pass `reply_to_message_id = <our prior sent message ID>` (the outbound Email 1 / last email we sent to that customer). For an in-thread reply use subject `Re: <original>`; Gmail threads by subject even without In-Reply-To. Omit `reply_to_message_id` entirely for a fresh email. Verified: re-send without the inbound anchor COMPLETE (Gmail 1a07a7d4323741f3, Sent-verified).
+**Source:** 2026-09-07 Scott O'Donnell #43149 price-objection reply. Full detail in canonical-send card (`learnings/cards/canonical-send.md`).

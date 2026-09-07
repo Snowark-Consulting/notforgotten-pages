@@ -1,0 +1,66 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-09-06
+status: PREPARATION — review due 2026-09-13
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — Diagnose-Before-Change + CEO Briefing Scope (2026-09-13)
+
+> Outcome data gathered ahead of the 2026-09-13 review of `2026-07-13-diagnose-before-change-ceo-briefing-scope` — two operational refinements: (1) diagnose before recommending major change, (2) routine outreach executed, not reviewed; CEO Briefing = strategic decision surface.
+
+## Decision being reviewed
+
+**What was decided (2026-07-13):**
+
+1. **Diagnose before recommending major change.** When a campaign underperforms, work the evidence chain (deliverability → opens → clicks → replies), identify the most likely bottleneck, then recommend the smallest experiment most likely to improve it. No large strategic changes when a smaller, evidence-based experiment could answer the question.
+2. **Operate within delegated authority — routine outreach is executed, not reviewed.** Workflow: draft → Voice Review → Technical Verification → send → reconcile → report in CEO Briefing. James sees an outreach draft before sending only if: (a) genuinely uncertain, (b) factual error or trust-damaging issue, (c) outside an approved sequence, (d) strategic decision required. CEO Briefing = strategic decision surface, not execution queue. "Chief of Staff test" filters what surfaces.
+
+**Review date:** 2026-09-13 (60 days after decision).
+
+## Success criteria (from decision) — status check
+
+| Criterion | Status as of Sep 6 |
+|---|---|
+| CEO Briefing contains zero routine "approve this draft" items after Jul 20 | ✅ MET — daily notes show routine sends reported under "Recently Executed" / Daily Attention; CEO Brief carries decisions, not draft approvals |
+| Next campaign underperformance → recommendation follows evidence chain | ✅ MET — Campaign Pulse five-part standard (Aug 1); V2 HOLD (Sep 4) followed evidence; Full Business Review (Aug 30) diagnosed channel exhaustion before recommending pivot |
+| No campaign pivots proposed without first diagnosing the bottleneck | ✅ MET — see outcome data items 1-4 |
+| James does not have to redirect briefing items back to Atlas | ✅ MET with one correction cycle — see outcome data item 5 |
+
+## Outcome data — what has happened since
+
+1. **Campaign Pulse Reporting Standard (2026-08-01).** Five-part structure (facts → analysis → hypothesis → forecast → decision), confidence ratings on every interpretation. Institutionalises the diagnose-before-change chain: facts first, interpretation labelled, hypothesis separate from conclusion. Decision `2026-08-01-campaign-pulse-reporting-standard`.
+
+2. **Diagnose-before-change held under real pressure — V2 Email 3 HOLD (2026-09-04).** 32 Email 3 recipients, 0 replies at Day 6. The evidence-based response was HOLD (no Email 4), transition to MONITOR, and founder-phone candidates for 4 B-tier prospects — NOT more email volume, NOT a channel pivot mid-observation. Persistence ≠ repetition (2026-08-28) applied under evidence: silence ≠ lost, stop signals only halt, but continuation must clear the Customer Context Gate. This is the decision's framework working exactly as designed: diagnose the bottleneck (email channel exhausted for this cohort), recommend the smallest next step (founder calls for highest-signal subset), no strategic overreach.
+
+3. **Full Business Review (2026-08-30) — strategic diagnosis, evidence-led.** 16-part review concluded: "working service that cannot yet be sold; 1 paying customer, 0.4% acquisition; next customer comes from founder calls, not email." This is a diagnosed pivot (channel strategy change) reached through evidence, not instinct. Drove the QPaint Operational Handover decision the same day. Demonstrates the boundary: strategic change presented to James with evidence → James decides → Atlas executes.
+
+4. **Delegated authority executed at scale.** V2 Email 3 (32/32, Aug 28) sent under founder-direct authority record; de-confused Email 2 (9/9, Sep 4) sent james@ with Gmail verification + Airtable reconciliation; QPaint daily operations (12 follow-ups Sep 6 under Daily Attention Execute-Not-Report) executed without per-send James review. The delegation boundary held across ~50 sends in the review window. QPaint Operational Handover (Aug 30) + Daily Attention Execute-Not-Report (Sep 6) extended the same principle to client operations: Atlas decides + executes routine work, James sees exceptions only.
+
+5. **One correction cycle — INC-2026-08-19 (6 generic QPaint Email 1s).** Delegation without a context gate failed: 6 emails sent through the canonical path without the Customer Context Gate. Response was NOT to reverse delegation — it was to code-enforce the CCG (Gate -2 in canonical-send). Architecture over memory: the fix strengthened the boundary rather than retreating from it. Also: QPaint Role Boundary (Aug 20) tightened Atlas's mandate (Surface ≠ Manage) after scope was misread. Both corrections refined the model without abandoning it.
+
+6. **Chief of Staff test applied consistently.** Founder exceptions only: Kristen Watt buying signal (Sep 6) → internal handoff, no customer contact needed; Matthew Collard engaged (Sep 4) → white-label ack + handoff under routine authority; Ahmad/Star Painters stalled → surfaced as P1 customer-#2 decision for James. Routine QPaint follow-ups never surfaced as founder exceptions after the execute-not-report standard.
+
+## Verdict framing — questions for James at review
+
+1. Has the CEO Briefing remained a strategic decision surface (zero routine "approve this draft" items), and is that still the right division given the shift to Wednesday Founder Sales Day?
+2. Did diagnose-before-change hold across the three biggest calls in the window (V2 HOLD, Full Business Review pivot, QPaint handover)? Was the evidence chain followed each time?
+3. Was the INC-08-19 correction (code-enforce CCG, not reverse delegation) the right read of that failure? Any residual risk that delegation is running ahead of control?
+4. Does the execute-not-report standard (Sep 6) preserve enough founder visibility, or does James need a different cadence of exception/outcome reporting?
+5. Nuance check: the Full Business Review concluded founder calls (not email experiments) are the next acquisition lever. Does that make "smallest experiment" doctrine obsolete for customer acquisition, or does it apply per-channel (email experiments done; call experiments next)?
+
+## Evidence files
+
+- `knowledge/decisions/2026-07-13-diagnose-before-change-ceo-briefing-scope.md` — decision under review
+- `knowledge/decisions/2026-08-01-campaign-pulse-reporting-standard.md` — five-part reporting standard
+- `knowledge/decisions/2026-09-04-v2-persistence-hold.md` — V2 HOLD (diagnose-before-change applied)
+- `knowledge/full-business-review-2026-08-30.md` — strategic diagnosis → founder-calls pivot
+- `knowledge/decisions/2026-08-30-qpaint-operational-handover.md` + `2026-09-06-qpaint-daily-attention-execute-not-report.md` — delegation extended to client ops
+- `learnings/2026-08-19-qpaint-customer-send-incident.md` — the correction cycle (code-enforce CCG)
+- `notes/2026-07-13.md` through `notes/2026-09-06.md` — daily record of execution vs review
+
+## Prepared by
+
+Prepare-Ahead Clock 2026-09-06 22:00 ACST. Review due Sun Sep 13. Same week: production-operating-protocol (Sep 7) and phase-1-certified (Sep 8) reviews — preps exist (created Sep 3). Governance Review (Sep, first Monday) + Monthly Recovery Intelligence Report (first Monday Sep 7) also due — prep exists for the latter; governance review template flagged in daily notes.

@@ -1,6 +1,8 @@
 # Learnings Catalogue
 
 > Loaded at every session boot. Before touching any external API, tool, or domain, scan this table. If the domain you're about to touch has a card, load it first. One domain = one card. Cards load on-demand, not at boot.
+>
+> **EDITING THIS TABLE:** never fuzzy-patch multi-line blocks here — full-row replacement only. This table was corrupted 3 times by partial edits (dropped rows, `||` prefix damage, mid-table splits). Repair history: 2026-09-06, 2026-09-07 (consolidation).
 
 | Domain | Trigger keywords | Card |
 |--------|-----------------|------|
@@ -17,7 +19,7 @@
 | campaign | `cold-email`, `campaign`, `calibration`, `prospect overlap`, `ownership check`, `pre-flight` | [campaign.md](cards/campaign.md) |
 | compliance | `ABN`, `GST`, `TFN`, `ATO`, `trust`, `Australian Business Register`, `ABR` | `cards/compliance.md` |
 | python | `datetime.now`, `ZoneInfo`, `timezone`, `Adelaide time`, `UTC server`, `bare datetime` | `cards/python.md` |
-| agent-architecture | `dual-path`, `skill discovery`, `pre-flight`, `orphaned skill`, `boot context`, `Registry`, `SOPs`, `certify`, `verify`, `certification gate`, `touchpoint`, `review point`, `auto-contact`, `CRM stage`, `customer evidence`, `commercial truth`, `materiality` | `cards/agent-architecture.md` |
+| agent-architecture | `dual-path`, `skill discovery`, `pre-flight`, `orphaned skill`, `boot context`, `Registry`, `SOPs`, `certify`, `verify`, `certification gate`, `touchpoint`, `review point`, `auto-contact`, `CRM stage`, `customer evidence`, `commercial truth`, `materiality`, `dream`, `consolidation`, `classifier`, `false positive` | `cards/agent-architecture.md` |
 | asana | `asana`, `html_notes`, `POST /tasks`, `PUT /tasks`, `html_lacks_body`, `body tag` | `cards/asana.md` |
 | airtable | `airtable`, `Airtable`, `record`, `duplicate`, `pagination`, `maxRecords`, `pageSize` | `cards/airtable.md` |
 | browser | `Accessibility.getFullAXTree`, `CDP`, `AX tree`, `React SPA`, `contenteditable`, `DOM invisible`, `browser_console tab`, `Page.navigate`, `chrome.newtab` | `cards/browser.md` |

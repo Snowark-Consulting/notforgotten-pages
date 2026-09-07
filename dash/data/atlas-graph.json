@@ -664,6 +664,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decision_reviews_2026_09_13_diagnose_before_change_review_prep",
+      "label": "Diagnose Before Change Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-09-13-diagnose-before-change-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "7bb054236a13",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decision_reviews_index",
       "label": "Decision Reviews / Index",
       "file_type": "doc",
@@ -4067,6 +4078,13 @@
     {
       "source": "knowledge_decision_reviews_index",
       "target": "knowledge_decision_reviews_2026_09_08_phase_1_certified_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_09_13_diagnose_before_change_review_prep",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
