@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T04:04:25+09:30",
+  "generated_at": "2026-09-08T04:06:35+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
     "body": "The QPaint portfolio is stable. 222 total records, 181 active journeys. Production Operating Protocol v1.0.0 governs all operations. Canonical send authority live.",
@@ -29,7 +29,7 @@
     },
     "outreach": {
       "status": "healthy",
-      "detail": "V2 Email 3 (32 sent 28 Aug) awaiting reply \u2014 follow-up window 4 Sep. 9 founder-autonomy Email 1s (30 Aug), Email 2 window 4 Sep. RE-ENG-AUG-2026: 99 observing."
+      "detail": "V2 Email 3 (32 sent 28 Aug) HOLD standing \u2014 0 replies at Day 10. De-confused Email 2 (9 sent 4 Sep) observation to 11 Sep. RE-ENG-AUG-2026: 147 audience, 0 overnight changes. Next lever: Founder calls (Wed 9 Sep)."
     },
     "engineering": {
       "status": "healthy",
@@ -47,25 +47,34 @@
   "waiting_for_james": [
     {
       "id": "star-painters-ahmad-followup",
-      "title": "Star Painters (Ahmad) - no reply to Wed 2 Sep SMS, follow-up now 2 days overdue",
-      "why_it_matters": "Ahmad is the #1 path to customer #2. James called + SMS'd Wed 2 Sep with no reply. Next Follow-up Date (5 Sep) has passed. A decision is needed: send one more nudge, or hold.",
-      "business_impact": "High: customer #2 is the single most important growth metric. This is the warmest live opportunity.",
+      "title": "Star Painters (Ahmad) \u2014 no reply to Wed 2 Sep call + SMS, now 3 days past NFD (5 Sep)",
+      "why_it_matters": "Ahmad is the #1 path to customer #2. James called + SMS'd Wed 2 Sep with no reply. Next Follow-up Date (5 Sep) has passed. A decision is needed: one more nudge, or hold.",
+      "business_impact": "High: customer #2 is the single most important growth metric. Warmest live opportunity.",
       "estimated_time": "5 min to decide; Atlas drafts any message.",
-      "recommended_action": "Decide: one more brief SMS/email nudge to Ahmad, or hold and reassess. If nudge, Atlas drafts it for approval.",
+      "recommended_action": "Decide: one more brief SMS/email nudge to Ahmad, or hold and reassess. If nudge, Atlas drafts for approval.",
       "impact_sort": 90
     },
     {
       "id": "accountant-tax-documents",
       "title": "BK Partners (accountant) business tax return supporting documents",
-      "why_it_matters": "Monica Tam (BK Partners) sent two emails Thu 3 Sep requesting supporting documents. Outside Atlas authority. No longer showing unread in james@ (may have been opened).",
+      "why_it_matters": "Monica Tam sent two emails Thu 3 Sep requesting supporting documents (Vanguard statement + business detail). Outside Atlas authority. No longer showing unread in james@ (may have been opened).",
       "business_impact": "Medium: tax filing deadline risk. Not customer-facing, but time-sensitive.",
       "estimated_time": "10 min to review + respond or forward documents.",
       "recommended_action": "Confirm the tax documents have been actioned, or tell Atlas what to forward to Monica Tam.",
       "impact_sort": 70
+    },
+    {
+      "id": "founder-call-day-prep",
+      "title": "Founder Call Day tomorrow (Wed 9 Sep) \u2014 12 candidates queued",
+      "why_it_matters": "V2 email channel exhausted (3 touches, 0 replies at Day 10). Founder calls are the next lever. 12 candidates queued (4 B-tier + 8 B-list). Prep due today.",
+      "business_impact": "Medium: only active lever toward V2 conversion while email is exhausted.",
+      "estimated_time": "15 min to review the 12 candidate briefs Atlas has prepared.",
+      "recommended_action": "Review the queued call list today so Wednesday's call day is focused on qualified contacts.",
+      "impact_sort": 60
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Monday. Quiet overnight across all mailboxes. QPaint is fully under Atlas control (222 records, 6 Won, 22 Engaged, 0 overdue). Two items genuinely need you: (1) the Star Painters/Ahmad follow-up decision (customer #2), and (2) confirming the accountant's tax document request is handled. QPaint review items today (Collard, Nuwan Fernando) are Atlas-owned.",
+    "executive_summary": "Tuesday. Quiet overnight across all mailboxes. QPaint fully under Atlas control (222 records, 6 Won, 26 engaged, 1 overdue-but-no-chase). Three items genuinely need you: (1) the Star Painters/Ahmad follow-up decision (customer #2, now 3 days past NFD), (2) confirming the accountant's tax document request is handled, and (3) Founder Call Day prep \u2014 12 candidates queued for tomorrow (Wed 9 Sep).",
     "priorities": [
       {
         "action": "Decide on the Star Painters (Ahmad) follow-up",
@@ -80,14 +89,21 @@
         "expected_impact": "Medium: keeps tax filing on schedule.",
         "estimated_time": "10 min",
         "confidence": "High"
+      },
+      {
+        "action": "Review the 12 Founder Call Day candidates ahead of Wed 9 Sep",
+        "why_it_matters": "Email channel exhausted. Calls are the only active lever to V2 conversion.",
+        "expected_impact": "Medium: focuses Wednesday's dedicated call day on qualified contacts.",
+        "estimated_time": "15 min",
+        "confidence": "Medium"
       }
     ],
     "can_wait": [
-      "All QPaint operations (Collard review today, Nuwan Fernando NTD today, Kristen Watt review Tue 8 Sep, 5 quotes due today) - Atlas owns.",
-      "RE-ENG-AUG-2026 campaign monitoring - no overnight changes.",
-      "System health - disk 38%, state.db 89M, dashboard current."
+      "All QPaint operations (Collard scope answers await QPaint, Kristen Watt availability due today, O'Donnell pricing 10 Sep, Oliveira availability window) \u2014 Atlas owns.",
+      "RE-ENG-AUG-2026 campaign monitoring \u2014 no overnight changes.",
+      "System health \u2014 disk 38%, state.db 93M, dashboard current. One recurring infra item: ORIGIN dead PAT (backup + snapshot push failing since 5 Sep) needs Josh, not James."
     ],
-    "closing": "Two things need you: the Ahmad follow-up decision and the accountant's documents. QPaint is handled. Both are worth clearing this morning."
+    "closing": "Three things: the Ahmad decision, the accountant's documents, and Wednesday's call-list prep. QPaint is handled. The Ahmad decision is the one worth clearing this morning."
   },
   "changes": {
     "today": [
