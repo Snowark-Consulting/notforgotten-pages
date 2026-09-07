@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 213,
+    "tasks_completed": 214,
     "recent": [
+      {
+        "date": "2026-09-07 17:14",
+        "task": "Campaign pulse posted \u2014 V2-32 Day 10 zero replies (HOLD standing), de-confused 9 Day 3 mid-window; founder call day Wed",
+        "category": "task"
+      },
       {
         "date": "2026-09-05 17:03",
         "task": "Campaign pulse posted \u2014 V2 Email 3 (32) Day 8: 0 replies, HOLD standing; de-confused Email 2 (9) Day 1-2: 0 replies; founder-call candidates NFD today",
@@ -135,11 +140,6 @@
         "date": "2026-08-23 19:56",
         "task": "Flipped 5 agent crons to deepseek-v4-flash (inbox/quotes/james pulse phase2, Dream, Campaign Pulse); resolved dream-cost-cache-read-bloat",
         "category": "task"
-      },
-      {
-        "date": "2026-08-22 16:25",
-        "task": "Campaign pulse posted \u2014 V2 Email 2 first reply (Inspire Painting) 2.4% at Day 1; lead-gen misunderstanding flagged; ledger reconciliation gap noted",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-09-07T16:30:40.462943+09:30",
+  "last_updated": "2026-09-07T17:14:38.420521+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
