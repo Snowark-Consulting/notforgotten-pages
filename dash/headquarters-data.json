@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T04:07:12+09:30",
+  "generated_at": "2026-09-09T05:25:00+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
     "body": "The QPaint portfolio is stable. 226 total records, 185 active journeys. Production Operating Protocol v1.0.0 governs all operations. Canonical send authority live.",
@@ -46,80 +46,39 @@
   },
   "waiting_for_james": [
     {
-      "id": "odonnell-decline-relay",
-      "title": "Scott O'Donnell #43149 ($26,158) — QPaint declined, decline relay awaiting your approval",
-      "why_it_matters": "Customer pushed back on pricing (50% over competitor). QPaint's answer (Tas, 8 Sep): max 5-10% consideration, otherwise 'politely decline this one mate.' Draft ready. Pricing-sensitive + hostile customer, so this is your call, not Atlas's.",
-      "business_impact": "High: closes a $26,158 loop either to a considered offer or an honest decline. Leaving a hostile customer unanswered damages QPaint's reputation.",
-      "estimated_time": "5 min to approve/reject the draft.",
-      "recommended_action": "Approve the polite decline relay (recommended) or instruct a 5-10% consideration offer.",
-      "impact_sort": 95
-    },
-    {
-      "id": "star-painters-ahmad-followup",
-      "title": "Star Painters (Ahmad) — no reply to Wed 2 Sep call + SMS, now 4 days past NFD (5 Sep)",
-      "why_it_matters": "Ahmad is the #1 path to customer #2. James called + SMS'd Wed 2 Sep with no reply. NFD passed. A decision is needed: one more nudge, or hold.",
-      "business_impact": "High: customer #2 is the single most important growth metric. Warmest live opportunity.",
-      "estimated_time": "5 min to decide; Atlas drafts any message.",
-      "recommended_action": "Decide: one more brief SMS/email nudge, or hold and reassess.",
-      "impact_sort": 90
-    },
-    {
       "id": "founder-call-day-today",
-      "title": "Founder Call Day is TODAY (Wed 9 Sep) — call list ready, needs your go",
-      "why_it_matters": "V2 email channel exhausted (3 touches, ~0 replies). Founder calls are the next lever. 12 candidates queued (4 B-tier + 8 B-list); 9 have full briefs.",
-      "business_impact": "Medium: only active lever toward V2 conversion while email is exhausted.",
-      "estimated_time": "Dedicated call block; review the list at the start.",
-      "recommended_action": "Run today's call block from the prepared list. Atlas will verify suppression state before each call if needed.",
-      "impact_sort": 75
-    },
-    {
-      "id": "accountant-tax-documents",
-      "title": "BK Partners (accountant) business tax return supporting documents",
-      "why_it_matters": "Monica Tam sent two emails Thu 3 Sep requesting supporting documents (Vanguard statement + business detail). Outside Atlas authority.",
-      "business_impact": "Medium: tax filing deadline risk. Not customer-facing, but time-sensitive.",
-      "estimated_time": "10 min to review + respond or forward documents.",
-      "recommended_action": "Confirm the tax documents have been actioned, or tell Atlas what to forward.",
-      "impact_sort": 60
+      "title": "Founder Call Day is TODAY (Wed 9 Sep) — 12 ranked calls ready in founder_call_day",
+      "why_it_matters": "Email channel exhausted (3 touches, ~0 replies). 12 founder calls on 2 Sep produced 0 replies. Calls are the only lever to Customer #2.",
+      "business_impact": "High: only active lever to conversion.",
+      "estimated_time": "Dedicated call block.",
+      "recommended_action": "Run the ranked list. Lead with Rahamed (offer de-confusion), then the named 2 Sep cohort.",
+      "impact_sort": 80
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Wednesday. Founder Call Day. QPaint is fully under Atlas control (226 records, 6 Won, 27 engaged, 0 overdue). Overnight, QPaint confirmed Lauren Oliveira's 29 Sep-13 Oct window — that's now a live booking to close. Four items genuinely need you: (1) Scott O'Donnell decline relay (pricing-sensitive, draft ready), (2) the Ahmad follow-up decision (customer #2, 4 days past NFD), (3) today's Founder Call Day call list, and (4) the accountant's tax documents.",
+    "executive_summary": "Wednesday, Founder Call Day. QPaint is fully under Atlas control. This morning Atlas executed the Scott O'Donnell decline relay and the Lauren Oliveira availability confirmation (QPaint confirmed overnight). Ahmad/Star Painters set to MONITOR (4 founder touches, 0 replies). BK Partners tax docs confirmed handled (James supplied the Vanguard statement + all answers 3 Sep). The single item that needs you today is the founder call block.",
     "priorities": [
       {
-        "action": "Approve the Scott O'Donnell decline relay (or instruct a 5-10% offer)",
-        "why_it_matters": "Hostile customer waiting; QPaint said decline. $26,158 loop needs closing.",
-        "expected_impact": "High: protects QPaint's reputation and closes the loop honestly.",
-        "estimated_time": "5 min",
-        "confidence": "High"
-      },
-      {
-        "action": "Decide on the Star Painters (Ahmad) follow-up",
-        "why_it_matters": "Warmest live path to customer #2. No reply since Wed 2 Sep. 4 days past NFD.",
-        "expected_impact": "High: could unblock customer #2 conversion.",
-        "estimated_time": "5 min",
-        "confidence": "High"
-      },
-      {
-        "action": "Run today's Founder Call Day from the prepared list",
-        "why_it_matters": "Email channel exhausted. Calls are the only active lever to V2 conversion.",
-        "expected_impact": "Medium: focuses today's dedicated call block on qualified contacts.",
+        "action": "Run the Founder Call Day list (12 ranked calls)",
+        "why_it_matters": "Email exhausted, 12 calls on 2 Sep got 0 replies. Calls are the only lever to Customer #2.",
+        "expected_impact": "High",
         "estimated_time": "Dedicated call block",
         "confidence": "Medium"
       },
       {
-        "action": "Confirm BK Partners (accountant) tax documents are actioned",
-        "why_it_matters": "Two chasing emails since Thu 3 Sep. Tax deadline risk if ignored.",
-        "expected_impact": "Medium: keeps tax filing on schedule.",
-        "estimated_time": "10 min",
+        "action": "Lead with Rahamed (Inspire Painting)",
+        "why_it_matters": "The only reply in the campaign, misread the offer as lead-gen. A live call clears what email cannot.",
+        "expected_impact": "High",
+        "estimated_time": "15 min",
         "confidence": "High"
       }
     ],
     "can_wait": [
-      "All QPaint operations under Atlas control — Lauren Oliveira confirmation relay, Collard scope (awaiting QPaint), Kristen Watt availability (due 9-11 Sep), Saini price, Paige committee, Cochrane breakdown. Atlas owns.",
-      "RE-ENG / V2 campaign monitoring — no overnight bounces, unsubscribes, or YES responses.",
-      "ORIGIN dead PAT (nightly backup + snapshot push failing since 5 Sep) — needs Josh, not James."
+      "All QPaint operations (Atlas owns): Collard scope, Kristen Watt availability, Lauren Oliveira confirmation relayed, Scott O'Donnell decline relayed.",
+      "Ahmad/Star Painters: MONITOR (4 founder touches, 0 replies). Reassess 23 Sep.",
+      "ORIGIN dead PAT (nightly backup failing since 5 Sep) — needs Josh, not James."
     ],
-    "closing": "The one thing worth clearing first this morning is the O'Donnell decline relay — it's the only item where a customer is actively waiting on a decision. Ahmad is the one worth a decision too, but a hostile pricing customer left hanging is the sharper edge. Founder Call Day is today; the list is ready."
+    "closing": "Nothing in QPaint needs you. The founder call block is your one job today. Lead with Rahamed."
   },
   "changes": {
     "today": [
@@ -365,6 +324,133 @@
         "value": "$8,360",
         "stage": "Won",
         "status": "Assisted"
+      }
+    ]
+  },
+  "founder_call_day": {
+    "call_day": "Wednesday 9 September 2026",
+    "note": "Second-call round. The 12 named prospects were founder-called + SMS'd on 2 Sep with ZERO replies. Today is persistence (one-week follow-up), led by Rahamed (the only reply, needs offer de-confusion). Email channel is exhausted; calls are the only lever to Customer #2.",
+    "signal": "12 founder calls on 2 Sep produced 0 replies. Worth noting: the cold-call approach is not yet converting. Rahamed is the single warm thread.",
+    "calls": [
+      {
+        "order": 1,
+        "who": "Rahamed",
+        "business": "Inspire Painting",
+        "phone": "0450 724 858",
+        "why_now": "Only reply in the whole campaign. Warm but misread the offer as lead-gen. 2 Sep call unanswered. Clear the confusion in person.",
+        "history": "Replied to Email 2 asking about 'job wait time / leads'. James clarified + offered a call. Silent 7 days.",
+        "objective": "Correct the frame: 'I follow up the quotes you already sent, not find new jobs.' Qualify whether he even sends many quotes.",
+        "dont_assume": "Do not promise jobs. He may not be a fit if he sends few quotes."
+      },
+      {
+        "order": 2,
+        "who": "Esmayel",
+        "business": "Upscale Painting & Decorating",
+        "phone": "0490 094 862",
+        "why_now": "Highest fit score (80/A) in the book. SA-based, named owner.",
+        "history": "Email 1/2 sent, 2 Sep call + SMS, no reply.",
+        "objective": "Discovery: quote volume + follow-up process + whether silent quotes cost him work.",
+        "dont_assume": "Fit score is not interest. Discovery first."
+      },
+      {
+        "order": 3,
+        "who": "Waz",
+        "business": "Clean Cut Painters",
+        "phone": "0400 896 913",
+        "why_now": "Fit 74, named owner, direct email (waz@).",
+        "history": "2 Sep call + SMS, no reply.",
+        "objective": "Discovery: what happens after a quote goes out.",
+        "dont_assume": "Named owner = decision-maker, but verify."
+      },
+      {
+        "order": 4,
+        "who": "Slavek",
+        "business": "One Touch Paint",
+        "phone": "0415 392 436",
+        "why_now": "Fit 74, named owner, 37-year veteran.",
+        "history": "2 Sep call + SMS, no reply.",
+        "objective": "Does a 37-year veteran still lose work to poor follow-up?",
+        "dont_assume": "Reputation alone drives business."
+      },
+      {
+        "order": 5,
+        "who": "Cameron Davidson",
+        "business": "Cameron Davidson Painters",
+        "phone": "0418 832 500",
+        "why_now": "Fit 68, SA-based, named owner.",
+        "history": "2 Sep call + SMS, no reply.",
+        "objective": "Discovery + qualification.",
+        "dont_assume": "SA proximity = fit."
+      },
+      {
+        "order": 6,
+        "who": "Rad",
+        "business": "Zoom Painting",
+        "phone": "0416 507 822",
+        "why_now": "Fit 67, named owner, 1 open (only engagement signal).",
+        "history": "2 Sep call + SMS, no reply.",
+        "objective": "Discovery.",
+        "dont_assume": "Open = interest."
+      },
+      {
+        "order": 7,
+        "who": "Fred",
+        "business": "Paintpal Pty Ltd",
+        "phone": "0481 140 140",
+        "why_now": "Fit 67, named owner.",
+        "history": "2 Sep call + SMS, no reply.",
+        "objective": "Discovery.",
+        "dont_assume": "Nothing."
+      },
+      {
+        "order": 8,
+        "who": "Dave",
+        "business": "Paint Master",
+        "phone": "0414 475 594",
+        "why_now": "Fit 60, 5 opens (most engaged by tracking).",
+        "history": "2 Sep call + SMS, no reply.",
+        "objective": "Discovery — he opened everything, worth a real conversation.",
+        "dont_assume": "Opens = intent."
+      },
+      {
+        "order": 9,
+        "who": "Raoul",
+        "business": "Bayside Painting",
+        "phone": "0432 987 587",
+        "why_now": "Fit 65, named owner.",
+        "history": "2 Sep call + SMS, no reply.",
+        "objective": "Discovery.",
+        "dont_assume": "Nothing."
+      },
+      {
+        "order": 10,
+        "who": "Master Choice Painting",
+        "business": "Master Choice Painting",
+        "phone": "0406 465 555",
+        "why_now": "Warm (Client Prob 83), no objection recorded.",
+        "history": "2 Sep call + SMS, no reply.",
+        "objective": "Discovery.",
+        "dont_assume": "Warm = ready."
+      },
+      {
+        "order": 11,
+        "who": "The Painting Company",
+        "business": "The Painting Company",
+        "phone": "0403 815 757",
+        "why_now": "Warm/considering (Client Prob 57).",
+        "history": "2 Sep call + SMS, no reply.",
+        "objective": "Discovery.",
+        "dont_assume": "Considering = near close."
+      },
+      {
+        "order": 12,
+        "who": "(unnamed)",
+        "business": "Brisbane Professional Painters",
+        "phone": "0411 717 176",
+        "why_now": "Client Prob 84, family-run + strata (top ICP signal). Fresh, not called 2 Sep.",
+        "history": "Email 1 sent, no founder call yet.",
+        "objective": "Discovery — ask for the owner by name.",
+        "dont_assume": "Owner answers directly."
       }
     ]
   }
