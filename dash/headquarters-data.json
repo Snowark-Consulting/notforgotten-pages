@@ -1,43 +1,43 @@
 {
-  "generated_at": "2026-09-08T04:06:35+09:30",
+  "generated_at": "2026-09-09T04:07:12+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "The QPaint portfolio is stable. 222 total records, 181 active journeys. Production Operating Protocol v1.0.0 governs all operations. Canonical send authority live.",
+    "body": "The QPaint portfolio is stable. 226 total records, 185 active journeys. Production Operating Protocol v1.0.0 governs all operations. Canonical send authority live.",
     "estimated_time": "2 minutes"
   },
   "business_score": {
     "score": 88,
     "change": "steady",
     "reasons_positive": [
-      "QPaint 222 records, $7.36M total book. 6 Won: $348,963 total, of which $129,750 is Recovered (Arno Hsu) and $219,213 Assisted (5 records). Honest separation maintained.",
-      "Kristen Watt ($14,843, #43121) quote redelivered Sun 6 Sep; QPaint team acknowledged. Buying signal (30 Sept availability ask). Review Tue 8 Sep.",
-      "0 overdue QPaint touchpoints \u2014 no customer waiting on us. 22 Engaged, 132 Contacted, all Next Actions covered."
+      "QPaint 226 records, $7.5M total book. 6 Won: $348,963 total, of which $129,750 Recovered (Arno Hsu) and $219,213 Assisted (5 records). Honest separation maintained.",
+      "Lauren Oliveira ($10,937, #43144): QPaint CONFIRMED 29 Sep-13 Oct availability (Tas Moulis, 8 Sep). Ready to lock booking. Live buying signal.",
+      "0 overdue QPaint touchpoints. 27 Engaged, 132 Contacted, all Next Actions covered. Red-team audit (8 Sep) passed: no silent gaps."
     ],
     "reasons_negative": [
       "1 paying customer ($199 MRR). Customer #2 remains the single most important metric.",
-      "Star Painters (Ahmad) no reply to Wed 2 Sep call + SMS. Stalled opportunity; Next Follow-up Date (5 Sep) now passed."
+      "Star Painters (Ahmad) no reply to Wed 2 Sep call + SMS. Stalled opportunity; NFD (5 Sep) now 4 days past."
     ]
   },
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "QPaint: Active. Portfolio certified. 181 active journeys with complete Next Action coverage."
+      "detail": "QPaint: Active. Portfolio certified. 185 active journeys with complete Next Action coverage."
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "\u2705 181 active QPaint journeys certified. 133 contacted. 0 exceptions. Pipeline: $6,165,001. Won: $348,963."
+      "detail": "✅ 185 active QPaint journeys certified. 132 contacted. 0 exceptions. Pipeline: $6,316,810. Won: $348,963."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "V2 Email 3 (32 sent 28 Aug) HOLD standing \u2014 0 replies at Day 10. De-confused Email 2 (9 sent 4 Sep) observation to 11 Sep. RE-ENG-AUG-2026: 147 audience, 0 overnight changes. Next lever: Founder calls (Wed 9 Sep)."
+      "detail": "V2 campaign: 139 activities (53 Email 1, 51 Email 2, 32 Email 3). 134 sent, 1 positive reply (clarification needed, James offered call). No overnight bounces or unsubscribes."
     },
     "engineering": {
       "status": "healthy",
-      "detail": "All systems healthy. Canonical send authority (Phase 1) shadow-ready. Production Operating Protocol v1.0.0 live."
+      "detail": "All systems healthy except one infra item: GitHub Pages build failed on notforgotten-client-os repo (0a26743), and ORIGIN dead PAT (backup/snapshot push failing since 5 Sep) — both need Josh."
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $348,963 Won. $6,165,001 active pipeline."
+      "detail": "QPaint: $348,963 Won. $6,316,810 active pipeline."
     },
     "atlas": {
       "status": "healthy",
@@ -46,42 +46,65 @@
   },
   "waiting_for_james": [
     {
+      "id": "odonnell-decline-relay",
+      "title": "Scott O'Donnell #43149 ($26,158) — QPaint declined, decline relay awaiting your approval",
+      "why_it_matters": "Customer pushed back on pricing (50% over competitor). QPaint's answer (Tas, 8 Sep): max 5-10% consideration, otherwise 'politely decline this one mate.' Draft ready. Pricing-sensitive + hostile customer, so this is your call, not Atlas's.",
+      "business_impact": "High: closes a $26,158 loop either to a considered offer or an honest decline. Leaving a hostile customer unanswered damages QPaint's reputation.",
+      "estimated_time": "5 min to approve/reject the draft.",
+      "recommended_action": "Approve the polite decline relay (recommended) or instruct a 5-10% consideration offer.",
+      "impact_sort": 95
+    },
+    {
       "id": "star-painters-ahmad-followup",
-      "title": "Star Painters (Ahmad) \u2014 no reply to Wed 2 Sep call + SMS, now 3 days past NFD (5 Sep)",
-      "why_it_matters": "Ahmad is the #1 path to customer #2. James called + SMS'd Wed 2 Sep with no reply. Next Follow-up Date (5 Sep) has passed. A decision is needed: one more nudge, or hold.",
+      "title": "Star Painters (Ahmad) — no reply to Wed 2 Sep call + SMS, now 4 days past NFD (5 Sep)",
+      "why_it_matters": "Ahmad is the #1 path to customer #2. James called + SMS'd Wed 2 Sep with no reply. NFD passed. A decision is needed: one more nudge, or hold.",
       "business_impact": "High: customer #2 is the single most important growth metric. Warmest live opportunity.",
       "estimated_time": "5 min to decide; Atlas drafts any message.",
-      "recommended_action": "Decide: one more brief SMS/email nudge to Ahmad, or hold and reassess. If nudge, Atlas drafts for approval.",
+      "recommended_action": "Decide: one more brief SMS/email nudge, or hold and reassess.",
       "impact_sort": 90
+    },
+    {
+      "id": "founder-call-day-today",
+      "title": "Founder Call Day is TODAY (Wed 9 Sep) — call list ready, needs your go",
+      "why_it_matters": "V2 email channel exhausted (3 touches, ~0 replies). Founder calls are the next lever. 12 candidates queued (4 B-tier + 8 B-list); 9 have full briefs.",
+      "business_impact": "Medium: only active lever toward V2 conversion while email is exhausted.",
+      "estimated_time": "Dedicated call block; review the list at the start.",
+      "recommended_action": "Run today's call block from the prepared list. Atlas will verify suppression state before each call if needed.",
+      "impact_sort": 75
     },
     {
       "id": "accountant-tax-documents",
       "title": "BK Partners (accountant) business tax return supporting documents",
-      "why_it_matters": "Monica Tam sent two emails Thu 3 Sep requesting supporting documents (Vanguard statement + business detail). Outside Atlas authority. No longer showing unread in james@ (may have been opened).",
+      "why_it_matters": "Monica Tam sent two emails Thu 3 Sep requesting supporting documents (Vanguard statement + business detail). Outside Atlas authority.",
       "business_impact": "Medium: tax filing deadline risk. Not customer-facing, but time-sensitive.",
       "estimated_time": "10 min to review + respond or forward documents.",
-      "recommended_action": "Confirm the tax documents have been actioned, or tell Atlas what to forward to Monica Tam.",
-      "impact_sort": 70
-    },
-    {
-      "id": "founder-call-day-prep",
-      "title": "Founder Call Day tomorrow (Wed 9 Sep) \u2014 12 candidates queued",
-      "why_it_matters": "V2 email channel exhausted (3 touches, 0 replies at Day 10). Founder calls are the next lever. 12 candidates queued (4 B-tier + 8 B-list). Prep due today.",
-      "business_impact": "Medium: only active lever toward V2 conversion while email is exhausted.",
-      "estimated_time": "15 min to review the 12 candidate briefs Atlas has prepared.",
-      "recommended_action": "Review the queued call list today so Wednesday's call day is focused on qualified contacts.",
+      "recommended_action": "Confirm the tax documents have been actioned, or tell Atlas what to forward.",
       "impact_sort": 60
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Tuesday. Quiet overnight across all mailboxes. QPaint fully under Atlas control (222 records, 6 Won, 26 engaged, 1 overdue-but-no-chase). Three items genuinely need you: (1) the Star Painters/Ahmad follow-up decision (customer #2, now 3 days past NFD), (2) confirming the accountant's tax document request is handled, and (3) Founder Call Day prep \u2014 12 candidates queued for tomorrow (Wed 9 Sep).",
+    "executive_summary": "Wednesday. Founder Call Day. QPaint is fully under Atlas control (226 records, 6 Won, 27 engaged, 0 overdue). Overnight, QPaint confirmed Lauren Oliveira's 29 Sep-13 Oct window — that's now a live booking to close. Four items genuinely need you: (1) Scott O'Donnell decline relay (pricing-sensitive, draft ready), (2) the Ahmad follow-up decision (customer #2, 4 days past NFD), (3) today's Founder Call Day call list, and (4) the accountant's tax documents.",
     "priorities": [
       {
+        "action": "Approve the Scott O'Donnell decline relay (or instruct a 5-10% offer)",
+        "why_it_matters": "Hostile customer waiting; QPaint said decline. $26,158 loop needs closing.",
+        "expected_impact": "High: protects QPaint's reputation and closes the loop honestly.",
+        "estimated_time": "5 min",
+        "confidence": "High"
+      },
+      {
         "action": "Decide on the Star Painters (Ahmad) follow-up",
-        "why_it_matters": "Warmest live path to customer #2. No reply to Wed 2 Sep call + SMS. NFD passed 5 Sep.",
+        "why_it_matters": "Warmest live path to customer #2. No reply since Wed 2 Sep. 4 days past NFD.",
         "expected_impact": "High: could unblock customer #2 conversion.",
         "estimated_time": "5 min",
         "confidence": "High"
+      },
+      {
+        "action": "Run today's Founder Call Day from the prepared list",
+        "why_it_matters": "Email channel exhausted. Calls are the only active lever to V2 conversion.",
+        "expected_impact": "Medium: focuses today's dedicated call block on qualified contacts.",
+        "estimated_time": "Dedicated call block",
+        "confidence": "Medium"
       },
       {
         "action": "Confirm BK Partners (accountant) tax documents are actioned",
@@ -89,51 +112,44 @@
         "expected_impact": "Medium: keeps tax filing on schedule.",
         "estimated_time": "10 min",
         "confidence": "High"
-      },
-      {
-        "action": "Review the 12 Founder Call Day candidates ahead of Wed 9 Sep",
-        "why_it_matters": "Email channel exhausted. Calls are the only active lever to V2 conversion.",
-        "expected_impact": "Medium: focuses Wednesday's dedicated call day on qualified contacts.",
-        "estimated_time": "15 min",
-        "confidence": "Medium"
       }
     ],
     "can_wait": [
-      "All QPaint operations (Collard scope answers await QPaint, Kristen Watt availability due today, O'Donnell pricing 10 Sep, Oliveira availability window) \u2014 Atlas owns.",
-      "RE-ENG-AUG-2026 campaign monitoring \u2014 no overnight changes.",
-      "System health \u2014 disk 38%, state.db 93M, dashboard current. One recurring infra item: ORIGIN dead PAT (backup + snapshot push failing since 5 Sep) needs Josh, not James."
+      "All QPaint operations under Atlas control — Lauren Oliveira confirmation relay, Collard scope (awaiting QPaint), Kristen Watt availability (due 9-11 Sep), Saini price, Paige committee, Cochrane breakdown. Atlas owns.",
+      "RE-ENG / V2 campaign monitoring — no overnight bounces, unsubscribes, or YES responses.",
+      "ORIGIN dead PAT (nightly backup + snapshot push failing since 5 Sep) — needs Josh, not James."
     ],
-    "closing": "Three things: the Ahmad decision, the accountant's documents, and Wednesday's call-list prep. QPaint is handled. The Ahmad decision is the one worth clearing this morning."
+    "closing": "The one thing worth clearing first this morning is the O'Donnell decline relay — it's the only item where a customer is actively waiting on a decision. Ahmad is the one worth a decision too, but a hostile pricing customer left hanging is the sharper edge. Founder Call Day is today; the list is ready."
   },
   "changes": {
     "today": [
       {
-        "time": "2026-09-07T04:06:33+09:30",
-        "text": "Overnight reconciliation: all three mailboxes scanned. atlas@ 0 unread, quotes@ 0 unread. james@ 10 unread = 9 stale system items (DMARC reports, Aug 9 bounces already reconciled Lost, Stripe invoice) + Tas Moulis QPaint ack (already recorded in Kristen Watt record)."
+        "time": "2026-09-09T04:07:12+09:30",
+        "text": "Overnight: all three mailboxes scanned. atlas@ 0 unread, quotes@ 0 unread (5 PandaDoc sends, already filed). james@ 10 unread = 8 stale system items (DMARC, Aug 9 bounces already reconciled Lost) + Tas Moulis QPaint confirmations."
       },
       {
-        "time": "2026-09-07T04:06:33+09:30",
-        "text": "QPaint: no overnight changes. 222 records, 6 Won ($348,963), 35 Lost, 22 Engaged, 0 overdue touchpoints. Kristen Watt quote redelivered Sun, QPaint acknowledged."
+        "time": "2026-09-09T04:07:12+09:30",
+        "text": "QPaint: Lauren Oliveira #43144 — Tas CONFIRMED 29 Sep-13 Oct availability. CRM updated; ready to relay confirmation + lock booking."
       },
       {
-        "time": "2026-09-07T04:06:33+09:30",
-        "text": "NF: Star Painters (Ahmad) NFD passed 5 Sep, still no reply to Wed 2 Sep call + SMS."
+        "time": "2026-09-09T04:07:12+09:30",
+        "text": "System: GitHub Pages build failed on notforgotten-client-os repo (0a26743). Flagged; needs Josh."
       }
     ],
     "yesterday": [
       {
-        "time": "2026-09-06",
-        "text": "Kristen Watt (#43121, $14,843) quote redelivered; QPaint handoff sent; Tas Moulis acknowledged ('we'll check it out tomorrow'). Buying signal: 30 Sept team availability."
+        "time": "2026-09-08",
+        "text": "Overnight Full-Book Red-Team Audit: QPaint UNDER CONTROL — GO. 226 records (185 open / 6 won / 35 lost). 7 fixes executed (5 courtesy acks, Oliveira handoff fixed, 5 Lost outcomes corrected, Sue Barrett cleared)."
       },
       {
-        "time": "2026-09-06",
-        "text": "Terry Hamilton ($30,538) and Ron Hard ($30,740) replied - both now Engaged, reconciled."
+        "time": "2026-09-08",
+        "text": "Scott O'Donnell #43149: QPaint declined (max 5-10% consideration). Decline relay draft ready, awaiting James approval."
       }
     ],
     "this_week": [
       {
         "time": "-",
-        "text": "QPaint: 222 records, $7.36M total, 6 Won ($348,963 = 1 Recovered $129,750 + 5 Assisted $219,213), 35 Lost."
+        "text": "QPaint: 226 records, $7.5M total, 6 Won ($348,963 = 1 Recovered $129,750 + 5 Assisted $219,213), 35 Lost, 27 Engaged."
       },
       {
         "time": "-",
@@ -141,7 +157,7 @@
       },
       {
         "time": "-",
-        "text": "5 QPaint quotes intaken Sat 5 Sep (Tapley, Oliveira, Harvison, O'Donnell, Ellis) - certified, due Mon 7 Sep."
+        "text": "V2 campaign: 139 activities (53 Email 1, 51 Email 2, 32 Email 3), 134 sent, 1 positive reply (needs clarification, James offered call)."
       }
     ]
   },
@@ -150,21 +166,21 @@
     "recent": [
       {
         "id": "INC-2026-08-11",
-        "title": "QPaint Quote Intake \u2014 False Completion",
+        "title": "QPaint Quote Intake — False Completion",
         "status": "Closed",
         "summary": "3 quotes marked complete with $0 deal values. Root cause: no certification gate between extraction and label. Fixed: certify_intake_complete() + Intake Exception state."
       },
       {
         "id": "BK-014",
-        "title": "ATTEMPTED \u2260 COMPLETED",
+        "title": "ATTEMPTED ≠ COMPLETED",
         "status": "Permanent",
-        "summary": "Automation success \u2260 business outcome success. Every critical workflow must verify the business state, not just the process completion."
+        "summary": "Automation success ≠ business outcome success. Every critical workflow must verify the business state, not just the process completion."
       },
       {
         "id": "BK-015",
-        "title": "HTTP 200 \u2260 Application Success",
+        "title": "HTTP 200 ≠ Application Success",
         "status": "Permanent",
-        "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy \u2192 verify dependencies \u2192 verify render \u2192 certify."
+        "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy → verify dependencies → verify render → certify."
       }
     ]
   },
@@ -179,7 +195,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "\u2705 QPaint portfolio certified. 181 active journeys. Protocol v1.0.0. Send authority live.",
+  "operational_status": "QPaint portfolio certified. 226 records, 185 active, 27 engaged, 0 overdue. Protocol v1.0.0. Founder Call Day today.",
   "vault_health": {
     "decisions": {
       "total": 80,
@@ -209,22 +225,22 @@
   },
   "qpaint_pipeline": {
     "summary": {
-      "total_customers": 222,
-      "total_pipeline_value": 6165001,
+      "total_customers": 226,
+      "total_pipeline_value": 6316810,
       "won_count": 6,
       "won_value": 348963,
       "lost_count": 35,
-      "engaged_replied": 26,
-      "contacted": 133,
-      "not_contacted": 22
+      "engaged_replied": 27,
+      "contacted": 132,
+      "not_contacted": 26
     },
     "stage_breakdown": {
       "Email 1": 47,
       "Email 3": 43,
-      "Email 2": 42,
+      "Email 2": 41,
       "Lost": 35,
-      "New": 23,
-      "Replied": 20,
+      "New": 27,
+      "Replied": 21,
       "Won": 6,
       "Engaged": 4,
       "Awaiting Reply": 1,
@@ -233,7 +249,7 @@
     "priority": {
       "P1": 93,
       "P2": 53,
-      "P3": 76
+      "P3": 80
     },
     "key_customers": [
       {
