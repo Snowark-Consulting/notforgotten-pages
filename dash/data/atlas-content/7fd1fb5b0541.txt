@@ -3,7 +3,7 @@ doc_type: decision-review-prep
 owner: notforgotten
 tier: primary
 date: 2026-09-03
-status: PREPARATION — review due 2026-09-08
+status: PREPARATION — review due 2026-09-08 (REFRESHED 2026-09-08 22:00 ACST — post-prep evidence added)
 prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
 ---
 
@@ -64,3 +64,27 @@ prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
 ## Prepared by
 
 Prepare-Ahead Clock 2026-09-03 22:00 ACST.
+
+---
+
+## Refresh — 2026-09-08 22:00 ACST (review date reached)
+
+**Review date has arrived (2026-09-08). Prep still open — no verdict recorded in Decision INDEX (status 🟢 Made).** Additional evidence since the 2026-09-03 prep and 2026-09-04 refresh:
+
+8. **De-confused Email 2 cohort (9) sent 2026-09-04** — james@, founder-approved autonomy (`knowledge/authority/founder-approved-autonomy-2026-09-04-deconfused-email2.json`), Gmail-verified 9/9, activity ledger backfilled. Tests canonical path at medium batch under delegated authority.
+9. **Sep 7 Monday Email 1 cohort (5 QPaint sends)** — founder-approved, Gmail-VERIFIED (send-evidence SEND-2026-09-07T121540…121548, approvals APR-20260907-121535/121541/121543/121545/121547). Canonical path, per-send approval records standard.
+10. **Sep 8 overnight courtesy acknowledgments (5)** + Oliveira stuck-handoff fix (1) — founder-approved, Gmail-verified, reconciled CLOSED (send-evidence SEND-2026-09-08T202404…202414/202612; approvals APR-20260908-202400…202412). Includes reply_to_message_id threading lesson — canonical-send fail-closed behaved correctly when anchor pointed at customer's inbound (blocked, re-sent without anchor → COMPLETE).
+11. **Full-book red-team audit 2026-09-08 (20:09-20:29)** — QPaint operation proven under control: 226 records reviewed, all sends traceable with evidence + approvals, 0 unresolved, Won attribution clean (5 Assisted + 1 Recovered, no inflation). Independent verification that the canonical send path + evidence discipline held at book level, not just per-send.
+12. **Acceptance criterion check (updated):**
+    | Criterion | Now (Sep 8) |
+    |---|---|
+    | Customer send paths migrated | Still 4/4 — no new paths added outside canonical |
+    | Alternative customer send paths | 0 — red-team audit found all sends traceable (send-evidence + approvals) |
+    | NO APPROVAL → BLOCKED | Enforced — every Sep 4-8 send carries approval record |
+    | Fail-closed verification | Enforced + Gate 1 find_approval bug fixed 4 Sep (fail-closed preserved) |
+    | Idempotency | Enforced + Campaign Idempotency Standard (Aug 10) |
+    | Regression tests | Verify still passing after CCG addition — outstanding check |
+
+**Outstanding for verdict:** (a) 15/15 regression re-run post-CCG-add not evidenced in prep; (b) Gate -2 (CCG) protocol-amendment change-control question (verdict framing Q2) still needs a formal answer; (c) decision record staleness vs protocol v1.1.0 (verdict framing Q3).
+
+Refresh by Prepare-Ahead Clock 2026-09-08 22:00 ACST.

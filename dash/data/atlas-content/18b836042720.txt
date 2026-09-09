@@ -2,7 +2,7 @@
 
 > Loaded at every session boot. Before touching any external API, tool, or domain, scan this table. If the domain you're about to touch has a card, load it first. One domain = one card. Cards load on-demand, not at boot.
 >
-> **EDITING THIS TABLE:** never fuzzy-patch multi-line blocks here — full-row replacement only. This table was corrupted 3 times by partial edits (dropped rows, `||` prefix damage, mid-table splits). Repair history: 2026-09-06, 2026-09-07 (consolidation).
+> **EDITING THIS TABLE:** never fuzzy-patch multi-line blocks here — full-row replacement only. This table was corrupted 4 times by partial edits (dropped rows, `||` prefix damage, mid-table splits). Repair history: 2026-09-06, 2026-09-07 (consolidation), 2026-09-09 (consolidation).
 
 | Domain | Trigger keywords | Card |
 |--------|-----------------|------|
@@ -24,6 +24,7 @@
 | airtable | `airtable`, `Airtable`, `record`, `duplicate`, `pagination`, `maxRecords`, `pageSize` | `cards/airtable.md` |
 | browser | `Accessibility.getFullAXTree`, `CDP`, `AX tree`, `React SPA`, `contenteditable`, `DOM invisible`, `browser_console tab`, `Page.navigate`, `chrome.newtab` | `cards/browser.md` |
 | canonical-send | `canonical-send`, `find_approval`, `Gate 1`, `FOUNDER_APPROVED`, `hash mismatch`, `canonical.email.send` | `cards/canonical-send.md` |
+| microsoft-graph | `Microsoft Graph`, `$filter`, `isRead`, `ODATA`, `Graph API`, `msgraph` | `cards/microsoft-graph.md` |
 | qpaint | `QPaint`, `1300 QPAINT`, `white-label`, `Dee`, `Leslie`, `Tas Moulis`, `pipeline truth`, `recovery ops`, `Email 3` | `cards/qpaint.md` |
 
 ## How to use
