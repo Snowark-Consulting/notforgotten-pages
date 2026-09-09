@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-09T10:52:14+09:30",
+  "generated_at": "2026-09-10T03:50:04+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "The QPaint portfolio is stable. 226 total records, 184 active journeys. Production Operating Protocol v1.0.0 governs all operations. Canonical send authority live.",
+    "body": "The QPaint portfolio is stable. 235 total records, 192 active journeys. Production Operating Protocol v1.0.0 governs all operations. Canonical send authority live.",
     "estimated_time": "2 minutes"
   },
   "business_score": {
@@ -21,11 +21,11 @@
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "QPaint: Active. Portfolio certified. 184 active journeys with complete Next Action coverage."
+      "detail": "QPaint: Active. Portfolio certified. 192 active journeys with complete Next Action coverage."
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "\u2705 184 active QPaint journeys certified. 131 contacted. 0 exceptions. Pipeline: $6,301,429. Won: $364,344."
+      "detail": "\u2705 192 active QPaint journeys certified. 130 contacted. 0 exceptions. Pipeline: $6,442,813. Won: $376,323."
     },
     "outreach": {
       "status": "healthy",
@@ -37,7 +37,7 @@
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $364,344 Won. $6,301,429 active pipeline."
+      "detail": "QPaint: $376,323 Won. $6,442,813 active pipeline."
     },
     "atlas": {
       "status": "healthy",
@@ -154,7 +154,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "\u2705 QPaint portfolio certified. 184 active journeys. Protocol v1.0.0. Send authority live.",
+  "operational_status": "\u2705 QPaint portfolio certified. 192 active journeys. Protocol v1.0.0. Send authority live.",
   "vault_health": {
     "decisions": {
       "total": 80,
@@ -184,23 +184,23 @@
   },
   "qpaint_pipeline": {
     "summary": {
-      "total_customers": 226,
-      "total_pipeline_value": 6301429,
-      "won_count": 7,
-      "won_value": 364344,
+      "total_customers": 235,
+      "total_pipeline_value": 6442813,
+      "won_count": 8,
+      "won_value": 376323,
       "lost_count": 35,
-      "engaged_replied": 27,
-      "contacted": 131,
-      "not_contacted": 26
+      "engaged_replied": 28,
+      "contacted": 130,
+      "not_contacted": 34
     },
     "stage_breakdown": {
-      "Email 3": 51,
+      "Email 3": 50,
       "Email 1": 45,
       "Lost": 35,
+      "New": 35,
       "Email 2": 34,
-      "New": 27,
-      "Replied": 22,
-      "Won": 7,
+      "Replied": 23,
+      "Won": 8,
       "Engaged": 3,
       "Awaiting Reply": 1,
       "Email 4": 1
@@ -208,7 +208,7 @@
     "priority": {
       "P1": 93,
       "P2": 53,
-      "P3": 80
+      "P3": 89
     },
     "key_customers": [
       {
