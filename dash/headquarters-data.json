@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-09T05:25:00+09:30",
+  "generated_at": "2026-09-09T10:52:14+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "The QPaint portfolio is stable. 226 total records, 185 active journeys. Production Operating Protocol v1.0.0 governs all operations. Canonical send authority live.",
+    "body": "The QPaint portfolio is stable. 226 total records, 184 active journeys. Production Operating Protocol v1.0.0 governs all operations. Canonical send authority live.",
     "estimated_time": "2 minutes"
   },
   "business_score": {
@@ -21,23 +21,23 @@
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "QPaint: Active. Portfolio certified. 185 active journeys with complete Next Action coverage."
+      "detail": "QPaint: Active. Portfolio certified. 184 active journeys with complete Next Action coverage."
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "✅ 185 active QPaint journeys certified. 132 contacted. 0 exceptions. Pipeline: $6,316,810. Won: $348,963."
+      "detail": "\u2705 184 active QPaint journeys certified. 131 contacted. 0 exceptions. Pipeline: $6,301,429. Won: $364,344."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "V2 campaign: 139 activities (53 Email 1, 51 Email 2, 32 Email 3). 134 sent, 1 positive reply (clarification needed, James offered call). No overnight bounces or unsubscribes."
+      "detail": "V2 Email 3 (32 sent 28 Aug) awaiting reply \u2014 follow-up window 4 Sep. 9 founder-autonomy Email 1s (30 Aug), Email 2 window 4 Sep. RE-ENG-AUG-2026: 99 observing."
     },
     "engineering": {
       "status": "healthy",
-      "detail": "All systems healthy except one infra item: GitHub Pages build failed on notforgotten-client-os repo (0a26743), and ORIGIN dead PAT (backup/snapshot push failing since 5 Sep) — both need Josh."
+      "detail": "All systems healthy. Canonical send authority (Phase 1) shadow-ready. Production Operating Protocol v1.0.0 live."
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $348,963 Won. $6,316,810 active pipeline."
+      "detail": "QPaint: $364,344 Won. $6,301,429 active pipeline."
     },
     "atlas": {
       "status": "healthy",
@@ -47,7 +47,7 @@
   "waiting_for_james": [
     {
       "id": "founder-call-day-today",
-      "title": "Founder Call Day is TODAY (Wed 9 Sep) — 12 ranked calls ready in founder_call_day",
+      "title": "Founder Call Day is TODAY (Wed 9 Sep) \u2014 12 ranked calls ready in founder_call_day",
       "why_it_matters": "Email channel exhausted (3 touches, ~0 replies). 12 founder calls on 2 Sep produced 0 replies. Calls are the only lever to Customer #2.",
       "business_impact": "High: only active lever to conversion.",
       "estimated_time": "Dedicated call block.",
@@ -76,7 +76,7 @@
     "can_wait": [
       "All QPaint operations (Atlas owns): Collard scope, Kristen Watt availability, Lauren Oliveira confirmation relayed, Scott O'Donnell decline relayed.",
       "Ahmad/Star Painters: MONITOR (4 founder touches, 0 replies). Reassess 23 Sep.",
-      "ORIGIN dead PAT (nightly backup failing since 5 Sep) — needs Josh, not James."
+      "ORIGIN dead PAT (nightly backup failing since 5 Sep) \u2014 needs Josh, not James."
     ],
     "closing": "Nothing in QPaint needs you. The founder call block is your one job today. Lead with Rahamed."
   },
@@ -88,7 +88,7 @@
       },
       {
         "time": "2026-09-09T04:07:12+09:30",
-        "text": "QPaint: Lauren Oliveira #43144 — Tas CONFIRMED 29 Sep-13 Oct availability. CRM updated; ready to relay confirmation + lock booking."
+        "text": "QPaint: Lauren Oliveira #43144 \u2014 Tas CONFIRMED 29 Sep-13 Oct availability. CRM updated; ready to relay confirmation + lock booking."
       },
       {
         "time": "2026-09-09T04:07:12+09:30",
@@ -98,7 +98,7 @@
     "yesterday": [
       {
         "time": "2026-09-08",
-        "text": "Overnight Full-Book Red-Team Audit: QPaint UNDER CONTROL — GO. 226 records (185 open / 6 won / 35 lost). 7 fixes executed (5 courtesy acks, Oliveira handoff fixed, 5 Lost outcomes corrected, Sue Barrett cleared)."
+        "text": "Overnight Full-Book Red-Team Audit: QPaint UNDER CONTROL \u2014 GO. 226 records (185 open / 6 won / 35 lost). 7 fixes executed (5 courtesy acks, Oliveira handoff fixed, 5 Lost outcomes corrected, Sue Barrett cleared)."
       },
       {
         "time": "2026-09-08",
@@ -125,21 +125,21 @@
     "recent": [
       {
         "id": "INC-2026-08-11",
-        "title": "QPaint Quote Intake — False Completion",
+        "title": "QPaint Quote Intake \u2014 False Completion",
         "status": "Closed",
         "summary": "3 quotes marked complete with $0 deal values. Root cause: no certification gate between extraction and label. Fixed: certify_intake_complete() + Intake Exception state."
       },
       {
         "id": "BK-014",
-        "title": "ATTEMPTED ≠ COMPLETED",
+        "title": "ATTEMPTED \u2260 COMPLETED",
         "status": "Permanent",
-        "summary": "Automation success ≠ business outcome success. Every critical workflow must verify the business state, not just the process completion."
+        "summary": "Automation success \u2260 business outcome success. Every critical workflow must verify the business state, not just the process completion."
       },
       {
         "id": "BK-015",
-        "title": "HTTP 200 ≠ Application Success",
+        "title": "HTTP 200 \u2260 Application Success",
         "status": "Permanent",
-        "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy → verify dependencies → verify render → certify."
+        "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy \u2192 verify dependencies \u2192 verify render \u2192 certify."
       }
     ]
   },
@@ -154,7 +154,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "QPaint portfolio certified. 226 records, 185 active, 27 engaged, 0 overdue. Protocol v1.0.0. Founder Call Day today.",
+  "operational_status": "\u2705 QPaint portfolio certified. 184 active journeys. Protocol v1.0.0. Send authority live.",
   "vault_health": {
     "decisions": {
       "total": 80,
@@ -185,23 +185,23 @@
   "qpaint_pipeline": {
     "summary": {
       "total_customers": 226,
-      "total_pipeline_value": 6316810,
-      "won_count": 6,
-      "won_value": 348963,
+      "total_pipeline_value": 6301429,
+      "won_count": 7,
+      "won_value": 364344,
       "lost_count": 35,
       "engaged_replied": 27,
-      "contacted": 132,
+      "contacted": 131,
       "not_contacted": 26
     },
     "stage_breakdown": {
-      "Email 1": 47,
-      "Email 3": 43,
-      "Email 2": 41,
+      "Email 3": 51,
+      "Email 1": 45,
       "Lost": 35,
+      "Email 2": 34,
       "New": 27,
-      "Replied": 21,
-      "Won": 6,
-      "Engaged": 4,
+      "Replied": 22,
+      "Won": 7,
+      "Engaged": 3,
       "Awaiting Reply": 1,
       "Email 4": 1
     },
@@ -324,133 +324,6 @@
         "value": "$8,360",
         "stage": "Won",
         "status": "Assisted"
-      }
-    ]
-  },
-  "founder_call_day": {
-    "call_day": "Wednesday 9 September 2026",
-    "note": "Second-call round. The 12 named prospects were founder-called + SMS'd on 2 Sep with ZERO replies. Today is persistence (one-week follow-up), led by Rahamed (the only reply, needs offer de-confusion). Email channel is exhausted; calls are the only lever to Customer #2.",
-    "signal": "12 founder calls on 2 Sep produced 0 replies. Worth noting: the cold-call approach is not yet converting. Rahamed is the single warm thread.",
-    "calls": [
-      {
-        "order": 1,
-        "who": "Rahamed",
-        "business": "Inspire Painting",
-        "phone": "0450 724 858",
-        "why_now": "Only reply in the whole campaign. Warm but misread the offer as lead-gen. 2 Sep call unanswered. Clear the confusion in person.",
-        "history": "Replied to Email 2 asking about 'job wait time / leads'. James clarified + offered a call. Silent 7 days.",
-        "objective": "Correct the frame: 'I follow up the quotes you already sent, not find new jobs.' Qualify whether he even sends many quotes.",
-        "dont_assume": "Do not promise jobs. He may not be a fit if he sends few quotes."
-      },
-      {
-        "order": 2,
-        "who": "Esmayel",
-        "business": "Upscale Painting & Decorating",
-        "phone": "0490 094 862",
-        "why_now": "Highest fit score (80/A) in the book. SA-based, named owner.",
-        "history": "Email 1/2 sent, 2 Sep call + SMS, no reply.",
-        "objective": "Discovery: quote volume + follow-up process + whether silent quotes cost him work.",
-        "dont_assume": "Fit score is not interest. Discovery first."
-      },
-      {
-        "order": 3,
-        "who": "Waz",
-        "business": "Clean Cut Painters",
-        "phone": "0400 896 913",
-        "why_now": "Fit 74, named owner, direct email (waz@).",
-        "history": "2 Sep call + SMS, no reply.",
-        "objective": "Discovery: what happens after a quote goes out.",
-        "dont_assume": "Named owner = decision-maker, but verify."
-      },
-      {
-        "order": 4,
-        "who": "Slavek",
-        "business": "One Touch Paint",
-        "phone": "0415 392 436",
-        "why_now": "Fit 74, named owner, 37-year veteran.",
-        "history": "2 Sep call + SMS, no reply.",
-        "objective": "Does a 37-year veteran still lose work to poor follow-up?",
-        "dont_assume": "Reputation alone drives business."
-      },
-      {
-        "order": 5,
-        "who": "Cameron Davidson",
-        "business": "Cameron Davidson Painters",
-        "phone": "0418 832 500",
-        "why_now": "Fit 68, SA-based, named owner.",
-        "history": "2 Sep call + SMS, no reply.",
-        "objective": "Discovery + qualification.",
-        "dont_assume": "SA proximity = fit."
-      },
-      {
-        "order": 6,
-        "who": "Rad",
-        "business": "Zoom Painting",
-        "phone": "0416 507 822",
-        "why_now": "Fit 67, named owner, 1 open (only engagement signal).",
-        "history": "2 Sep call + SMS, no reply.",
-        "objective": "Discovery.",
-        "dont_assume": "Open = interest."
-      },
-      {
-        "order": 7,
-        "who": "Fred",
-        "business": "Paintpal Pty Ltd",
-        "phone": "0481 140 140",
-        "why_now": "Fit 67, named owner.",
-        "history": "2 Sep call + SMS, no reply.",
-        "objective": "Discovery.",
-        "dont_assume": "Nothing."
-      },
-      {
-        "order": 8,
-        "who": "Dave",
-        "business": "Paint Master",
-        "phone": "0414 475 594",
-        "why_now": "Fit 60, 5 opens (most engaged by tracking).",
-        "history": "2 Sep call + SMS, no reply.",
-        "objective": "Discovery — he opened everything, worth a real conversation.",
-        "dont_assume": "Opens = intent."
-      },
-      {
-        "order": 9,
-        "who": "Raoul",
-        "business": "Bayside Painting",
-        "phone": "0432 987 587",
-        "why_now": "Fit 65, named owner.",
-        "history": "2 Sep call + SMS, no reply.",
-        "objective": "Discovery.",
-        "dont_assume": "Nothing."
-      },
-      {
-        "order": 10,
-        "who": "Master Choice Painting",
-        "business": "Master Choice Painting",
-        "phone": "0406 465 555",
-        "why_now": "Warm (Client Prob 83), no objection recorded.",
-        "history": "2 Sep call + SMS, no reply.",
-        "objective": "Discovery.",
-        "dont_assume": "Warm = ready."
-      },
-      {
-        "order": 11,
-        "who": "The Painting Company",
-        "business": "The Painting Company",
-        "phone": "0403 815 757",
-        "why_now": "Warm/considering (Client Prob 57).",
-        "history": "2 Sep call + SMS, no reply.",
-        "objective": "Discovery.",
-        "dont_assume": "Considering = near close."
-      },
-      {
-        "order": 12,
-        "who": "(unnamed)",
-        "business": "Brisbane Professional Painters",
-        "phone": "0411 717 176",
-        "why_now": "Client Prob 84, family-run + strata (top ICP signal). Fresh, not called 2 Sep.",
-        "history": "Email 1 sent, no founder call yet.",
-        "objective": "Discovery — ask for the owner by name.",
-        "dont_assume": "Owner answers directly."
       }
     ]
   }
