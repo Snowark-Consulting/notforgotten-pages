@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 217,
+    "tasks_completed": 218,
     "recent": [
+      {
+        "date": "2026-09-10 07:33",
+        "task": "QPaint follow-up: 2 Email 1 sent (Christopher Price #43148, Eddie Yuan #38798), 1 QBuild HOLD cleaned (Jason Manley #43162)",
+        "category": "task"
+      },
       {
         "date": "2026-09-10 03:50",
         "task": "Patricia McDonald #43198 signed contract 9 Sep - Won (Observed $11,979, straight win, no NF role). 8th QPaint win.",
@@ -135,11 +140,6 @@
         "date": "2026-08-25 09:08",
         "task": "QPaint: Kay Crawley scope-addition surfaced to QPaint (Dee/Leslie) + Email 1 sent to Katie Schotel & Arna Lancashire (both verified in Gmail, Airtable reconciled)",
         "category": "task"
-      },
-      {
-        "date": "2026-08-25 08:23",
-        "task": "QPaint Email 1 sent to Alys Dee Le-Bhers + Kay Crawley (verified). Reconciled Recovery Status for John Wilson, Steve Liversidge, Sharon Fleay. Recorded Brooke Warren naming note.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-09-10T06:30:28.005819+09:30",
+  "last_updated": "2026-09-10T07:33:50.383193+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
