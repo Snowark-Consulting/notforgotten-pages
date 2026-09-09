@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-10T03:50:04+09:30",
+  "generated_at": "2026-09-10T04:06:39+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "The QPaint portfolio is stable. 235 total records, 192 active journeys. Production Operating Protocol v1.0.0 governs all operations. Canonical send authority live.",
+    "body": "QPaint is stable and fully under Atlas control. 235 records, 192 active journeys, 8 Won ($376,323). 0 overdue touchpoints, 0 exceptions. Production Operating Protocol v1.0.0 governs all operations. No overnight mailbox activity.",
     "estimated_time": "2 minutes"
   },
   "business_score": {
     "score": 88,
     "change": "steady",
     "reasons_positive": [
-      "QPaint 226 records, $7.5M total book. 6 Won: $348,963 total, of which $129,750 Recovered (Arno Hsu) and $219,213 Assisted (5 records). Honest separation maintained.",
-      "Lauren Oliveira ($10,937, #43144): QPaint CONFIRMED 29 Sep-13 Oct availability (Tas Moulis, 8 Sep). Ready to lock booking. Live buying signal.",
-      "0 overdue QPaint touchpoints. 27 Engaged, 132 Contacted, all Next Actions covered. Red-team audit (8 Sep) passed: no silent gaps."
+      "QPaint 235 records, $7.66M total book. 8 Won: $376,323 = $129,750 Recovered (Arno Hsu) + $234,593 Assisted (6) + $11,979 Observed (Patricia McDonald). Honest separation maintained.",
+      "Lauren Oliveira ($10,937, #43144): QPaint CONFIRMED 29 Sep-13 Oct availability; confirmation relayed 9 Sep, MONITOR to 14 Sep. Ball in customer's court.",
+      "0 overdue QPaint touchpoints. 28 Engaged, 130 Contacted, all Next Actions covered. Red-team audit (8 Sep) passed: no silent gaps."
     ],
     "reasons_negative": [
       "1 paying customer ($199 MRR). Customer #2 remains the single most important metric.",
-      "Star Painters (Ahmad) no reply to Wed 2 Sep call + SMS. Stalled opportunity; NFD (5 Sep) now 4 days past."
+      "Star Painters (Ahmad) no reply to 4 founder touches. Stalled opportunity; MONITOR to 23 Sep."
     ]
   },
   "business_health": {
@@ -25,11 +25,11 @@
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "\u2705 192 active QPaint journeys certified. 130 contacted. 0 exceptions. Pipeline: $6,442,813. Won: $376,323."
+      "detail": "✅ 192 active QPaint journeys certified. 130 contacted, 28 engaged. 0 exceptions. Total book: $7,660,812. Won: $376,323 (8). Lost: 35."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "V2 Email 3 (32 sent 28 Aug) awaiting reply \u2014 follow-up window 4 Sep. 9 founder-autonomy Email 1s (30 Aug), Email 2 window 4 Sep. RE-ENG-AUG-2026: 99 observing."
+      "detail": "V2 Email 3 (32 sent 28 Aug) awaiting reply — follow-up window 4 Sep. 9 founder-autonomy Email 1s (30 Aug), Email 2 window 4 Sep. RE-ENG-AUG-2026: 99 observing."
     },
     "engineering": {
       "status": "healthy",
@@ -37,7 +37,7 @@
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $376,323 Won. $6,442,813 active pipeline."
+      "detail": "QPaint: $376,323 Won (8 records). $7,660,812 total book. $6,442,813 active pipeline (excl Won/Lost)."
     },
     "atlas": {
       "status": "healthy",
@@ -46,77 +46,74 @@
   },
   "waiting_for_james": [
     {
-      "id": "founder-call-day-today",
-      "title": "Founder Call Day is TODAY (Wed 9 Sep) \u2014 12 ranked calls ready in founder_call_day",
-      "why_it_matters": "Email channel exhausted (3 touches, ~0 replies). 12 founder calls on 2 Sep produced 0 replies. Calls are the only lever to Customer #2.",
+      "id": "call-day-outcome-capture",
+      "title": "Founder Call Day was YESTERDAY (Wed 9 Sep) — 12 ranked calls. Capture outcomes.",
+      "why_it_matters": "The 12 candidates (2nd round, all called 2 Sep with 0 replies) were your only lever to Customer #2. Outcomes need capturing to update CRM and rank the next round.",
       "business_impact": "High: only active lever to conversion.",
-      "estimated_time": "Dedicated call block.",
-      "recommended_action": "Run the ranked list. Lead with Rahamed (offer de-confusion), then the named 2 Sep cohort.",
+      "estimated_time": "5-10 min to relay outcomes.",
+      "recommended_action": "Tell Atlas which calls connected / no-answer / voicemail / do-not-contact, so the CRM reflects reality and the next call list ranks correctly.",
       "impact_sort": 80
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Wednesday, Founder Call Day. QPaint is fully under Atlas control. This morning Atlas executed the Scott O'Donnell decline relay and the Lauren Oliveira availability confirmation (QPaint confirmed overnight). Ahmad/Star Painters set to MONITOR (4 founder touches, 0 replies). BK Partners tax docs confirmed handled (James supplied the Vanguard statement + all answers 3 Sep). The single item that needs you today is the founder call block.",
+    "executive_summary": "Thursday. QPaint is fully under Atlas control — 8 Won ($376,323), 0 overdue, 0 exceptions, nothing needs you on the client side. Yesterday's Founder Call Day (12 candidates) is the open loop: relay call outcomes so Atlas can update the CRM and rank the next round. No overnight mailbox activity (quotes@ 0, atlas@ 0, james@ 8 = stale system noise already reconciled).",
     "priorities": [
       {
-        "action": "Run the Founder Call Day list (12 ranked calls)",
-        "why_it_matters": "Email exhausted, 12 calls on 2 Sep got 0 replies. Calls are the only lever to Customer #2.",
+        "action": "Relay yesterday's Founder Call Day outcomes",
+        "why_it_matters": "12 candidates called (2nd round). Outcomes must land in CRM before the next round is ranked.",
         "expected_impact": "High",
-        "estimated_time": "Dedicated call block",
-        "confidence": "Medium"
+        "estimated_time": "5-10 min",
+        "confidence": "High"
       },
       {
-        "action": "Lead with Rahamed (Inspire Painting)",
-        "why_it_matters": "The only reply in the campaign, misread the offer as lead-gen. A live call clears what email cannot.",
-        "expected_impact": "High",
-        "estimated_time": "15 min",
-        "confidence": "High"
+        "action": "Confirm the 8th Won (Patricia McDonald, Observed $11,979) is intended",
+        "why_it_matters": "New win reconciled 9 Sep with 'Observed' attribution (signed before NF follow-up). It's recorded accurately; flag only if you want it re-attributed.",
+        "expected_impact": "Low",
+        "estimated_time": "2 min",
+        "confidence": "Medium"
       }
     ],
     "can_wait": [
-      "All QPaint operations (Atlas owns): Collard scope, Kristen Watt availability, Lauren Oliveira confirmation relayed, Scott O'Donnell decline relayed.",
-      "Ahmad/Star Painters: MONITOR (4 founder touches, 0 replies). Reassess 23 Sep.",
-      "ORIGIN dead PAT (nightly backup failing since 5 Sep) \u2014 needs Josh, not James."
+      "All QPaint operations (Atlas owns): 0 overdue, 0 exceptions, 8 Won reconciled.",
+      "Ahmad/Star Painters: MONITOR to 23 Sep (4 touches, 0 replies).",
+      "De-confused Email 2 cohort (9): observation window closes 11 Sep (tomorrow) — Atlas will review at pulse.",
+      "ORIGIN dead PAT + GitHub Pages client-os build failure — both Josh items, not James."
     ],
-    "closing": "Nothing in QPaint needs you. The founder call block is your one job today. Lead with Rahamed."
+    "closing": "Nothing in QPaint needs you. The one open loop is relaying yesterday's call outcomes."
   },
   "changes": {
     "today": [
       {
-        "time": "2026-09-09T04:07:12+09:30",
-        "text": "Overnight: all three mailboxes scanned. atlas@ 0 unread, quotes@ 0 unread (5 PandaDoc sends, already filed). james@ 10 unread = 8 stale system items (DMARC, Aug 9 bounces already reconciled Lost) + Tas Moulis QPaint confirmations."
+        "time": "2026-09-10T04:06:39+09:30",
+        "text": "Overnight: all three mailboxes scanned. quotes@ 0 unread, atlas@ 0 unread, james@ 8 unread = stale system noise (DMARC reports + Aug 9 bounces already reconciled Lost + Tatnell business-closed already Lost + Top Rank auto-reply). No action required."
       },
       {
-        "time": "2026-09-09T04:07:12+09:30",
-        "text": "QPaint: Lauren Oliveira #43144 \u2014 Tas CONFIRMED 29 Sep-13 Oct availability. CRM updated; ready to relay confirmation + lock booking."
-      },
-      {
-        "time": "2026-09-09T04:07:12+09:30",
-        "text": "System: GitHub Pages build failed on notforgotten-client-os repo (0a26743). Flagged; needs Josh."
+        "time": "2026-09-10T04:06:39+09:30",
+        "text": "QPaint Won count corrected to 8 ($376,323): Mark Hughes (7th, Assisted $15,381, 9 Sep) + Patricia McDonald (8th, Observed $11,979, signed before NF follow-up)."
       }
     ],
     "yesterday": [
       {
-        "time": "2026-09-08",
-        "text": "Overnight Full-Book Red-Team Audit: QPaint UNDER CONTROL \u2014 GO. 226 records (185 open / 6 won / 35 lost). 7 fixes executed (5 courtesy acks, Oliveira handoff fixed, 5 Lost outcomes corrected, Sue Barrett cleared)."
+        "time": "2026-09-09",
+        "text": "Founder Call Day (Wed): 12 ranked candidates. Scott O'Donnell decline relayed + Lauren Oliveira availability confirmed (both 05:23, Gmail-verified). Mark Hughes #43131 7th WIN reconciled ($15,380.75, Assisted). 9 QPaint follow-ups sent (1 Email 2 + 8 Email 3), all Gmail-verified."
       },
       {
-        "time": "2026-09-08",
-        "text": "Scott O'Donnell #43149: QPaint declined (max 5-10% consideration). Decline relay draft ready, awaiting James approval."
+        "time": "2026-09-09",
+        "text": "Ahmad/Star Painters set to MONITOR to 23 Sep (4 founder touches, 0 replies). BK Partners tax docs confirmed resolved."
       }
     ],
     "this_week": [
       {
         "time": "-",
-        "text": "QPaint: 226 records, $7.5M total, 6 Won ($348,963 = 1 Recovered $129,750 + 5 Assisted $219,213), 35 Lost, 27 Engaged."
+        "text": "QPaint: 235 records, $7.66M total, 8 Won ($376,323 = 1 Recovered $129,750 + 6 Assisted $234,593 + 1 Observed $11,979), 35 Lost, 28 Engaged."
       },
       {
         "time": "-",
-        "text": "Rhonda Bourke (#42950) WIN recorded Sun 5 Sep ($8,360) - 6th Won, Assisted attribution."
+        "text": "Two wins this week: Mark Hughes (Assisted $15,381, 9 Sep) and Patricia McDonald (Observed $11,979, 9 Sep)."
       },
       {
         "time": "-",
-        "text": "V2 campaign: 139 activities (53 Email 1, 51 Email 2, 32 Email 3), 134 sent, 1 positive reply (needs clarification, James offered call)."
+        "text": "V2 campaign monitoring: 139 activities, 0 replies since 21 Aug Rahamed. HOLD. De-confused Email 2 (9) window closes 11 Sep."
       }
     ]
   },
@@ -125,21 +122,21 @@
     "recent": [
       {
         "id": "INC-2026-08-11",
-        "title": "QPaint Quote Intake \u2014 False Completion",
+        "title": "QPaint Quote Intake — False Completion",
         "status": "Closed",
         "summary": "3 quotes marked complete with $0 deal values. Root cause: no certification gate between extraction and label. Fixed: certify_intake_complete() + Intake Exception state."
       },
       {
         "id": "BK-014",
-        "title": "ATTEMPTED \u2260 COMPLETED",
+        "title": "ATTEMPTED ≠ COMPLETED",
         "status": "Permanent",
-        "summary": "Automation success \u2260 business outcome success. Every critical workflow must verify the business state, not just the process completion."
+        "summary": "Automation success ≠ business outcome success. Every critical workflow must verify the business state, not just the process completion."
       },
       {
         "id": "BK-015",
-        "title": "HTTP 200 \u2260 Application Success",
+        "title": "HTTP 200 ≠ Application Success",
         "status": "Permanent",
-        "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy \u2192 verify dependencies \u2192 verify render \u2192 certify."
+        "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy → verify dependencies → verify render → certify."
       }
     ]
   },
@@ -154,7 +151,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "\u2705 QPaint portfolio certified. 192 active journeys. Protocol v1.0.0. Send authority live.",
+  "operational_status": "✅ QPaint portfolio certified. 192 active journeys. 8 Won ($376,323). 0 overdue. Protocol v1.0.0. Send authority live.",
   "vault_health": {
     "decisions": {
       "total": 80,
@@ -178,14 +175,14 @@
       "usage": "99%"
     },
     "infrastructure": {
-      "disk": "38% (12G free)",
-      "state_db": "89M (healthy)"
+      "disk": "39% (12G free)",
+      "state_db": "106M (healthy)"
     }
   },
   "qpaint_pipeline": {
     "summary": {
       "total_customers": 235,
-      "total_pipeline_value": 6442813,
+      "total_pipeline_value": 7660812,
       "won_count": 8,
       "won_value": 376323,
       "lost_count": 35,
@@ -218,16 +215,16 @@
         "status": "Engaged"
       },
       {
-        "name": "Nicholas Zappacosta",
-        "value": "$145,008",
-        "stage": "Won",
-        "status": "Assisted"
-      },
-      {
         "name": "Richard Zhang",
         "value": "$145,350",
         "stage": "Email 4",
         "status": "Contacted"
+      },
+      {
+        "name": "Nicholas Zappacosta",
+        "value": "$145,008",
+        "stage": "Won",
+        "status": "Assisted"
       },
       {
         "name": "Arno Hsu",
@@ -290,12 +287,6 @@
         "status": "Engaged"
       },
       {
-        "name": "Kristen Watt",
-        "value": "$14,843",
-        "stage": "Replied",
-        "status": "Engaged"
-      },
-      {
         "name": "Cheryl Sim",
         "value": "$29,698",
         "stage": "Won",
@@ -318,6 +309,24 @@
         "value": "$17,510",
         "stage": "Won",
         "status": "Assisted"
+      },
+      {
+        "name": "Mark Hughes",
+        "value": "$15,381",
+        "stage": "Won",
+        "status": "Assisted"
+      },
+      {
+        "name": "Kristen Watt",
+        "value": "$14,843",
+        "stage": "Replied",
+        "status": "Engaged"
+      },
+      {
+        "name": "Patricia McDonald",
+        "value": "$11,979",
+        "stage": "Won",
+        "status": "Observed"
       },
       {
         "name": "Rhonda Bourke",
