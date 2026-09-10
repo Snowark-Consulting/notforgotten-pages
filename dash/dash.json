@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 219,
+    "tasks_completed": 220,
     "recent": [
+      {
+        "date": "2026-09-11 07:39",
+        "task": "QPaint daily attention 11 Sep: 7 Email 1 + 6 Email 2 follow-ups sent (13 total); 1 commercial builder HOLD; 2 QPaint-owned WAIT/MONITOR refreshed",
+        "category": "task"
+      },
       {
         "date": "2026-09-10 21:06",
         "task": "Nightly consolidation 10 Sep: repaired learnings catalogue (5th fuzzy-patch corruption \u2014 2 rows dropped, 5 damaged, table split); added 2 recommendations (false-failure detector in log-retention.py; catalogue validator); synced LEARNINGS card inventory 16 to 21; fixed Registry duplicate header + stale Decision Review Preps count; flagged unattributed Cloudflare card provenance",
@@ -135,11 +140,6 @@
         "date": "2026-08-25 14:21",
         "task": "QPaint white-label: sent Seckin Akgul Email 2 (Mantra on Queen) + Kurt Manabat/Collcon final builder touch (Wavey St). Both verified in Gmail Sent and reconciled in Airtable.",
         "category": "task"
-      },
-      {
-        "date": "2026-08-25 11:55",
-        "task": "Maria Reid: QPaint address clarification sent (15 vs 25 Raphael Place). 8 Pashen St (Civium): reconciled to Lost (committee chose alternative contractor at AGM).",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-09-11T06:30:57.450683+09:30",
+  "last_updated": "2026-09-11T07:39:39.034726+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
