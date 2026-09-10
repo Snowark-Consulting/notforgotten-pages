@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-10T04:06:39+09:30",
+  "generated_at": "2026-09-11T04:04:59.978243+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "QPaint is stable and fully under Atlas control. 235 records, 192 active journeys, 8 Won ($376,323). 0 overdue touchpoints, 0 exceptions. Production Operating Protocol v1.0.0 governs all operations. No overnight mailbox activity.",
+    "body": "QPaint is stable and fully under Atlas control. 235 records, 192 active journeys, 8 Won ($376,323), 0 overdue touchpoints, 0 exceptions. No overnight mailbox activity (quotes@ 0, atlas@ 0, james@ 2 = DMARC system noise). Today's one decision: the de-confused Email 2 cohort (9) checkpoint is a REVIEW, not a send — default is MONITOR, no batch Email 3.",
     "estimated_time": "2 minutes"
   },
   "business_score": {
@@ -10,8 +10,8 @@
     "change": "steady",
     "reasons_positive": [
       "QPaint 235 records, $7.66M total book. 8 Won: $376,323 = $129,750 Recovered (Arno Hsu) + $234,593 Assisted (6) + $11,979 Observed (Patricia McDonald). Honest separation maintained.",
-      "Lauren Oliveira ($10,937, #43144): QPaint CONFIRMED 29 Sep-13 Oct availability; confirmation relayed 9 Sep, MONITOR to 14 Sep. Ball in customer's court.",
-      "0 overdue QPaint touchpoints. 28 Engaged, 130 Contacted, all Next Actions covered. Red-team audit (8 Sep) passed: no silent gaps."
+      "0 overdue QPaint touchpoints. 28 Engaged, 132 Contacted, all Next Actions covered. Red-team audit (8 Sep) passed: no silent gaps.",
+      "QPaint Daily Attention (Thu) executed 2 Email 1 sends cleanly (Christopher Price, Eddie Yuan), 11/11 gates each, 0 exceptions."
     ],
     "reasons_negative": [
       "1 paying customer ($199 MRR). Customer #2 remains the single most important metric.",
@@ -25,15 +25,15 @@
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "✅ 192 active QPaint journeys certified. 130 contacted, 28 engaged. 0 exceptions. Total book: $7,660,812. Won: $376,323 (8). Lost: 35."
+      "detail": "✅ 192 active QPaint journeys certified. 132 contacted, 28 engaged. 0 exceptions. Total book: $7,660,812. Won: $376,323 (8). Lost: 35."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "V2 Email 3 (32 sent 28 Aug) awaiting reply — follow-up window 4 Sep. 9 founder-autonomy Email 1s (30 Aug), Email 2 window 4 Sep. RE-ENG-AUG-2026: 99 observing."
+      "detail": "V2 Email 3 (32) under HOLD. De-confused Email 2 cohort (9) checkpoint TODAY 11 Sep = REVIEW→DECIDE (no send). RE-ENG-AUG-2026: 147 audience, 0 overnight changes."
     },
     "engineering": {
       "status": "healthy",
-      "detail": "All systems healthy. Canonical send authority (Phase 1) shadow-ready. Production Operating Protocol v1.0.0 live."
+      "detail": "All systems healthy. Production Operating Protocol v1.0.0 live. Dashboard V2 refresh current (04:00)."
     },
     "finance": {
       "status": "healthy",
@@ -41,65 +41,76 @@
     },
     "atlas": {
       "status": "healthy",
-      "detail": "Memory healthy. Protocol v1.0.0 enforced. Model recovery standard active."
+      "detail": "Memory healthy. Protocol v1.0.0 enforced."
     }
   },
   "waiting_for_james": [
     {
       "id": "call-day-outcome-capture",
-      "title": "Founder Call Day was YESTERDAY (Wed 9 Sep) — 12 ranked calls. Capture outcomes.",
-      "why_it_matters": "The 12 candidates (2nd round, all called 2 Sep with 0 replies) were your only lever to Customer #2. Outcomes need capturing to update CRM and rank the next round.",
+      "title": "Founder Call Day outcomes (Wed 9 Sep) still uncaptured — 12 ranked calls.",
+      "why_it_matters": "The 12 candidates (2nd round, all called 2 Sep with 0 replies) were your only lever to Customer #2. Two rounds now with 0 replies means the call channel itself needs the smallest-experiment review.",
       "business_impact": "High: only active lever to conversion.",
       "estimated_time": "5-10 min to relay outcomes.",
-      "recommended_action": "Tell Atlas which calls connected / no-answer / voicemail / do-not-contact, so the CRM reflects reality and the next call list ranks correctly.",
+      "recommended_action": "Tell Atlas which calls connected / no-answer / voicemail / do-not-contact, so the CRM reflects reality and the next round ranks correctly.",
       "impact_sort": 80
+    },
+    {
+      "id": "deconfused-email2-checkpoint",
+      "title": "De-confused Email 2 cohort (9) — checkpoint is TODAY (Fri 11 Sep). REVIEW, not a send.",
+      "why_it_matters": "Day 7 of the observation window, 0 replies, 0 bounces (independently verified). The decision is whether any prospect merits individual follow-up or all default to MONITOR.",
+      "business_impact": "Low–Medium: default (MONITOR) is already safe; the decision is about 9 prospects, not a batch.",
+      "estimated_time": "2-3 min to confirm.",
+      "recommended_action": "Confirm the default: no batch Email 3; per-prospect Customer Context Gate assessment; any genuine exception escalated, the rest stay MONITOR (silence ≠ lost).",
+      "impact_sort": 45
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Thursday. QPaint is fully under Atlas control — 8 Won ($376,323), 0 overdue, 0 exceptions, nothing needs you on the client side. Yesterday's Founder Call Day (12 candidates) is the open loop: relay call outcomes so Atlas can update the CRM and rank the next round. No overnight mailbox activity (quotes@ 0, atlas@ 0, james@ 8 = stale system noise already reconciled).",
+    "executive_summary": "Friday. QPaint is fully under Atlas control — 8 Won ($376,323), 0 overdue, 0 exceptions, nothing needs you on the client side. No overnight mailbox activity (quotes@ 0, atlas@ 0, james@ 2 = DMARC noise). Two open loops are yours: (1) Wednesday's Founder Call Day outcomes are still uncaptured, and (2) today is the de-confused Email 2 cohort checkpoint (9 prospects, REVIEW→DECIDE, default MONITOR).",
     "priorities": [
       {
-        "action": "Relay yesterday's Founder Call Day outcomes",
-        "why_it_matters": "12 candidates called (2nd round). Outcomes must land in CRM before the next round is ranked.",
+        "action": "Relay Wednesday's Founder Call Day outcomes",
+        "why_it_matters": "12 candidates called (2nd round), 0 replies across two rounds. Outcomes must land in CRM before ranking round 3, and the call channel itself now needs the same smallest-experiment treatment email got.",
         "expected_impact": "High",
         "estimated_time": "5-10 min",
         "confidence": "High"
       },
       {
-        "action": "Confirm the 8th Won (Patricia McDonald, Observed $11,979) is intended",
-        "why_it_matters": "New win reconciled 9 Sep with 'Observed' attribution (signed before NF follow-up). It's recorded accurately; flag only if you want it re-attributed.",
-        "expected_impact": "Low",
-        "estimated_time": "2 min",
-        "confidence": "Medium"
+        "action": "Confirm de-confused Email 2 cohort disposition",
+        "why_it_matters": "Day 7, 0 replies, 0 bounces. Default is MONITOR (no batch Email 3). Confirm or flag any individual exception.",
+        "expected_impact": "Low–Medium",
+        "estimated_time": "2-3 min",
+        "confidence": "High"
       }
     ],
     "can_wait": [
       "All QPaint operations (Atlas owns): 0 overdue, 0 exceptions, 8 Won reconciled.",
-      "Ahmad/Star Painters: MONITOR to 23 Sep (4 touches, 0 replies).",
-      "De-confused Email 2 cohort (9): observation window closes 11 Sep (tomorrow) — Atlas will review at pulse.",
-      "ORIGIN dead PAT + GitHub Pages client-os build failure — both Josh items, not James."
-    ],
-    "closing": "Nothing in QPaint needs you. The one open loop is relaying yesterday's call outcomes."
+      "Ahmad/Star Painters: MONITOR to 23 Sep (4 touches, 0 replies) — no action today.",
+      "Josh items: dead ORIGIN PAT (backup push since 5 Sep) + client-os build failure — tracked, not blocking."
+    ]
   },
   "changes": {
     "today": [
       {
-        "time": "2026-09-10T04:06:39+09:30",
-        "text": "Overnight: all three mailboxes scanned. quotes@ 0 unread, atlas@ 0 unread, james@ 8 unread = stale system noise (DMARC reports + Aug 9 bounces already reconciled Lost + Tatnell business-closed already Lost + Top Rank auto-reply). No action required."
+        "time": "2026-09-11T04:04:59.978243+09:30",
+        "text": "Overnight: all three mailboxes scanned. quotes@ 0 unread, atlas@ 0 unread, james@ 2 unread = DMARC aggregate reports (system noise). No RE-ENG replies, bounces, or unsubscribes. No action required."
       },
       {
-        "time": "2026-09-10T04:06:39+09:30",
-        "text": "QPaint Won count corrected to 8 ($376,323): Mark Hughes (7th, Assisted $15,381, 9 Sep) + Patricia McDonald (8th, Observed $11,979, signed before NF follow-up)."
+        "time": "2026-09-11T04:04:59.978243+09:30",
+        "text": "QPaint 235 records verified live (full pagination): 8 Won, 35 Lost, 28 Engaged, 132 Contacted, 32 New. 0 overdue touchpoints. 2 records moved New→Email 1 on Thu (Christopher Price, Eddie Yuan)."
+      },
+      {
+        "time": "2026-09-11T04:04:59.978243+09:30",
+        "text": "Dashboard V2 refresh current (04:00). System health green: disk 39%, state.db 109M."
       }
     ],
     "yesterday": [
       {
-        "time": "2026-09-09",
-        "text": "Founder Call Day (Wed): 12 ranked candidates. Scott O'Donnell decline relayed + Lauren Oliveira availability confirmed (both 05:23, Gmail-verified). Mark Hughes #43131 7th WIN reconciled ($15,380.75, Assisted). 9 QPaint follow-ups sent (1 Email 2 + 8 Email 3), all Gmail-verified."
+        "time": "2026-09-10",
+        "text": "QPaint Daily Attention: 2 Email 1 sends (Christopher Price #43148, Eddie Yuan #38798) 11/11 gates, Gmail-verified. 1 CRM correction (Jason Manley to HOLD). 0 exceptions — second consecutive week of execute-not-report."
       },
       {
-        "time": "2026-09-09",
-        "text": "Ahmad/Star Painters set to MONITOR to 23 Sep (4 founder touches, 0 replies). BK Partners tax docs confirmed resolved."
+        "time": "2026-09-10",
+        "text": "Nightly Dream: 3 recommendations filed (dash-health hardcoded, CEO brief archive dead, drafts block stale). Prepare-ahead: V2 CRM Posture Close-Out prep created (43 stale NFDs), NOT executed (PCS 70 — schema-change ambiguity)."
       }
     ],
     "this_week": [
@@ -113,7 +124,7 @@
       },
       {
         "time": "-",
-        "text": "V2 campaign monitoring: 139 activities, 0 replies since 21 Aug Rahamed. HOLD. De-confused Email 2 (9) window closes 11 Sep."
+        "text": "V2 campaign monitoring under HOLD (32 prospects, 0 replies at Day 12). De-confused Email 2 cohort (9) checkpoint today 11 Sep."
       }
     ]
   },
@@ -151,7 +162,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "✅ QPaint portfolio certified. 192 active journeys. 8 Won ($376,323). 0 overdue. Protocol v1.0.0. Send authority live.",
+  "operational_status": "✅ QPaint portfolio certified. 235 records. 192 active journeys. 8 Won ($376,323). 0 overdue. Protocol v1.0.0. Send authority live.",
   "vault_health": {
     "decisions": {
       "total": 80,
@@ -187,14 +198,14 @@
       "won_value": 376323,
       "lost_count": 35,
       "engaged_replied": 28,
-      "contacted": 130,
-      "not_contacted": 34
+      "contacted": 132,
+      "not_contacted": 32
     },
     "stage_breakdown": {
       "Email 3": 50,
-      "Email 1": 45,
+      "Email 1": 47,
       "Lost": 35,
-      "New": 35,
+      "New": 33,
       "Email 2": 34,
       "Replied": 23,
       "Won": 8,
