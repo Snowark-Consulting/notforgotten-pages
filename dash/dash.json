@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 218,
+    "tasks_completed": 219,
     "recent": [
+      {
+        "date": "2026-09-10 21:06",
+        "task": "Nightly consolidation 10 Sep: repaired learnings catalogue (5th fuzzy-patch corruption \u2014 2 rows dropped, 5 damaged, table split); added 2 recommendations (false-failure detector in log-retention.py; catalogue validator); synced LEARNINGS card inventory 16 to 21; fixed Registry duplicate header + stale Decision Review Preps count; flagged unattributed Cloudflare card provenance",
+        "category": "task"
+      },
       {
         "date": "2026-09-10 07:33",
         "task": "QPaint follow-up: 2 Email 1 sent (Christopher Price #43148, Eddie Yuan #38798), 1 QBuild HOLD cleaned (Jason Manley #43162)",
@@ -135,11 +140,6 @@
         "date": "2026-08-25 11:55",
         "task": "Maria Reid: QPaint address clarification sent (15 vs 25 Raphael Place). 8 Pashen St (Civium): reconciled to Lost (committee chose alternative contractor at AGM).",
         "category": "task"
-      },
-      {
-        "date": "2026-08-25 09:08",
-        "task": "QPaint: Kay Crawley scope-addition surfaced to QPaint (Dee/Leslie) + Email 1 sent to Katie Schotel & Arna Lancashire (both verified in Gmail, Airtable reconciled)",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-09-10T20:30:43.844844+09:30",
+  "last_updated": "2026-09-10T21:06:43.817606+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
