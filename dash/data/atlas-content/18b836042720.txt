@@ -2,7 +2,7 @@
 
 > Loaded at every session boot. Before touching any external API, tool, or domain, scan this table. If the domain you're about to touch has a card, load it first. One domain = one card. Cards load on-demand, not at boot.
 >
-> **EDITING THIS TABLE:** never fuzzy-patch multi-line blocks here — full-row replacement only. This table was corrupted 4 times by partial edits (dropped rows, `||` prefix damage, mid-table splits). Repair history: 2026-09-06, 2026-09-07 (consolidation), 2026-09-09 (consolidation).
+> **EDITING THIS TABLE:** never fuzzy-patch multi-line blocks here — full-row replacement only. This table was corrupted 5 times by partial edits (dropped rows, `||` prefix damage, mid-table splits). Repair history: 2026-09-06, 2026-09-07 (consolidation), 2026-09-09 (consolidation), 2026-09-10 (consolidation). The 2026-09-10 event was the worst: a fuzzy patch adding the `cloudflare` row dropped `gmail-auth` and `qpaint`, `||`-damaged 5 rows (`shell`, `compliance`, `browser`, `canonical-send`, the new `cloudflare`), inserted a mid-table blank line, and deleted this warning block.
 
 | Domain | Trigger keywords | Card |
 |--------|-----------------|------|
@@ -16,7 +16,8 @@
 | supabase | `supabase`, `anon key`, `service_role`, `client_responses`, `RLS` | `cards/supabase.md` |
 | git | `git push`, `git clone`, `PAT`, `case.sensitive`, `render`, `template` | `cards/git.md` |
 | models | `gemini`, `model`, `deprecated`, `discontinued`, `404`, `provider` | `cards/models.md` |
-| campaign | `cold-email`, `campaign`, `calibration`, `prospect overlap`, `ownership check`, `pre-flight` | [campaign.md](cards/campaign.md) |
+| campaign | `cold-email`, `campaign`, `calibration`, `prospect overlap`, `ownership check`, `pre-flight` | `cards/campaign.md` |
+| cloudflare | `cfat_`, `account-owned`, `Cloudflare`, `api.cloudflare`, `tokens/verify` | `cards/cloudflare.md` |
 | compliance | `ABN`, `GST`, `TFN`, `ATO`, `trust`, `Australian Business Register`, `ABR` | `cards/compliance.md` |
 | python | `datetime.now`, `ZoneInfo`, `timezone`, `Adelaide time`, `UTC server`, `bare datetime` | `cards/python.md` |
 | agent-architecture | `dual-path`, `skill discovery`, `pre-flight`, `orphaned skill`, `boot context`, `Registry`, `SOPs`, `certify`, `verify`, `certification gate`, `touchpoint`, `review point`, `auto-contact`, `CRM stage`, `customer evidence`, `commercial truth`, `materiality`, `dream`, `consolidation`, `classifier`, `false positive` | `cards/agent-architecture.md` |

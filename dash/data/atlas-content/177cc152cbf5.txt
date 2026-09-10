@@ -1,0 +1,57 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-09-09
+status: PREPARATION — observation close-out due 2026-09-11
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Close-Out Prep — De-Confused Email 2 Cohort (9) — Checkpoint 2026-09-11
+
+> Observation close-out for the 9-prospect de-confused Email 2 cohort sent 4 Sep 2026 ("one more question" observation angle, james@ sender). Next Follow-up Date = 2026-09-11 (Fri) across all 9. This is a REVIEW→DECIDE checkpoint, NOT a send window. Governed by: founder-approved autonomy envelope `founder-approved-autonomy-2026-09-04-deconfused-email2` (expired 4 Sep 14:29Z, scope = Email 2 only) + V2 Email 2 observation decision `2026-08-21-v2-email2-observation-monitoring` (REVIEW→DECIDE, no batch progression) + persistence ≠ repetition (`2026-08-28-v2-persistence-not-repetition`) as constrained by V2 HOLD (`2026-09-04-v2-persistence-hold`).
+
+## Cohort (9) — send facts
+
+Sent 4 Sep 2026 (Email 2, "one more question" / new observation angle; Email 1 sent 30 Aug):
+
+| Prospect | Email | V2 Status | James' Action |
+|---|---|---|---|
+| Sattler Painting | robert@sattlerpainting.com.au | ACTIVE | Await reply |
+| Watkins Morgan | info@watkinsmorgan.com.au | ACTIVE | Await reply |
+| VPG Painting | info@vpgpainting.com.au | ACTIVE | Await reply |
+| Fluid Painting Solutions | info@fluidpaintingsolutions.com.au | ACTIVE | Await reply |
+| A Grade Painters | info@agradepainters.com.au | ACTIVE | Await reply |
+| Easy Cut Painting Services | sales@easycutpainting.com.au | ACTIVE | Await reply |
+| Fine Paint Works | info@finepaintworks.com | ACTIVE | Await reply |
+| Bakers & Co Painting And Decorating | admin@bakersco.com.au | ACTIVE | Await reply |
+| Pure Painting | sales@purepainting.com.au | ACTIVE | Await reply |
+
+## Evidence as of 2026-09-09 22:00 ACST (two-source)
+
+- **V2 Outreach Activity ledger:** 139 records total; inbound = 1 all-time (Rahamed, Inspire Painting, 21 Aug). Zero inbound from this cohort. Zero bounces recorded.
+- **james@ monitoring:** james-pulse-phase2 running */5, read-only, seen-ID dedup, no wakeAgent fire since 17:18 pulse (Campaign Pulse verified 5 recent james@ messages, all non-V2). No reply.
+- **Prospect fields:** Pipeline stage = Contacted, V2 Status = ACTIVE, Next Follow-up Date = 2026-09-11, James' Action = Await reply. Sequence Status/Next Touchpoint Date legacy fields show Sep 4 residue (not advanced at Email 2 send) — cosmetic drift, superseded by V2 ledger; not a send trigger.
+
+## Decision framing for 2026-09-11 (Fri CEO Brief)
+
+Question: what happens to 9 prospects at Day 7 post-Email 2 with 0 replies?
+
+Options per governing decisions:
+1. **Email 3 for CCG-cleared individuals only** — persistence ≠ repetition permits continuation past 2 touches where the Customer Context Gate passes (new observation/question/angle, no repetition). Batch Email 3 to all 9 = repetition and contradicts the 4 Sep HOLD posture applied to the parallel 32-prospect Email 3 cohort (0 replies → no batch escalation). Expect 0-2 genuine candidates at most; most have no new angle available.
+2. **Transition to MONITOR (V2 Status)** — default posture mirroring the HOLD decision: silence ≠ lost, reopen on evidence. Clears James' Action (Await reply → none/MONITOR), stops the 11 Sep NFD from cycling.
+3. **Founder-phone candidates** — only if tier/fit supports a call (B-tier pattern from HOLD decision: 4 B-tier of 32 became founder-phone candidates). None of these 9 were flagged B-tier in the 4 Sep decision.
+
+Recommendation (for Friday's brief to confirm): no batch Email 3. Individually assess each prospect's CCG; default the remainder to MONITOR with V2 Status update + note. Escalate only genuine exceptions.
+
+## Evidence files
+
+- `knowledge/authority/founder-approved-autonomy-2026-09-04-deconfused-email2.json` — autonomy envelope (expired)
+- `knowledge/decisions/2026-08-21-v2-email2-observation-monitoring.md` — REVIEW→DECIDE standard
+- `knowledge/decisions/2026-08-28-v2-persistence-not-repetition.md` — continuation framework
+- `knowledge/decisions/2026-09-04-v2-persistence-hold.md` — HOLD posture for parallel cohort
+- `notes/2026-09-09.md` — pulse evidence 17:18, zero replies
+
+## Prepared by
+
+Prepare-Ahead Clock 2026-09-09 22:00 ACST. Review checkpoint Fri 11 Sep (CEO Brief carries the decision). No drafts created: no Email 3 pre-approved, HOLD posture governs.
