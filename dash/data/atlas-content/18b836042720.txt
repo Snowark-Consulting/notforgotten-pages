@@ -2,13 +2,13 @@
 
 > Loaded at every session boot. Before touching any external API, tool, or domain, scan this table. If the domain you're about to touch has a card, load it first. One domain = one card. Cards load on-demand, not at boot.
 >
-> **EDITING THIS TABLE:** never fuzzy-patch multi-line blocks here — full-row replacement only. This table was corrupted 5 times by partial edits (dropped rows, `||` prefix damage, mid-table splits). Repair history: 2026-09-06, 2026-09-07 (consolidation), 2026-09-09 (consolidation), 2026-09-10 (consolidation). The 2026-09-10 event was the worst: a fuzzy patch adding the `cloudflare` row dropped `gmail-auth` and `qpaint`, `||`-damaged 5 rows (`shell`, `compliance`, `browser`, `canonical-send`, the new `cloudflare`), inserted a mid-table blank line, and deleted this warning block.
+> **EDITING THIS TABLE:** never fuzzy-patch multi-line blocks here — full-row replacement only, or rewrite the whole file. This table was corrupted 6 times by partial edits (dropped rows, `||` prefix damage, mid-table splits). Repair history: 2026-09-06, 2026-09-07 (consolidation), 2026-09-09 (consolidation), 2026-09-10 (consolidation), 2026-09-11 (consolidation). The 2026-09-10 event was the worst: a fuzzy patch adding the `cloudflare` row dropped `gmail-auth` and `qpaint`, `||`-damaged 5 rows (`shell`, `compliance`, `browser`, `canonical-send`, the new `cloudflare`), inserted a mid-table blank line, and deleted this warning block. The 2026-09-11 event repeated the pattern: an edit adding `autorestart`/`supervisord`/`supervisorctl` to the `hermes` row dropped `gmail-auth` and `qpaint`, `||`-damaged 6 rows, split the table at `asana`, and deleted this warning block again.
 
 | Domain | Trigger keywords | Card |
 |--------|-----------------|------|
 | gmail | `gog gmail`, `newer_than`, `batchModify`, `mark.read`, `threadId`, `Gmail API` | `cards/gmail.md` |
 | gmail-auth | `gmail_auth.py`, `get_access_token`, `OAuth refresh`, `access token`, `401`, `google_token.json` | `cards/gmail-auth.md` |
-| hermes | `shell hook`, `matcher`, `post_tool_call`, `pre_tool_call`, `pre_llm_call`, `allowed_users`, `allowlisted`, `state.db`, `system_prompt`, `skill-injection`, `trigram`, `date hook`, `date integrity`, `inject-date` | `cards/hermes.md` |
+| hermes | `shell hook`, `matcher`, `post_tool_call`, `pre_tool_call`, `pre_llm_call`, `allowed_users`, `allowlisted`, `state.db`, `system_prompt`, `skill-injection`, `trigram`, `date hook`, `date integrity`, `inject-date`, `autorestart`, `supervisord`, `supervisorctl` | `cards/hermes.md` |
 | shell | `zsh`, `for p in`, `\| tee`, `tmux pipe`, `nvm`, `pyenv`, `echo $`, `declare -A`, `terminal`, `background` | `cards/shell.md` |
 | cron | `cronjob`, `schedule`, `launchd`, `LaunchAgent`, `crontab`, `keychain`, `wakeAgent`, `wakeagent`, `script gate`, `token burn` | `cards/cron.md` |
 | telegram | `allowed_chats`, `allowed_users`, `TELEGRAM`, `@mention`, `/start`, `bot` | `cards/telegram.md` |

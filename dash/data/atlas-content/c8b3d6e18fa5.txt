@@ -1,0 +1,127 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-09-10
+status: PREPARATION — CRM posture close-out, for CEO Brief 2026-09-11
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Close-Out Prep — V2 CRM Posture (43 overdue follow-up dates) — 2026-09-11
+
+> **Purpose.** 43 prospect records carry a `Next Follow-up Date` in the past (4–8 Sep) while `V2 Status = ACTIVE` and `James' Action = ['Await reply']`. Every scan reads them as "due". None of them should receive email — each group is stopped by an existing decision or a founder verdict that has not been captured. This prep exists so the Friday 11 Sep CEO Brief can close all 43 in one pass, with each group assigned to the correct owner.
+>
+> **Nothing was changed tonight.** See "Why not executed" below.
+
+## Facts (Airtable, queried 2026-09-10 22:05 ACST)
+
+- Prospects table: 332 records. V2 Status: 305 ACTIVE / 20 QUARANTINED / 4 EXCLUDED / 1 CLIENT / 2 blank.
+- V2 Outreach Activity ledger: 139 records. Inbound all-time: **1** (Rahamed / Inspire Painting, 21 Aug).
+- Two-source reply check for the 9-prospect de-confused cohort: V2 ledger 0 inbound + james@ Gmail (`from:<domain>`, all time) **0 messages from any of the 9 domains**. 0 replies, 0 bounces.
+- Prospects with `Next Follow-up Date` ≤ 2026-09-12: **52**. Of those, 43 are in the past and 9 fall due Friday 11 Sep.
+
+## Group 1 — V2 Email 3 HOLD cohort (32) — NFD 2026-09-04, 6 days overdue
+
+Decision already made: `2026-09-04-v2-persistence-hold` — no Email 4, all 32 → MONITOR, await replies. The CRM never moved.
+
+Cohort identity confirmed: these 32 are exactly the recipients of the Email 3 send of 28 Aug ("A quick clarification") and match the recipient list in `drafts/v2-email-4-honest-last-touch-sep-2026.md`.
+
+| Record | Prospect | Tier |
+|---|---|---|
+| rec2JNH3cw8WMlzt3 | M .J. Painters Melbourne | C |
+| rec2qdeCBIkJzpCvf | Painting Pros | D |
+| rec3Y1prle16fDd6d | Sydney Painting Experts | B |
+| rec3ewTrqUVA62GSO | Like Painting | C |
+| recCOmJEEXUPMLSWF | Kincoat Painting | C |
+| recCqKB0xY9p4F14l | Procover Painting | D |
+| recCtJN1eyXZrUN0E | AKP Painting & Decorating | C |
+| recDUNTHGMuESfBrx | Colourland Painting | C |
+| recGwO9dD4ZyhQZP2 | Oppa Painting | D |
+| recIKg8QYQBapGz2F | M & M Property Services SA | C |
+| recJ5aUAeemlugYGm | Adelaide Premier Painters | C |
+| recKXXwSEmBoMxJQ7 | Diamond Brothers Painting Contractors | D |
+| recN2VY13fmQEaSwm | Blue Mountains Painting | D |
+| recNlvPbihq69rAAh | All Melbourne Painting | C |
+| recO9GTfZZHolXRUK | Restyle Painting & Decorating | C |
+| recPpMpr1rz1itdji | General Painting Contractors | D |
+| recQ5KVAvEAs4YMFR | Painting All Sorts | D |
+| recVTmPsgscSUSZKn | Top Painters Adelaide | C |
+| recVZ6bwgjlugeuM2 | Austar Painting & Renovations | C |
+| recav8wW9lua5DYX9 | OPC Painting | B |
+| recbMowumK2lfp95o | Adelaide Designer Painters | C |
+| recbZwMIpE6XMfMcS | Melbourne's Painting and Decorating | C |
+| recfARI6CyUZfxmWa | Tohmes Painting and Cleaning Services | D |
+| recjatYreAjb82Elr | Horizon Coatings | D |
+| reck168OWbIKsuinp | Hunter Coast Painting | C |
+| reck6IeAo5KMjUifn | Apex Painters | C |
+| recmDVYa7zWvC82uC | More than Painting | C |
+| recrsD1W22xDNu0AM | Rise Painters | C |
+| rectzbC8R78TbCLsa | Geelong Painters | C |
+| recw4jzgUG0KFDwVa | Colour Life Painting | B |
+| recwqsroi3i1OSW4J | Brushworks Painting & Decorating | B |
+| recxWEToHTfrKDmD7 | Kraudelt Painting | D |
+
+**Proposed close-out (needs the mechanism decision below):** clear `Next Follow-up Date` to blank + append to `Outreach notes`: `[2026-09-11] MONITOR — V2 HOLD per decision 2026-09-04-v2-persistence-hold. No further email. Reopen on reply or new evidence.`
+
+## Group 2 — Founder-cycle records (10) — NFD 2026-09-05, 5 days overdue
+
+These are not Atlas email sends. They were set as founder-cycle dates: 8 B-list founder-call candidates (`notes/2026-09-04.md`) plus two warm threads. Verdict was due 5 Sep; Round 2 of Founder Call Day called the same 12 candidates on 9 Sep to 0 replies, and the outcomes are still not captured (`notes/2026-09-10.md`, carried as James's #1).
+
+| Record | Prospect | Tier | Note |
+|---|---|---|---|
+| rec7NRVwpE5o1uIEY | Inspire Painting | C | Engaged — replied 21 Aug (lead-gen misunderstanding, wants a promise). Warm path. |
+| rec9ZQYQjgeCP0cMZ | The Painting Company | C | Warm — owner considering, brief chat 29 Jul. |
+| rec9ppCpRXppccy4b | Zoom Painting | B | B-list founder call |
+| recCaYT3wK1zEkLo5 | Cameron Davidson Painters & Decorators | B | B-list founder call |
+| recCqb0boNOdvDrc1 | Master Choice Painting | C | B-list founder call (Pipeline stage already Campaign Complete) |
+| recZs2nWvSkqqgCK1 | Paintpal Pty Ltd | B | B-list founder call |
+| recaWAWEjNomudlGc | Clean Cut Painters | B | B-list founder call |
+| recc1owdCPYSTJ9JO | Paint Master | C | B-list founder call |
+| recdRh2UcDLPh5QvE | Bayside Painting & Decorating | B | B-list founder call (site dead, PROVISIONAL) |
+| recut6EqlxHagRSHy | One Touch Paint | B | B-list founder call |
+
+**Owner: James.** Atlas cannot close these — the next action depends on call outcomes that only James holds (who was reached, what was said). Once outcomes are captured, each record resolves to one of: call again, walkthrough, or MONITOR.
+
+## Group 3 — Upscale Painting & Decorating (1) — NFD 2026-09-08, 2 days overdue
+
+| Record | Prospect | Tier | Note |
+|---|---|---|---|
+| recLQpv6q9KC4KgQZ | Upscale Painting & Decorating | A | B-list founder call. Tier A — highest-fit candidate still unadvanced. |
+
+**Owner: James.** Same dependency as Group 2.
+
+## Group 4 — De-confused Email 2 cohort (9) — NFD 2026-09-11 (Friday)
+
+Separate prep: `knowledge/decision-reviews/2026-09-11-deconfused-email2-closeout-prep.md`. Recommendation unchanged: no batch Email 3; per-prospect CCG assessment; default the remainder to MONITOR. If that recommendation is accepted Friday, the same close-out mechanism applies to these 9 records.
+
+## Why not executed tonight
+
+Production Confidence Score for a bulk change to 43 live prospect records: **70 — below the 75 threshold, so production stops.**
+
+Two specific unknowns:
+1. **No approved mechanism for MONITOR.** `V2 Status` on disk is ACTIVE / QUARANTINED / EXCLUDED / CLIENT only. Adding a MONITOR value is a schema change, and no decision authorises it. Clearing `Next Follow-up Date` is the reversible proxy but that is an interpretation, not an instruction.
+2. **Group 2/3 need James.** Clearing their dates would erase the founder verdict they exist to carry.
+
+The batch PATCH is prepared (record IDs above) and can be run as one pass once the mechanism is chosen.
+
+## One decision for the CEO Brief (Fri 11 Sep)
+
+**If James only does one thing about this: confirm the close-out mechanism for the 32-prospect HOLD cohort** — either (a) clear `Next Follow-up Date` + append MONITOR note, leaving Pipeline stage untouched (reversible, recommended), or (b) also move Pipeline stage to `Campaign Complete` (removes 32 stopped records from the "Outreach Active" count). Then capture the Group 2/3 call outcomes in the same session, which closes the remaining 11.
+
+## Challenge — assumptions
+
+- **"Overdue" here does not mean missed revenue.** 32 of the 43 are stopped by an evidence-based decision (0 replies from 3 touches). The drift is a reporting artefact, not a lost window. Anyone reading "43 overdue follow-ups" as 43 live opportunities would be wrong.
+- **What would prove me wrong on the HOLD:** a reply, a bounce that was never recorded, or founder calls revealing interest that email masked. The Gmail two-source check covers the first two as of tonight; the third is exactly what Group 2/3 depends on.
+- **Cost of the drift:** every prepare-ahead, pulse and brief scan re-surfaces these 43 as "due". The cost is attention, not money. It compounds quietly — this is the third consecutive scan to carry them.
+
+## Evidence files
+
+- `notes/2026-09-04.md` — B-list founder-call cohort + NFD Sep 5
+- `notes/2026-09-10.md` — outcome capture still outstanding; HOLD stands at Day 12
+- [[V2 Persistence Hold]] (knowledge/decisions/2026-09-04-v2-persistence-hold.md) — the decision Group 1 executes
+- [[De-Confused Email 2 Close-Out Prep]] (knowledge/decision-reviews/2026-09-11-deconfused-email2-closeout-prep.md) — Group 4
+- `drafts/v2-email-4-honest-last-touch-sep-2026.md` — SUPERSEDED, marked tonight
+
+## Prepared by
+
+Prepare-Ahead Clock, 2026-09-10 22:00 ACST. Airtable read-only query (332 prospects, 139 ledger records) + james@ Gmail two-source reply check. No CRM writes, no sends.

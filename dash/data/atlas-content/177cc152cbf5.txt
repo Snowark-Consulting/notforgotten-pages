@@ -47,11 +47,29 @@ Recommendation (for Friday's brief to confirm): no batch Email 3. Individually a
 ## Evidence files
 
 - `knowledge/authority/founder-approved-autonomy-2026-09-04-deconfused-email2.json` — autonomy envelope (expired)
-- `knowledge/decisions/2026-08-21-v2-email2-observation-monitoring.md` — REVIEW→DECIDE standard
-- `knowledge/decisions/2026-08-28-v2-persistence-not-repetition.md` — continuation framework
-- `knowledge/decisions/2026-09-04-v2-persistence-hold.md` — HOLD posture for parallel cohort
+- [[V2 Email 2 Observation Monitoring]] (knowledge/decisions/2026-08-21-v2-email2-observation-monitoring.md) — REVIEW→DECIDE standard
+- [[V2 Persistence Not Repetition]] (knowledge/decisions/2026-08-28-v2-persistence-not-repetition.md) — continuation framework
+- [[V2 Persistence Hold]] (knowledge/decisions/2026-09-04-v2-persistence-hold.md) — HOLD posture for parallel cohort
 - `notes/2026-09-09.md` — pulse evidence 17:18, zero replies
 
 ## Prepared by
 
 Prepare-Ahead Clock 2026-09-09 22:00 ACST. Review checkpoint Fri 11 Sep (CEO Brief carries the decision). No drafts created: no Email 3 pre-approved, HOLD posture governs.
+
+---
+
+## Evidence refresh — 2026-09-10 22:00 ACST (Prepare-Ahead Clock, Day 6)
+
+Checkpoint is tomorrow (Fri 11 Sep). Nothing has changed the picture.
+
+- **Two-source reply check repeated tonight, both sources negative:**
+  - V2 Outreach Activity ledger: 139 records, inbound all-time still **1** (Rahamed / Inspire Painting, 21 Aug). Zero inbound from this cohort.
+  - james@ Gmail, direct API query `from:<domain>` for all 9 sender domains, all time: **0 messages from any of the 9**. Not "no unread" — no inbound mail at all. 0 replies, 0 bounces.
+- **V2 ledger confirms send facts:** 9 × Email 1 on 2026-08-30 (NFD 2026-09-04), 9 × Email 2 on 2026-09-04 (NFD 2026-09-11). Ledger is complete for this cohort; no gaps.
+- **CRM posture unchanged:** all 9 remain `V2 Status = ACTIVE`, `Pipeline stage = Contacted`, `James' Action = ['Await reply']`, NFD 2026-09-11. Overdue pre-Email-2 legacy fields still show Sep 4 residue (cosmetic, superseded by the ledger).
+- **No replies, no bounces, no partial signals — so the recommendation in the section above stands unchanged:** no batch Email 3; per-prospect CCG assessment; default the remainder to MONITOR; clear the 11 Sep NFD so it stops cycling.
+- **Close-out mechanics now prepared:** `knowledge/decision-reviews/2026-09-11-v2-crm-posture-closeout-prep.md` (created tonight) carries the record IDs for the 9 and for the other 43 overdue-dated V2 records, plus the proposed field change and the two unknowns that keep the change unexecuted.
+- **Draft hygiene:** `drafts/v2-email-4-honest-last-touch-sep-2026.md` marked SUPERSEDED tonight (the 4 Sep HOLD decided no Email 4). It will keep appearing in the Command Centre "Drafts for Review" panel until moved, and the banner now prevents it being read as an open draft.
+
+**Net change since the 9 Sep prep: none in the evidence, one addition to the mechanics.** Friday's decision is the same decision, with the close-out now executable in a single pass.
+

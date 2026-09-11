@@ -642,6 +642,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decision_reviews_2026_09_07_monthly_recovery_intelligence_prep",
+      "label": "Monthly Recovery Intelligence Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-09-07-monthly-recovery-intelligence-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "403c58d620b6",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decision_reviews_2026_09_07_production_operating_protocol_review_prep",
       "label": "Production Operating Protocol Review Prep",
       "file_type": "doc",
@@ -671,6 +682,17 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "177cc152cbf5",
+      "val": 8.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_decision_reviews_2026_09_11_v2_crm_posture_closeout_prep",
+      "label": "V2 CRM Posture Closeout Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-09-11-v2-crm-posture-closeout-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "c8b3d6e18fa5",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -1078,7 +1100,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "d116ec5881f4",
-      "val": 6.0,
+      "val": 8.0,
       "color": "#a78bfa"
     },
     {
@@ -1089,7 +1111,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "e01a1d042feb",
-      "val": 8.0,
+      "val": 10.0,
       "color": "#a78bfa"
     },
     {
@@ -1122,7 +1144,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "f968b3f68b9c",
-      "val": 6.0,
+      "val": 10.0,
       "color": "#a78bfa"
     },
     {
@@ -3947,6 +3969,41 @@
       "source_file": ""
     },
     {
+      "source": "knowledge_decision_reviews_2026_09_11_deconfused_email2_closeout_prep",
+      "target": "knowledge_decisions_2026_08_21_v2_email2_observation_monitoring",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_2026_09_11_deconfused_email2_closeout_prep",
+      "target": "knowledge_decisions_2026_08_28_v2_persistence_not_repetition",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_2026_09_11_deconfused_email2_closeout_prep",
+      "target": "knowledge_decisions_2026_09_04_v2_persistence_hold",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_2026_09_11_v2_crm_posture_closeout_prep",
+      "target": "knowledge_decisions_2026_09_04_v2_persistence_hold",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_2026_09_11_v2_crm_posture_closeout_prep",
+      "target": "knowledge_decision_reviews_2026_09_11_deconfused_email2_closeout_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
       "source": "knowledge_decision_reviews_index",
       "target": "knowledge_decisions_index",
       "relation": "wikilink",
@@ -4103,6 +4160,20 @@
     {
       "source": "knowledge_decision_reviews_index",
       "target": "knowledge_decision_reviews_2026_09_11_deconfused_email2_closeout_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_09_11_v2_crm_posture_closeout_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_09_07_monthly_recovery_intelligence_prep",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

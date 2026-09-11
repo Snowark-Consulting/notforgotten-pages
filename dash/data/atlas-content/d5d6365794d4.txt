@@ -47,6 +47,13 @@ tier: primary
 
 ## Chronological index (newest first)
 
+### 2026-09-11
+- Fuzzy-patch corruption spread from the catalogue to the learning CARDS — a patch that added 2 traps to `cards/hermes.md` silently deleted 2 unrelated traps + a dated note. Compare the `## TRAP` heading list against HEAD, not just the count. → `cards/hermes.md`, `cards/agent-architecture.md`
+- QPaint price-gated buying signal: route the request to QPaint, send the CUSTOMER nothing. Writing "ESCALATED" before the handoff is a false control. → `skills/snowark/recovery-operations/references/qpaint-routine-reply-authority.md`
+- "Still thinking / comparing" reply = MONITOR, no acknowledgement email. → `skills/email/email-inbox-pulse/references/qpaint-customer-reply-processing.md`
+- Raw Gmail API message resource uses `labelIds`, not `labels` (a `labels` read is a false negative). → `cards/gmail.md`
+- Shell `date` returns UTC on this host; `date '+%H:%M ACST'` appends the literal string, it does not convert. → `skills/notforgotten/quote-intake/SKILL.md` Pitfall 54
+
 ### 2026-09-04
 - Ad-hoc send scripts must create V2 Outreach Activity ledger records. `scripts/deconfused-email2-2026-09-04.py` PATCHed Prospects (notes, NFD, Last contacted) but created zero V2 Outreach Activity records — the Aug 30 Email 1 sends each had ledger records, so the Email 2 sends (9, verified in james@ Sent) were missing from the ledger. Backfilled 9 records (2026-09-04) with Gmail evidence IDs. Any send path outside `send-outreach.py`/`canonical-send.py` must mirror the ledger write pattern. → verified in `/tmp/verify-backfill-20260904.py`
 
@@ -336,3 +343,48 @@ When a new entry contradicts a prior one: set `Contested: true` on both, add rec
 **Cause:** `_resolve_threading()` verifies the thread anchor by checking the current recipient appears in the prior message's `To` header. The customer's inbound reply is `To: atlas@...` (not the customer), so the recipient check fails and it fail-closes correctly.
 **Fix:** Pass `reply_to_message_id = <our prior sent message ID>` (the outbound Email 1 / last email we sent to that customer). For an in-thread reply use subject `Re: <original>`; Gmail threads by subject even without In-Reply-To. Omit `reply_to_message_id` entirely for a fresh email. Verified: re-send without the inbound anchor COMPLETE (Gmail 1a07a7d4323741f3, Sent-verified).
 **Source:** 2026-09-07 Scott O'Donnell #43149 price-objection reply. Full detail in canonical-send card (`learnings/cards/canonical-send.md`).
+
+## 2026-09-11 — Fuzzy-patch corruption has spread from the catalogue to the learning cards
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** A patch intended to ADD two traps to `learnings/cards/hermes.md` also silently DELETED two unrelated existing traps (`v0.20.4 session turn lease stops the session on heavy inline writes`, `Gateway lifecycle guard false-flags python3 -c file reads`) plus the `> **UPDATE 2026-08-18:**` state.db-bloat driver note. The `## TRAP` heading COUNT stayed at 5 before and after — 2 added, 2 removed — so a count check alone would have passed. Found via `git diff` on the card, which showed the deletions as `-` lines.
+**Cause:** Same failure class as the recurring `learnings/catalogue.md` corruption (now 6 occurrences), but on a card rather than a table. The `patch` tool's fuzzy matching on a multi-line `old_string` bridges gaps and swallows neighbouring blocks.
+**Fix:** Restored by concatenating `git show HEAD:learnings/cards/hermes.md` with the two new trap blocks, then re-verifying all 7 `## TRAP` headings. Prevention added to the trap itself: after ANY patch that adds a section to a card, diff the whole hunk against HEAD and compare the `## TRAP` heading LIST (not the count) with `git show HEAD:<card> | grep '^## TRAP'` vs `grep '^## TRAP' <card>`. Prefer `write_file` full-file rewrites for cards and the catalogue.
+**Source:** 2026-09-11 nightly consolidation. Cards: `learnings/cards/hermes.md`, `learnings/cards/agent-architecture.md`.
+
+## 2026-09-11 — QPaint price-gated buying signal: route the request, decide nothing
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** Eddie Yuan (#38798, 28 River Crescent Broadbeach Waters) replied preferring QPaint and offering to sign if the price came to $30,000 against a $32,450 quote. Separately, the Airtable record already carried an "ESCALATED to QPaint" note while NO handoff had ever been sent to james@ Sent — a false control that made a live commercial decision look routed when the decision owner had never received it.
+**Cause:** Two distinct errors compounded: (a) a pricing request was treated as something to park rather than something to route, confusing COMMERCIAL authority (QPaint decides price) with OPERATIONAL authority (Atlas routes the request and executes the outcome); (b) the escalation note was written before the send was verified.
+**Fix:** Correct order, now codified — (1) SEND the handoff to QPaint via james@ (Dee `solutions@qpaint.com.au` + Leslie `admin@qpaint.com.au`), (2) verify it in james@ Sent, (3) only then write the escalation note with the Gmail ID. Set Airtable to `Replied` / `Engaged` / `Buying Stage: "Ready to Proceed"` / `Primary Objection: "Price / Budget"` with a short NTD. Send the CUSTOMER nothing until QPaint answers — the customer asked us, so silence is correct, not neglect. Record the account as an event-driven monitor, never a generic NTD.
+**Source:** 2026-09-11 Eddie Yuan reply processing (msg `1a090311aa167a76`, `data/send-evidence/SEND-2026-09-11T204915-1a090311aa16.json`). Reference: `skills/snowark/recovery-operations/references/qpaint-routine-reply-authority.md`.
+
+## 2026-09-11 — "Still thinking / comparing" is MONITOR, not a courtesy reply
+
+**Confidence:** medium-high
+**Contested:** false
+**Symptom:** Three QPaint customers whose reply was a decision-deferral ("still thinking", "still deciding designs", "I'll let you know") were candidates for a same-day acknowledgement email. Two were left unanswered (Raewyn Frost 08 Sep, Bronwyn Hoch and Jim Stevenson 11 Sep) and none of the three asked for anything.
+**Cause:** A deferral is not an open loop: there is no blocker to uncover and no unanswered question, so a courtesy reply adds nothing and reads as a nudge. Treating it as "engagement" invites exactly the repetition the persistence decision exists to prevent.
+**Fix:** Classify as MONITOR — no acknowledgement email. Set `Next Touchpoint Date` to a review date tied to the quote's validity (or 14-21 days out), `Buying Stage at First Reply: "Still Deciding"`, `Primary Objection: "Timing"`. If the quote validity expires before the review date, SURFACE the extension/requote question to QPaint (Dee + Leslie) at review time — never promise, never manage.
+**Source:** 2026-09-11 QPaint reply processing. Reference: `skills/email/email-inbox-pulse/references/qpaint-customer-reply-processing.md`.
+
+## 2026-09-11 — Raw Gmail API message resource uses `labelIds`, not `labels`
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** A post-`modify` verification printed an empty label list (or `UNREAD present: False`) for a message that in fact carried the label — a false negative that made a failed label write look successful. Seen during quotes@ intake #43160: `msg.get('labels')` returned missing/`[]` before and after, while `msg.get('labelIds')` showed `['Label_135578373843577379','CATEGORY_UPDATES']`.
+**Cause:** The raw Gmail API message resource field is `labelIds`. The key `labels` only exists in `google_api.py`'s normalised JSON output, which maps `labelIds` → `labels`. Mixing the two shapes reads a key that is not there.
+**Fix:** Against raw API responses use `m.get('labelIds', [])`. `google_api.py gmail get` output does expose `labels`, so the existing skill check is correct only for that CLI path. Always verify a label write by re-fetching the message and reading its actual label IDs.
+**Source:** 2026-09-11 quotes@ intake #43160. Card: `learnings/cards/gmail.md`.
+
+## 2026-09-11 — Shell `date` is UTC on this host; hand-labelled ACST timestamps are wrong
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** An Outreach Notes prefix was hand-written as `[2026-09-11 06:47 ACST]` while the actual local time was 06:44 ACST. The system `date` reads ~21:1x UTC while the injected Adelaide time reads ~06:4x the next day — a 9h30m divergence that is easy to write past without noticing.
+**Cause:** The orgo host runs with TZ=UTC. `date '+%Y-%m-%d %H:%M ACST'` prints the UTC clock with the literal string "ACST" appended — it does NOT convert. Any persisted timestamp built that way is silently 9h30m off.
+**Fix:** Always use `TZ=Australia/Adelaide date '+%Y-%m-%d %H:%M %Z'` (or Python `zoneinfo`), and sanity-check it against the injected current-time line and `date -u`. Caught and PATCHed before certification on #43147.
+**Source:** 2026-09-11 quote intake #43147. Skill: `skills/notforgotten/quote-intake/SKILL.md` Pitfall 54.
