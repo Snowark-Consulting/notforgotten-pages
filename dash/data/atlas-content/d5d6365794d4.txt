@@ -47,6 +47,12 @@ tier: primary
 
 ## Chronological index (newest first)
 
+### 2026-09-12
+- Engaged customer + external dependency (QPaint-managed carpentry) = WAIT/MONITOR, not more follow-up. Detect acceptance from primary evidence, then reconcile Won. Attribution stays Assisted — confirmation ≠ recovery. → `learnings/2026-09-12-engaged-dependency-won.md`, `cards/agent-architecture.md`
+- Learnings integrity guard deployed (`scripts/bin/learnings-integrity-guard.py`) — structural checks + `git diff` vs HEAD (dropped rows / `## TRAP` headings / UPDATE notes, LIST diff not count). Runs as cron 59d5247cd604 at 21:20 and as a pre-commit gate in `nightly-backup.sh`. Caught the 7th catalogue corruption the same day it shipped.
+- `catalogue.md` corrupted a 7th time: an edit adding `MONITOR`/`courtesy reply` to the `agent-architecture` row dropped `gmail-auth` + `qpaint`, `||`-damaged 9 rows, rewrote the `campaign` cell as a markdown link, split the table, deleted the warning block. Repaired by full-file rewrite. → `learnings/catalogue.md`, `cards/hermes.md`
+- `log-retention.py` failure detection narrowed to explicit failure phrases (`STRONG_FAILURE_KEYWORDS`) — bare nouns like "exception"/"error"/"timeout" mis-scored successful reports. → `scripts/bin/log-retention.py`
+
 ### 2026-09-11
 - Fuzzy-patch corruption spread from the catalogue to the learning CARDS — a patch that added 2 traps to `cards/hermes.md` silently deleted 2 unrelated traps + a dated note. Compare the `## TRAP` heading list against HEAD, not just the count. → `cards/hermes.md`, `cards/agent-architecture.md`
 - QPaint price-gated buying signal: route the request to QPaint, send the CUSTOMER nothing. Writing "ESCALATED" before the handoff is a false control. → `skills/snowark/recovery-operations/references/qpaint-routine-reply-authority.md`
@@ -388,3 +394,12 @@ When a new entry contradicts a prior one: set `Contested: true` on both, add rec
 **Cause:** The orgo host runs with TZ=UTC. `date '+%Y-%m-%d %H:%M ACST'` prints the UTC clock with the literal string "ACST" appended — it does NOT convert. Any persisted timestamp built that way is silently 9h30m off.
 **Fix:** Always use `TZ=Australia/Adelaide date '+%Y-%m-%d %H:%M %Z'` (or Python `zoneinfo`), and sanity-check it against the injected current-time line and `date -u`. Caught and PATCHed before certification on #43147.
 **Source:** 2026-09-11 quote intake #43147. Skill: `skills/notforgotten/quote-intake/SKILL.md` Pitfall 54.
+
+## 2026-09-12 — Engaged + external dependency = WAIT/MONITOR; detect acceptance from primary evidence
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** Sian Leathem (#42970, 155 Dornoch Terrace Highgate Hill, $39,996.00) told us on 10 Aug the quote looked reasonable and she was likely to proceed. The only blocker was QPaint-managed carpentry that had to happen before painting — a dependency outside Not Forgotten's control. She then signed the QPaint PandaDoc contract on 12 Sep. Recorded as Won with `Win Attribution = Assisted`, `Recovered Value` left unpopulated.
+**Cause:** The temptation with an engaged customer is more contact. Here that would have been wrong: the blocker was not ours to resolve and there was no unanswered question, so repeated follow-up would have read as pressure on a customer who had already said yes in principle.
+**Fix:** For an engaged customer whose genuine blocker is external, hold the relationship and keep the opportunity visible: `ENGAGED → WAIT/MONITOR the external dependency → maintain control (brief acknowledgements, no pressure, no CTA) → detect acceptance from primary evidence (PandaDoc completion notification) → reconcile Won`. This extends the 2026-08-15 "Next Touchpoint Date ≠ contact" lesson: a review date on an externally-blocked customer is a WAIT/MONITOR point, not a send trigger. Attribution discipline unchanged — the customer had signalled intent before any NF intervention, so it is Assisted, not Recovered; if new primary evidence later shows NF materially caused the win, reassess then.
+**Source:** 2026-09-12 Sian Leathem #42970 signed-contract processing (session `20260912_054844_683e9245`; PandaDoc completion notification Gmail `1a09427dd2a8edbe`). Full detail: `learnings/2026-09-12-engaged-dependency-won.md`. Card: `learnings/cards/agent-architecture.md`.

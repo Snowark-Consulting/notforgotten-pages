@@ -71,3 +71,23 @@ prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
 ## Prepared by
 
 Prepare-Ahead Clock 2026-09-06 22:00 ACST. Review due Sun Sep 13. Same week: production-operating-protocol (Sep 7) and phase-1-certified (Sep 8) reviews — preps exist (created Sep 3). Governance Review (Sep, first Monday) + Monthly Recovery Intelligence Report (first Monday Sep 7) also due — prep exists for the latter; governance review template flagged in daily notes.
+
+---
+
+## Addendum — evidence refresh 2026-09-11 22:00 ACST (Prepare-Ahead Clock, T-2 days)
+
+Review is Sunday 13 Sep. Three new items land inside the review window and all three test the decision directly.
+
+11. **Campaign Pulse 11 Sep: the diagnose-before-change chain produced a terminal diagnosis.** Cold painter channel is flat across both channels now, not just email: 0 sends in 48h, ledger 139 records (138 outbound / 1 inbound all-time), 52 distinct prospects contacted (100% painter), reply rate 1/52 = 1.9% by prospect. Founder calls: 12 candidates, 2 rounds (2 Sep + 9 Sep), 0 replies. The evidence chain was worked in order (deliverability → opens → replies → channel), the bottleneck was identified as audience/channel rather than copy (Confidence High 92% / 88%), and the recommendation was to stop email volume rather than draft Email 4/5. This is the criterion "recommendation follows the evidence chain" under maximum pressure: the evidence said stop, and the recommendation was stop.
+
+12. **The delegation boundary held at the REVIEW step, not just the execute step.** Two close-out preps for 11 Sep (9-prospect de-confused cohort; 43-record V2 CRM posture) were prepared and deliberately NOT executed: Production Confidence Score 70 (below the 75 stop threshold) because the missing input was "how should MONITOR be recorded" — a schema/mechanism decision, not an operational one. Atlas executed ~50 sends under delegation in the window and declined the one action that needed a founder ruling. That is the boundary working as designed, in both directions.
+
+13. **Live commercial event routed, not decided — Eddie Yuan (11 Sep).** First purchase-intent reply of the V2 era: quoted $32,450, would sign at $30,000, start Nov or late Jan. Pricing is QPaint's commercial decision, so the request was routed to QPaint via james@ (Dee + Leslie) and no customer reply was sent pending QPaint's answer. Secondary finding: the Airtable note had read "ESCALATED to QPaint" while no handoff had ever been sent — a false control. Correct order is now codified (send handoff → verify in james@ Sent → only then write the escalation note with the Gmail ID) in `skills/snowark/recovery-operations/references/qpaint-routine-reply-authority.md`.
+
+14. **Provider risk inside the window was downgraded on evidence, not ignored.** DeepSeek reversed the V4 Pro discontinuation (vendor notice 11 Sep: service continues past 14 Sep, billing unchanged), removing the retirement date that sat before the 24 Sep provider review. The review stands as designed; the real agenda item remains `fallback_providers` empty.
+
+**Effect on the verdict questions:** Q1 (CEO Brief as strategic surface) — unchanged, MET. Q2 (diagnose-before-change held) — strengthened: item 11 is the chain working to a stop-recommendation, item 13 is the chain working to a route-not-decide. Q3 (was code-enforcement the right read of INC-08-19) — further supported by item 12: the control that stopped the batch change was a threshold and a mechanism question, not a memory that wanted reversing. Q5 (calls-vs-email nuance) — sharpened by item 11: two call rounds at zero means the "smallest experiment" doctrine now applies to the call channel (list, message, timing) exactly as it did to email.
+
+## Prepared by
+
+Prepare-Ahead Clock 2026-09-11 22:00 ACST. Airtable read-only scan (332 prospects, 240 QPaint Pipeline records, V2 Outreach Activity) + daily notes 11 Sep. No sends.

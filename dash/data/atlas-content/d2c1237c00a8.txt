@@ -1,0 +1,56 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# Engaged Dependency → Wait/Monitor → Detect Acceptance → Reconcile Won — 2026-09-12
+
+> Good follow-up is not always more contact: an engaged customer blocked by something outside our control is a WAIT/MONITOR, not another nudge.
+
+Operational learning from the Sian Leathem (#42970) win. No overclaim. Related: [[QPaint]] (`learnings/cards/qpaint.md`), [[Agent Architecture]] (`learnings/cards/agent-architecture.md`), [[LEARNINGS]] (`learnings/LEARNINGS.md`).
+
+## The situation
+
+Sian Leathem, 155 Dornoch Terrace Highgate Hill, $39,996.00. Customer replied
+10 Aug that the quote looked reasonable and she was likely to proceed. The only
+blocker was carpentry repairs that had to happen before painting — a dependency
+managed by QPaint, not by Not Forgotten.
+
+Sian signed the QPaint contract via PandaDoc on 12 Sep 2026.
+
+## The correct NF behaviour (what actually happened)
+
+```
+ENGAGED
+  → WAIT/MONITOR the external dependency (carpentry)
+  → MAINTAIN CONTROL (brief acknowledgments, no pressure, no CTA)
+  → DETECT ACCEPTANCE (PandaDoc "completed copy" notification)
+  → RECONCILE WON
+```
+
+## The principle this reinforces
+
+**Good follow-up is not always more contact.**
+
+For an already-engaged customer whose genuine blocker is outside our control
+(here: QPaint-managed carpentry), aggressive repeated follow-up would have been
+wrong. The correct behaviour was to hold the relationship, keep the opportunity
+visible so it could not be forgotten, and let the customer's own dependency
+resolve — then reconcile the acceptance the moment primary evidence appeared.
+
+This extends the existing "Next Touchpoint Date ≠ Contact" lesson
+(2026-08-15): a review date for a customer with an external dependency is a
+WAIT/MONITOR point, not a send trigger.
+
+## Attribution discipline (reinforced, not changed)
+
+Win Attribution = **Assisted**, not **Recovered**.
+
+Evidence: the customer had already signalled "likely to proceed" before any
+blocker-resolving intervention. There is no evidence the opportunity was lost,
+abandoned or forgotten and subsequently recovered because of NF intervention.
+Confirmation ≠ recovery. WON value = $39,996; Recovered Value left unpopulated.
+
+If new primary evidence later shows NF intervention materially caused the win,
+reassess then. Evidence before attribution.
