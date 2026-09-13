@@ -164,13 +164,13 @@
       }
     ]
   },
-  "last_updated": "2026-09-13T22:30:29.898675+09:30",
+  "last_updated": "2026-09-14T00:00:49.630675+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
       "New": 174,
-      "Campaign Complete": 65,
-      "Outreach Active": 57,
+      "Campaign Complete": 68,
+      "Outreach Active": 54,
       "Won": 1,
       "Lost": 17,
       "Not a fit": 5,
@@ -204,7 +204,7 @@
       "Campaign Complete": {
         "IT MSP": 3,
         "Marketing agency": 8,
-        "Painter": 41,
+        "Painter": 44,
         "Landscaper": 1,
         "Commercial cleaning": 6,
         "Construction": 2,
@@ -213,7 +213,7 @@
         "Cleaning": 1
       },
       "Outreach Active": {
-        "Painter": 57
+        "Painter": 54
       },
       "Won": {
         "Painter": 1
@@ -521,27 +521,9 @@
         "suburb": "South Australia"
       },
       {
-        "name": "SA Quality Painting",
-        "industry": "Painter",
-        "last_contacted": null,
-        "suburb": "South Australia"
-      },
-      {
         "name": "More than Painting",
         "industry": "Painter",
         "last_contacted": "2026-08-28",
-        "suburb": "South Australia"
-      },
-      {
-        "name": "Celtic Deco",
-        "industry": "Painter",
-        "last_contacted": null,
-        "suburb": "Victoria"
-      },
-      {
-        "name": "John's Painting",
-        "industry": "Painter",
-        "last_contacted": null,
         "suburb": "South Australia"
       },
       {
@@ -582,7 +564,7 @@
       }
     ],
     "active_by_vertical": {
-      "Painter": 57
+      "Painter": 54
     },
     "messages": {
       "outbound_total": 138,
@@ -600,7 +582,7 @@
       "total_opens": 245,
       "avg_opens": 4.2
     },
-    "last_refreshed": "2026-09-13T12:30:26.866212+00:00"
+    "last_refreshed": "2026-09-13T14:30:49.629547+00:00"
   },
   "decisions": {
     "total": 42,
@@ -4211,16 +4193,16 @@
     "tier": "green",
     "disk_pct": 41.9,
     "free_gb": 11.4,
-    "why": "other hermes (1172MB), chrome profile (462MB), tmp (421MB). Normal system overhead.",
+    "why": "other hermes (1177MB), chrome profile (462MB), tmp (423MB). Normal system overhead.",
     "trend": "stable",
     "daily_rate_pct": 0.2,
     "forecast_days_to_95": 265.5,
     "recommendation": "None \u2014 storage is healthy.",
     "largest_consumers": {
-      "other_hermes": 1172.5,
+      "other_hermes": 1176.7,
       "chrome_profile": 462.2,
-      "tmp": 420.9
+      "tmp": 423.2
     },
-    "last_checked": "2026-09-13T18:00:39+0930"
+    "last_checked": "2026-09-14T00:00:46+0930"
   }
 }
