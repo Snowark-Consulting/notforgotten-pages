@@ -1269,6 +1269,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_experiments_v2_new50_aug15_2026_outbound_strategy_v1",
+      "label": "Outbound Strategy V1",
+      "file_type": "doc",
+      "source_file": "knowledge/experiments/v2-new50-aug15-2026/outbound-strategy-v1.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "58b162ec9bf9",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_follow_up_sequences_painter_standard",
       "label": "Painter Standard",
       "file_type": "doc",
@@ -4335,6 +4346,13 @@
     {
       "source": "knowledge_decisions_2026_08_19_qpaint_brand_canonicalisation",
       "target": "knowledge_qpaint_white_label_send_protocol",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_experiments_index",
+      "target": "knowledge_experiments_v2_new50_aug15_2026_outbound_strategy_v1",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

@@ -47,3 +47,17 @@ The system must understand the buying process, not merely see the word "governme
 
 - [[Relationship-Aware Follow-Up + Government/QBuild Handling]] (2026-08-21)
 - [[Data-Loss Through Import]] (2026-08-24)
+
+---
+
+## Full record (moved from LEARNINGS.md, 2026-09-13)
+
+### 2026-08-24 — Government Requires Procurement-Aware Follow-Up
+
+**Confidence:** high
+**Contested:** false (corrects earlier "Government = HOLD" standing rule)
+**Symptom:** Using "Government = HOLD" as a blanket rule was wrong. The system must understand the buying process, not just the word "government".
+
+**Fix:** QBuild = VERIFIED QPaint-managed procurement relationship → HOLD (no NF Email 1). Other government = per-case evidence before classification: formal procurement/RFQ → HOLD or procurement-specific; direct govt customer with ordinary supplier comms → follow-up may be appropriate; UNKNOWN → HOLD until context exists. Case evidence: Tracy Schadendorss reclassified Commercial (Eden Academy Bardon, childcare, no govt evidence); Leah Powell (Yeronga State High) HOLD pending review.
+
+**Source:** learnings/2026-08-24-government-procurement-aware-followup.md

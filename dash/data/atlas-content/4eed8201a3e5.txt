@@ -1,0 +1,20 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# Fuzzy-Patch Corruption Spread to the Learning Cards — 2026-09-11
+
+> The catalogue's corruption class reached the cards, and a heading COUNT still matched. Only a heading LIST diff caught it.
+
+Related: [[LEARNINGS]] (`learnings/LEARNINGS.md`), [[Learnings Catalogue]] (`learnings/catalogue.md`).
+
+## 2026-09-11 — Fuzzy-patch corruption has spread from the catalogue to the learning cards
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** A patch intended to ADD two traps to `learnings/cards/hermes.md` also silently DELETED two unrelated existing traps (`v0.20.4 session turn lease stops the session on heavy inline writes`, `Gateway lifecycle guard false-flags python3 -c file reads`) plus the `> **UPDATE 2026-08-18:**` state.db-bloat driver note. The `## TRAP` heading COUNT stayed at 5 before and after — 2 added, 2 removed — so a count check alone would have passed. Found via `git diff` on the card, which showed the deletions as `-` lines.
+**Cause:** Same failure class as the recurring `learnings/catalogue.md` corruption (now 6 occurrences), but on a card rather than a table. The `patch` tool's fuzzy matching on a multi-line `old_string` bridges gaps and swallows neighbouring blocks.
+**Fix:** Restored by concatenating `git show HEAD:learnings/cards/hermes.md` with the two new trap blocks, then re-verifying all 7 `## TRAP` headings. Prevention added to the trap itself: after ANY patch that adds a section to a card, diff the whole hunk against HEAD and compare the `## TRAP` heading LIST (not the count) with `git show HEAD:<card> | grep '^## TRAP'` vs `grep '^## TRAP' <card>`. Prefer `write_file` full-file rewrites for cards and the catalogue.
+**Source:** 2026-09-11 nightly consolidation. Cards: `learnings/cards/hermes.md`, `learnings/cards/agent-architecture.md`.

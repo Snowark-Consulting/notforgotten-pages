@@ -1,0 +1,20 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# Shell `date` Is UTC On This Host — 2026-09-11
+
+> `date '+%H:%M ACST'` prints the UTC clock with a literal suffix; it does not convert.
+
+Related: [[LEARNINGS]] (`learnings/LEARNINGS.md`), [[Learnings Catalogue]] (`learnings/catalogue.md`).
+
+## 2026-09-11 — Shell `date` is UTC on this host; hand-labelled ACST timestamps are wrong
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** An Outreach Notes prefix was hand-written as `[2026-09-11 06:47 ACST]` while the actual local time was 06:44 ACST. The system `date` reads ~21:1x UTC while the injected Adelaide time reads ~06:4x the next day — a 9h30m divergence that is easy to write past without noticing.
+**Cause:** The orgo host runs with TZ=UTC. `date '+%Y-%m-%d %H:%M ACST'` prints the UTC clock with the literal string "ACST" appended — it does NOT convert. Any persisted timestamp built that way is silently 9h30m off.
+**Fix:** Always use `TZ=Australia/Adelaide date '+%Y-%m-%d %H:%M %Z'` (or Python `zoneinfo`), and sanity-check it against the injected current-time line and `date -u`. Caught and PATCHed before certification on #43147.
+**Source:** 2026-09-11 quote intake #43147. Skill: `skills/notforgotten/quote-intake/SKILL.md` Pitfall 54.

@@ -28,3 +28,16 @@ Inbox-pulse watches for *replies* but does NOT process *bounce* notifications (m
 Monthly Outreach Intelligence Report was flagged "erroring" in a prior audit. Actual state: script ran successfully on 2026-09-01, reported "No calls this month" — correct, because founder call outcomes are unlogged. The "failure" was missing evidence, not a broken job. Evidence discipline: FACT (call outcomes not logged) vs UNKNOWN (whether calls occurred). Never convert missing evidence into a claim.
 
 **Source:** `knowledge/notes/2026-09-01-control-audit-response.md`, session `20260901_041854_0ff0cb`
+
+---
+
+## Full record (moved from LEARNINGS.md, 2026-09-13)
+
+### 2026-09-01 — Bounce suppression gap + cron exit-code semantics
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** (1) 12 hard-bounced prospects stayed `ACTIVE` in Airtable (Superior Painters, Redefine Painting still in Outreach Active) — inbox-pulse watches for replies, not mailer-daemon bounces, so deliverability suppression never happened. (2) Stale Prospect Alert cron reported `Status: script failed` every Monday despite correct alert output. (3) Monthly Outreach Intelligence Report falsely flagged "erroring" — script ran fine, reported "No calls this month" because founder call outcomes are unlogged.
+**Cause:** (1) No bounce-handling step in the intake pipeline. (2) Script used `sys.exit(1)` to signal "stale found"; no_agent cron treats non-zero exit as scheduler failure. (3) Audit converted missing evidence (unlogged calls) into a failure claim.
+**Fix:** (1) Scoped: add bounce detection to inbox-pulse — mailer-daemon → QUARANTINED (recommendation `consolidation-bounce-suppression-gap`). (2) Changed to `sys.exit(0)` 2026-09-01 — alert is the deliverable, exit code is scheduler health only. (3) Evidence discipline: FACT vs UNKNOWN, never convert missing evidence into a claim.
+**Source:** 2026-09-01 3-inbox cleanup + control audit session. Full detail: `learnings/2026-09-01-bounce-suppression-and-cron-exit-codes.md`, `knowledge/notes/2026-09-01-control-audit-response.md`. Indexed by consolidation 2026-09-01.

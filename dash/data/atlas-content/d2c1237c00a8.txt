@@ -54,3 +54,16 @@ Confirmation ≠ recovery. WON value = $39,996; Recovered Value left unpopulated
 
 If new primary evidence later shows NF intervention materially caused the win,
 reassess then. Evidence before attribution.
+
+---
+
+## Full record (moved from LEARNINGS.md, 2026-09-13)
+
+### 2026-09-12 — Engaged + external dependency = WAIT/MONITOR; detect acceptance from primary evidence
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** Sian Leathem (#42970, 155 Dornoch Terrace Highgate Hill, $39,996.00) told us on 10 Aug the quote looked reasonable and she was likely to proceed. The only blocker was QPaint-managed carpentry that had to happen before painting — a dependency outside Not Forgotten's control. She then signed the QPaint PandaDoc contract on 12 Sep. Recorded as Won with `Win Attribution = Assisted`, `Recovered Value` left unpopulated.
+**Cause:** The temptation with an engaged customer is more contact. Here that would have been wrong: the blocker was not ours to resolve and there was no unanswered question, so repeated follow-up would have read as pressure on a customer who had already said yes in principle.
+**Fix:** For an engaged customer whose genuine blocker is external, hold the relationship and keep the opportunity visible: `ENGAGED → WAIT/MONITOR the external dependency → maintain control (brief acknowledgements, no pressure, no CTA) → detect acceptance from primary evidence (PandaDoc completion notification) → reconcile Won`. This extends the 2026-08-15 "Next Touchpoint Date ≠ contact" lesson: a review date on an externally-blocked customer is a WAIT/MONITOR point, not a send trigger. Attribution discipline unchanged — the customer had signalled intent before any NF intervention, so it is Assisted, not Recovered; if new primary evidence later shows NF materially caused the win, reassess then.
+**Source:** 2026-09-12 Sian Leathem #42970 signed-contract processing (session `20260912_054844_683e9245`; PandaDoc completion notification Gmail `1a09427dd2a8edbe`). Full detail: `learnings/2026-09-12-engaged-dependency-won.md`. Card: `learnings/cards/agent-architecture.md`.

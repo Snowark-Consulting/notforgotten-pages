@@ -54,11 +54,21 @@ Every piece of data must answer: **"What should we do because we now know this?"
 - Which website changes increase demo bookings?
 - Which content builds the most trust?
 
-### Current Baseline (Jul 18-25, 2026)
+### Current Baseline (week of 2026-09-06 to 2026-09-12)
 
-- 31 users, 33 sessions, 38 page views
-- All direct traffic (no search, no referral, no social)
-- 17 Australia, 13 US, 2 Singapore, 1 Germany
-- Top pages: / (37 views), /case-study-travis-krieg (1 view)
-- No form submissions tracked yet (CRM integration pending)
-- No demo bookings from website yet
+- 6 users, 6 sessions, 6 page views (day-sum method, see caveat below)
+- Traffic on 3 of 7 days (Sep 7, 9, 11); 4 days with zero sessions
+- 4 direct, 1 Google organic, 1 Instagram
+- 3 US, 1 Australia, 1 Argentina, 1 UK
+- Only page viewed: `/`
+- 14-week range (Jun 8 – Sep 12, 2026): 2–36 users/week. The site has never sustained more than a trickle. Week-to-week swings of 80%+ are normal variance and are usually driven by single-day non-human bursts (Aug 30: 12 users, Sep 1: 18 users — all direct, single-page, ~2.5s average session, 6.5% engagement).
+- Non-direct discovery exists but is tiny: organic search in 8 of the last 14 weeks (1–7 sessions), Instagram referrals in 4 (1–12), AI-assistant referrals (`chatgpt.com`) in 3 of the last 5 (1–2 sessions).
+- No Email-channel sessions in any week. The Gmail signature links to `http://notforgotten.com.au` with no UTM parameters, so email clicks, if any, are indistinguishable from direct traffic.
+- No form submissions tracked, no demo bookings from the website.
+
+**Method caveat (important):** `scripts/ga4-intel.py` builds its weekly "users" figure by summing per-day `activeUsers`. That is a day-sum, not unique weekly users — a visitor active on three days counts three times. Always compare day-sum against day-sum across weeks; never present the figure as "unique visitors", and prefer GA4 weekly uniques (request dimension `isoYearIsoWeek`) when describing a trend.
+
+**Data-quality notes (verified 2026-09-13):**
+- GA4 tag is live on `notforgotten.com.au` (`G-03Y95NSDRV`); the nightly tracking tag audit ran clean all week. A quiet week is not a tracking failure.
+- The internal-traffic detection snippet (`nfs_internal`) is **not present** in the homepage HTML as served, so cookie-based internal exclusion is not active on that page. Internal visits from James/Josh desktops would be counted as direct traffic.
+

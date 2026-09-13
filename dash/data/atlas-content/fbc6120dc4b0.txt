@@ -1,0 +1,20 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# QPaint Price-Gated Buying Signal: Route the Request, Decide Nothing — 2026-09-11
+
+> Commercial authority belongs to QPaint; operational authority is ours. Route, verify the send, then write the note.
+
+Related: [[LEARNINGS]] (`learnings/LEARNINGS.md`), [[Learnings Catalogue]] (`learnings/catalogue.md`).
+
+## 2026-09-11 — QPaint price-gated buying signal: route the request, decide nothing
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** Eddie Yuan (#38798, 28 River Crescent Broadbeach Waters) replied preferring QPaint and offering to sign if the price came to $30,000 against a $32,450 quote. Separately, the Airtable record already carried an "ESCALATED to QPaint" note while NO handoff had ever been sent to james@ Sent — a false control that made a live commercial decision look routed when the decision owner had never received it.
+**Cause:** Two distinct errors compounded: (a) a pricing request was treated as something to park rather than something to route, confusing COMMERCIAL authority (QPaint decides price) with OPERATIONAL authority (Atlas routes the request and executes the outcome); (b) the escalation note was written before the send was verified.
+**Fix:** Correct order, now codified — (1) SEND the handoff to QPaint via james@ (Dee `solutions@qpaint.com.au` + Leslie `admin@qpaint.com.au`), (2) verify it in james@ Sent, (3) only then write the escalation note with the Gmail ID. Set Airtable to `Replied` / `Engaged` / `Buying Stage: "Ready to Proceed"` / `Primary Objection: "Price / Budget"` with a short NTD. Send the CUSTOMER nothing until QPaint answers — the customer asked us, so silence is correct, not neglect. Record the account as an event-driven monitor, never a generic NTD.
+**Source:** 2026-09-11 Eddie Yuan reply processing (msg `1a090311aa167a76`, `data/send-evidence/SEND-2026-09-11T204915-1a090311aa16.json`). Reference: `skills/snowark/recovery-operations/references/qpaint-routine-reply-authority.md`.

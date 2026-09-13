@@ -1,0 +1,26 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# GitHub Backup Silently Broken (Two Failure Modes) — 2026-08-24
+
+> "Backup ok" is not a backup. Two independent git defects let the nightly job report success for ~36h while pushing nothing.
+
+Related: [[LEARNINGS]] (`learnings/LEARNINGS.md`), [[Learnings Catalogue]] (`learnings/catalogue.md`).
+
+## 2026-08-24 — GitHub backup silently broken (two failure modes)
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** Nightly "backup to GitHub" cron reported "ok" for ~36h but nothing was actually pushed. Repo sat 43 commits ahead of origin/main, and state.db snapshots never reached GitHub at all.
+
+**Cause (two independent bugs):**
+1. Stale `http.extraheader` in `.git/config` (Basic auth, token `ghp_bLx`) overrode the correct URL-embedded token (`ghp_bJO` = `SNOWARK_GITHUB_TOKEN`). `git ls-remote origin` returned "Repository not found" even with a valid token, because the extraheader wins over URL credentials.
+2. `.gitignore` rule `state/` (un-anchored) matched ANY `state/` directory, including `backups/state/` where the snapshot script writes. `git add backups/state/` silently staged nothing, so the snapshot was never committed or pushed.
+
+**Fix:**
+1. Update `http.extraheader` to the working token: `git config http.extraheader "Authorization: Basic $(printf 'hancockjluke:%s' "$SNOWARK_GITHUB_TOKEN" | base64 -w0)"`.
+2. Anchor the gitignore rule: `state/` → `/state/` (only ignores the repo-root runtime dir).
+3. Add `backups/*.corrupted*` to gitignore (a 1.4GB corrupted DB must never be committed — exceeds GitHub 100MB limit).

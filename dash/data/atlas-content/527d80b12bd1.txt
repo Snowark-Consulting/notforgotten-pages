@@ -1,0 +1,60 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# Intake Certification Substring Gate — 2026-09-13
+
+> A completeness gate that greps a field for one word can fail a record whose field is genuinely, correctly populated. When reconciliation passes and the gate names a long, real field, suspect the validator's pattern before the data.
+
+Operational learning from QPaint quote intake #43164 (Susan Humphreyes-Reid). No overclaim. Related: [[QPaint]] (`learnings/cards/qpaint.md`), [[Learnings Catalogue]] (`learnings/catalogue.md`), [[LEARNINGS]] (`learnings/LEARNINGS.md`).
+
+## The situation
+
+QPaint PandaDoc #43164 (Susan Humphreyes-Reid, 4 Daintree Close, Forest Lake, $19,976.00 incl GST) landed in the `quotes@` inbox and was extracted into the QPaint Pipeline as `recLAwnRJbkfyw719`.
+
+- Record creation: clean.
+- Read-back of `Extent of Work`: 924 characters of substantive scope text.
+- `certify_reconciliation()`: **PASS** (source email ↔ Airtable agreed).
+- `certify_intake_complete()`: **FAIL** — `False, ['Extent of Work']`.
+
+The gate was naming a field that was plainly populated.
+
+## Cause
+
+`scripts/intake-certification.py` line 59 validates `Extent of Work` with:
+
+```python
+"pandadoc" not in str(v).lower()
+```
+
+The intent is sound: reject a scope field that is nothing but a raw PandaDoc link rather than a real scope of works. The implementation is a blunt substring test over the whole field. This scope text legitimately ended with:
+
+> "... 30 days from quote date (PandaDoc expiry 13/10/2026)."
+
+A useful, customer-relevant fact that happened to name the platform. The validator could not tell the difference between *"here is a link"* and *"here is the scope, and by the way the document expires on 13/10/2026."*
+
+**Signature to recognise:** reconciliation PASSES, the read-back field is long and substantive, and the completeness gate names exactly that one field. That combination is a validator-pattern problem, not a data problem.
+
+## Fix
+
+1. Reword the scope text so it does not contain the platform name — `(document expiry date 13/10/2026)` — and PATCH the record.
+2. Re-read the record from Airtable and re-run both gates. Both then PASS and the source email is filed to `Quotes Completed`.
+
+Hard rules applied:
+
+- **Never weaken or bypass the validator to get a green tick.** The gate is fail-closed on purpose; a bypass converts a real control into decoration.
+- **Never file the email while certification fails.** Filing is what makes a bad record unrecoverable.
+- `Outreach Notes` is not in `REQUIRED_FIELDS`, so the word is harmless there — the defect is confined to fields the gate validates.
+
+Skill updated: `skills/notforgotten/quote-intake/SKILL.md` **Pitfall 57** (v2.3.0 → v2.3.1, alongside Pitfall 55 option-based Deal Value and Pitfall 58 AX-tree pricing-row dedup).
+
+## Secondary confirmation — quote-date anchoring
+
+The same document confirms Pitfall 48 anchoring. The PandaDoc document's own internal date read 01/09/2026 while the send notification arrived 13 Sep 2026. The expiry line (`13/10/2026`) is exactly the send date + 30 days, matching this document's own 30-day validity statement — so **Quote Date = 2026-09-13 ACST**, not the raw UTC header date. Cross-checking the document's own internal arithmetic against the header date is what resolves this class.
+
+## Source
+
+- 2026-09-13 `quotes-pulse-phase2` intake of #43164: source message `1a09981eed12a341`, Telegram message delivery `msg_id 9390`, Airtable `recLAwnRJbkfyw719`.
+- Sibling intakes the same run: #43186 Neill Barrell, #43206 Paul Robertson, #43183 Troy Moncur (option-based), #43157 Lexier Jeffery (option-based), #43139 Joe Vakabua, #43199 Minimbah State School (QBuild → HOLD).

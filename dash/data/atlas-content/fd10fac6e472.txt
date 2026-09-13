@@ -1,0 +1,20 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# "Still Thinking / Comparing" Is MONITOR, Not a Courtesy Reply — 2026-09-11
+
+> A deferral is not an open loop. A courtesy reply to it reads as a nudge.
+
+Related: [[LEARNINGS]] (`learnings/LEARNINGS.md`), [[Learnings Catalogue]] (`learnings/catalogue.md`).
+
+## 2026-09-11 — "Still thinking / comparing" is MONITOR, not a courtesy reply
+
+**Confidence:** medium-high
+**Contested:** false
+**Symptom:** Three QPaint customers whose reply was a decision-deferral ("still thinking", "still deciding designs", "I'll let you know") were candidates for a same-day acknowledgement email. Two were left unanswered (Raewyn Frost 08 Sep, Bronwyn Hoch and Jim Stevenson 11 Sep) and none of the three asked for anything.
+**Cause:** A deferral is not an open loop: there is no blocker to uncover and no unanswered question, so a courtesy reply adds nothing and reads as a nudge. Treating it as "engagement" invites exactly the repetition the persistence decision exists to prevent.
+**Fix:** Classify as MONITOR — no acknowledgement email. Set `Next Touchpoint Date` to a review date tied to the quote's validity (or 14-21 days out), `Buying Stage at First Reply: "Still Deciding"`, `Primary Objection: "Timing"`. If the quote validity expires before the review date, SURFACE the extension/requote question to QPaint (Dee + Leslie) at review time — never promise, never manage.
+**Source:** 2026-09-11 QPaint reply processing. Reference: `skills/email/email-inbox-pulse/references/qpaint-customer-reply-processing.md`.

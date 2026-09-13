@@ -39,7 +39,7 @@ Quote arrives in quotes@
 │ Cron: every 5 minutes            │
 │ • Scan Quotes with Status=New    │
 │ • Draft Email 1                  │
-│ • Voice Review (8/8)             │
+│ • Voice Review (9/9)             │
 │ • Technical Verification         │
 │ • Send via send-outreach.py      │
 │ • Update Quote status            │
@@ -138,20 +138,23 @@ Every follow-up is tailored to the specific quote. Merge fields pull from the Qu
 
 No email leaves the system without passing two gates. These run inside the agent cron job — same standard we already use for outreach.
 
-### Gate 1: Voice Review (8/8 Checklist)
+### Gate 1: Voice Review (9/9 Checklist)
+
+Canonical checklist: `knowledge/voice-review-checklist.md` (9-point, make-or-break gate).
 
 | # | Check | Standard |
 |---|---|---|
-| 1 | No bullshit | No exaggeration, no marketing fluff |
-| 2 | Gets to the point | Lead with what matters |
-| 3 | Curious before persuasive | Questions before claims where appropriate |
-| 4 | Practical before clever | Useful beats impressive |
-| 5 | Helps before selling | Give value, earn the right |
-| 6 | Uses evidence | Real numbers from real quotes |
-| 7 | Respects time | Every sentence earns its place |
-| 8 | Sounds like a person | Passes the coffee test |
+| 1 | Gets to the point quickly | No filler openers, no throat-clearing |
+| 2 | No bullshit | No exaggeration, no marketing fluff |
+| 3 | No marketing clichés | No "game-changer", "seamless", "leverage", "streamline" |
+| 4 | No exaggerated claims | Every claim defensible with evidence |
+| 5 | Useful before selling | Gives something before asking for anything |
+| 6 | Sounds like James talking to another business owner | Peer to peer, not marketer to prospect |
+| 7 | Reads naturally when spoken aloud | If a sentence trips you up, rewrite it |
+| 8 | Passes the coffee test | "Would this sound natural over a coffee?" |
+| 9 | Sounds like an exceptional Client Care Manager | Someone who personally looks after each customer |
 
-**Rule:** 8/8 required. Any failure → rewrite, re-check. Three consecutive failures → escalate to James.
+**Rule:** 9/9 required. Any failure → rewrite, re-check. Three consecutive failures → escalate to James.
 
 ### Gate 2: Technical Verification
 
@@ -273,7 +276,7 @@ The autopilot pauses and escalates under these conditions:
 
 ### Risk: Wrong tone in automated follow-up
 
-**Safeguard:** Voice Review (8/8) runs on every draft before send. Three failures → escalate. The checklist is concrete and testable.
+**Safeguard:** Voice Review (9/9) runs on every draft before send. Three failures → escalate. The checklist is concrete and testable.
 
 ### Risk: Sending to wrong customer
 

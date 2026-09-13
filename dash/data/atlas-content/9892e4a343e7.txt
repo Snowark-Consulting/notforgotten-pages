@@ -46,3 +46,17 @@ Recorded only. No infrastructure work, no schema redesign, no automation changes
 
 - [[Relationship-Aware Follow-Up + Government/QBuild Handling]] (2026-08-21)
 - [[Customer Context Gate]] (knowledge/customer-context-gate.md)
+
+---
+
+## Full record (moved from LEARNINGS.md, 2026-09-13)
+
+### 2026-08-24 — Data-Loss Through Import — Preserve Commercial Context
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** The 5 August re-import stripped commercial fields from 31 records. Contact data (name, email, quote value) survived, but decision-critical context was lost: quote date, scope, segment, relationship/source, procurement status, previous-client status, recovery score. Subsequent reviews then saw historical quotes as "current" and government records as ordinary residential — producing wrong follow-up decisions.
+
+**Fix (rule):** Before/after any bulk data operation, verify these survive (or are intentionally excluded): 1) quote date, 2) scope/extent, 3) segment/customer type, 4) relationship/referral/source, 5) procurement/government status, 6) previous-client status, 7) communication history, 8) current commercial state. 31 affected records restored field-by-field from 5-Aug pre-import backup (supported values only).
+
+**Source:** learnings/2026-08-24-data-loss-through-import.md

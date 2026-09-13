@@ -1,0 +1,19 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# Rich Sent Index Truncation → Reconstructed Approved Copy — 2026-08-25
+
+> A delivery index is not an archive. When approved copy is unrecoverable, rebuild it from the frozen template and disclose the rebuild.
+
+Related: [[LEARNINGS]] (`learnings/LEARNINGS.md`), [[Learnings Catalogue]] (`learnings/catalogue.md`).
+
+## 2026-08-25 — rich_sent_index truncation → reconstructed approved copy
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** The Telegram message presenting Alys + Kay Email 1 drafts was stored in `state/rich_sent_index.json` truncated mid-word at "windo" (Kay's full body never reached James and was unrecoverable from disk — "Hi Kay" appears nowhere on the machine). Reconstructing from primary sources failed to find the exact reviewed Kay copy.
+
+**Fix (standing rule):** `rich_sent_index.json` is a delivery index, NOT a source of truth for exact outbound copy — it can store truncated text. When an approved customer email's exact copy is unrecoverable, reconstruct from the FROZEN template + verified Airtable scope (never fabricate scope; never change a value/address), send via canonical-send, and transparently flag the reconstruction to James in the same report. Do not silently substitute. Kay Crawley Email 1 reconstructed and sent 25 Aug (Gmail 1a035f7dd04102d2) with full disclosure.

@@ -48,3 +48,17 @@ The intelligence layer needs enough context to understand, for every quote:
 
 - 4 of 14 Sunday quotes reclassified: Brooke Warren, Ramona Jackson, Ani Darlapudi → Corporate (body corporate); Claire → Commercial (builder). Evidence: CTS designation, "body corporate complex", QBCC HWI, "NEW WORK" + scaffolding exclusion.
 - Tom Clark (TKC Projects) flagged NOT auto-corrected — evidence is email-domain only; quote text doesn't clearly establish "business".
+
+---
+
+## Full record (moved from LEARNINGS.md, 2026-09-13)
+
+### 2026-08-24 — Quote Intelligence Requires Commercial Context, Not Just Data
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** NFS cannot reduce a quote to customer + email + value + address + basic scope. Intelligence needs WHO/WHAT/relationship/decision-type/decision-makers/timing/differentiator. Customer Segment is commercially meaningful context, not CRM metadata — a "Residential" label on a body-corporate complex changes the follow-up decision.
+
+**Founder decision (2026-08-24):** Do NOT redesign Airtable / add fields / change intake infra. Phone = SOURCE UNAVAILABLE (QPaint PandaDoc template has no customer-phone field); do NOT ask QPaint to change their template — NFS adapts to client workflow. Correct segment where evidence clearly establishes it (4 of 14 Sunday quotes reclassified: Brooke Warren, Ramona Jackson, Ani Darlapudi → Corporate; Claire → Commercial); do not infer from email domain alone (Tom Clark flagged, not auto-corrected).
+
+**Source:** learnings/2026-08-24-quote-intelligence-context.md

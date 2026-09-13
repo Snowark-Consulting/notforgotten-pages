@@ -1,0 +1,25 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# GitHub Pages Push Silently Broken (Dead PAT) — 2026-09-05
+
+> The green tick again: the script printed "Pushed to GitHub Pages" while the push was returning 401.
+
+Related: [[LEARNINGS]] (`learnings/LEARNINGS.md`), [[Learnings Catalogue]] (`learnings/catalogue.md`).
+
+## 2026-09-05 — GitHub Pages push silently broken (dead PAT, green-tick trap again)
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** `dash-update.py` printed "Pushed to GitHub Pages" while the subtree push was actually failing with `remote: Invalid username or token` (401). Remote gh-pages stalled at e42d051d2e (15:00 ACST); local commits at 16:00/16:30/17:03 never reached GitHub. Discovered during Campaign Pulse dash-update.
+**Cause:** `http.extraheader` (Basic auth, PAT `ghp_bJO…` = SNOWARK_GITHUB_TOKEN) + the same dead PAT embedded in `remote.pages.url`/`remote.origin.url` overrode the valid credential-store token (`ghp_bLx…` = GITHUB_TOKEN/ATLAS_GITHUB_TOKEN, authenticates Hardstaff08, verified push access to notforgotten-pages). SNOWARK_GITHUB_TOKEN died ~15:00-16:00 ACST 5 Sep (was working 15:00, dead 16:00). Note: the 2026-08-24 learning had this INVERTED (extraheader ghp_bLx stale, URL ghp_bJO good) — the environment has since rotated: ghp_bJO is now the dead one, ghp_bLx is valid.
+**Fix:**
+1. `cp .git/config /tmp/git-config-backup-20260905` (backup)
+2. `git config --unset http.extraheader`
+3. `git config remote.pages.url "https://github.com/Snowark-Consulting/notforgotten-pages.git"` (no embedded creds → git uses credential store)
+4. Verify: `git ls-remote pages` OK → `git subtree push --prefix=pages pages gh-pages` succeeded (`e42d051d..33c3fff0`) → remote HEAD confirmed 33c3fff0f9 → dash.json live on raw.githubusercontent + GitHub Pages.
+**⚠️ Origin (nightly backup → private `client-notforgotten`) still broken:** origin URL still embeds dead `ghp_bJO…`, and the valid stored token (Hardstaff08) returns "Repository not found" (no access to private repo). Backup cron d998982d2e15 (21:30 ACST) will FAIL until SNOWARK_GITHUB_TOKEN is refreshed (Josh domain) or Hardstaff08 is granted repo access. The `http.extraheader` fix from 2026-08-24 regressed because token rotation must update ALL of: origin URL, pages URL, extraheader, credential store — or drop the extraheader entirely (this time: dropped).
+**Source:** 2026-09-05 Campaign Pulse infra fix. See also 2026-08-24 entry (same failure, inverted tokens).

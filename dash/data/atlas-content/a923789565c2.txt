@@ -24,14 +24,16 @@ tier: internal
 | ID | What Changed | Hypothesis | Released | Review Date | Status |
 |---|---|---|---|---|---|
 | EXP-001 | End-to-End Attribution | UTM tagging will reveal which channels drive enquiries and clients | 2026-07-25 | 2026-08-25 | running |
+| V2-NEW50 | V2 "new 50" cohort — 50 fresh painter prospects, measured Email 1 → Email 3 | A fresh, verified cohort will outperform the drained wave-1/PDV pool | 2026-08-15 | 2026-09-04 | completed — HOLD |
 | CvC | Context vs Curiosity | Adding a woven context sentence changes meaningful reply rate | 2026-07-14 | 2026-08-04 | completed |
 
-See [[Context vs Curiosity Experiment]]
+See [[Context vs Curiosity Experiment]] (knowledge/experiments/context-vs-curiosity/). V2-NEW50 strategy: [[V2 New 50 Outbound Strategy]] (knowledge/experiments/v2-new50-aug15-2026/outbound-strategy-v1.md).
 
 ## Completed Experiments
 
 | ID | What Changed | Expected | Actual | Learning |
 |---|---|---|---|---|
+| V2-NEW50 | V2 "new 50" cohort (Aug 15) — 50 fresh painter prospects carried to three touches | Fresh verified cohort outperforms the drained pool | 0 replies from 32 prospects at Email 3 by Day 6 | Cold email is not manufacturing a felt problem for owner-led painters. Two independent cohorts, two angles, same zero. Folded into the V2 persistence HOLD (`2026-09-04-v2-persistence-hold`) — no Email 4, all 32 MONITOR. |
 | CvC | Context vs Curiosity — woven context sentence in curiosity emails | Context would improve meaningful reply rate vs curiosity-only | 0/40 meaningful replies both groups. Treatment underperformed on opens (50% vs 70%). | Curiosity-led outreach does not generate meaningful engagement from painters (105 prospects tested). Retired from painter acquisition. FF1 is now primary hypothesis. |
 
 ---

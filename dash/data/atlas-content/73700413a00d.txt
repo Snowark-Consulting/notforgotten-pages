@@ -32,3 +32,17 @@ This was an **operational interruption**, NOT evidence that the intake pipeline 
 
 ## Status
 Closed for the three records. Operating-model gap to be addressed separately once the customer book is controlled.
+
+---
+
+## Full record (moved from LEARNINGS.md, 2026-09-13)
+
+### 2026-08-24 — Observation-Window Handoff — Operational Interruption, Not Pipeline Failure
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** Three fresh PandaDoc quotes (20 Aug) had 48-hour observation windows expire (22 Aug) with zero NF contact. Intake worked, observation window worked — the REVIEW → DECIDE handoff did not run (autopilot disabled/retired during operating-model correction).
+
+**Fix (standing rule):** An observation window expiring MUST surface the customer for REVIEW → DECIDE. It must never mean automatic Email 1, and must never disappear because automated outbound is disabled — a disabled autopilot falls through to a human review signal, not a silent gap. John Wilson / Steve Liversidge / Sharon Fleay individually reviewed and Email 1 sent (founder-approved) via canonical_send; reconciled; next date REVIEW only (31 Aug).
+
+**Source:** learnings/2026-08-24-observation-window-handoff.md

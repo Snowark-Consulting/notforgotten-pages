@@ -1,0 +1,20 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# Raw Gmail API Message Resource Uses labelIds, Not labels — 2026-09-11
+
+> Reading the wrong key produced a false negative that made a label write look successful.
+
+Related: [[LEARNINGS]] (`learnings/LEARNINGS.md`), [[Learnings Catalogue]] (`learnings/catalogue.md`).
+
+## 2026-09-11 — Raw Gmail API message resource uses `labelIds`, not `labels`
+
+**Confidence:** high
+**Contested:** false
+**Symptom:** A post-`modify` verification printed an empty label list (or `UNREAD present: False`) for a message that in fact carried the label — a false negative that made a failed label write look successful. Seen during quotes@ intake #43160: `msg.get('labels')` returned missing/`[]` before and after, while `msg.get('labelIds')` showed `['Label_135578373843577379','CATEGORY_UPDATES']`.
+**Cause:** The raw Gmail API message resource field is `labelIds`. The key `labels` only exists in `google_api.py`'s normalised JSON output, which maps `labelIds` → `labels`. Mixing the two shapes reads a key that is not there.
+**Fix:** Against raw API responses use `m.get('labelIds', [])`. `google_api.py gmail get` output does expose `labels`, so the existing skill check is correct only for that CLI path. Always verify a label write by re-fetching the message and reading its actual label IDs.
+**Source:** 2026-09-11 quotes@ intake #43160. Card: `learnings/cards/gmail.md`.

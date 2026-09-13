@@ -35,7 +35,7 @@ Atlas (SOUL.md + Memory + Outreach Philosophy)
   ↓ prompt (contains prospect context: name, business, industry)
 AI Provider (DeepSeek, deepseek-v4-pro)
   ↓ generated email text
-Atlas (Voice Review 8/8 + Technical Verification)
+Atlas (Voice Review 9/9 + Technical Verification)
   ↓ send-outreach.py → Gmail API (OAuth)
 Gmail (atlas@notforgotten.com.au)
   ↓ SMTP (TLS)
