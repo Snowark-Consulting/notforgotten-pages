@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 223,
+    "tasks_completed": 224,
     "recent": [
+      {
+        "date": "2026-09-14 04:06",
+        "task": "Overnight readiness 14 Sep \u2014 HQ refreshed (247 records, 9 Won, 0 overdue). 0 new quotes/replies.",
+        "category": "task"
+      },
       {
         "date": "2026-09-13 22:04",
         "task": "Prepare-ahead scan: 0 NF send windows in 48h; QPaint Monday queue verified ready (28 NTDs); closed 3 LR1 records in CRM; prepared FF1 contamination-cohort close-out decision pack (14 records, held since 19 Aug)",
@@ -135,11 +140,6 @@
         "date": "2026-08-28 16:42",
         "task": "Campaign pulse posted \u2014 V2 REVIEW\u2192DECIDE complete: 32 Email 3s sent (verified), 2.4% reply at Day 7, 8 prospects unadvanced",
         "category": "task"
-      },
-      {
-        "date": "2026-08-28 06:46",
-        "task": "V2 Email 3 sent to 32 prospects (persistence test) \u2014 'A quick clarification', 32/32 Gmail-verified + Airtable-reconciled",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-09-14T04:00:33.276529+09:30",
+  "last_updated": "2026-09-14T04:06:22.933193+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
