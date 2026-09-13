@@ -1,136 +1,161 @@
 {
-  "generated_at": "2026-09-13T04:04:58+09:30",
+  "generated_at": "2026-09-14T04:05:20+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "QPaint stable and fully under Atlas control. 240 records, 9 Won ($416,319), 37 Lost, 194 open journeys, $7.74M total book. Sian Leathem ($39,996) signed yesterday — Won, conservatively attributed Assisted (not Recovered). Overnight: 0 new quotes, 0 new replies across all three mailboxes. Monday's 15-record QPaint queue is prepared. Nothing needs you on the client side this morning.",
-    "estimated_time": "2 minutes"
+    "body": "Quiet night — 0 new quotes, 0 new replies across all three mailboxes. QPaint stable and fully under Atlas control: 247 records (7 new quotes from yesterday, already certified), 9 Won ($416,319), 37 Lost, 201 open, $7.88M total book. 0 overdue follow-ups. Monday’s QPaint queue is prepared (5 Email 1 + 6 REVIEW→DECIDE + 5 handoff checks). Your open loops are unchanged from the weekend: V2 close-out mechanism, the 14-record FF1 cohort, and Wednesday’s call day. Nothing needs you on the client side this morning.",
+    "estimated_time": "3 minutes"
   },
   "business_score": {
     "score": 88,
-    "change": "steady",
+    "change": "—",
     "reasons_positive": [
-      "QPaint 240 records, $7.74M total book. 9 Won: $416,319 = $129,750 Recovered (Arno Hsu) + $274,589 Assisted (7) + $11,979 Observed (Patricia McDonald). Honest Won-vs-Recovered separation maintained.",
-      "Sian Leathem ($39,996) signed yesterday — third win of the week, conservatively attributed Assisted (not Recovered) because she signalled intent before NF intervention.",
-      "Eddie Yuan ($32,450) remains a live price-gated buying signal — prefers QPaint, will sign at $30K. Correctly routed to QPaint (route-not-decide), awaiting their answer."
+      "QPaint 247 records, $7.88M total book. 9 Won: $416,319 = $129,750 Recovered (Arno Hsu) + $274,589 Assisted (7) + $11,979 Observed (Patricia McDonald). Honest Won-vs-Recovered separation maintained.",
+      "Seven new QPaint quotes landed yesterday (~$135.5K new quoted value) — all certified, reconciled and filed inside the 48h observation window. Pipeline is compounding.",
+      "Eddie Yuan ($32,450) remains a live price-gated buying signal — prefers QPaint, will sign at $30K. Correctly routed to QPaint (route-not-decide); surface-once due today."
     ],
     "reasons_negative": [
       "1 paying customer ($199 MRR). Customer #2 remains the single most important metric.",
+      "Cold painter channel flat 9 days — 0 replies across both cohorts. Founder Call Day is the only conversion lever, next round Wed 16 Sep.",
       "Star Painters (Ahmad) stalled — 4 founder touches, 0 replies. No movement."
     ]
   },
   "business_health": {
     "clients": {
       "status": "healthy",
+      "icon": "✅",
       "detail": "QPaint: Active, $199 MRR, onboarding complete, health Green. No trial clients (Star Painters is a stalled opportunity, not a trial)."
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "240 QPaint journeys certified. 9 Won ($416,319), 37 Lost, 194 open. 0 exceptions. Recovered value $129,750 (Arno Hsu)."
+      "icon": "✅",
+      "detail": "247 QPaint journeys certified. 9 Won ($416,319), 37 Lost, 201 open. 0 exceptions, 0 overdue. Recovered value $129,750 (Arno Hsu)."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "Cold painter channel on MONITOR (32 Email 3 + 9 de-confused Email 2, 0 replies). RE-ENG-AUG-2026: 139 certified eligible, 7 suppressed, 1 do-not-email. No sends this weekend."
+      "icon": "✅",
+      "detail": "Cold painter channel on MONITOR (32 Email 3 + 9 de-confused Email 2, 0 replies). RE-ENG-AUG-2026: 147 records, 0 overnight change. No sends this weekend."
     },
     "engineering": {
       "status": "healthy",
-      "detail": "All systems healthy. Dashboard V2 refresh current (04:01). Disk 39%, state.db 113M stable."
+      "icon": "✅",
+      "detail": "All systems healthy. Dashboard V2 refresh current. Disk 40%, state.db 113M stable. All pulse jobs present."
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $416,319 Won (9), $887,926 Lost, $6.44M open pipeline, $7.74M total book. MRR $199."
+      "icon": "✅",
+      "detail": "QPaint: $416,319 Won (9), $887,926 Lost, $6.57M open pipeline, $7.88M total book. MRR $199."
     },
     "atlas": {
       "status": "healthy",
+      "icon": "✅",
       "detail": "Memory healthy. Protocol v1.0.0 enforced. Learnings integrity guard active."
     }
   },
   "waiting_for_james": [
     {
-      "id": "call-day-outcome-capture",
-      "title": "Founder Call Day outcomes (Wed 9 Sep) still uncaptured — 12 ranked calls.",
-      "why_it_matters": "Two rounds of founder calls now with 0 replies. Outcomes must land in CRM before round 3 ranks correctly, and the call channel itself needs the smallest-experiment review.",
-      "business_impact": "High: only active lever to conversion.",
-      "estimated_time": "5-10 min to relay outcomes.",
-      "recommended_action": "Tell Atlas which calls connected / no-answer / voicemail / do-not-contact, so the CRM reflects reality and the next round ranks correctly.",
+      "id": "v2-closeout-mechanism",
+      "title": "V2 CRM close-out mechanism — 52 records read \"due\", growing daily.",
+      "why_it_matters": "V2 Status has no MONITOR value on disk. 52 records (up from 43 on 11 Sep) read as overdue on every scan. One ruling unblocks the whole view in a single pass.",
+      "business_impact": "Medium: CRM accuracy and scan noise, not revenue.",
+      "estimated_time": "5 min",
+      "recommended_action": "Approve clearing Next Follow-up Date + appending a dated MONITOR note (Pipeline stage untouched) instead of a schema change.",
       "impact_sort": 80
     },
     {
-      "id": "eddie-yuan-qpaint-answer",
-      "title": "Eddie Yuan ($32,450) — awaiting QPaint's discount decision (wants $30K).",
-      "why_it_matters": "First purchase-intent reply of the V2 era. Eddie prefers QPaint and will sign at $30,000. QPaint owns the pricing call — Atlas routed it, did not decide. No customer reply pending QPaint's answer.",
-      "business_impact": "Medium: live $32,450 deal, gated on QPaint approving a ~7.5% discount.",
-      "estimated_time": "0 min today (QPaint to act); surface once if QPaint silent past ~14 Sep.",
-      "recommended_action": "No action today. If QPaint is silent past ~14 Sep, Atlas surfaces once rather than chasing.",
-      "impact_sort": 60
+      "id": "ff1-cohort-closeout",
+      "title": "FF1 contamination cohort — 14 records held 25 days, decision pack ready.",
+      "why_it_matters": "14 prospects got a duplicated Email 1 (3 + 5 Aug) and no Email 2, held at founder approval since 19 Aug. Pack on file recommends close.",
+      "business_impact": "Low-medium: cleanup of a stale cohort, no revenue at risk.",
+      "estimated_time": "5 min",
+      "recommended_action": "Rule on close vs revive using knowledge/ff1-contamination-cohort-closeout-pack-2026-09-13.md (recommendation: close).",
+      "impact_sort": 70
+    },
+    {
+      "id": "call-day-outcome-capture",
+      "title": "Founder Call Day outcomes (Wed 9 Sep) still uncaptured — 12 ranked calls.",
+      "why_it_matters": "Two rounds of calls, 0 replies. Outcomes must land in CRM before Round 3 (Wed 16 Sep) ranks correctly.",
+      "business_impact": "High: only active conversion lever.",
+      "estimated_time": "5-10 min",
+      "recommended_action": "Tell Atlas which calls connected / no-answer / voicemail / do-not-contact before Wednesday.",
+      "impact_sort": 75
     },
     {
       "id": "cold-painter-closeout",
-      "title": "Cold painter channel close-out — V2 Email 3 (32) + de-confused Email 2 (9) to MONITOR.",
-      "why_it_matters": "Two cohorts, two angles, same zero replies (1.9% by prospect). Diagnosis: channel/audience problem, not copy. Default is MONITOR — no batch Email 3/4/5.",
-      "business_impact": "Medium: frees focus from a flat channel to the one with a conversion on record (QPaint pattern).",
-      "estimated_time": "5 min to confirm.",
-      "recommended_action": "Confirm closing the cold painter channel and redirecting the next acquisition test to businesses with a visible quote book.",
+      "title": "Cold painter channel close-out — confirm MONITOR default.",
+      "why_it_matters": "32 + 9 prospects, 0 replies, channel/audience problem. Default MONITOR, no batch.",
+      "business_impact": "Medium: frees focus to a channel with a conversion on record.",
+      "estimated_time": "2 min",
+      "recommended_action": "Confirm closing the cold painter channel.",
       "impact_sort": 50
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Sunday. QPaint is stable — 240 records, 9 Won ($416,319), 0 overdue, nothing needs you on the client side. Yesterday Sian Leathem ($39,996) signed — Won, attributed Assisted (not Recovered). Overnight: 0 new quotes, 0 new replies. Your open loops: (1) Wednesday's Founder Call Day outcomes still uncaptured, (2) the cold-painter close-out (MONITOR default), and (3) Eddie Yuan waits on QPaint, not on us (NTD tomorrow).",
+    "executive_summary": "Monday. Quiet night — 0 new quotes, 0 new replies. QPaint is stable (247 records, 9 Won, 0 overdue) and fully Atlas-owned. Your four open loops from the weekend are unchanged: (1) V2 close-out mechanism (52-record backlog), (2) FF1 cohort close-out (14 records, pack ready), (3) Wednesday’s call day prep + relay 9 Sep outcomes, (4) cold-painter close-out. None are revenue-critical today; all are low-friction rulings.",
     "priorities": [
       {
-        "action": "Relay Wednesday's Founder Call Day outcomes",
-        "why_it_matters": "12 candidates called, 0 replies across two rounds. Outcomes must land in CRM before round 3, and the call channel needs the smallest-experiment treatment email got.",
-        "expected_impact": "High",
-        "estimated_time": "5-10 min",
+        "action": "Rule on the V2 close-out mechanism",
+        "why_it_matters": "52 records read \"due\" and the count grows daily. One ruling (clear Next Follow-up Date + MONITOR note) clears it in a single pass.",
+        "expected_impact": "Medium",
+        "estimated_time": "5 min",
         "confidence": "High"
       },
       {
-        "action": "Confirm cold-painter channel close-out",
-        "why_it_matters": "32 + 9 prospects, 0 replies, channel/audience problem. Default MONITOR, no batch. Redirect next test to a channel with a conversion on record.",
-        "expected_impact": "Medium",
+        "action": "Rule on the FF1 cohort close-out (14 records)",
+        "why_it_matters": "Decision pack is prepared with a close recommendation. 25 days held is long enough for a ruling.",
+        "expected_impact": "Low-medium",
         "estimated_time": "5 min",
+        "confidence": "High"
+      },
+      {
+        "action": "Relay Wednesday 9 Sep call day outcomes",
+        "why_it_matters": "Blocks Round 3 (Wed 16 Sep) from ranking correctly. Call is the only conversion lever on record.",
+        "expected_impact": "High",
+        "estimated_time": "5-10 min",
         "confidence": "High"
       }
     ],
     "can_wait": [
-      "All QPaint operations (Atlas owns): 0 overdue, 0 exceptions, 9 Won reconciled.",
-      "Eddie Yuan: awaiting QPaint's discount answer (route-not-decide). Surface once if QPaint silent past ~14 Sep.",
-      "Ahmad/Star Painters: stalled, 4 touches 0 replies — MONITOR, no action today.",
-      "Josh items: dead ORIGIN PAT (backup push since 5 Sep) — tracked, not blocking."
-    ]
+      "All QPaint operations (Atlas owns): 0 overdue, 0 exceptions, 9 Won reconciled, 7 new quotes already certified.",
+      "Eddie Yuan: awaiting QPaint discount answer (route-not-decide). Atlas surfaces once today.",
+      "Ahmad/Star Painters: stalled, 4 touches 0 replies — MONITOR, no action.",
+      "Origin PAT (Josh): dead since 5 Sep, backup push blocked — tracked, not blocking.",
+      "Decision review 2026-07-13 diagnose-before-change: prep on file, awaiting evaluation."
+    ],
+    "closing": "Wednesday 16 Sep is the next Founder Call Day — the only lever with conversions on record."
   },
   "changes": {
     "today": [
       {
-        "time": "2026-09-13T04:04:58+09:30",
-        "text": "Overnight scan: quotes@ 0 unread, atlas@ 0 unread, james@ 11 unread (all already reconciled — 4 DMARC noise, 4 Aug-9 bounces QUARANTINED, Tatnell closed, Top Rank auto-reply). No new quotes, no new replies."
+        "time": "2026-09-14T04:05:20+09:30",
+        "text": "Overnight scan: quotes@ 0 unread, atlas@ 0 unread, james@ 8 unread (all stale Aug 7-10, already reconciled — 2 DMARC, 4 bounces QUARANTINED, Tatnell closed, Top Rank auto-reply). No new quotes, no new replies, no new commercial signals."
       },
       {
-        "time": "2026-09-13T04:04:58+09:30",
-        "text": "QPaint 240 records verified live (full pagination): 9 Won, 37 Lost, 194 open. No overnight change since yesterday's Sian Leathem win."
+        "time": "2026-09-14T04:05:20+09:30",
+        "text": "QPaint 247 records verified live (full pagination): 9 Won ($416,319), 37 Lost, 201 open, $7.88M. 7 new quotes from yesterday already certified. 0 overdue."
       },
       {
-        "time": "2026-09-13T04:04:58+09:30",
-        "text": "Dashboard V2 refresh current (04:01). System health green: disk 39%, state.db 113M."
+        "time": "2026-09-14T04:05:20+09:30",
+        "text": "Dashboard V2 refresh current (04:00). System health green: disk 40%, state.db 113M, all pulse jobs present."
       }
     ],
     "yesterday": [
       {
-        "time": "2026-09-12",
-        "text": "Sian Leathem #42970 ($39,996) signed contract — Won. Win Attribution Assisted (not Recovered). QPaint 8→9 Won."
+        "time": "2026-09-13",
+        "text": "Seven new QPaint quotes landed and were certified, reconciled and filed inside the 48h window (~$135.5K new quoted value). Includes one QBuild government job (Minimbah State School) held no-contact."
       },
       {
-        "time": "2026-09-12",
-        "text": "Learnings integrity guard built + deployed (founder-approved) — cron 59d5247cd604 + backup pre-commit gate."
+        "time": "2026-09-13",
+        "text": "17 abandoned-sequence records found: 3 LR1 closed to Campaign Complete (executed); 14 FF1 (duplicate Email 1, held 25 days) prepared as close-or-revive pack awaiting founder ruling."
       },
       {
-        "time": "2026-09-12",
-        "text": "QPaint Daily Attention + reverse control clean. 15-record Monday 14 Sep queue prepared (5 Email 1 + 6 REVIEW→DECIDE + 4 MONITOR)."
+        "time": "2026-09-13",
+        "text": "Weekly vault-lint: 44 findings, 2 long-carried gaps closed, Voice Review 8-vs-9 contradiction fixed, Travis proof-figure reconciled to $180,115 canonical."
       }
     ],
     "this_week": [
       {
         "time": "-",
-        "text": "QPaint: 240 records, $7.74M total, 9 Won ($416,319 = 1 Recovered $129,750 + 7 Assisted $274,589 + 1 Observed $11,979), 37 Lost, 194 open."
+        "text": "QPaint: 247 records, $7.88M total, 9 Won ($416,319 = 1 Recovered $129,750 + 7 Assisted $274,589 + 1 Observed $11,979), 37 Lost, 201 open."
       },
       {
         "time": "-",
@@ -138,7 +163,7 @@
       },
       {
         "time": "-",
-        "text": "Cold painter channel diagnosed flat; close-out pending. Decision review due today: 2026-07-13 diagnose-before-change CEO briefing scope."
+        "text": "Cold painter channel diagnosed flat; close-out pending. Founder Call Day next Wed 16 Sep."
       }
     ]
   },
@@ -176,7 +201,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "QPaint portfolio certified. 240 records, 9 Won ($416,319), 194 open. Protocol v1.0.0. Send authority live.",
+  "operational_status": "QPaint portfolio certified. 247 records, 9 Won ($416,319), 201 open. Protocol v1.0.0. Send authority live. Monday queue prepared (5 Email 1 + 6 REVIEW→DECIDE + 5 handoff checks).",
   "vault_health": {
     "decisions": {
       "total": 80,
@@ -200,29 +225,29 @@
       "usage": "99%"
     },
     "infrastructure": {
-      "disk": "39% (12G free)",
+      "disk": "40% (12G free)",
       "state_db": "113M (healthy)"
     }
   },
   "qpaint_pipeline": {
     "summary": {
-      "total_customers": 240,
-      "total_pipeline_value": 7741942,
+      "total_customers": 247,
+      "total_pipeline_value": "$7.88M",
       "won_count": 9,
-      "won_value": 416319,
+      "won_value": "$416,319",
       "lost_count": 37,
-      "engaged_replied": 32,
+      "engaged_replied": 31,
       "contacted": 133,
-      "not_contacted": 30
+      "not_contacted": 37
     },
     "stage_breakdown": {
       "Email 3": 50,
       "Email 1": 45,
+      "New": 38,
       "Lost": 37,
       "Email 2": 37,
-      "New": 31,
-      "Replied": 27,
-      "Won": 8,
+      "Replied": 26,
+      "Won": 9,
       "Engaged": 3,
       "Awaiting Reply": 1,
       "Email 4": 1
