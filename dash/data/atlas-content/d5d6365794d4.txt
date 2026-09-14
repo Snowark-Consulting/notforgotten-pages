@@ -47,6 +47,10 @@ tier: primary
 
 ## Chronological index (newest first)
 
+### 2026-09-14
+- The recurring learnings-corruption write is **out-of-band**: it lands at ~21:33 UTC (06:03 ACST the next morning), about 8h after the guard and backup, and no Hermes tool call or cron job exists in that window. Two nights of "ordering gap" diagnosis came from reading a UTC mtime as Adelaide local. Identify the writer with inotify/auditd before changing any control; keep re-running the guard manually at the end of every consolidation until then. → `learnings/2026-09-14-out-of-band-learnings-writer.md`, `learnings/cards/agent-architecture.md`
+- **Glob cleanup collateral:** `rm scripts/tmp-*.py` at the end of a run deleted 70 files, 61 of them other sessions' pre-existing scripts. All 61 restored from HEAD. Rule: never glob-delete in a shared directory; check tracked-vs-untracked with `git status` BEFORE deleting; recover with `git restore --source=HEAD`. → `learnings/2026-09-14-glob-cleanup-collateral.md`, `learnings/cards/shell.md`
+
 ### 2026-09-13
 - Intake certification is substring-based: a scope field containing the word "PandaDoc" fails `certify_intake_complete()` even when the field is long and real (reconciliation passes, the gate names one field). Reword the scope, PATCH, re-certify — never weaken the validator, never file while certification fails. Also confirms quote-date anchoring from the document's own expiry arithmetic. → `learnings/2026-09-13-intake-certification-substring-gate.md`, `skills/notforgotten/quote-intake/SKILL.md` Pitfall 57
 

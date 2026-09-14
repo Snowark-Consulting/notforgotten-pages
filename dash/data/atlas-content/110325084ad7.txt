@@ -1,0 +1,50 @@
+---
+doc_type: learning
+owner: snowark-client
+tier: primary
+date: 2026-09-14
+---
+
+# Out-of-Band Learnings Writer
+
+> The 9th learnings-corruption incident was traced to a write that is not a Hermes tool call and not a cron job: the damage lands at ~21:33 UTC (06:03 ACST the next morning), roughly eight hours after both the guard and the backup have already run.
+
+## What we know
+
+The recurring corruption class (dropped catalogue rows, `||`-damaged rows, deleted warning block, deleted `## TRAP` headings) has now occurred **nine times**: 2026-09-06, 09-07, 09-09, 09-10, 09-11, 09-12, 09-13 (x2 repair generations), and again in the working tree found on 2026-09-14.
+
+Until tonight the working assumption was that the damage was written *inside* the 21:20 guard / 21:30 backup window in Adelaide local time — hence rec `consolidation-guard-ordering-gap`. **That assumption is wrong.**
+
+## Evidence (2026-09-14)
+
+| Check | Result |
+|---|---|
+| `stat -c %y learnings/catalogue.md` | `2026-09-13 21:33:34 +0000` |
+| `stat -c %y learnings/cards/agent-architecture.md` | `2026-09-13 21:33:35 +0000` |
+| `find / -xdev -newermt '2026-09-13 21:33:30' ! -newermt '2026-09-13 21:33:40' -type f` | **only those two files, anywhere on the box** |
+| `logs/tool-calls.jsonl` entries with `ts` 2026-09-13T20:xx or 21:xx | **zero** |
+| `cron/jobs.json` schedule at 21:33 UTC | **none** (nearest: `535899707838` at 21:30 UTC, `no_agent` script) |
+| `scripts/bin/learnings-integrity-guard.py` writes | **none** — read-only, only a `print` references rewriting |
+
+File mtimes on this host are **UTC** (`/etc/timezone` = `Etc/UTC`). 21:33 UTC = **06:03 ACST the following morning**, not 21:33 Adelaide. The guard (21:20 ACST) and the backup (21:30 ACST) are therefore *never* in the same window as the write; they are about 8 hours earlier.
+
+## Why this matters
+
+1. The "ordering gap" framing was a **UTC-vs-local reading error**, not a scheduling defect. Re-running the guard after consolidation would not have caught this write — the write happens the next morning.
+2. The writer is **unidentified**. It is not an agent tool call in this profile, not a cron job, and not the guard. Attribution must be closed with a positive observation method, not inference.
+3. The corruption signature is identical every time, which means whatever writes it uses a **fuzzy multi-line edit** against the same two paths.
+
+## What to do next
+
+1. Watch the two paths positively: `inotifywait -m learnings/catalogue.md learnings/cards/`, or `auditd` rules on both paths, armed across the **06:00–06:10 ACST** window (20:30–20:40 UTC).
+2. Compare each new incident's mtime against the previous: if it is always ~21:33 UTC, it is a scheduled process, and a process listing at that minute will name it.
+3. Do **not** weaken or disable [[Learnings Integrity Guard]] — the guard is correctly detecting real damage. Precision tuning (rec `consolidation-guard-tune`) is separate.
+4. Until the writer is named, re-run the guard **manually at the end of every consolidation** and treat a clean `git diff` against HEAD as the acceptance test.
+
+## Pattern protection
+
+- **An mtime is not a local time.** On this host, always read `stat` offsets (`+0000`) before drawing conclusions about which job was in window. A 9.5-hour error made a correct diagnosis (corruption) produce a wrong cause (ordering) for two nights.
+- **Absence of a tool-call record is evidence.** Before attributing a file change to an agent, confirm the tool-call log actually contains an entry in that window. Zero entries is a finding, not a gap.
+- **Scope the search to the whole filesystem, not the vault.** `find / -xdev` in that ten-second window named exactly two files; that is what made "only these two paths" a fact rather than an assumption.
+
+**Source:** 2026-09-14 nightly consolidation. Related: [[Learnings Catalogue]] (`learnings/catalogue.md`), [[LEARNINGS]] (`learnings/LEARNINGS.md`), [[Fuzzy Patch Corruption Cards]] (`learnings/2026-09-11-fuzzy-patch-corruption-cards.md`), [[Agent Architecture Card]] (`learnings/cards/agent-architecture.md`).

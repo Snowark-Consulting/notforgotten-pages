@@ -1,0 +1,90 @@
+---
+doc_type: decision-pack
+owner: notforgotten
+tier: primary
+date: 2026-09-13
+status: FOR FOUNDER DECISION — no customer contact made, none proposed until decided
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# FF1 Contamination Cohort — Close-Out Decision Pack (Sep 2026)
+
+> One decision, two options, one recommendation. The cohort has been held at Founder approval since
+> 19 Aug 2026 (`notes/2026-08-19.md:71`) — 25 days — and is invisible in the V2 activity ledger, so it
+> has not surfaced in any Campaign Pulse. Nothing has been sent. Nothing is sent by this pack.
+
+## What this is
+
+14 painter prospects who received **Email 1 of the Founder-to-Founder v1.0 sequence — twice** — and
+never received Email 2. Their CRM records still read `Pipeline stage: Outreach Active`,
+`Sequence Status: Active`, `Next Touchpoint Date: 2026-08-10`, with **no** `Outreach Sequence` assigned.
+They have read as "overdue" on every scan for 34 days.
+
+## Evidence (verified 2026-09-13, two sources)
+
+| Fact | Source |
+|---|---|
+| Email 1 sent twice to each prospect (subject "Something I've noticed") | james@ Sent, Gmail API — 2 messages per address, 3 Aug and 5 Aug ACST |
+| **Email 2 never sent to any of the 14** | james@ Sent — zero matches for "I didn't expect this" to any address |
+| **Zero replies from all 14** | Gmail `from:<address>` = 0 for every address; CRM `Sequence Status` still Active |
+| Sequence was designed 4-touch (Email 2 due Mon 10 Aug; E3 13 Aug; E4 20 Aug) | `knowledge/experiments/EXP-2026-08-02-FF1-painter-wave-1.md` |
+| Experiment marked CONTAMINATED — duplicate Email 1 send | INC-2026-08-07-004 |
+| Email 2 explicitly set to **REVIEW DATE, not auto-send** | `notes/2026-08-07.md:19,48` |
+| Held at Founder approval; "no touch" | `notes/2026-08-19.md:71` |
+
+Cohort: 1800 All Painting, Brush Paint Wall, CN Painters Melbourne, Harris and Co Painting Solutions,
+Newline Painting, One Day Paint, PSA Painting, Redefine Painting, Ron & Robin The Painters, Ryan Painting,
+Southeast Painters, Superior Painters and Decorators, Top Coat Painting Melbourne, Vicpainter.
+
+## Option A — Close the cohort *(recommended)*
+
+Mark `Pipeline stage: Campaign Complete`, `Sequence Status: Lost`, append a dated note recording why
+(sequence abandoned after contamination; Email 2 never sent; no contact since Email 1). No email sent.
+
+**Why this is the honest read:**
+
+1. **Timing integrity.** Email 2 was designed as a Day +5 follow-up. Sent on Day +39 it is not the
+   sequence, it is a different communication with a different meaning — and a worse customer experience
+   than silence.
+2. **The experiment is contaminated.** No clean learning can come from continuing it, so the only
+   reason to send would be acquisition, not measurement.
+3. **The channel is proven flat.** 105 curiosity-led painter prospects (0 meaningful replies), V2: 52
+   prospects, 1 inbound all-time, 1.9% by prospect. The 30 Aug Full Business Review concluded the next
+   customer comes from founder calls, not email. Adding 14 emails to a dead channel contradicts that
+   diagnosis.
+4. **Persistence ≠ repetition permits continuation, but the Customer Context Gate decides it.** The
+   honest next action for a prospect who was emailed twice, 34 days ago, with no reply, is not another email.
+5. **Nothing is lost.** Records stay searchable at `Campaign Complete`; if a founder call later produces
+   interest, the history is intact.
+
+## Option B — Resume with a fresh Email 2
+
+Send Email 2 ("I didn't expect this") now, or re-cut it for a 34-day gap, then continue E3/E4.
+
+**Costs:** breaks the frozen-sequence condition the experiment rests on; a 34-day-late Day+5 follow-up
+reads as a mail-merge failure; 14 more sends into a channel with 0 replies from 105+ comparable prospects;
+no measurement value (contaminated).
+
+## Recommendation
+
+**Option A.** This is CRM truth, not a strategic pivot: the sequence was abandoned in August, the cohort
+was parked pending approval, and the approval question is now simply "close it or revive it". The
+evidence supports closing. Confidence: High (90%) — delivery, absence of Email 2, and absence of replies
+are all verified from james@ Sent, not inferred from CRM.
+
+**Effort if approved:** one Airtable PATCH pass over 14 records, no sends, no customer contact. Reversible.
+
+## Also corrected tonight (no decision needed)
+
+3 Legacy Re-engagement Pilot (LR1) records — Celtic Deco, John's Painting, SA Quality Painting — were
+sitting in `Outreach Active / Active` with the same 10 Aug date. LR1 is **one email only by design**
+(`skills/cold-email/references/legacy-re-engagement-pattern.md`: "One email only. No follow-up sequence."),
+so nothing was owed. Closed to `Campaign Complete / Completed` with a dated note. Verified by read-back.
+
+## Related
+
+- `knowledge/experiments/EXP-2026-08-02-FF1-painter-wave-1.md` — experiment record (CONTAMINATED)
+- `knowledge/decisions/2026-08-02-founder-to-founder-sequence-frozen.md` — frozen sequence decision
+- `knowledge/decisions/2026-08-28-v2-persistence-not-repetition.md` — continuation doctrine
+- `knowledge/full-business-review-2026-08-30.md` — channel diagnosis driving the recommendation
+- `notes/2026-08-19.md:71` — the hold this pack resolves

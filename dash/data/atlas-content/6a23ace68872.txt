@@ -1,0 +1,31 @@
+---
+doc_type: learning
+owner: snowark-client
+tier: primary
+date: 2026-09-14
+---
+
+# Glob Cleanup Collateral
+
+> `rm scripts/tmp-*.py` at the end of a night's work removed 70 files — 61 of them other sessions' pre-existing scripts. A glob in a shared directory is not a cleanup, it is a deletion of everything that matches.
+
+## What happened
+
+At the end of the 2026-09-14 consolidation I cleaned up this run's scratch helpers with a `glob.glob('scripts/tmp-*.py')` loop. The vault already held **61 long-lived `scripts/tmp-*.py` files** written by earlier sessions, all matching the same pattern. The glob took all 70.
+
+## Impact
+
+None permanent — every one of the 61 was tracked in git, so `git restore --source=HEAD -- <paths>` brought them all back and `git status` confirmed 0 remaining deletions. The 9 files that did not come back were this run's own untracked scratch files, which were the intended target.
+
+## The rule
+
+1. **Never glob-delete in a shared directory.** Enumerate the exact paths you created, in the same code that created them, or delete them one at a time as you go.
+2. **Before any batch delete, ask tracked-or-untracked.** `git status --short` is the recovery map: ` D` means recoverable from HEAD, absence means gone forever. Run the check *before* the delete, not after.
+3. **A naming convention is not an ownership marker.** `tmp-` describes a file's lifetime, not who may delete it. Other agents, other sessions and other days all write `tmp-`.
+4. **Recovery is `git restore --source=HEAD -- <paths>`**, and it must be followed by a verification count, not an assumption.
+
+## Pattern protection
+
+This is the same class as the catalogue corruption: a broad, pattern-based operation against files it did not create. Both were caught by **comparing the result against a known-good reference** — there, `git diff` vs HEAD; here, `git status` vs the intended list. Verify the *diff*, never the *intent*.
+
+**Source:** 2026-09-14 consolidation. Related: [[Fuzzy Patch Corruption Cards]] (`learnings/2026-09-11-fuzzy-patch-corruption-cards.md`), [[Shell Card]] (`learnings/cards/shell.md`), [[Consolidation SOP]] (`Agent/consolidation-sop.md`).

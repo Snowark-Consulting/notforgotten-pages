@@ -1280,6 +1280,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_ff1_contamination_cohort_closeout_pack_2026_09_13",
+      "label": "Ff1 Contamination Cohort Closeout Pack",
+      "file_type": "doc",
+      "source_file": "knowledge/ff1-contamination-cohort-closeout-pack-2026-09-13.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "8dce8d98bfbd",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_follow_up_sequences_painter_standard",
       "label": "Painter Standard",
       "file_type": "doc",
@@ -3212,6 +3223,13 @@
     {
       "source": "agent_registry",
       "target": "knowledge_customer_2_decision_pack_2026_08_28",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_ff1_contamination_cohort_closeout_pack_2026_09_13",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

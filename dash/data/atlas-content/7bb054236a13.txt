@@ -107,3 +107,15 @@ Review is tomorrow (Sunday 13 Sep). Two items landed today; both bear on verdict
 ## Prepared by
 
 Prepare-Ahead Clock 2026-09-12 22:00 ACST. Airtable read-only scan (332 prospects, 240 QPaint Pipeline records, 139 V2 Outreach Activity records) + Gmail two-source reply check (atlas@ / james@ / quotes@) + daily notes 12 Sep. No customer sends.
+
+---
+
+## Addendum — T-0 (review date) 2026-09-13 22:00 ACST (Prepare-Ahead Clock)
+
+Review date is today. Two items landed inside the final 24 hours; both bear on Q3 (is the control layer, not founder oversight, what holds delegation).
+
+17. **A control failed open by one string, and was fixed at source rather than around (Sep 13).** `intake-certification.py` validates `Extent of Work` with a bare `"pandadoc" not in ...` substring test. Quote #43164's scope legitimately ended "(PandaDoc expiry 13/10/2026)", so reconciliation PASSED while the completeness gate FAILED, naming a field that was plainly populated. The fix was to reword the scope, PATCH, re-read and re-certify — **never weaken the validator, never file while certification fails** (`notes/2026-09-13.md:37`, quote-intake Pitfall 57). No founder involvement was required to reach that answer. This is the delegation boundary being held by a control's semantics rather than by a person remembering the rule — the Q3 question answered in the affirmative on the day of review.
+
+18. **The delegation boundary held in both directions again (Sep 13, mirror of item 12).** The prepare-ahead scan surfaced 17 prospects whose sequences had been abandoned in August while still reading `Outreach Active / Active` in the CRM. Atlas executed the unambiguous half — 3 Legacy Re-engagement (LR1) records, whose own pattern states "one email only, no follow-up sequence", so nothing was owed — and closed them with a dated note, verified by read-back. Atlas did **not** execute the other half: 14 FF1 contamination-cohort records held at founder approval since 19 Aug, which need a close-or-revive ruling, not a mechanism answer. Prepared as a two-option pack for a single founder decision: `knowledge/ff1-contamination-cohort-closeout-pack-2026-09-13.md`. Evidence is Gmail-verified (Email 1 sent twice, Email 2 never sent, zero replies from all 14), not inferred from CRM.
+
+**Net effect:** Q1 unchanged (MET). Q2 strengthened — item 17 is the evidence chain refusing to weaken a control to make a gate pass. Q3 — the day of review produced another clean instance of the boundary deciding *without* founder input where the evidence was sufficient, and stopping *for* founder input where it was not.
