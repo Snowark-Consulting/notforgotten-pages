@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 225,
+    "tasks_completed": 226,
     "recent": [
+      {
+        "date": "2026-09-15 17:28",
+        "task": "Campaign Pulse posted \u2014 NF cold channel quiet 11 days (last send 4 Sep); overdue backlog frozen at 52 prospects / 137 records, awaiting founder close-out ruling",
+        "category": "task"
+      },
       {
         "date": "2026-09-14 22:03",
         "task": "Prepare-ahead scan: 0 NF send windows in 48h; QPaint 48h queue verified prepared (17 NTDs, weekend guard clear to 24 Sep); prepared Round 3 Founder Call Day sheet for Wed 16 Sep and opened the 21 Sep V2 monitoring decision-review prep",
@@ -135,11 +140,6 @@
         "date": "2026-08-30 11:31",
         "task": "QPaint book control \u2014 48 follow-ups sent (4 Email 1, 5 Email 2, 39 Email 3), 103 monitored/held, reconciled",
         "category": "task"
-      },
-      {
-        "date": "2026-08-30 06:21",
-        "task": "QPaint WIN \u2014 Kay Crawley signed quote #43070 (60 Brentnall St Norman Park, $18,636.20, Assisted). Marked Won + recorded in Airtable.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-09-15T16:30:51.677802+09:30",
+  "last_updated": "2026-09-15T17:28:17.857350+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
