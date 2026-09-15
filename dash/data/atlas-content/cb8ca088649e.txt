@@ -1,0 +1,80 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-09-15
+status: open
+---
+
+# Corruption Writer Lands Inside a Logged Tool-Call Window — But Not One That Touches Learnings
+
+> 10th occurrence. The writer window contains 13 logged tool calls from `quotes-pulse-phase2` — which is why "no tool call exists in that window" was wrong — yet none of them write to `learnings/`.
+
+## Context
+
+The learnings catalogue/card corruption class returned for the **10th** time, found and repaired during the 15 Sep 2026 consolidation. The damage signature was identical to occurrences 6–9:
+
+- `learnings/catalogue.md` — warning block deleted, `gmail-auth` + `qpaint` rows dropped, 7 rows `||`-prefixed (`hermes`, `shell`, `cloudflare`, `compliance`, `agent-architecture`, `browser`, `canonical-send`), the `campaign` cell rewritten from `` `cards/campaign.md` `` to `[campaign.md](cards/campaign.md)`, blank line inserted mid-table.
+- `learnings/cards/agent-architecture.md` — 3 `## TRAP` headings lost (the "customer deferral = MONITOR" heading deleted with its body merged into a neighbour; the out-of-band-writer trap heading replaced with a reworded variant).
+- `learnings/cards/shell.md` — the glob-delete trap reworded into a shorter version at the top of the file while the original, longer version (with its `**Source:**` line) was deleted from the bottom.
+
+The file mtimes were `2026-09-14 21:37:40.536`, `:42.080` and `:43.276` **UTC** — three files written ~1.2s apart, i.e. a loop over files.
+
+## What changed in tonight's understanding
+
+**1. The writer window is NOT tool-call-free.** The 2026-09-14 record concluded "no Hermes tool call or cron job exists in that window". That is false. `grep -c '"2026-09-14T21:3' logs/tool-calls.jsonl` returns **12**, and `logs/agent.log` shows the session: `cron_203f3a6cfd56_20260915_065705` (`quotes-pulse-phase2`, started 06:57 ACST) was mid-run, executing quote-intake work between `21:37:13` and `21:38:33` UTC. The catalogue write at `21:37:40` falls inside that span, between two logged `terminal` completions.
+
+**2. The logged tool calls do not touch learnings — so the writer is still unidentified.** Every one of the 13 calls in the window is Gmail/Airtable intake work (`pandadoc-fresh-extract.py`, a `/tmp/qpulse_43000.py` write, Airtable record creation, label filing). None reads or writes anything under `learnings/`. Searching the entire `state.db` for the corruption's distinctive rewritten strings — `Learnings writer is out-of-band`, `[campaign.md](cards/campaign.md)`, `Glob-deleting scratch files in a shared directory removes other` — returns **only** hits from consolidation sessions *reading* the damaged files, never a session *producing* the text. So the rewritten prose was never generated inside the logged agent loop of this profile.
+
+**3. Two candidate explanations remain, and neither is proven.**
+- A second writer process on the same box (Winston shares this VPS; `find / -xdev` names only one `catalogue.md`, so there is no second working copy, but a process could still write in place).
+- An LLM-driven rewrite path that bypasses the `post_tool_call` logging hook (`config.yaml` line 461 matches `terminal|write_file|patch|delegate_task|cronjob|execute_code|process|browser_*`).
+
+**4. The ACST conversion in the prior record is arithmetically wrong.** `21:33 UTC` converts to **07:03 ACST**, not `06:03 ACST` (UTC+09:30). The error is a straight 1-hour slip and it has propagated into the catalogue warning block and `cards/agent-architecture.md`. Corrected in both, with the corrected 07:07 ACST figure for tonight's event.
+
+## The consequence that actually matters
+
+Because the write lands at ~**07:03–07:07 ACST**, and the guard runs at **21:20 ACST** and the backup at **21:30 ACST**, the ordering is not a bug to be re-scheduled away by moving either job earlier — the damage is written ~10 hours *after* both, so no amount of same-evening scheduling fixes it. The guard is behaving correctly every night; it is simply looking at a tree that is still clean.
+
+**Recommended control (rec `consolidation-learnings-guard-0715`, awaiting founder approval):** add or move a guard run to **~07:15 ACST** — after the writer window, before the working day — so the damage is detected (and can be auto-repaired from HEAD, which is always the clean reference) the same morning instead of ~14 hours later at the next consolidation.
+
+## Verification commands used
+
+```bash
+# 1. Where the damage is (guard reads the working tree against HEAD)
+python3 scripts/bin/learnings-integrity-guard.py
+
+# 2. Narrow the write window to the second
+find / -xdev -newermt "2026-09-14 21:37:35" ! -newermt "2026-09-14 21:37:45" -type f
+
+# 3. Who was running then (profile-local tool log)
+grep '"2026-09-14T21:3' logs/tool-calls.jsonl
+awk '/^2026-09-14 21:37:3/,/^2026-09-14 21:38:1/' logs/agent.log
+
+# 4. Is the rewritten text anywhere in the agent loop? (decisive negative)
+python3 - <<'PY'
+import sqlite3
+c = sqlite3.connect('state.db')
+for n in ['Learnings writer is out-of-band', '[campaign.md](cards/campaign.md)']:
+    print(n, c.execute("select count(*) from messages where content like ? or tool_calls like ?",
+                       ('%'+n+'%','%'+n+'%')).fetchone()[0])
+PY
+```
+
+## Standing rules that follow
+
+1. **Restore from HEAD, never patch.** HEAD is the clean reference because the 21:30 backup commits the repaired file. Full-file `write_file` or `git checkout HEAD -- <path>` only.
+2. **Run the guard as the LAST step of every consolidation** — the 21:20 cron cannot see work written after it, and tonight's own edits to `learnings/` land after it too.
+3. **Do not weaken the guard and do not "fix" its exit code.** The always-zero exit is the documented `no_agent` alert pattern (PASS = silent, FAIL = findings on stdout); the backup's pre-commit gate tests the guard's *output*, not its exit status.
+4. **Read the offset, not the clock.** `/etc/timezone` is `Etc/UTC`. Convert to Adelaide (UTC+09:30) before naming a suspect or a time of day.
+
+## Related
+
+- [[Learnings Catalogue]] (`learnings/catalogue.md`) — the file corrupted, warning block carries the 10th event
+- [[LEARNINGS]] (`learnings/LEARNINGS.md`) — chronological index
+- [[Agent Architecture Card]] (`learnings/cards/agent-architecture.md`) — the out-of-band-writer trap
+- [[Learnings Integrity Guard]] (`scripts/bin/learnings-integrity-guard.py`)
+- [[Out-of-Band Learnings Writer]] (`learnings/2026-09-14-out-of-band-learnings-writer.md`) — the prior night's record this one refines
+- [[Fuzzy Patch Corruption Cards]] (`learnings/2026-09-11-fuzzy-patch-corruption-cards.md`)
+
+**Source:** 2026-09-15 nightly consolidation (10th occurrence). Recs `consolidation-out-of-band-learnings-writer`, `consolidation-guard-ordering-gap`, `consolidation-learnings-guard-0715`.

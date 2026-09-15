@@ -47,6 +47,9 @@ tier: primary
 
 ## Chronological index (newest first)
 
+### 2026-09-15
+- **Corruption writer refined, 10th occurrence.** The damaging write lands at ~21:37 UTC (**07:07 ACST** the next morning) and — contrary to the 14 Sep record — the window is **NOT** tool-call-free: `logs/tool-calls.jsonl` holds 13 logged calls there from `quotes-pulse-phase2` doing quote intake. None of them touch `learnings/`, and the rewritten prose appears nowhere in `state.db`, so the writer is still outside the logged agent loop. Also corrected: `21:33 UTC` = **07:03 ACST**, not 06:03 ACST (a 1-hour slip that had propagated into the catalogue warning block). Because the write lands ~10h after the 21:20 guard and 21:30 backup, no same-evening reschedule can catch it → rec `consolidation-learnings-guard-0715` proposes a ~07:15 ACST guard run. → `learnings/2026-09-15-corruption-writer-window.md`, `learnings/cards/agent-architecture.md`, `learnings/catalogue.md`
+
 ### 2026-09-14
 - The recurring learnings-corruption write is **out-of-band**: it lands at ~21:33 UTC (06:03 ACST the next morning), about 8h after the guard and backup, and no Hermes tool call or cron job exists in that window. Two nights of "ordering gap" diagnosis came from reading a UTC mtime as Adelaide local. Identify the writer with inotify/auditd before changing any control; keep re-running the guard manually at the end of every consolidation until then. → `learnings/2026-09-14-out-of-band-learnings-writer.md`, `learnings/cards/agent-architecture.md`
 - **Glob cleanup collateral:** `rm scripts/tmp-*.py` at the end of a run deleted 70 files, 61 of them other sessions' pre-existing scripts. All 61 restored from HEAD. Rule: never glob-delete in a shared directory; check tracked-vs-untracked with `git status` BEFORE deleting; recover with `git restore --source=HEAD`. → `learnings/2026-09-14-glob-cleanup-collateral.md`, `learnings/cards/shell.md`

@@ -1,0 +1,76 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-09-14
+status: PREPARATION — review due 2026-09-21 (7 days out). Verdict is James's.
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — V2 Email 2 Observation and james@ Monitoring (due 21 September 2026)
+
+> Outcome data gathered ahead of the registered review date for `2026-08-21-v2-email2-observation-monitoring`.
+> This is a REVIEW of a monitoring design, never a SEND. No prospect is contacted at or because of this review.
+
+## The decision being reviewed
+
+**What was decided (21 Aug 2026):**
+1. V2 Email 2 ("14 jobs, $180,115") went to 42 eligible prospects from james@, verified in Gmail Sent, then entered a 7-day observation period with a REVIEW to DECIDE checkpoint on 28 Aug.
+2. No batch progression on cadence alone. Each prospect assessed individually through the Customer Context Gate.
+3. Replies surfaced as they occur, never held to the checkpoint.
+4. james@ becomes a read-only real-time reply monitor (`james-pulse-phase2`), covering the gap where prospect replies to a james@-sent campaign had no monitor.
+5. Name rule: never infer a first name from an email local part. Verify from the website or correspondence, otherwise "Hi there,".
+
+**What the review date of 21 Sep is asking:** did the monitoring design work, and is the 21 Aug decision still the right standing posture now that the sequence has been held?
+
+## Outcome data (verified 14 Sep 2026, Airtable V2 Outreach Activity + Gmail)
+
+| Metric | Value | Note |
+|---|---|---|
+| Email 2 cohort | 42 sent 21 Aug | +1, +1 bounce, +40 silent at the 28 Aug checkpoint |
+| Replies to Email 2 | 1 (2.4%) | Inspire Painting (Rahamed): positive, but read the proof point as "you find jobs for me". Lead-gen misunderstanding, corrected by email 21 Aug |
+| Bounces | 1 | Doctor Brush Painting Services, reconciled to Lost |
+| Email 3 cohort | 32 sent 28 Aug | "A quick clarification" |
+| Replies to Email 3 at Day 6 | 0 | Triggered `2026-09-04-v2-persistence-hold`. No Email 4 |
+| De-confused Email 2 (9) | Sent 4 Sep, window closed 11 Sep | 0 replies |
+| V2 ledger totals | 139 records, 138 outbound, 1 inbound, 52 distinct prospects | 100% painter |
+| Reply rate by prospect | 1 / 52 = 1.9% | Last outbound 4 Sep. Channel quiet 10 days |
+| james@ monitor | ACTIVE | `james-pulse-phase2`, read-only, seen-ID dedup, every 5 min |
+| Stop signals | 0 | No unsubscribes, no opt-outs, no bounces since 22 Aug |
+
+## Did the monitoring design do its job?
+
+| Design element | Verdict data | Assessment |
+|---|---|---|
+| Real-time reply surfacing on james@ | Rahamed's reply was caught and handled the same day (21 Aug). Zero prospect replies missed across 22 Aug to 14 Sep. james@ traffic in that period was QPaint relays, DMARC noise and vendor mail only | **Worked.** The gap it was built for is closed |
+| REVIEW to DECIDE, no batch cadence progression | 28 Aug ran as a review and did not trigger a send. The Email 3 decision was made on evidence (32 emails, 0 replies) rather than schedule | **Worked.** The design held under the pressure to keep mailing |
+| Individual Customer Context Gate per prospect | Applied at the 28 Aug checkpoint, the 4 Sep HOLD, and the 9-prospect de-confused send | **Worked.** No generic send since INC-2026-08-19 |
+| Name-from-local-part prohibition | No regression found. Named greetings in the V2 ledger come from verified sources, otherwise "Hi there," | **Held.** No counter-example on file |
+| Deferred outcome that was NOT in the design | 41 prospect records still carry `Next Follow-up Date` in the past (4 to 5 Sep) while `V2 Status` = ACTIVE, so every scan reads them as "due" | **Open defect.** The observation design has no exit state. Recording MONITOR needs a field value that does not exist, and adding one is a schema change no decision authorises |
+
+## What the design did not anticipate
+
+**A monitoring state with no way to record itself.** The 21 Aug decision created an observation period. It did not define what a prospect becomes when the observation ends without a reply. The sequence was subsequently held (`2026-09-04-v2-persistence-hold`) and 41 records now sit in a posture that reads as overdue on every scan while nothing is owed. That is a design gap in the 21 Aug decision, not a data error.
+
+Recommended mechanism, unchanged from 11 Sep: clear `Next Follow-up Date` on the held records and append a dated MONITOR note to `Outreach Notes`. Pipeline stage untouched. Reversible, no send, no customer contact, no schema change. Two preps already carry the record IDs: `knowledge/decision-reviews/2026-09-11-v2-crm-posture-closeout-prep.md` and `knowledge/decision-reviews/2026-09-11-deconfused-email2-closeout-prep.md`.
+
+## Verdict questions for James
+
+1. Did the james@ read-only monitoring design work well enough to keep permanently? Evidence says yes.
+2. Should the name-from-local-part prohibition be promoted from campaign rule to standing standard? It held for a month with no counter-example.
+3. Should a MONITOR state for held cohorts be recorded by clearing the follow-up date and appending a dated note (reversible, no contact), or does the record stay as-is and the noise get tolerated?
+4. Is the 21 Aug decision superseded by `2026-09-04-v2-persistence-hold`, or does it remain the standing monitoring posture for any future V2 cohort?
+
+## Evidence files
+
+- `knowledge/decisions/2026-08-21-v2-email2-observation-monitoring.md`
+- `knowledge/decisions/2026-09-04-v2-persistence-hold.md`
+- `knowledge/decision-reviews/2026-08-28-v2-email2-review-prep.md` (the 28 Aug checkpoint prep, which ran and produced a decision)
+- `knowledge/decision-reviews/2026-09-11-v2-crm-posture-closeout-prep.md`
+- `knowledge/decision-reviews/2026-09-11-deconfused-email2-closeout-prep.md`
+- Airtable `V2 Outreach Activity` (`tblvu8kJ41BuZ0QrT`), `Prospects` (`tblceVflumXdl23JJ`)
+- `notes/2026-08-21.md`, `notes/2026-09-04.md`, `notes/2026-09-11.md`, `notes/2026-09-13.md`
+
+---
+
+*Prepared by the Prepare-Ahead Clock, 14 Sep 2026 22:00 ACST, 7 days before the review date. No contact made, no CRM records changed.*

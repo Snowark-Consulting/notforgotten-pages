@@ -708,6 +708,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decision_reviews_2026_09_21_v2_email2_observation_review_prep",
+      "label": "V2 Email2 Observation Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-09-21-v2-email2-observation-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "440fcaefa429",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decision_reviews_index",
       "label": "Decision Reviews / Index",
       "file_type": "doc",
@@ -1313,6 +1324,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_founder_call_day_2026_09_16",
+      "label": "Founder Call Day",
+      "file_type": "doc",
+      "source_file": "knowledge/founder-call-day-2026-09-16.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "74706e9ca1b5",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_founder_call_execution_sheet",
       "label": "Founder Call Execution Sheet",
       "file_type": "doc",
@@ -1342,7 +1364,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "ada7c5076523",
-      "val": 8.0,
+      "val": 10.0,
       "color": "#a78bfa"
     },
     {
@@ -3670,6 +3692,13 @@
     },
     {
       "source": "agent_registry",
+      "target": "knowledge_founder_call_day_2026_09_16",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
       "target": "knowledge_qpaint_next_action_principle",
       "relation": "wikilink",
       "weight": 1.0,
@@ -4208,6 +4237,13 @@
       "source_file": ""
     },
     {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_09_21_v2_email2_observation_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
       "source": "knowledge_decisions_2026_06_28_calibration_outreach_living_system",
       "target": "knowledge_decisions_index",
       "relation": "wikilink",
@@ -4385,6 +4421,13 @@
     {
       "source": "knowledge_follow_up_sequences_painter_standard",
       "target": "knowledge_decisions_2026_07_24_stage_1_approved_learning_phase",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_founder_call_day_2026_09_16",
+      "target": "knowledge_founder_call_outcome_capture",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
