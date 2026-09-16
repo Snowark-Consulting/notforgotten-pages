@@ -23,6 +23,17 @@ prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
 
 **What the review date of 21 Sep is asking:** did the monitoring design work, and is the 21 Aug decision still the right standing posture now that the sequence has been held?
 
+## Re-verified 15 Sep 2026 (Prepare-Ahead Clock, live Airtable pull)
+
+| Metric | 14 Sep | 15 Sep | Note |
+|---|---|---|---|
+| Records reading "due" (past `Next Follow-up Date`, `V2 Status` = ACTIVE) | 41 | **52 prospects / 52 records** | 32 at 4 Sep, 10 at 5 Sep, 1 at 8 Sep, 9 at 11 Sep. Stage split: 40 Outreach Active, 10 Contacted, 1 Engaged, 1 Campaign Complete |
+| V2 ledger | 139 records | 139 records, 0 activity in the last 5 days | Last outbound remains 4 Sep. Channel quiet 11 days |
+| Prospect replies since 21 Aug | 1 (Rahamed) | 1 (Rahamed) | No new inbound. james@ inbox contains only DMARC noise |
+| Stop signals | 0 | 0 | No unsubscribes, opt-outs or bounces |
+
+**Correcting a scope difference, not reporting growth.** The 14 Sep prep's "41 records" was a narrower read. Tonight's live pull returns **52 prospects**, which matches the 52 recorded on 13 Sep and 14 Sep in the daily notes — so the backlog is **ageing, not growing**. Recorded here so the 21 Sep review is not read as a worsening trend it is not. The recommended mechanism (clear `Next Follow-up Date`, append a dated MONITOR note, Pipeline stage untouched — reversible, no contact, no schema change) is unchanged and clears 52 prospects.
+
 ## Outcome data (verified 14 Sep 2026, Airtable V2 Outreach Activity + Gmail)
 
 | Metric | Value | Note |

@@ -1,0 +1,74 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-09-16
+status: open
+---
+
+# Learnings Corrupted 11th Time — First Provably Tool-Call-Free Writer Window
+
+> The nightly learnings corruption recurred on 2026-09-16 at 07:06 ACST, and for the first time the write window contains **zero** logged tool calls — narrowing the writer to something outside every logged Hermes path, while a new signature element appeared: the damaged card **renamed** a trap heading.
+
+**Date:** 2026-09-16 (event written 2026-09-15 21:36:00.51–21:36:01.92 UTC)
+**Occurrence:** 11th in the series
+**Found by:** nightly consolidation (cron `c72726a332e6`)
+**Repaired by:** restore-from-HEAD of both files, then re-applied the genuinely-new content
+
+## What happened
+
+Both `learnings/catalogue.md` and [[Agent Architecture Card]] (`learnings/cards/agent-architecture.md`) were rewritten by an unknown process at **2026-09-15 21:36:00.51 UTC** and **21:36:01.92 UTC** — **1.4 seconds apart**, the same loop-over-files signature as prior events.
+
+Catalogue damage (identical to the 10th event):
+
+- `EDITING THIS TABLE` warning block **deleted**
+- `gmail-auth` and `qpaint` rows **dropped**
+- **9 rows** `||`-prefixed (`hermes`, `shell`, `cloudflare`, `compliance`, `agent-architecture`, `browser`, `canonical-send`)
+- `campaign` row's card cell rewritten as a markdown link `[campaign.md](cards/campaign.md)`
+- blank line inserted mid-table (between `asana` and `airtable`)
+
+Card damage — one **new** signature element:
+
+- `## TRAP — Customer deferral ("still thinking / comparing") is MONITOR, not a courtesy reply` — **heading deleted**, its body displaced under the neighbouring trap. The body survived; the heading did not.
+- `## TRAP — Learnings damage is written OUT-OF-BAND at ~06:03 ACST …` — heading **renamed** to a rewritten title. This is the first time the writer has renamed a heading; all ten prior events left headings byte-identical.
+
+The integrity guard reported **30 findings**, including the three-way check that catches this class without relying on counts:
+
+- `catalogue: card cards/<domain>.md has NO table row (row dropped)` × 9
+- `catalogue: row '<domain>' present in HEAD, missing now` × 9
+- `catalogue: malformed row line N (double-pipe prefix)` × 7
+- `card agent-architecture: TRAP deleted: …` × 2
+
+## Evidence gathered this run
+
+| Check | Result |
+|---|---|
+| `find / -xdev -newermt '2026-09-15 21:30' ! -newermt '2026-09-15 21:50'` | **exactly 2 files** — the two damaged learnings files, nothing else on the device |
+| `logs/tool-calls.jsonl`, 21:30–21:50 UTC | **0 entries** — and the log is provably live (its tail is that same consolidation session, 16 rows for 2026-09-16) |
+| Cron jobs producing output 21:20–21:50 UTC | **3**, all `no_agent` scripts, all clean/silent: Client OS rebuild 21:30:59, QPaint Completed-Label Reverse Control 21:31:29, Dashboard hourly refresh 21:31:54 |
+| Whole-disk grep for the corruption's distinctive strings (`|| agent-architecture`, `[campaign.md](cards/campaign.md)`) | only **readers** — `catalogue.md` itself, `state.db` read-backs, prior investigation probes. **No writer payload anywhere.** |
+| `state.db` message search for those strings | only `role='tool'` reads and the consolidation's own repair writes. `role='assistant'` rows containing the string are repair payloads, not the source. |
+
+## Why this matters
+
+The two previous diagnoses were both partially wrong, and this run corrects the record again:
+
+1. **2026-09-14 — "the guard ran before the write."** Wrong: a UTC mtime read as Adelaide local. The write lands ~10h *after* the 21:20 guard and the 21:30 backup.
+2. **2026-09-15 — "the window is never tool-call-free."** Overstated: on 2026-09-14 the window held 13 unrelated `quotes-pulse-phase2` calls, but on **2026-09-16 it held zero**. The window's occupancy varies; what is constant is that **no logged call touches `learnings/`**.
+
+So the writer is neither the logged agent loop nor any cron that emits output in the window. It writes exactly two files, ~1.4s apart, in a 2-second burst, ~10 hours after the guard and backup have both run clean.
+
+## Fix / standing rule
+
+1. **Restore from HEAD — never patch.** HEAD is clean because the 21:30 backup committed the repaired file the previous evening. `git restore learnings/catalogue.md learnings/cards/agent-architecture.md`, then re-apply only genuinely-new content.
+2. **Do not rename a trap heading by hand.** The guard treats a renamed heading as a *deleted* trap (known false positive, rec `consolidation-guard-tune`). `git restore` restores the original heading text — use that instead.
+3. **Run `scripts/bin/learnings-integrity-guard.py` as the LAST step of every consolidation.** Its 21:20 cron cannot see work written after it, and the damage lands at ~07:06 the *next morning* anyway.
+4. **No same-evening reschedule can catch this.** The control that would help is a **~07:15 ACST guard run** that detects the drift and restores from HEAD — rec `consolidation-learnings-guard-0715`, awaiting founder approval.
+5. **Evidence discipline for attribution:** confirm the timezone from the `stat` offset (`+0000`) before naming a suspect, scope the write search with `find / -xdev` across the whole device, and confirm **zero tool calls touching the affected paths** (presence of unrelated calls is not guilt).
+
+## Source
+
+- 2026-09-16 nightly consolidation (11th occurrence)
+- Related: [[Corruption Writer Window]] (`learnings/2026-09-15-corruption-writer-window.md`), [[Out-of-Band Learnings Writer]] (`learnings/2026-09-14-out-of-band-learnings-writer.md`), [[Agent Architecture Card]] (`learnings/cards/agent-architecture.md`), [[Learnings Integrity Guard]] (`scripts/bin/learnings-integrity-guard.py`)
+- Recs: `consolidation-out-of-band-learnings-writer`, `consolidation-learnings-guard-0715`, `consolidation-guard-tune`, `consolidation-guard-ordering-gap`
+- Guard: `scripts/bin/learnings-integrity-guard.py` (cron `59d5247cd604`, 21:20 daily)

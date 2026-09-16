@@ -1324,6 +1324,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_founder_call_capture_2026_09_16",
+      "label": "Founder Call Capture",
+      "file_type": "doc",
+      "source_file": "knowledge/founder-call-capture-2026-09-16.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "16e7c28f8e00",
+      "val": 8.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_founder_call_day_2026_09_16",
       "label": "Founder Call Day",
       "file_type": "doc",
@@ -1331,7 +1342,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "74706e9ca1b5",
-      "val": 6.0,
+      "val": 8.0,
       "color": "#a78bfa"
     },
     {
@@ -1364,7 +1375,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "ada7c5076523",
-      "val": 10.0,
+      "val": 12.0,
       "color": "#a78bfa"
     },
     {
@@ -3699,6 +3710,13 @@
     },
     {
       "source": "agent_registry",
+      "target": "knowledge_founder_call_capture_2026_09_16",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
       "target": "knowledge_qpaint_next_action_principle",
       "relation": "wikilink",
       "weight": 1.0,
@@ -4426,8 +4444,29 @@
       "source_file": ""
     },
     {
+      "source": "knowledge_founder_call_capture_2026_09_16",
+      "target": "knowledge_founder_call_outcome_capture",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_founder_call_capture_2026_09_16",
+      "target": "knowledge_founder_call_day_2026_09_16",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
       "source": "knowledge_founder_call_day_2026_09_16",
       "target": "knowledge_founder_call_outcome_capture",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_founder_call_day_2026_09_16",
+      "target": "knowledge_founder_call_capture_2026_09_16",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
