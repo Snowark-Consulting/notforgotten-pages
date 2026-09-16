@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T04:02:56+09:30",
+  "generated_at": "2026-09-17T04:04:38+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
     "body": "The QPaint portfolio is stable. 251 total records, 200 active journeys. Production Operating Protocol v1.0.0 governs all operations. Canonical send authority live.",
@@ -16,7 +16,7 @@
     "reasons_negative": [
       "1 paying customer ($199 MRR). Customer #2 remains the single most important metric.",
       "Cold painter channel flat \u2014 52 V2 prospects past follow-up date, 1 reply across the entire V2 campaign. Founder Call Day is the only conversion lever.",
-      "Two public GitHub repos still expose client/customer email addresses (2nd day unresolved)."
+      "Two public GitHub repos still expose client/customer email addresses (4th day unresolved)."
     ]
   },
   "business_health": {
@@ -47,22 +47,31 @@
   },
   "waiting_for_james": [
     {
-      "id": "call-day-round-3",
-      "title": "Founder Call Day Round 3 \u2014 TODAY (Wed 16 Sep), 13 callable rows + Rahamed.",
-      "why_it_matters": "Call is the only conversion lever on record; every conversion came from conversation, never email. Sheet + capture worksheet prepared.",
-      "business_impact": "High: only active conversion lever.",
-      "estimated_time": "Call day (dedicated)",
-      "recommended_action": "Call Rahamed (Inspire Painting) first, then the standing 12. Sheet: knowledge/founder-call-day-2026-09-16.md",
+      "id": "capture-call-round-3",
+      "title": "Capture Founder Call Day Round 3 outcomes (called Wed 16 Sep).",
+      "why_it_matters": "Call is the only conversion lever on record. Rounds 1 and 2 were never captured; Round 3 was the first with a capture worksheet, and it is still empty. Without capture the call day produces no institutional knowledge.",
+      "business_impact": "High: turns founder time into permanent knowledge.",
+      "estimated_time": "10 min (rough notes are enough; Atlas converts them)",
+      "recommended_action": "Drop any rough notes on who was reached and what was said into knowledge/founder-call-capture-2026-09-16.md; Atlas structures and files them.",
       "impact_sort": 100
     },
     {
       "id": "public-repos-privacy",
-      "title": "Two public repos expose client/customer email addresses \u2014 2nd day unresolved.",
-      "why_it_matters": "Hardstaff08/notforgotten-client-os and Snowark-Consulting/notforgotten-pages are both public; 64 prospect + 27 client-staff addresses (incl admin@qpaint.com.au) on the open web.",
+      "title": "Two public repos expose client/customer email addresses \u2014 4th day unresolved.",
+      "why_it_matters": "Hardstaff08/notforgotten-client-os and Snowark-Consulting/notforgotten-pages are both still public; a paying client's staff email addresses (admin@qpaint.com.au, solutions@qpaint.com.au) sit on the open web.",
       "business_impact": "High: privacy breach of a paying client's staff data.",
       "estimated_time": "5 min to direct; fix is Josh/Winston",
       "recommended_action": "Approve making both repos private (or moving data off Pages). Not a cron job's to fix.",
       "impact_sort": 95
+    },
+    {
+      "id": "offbox-backup",
+      "title": "Off-box backup dead 12 days \u2014 no off-box copy of the vault since 5 Sep.",
+      "why_it_matters": "Origin credential dead (git ls-remote \u2192 'Invalid username or token'); Josh to refresh SNOWARK_GITHUB_TOKEN or grant Hardstaff08 access.",
+      "business_impact": "High (resilience): a host failure loses 10 days of knowledge.",
+      "estimated_time": "5 min (delegation to Josh)",
+      "recommended_action": "Direct Josh to refresh the origin credential so backup resumes.",
+      "impact_sort": 85
     },
     {
       "id": "v2-closeout-mechanism",
@@ -74,17 +83,8 @@
       "impact_sort": 80
     },
     {
-      "id": "offbox-backup",
-      "title": "Off-box backup dead 10 days \u2014 571 local commits unpushed.",
-      "why_it_matters": "No off-box copy of the vault since 5 Sep. Origin PAT dead; Josh to refresh SNOWARK_GITHUB_TOKEN or grant Hardstaff08 access.",
-      "business_impact": "High (resilience): a host failure loses 10 days of knowledge.",
-      "estimated_time": "5 min (delegation to Josh)",
-      "recommended_action": "Direct Josh to refresh the origin credential so backup resumes.",
-      "impact_sort": 85
-    },
-    {
       "id": "ff1-cohort-closeout",
-      "title": "FF1 contamination cohort \u2014 14 records held 26 days, decision pack ready.",
+      "title": "FF1 contamination cohort \u2014 14 records held ~29 days, decision pack ready.",
       "why_it_matters": "14 prospects got a duplicated Email 1 and no Email 2, held at founder approval since 19 Aug. Pack on file recommends close.",
       "business_impact": "Low-medium: cleanup of a stale cohort, no revenue at risk.",
       "estimated_time": "5 min",
@@ -102,20 +102,27 @@
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Wednesday. Founder Call Day (Round 3) \u2014 your single most important lever, and the only channel with conversions on record. Quiet night: 0 new quotes, 0 new replies, 0 bounces. QPaint stable (251 records, 11 Won, 0 overdue) and fully Atlas-owned. Open loops: two public repos (privacy, 2nd day), off-box backup dead (10 days), V2 close-out, FF1 cohort.",
+    "executive_summary": "Thursday. Quiet night \u2014 0 new quotes, 0 new replies, 0 new bounces across all three mailboxes. QPaint stable (251 records, 11 Won, 0 overdue) and fully Atlas-owned. Top lever: capture Call Day Round 3 outcomes while fresh. Open loops: two public repos (privacy, 4th day), off-box backup dead (12 days), V2 close-out, FF1 cohort.",
     "priorities": [
       {
-        "action": "Run Founder Call Day Round 3 (Rahamed first, then the standing 12)",
-        "why_it_matters": "Every conversion on record came from conversation, never email. Sheet + capture worksheet prepared.",
+        "action": "Capture Founder Call Day Round 3 outcomes",
+        "why_it_matters": "Rounds 1 and 2 produced no institutional knowledge; Round 3 was meant to be the first captured round and the worksheet is still empty.",
         "expected_impact": "High",
-        "estimated_time": "Call day (dedicated)",
+        "estimated_time": "10 min",
         "confidence": "High"
       },
       {
-        "action": "Approve making the two public repos private",
-        "why_it_matters": "A paying client's staff email addresses are on the open web. 2nd day unresolved.",
+        "action": "Make the two public repos private",
+        "why_it_matters": "A paying client's staff email addresses are on the open web. 4th day unresolved.",
         "expected_impact": "High",
-        "estimated_time": "5 min",
+        "estimated_time": "5 min (delegate to Josh/Winston)",
+        "confidence": "High"
+      },
+      {
+        "action": "Direct Josh to refresh the off-box backup origin credential",
+        "why_it_matters": "No off-box copy of the vault for 12 days; a host failure loses everything since 5 Sep.",
+        "expected_impact": "High (resilience)",
+        "estimated_time": "5 min (delegate)",
         "confidence": "High"
       },
       {
@@ -124,6 +131,13 @@
         "expected_impact": "Medium",
         "estimated_time": "5 min",
         "confidence": "High"
+      },
+      {
+        "action": "Rule on the FF1 cohort close-out (14 records)",
+        "why_it_matters": "Held at founder approval since 19 Aug; pack on file recommends close.",
+        "expected_impact": "Low-medium",
+        "estimated_time": "5 min",
+        "confidence": "Medium"
       }
     ],
     "can_wait": [
@@ -136,6 +150,20 @@
   },
   "changes": {
     "today": [
+      {
+        "time": "2026-09-17T04:04:38+09:30",
+        "text": "Overnight scan: quotes@ 0 unread, atlas@ 0 unread, james@ 9 unread (all system noise: 4 DMARC reports + 4 old 09-Aug bounces + 1 business-closed + 1 auto-reply, all already reflected in campaign state). No new quotes, no new replies, no new bounces."
+      },
+      {
+        "time": "2026-09-17T04:04:38+09:30",
+        "text": "QPaint 251 records verified live (full pagination): 11 Won ($445,818), 40 Lost, $6.70M active pipeline. 0 overdue. QPaint Daily Attention cron (07:30) owns today's execution."
+      },
+      {
+        "time": "2026-09-17T04:04:38+09:30",
+        "text": "System health: disk 40% (12G free), state.db 113M, dashboard refresh current (04:00), all pulse jobs present. Off-box backup still dead (12th day), public repos still public (4th day)."
+      }
+    ],
+    "yesterday": [
       {
         "time": "2026-09-16T04:03:53+09:30",
         "text": "Overnight scan: quotes@ 0 unread, atlas@ 0 unread, james@ 2 unread (both DMARC aggregate reports from Microsoft \u2014 system noise). No new quotes, no new replies, no bounces."
@@ -151,20 +179,6 @@
       {
         "time": "2026-09-16T04:03:53+09:30",
         "text": "System health: disk 40% (12G free), state.db 113M, dashboard refresh current (04:00), all pulse jobs present."
-      }
-    ],
-    "yesterday": [
-      {
-        "time": "2026-09-15",
-        "text": "Signed contract reconciled by hand: Russell Dunster #43047, QPaint Won $18,619.70, attribution Observed (no reply to 3 follow-ups, customer self-signed)."
-      },
-      {
-        "time": "2026-09-15",
-        "text": "QPaint Daily Attention: 7 follow-ups sent (5 Email 1, 2 Email 3), 5 reconciliations, 0 founder actions, 0 exceptions."
-      },
-      {
-        "time": "2026-09-15",
-        "text": "New quote intake #43000 (Sara West, $47,621.20) certified, reconciled and filed inside the 48h window."
       }
     ],
     "this_week": [
