@@ -1,60 +1,54 @@
 {
-  "generated_at": "2026-09-16T04:03:53+09:30",
+  "generated_at": "2026-09-17T04:02:56+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "Founder Call Day (Round 3) — the single conversion lever with results on record. Quiet night: 0 new quotes, 0 new replies, 0 bounces across all three mailboxes. QPaint fully under Atlas control: 251 records, 11 Won ($445,817.59), 40 Lost, 0 overdue follow-ups, 11 journeys due today–tomorrow (~$214K). Your open loops are unchanged: two public repos still exposing client data (2nd day), off-box backup dead (10 days), V2 close-out mechanism (52 records), FF1 cohort (14 records). Client side needs nothing from you this morning — your time belongs to the calls.",
-    "estimated_time": "3 minutes"
+    "body": "The QPaint portfolio is stable. 251 total records, 200 active journeys. Production Operating Protocol v1.0.0 governs all operations. Canonical send authority live.",
+    "estimated_time": "2 minutes"
   },
   "business_score": {
     "score": 88,
-    "change": "—",
+    "change": "\u2014",
     "reasons_positive": [
       "QPaint 251 records, $8.06M total Deal Value. 11 Won: $445,817.59 = $129,750 Recovered (Arno Hsu) + $274,589 Assisted (7) + $41,478 Observed (3). Honest Won-vs-Recovered separation maintained.",
-      "0 overdue QPaint follow-ups. 11 journeys correctly surfaced for today–tomorrow's attention.",
+      "0 overdue QPaint follow-ups. 11 journeys correctly surfaced for today\u2013tomorrow's attention.",
       "Recovery operations fully automated: 0 exceptions, all pulse jobs present, CRM reconciled to Gmail overnight."
     ],
     "reasons_negative": [
       "1 paying customer ($199 MRR). Customer #2 remains the single most important metric.",
-      "Cold painter channel flat — 52 V2 prospects past follow-up date, 1 reply across the entire V2 campaign. Founder Call Day is the only conversion lever.",
+      "Cold painter channel flat \u2014 52 V2 prospects past follow-up date, 1 reply across the entire V2 campaign. Founder Call Day is the only conversion lever.",
       "Two public GitHub repos still expose client/customer email addresses (2nd day unresolved)."
     ]
   },
   "business_health": {
     "clients": {
       "status": "healthy",
-      "icon": "✅",
-      "detail": "QPaint: Active, $199 MRR, onboarding complete, health Green. Star Painters (Ahmad): stalled opportunity on MONITOR until 23 Sep, not a trial."
+      "detail": "QPaint: Active. Portfolio certified. 200 active journeys with complete Next Action coverage."
     },
     "recovery_operations": {
       "status": "healthy",
-      "icon": "✅",
-      "detail": "251 QPaint journeys certified. 11 Won ($445,817.59), 40 Lost, 30 Engaged, 140 Contacted. 0 exceptions, 0 overdue. Recovered value $129,750 (Arno Hsu)."
+      "detail": "\u2705 200 active QPaint journeys certified. 141 contacted. 0 exceptions. Pipeline: $6,702,605. Won: $445,818."
     },
     "outreach": {
-      "status": "watch",
-      "icon": "⚠️",
-      "detail": "V2 outreach quiet since 4 Sep (139 activity records, 1 reply). 52 prospects read 'Await reply' past follow-up date. Cold painter channel on MONITOR. RE-ENG-AUG-2026: no overnight change."
+      "status": "healthy",
+      "detail": "V2 Email 3 (32 sent 28 Aug) awaiting reply \u2014 follow-up window 4 Sep. 9 founder-autonomy Email 1s (30 Aug), Email 2 window 4 Sep. RE-ENG-AUG-2026: 99 observing."
     },
     "engineering": {
-      "status": "watch",
-      "icon": "⚠️",
-      "detail": "Off-box backup dead 10 days (origin PAT, 571 local commits unpushed). Dashboard V2 refresh current. Disk 40%, state.db 113M. All pulse jobs present."
+      "status": "healthy",
+      "detail": "All systems healthy. Canonical send authority (Phase 1) shadow-ready. Production Operating Protocol v1.0.0 live."
     },
     "finance": {
       "status": "healthy",
-      "icon": "✅",
-      "detail": "QPaint: $445,817.59 Won (11), $8.06M total Deal Value across 251 records. MRR $199."
+      "detail": "QPaint: $445,818 Won. $6,702,605 active pipeline."
     },
     "atlas": {
       "status": "healthy",
-      "icon": "✅",
-      "detail": "Memory healthy. Protocol v1.0.0 enforced. Learnings integrity guard active."
+      "detail": "Memory healthy. Protocol v1.0.0 enforced. Model recovery standard active."
     }
   },
   "waiting_for_james": [
     {
       "id": "call-day-round-3",
-      "title": "Founder Call Day Round 3 — TODAY (Wed 16 Sep), 13 callable rows + Rahamed.",
+      "title": "Founder Call Day Round 3 \u2014 TODAY (Wed 16 Sep), 13 callable rows + Rahamed.",
       "why_it_matters": "Call is the only conversion lever on record; every conversion came from conversation, never email. Sheet + capture worksheet prepared.",
       "business_impact": "High: only active conversion lever.",
       "estimated_time": "Call day (dedicated)",
@@ -63,7 +57,7 @@
     },
     {
       "id": "public-repos-privacy",
-      "title": "Two public repos expose client/customer email addresses — 2nd day unresolved.",
+      "title": "Two public repos expose client/customer email addresses \u2014 2nd day unresolved.",
       "why_it_matters": "Hardstaff08/notforgotten-client-os and Snowark-Consulting/notforgotten-pages are both public; 64 prospect + 27 client-staff addresses (incl admin@qpaint.com.au) on the open web.",
       "business_impact": "High: privacy breach of a paying client's staff data.",
       "estimated_time": "5 min to direct; fix is Josh/Winston",
@@ -72,7 +66,7 @@
     },
     {
       "id": "v2-closeout-mechanism",
-      "title": "V2 CRM close-out mechanism — 52 records read 'due', ageing not growing.",
+      "title": "V2 CRM close-out mechanism \u2014 52 records read 'due', ageing not growing.",
       "why_it_matters": "V2 Status has no MONITOR value on disk. 52 records read as overdue on every scan. One ruling unblocks the whole view in a single pass.",
       "business_impact": "Medium: CRM accuracy and scan noise, not revenue.",
       "estimated_time": "5 min",
@@ -81,7 +75,7 @@
     },
     {
       "id": "offbox-backup",
-      "title": "Off-box backup dead 10 days — 571 local commits unpushed.",
+      "title": "Off-box backup dead 10 days \u2014 571 local commits unpushed.",
       "why_it_matters": "No off-box copy of the vault since 5 Sep. Origin PAT dead; Josh to refresh SNOWARK_GITHUB_TOKEN or grant Hardstaff08 access.",
       "business_impact": "High (resilience): a host failure loses 10 days of knowledge.",
       "estimated_time": "5 min (delegation to Josh)",
@@ -90,7 +84,7 @@
     },
     {
       "id": "ff1-cohort-closeout",
-      "title": "FF1 contamination cohort — 14 records held 26 days, decision pack ready.",
+      "title": "FF1 contamination cohort \u2014 14 records held 26 days, decision pack ready.",
       "why_it_matters": "14 prospects got a duplicated Email 1 and no Email 2, held at founder approval since 19 Aug. Pack on file recommends close.",
       "business_impact": "Low-medium: cleanup of a stale cohort, no revenue at risk.",
       "estimated_time": "5 min",
@@ -99,7 +93,7 @@
     },
     {
       "id": "learnings-guard-0715",
-      "title": "07:15 learnings-integrity guard — approve new control.",
+      "title": "07:15 learnings-integrity guard \u2014 approve new control.",
       "why_it_matters": "Learnings corruption recurs (10th time) ~07:03 ACST, after the 21:20 guard. A 07:15 run would detect and auto-repair same-morning.",
       "business_impact": "Low-medium: knowledge integrity.",
       "estimated_time": "2 min",
@@ -108,7 +102,7 @@
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Wednesday. Founder Call Day (Round 3) — your single most important lever, and the only channel with conversions on record. Quiet night: 0 new quotes, 0 new replies, 0 bounces. QPaint stable (251 records, 11 Won, 0 overdue) and fully Atlas-owned. Open loops: two public repos (privacy, 2nd day), off-box backup dead (10 days), V2 close-out, FF1 cohort.",
+    "executive_summary": "Wednesday. Founder Call Day (Round 3) \u2014 your single most important lever, and the only channel with conversions on record. Quiet night: 0 new quotes, 0 new replies, 0 bounces. QPaint stable (251 records, 11 Won, 0 overdue) and fully Atlas-owned. Open loops: two public repos (privacy, 2nd day), off-box backup dead (10 days), V2 close-out, FF1 cohort.",
     "priorities": [
       {
         "action": "Run Founder Call Day Round 3 (Rahamed first, then the standing 12)",
@@ -133,26 +127,26 @@
       }
     ],
     "can_wait": [
-      "All QPaint operations (Atlas owns): 0 overdue, 0 exceptions, 11 Won reconciled, 11 journeys due today–tomorrow already surfaced.",
-      "Ahmad/Star Painters: MONITOR until 23 Sep, 4 founder touches 0 replies — no action.",
-      "FF1 cohort + 07:15 guard: both are 2–5 min rulings, can slot after the calls.",
+      "All QPaint operations (Atlas owns): 0 overdue, 0 exceptions, 11 Won reconciled, 11 journeys due today\u2013tomorrow already surfaced.",
+      "Ahmad/Star Painters: MONITOR until 23 Sep, 4 founder touches 0 replies \u2014 no action.",
+      "FF1 cohort + 07:15 guard: both are 2\u20135 min rulings, can slot after the calls.",
       "State DB backup auth + learnings corruption: recurring infra/knowledge items, not revenue-blocking."
     ],
-    "closing": "The calls are the whole game today. Rahamed is the single warmest thread we hold — call him first."
+    "closing": "The calls are the whole game today. Rahamed is the single warmest thread we hold \u2014 call him first."
   },
   "changes": {
     "today": [
       {
         "time": "2026-09-16T04:03:53+09:30",
-        "text": "Overnight scan: quotes@ 0 unread, atlas@ 0 unread, james@ 2 unread (both DMARC aggregate reports from Microsoft — system noise). No new quotes, no new replies, no bounces."
+        "text": "Overnight scan: quotes@ 0 unread, atlas@ 0 unread, james@ 2 unread (both DMARC aggregate reports from Microsoft \u2014 system noise). No new quotes, no new replies, no bounces."
       },
       {
         "time": "2026-09-16T04:03:53+09:30",
-        "text": "QPaint 251 records verified live (full pagination): 11 Won ($445,817.59), 40 Lost, $8.06M total Deal Value. 0 overdue. 11 journeys due today–tomorrow (~$214K)."
+        "text": "QPaint 251 records verified live (full pagination): 11 Won ($445,817.59), 40 Lost, $8.06M total Deal Value. 0 overdue. 11 journeys due today\u2013tomorrow (~$214K)."
       },
       {
         "time": "2026-09-16T04:03:53+09:30",
-        "text": "Founder Call Day Round 3 today. 13 callable rows + Rahamed verified against suppression state — no overnight changes, no removals."
+        "text": "Founder Call Day Round 3 today. 13 callable rows + Rahamed verified against suppression state \u2014 no overnight changes, no removals."
       },
       {
         "time": "2026-09-16T04:03:53+09:30",
@@ -193,21 +187,21 @@
     "recent": [
       {
         "id": "INC-2026-08-11",
-        "title": "QPaint Quote Intake — False Completion",
+        "title": "QPaint Quote Intake \u2014 False Completion",
         "status": "Closed",
         "summary": "3 quotes marked complete with $0 deal values. Root cause: no certification gate between extraction and label. Fixed: certify_intake_complete() + Intake Exception state."
       },
       {
         "id": "BK-014",
-        "title": "ATTEMPTED ≠ COMPLETED",
+        "title": "ATTEMPTED \u2260 COMPLETED",
         "status": "Permanent",
-        "summary": "Automation success ≠ business outcome success. Every critical workflow must verify the business state, not just the process completion."
+        "summary": "Automation success \u2260 business outcome success. Every critical workflow must verify the business state, not just the process completion."
       },
       {
         "id": "BK-015",
-        "title": "HTTP 200 ≠ Application Success",
+        "title": "HTTP 200 \u2260 Application Success",
         "status": "Permanent",
-        "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy → verify dependencies → verify render → certify."
+        "summary": "HQ certification requires visual rendering verification, not just HTTP status. Deploy \u2192 verify dependencies \u2192 verify render \u2192 certify."
       }
     ]
   },
@@ -216,12 +210,12 @@
     "principles": []
   },
   "production_incidents": {
-    "description": "State DB snapshot backup failing auth (client-notforgotten repo) — 9 failures since ~5 Sep. Non-revenue-blocking, tracked as recurring infra issue.",
+    "description": "State DB snapshot backup failing auth (client-notforgotten repo) \u2014 9 failures since ~5 Sep. Non-revenue-blocking, tracked as recurring infra issue.",
     "total": 1,
     "recent": [
       {
         "id": "BACKUP-AUTH-2026-09",
-        "title": "State DB snapshot backup — GitHub auth failure",
+        "title": "State DB snapshot backup \u2014 GitHub auth failure",
         "status": "Open",
         "summary": "Nightly state.db snapshot push to client-notforgotten.git failing auth (code 128), 9 consecutive failures. Requires Josh/Winston to refresh the git credential."
       }
@@ -229,7 +223,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "QPaint portfolio certified. 251 records, 11 Won ($445,817.59), 40 Lost, 0 overdue. Protocol v1.0.0. Send authority live. Founder Call Day Round 3 today.",
+  "operational_status": "\u2705 QPaint portfolio certified. 200 active journeys. Protocol v1.0.0. Send authority live.",
   "vault_health": {
     "decisions": {
       "total": 80,
@@ -260,31 +254,30 @@
   "qpaint_pipeline": {
     "summary": {
       "total_customers": 251,
-      "total_pipeline_value": "$8.06M",
+      "total_pipeline_value": 6702605,
       "won_count": 11,
-      "won_value": "$445,817.59",
+      "won_value": 445818,
       "lost_count": 40,
-      "engaged_replied": 30,
-      "contacted": 140,
-      "not_contacted": 30
+      "engaged_replied": 31,
+      "contacted": 141,
+      "not_contacted": 28
     },
     "stage_breakdown": {
+      "Email 3": 51,
+      "Email 1": 50,
       "Lost": 40,
-      "Email 1": 49,
-      "Email 3": 50,
-      "New": 31,
-      "Engaged": 3,
-      "Replied": 26,
-      "Email 2": 39,
+      "Email 2": 38,
+      "New": 29,
+      "Replied": 27,
       "Won": 11,
+      "Engaged": 3,
       "Awaiting Reply": 1,
       "Email 4": 1
     },
     "priority": {
       "P1": 93,
       "P2": 53,
-      "P3": 3,
-      "?": 100
+      "P3": 105
     },
     "key_customers": [
       {
