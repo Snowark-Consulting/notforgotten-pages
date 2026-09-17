@@ -1,36 +1,36 @@
 {
-  "generated_at": "2026-09-17T04:04:38+09:30",
+  "generated_at": "2026-09-18T04:04:16+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "The QPaint portfolio is stable. 251 total records, 200 active journeys. Production Operating Protocol v1.0.0 governs all operations. Canonical send authority live.",
+    "body": "Friday. Quiet overnight \u2014 0 new quotes, 0 new replies, 0 new bounces across all three mailboxes. QPaint portfolio stable at 253 records, 202 active journeys, 11 Won, 0 overdue follow-ups. Two QPaint founder exceptions need your call today (Raewyn Frost quote-extension handoff, Eddie Yuan revised-quote decision).",
     "estimated_time": "2 minutes"
   },
   "business_score": {
     "score": 88,
     "change": "\u2014",
     "reasons_positive": [
-      "QPaint 251 records, $8.06M total Deal Value. 11 Won: $445,817.59 = $129,750 Recovered (Arno Hsu) + $274,589 Assisted (7) + $41,478 Observed (3). Honest Won-vs-Recovered separation maintained.",
-      "0 overdue QPaint follow-ups. 11 journeys correctly surfaced for today\u2013tomorrow's attention.",
+      "QPaint 253 records, $8.16M total Deal Value. 11 Won: $445,818 = $129,750 Recovered (Arno Hsu) + $274,589 Assisted (7) + $41,478 Observed (3). Honest Won-vs-Recovered separation maintained.",
+      "0 overdue QPaint follow-ups. 202 active journeys with complete Next Action coverage.",
       "Recovery operations fully automated: 0 exceptions, all pulse jobs present, CRM reconciled to Gmail overnight."
     ],
     "reasons_negative": [
       "1 paying customer ($199 MRR). Customer #2 remains the single most important metric.",
       "Cold painter channel flat \u2014 52 V2 prospects past follow-up date, 1 reply across the entire V2 campaign. Founder Call Day is the only conversion lever.",
-      "Two public GitHub repos still expose client/customer email addresses (4th day unresolved)."
+      "Two public GitHub repos still expose client/customer email addresses (5th day unresolved)."
     ]
   },
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "QPaint: Active. Portfolio certified. 200 active journeys with complete Next Action coverage."
+      "detail": "QPaint: Active. Portfolio certified. 202 active journeys with complete Next Action coverage."
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "\u2705 200 active QPaint journeys certified. 141 contacted. 0 exceptions. Pipeline: $6,702,605. Won: $445,818."
+      "detail": "\u2705 202 active QPaint journeys certified. 141 contacted. 0 exceptions. Pipeline: $6,802,356. Won: $445,818."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "V2 Email 3 (32 sent 28 Aug) awaiting reply \u2014 follow-up window 4 Sep. 9 founder-autonomy Email 1s (30 Aug), Email 2 window 4 Sep. RE-ENG-AUG-2026: 99 observing."
+      "detail": "RE-ENG-AUG-2026: 147 audience, 97 New (observing), 38 Campaign Complete, 7 Lost, 5 Outreach Active. 0 new replies/bounces/unsubscribes overnight. V2 outreach activity: 0 in last 3 days."
     },
     "engineering": {
       "status": "healthy",
@@ -38,7 +38,7 @@
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $445,818 Won. $6,702,605 active pipeline."
+      "detail": "QPaint: $445,818 Won. $6,802,356 active pipeline."
     },
     "atlas": {
       "status": "healthy",
@@ -57,7 +57,7 @@
     },
     {
       "id": "public-repos-privacy",
-      "title": "Two public repos expose client/customer email addresses \u2014 4th day unresolved.",
+      "title": "Two public repos expose client/customer email addresses \u2014 5th day unresolved.",
       "why_it_matters": "Hardstaff08/notforgotten-client-os and Snowark-Consulting/notforgotten-pages are both still public; a paying client's staff email addresses (admin@qpaint.com.au, solutions@qpaint.com.au) sit on the open web.",
       "business_impact": "High: privacy breach of a paying client's staff data.",
       "estimated_time": "5 min to direct; fix is Josh/Winston",
@@ -66,7 +66,7 @@
     },
     {
       "id": "offbox-backup",
-      "title": "Off-box backup dead 12 days \u2014 no off-box copy of the vault since 5 Sep.",
+      "title": "Off-box backup dead 13 days \u2014 no off-box copy of the vault since 5 Sep.",
       "why_it_matters": "Origin credential dead (git ls-remote \u2192 'Invalid username or token'); Josh to refresh SNOWARK_GITHUB_TOKEN or grant Hardstaff08 access.",
       "business_impact": "High (resilience): a host failure loses 10 days of knowledge.",
       "estimated_time": "5 min (delegation to Josh)",
@@ -83,6 +83,15 @@
       "impact_sort": 80
     },
     {
+      "id": "raewyn-frost-quote-extension",
+      "title": "Approve QPaint handoff draft \u2014 Raewyn Frost quote #43032 expired 15 Sep, customer still deciding.",
+      "why_it_matters": "Quote expired while the customer is still considering. Surfacing a quote-extension/requote request to QPaint (Dee + Leslie) is the only way to keep the deal alive.",
+      "business_impact": "Medium: ~$7,920 deal at risk of lapsing.",
+      "estimated_time": "2 min to approve the prepared handoff draft",
+      "recommended_action": "Approve the james@ handoff to solutions@qpaint.com.au + admin@qpaint.com.au requesting a quote extension/requote.",
+      "impact_sort": 75
+    },
+    {
       "id": "ff1-cohort-closeout",
       "title": "FF1 contamination cohort \u2014 14 records held ~29 days, decision pack ready.",
       "why_it_matters": "14 prospects got a duplicated Email 1 and no Email 2, held at founder approval since 19 Aug. Pack on file recommends close.",
@@ -90,6 +99,15 @@
       "estimated_time": "5 min",
       "recommended_action": "Rule on close vs revive using knowledge/ff1-contamination-cohort-closeout-pack-2026-09-13.md (recommendation: close).",
       "impact_sort": 70
+    },
+    {
+      "id": "eddie-yuan-revised-quote",
+      "title": "Rule on Eddie Yuan \u2014 QPaint already issued a revised quote ($31,000) directly on 17 Sep.",
+      "why_it_matters": "QPaint bypassed the relay and put the revised quote in front of the customer themselves. Any further step from us may duplicate or confuse.",
+      "business_impact": "Medium: $31,000 deal, conditional on 5% deposit by 30 Sep.",
+      "estimated_time": "2 min to rule 'stand down' vs 'confirm receipt'",
+      "recommended_action": "Confirm whether Atlas should stand down (QPaint owns the follow-up) or send one confirmation touch.",
+      "impact_sort": 68
     },
     {
       "id": "learnings-guard-0715",
@@ -151,6 +169,20 @@
   "changes": {
     "today": [
       {
+        "time": "2026-09-18T04:05:12+09:30",
+        "text": "Overnight scan: quotes@ 0 unread, atlas@ 0 unread, james@ 4 unread (2 DMARC reports + 2 stale 09-Aug: Tatnell business-closed already Lost + Top Rank auto-reply). No new quotes, no new replies, no new bounces."
+      },
+      {
+        "time": "2026-09-18T04:05:12+09:30",
+        "text": "QPaint 253 records verified live (full pagination): 11 Won ($445,818), 40 Lost, $6.80M active pipeline, $129,750 recovered (Arno Hsu). 0 overdue. 2 founder exceptions due today: Raewyn Frost (quote-extension handoff) + Eddie Yuan (revised-quote stand-down)."
+      },
+      {
+        "time": "2026-09-18T04:05:12+09:30",
+        "text": "System health: disk 40% (12G free), state.db 121M, dashboard refresh current, all pulse jobs present. Off-box backup still dead (13th day), public repos still public (5th day)."
+      }
+    ],
+    "yesterday": [
+      {
         "time": "2026-09-17T04:04:38+09:30",
         "text": "Overnight scan: quotes@ 0 unread, atlas@ 0 unread, james@ 9 unread (all system noise: 4 DMARC reports + 4 old 09-Aug bounces + 1 business-closed + 1 auto-reply, all already reflected in campaign state). No new quotes, no new replies, no new bounces."
       },
@@ -161,24 +193,6 @@
       {
         "time": "2026-09-17T04:04:38+09:30",
         "text": "System health: disk 40% (12G free), state.db 113M, dashboard refresh current (04:00), all pulse jobs present. Off-box backup still dead (12th day), public repos still public (4th day)."
-      }
-    ],
-    "yesterday": [
-      {
-        "time": "2026-09-16T04:03:53+09:30",
-        "text": "Overnight scan: quotes@ 0 unread, atlas@ 0 unread, james@ 2 unread (both DMARC aggregate reports from Microsoft \u2014 system noise). No new quotes, no new replies, no bounces."
-      },
-      {
-        "time": "2026-09-16T04:03:53+09:30",
-        "text": "QPaint 251 records verified live (full pagination): 11 Won ($445,817.59), 40 Lost, $8.06M total Deal Value. 0 overdue. 11 journeys due today\u2013tomorrow (~$214K)."
-      },
-      {
-        "time": "2026-09-16T04:03:53+09:30",
-        "text": "Founder Call Day Round 3 today. 13 callable rows + Rahamed verified against suppression state \u2014 no overnight changes, no removals."
-      },
-      {
-        "time": "2026-09-16T04:03:53+09:30",
-        "text": "System health: disk 40% (12G free), state.db 113M, dashboard refresh current (04:00), all pulse jobs present."
       }
     ],
     "this_week": [
@@ -237,7 +251,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "\u2705 QPaint portfolio certified. 200 active journeys. Protocol v1.0.0. Send authority live.",
+  "operational_status": "QPaint portfolio certified. 202 active journeys. Protocol v1.0.0. Send authority live. 2 founder exceptions awaiting decision.",
   "vault_health": {
     "decisions": {
       "total": 80,
@@ -267,22 +281,22 @@
   },
   "qpaint_pipeline": {
     "summary": {
-      "total_customers": 251,
-      "total_pipeline_value": 6702605,
+      "total_customers": 253,
+      "total_pipeline_value": 6802356,
       "won_count": 11,
       "won_value": 445818,
       "lost_count": 40,
-      "engaged_replied": 31,
+      "engaged_replied": 32,
       "contacted": 141,
-      "not_contacted": 28
+      "not_contacted": 29
     },
     "stage_breakdown": {
-      "Email 3": 51,
       "Email 1": 50,
+      "Email 3": 50,
       "Lost": 40,
-      "Email 2": 38,
-      "New": 29,
-      "Replied": 27,
+      "Email 2": 39,
+      "New": 30,
+      "Replied": 28,
       "Won": 11,
       "Engaged": 3,
       "Awaiting Reply": 1,
@@ -291,7 +305,7 @@
     "priority": {
       "P1": 93,
       "P2": 53,
-      "P3": 105
+      "P3": 107
     },
     "key_customers": [
       {
