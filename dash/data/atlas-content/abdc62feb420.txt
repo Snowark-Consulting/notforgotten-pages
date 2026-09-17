@@ -1,0 +1,44 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-09-17
+---
+
+# 2026-09-17 — write_file truncated a shared append-only log (james-pulse.log); recovered from state.db
+
+## What happened
+
+During the 06:20 ACST james@ inbox pulse (cron `cron_c130a8d0475d_20260917_062004`), the session needed to record its finding in `/root/.hermes/logs/james-pulse.log`. It used **`write_file`**, which overwrites the whole file. The log had 9 existing entries from 10–15 Sep; all 9 were destroyed by the write.
+
+The tool result even carried the warning — *"was modified by sibling subagent … but this agent never read it. Read the file before writing to avoid overwriting the sibling's changes"* — and it was read only after the fact.
+
+## Why it matters
+
+`logs/*.log` are **append-only control artifacts**: the pulse dedup logic, the CEO Brief, the nightly consolidation and the log-retention job all read them, and the DMARC/staleness recommendations in them are the evidence trail. A silent truncation destroys institutional memory and would have gone unnoticed — the file still existed, still had content, and nothing in the pulse path verifies line count.
+
+This is the same failure class as Pitfall 33 ("processed ≠ filed") and the repeated `catalogue.md` corruption: a write that looks successful but silently deletes prior state.
+
+## Recovery (worked, reusable)
+
+1. `git -C /root/.hermes log -- logs/james-pulse.log` → not tracked, no HEAD copy.
+2. `grep -rl "<distinctive string from a lost line>" /root/.hermes` → found `state.db` and `state.db-wal`.
+3. Queried the session store **read-only**:
+   `sqlite3.connect('file:/root/.hermes/state.db?mode=ro', uri=True)`
+   `SELECT id, session_id, timestamp, content FROM messages WHERE content LIKE '%JAMES-INBOX%'`
+   Past `tail`/`grep` outputs of the file are stored verbatim as tool-result messages, so the lost lines were recoverable even though the file was gone.
+4. Merged the two sources: the current session's own `grep -n` output gave exact text for 6 of the 9 lines **and their line numbers**; a 16-Sep session's tail output supplied the other 3. Line-number evidence fixed the ordering; the 3 recovered lines filled the 3 gaps.
+5. Rewrote the file with all 9 original lines plus the new entry, then verified `wc -l` = 10 and that every line begins with a timestamp.
+
+## Rule (applies to every shared log)
+
+- **Append with `cat >> <file> <<'EOF'`** (or a Python `open(path, 'a')`). Never `write_file` on a log.
+- Treat `write_file` as **destructive by definition** on any file another session may also write: read it first, or append instead.
+- After any write to a shared log, verify: line count increased by exactly 1 and the previous last line is still present.
+- If state is lost anyway: `state.db` (read-only) is the recovery source, because tool outputs are persisted there verbatim.
+
+## Evidence
+
+- Overwritten at 2026-09-17 06:22 ACST (`write_file`, msg tool-call row 12059).
+- Restored file: 10 lines / 10,595 bytes; originals from 10–15 Sep present verbatim; new entry appended 06:2x ACST.
+- Recovery procedure is now a permanent tool: `scripts/recover-file-from-state-db.py "<search-string>" [context] [max-hits]` (read-only against `state.db`). Session-temporary helpers were deleted after use.

@@ -48,3 +48,27 @@ This mirrors the provider-failover pattern: decision documented, implementation 
 ## Prepared by
 
 Prepare-Ahead Clock 2026-08-21 22:00 ACST. Next step: James assigns verdict at Aug 25 review.
+
+---
+
+## ⚠️ REVIEW DATE LAPSED — re-verified 16 Sep 2026 (Prepare-Ahead Clock)
+
+**Status: verdict never assigned. 22 days past the 2026-08-25 review date; no register update; no note mention since 2 Sep.**
+
+The core finding is unchanged and re-verified live tonight, 26 days after the prep was written:
+
+| Check (run 16 Sep 2026) | Result |
+|---|---|
+| `grep -rl 'utm_' knowledge/canonical-templates/` | **0 matches** — no UTM on any canonical template |
+| `grep -rln 'utm_' scripts/*.py bin/*.py` | **0 matches** — no send script builds a tagged link |
+| `grep -rl 'utm_' knowledge/outreach-sequences/` | **0 matches** — no sequence carries a tagged link |
+| Customer-facing links in canonical templates | Only the two QPaint privacy-policy footers, both `notforgotten.com.au/privacy` with **no UTM** |
+| `knowledge/experiments/INDEX.md` row for EXP-001 | still `running`, review date `2026-08-25` |
+| Output of the experiment | **None** — attribution data has not been collected at all |
+
+**What this costs.** EXP-001 is the only mechanism the business has for answering "which channel produces enquiries and clients". While it sits unassigned, every outbound send goes out untagged and the channel question cannot be answered retroactively for those sends. Three V2 campaigns (Email 1 Aug 14-17, Email 2 Aug 21, Email 3 Aug 28) and the 4 Sep Email 2 cohort have now gone out untagged since the prep was written.
+
+**This is a lapsed review, not a new problem.** Flagged once here rather than re-surfaced daily. The three verdict options above still stand, and option 1 (extend the Canon Verification Gate to require UTM on customer-facing links) is the only one that closes the gap permanently rather than documenting it again. A verdict is needed before the next outbound campaign launches, otherwise that campaign also becomes unmeasurable.
+
+*Re-verified by the Prepare-Ahead Clock, 16 Sep 2026 22:00 ACST. No CRM records changed, no contact made, no verdict presumed.*
+

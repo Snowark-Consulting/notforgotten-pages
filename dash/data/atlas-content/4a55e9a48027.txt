@@ -1,0 +1,66 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-09-17
+status: open
+---
+
+# Learnings Corrupted 12th Time — Same Two Files, Same 1.4 s Burst
+
+> The recurring learnings corruption returned on 2026-09-17 at 07:07 ACST, rewriting exactly `learnings/catalogue.md` and `learnings/cards/agent-architecture.md` 1.4 s apart — the 12th event in the series, and the second consecutive one to carry a renamed trap heading.
+
+**Date:** 2026-09-17 (event written 2026-09-16 21:37:04.48–21:37:05.83 UTC)
+**Occurrence:** 12th in the series
+**Found by:** nightly consolidation (cron `c72726a332e6`)
+**Repaired by:** `git restore` of both files from HEAD, then a content check against the canonical sources
+
+## What happened
+
+Both files were rewritten by an unidentified process in a 1.4-second burst at **07:07 ACST** — roughly **10 hours after** the 21:20 ACST integrity guard and the 21:30 ACST backup had both run clean.
+
+Catalogue damage (identical to the 10th and 11th events):
+
+- `EDITING THIS TABLE` warning block **deleted**
+- `gmail-auth` and `qpaint` rows **dropped**
+- **9 rows** `||`-prefixed (`hermes`, `shell`, `cloudflare`, `compliance`, `agent-architecture`, `browser`, `canonical-send`)
+- `campaign` row's card cell rewritten as a markdown link `[campaign.md](cards/campaign.md)`
+- blank line inserted mid-table
+
+Card damage — the same two-part signature as the 11th event:
+
+- `## TRAP — Customer deferral ("still thinking / comparing") is MONITOR, not a courtesy reply` — **heading deleted**, body displaced under the neighbouring trap
+- `## TRAP — Learnings damage is written OUT-OF-BAND at ~06:03 ACST …` — heading **renamed** to a rewritten title
+- the `> **UPDATE 2026-09-16:**` note and the 11th-occurrence block **deleted**
+
+The guard reported **31 findings** on the damaged tree, compared with 30 on the 11th event.
+
+## Repair and the content question
+
+1. `git restore learnings/catalogue.md learnings/cards/agent-architecture.md` — HEAD is the clean reference because the 21:30 backup committed the previous night's repaired file.
+2. Re-run the guard: **silent PASS**, 21 catalogue rows = 21 cards on disk, every HEAD `## TRAP` heading present, zero malformed rows.
+3. **Content check before re-applying anything.** The writer's card version carried only ONE genuinely-new block: a "customer reply already completed = LOST / third-party dependency = Engaged + deferred" trap. That content is already recorded in full, with evidence, in `skills/email/email-inbox-pulse/references/qpaint-customer-reply-processing.md` (2026-09-16 rows) and summarised in `learnings/LEARNINGS.md` for 2026-09-16. **Decision: do not re-apply it to the agent-architecture card** — it duplicates the two existing traps ("Customer deferral is MONITOR", "Engaged + external dependency = WAIT/MONITOR") and the canonical home for reply-classification rules is the reply playbook. Nothing was lost by the restore.
+
+## Evidence window
+
+| Check | Result |
+|---|---|
+| File mtimes | exactly two files, `21:37:04.48` and `21:37:05.83` UTC — **1.4 s apart** |
+| Device-wide scope | the only two files written on the device in that window |
+| Prior nights' window occupancy | varies — 13 unrelated `quotes-pulse-phase2` calls on 14 Sep, **zero** logged calls on 16 Sep |
+| Constant across all 12 events | **no logged tool call ever reads or writes anything under `learnings/`**, and the rewritten prose appears nowhere in `state.db` |
+
+Writer remains **UNIDENTIFIED**. Two prior attributions were wrong and are recorded so they are not repeated: (a) "the guard ran before the write" (a UTC mtime read as Adelaide local), and (b) "the window is never tool-call-free" (over-generalised from one night).
+
+## Standing rules (unchanged, re-confirmed)
+
+1. **Restore from HEAD — never fuzzy-patch, never rename a heading by hand.** The guard reads a renamed heading as a *deleted* trap.
+2. **Run `scripts/bin/learnings-integrity-guard.py` as the LAST step of every consolidation.** Its 21:20 cron cannot see work written after it, and this damage lands ~10h later anyway.
+3. **No same-evening reschedule can catch this.** The control that would help is a **~07:15 ACST guard run** that detects the drift and restores from HEAD the same morning — rec `consolidation-learnings-guard-0715`, awaiting founder approval. This is the 12th event confirming it.
+4. **Do not weaken the guard or "fix" its always-zero exit** — that is the documented `no_agent` alert pattern; the backup pre-commit gate tests the guard's OUTPUT, not its exit code.
+
+## Source
+
+- 2026-09-17 nightly consolidation (12th occurrence)
+- Related: [[Learnings Corrupted 11th Time]] (`learnings/2026-09-16-learnings-corruption-11th.md`), [[Corruption Writer Window]] (`learnings/2026-09-15-corruption-writer-window.md`), [[Out-of-Band Learnings Writer]] (`learnings/2026-09-14-out-of-band-learnings-writer.md`), [[Agent Architecture Card]] (`learnings/cards/agent-architecture.md`), [[Learnings Integrity Guard]] (`scripts/bin/learnings-integrity-guard.py`)
+- Recs: `consolidation-out-of-band-learnings-writer`, `consolidation-learnings-guard-0715`, `consolidation-guard-ordering-gap`, `consolidation-guard-tune`
