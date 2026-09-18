@@ -1,0 +1,71 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-09-18
+confidence: high
+contested: false
+---
+
+# A production date convention lived only in Outreach Notes — the no-weekend-send guard
+
+**Confidence:** high
+**Contested:** false
+
+## Symptom
+
+Intake of QPaint quote **#43195** (18 Sep 2026) required setting `Next Touchpoint Date`.
+The documented rule is unambiguous — `Quote Date + 48h`. Quote Date was Fri 2026-09-18, so the
+raw rule gives **Sun 2026-09-20**. But same-day precedents disagreed with each other:
+
+| Record | Quote Date | NTP applied | Basis |
+|---|---|---|---|
+| #43217, #43234, #43176, #43171, #43237 | 2026-09-18 | **Mon 2026-09-21** | "per the weekend send guard" |
+| #43236 | 2026-09-18 | **Sun 2026-09-20** | literal `+48h`; note flags its own inconsistency |
+| #43168 | 2026-09-17 | **Mon 2026-09-21** | raw expiry Sat 19 Sep → Monday, guard documented in note |
+
+So on the same day, in the same table, six intakes applied the guard and one did not.
+
+## Cause
+
+The **no-weekend-send guard is real, load-bearing, and written down nowhere** except in
+Outreach Notes. Its clearest statement is the 11 Sep 2026 append on #43147:
+
+> WEEKEND SEND GUARD: Next Touchpoint Date moved 2026-09-13 (Sun) to 2026-09-14 (Mon).
+> No weekend customer sends. No customer contact made, quote dates and stage unchanged.
+
+A grep of `knowledge/` and `skills/` for weekend/non-business-day/next-business-day returns
+**no** rule — one unrelated hit in the founder call list and one in email-tracking. The skill
+and the cron prompt both state only `Quote Date + 48h`. The guard exists as practice handed
+forward through example, so each intake agent re-derives it and they do not all derive it the
+same way. #43236's agent applied the literal rule, noticed the divergence, and left it open.
+
+## Fix applied (this intake)
+
+1. Followed the **demonstrable majority** — rolled the Sunday expiry to **Mon 2026-09-21** —
+   rather than the literal reading or the single diverging precedent.
+2. Wrote the guard **into `First Action`** so the 07:30 Daily Attention's 36h look-ahead cannot
+   fire on the raw 48h trigger (the #43217 pattern, not the #43168 pattern).
+3. **Re-surfaced the divergence to the founder** instead of silently normalising it, and did
+   **not** retro-edit #43236 to force agreement — that record carries an open founder decision.
+
+## Lessons
+
+- **A convention with no written source cannot be applied consistently.** When two same-period
+  precedents conflict and neither has a documented rule behind it, the fix is not to pick one
+  quietly — it is to follow the majority, mark the reasoning in the record, and escalate.
+- **Check the sibling record, not just the duplicate check.** The repeat-contact check on #43195
+  found #43236 — the same contact, same day — which is what exposed the divergence. A dedup pass
+  that only looked for the quote number would have missed it entirely.
+- **Where a date field drives an automated downstream action, the guard belongs in the field the
+  automation reads** (`First Action`), not only in the notes. Daily Attention reads NTP + First
+  Action; a guard that lives only in prose can still be bypassed.
+- **The open decision is a founder call, not an intake call:** either codify the weekend guard as
+  the standard (and record it in a decision file + skill), or drop it and accept Sunday
+  touchpoints. Until then intake will keep diverging.
+
+## Files
+
+- `skills/notforgotten/quote-intake/SKILL.md` — Pitfall 64
+- #43195 record `recbA8W0aLSU1VJp4` — full intake provenance
+- #43236 record `recZlDwhNtmfM2fdR` — the diverging precedent, founder decision still open

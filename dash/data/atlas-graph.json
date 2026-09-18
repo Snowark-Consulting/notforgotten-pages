@@ -719,6 +719,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decision_reviews_2026_09_24_provider_failover_deferred_review_prep",
+      "label": "Provider Failover Deferred Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-09-24-provider-failover-deferred-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "505359934e29",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decision_reviews_index",
       "label": "Decision Reviews / Index",
       "file_type": "doc",
@@ -4257,6 +4268,13 @@
     {
       "source": "knowledge_decision_reviews_index",
       "target": "knowledge_decision_reviews_2026_09_21_v2_email2_observation_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_09_24_provider_failover_deferred_review_prep",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

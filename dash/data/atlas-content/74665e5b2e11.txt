@@ -1,0 +1,93 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-09-18
+confidence: high
+contested: false
+---
+
+# Learnings corruption, 13th occurrence — the writer hit three files, and one card lost a trap outright
+
+**Confidence:** high
+**Contested:** false
+
+## What happened
+
+The routine integrity guard (`scripts/bin/learnings-integrity-guard.py`) reported **38 findings**
+against the working tree at the start of the 18 Sep consolidation — the largest count of any
+occurrence (31 on the 12th, 30 on the 11th).
+
+Three files, not the usual two:
+
+| File | mtime (UTC) | ACST | Damage |
+|---|---|---|---|
+| `learnings/catalogue.md` | 2026-09-17 21:32:46.77 | 07:02:46 | warning block deleted, 2 rows dropped, 7 rows `\|\|`-prefixed, `campaign` cell linked, mid-table blank line |
+| `learnings/cards/hermes.md` | 2026-09-17 21:32:47.87 | 07:02:47 | 2 `## TRAP` headings deleted, the `**UPDATE 2026-08-18:**` note deleted, one trap reworded |
+| `learnings/cards/gmail.md` | 2026-09-17 21:56:23.97 | 07:26:23 | one trap deleted outright, another condensed, two traps reworded |
+
+The first two are the familiar burst (1.1 s apart). The third is new: **`cards/gmail.md` was
+rewritten ~24 minutes later, on its own.** No prior occurrence touched a third file, and no prior
+occurrence ran two separate bursts in one night.
+
+**New damage element:** `## TRAP — Customer-quoted date can disagree with the real send date;
+verify before suspecting a duplicate send (2026-09-17)` was **deleted outright** from the gmail
+card — heading and body. That trap was written on 17 Sep and was gone within a day. Nothing
+downstream referenced it, so nothing else failed; the loss was only visible because the guard
+compares heading lists against HEAD.
+
+## The writer adds as well as deletes
+
+The damage is not purely subtractive, which is what makes it hard to spot. This time the writer's
+version of `cards/gmail.md` carried **one genuinely-new block** (the OAuth-refresh single-shot
+trap from that morning's 07:20 gate failure) and, in `cards/hermes.md`, **one genuinely-new block**
+(the `write_file` append-only-log trap from 17 Sep). Both were real learnings of the day; both
+appear only in the writer's damaged version.
+
+So the writer behaves like a stale, lossy merge of the day's learnings into the cards, not a
+random corruption.
+
+## Repair applied
+
+1. `git restore learnings/catalogue.md learnings/cards/hermes.md learnings/cards/gmail.md`
+   → guard immediately silent PASS. HEAD is the clean reference because the 21:30 backup commits
+   before the ~21:33+ write.
+2. **Duplicate check before re-applying** (the 12th-event rule). Both genuinely-new blocks were
+   checked against the card layer and re-applied, because neither existed in any card:
+   - the OAuth-refresh trap → appended to `cards/gmail.md`;
+   - the `write_file` trap → appended to `cards/hermes.md`.
+   The writer's *reworded copies of existing traps* were deliberately NOT re-applied.
+3. One genuine content correction restored: the gmail card's `STILL SINGLE-SHOT: inbox-watchdog-gate.sh`
+   sentence, which the 12th-event card carried, was superseded by that morning's hardening of all
+   three gates. Replaced with the RESOLVED 2026-09-18 statement rather than left stale.
+4. Catalogue warning block updated for the 13th event via deterministic exact-string replacement
+   (never `patch`); `write_file` + `append-only log` added to the `hermes` routing keywords.
+5. Post-repair verification: guard silent PASS; 23 table lines (header + separator + 21 rows);
+   0 `||` rows; 21 cards on disk ↔ 21 rows; heading LIST diff vs HEAD shows **additions only**,
+   zero deletions.
+
+Nothing was weakened to make tonight pass: the guard is untouched, its always-zero exit was not
+"fixed", and the backup pre-commit gate stays in place.
+
+## Lessons
+
+- **A clean guard result on HEAD does not mean the tree is clean.** The guard runs 21:20 and the
+  backup 21:30; the write lands ~21:33+. Run the guard manually as the LAST step of every
+  consolidation — it cannot see your own edits otherwise, and it cannot see the writer's.
+- **Count the files, not just the findings.** The signature had held at exactly two files for
+  five nights; this one hit three, with a second burst 24 minutes later. Treat "which files"
+  as a variable, never a constant.
+- **A deleted trap is silent in isolation.** `cards/gmail.md` lost a trap written the previous
+  day and nothing broke. Only the HEAD heading-list diff surfaced it. `git diff --numstat` on
+  any modified card, read before any repair, is the cheapest possible detector.
+- **The writer is a lossy merge, so its added blocks are real.** Restoring from HEAD throws away
+  genuine learnings unless you extract and re-apply them — which is why the repair is
+  "restore, then extract, then duplicate-check, then re-apply", in that order.
+
+## Files
+
+- `learnings/catalogue.md` — 13th-event warning block, hermes row keywords
+- `learnings/cards/hermes.md` — `write_file` trap re-applied (trap 9)
+- `learnings/cards/gmail.md` — OAuth-refresh trap re-applied; 403 trap marked RESOLVED
+- `skills/snowark/nightly-consolidation/SKILL.md` — pitfall added
+- Guard: `scripts/bin/learnings-integrity-guard.py` (38 findings → silent PASS)

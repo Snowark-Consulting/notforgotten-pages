@@ -45,6 +45,27 @@ prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
 
 **No material change across three consecutive pulls (14, 15, 16 Sep).** Same 52 prospects, same 139-record ledger, same single reply. The backlog is ageing, not growing, and nothing is owed. This prep is now current for the 21 Sep review: the verdict questions below are unchanged and no further preparation is required before the review date.
 
+## Re-verified 17 Sep 2026 (Prepare-Ahead Clock, live Airtable pull) — 4 days out
+
+| Metric | 16 Sep | 17 Sep | Note |
+|---|---|---|---|
+| Records reading "due" (past `Next Follow-up Date`, `V2 Status` = ACTIVE) | 52 prospects / 52 records | **52 prospects / 52 records** | Identical date split: 32 at 4 Sep, 10 at 5 Sep, 1 at 8 Sep, 9 at 11 Sep. **6th consecutive day unchanged** |
+| V2 ledger | 139 records, 0 activity in 6 days | 139 records, 0 activity in 7 days | Last outbound remains 4 Sep. Channel quiet 13 days |
+| Prospect replies since 21 Aug | 1 (Rahamed) | 1 (Rahamed) | No new inbound |
+| Stop signals | 0 | 0 | No unsubscribes, opt-outs or bounces |
+
+**Terminology correction for the 21 Sep review — "due" must be defined by field, not by "any past date".** Tonight's first scan read **131 records past due** because it counted *any* past date field on *any* V2-ACTIVE record. The correct count is **52**, and the difference is the definition:
+
+| Definition | Count | What it is |
+|---|---|---|
+| Past `Next Follow-up Date`, `V2 Status` = ACTIVE | **52** | **The real V2 backlog.** Unchanged since 13 Sep |
+| Past `Next Follow-up Date` **or** `Next Touchpoint Date`, V2-ACTIVE | 131 | Includes 79 historical records — 67 at 29 Jul, 17 at 10 Aug — whose `Next Touchpoint Date` is a frozen V1/Wave 1/PDV/CvC value on records now reading `Campaign Complete` |
+
+The 79 extra records are **frozen history, not owed work**. They carry no `Next Follow-up Date` from the V2 ledger and no live `Sequence Status`. A scan that lumps the two fields together over-reports the backlog by 2.5×. Recorded here so the 21 Sep review, and any future scan, reads 52 and not 131.
+
+No further preparation is required before the review date. The verdict questions below stand unchanged.
+
+
 ## Outcome data (verified 14 Sep 2026, Airtable V2 Outreach Activity + Gmail)
 
 | Metric | Value | Note |

@@ -1,0 +1,94 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-09-17
+status: PREPARATION — review due 2026-09-24 (7 days out). Verdict is James's.
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — Provider Failover Deferred (due 24 September 2026)
+
+> Outcome data gathered ahead of the registered review date for `2026-08-24-provider-failover-deferred`.
+> This is a REVIEW of an infrastructure posture. No customer contact, no send, no config change is made by this prep.
+> This prep did not exist before tonight. The 24 Sep review had no preparation on file.
+
+## The decision being reviewed
+
+**Slug:** `2026-08-24-provider-failover-deferred`
+**Decided 24 Aug 2026:** Provider failover deferred. DeepSeek judged healthy; `fallback_providers` left empty. The drift from `2026-07-24-provider-failover-gemini-fallback` was acknowledged as an accepted operational risk, not an unnoticed gap.
+**Review date:** 2026-09-24.
+
+**What this review is asking:** is the single-provider posture still a conscious accepted risk, or has the evidence moved far enough to change it?
+
+## Renewal status — re-verified 17 Sep 2026 22:00 ACST
+
+| Check | Result | Evidence |
+|---|---|---|
+| `fallback_providers` in config | **still `'[]'`** — unchanged for 24 days | `config.yaml` line 9 |
+| Parses as a fallback chain | **No.** The value is a quoted **string**, not a YAML list. This is the documented `hermes config set` list-storage trap | `Agent/registry` → `growth-operations` Pitfalls |
+| Primary provider | `deepseek` / `deepseek-v4-pro` | `config.yaml` `model:` block |
+| Crons pinned to the cheap tier | **10** jobs on `deepseek-v4-flash` | `cron/jobs.json` (verified) |
+| Cron jobs reporting non-ok | **1 of 42** — `State DB snapshot backup` `8ed9962a3929`, exit 128 | Dead origin PAT. Not provider-related |
+
+## Did a failover event occur in the 24 days since?
+
+**No event required failover.** DeepSeek produced 27 logged transient API failures across three days, every one absorbed by the built-in retry:
+
+| Date | Logged API-call failures | Outcome |
+|---|---|---|
+| 2026-08-24 | 6 | All retried (`attempt 1/3`), recovered |
+| 2026-08-25 | 16 | All retried, recovered |
+| 2026-08-27 | 5 | All retried, recovered |
+| 2026-08-28 → 2026-09-17 | **0** | 21 consecutive days clean |
+
+Error types logged: `ReadError` (`[Errno 32] Broken pipe`), `APIConnectionError` (`Connection error.`), `APIStatusError`. Retry policy `default`, interval ~2s.
+
+**No line in the gateway log shows an exhausted retry, an "all attempts failed" outcome, or a fallback being invoked.** No cron job failed for a provider reason. No user-visible degradation was reported.
+
+## What is NOT a provider incident (careful attribution)
+
+- **2026-08-29, 8.5-hour overnight outage.** This was a gateway **process** failure — memory exhaustion and an exit-75 planned-restart signature — not a DeepSeek outage. Full diagnosis: `skills/devops/hermes-gateway-ops`. Recorded here so a future reader does not count it as provider evidence.
+- **Telegram "Bad Gateway" reconnects (26 Aug).** Telegram transport, unrelated to the model provider.
+- **`State DB snapshot backup` exit 128.** Dead embedded PAT on `origin`. Unrelated to DeepSeek.
+
+## The resilience argument that changed since 24 Aug
+
+The `wakeAgent` gate was deployed 2026-08-18. Empty ticks emit `{"wakeAgent": false}` and the agent is skipped — **$0 idle**. That was a cost win, and it also changed the failure signature:
+
+| Before the gate | After the gate |
+|---|---|
+| A provider outage caused repeated cron error spam into the alert channel | An outage surfaces as **missed pulses** — quiet, with no alert at all |
+
+The original containment goal from the Jul-24 decision (stop the spam) is now met by the gate, not by a fallback chain. But the same gate **removes the alarm**. A multi-hour DeepSeek outage would now delay `inbox-pulse-phase2` and `quotes-pulse-phase2`. Those are the paths that detect a QPaint customer reply. A silent detection delay is a **service-continuity risk**, which SOUL Principle 13 places above provider loyalty.
+
+This is the substantive new evidence for 24 Sep, and it cuts both ways: the gate solved the noise, and it created a new blind spot that a fallback chain would partially cover.
+
+## Verdict options for review (James decides)
+
+1. **Restore the chain** — add a fallback provider (DeepSeek → alternative) so retry-exhaustion and multi-hour outages fail over automatically. Requires a config write done by script, not `hermes config set`, because list-valued settings must be written as real YAML lists. Consistent with `2026-08-17-deepseek-client-data-approved`, which permits a fallback provider for reliability.
+2. **Accept single-provider posture formally** — DeepSeek primary only; `wakeAgent` gate is the containment; outages surface as missed pulses. Would need a compensating control for the blind spot above (for example, a heartbeat that alerts when a pulse has not run for N hours).
+3. **Defer again** — no change now. Weakest option available this time: the decision has already been deferred once, and the evidence base has not stood still.
+
+## Questions for the 24 Sep review
+
+1. Is a 21-day clean run, following 27 absorbed transients, enough to treat single-provider as settled?
+2. Does the `wakeAgent` gate's silent-failure mode need a heartbeat alert regardless of which option is chosen?
+3. If option 1: which provider, given DeepSeek is the approved carrier for client data?
+4. Should the config's `'[]'` **string** form be corrected to a real empty list as a standalone hygiene fix, so a future fallback write is not silently ignored?
+
+## Evidence files
+
+- `config.yaml` line 9 (`fallback_providers: '[]'`), `model:` block
+- `cron/jobs.json` — 42 jobs, 1 non-ok
+- `logs/gateway.log` — DeepSeek API-call failures 24–27 Aug, error-type census
+- `logs/errors.log` — corroborating entries
+- `knowledge/decisions/2026-08-24-provider-failover-deferred.md`
+- `knowledge/decisions/2026-07-24-provider-failover-gemini-fallback.md`
+- `knowledge/decisions/2026-08-17-deepseek-client-data-approved.md`
+- `knowledge/decision-reviews/2026-08-24-provider-failover-review-prep.md` (the Aug review)
+- `skills/devops/hermes-gateway-ops/SKILL.md` — 29 Aug outage attribution
+
+---
+
+*Prepared by the Prepare-Ahead Clock, 17 Sep 2026 22:00 ACST, 7 days before the review date. No contact made, no config changed, no CRM records changed.*

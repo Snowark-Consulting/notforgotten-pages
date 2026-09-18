@@ -1,0 +1,90 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-09-18
+confidence: high
+contested: false
+---
+
+# state.db stopped persisting sessions at 09:45 ACST — 6 sessions and a day of intake transcripts are unrecorded
+
+**Confidence:** high
+**Contested:** false
+
+## Symptom
+
+Found while gathering the 18 Sep daily note. `session_search()` returned:
+
+```
+Session database not available: OperationalError: disk I/O error
+(state.db may be on NFS/SMB/FUSE/ZFS — see https://www.sqlite.org/wal.html)
+```
+
+A direct read-only query confirmed the database is readable but has simply stopped receiving rows.
+
+## Evidence
+
+| Check | Result |
+|---|---|
+| `sessions` row count | 54 total |
+| max(`sessions.started_at`) | **2026-09-18 00:14:57 UTC = 09:44:57 ACST** |
+| max(`messages.timestamp`) | **2026-09-18 00:15:53 UTC = 09:45:53 ACST** |
+| `PRAGMA quick_check` | **ok** |
+| Disk | 41% used, 12G free — GREEN |
+| Gateway process | pid 18962, uptime since 2026-09-12 18:02 UTC (no restart near the cut-off) |
+| `state.db` size | 136,564,736 bytes (118MB at the last recorded vacuum check) |
+| `state.db-wal` | 0 bytes |
+| `logs/state-db-vacuum.log` | **all 4 VACUUM attempts ABORT** — "gateway pid still alive after 120s; no SIGKILL, skipping VACUUM" |
+
+**Six sessions provably ran after the cut-off** (all present in `logs/tool-calls.jsonl`) and **none
+exist in `state.db`** — 0 session rows and 0 message rows each:
+
+| Session | First logged call (UTC) | ACST |
+|---|---|---|
+| `cron_203f3a6cfd56_20260918_100051` | 00:30:55 | 10:00 |
+| `cron_203f3a6cfd56_20260918_101251` | 00:42:54 | 10:12 — the #43195 intake |
+| `cron_2d4a9ff4f06b_20260918_101551` | 00:45:54 | 10:15 |
+| `cron_203f3a6cfd56_20260918_102751` | 00:57:56 | 10:27 |
+| `cron_203f3a6cfd56_20260918_112752` | 01:57:55 | 11:27 |
+| `cron_c130a8d0475d_20260918_142056` | 04:50:59 | 14:20 |
+
+## Impact
+
+- The QPaint #43195 intake transcript — including the reasoning behind the weekend-guard
+  divergence — is not persisted anywhere except its own learning file and the Airtable record.
+- `session_search` is unusable. Dream, the nightly consolidation, and session-librarian all read it.
+- Any job that derives counts, cost or activity from `state.db` under-reports for the period.
+- `logs/tool-calls.jsonl`, `cron/output/` and `cron/executions.db` are separate stores and are
+  **still live** — which is why the failure is easy to miss: the system looks healthy from every
+  other angle.
+
+## What was NOT done
+
+Nothing was repaired. `state.db` is Hermes core infrastructure; the failure is not a disk-space or
+corruption case (`quick_check` is ok), so there is no unambiguously safe fix, and rule 10 stops
+production — including infrastructure changes — when an assumption is unverified. No `VACUUM`, no
+`REINDEX`, no file surgery, no restart. Raised as rec `consolidation-state-db-persistence-stop` and
+logged in `Agent/Infrastructure.md` for Winston/Josh.
+
+## Lessons
+
+- **A liveness signal is not a persistence signal.** Cron outputs, `executions.db` and
+  `tool-calls.jsonl` all kept working normally while `state.db` silently stopped accepting rows.
+  Only a direct max-timestamp query surfaces it.
+- **`session_search` failing is a symptom, not the fault.** Read the error as "the session database
+  is not available", then verify persistence directly rather than retrying the tool.
+- **Do not diagnose a 4-day-old gateway as the cause.** The gateway uptime was checked precisely to
+  rule out a restart, and it ruled one out — record what you ruled out, not just what you found.
+- **Column names in `state.db` are not what the docs imply** — `sessions` has `started_at` and
+  `last_activity_at`, and has NO `session_id`, `created_at` or `updated_at`. Two ad-hoc queries
+  failed on exactly those names tonight (see rec `dream-err-state-db-session-id-column`).
+- **There is no `sqlite3` CLI on this box.** Use `python3` with
+  `sqlite3.connect('file:state.db?mode=ro', uri=True)`.
+
+## Files
+
+- `Agent/Infrastructure.md` — state.db watchdog row, PERSISTENCE STOP note
+- `Agent/recommendations.json` — `consolidation-state-db-persistence-stop`
+- `memory/MEMORY.md` — state.db entry
+- `skills/snowark/nightly-consolidation/SKILL.md` — Step 0 persistence check
