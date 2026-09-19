@@ -1,32 +1,32 @@
 {
-  "generated_at": "2026-09-19T04:03:48+09:30",
+  "generated_at": "2026-09-20T04:05:17+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "Saturday. Quiet overnight — 0 new quotes, 0 new replies, 0 new bounces across all three mailboxes. QPaint portfolio at 262 records, 210 active journeys, 12 Won ($483,982), 1 founder exception (Raewyn Frost quote-extension). Two decisions carry through from Friday: the Raewyn Frost handoff and the Eddie Yuan ruling.",
-    "estimated_time": "2 minutes"
+    "body": "Sunday. Quiet overnight — 0 new quotes, 0 new replies, 0 new bounces across all three mailboxes. QPaint at 263 records (+1 intake), 12 Won ($483,982), 41 Lost (Kristen Watt #43121 reconciled yesterday). No sends due today (weekend guard). Three founder decisions carry into Monday: Alys Dee Le-Bhers (quote expires Tue 22 Sep), LEAD Childcare coordination (before Mon 07:30), and the Raewyn Frost handoff.",
+    "estimated_time": "3 minutes"
   },
   "business_score": {
     "score": 88,
     "change": "—",
     "reasons_positive": [
-      "QPaint 262 records, $8.48M total Deal Value. 12 Won: $483,982 = $129,750 Recovered (Arno Hsu) + $274,589 Assisted (7) + $79,642 Observed (4). Honest Won-vs-Recovered separation maintained.",
-      "1 overdue QPaint follow-up (Raewyn Frost, a known founder action — quote expired, handoff draft ready). 210 active journeys with complete Next Action coverage.",
-      "Recovery operations fully automated: 0 exceptions, all pulse jobs present, CRM reconciled to Gmail overnight."
+      "QPaint 263 records (+1 intake overnight), $8.51M total Deal Value. 12 Won = $483,982 ($129,750 Recovered + $274,589 Assisted + $79,642 Observed). Honest Won-vs-Recovered separation maintained.",
+      "210 active journeys with complete Next Action coverage. 1 overdue (Raewyn Frost, a known founder action). Recovery operations fully automated with 0 exceptions.",
+      "Kristen Watt #43121 reconciled to Lost with reason discipline held — classified as an information/source-visibility gap, not an execution failure."
     ],
     "reasons_negative": [
       "1 paying customer ($199 MRR). Customer #2 remains the single most important metric.",
-      "Cold painter channel flat — 52 V2 prospects past follow-up date, blocked on the close-out ruling.",
-      "Two public GitHub repos still expose client/customer email addresses (6th day unresolved)."
+      "Cold painter channel flat — 52 V2 prospects past follow-up date, blocked on the close-out ruling (decision review Mon 21 Sep).",
+      "state.db integrity now FAILS (freelist corruption) on top of the persistence gap — flagged to Winston/Josh. Off-box backup dead 15th day, two public repos 7th day."
     ]
   },
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "QPaint: Active. Portfolio certified. 210 active journeys with complete Next Action coverage."
+      "detail": "QPaint: Active. 263 records, 210 active journeys with complete Next Action coverage."
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "210 active QPaint journeys certified. 140 contacted. 1 exception (Raewyn Frost, founder action). Pipeline: $7,084,260. Won: $483,982."
+      "detail": "210 active QPaint journeys. 140 contacted, 38 new. 1 exception (Raewyn Frost, founder action). Pipeline $7.09M, Won $483,982."
     },
     "outreach": {
       "status": "healthy",
@@ -34,11 +34,11 @@
     },
     "engineering": {
       "status": "degraded",
-      "detail": "state.db persistence anomaly (2nd day) — sessions not persisting since 18 Sep 09:45. Winston/Josh to investigate. Other systems healthy."
+      "detail": "state.db integrity FAILS (freelist 2nd-reference corruption) + 27.8h persistence gap. LLM cost-check cron failing on 'database disk image malformed'. Winston/Josh to investigate. Other systems healthy."
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $483,982 Won ($129,750 Recovered). $7,084,260 active pipeline."
+      "detail": "QPaint: $483,982 Won ($129,750 Recovered). $7.09M active pipeline."
     },
     "atlas": {
       "status": "healthy",
@@ -47,173 +47,191 @@
   },
   "waiting_for_james": [
     {
-      "id": "raewyn-frost-quote-extension",
-      "title": "Approve QPaint handoff draft — Raewyn Frost quote #43032 expired 15 Sep, customer still deciding.",
-      "why_it_matters": "Quote expired while the customer is still considering. Surfacing a quote-extension/requote request to QPaint (Dee + Leslie) is the only way to keep the deal alive.",
-      "business_impact": "High: ~$7,920 deal at risk of lapsing.",
+      "id": "alys-dee-warranty-handoff",
+      "title": "Approve QPaint handoff — Alys Dee Le-Bhers #43071 warranty + inclusions clarification (quote expires Tue 22 Sep).",
+      "why_it_matters": "Customer asked for warranty/inclusions clarification on 18 Sep; the internal relay to QPaint (Dee + Leslie) is drafted but unsent. Quote expires in 2 days.",
+      "business_impact": "High: $20,542.50 deal, quote expires Tue 22 Sep — the most time-critical open item.",
       "estimated_time": "2 min to approve the prepared handoff draft",
-      "recommended_action": "Approve the james@ handoff to solutions@qpaint.com.au + admin@qpaint.com.au requesting a quote extension/requote.",
+      "recommended_action": "Approve the james@ handoff to solutions@qpaint.com.au + admin@qpaint.com.au so QPaint can answer before expiry.",
       "impact_sort": 100
     },
     {
+      "id": "lead-childcare-coordination",
+      "title": "Rule on LEAD Childcare #43236 + #43195 — two quotes to the same reception inbox, both due Mon 07:30.",
+      "why_it_matters": "Both carry Next Touchpoint Mon 21 Sep; firing two separate Email 1s to the same reception address is uncoordinated. The decision pack rejects that outcome.",
+      "business_impact": "High: $114,478.65 + $68,258.19 = $182,736.85 combined, fires Monday morning without a ruling.",
+      "estimated_time": "3 min (decision pack ready)",
+      "recommended_action": "Rule coordinated-relationship follow-up vs #43236-only-and-hold-#43195 before Mon 07:30.",
+      "impact_sort": 98
+    },
+    {
+      "id": "raewyn-frost-quote-extension",
+      "title": "Approve QPaint handoff draft — Raewyn Frost quote #43032 expired 15 Sep, customer still deciding.",
+      "why_it_matters": "Quote expired while the customer is still considering. A quote-extension/requote request to QPaint is the only way to keep the deal alive.",
+      "business_impact": "High: ~$7,920 deal at risk of lapsing.",
+      "estimated_time": "2 min to approve the prepared handoff draft",
+      "recommended_action": "Approve the james@ handoff requesting a quote extension/requote.",
+      "impact_sort": 95
+    },
+    {
       "id": "eddie-yuan-revised-quote",
-      "title": "Rule on Eddie Yuan — QPaint already issued a revised quote ($31,000) directly on 17 Sep.",
-      "why_it_matters": "QPaint bypassed the relay and put the revised quote in front of the customer themselves. Any further step from us may duplicate or confuse.",
+      "title": "Rule on Eddie Yuan — QPaint issued a revised quote ($31,000) directly on 17 Sep.",
+      "why_it_matters": "QPaint bypassed the relay and put the revised quote in front of the customer. Any further step from us may duplicate or confuse.",
       "business_impact": "High: $31,000 deal, conditional on 5% deposit by 30 Sep.",
       "estimated_time": "2 min to rule 'stand down' vs 'confirm receipt'",
       "recommended_action": "Confirm whether Atlas should stand down (QPaint owns the follow-up) or send one confirmation touch.",
-      "impact_sort": 95
+      "impact_sort": 90
     },
     {
       "id": "capture-call-round-3",
       "title": "Capture Founder Call Day Round 3 outcomes (called Wed 16 Sep).",
-      "why_it_matters": "Call is the only conversion lever on record. Rounds 1 and 2 were never captured; Round 3 was the first with a capture worksheet, and it is still empty. Without capture the call day produces no institutional knowledge.",
-      "business_impact": "High: turns founder time into permanent knowledge.",
-      "estimated_time": "10 min (rough notes are enough; Atlas converts them)",
-      "recommended_action": "Drop any rough notes on who was reached and what was said into knowledge/founder-call-capture-2026-09-16.md; Atlas structures and files them.",
-      "impact_sort": 90
-    },
-    {
-      "id": "public-repos-privacy",
-      "title": "Two public repos expose client/customer email addresses — 6th day unresolved.",
-      "why_it_matters": "Hardstaff08/notforgotten-client-os and Snowark-Consulting/notforgotten-pages are both still public; a paying client's staff email addresses (admin@qpaint.com.au, solutions@qpaint.com.au) sit on the open web.",
-      "business_impact": "High: privacy breach of a paying client's staff data.",
-      "estimated_time": "5 min to direct; fix is Josh/Winston",
-      "recommended_action": "Approve making both repos private (or moving data off Pages). Not a cron job's to fix.",
+      "why_it_matters": "Call is the only conversion lever on record. Rounds 1 and 2 were never captured; Round 3 was the first with a full list.",
+      "business_impact": "Medium: institutional knowledge loss if not captured.",
+      "estimated_time": "10 min",
+      "recommended_action": "Dictate Round 3 outcomes for capture into the V2 ledger.",
       "impact_sort": 85
     },
     {
-      "id": "offbox-backup",
-      "title": "Off-box backup dead 14 days — no off-box copy of the vault since 5 Sep.",
-      "why_it_matters": "Origin credential dead (git ls-remote → 'Invalid username or token'); Josh to refresh SNOWARK_GITHUB_TOKEN or grant Hardstaff08 access.",
-      "business_impact": "High (resilience): a host failure loses 11 days of knowledge.",
-      "estimated_time": "5 min (delegation to Josh)",
-      "recommended_action": "Direct Josh to refresh the origin credential so backup resumes.",
+      "id": "public-repos",
+      "title": "Two public GitHub repos expose client/customer email addresses — 7th day unresolved.",
+      "why_it_matters": "A paying client's staff email addresses are on the open web.",
+      "business_impact": "Medium (privacy/trust)",
+      "estimated_time": "5 min (delegate to Josh/Winston)",
+      "recommended_action": "Make the repos private.",
+      "impact_sort": 80
+    },
+    {
+      "id": "off-box-backup",
+      "title": "Off-box backup dead 15 days — no off-box copy of the vault since 5 Sep.",
+      "why_it_matters": "A host failure loses everything since 5 Sep.",
+      "business_impact": "High (resilience)",
+      "estimated_time": "5 min (delegate to Josh)",
+      "recommended_action": "Refresh the off-box backup origin credential.",
       "impact_sort": 75
     },
     {
-      "id": "state-db-persistence",
-      "title": "state.db stopped persisting sessions — 2nd day (since 18 Sep 09:45 ACST).",
-      "why_it_matters": "session_search is unusable; intake transcripts and tool logs are not being written to state.db. Dream, consolidation and session-librarian all depend on it.",
-      "business_impact": "Medium (infrastructure): under-reported analytics, lost transcripts.",
-      "estimated_time": "needs Winston/Josh — flagged with a recommendation",
-      "recommended_action": "Flag to Winston/Josh to investigate the persistence stop (disk I/O error on a live gateway).",
+      "id": "state-db-integrity",
+      "title": "state.db integrity FAILS + 27.8h persistence gap — flag to Winston/Josh.",
+      "why_it_matters": "Malformed database image; LLM cost-check cron is failing; session persistence and consolidation are affected.",
+      "business_impact": "Medium (system-of-record)",
+      "estimated_time": "2 min (flag)",
+      "recommended_action": "Flag to Winston/Josh for the safe-repair path (no sqlite3 CLI on box, VACUUM aborts against live gateway).",
       "impact_sort": 70
     },
     {
-      "id": "v2-closeout-mechanism",
-      "title": "V2 CRM close-out mechanism — 52 records read 'due', ageing not growing.",
-      "why_it_matters": "V2 Status has no MONITOR value on disk. 52 records read as overdue on every scan. One ruling unblocks the whole view in a single pass.",
-      "business_impact": "Medium: CRM accuracy and scan noise, not revenue.",
-      "estimated_time": "5 min",
-      "recommended_action": "Approve clearing Next Follow-up Date + appending a dated MONITOR note (Pipeline stage untouched).",
+      "id": "v2-close-out",
+      "title": "V2 CRM close-out mechanism — 52 records read 'due', ageing not growing (decision review Mon 21 Sep).",
+      "why_it_matters": "52 V2 prospects past follow-up date, frozen pending the close-out ruling.",
+      "business_impact": "Medium",
+      "estimated_time": "5 min (decision review prep is final)",
+      "recommended_action": "Review the 52-record close-out at Monday's decision review.",
       "impact_sort": 65
     },
     {
-      "id": "ff1-cohort-closeout",
+      "id": "ff1-cohort",
       "title": "FF1 contamination cohort — 14 records held ~29 days, decision pack ready.",
-      "why_it_matters": "14 prospects got a duplicated Email 1 and no Email 2, held at founder approval since 19 Aug. Pack on file recommends close.",
-      "business_impact": "Low-medium: cleanup of a stale cohort, no revenue at risk.",
-      "estimated_time": "5 min",
-      "recommended_action": "Rule on close vs revive using knowledge/ff1-contamination-cohort-closeout-pack-2026-09-13.md (recommendation: close).",
+      "why_it_matters": "Held cohort awaiting a founder close-vs-revive ruling.",
+      "business_impact": "Low-Medium",
+      "estimated_time": "2 min",
+      "recommended_action": "Rule close vs revive on the 14-record FF1 cohort.",
       "impact_sort": 60
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Saturday. Quiet overnight — 0 new quotes, 0 new replies, 0 new bounces. QPaint stable (262 records, 12 Won, 1 founder exception) and fully Atlas-owned. Top levers: approve the Raewyn Frost handoff and rule on Eddie Yuan — both P1 and both have been waiting since Friday. Open loops: two public repos (6th day), off-box backup dead (14th day), state.db persistence (2nd day), V2 close-out, FF1 cohort.",
+    "executive_summary": "Sunday. Quiet overnight — 0 new quotes, 0 new replies, 0 new bounces. QPaint stable (263 records, +1 intake, 12 Won, 41 Lost) and fully Atlas-owned. No sends due today (weekend guard). Monday is the action day: ~11 QPaint Email 1s fire and the V2 close-out decision review lands. Top levers before Monday: approve the Alys Dee handoff (22 Sep expiry), rule on LEAD Childcare coordination (before Mon 07:30), then Raewyn Frost and Eddie Yuan. Open loops: public repos (7th day), off-box backup dead (15th day), state.db integrity FAILING.",
     "priorities": [
       {
+        "action": "Approve the Alys Dee Le-Bhers handoff (warranty clarification)",
+        "why_it_matters": "Quote #43071 expires Tue 22 Sep; the customer asked for clarification on 18 Sep and the relay to QPaint is drafted but unsent.",
+        "expected_impact": "High",
+        "estimated_time": "2 min",
+        "confidence": "High"
+      },
+      {
+        "action": "Rule on LEAD Childcare #43236/#43195 coordination",
+        "why_it_matters": "Two Email 1s to the same reception inbox fire Mon 07:30 unless a ruling lands first.",
+        "expected_impact": "High",
+        "estimated_time": "3 min",
+        "confidence": "High"
+      },
+      {
         "action": "Approve the Raewyn Frost quote-extension handoff",
-        "why_it_matters": "Quote #43032 expired 15 Sep while the customer is still deciding; a ~$7,920 deal is lapsing silently.",
+        "why_it_matters": "Quote #43032 expired 15 Sep while the customer is still deciding.",
         "expected_impact": "High",
         "estimated_time": "2 min",
         "confidence": "High"
       },
       {
         "action": "Rule on Eddie Yuan (stand down vs confirm receipt)",
-        "why_it_matters": "QPaint issued the $31,000 revised quote directly; a duplicate touch from us could confuse a deal with a 30 Sep deposit deadline.",
+        "why_it_matters": "QPaint issued the $31,000 revised quote directly; a duplicate touch could confuse a deal with a 30 Sep deposit deadline.",
         "expected_impact": "High",
         "estimated_time": "2 min",
         "confidence": "High"
       },
       {
-        "action": "Capture Founder Call Day Round 3 outcomes",
-        "why_it_matters": "Rounds 1 and 2 produced no institutional knowledge; Round 3 is still uncaptured.",
-        "expected_impact": "High",
-        "estimated_time": "10 min",
+        "action": "Flag state.db integrity to Winston/Josh",
+        "why_it_matters": "Malformed image + persistence gap; LLM cost-check cron already failing.",
+        "expected_impact": "Medium",
+        "estimated_time": "2 min (flag)",
         "confidence": "High"
       },
       {
         "action": "Make the two public repos private",
-        "why_it_matters": "A paying client's staff email addresses are on the open web. 6th day unresolved.",
+        "why_it_matters": "Client staff email addresses on the open web, 7th day.",
         "expected_impact": "High",
-        "estimated_time": "5 min (delegate to Josh/Winston)",
-        "confidence": "High"
-      },
-      {
-        "action": "Direct Josh to refresh the off-box backup origin credential",
-        "why_it_matters": "No off-box copy of the vault for 14 days; a host failure loses everything since 5 Sep.",
-        "expected_impact": "High (resilience)",
         "estimated_time": "5 min (delegate)",
-        "confidence": "High"
-      },
-      {
-        "action": "Flag state.db persistence to Winston/Josh",
-        "why_it_matters": "Sessions have not persisted since 18 Sep 09:45; session_search and consolidation are affected.",
-        "expected_impact": "Medium",
-        "estimated_time": "2 min (flag)",
         "confidence": "High"
       }
     ],
     "can_wait": [
-      "All QPaint operations (Atlas owns): 210 active, 1 founder exception already surfaced, 12 Won reconciled.",
-      "V2 close-out mechanism + FF1 cohort: 2-5 min rulings, can slot after the P1s.",
+      "All QPaint operations (Atlas owns): 210 active, 4 founder exceptions surfaced, 12 Won reconciled.",
+      "V2 close-out mechanism + FF1 cohort: 2-5 min rulings, can slot after the P1s (Monday review).",
       "Ahmad/Star Painters: MONITOR until 23 Sep, final call-or-close due then.",
-      "State DB backup auth + learnings corruption: recurring infra/knowledge items, not revenue-blocking."
+      "Capture Call Day Round 3 + off-box backup credential: recurring infra/knowledge items, not revenue-blocking."
     ],
     "closing": "Two P1 decisions have been waiting since Friday. Approving the Raewyn Frost handoff and ruling on Eddie Yuan clears the entire QPaint founder queue for the weekend."
   },
   "changes": {
     "today": [
       {
-        "time": "2026-09-19T04:03:48+09:30",
-        "text": "Overnight scan: quotes@ 0 unread, atlas@ 0 unread, james@ 2 unread (both DMARC aggregate reports, system noise). No new quotes, no new replies, no new bounces, no new unsubscribes."
+        "time": "2026-09-20T04:05:17+09:30",
+        "text": "Overnight scan: quotes@ 0 unread, atlas@ 0 unread, james@ 4 unread (2 DMARC noise + 2 stale 9 Aug). No new quotes, no new replies, no new bounces, no new unsubscribes."
       },
       {
-        "time": "2026-09-19T04:03:48+09:30",
-        "text": "QPaint 262 records verified live (full pagination): 12 Won ($483,982), 40 Lost, $7.08M active pipeline, $129,750 recovered (Arno Hsu). 1 overdue (Raewyn Frost, founder action). No state changes overnight."
+        "time": "2026-09-20T04:05:17+09:30",
+        "text": "QPaint 263 records verified live (full pagination): 12 Won ($483,982), 41 Lost, $7.09M active pipeline. +1 intake overnight (Ashleigh Thomas $22,997.70). 1 overdue (Raewyn Frost, founder action)."
       },
       {
-        "time": "2026-09-19T04:03:48+09:30",
-        "text": "System health: disk 41% (12G free), state.db 136M (persistence anomaly, 2nd day), dashboard refresh current, all pulse jobs present. Off-box backup dead (14th day), public repos public (6th day)."
+        "time": "2026-09-20T04:05:17+09:30",
+        "text": "System health: disk 41% (12G free), state.db integrity FAILS (freelist), dashboard refresh current (03:01), all pulse jobs present. Off-box backup dead 15th day, public repos 7th day."
       }
     ],
     "yesterday": [
       {
-        "time": "2026-09-18T04:05:12+09:30",
-        "text": "Overnight scan: quotes@ 0 unread, atlas@ 0 unread, james@ 4 unread (2 DMARC + 2 stale). No new quotes, no new replies, no new bounces."
+        "time": "2026-09-19T14:25:00+09:30",
+        "text": "Kristen Watt #43121 reconciled to Lost — classified as an information/source-visibility gap (Lost has no automated signal), not an execution failure. Weekly Pipedrive export remedy recommended (awaiting ruling)."
       },
       {
-        "time": "2026-09-18T04:05:12+09:30",
-        "text": "QPaint 253 records: 11 Won ($445,818), 40 Lost, $6.80M active pipeline. 0 overdue. 2 founder exceptions (Raewyn Frost + Eddie Yuan)."
+        "time": "2026-09-19T22:00:00+09:30",
+        "text": "LEAD Childcare #43236 weekend guard patched (Sun→Mon), surfacing a #43236/#43195 same-inbox collision as an open founder decision."
       },
       {
-        "time": "2026-09-18T09:45:00+09:30",
-        "text": "Tullawong State School #43233 reconciled to Won ($38,164.50, Observed) — first QBuild-spec HOLD record to reach Won. 4th signed QPaint contract this week ($107,659 in 7 days)."
+        "time": "2026-09-19T18:15:00+09:30",
+        "text": "state.db integrity FAILS — PRAGMA quick_check returns freelist corruption; LLM cost-check cron failing on 'database disk image is malformed'."
       }
     ],
     "this_week": [
       {
         "time": "-",
-        "text": "QPaint: 262 records, $8.48M total, 12 Won ($483,982 = 1 Recovered $129,750 + 7 Assisted $274,589 + 4 Observed $79,642), 40 Lost."
+        "text": "QPaint: 263 records, $8.51M total, 12 Won ($483,982 = 1 Recovered + 7 Assisted + 4 Observed), 41 Lost."
       },
       {
         "time": "-",
-        "text": "Wins this week: Tullawong (Observed $38,164.50), Russell Dunster (Observed $18,619.70), Paul Robertson (Observed $10,879), Sian Leathem (Assisted $39,996)."
+        "text": "Wins this week: Tullawong (Observed $38,164.50), Nicole Wilson (signed 18 Sep), Russell Dunster, Paul Robertson, Sian Leathem."
       },
       {
         "time": "-",
-        "text": "Cold painter channel flat; close-out pending. Founder Call Day Wed 16 Sep (Round 3 still uncaptured)."
+        "text": "Cold painter channel flat; close-out pending (review Mon 21 Sep). Founder Call Day Wed 16 Sep (Round 3 still uncaptured)."
       }
     ]
   },
@@ -258,7 +276,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "QPaint portfolio certified. 210 active journeys. Protocol v1.0.0. Send authority live. 2 founder exceptions awaiting decision.",
+  "operational_status": "QPaint portfolio certified. 263 records, 210 active journeys. Sunday — weekend guard, no sends due. 4 founder exceptions awaiting decision (Alys Dee, LEAD Childcare, Raewyn Frost, Eddie Yuan).",
   "vault_health": {
     "decisions": {
       "total": 80,
@@ -273,7 +291,7 @@
       "resolved": 4
     },
     "ceo_briefs": {
-      "published": 9
+      "published": 10
     },
     "business_knowledge": {
       "principles": 15
@@ -283,29 +301,29 @@
     },
     "infrastructure": {
       "disk": "41% (12G free)",
-      "state_db": "136M (persistence anomaly 2nd day)"
+      "state_db": "131M (integrity FAILS — freelist corruption)"
     }
   },
   "qpaint_pipeline": {
     "summary": {
-      "total_customers": 262,
-      "total_pipeline_value": 7084260,
+      "total_customers": 263,
+      "total_pipeline_value": 7092414,
       "won_count": 12,
       "won_value": 483982,
-      "lost_count": 40,
-      "engaged_replied": 33,
+      "lost_count": 41,
+      "engaged_replied": 32,
       "contacted": 140,
-      "not_contacted": 37
+      "not_contacted": 38
     },
     "stage_breakdown": {
-      "Email 3": 52,
+      "Lost": 41,
       "Email 1": 45,
-      "Email 2": 41,
-      "Lost": 40,
-      "New": 38,
-      "Replied": 29,
-      "Won": 12,
+      "Replied": 28,
+      "New": 39,
       "Engaged": 3,
+      "Email 3": 52,
+      "Email 2": 41,
+      "Won": 12,
       "Awaiting Reply": 1,
       "Email 4": 1
     },
