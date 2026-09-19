@@ -65,6 +65,19 @@ The 79 extra records are **frozen history, not owed work**. They carry no `Next 
 
 No further preparation is required before the review date. The verdict questions below stand unchanged.
 
+## Re-verified 18 Sep 2026 (Prepare-Ahead Clock, live Airtable pull) — 3 days out
+
+| Metric | 17 Sep | 18 Sep | Note |
+|---|---|---|---|
+| Records reading "due" (past `Next Follow-up Date`, `V2 Status` = ACTIVE) | 52 prospects / 52 records | **52 prospects / 52 records** | Identical date split: 32 at 4 Sep, 10 at 5 Sep, 1 at 8 Sep, 9 at 11 Sep. **7th consecutive day unchanged** |
+| V2 ledger | 139 records, 0 activity in 7 days | 139 records, **0 activity in 14 days** | Ledger `Timestamp` max = 2026-09-04. Direction split 138 outbound / 1 inbound, 52 distinct prospects |
+| Prospect replies since 21 Aug | 1 (Rahamed) | 1 (Rahamed, 21 Aug) | No new inbound |
+| Stop signals | 0 | 0 | No unsubscribes, opt-outs or bounces |
+
+**No material change across five consecutive pulls (14, 15, 16, 17, 18 Sep).** Same 52 prospects, same
+139-record ledger, same single reply. The backlog is ageing, not growing, and nothing is owed. This prep
+is final for the 21 Sep review: entering the review at 52 records and not 131 (see the 17 Sep
+definition correction above). No further preparation required.
 
 ## Outcome data (verified 14 Sep 2026, Airtable V2 Outreach Activity + Gmail)
 

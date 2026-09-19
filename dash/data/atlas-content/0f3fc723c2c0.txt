@@ -1,0 +1,146 @@
+---
+doc_type: decision-pack
+owner: notforgotten
+tier: primary
+date: 2026-09-18
+status: FOR FOUNDER DECISION — hard deadline Sunday 2026-09-20 07:30 ACST
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Decision Pack — LEAD Childcare (#43236 / #43195) and the weekend-send guard
+
+> Two decisions, one customer, one deadline. Prepared by the Prepare-Ahead Clock on 18 Sep 2026.
+> **Nothing was changed and nothing was sent.** Two QPaint records and one unruled hold are untouched.
+
+## Why this is urgent — the deadline is Sunday 20 September, 07:30 ACST
+
+| Fact | Source |
+|---|---|
+| `#43236` LEAD Childcare Burpengary carries `Next Touchpoint Date` = **Sunday 2026-09-20** | Live read of `recZlDwhNtmfM2fdR`, `QPaint Pipeline`, 18 Sep 22:00 |
+| Its `Current Stage` = `New`, `Quote Date` = 2026-09-18, `First Action` = "Begin follow-up sequence" (no guard) | same |
+| The Daily Attention cron (`e859ea8b1c8c`) runs **daily at 07:30 ACST** and sends when *New + 48h observation over + "Begin follow-up sequence"* | cron prompt, `cron/jobs.json` |
+| Saturday 19 Sep 07:30 is inside the 48h window → will not fire | arithmetic on Quote Date 2026-09-18 |
+| **Sunday 20 Sep 07:30 is the first run where the 48h observation is over** → it fires | same |
+
+**Consequence if no ruling lands before Sunday 07:30 ACST:** the Daily Attention sends the Email 1
+follow-up to a **$114,478.65** quote on a Sunday. Two rules are engaged: the permanent **Weekend Send
+Prohibition**, and the QPaint **48-hour no-contact rule** (intake was Fri 18 Sep 08:16 ACST, so a
+07:30 Sunday send is ~47h after receipt, still inside 48h).
+
+There is no automated catch between now and then. Saturday's run stays silent on this record.
+
+---
+
+## Decision 1 — the weekend-send guard is NOT undocumented. The premise of the open ruling is wrong.
+
+**What is currently on record:** today's daily note and `skills/notforgotten/quote-intake/SKILL.md`
+Pitfall 64 both state the no-weekend-send guard "appears in **no** knowledge file, skill, or decision
+record", and the open thread asks James to choose between *codify it* and *drop it*.
+
+**What the files actually say (verified by direct read, 18 Sep):**
+
+| File | Line | Text |
+|---|---|---|
+| `skills/cold-email/SKILL.md` | 618 | `### Weekend Send Prohibition (permanent — 2026-07-12)` — "**Never send outreach on a Saturday or Sunday.** If the standard cadence produces a weekend date, push to the following Monday." |
+| `skills/snowark/growth-operations/references/qpaint-prepare-ahead.md` | 63 | "**The Weekend Send Prohibition applies to QPaint Pipeline too.** Before any send window, check the day of week" — Saturday → Mon, Sunday → Mon |
+| `skills/snowark/growth-operations/SKILL.md` | 530–532 | Enforcement gap + **interim mitigation**: "If Sunday → push to Monday. Update Airtable's `Next Touchpoint Date` to reflect the push via Airtable API PATCH." |
+| `skills/snowark/growth-operations/references/weekend-send-gap-2026-07-12.md` | 13 | "The Weekend Send Prohibition exists as policy in the cold-email skill but has zero automated enforcement" |
+
+The guard is **already permanent documented policy, already extended in writing to the QPaint
+Pipeline, with a documented PATCH procedure**. What does not exist is a *decision-library record* — and
+what is genuinely missing is *enforcement inside the send path* (that gap is real, documented, and
+unchanged since July).
+
+**Why the earlier conclusion went the other way:** a grep of `knowledge/` and `skills/` for
+`weekend` / `non-business-day` / `next-business-day` returned nothing. The policy text uses the phrase
+**"Weekend Send Prohibition"**, which none of those patterns match. The absence of a hit was read as
+absence of the rule. It is not.
+
+**Recommendation — Decision 1:** do not re-decide whether to codify the guard. Instead confirm the
+narrower, real gap and close it:
+- Treat the Weekend Send Prohibition as settled and already applicable to QPaint (no new decision needed).
+- Add an explicit one-line reference to it in `quote-intake/SKILL.md` next to the `Quote Date + 48h`
+  rule, so intake stops diverging (this is the actual root cause: the guard is policy, but intake was
+  never told it applies).
+- Add a **day-of-week check to `canonical-send.py`** so a weekend date fails closed instead of relying
+  on a human or a note. Policy without a gate has already failed twice (Jul 12 and Jul 13).
+- Record Pitfall 64's "written down nowhere" claim as corrected in the skill itself.
+- **Impact: medium.** Removes a recurring divergence class and closes a known enforcement hole.
+  **Confidence: High (92%)** — the contradicting text is quoted above and was read directly.
+
+---
+
+## Decision 2 — two live quotes for one customer, both follow-ups landing within 24 hours
+
+| Record | Site | Contact | Value | NTD | Stage |
+|---|---|---|---|---|---|
+| `recZlDwhNtmfM2fdR` **#43236** | LEAD Childcare Burpengary (two centre buildings) | Ashlee Barratt, `reception@leadchildcare.com.au` | **$114,478.65** | Sun 2026-09-20 | New |
+| `recbA8W0aLSU1VJp4` **#43195** | 23 Williams Street, Dayboro | Ashlee Barratt, `reception@leadchildcare.com.au` | **$68,258.19** | Mon 2026-09-21 | New |
+
+Both are New, neither has been contacted, both `First Action` = begin follow-up sequence. Combined
+**$182,736.84** to a single reception inbox.
+
+`#43195`'s own intake already flagged this: *"REPEAT CONTACT: same contact ... Founder decision needed
+on whether to coordinate one relationship-level follow-up covering both centres rather than two
+separate emails to the same reception address."*
+
+**The two decisions interact, which is why they are in one pack.** Whichever way Decision 1 lands,
+Monday 21 Sep is the collision point:
+- If `#43236` stays on Sunday: Sunday email + Monday email, same inbox, ~24h apart.
+- If `#43236` moves to Monday: two emails to the same inbox on the same morning.
+- The Daily Attention prompt has a guard for the second case — *"Second-quote record (contact already
+  has an active primary quote) → MONITOR, no separate Email 1 (avoid double-contact)"* — but which of
+  two uncontacted, same-day quotes is "primary" is undefined, so the guard is not reliable here.
+
+**Options:**
+
+| Option | What it means | Assessment |
+|---|---|---|
+| **A. One coordinated email** | Single follow-up from Atlas (white-label, QPaint) acknowledging both quotes, asking which site they want to progress first | Best customer experience. Matches SOUL directive 14 (think in relationships, not opportunities) and the Next-Action Principle (decide the right next action per customer, not per record). Requires the Customer Context Gate, not a template. |
+| **B. One primary, one MONITOR** | Follow `#43236` (larger, two centres) on Monday; hold `#43195` as MONITOR with the date cleared | Applies the existing second-quote rule with no new pattern. Cheaper, lower risk, but the Dayboro quote goes quiet without ever being acknowledged. |
+| **C. Leave both, accept the collision** | Sunday send + Monday send as scheduled | Rejected. Two uncoordinated emails to one reception inbox inside 24h is the worst customer outcome, and one of them breaches the weekend policy. |
+
+**Recommendation — Decision 2:** **Option A**, executed Monday 21 Sep. LEAD Childcare is one
+relationship with two sites; a reception inbox receiving two separate "just checking you got the
+quote" emails is the clearest possible signal that nobody is looking at the account as a whole. Option
+A is also the only option that is *better* than what the customer would have got anyway.
+
+**Impact: high.** $182,736.84 of live quote value, and the customer's first impression of Not Forgotten.
+**Confidence: Medium-High (80%)** — the relationship logic is sound and the double-contact risk is
+verified, but there is no reply data from this customer yet, so "one coordinated email" is a judgement
+call, not a measured result. **What would prove me wrong:** a reply from Ashlee indicating the two
+sites are being handled by different people, in which case two separate threads are correct and Option
+B is right.
+
+---
+
+## What was deliberately NOT done
+
+- `#43236` was **not** patched. Today's morning session deliberately left it unedited to preserve the
+  evidence for the founder ruling, and the 48h rule is a closed baseline (report + wait). That hold
+  stands until James rules.
+- `#43195` was **not** touched. Its `First Action` already carries "do not fire before then".
+- No email was drafted. Under the Initial Customer Email Law, an initial customer email is not drafted
+  from memory — whichever option is chosen runs the canonical template + 13-gate pipeline.
+- No record was moved out of an intentional HOLD/MONITOR state.
+
+## The one thing to do
+
+**Rule on Decision 2 before Monday 07:30 ACST.** If James does nothing else, pick Option A or B for
+LEAD Childcare — that is the one item that cannot wait, because the customer is contacted either way
+and only the shape of the contact is undecided. If Option A is chosen, Decision 1's PATCH becomes moot
+for this record (a single Monday email is already weekday-safe); if Option B is chosen, `#43236`
+should be pushed to Monday and `#43195` cleared to MONITOR.
+
+## Evidence files
+
+- Live Airtable reads, 18 Sep 22:00 ACST — `QPaint Pipeline` `recZlDwhNtmfM2fdR`, `recbA8W0aLSU1VJp4`
+- `notes/2026-09-18.md` (the open thread and the morning's deliberate non-edit)
+- `skills/notforgotten/quote-intake/SKILL.md` Pitfall 64 (claim corrected by this pack)
+- `skills/cold-email/SKILL.md:618-624`; `skills/snowark/growth-operations/SKILL.md:530-532`;
+  `skills/snowark/growth-operations/references/qpaint-prepare-ahead.md:63-69`
+- `cron/jobs.json` — job `e859ea8b1c8c` prompt and schedule
+
+---
+
+*Prepared by the Prepare-Ahead Clock, 18 Sep 2026 22:00 ACST. No contact made, no CRM records changed.*

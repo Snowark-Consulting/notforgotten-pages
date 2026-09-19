@@ -1,0 +1,64 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: secondary
+date: 2026-09-18
+status: recorded
+severity: medium
+---
+
+# A grep miss was recorded as rule absence — and a founder decision was built on it
+
+**Date:** 2026-09-18 (found 22:00 ACST, Prepare-Ahead Clock)
+**Class:** Source verification failure → false premise propagated into a skill, a daily note, and an open founder decision.
+
+## What happened
+
+The no-weekend-send guard governing QPaint `Next Touchpoint Date` was investigated during intake of
+quote `#43195`. A grep of `knowledge/` and `skills/` for `weekend` / `non-business-day` /
+`next-business-day` returned nothing. That was recorded as fact:
+
+- `skills/notforgotten/quote-intake/SKILL.md` Pitfall 64: the guard "appears in **no** knowledge file, skill, or decision record."
+- `notes/2026-09-18.md`: "A production date convention lived only in Outreach Notes."
+- Open thread escalated to James as a binary: *codify it* or *drop it*.
+
+## What is actually true
+
+The guard is permanent documented policy, quoted verbatim in three files:
+
+| File | Line | Text |
+|---|---|---|
+| `skills/cold-email/SKILL.md` | 618 | `### Weekend Send Prohibition (permanent — 2026-07-12)` — "Never send outreach on a Saturday or Sunday … push to the following Monday." |
+| `skills/snowark/growth-operations/references/qpaint-prepare-ahead.md` | 63–69 | "**The Weekend Send Prohibition applies to QPaint Pipeline too.**" Saturday → Mon, Sunday → Mon. |
+| `skills/snowark/growth-operations/SKILL.md` | 530–532 | Enforcement gap + interim mitigation: "If Sunday → push to Monday. Update Airtable's `Next Touchpoint Date` … via Airtable API PATCH." |
+
+The policy phrase is **"Weekend Send Prohibition"**. None of the three grep patterns match it.
+
+## Root cause
+
+A negative search result was treated as evidence of absence. A grep confirms what a pattern matches; it
+never confirms what does not exist. The wording of the thing being searched for was assumed rather than
+derived from a source. The conclusion then hardened — moved from an observation into a skill pitfall,
+then into a daily note, then into a founder decision with a binary that had a false premise.
+
+## Cost
+
+One founder decision was put to James that did not need to be made as framed. The real, narrower gaps —
+no decision-library record, no day-of-week gate in `canonical-send.py`, and quote-intake never being
+told the existing policy applies to it — were masked behind the wrong question.
+
+## Fix applied
+
+1. `quote-intake/SKILL.md` Pitfall 64 patched: the false claim is replaced with the corrected text and
+   the three file citations. The operational rule for the outlier record is unchanged pending James.
+2. `knowledge/lead-childcare-43236-decision-pack-2026-09-18.md` prepared with the corrected premise,
+   the real narrow gaps, and the two decisions that do need a founder ruling.
+3. This learning file recorded.
+
+## Standing rule
+
+**Before recording that a rule, policy, or convention does not exist:** search for the *concept* and
+the *documented phrasing*, not a guessed keyword set. Try the domain's own vocabulary (here: "send
+prohibition", "business day", "weekend"), search the policy-owning skills as well as `knowledge/`, and
+check `git log -S` before concluding absence. If two or more phrasings return nothing, say "not found
+by these patterns" and name them — never "does not exist".

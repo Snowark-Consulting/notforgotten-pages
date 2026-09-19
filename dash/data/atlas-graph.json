@@ -1533,6 +1533,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_lead_childcare_43236_decision_pack_2026_09_18",
+      "label": "Lead Childcare 43236 Decision Pack",
+      "file_type": "doc",
+      "source_file": "knowledge/lead-childcare-43236-decision-pack-2026-09-18.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "0f3fc723c2c0",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_legal_collection_notices",
       "label": "Collection Notices",
       "file_type": "doc",
@@ -3274,6 +3285,13 @@
     {
       "source": "agent_registry",
       "target": "knowledge_ff1_contamination_cohort_closeout_pack_2026_09_13",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_lead_childcare_43236_decision_pack_2026_09_18",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

@@ -1,3 +1,9 @@
+---
+doc_type: register
+owner: notforgotten
+tier: primary
+---
+
 # Operational Learning Register
 
 **Established:** 2026-07-29
@@ -28,6 +34,7 @@
 |---|---|---|---|---|
 | 1 | 2026-07-28 | White-label signature leak (30 QPaint emails) | High | Client Identity Verification Gate |
 | 2 | 2026-07-29 | Investigation undercount (20 reported vs 30 actual) | Medium | Operational Investigation Standard |
+| 3 | 2026-09-19 | QPaint Lost status not visible to Atlas (Kristen Watt #43121) | Medium — source-visibility gap, not execution failure | QPaint outcome-visibility gap documented; Won-signal path verified clean |
 
 ---
 
@@ -45,6 +52,23 @@
 | **Playbook changes** | `knowledge/operational-investigation-standard.md` created. |
 | **Verification** | Investigation standard applied — all subsequent queries paginate fully. |
 | **Five questions** | 1) `maxResults=20` capped Gmail API response. 2) No pagination check — single page trusted as complete. 3) Pagination-to-exhaustion standard eliminates this class. 4) Every future incident investigation follows the standard. 5) Active — standard live. |
+
+---
+
+## Entry #3 — QPaint Lost Status Not Visible to Atlas
+
+| Field | |
+|---|---|
+| **Date** | 2026-09-19 (investigated 2026-09-19; loss recorded 2026-09-14) |
+| **Severity** | Medium — source-visibility gap. NOT an Atlas execution failure. |
+| **What happened** | QPaint marked Kristen Watt #43121 (43 Plunkett St, Paddington, $14,843.40) as Lost in their internal CRM on Mon 14 Sep, after Kristen told QPaint's James Gooley by text she had gone with Prosperity Painters. NF/Atlas had no awareness of this and sent an internal QPaint availability follow-up on 17 Sep asking about Kristen's proposed 30 Sep start — a question that was already moot. QPaint revealed the Lost status only on 19 Sep after Tas Moulis replied to the 17 Sep follow-up. |
+| **Root cause** | QPaint's internal outcome status (Lost/Won) lives inside QPaint's own CRM (screenshot evidence shows an activity log with `Open → Lost` status change). There is NO sync, webhook, or export from QPaint's CRM to any Atlas-accessible source. Atlas's only outcome signals are: (1) PandaDoc "signed/completed copy" emails → quotes@ (WON signal — verified working), and (2) QPaint staff manually emailing james@/quotes@/atlas@ (manual, not guaranteed). A Lost status that QPaint records internally but never emails is invisible to Atlas by design. |
+| **Immediate impact** | One unnecessary internal follow-up (17 Sep) to QPaint — no customer contact, no trust damage. The 30-Sept availability question NF chased was already moot. Kristen had already advised QPaint directly; no customer-service gap. |
+| **Permanent system improvement** | Outcome-visibility gap documented. Won-signal path (PandaDoc completed copy) verified clean — all 7 recent signed/completed copies reconciled to Won. Lost-signal path has no automated source; flagged as recurring commercial-control risk (see below), not yet built — evidence first, no overbuild. |
+| **Measurable control** | Periodic reverse-check: compare accessible QPaint outcome signals (james@/quotes@ for "lost/won/went with/another painter") against Airtable state. Standalone check run 2026-09-19: Kristen #43121 only unmatched record; 7 Won signals all reconciled; 0 other Lost signals present in accessible channels. |
+| **Playbook changes** | This register entry. No system build. |
+| **Verification** | Airtable #43121 reconciled to Lost/Went Elsewhere/Outcome Date 14 Sep/NTD cleared. No customer contact made. Loss reason left UNKNOWN (Tas's price/timing question to Dineo still open — do not invent). |
+| **Five questions** | 1) QPaint records Lost internally with no push to NF. 2) No CRM sync/webhook between QPaint and Atlas-accessible sources. 3) A periodic QPaint outcome reconciliation (manual or lightweight export) would close the Lost-visibility gap; Won already covered by PandaDoc. 4) Any future client without a status sync inherits the same risk — document as onboarding requirement. 5) Not yet built — requires founder decision (see report). |
 
 ## Five Questions + Three Deliverables (Every Entry Must Answer)
 

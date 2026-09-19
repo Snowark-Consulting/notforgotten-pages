@@ -82,6 +82,31 @@ logged in `Agent/Infrastructure.md` for Winston/Josh.
 - **There is no `sqlite3` CLI on this box.** Use `python3` with
   `sqlite3.connect('file:state.db?mode=ro', uri=True)`.
 
+## Update 2026-09-19 — persistence RESUMED, integrity FAILED (the finding escalated, it did not clear)
+
+Day 2 did not confirm the first reading. **Persistence came back on its own**: the gateway restarted at
+2026-09-19 04:02 UTC (13:32 ACST), the first newly-persisted session row is 14:20 ACST, and
+`sessions.started_at` advanced to 11:30:47 UTC during the consolidation run. **But the gap is not
+backfilled** — there is still no row between 2026-09-18 00:14:57 UTC and 2026-09-19 04:50 UTC, so the
+~27.8 hours of sessions (≈12, including the #43195 intake) exist only in `logs/tool-calls.jsonl`.
+"A restart fixed it" is the wrong lesson: the missing data did not come back.
+
+Worse, the same database now fails integrity outright. `PRAGMA quick_check` returned **`ok` on 18 Sep**
+and returns **100+ `Freelist: 2nd reference to page N` errors on 19 Sep**. This stopped being a
+persistence curiosity the moment a production job died on it: **`LLM cost + balance check`
+(d7307cec1983) failed at 07:45 with `sqlite3.DatabaseError: database disk image is malformed`** reading
+`state.db`, and the State DB snapshot backup's integrity pre-check printed the same damage.
+
+**Correction to a previous assumption:** the earlier suspicion that the integrity watchdog was blind was
+WRONG. `state.db size + integrity watchdog` (c8232ee06f3e) reported **"STATE.DB WATCHDOG: action
+required / state.db integrity FAILED"** at 18:15. Detection worked; it was the *response* that was
+missing. Rec `dream-anomaly-state-db-watchdog-blind` was dismissed on this evidence.
+
+**New rule:** a passing `quick_check` on day N does not license confidence on day N+1 — re-run it, and
+treat "a production script died reading the DB" as the authoritative signal over any health badge.
+Nothing was repaired from the consolidation run (Hermes core, rule 10; no `sqlite3` CLI; VACUUM aborts
+against a live gateway). Escalated as rec `consolidation-state-db-image-malformed`.
+
 ## Files
 
 - `Agent/Infrastructure.md` — state.db watchdog row, PERSISTENCE STOP note
