@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 229,
+    "tasks_completed": 230,
     "recent": [
+      {
+        "date": "2026-09-20 21:34",
+        "task": "Weekly website intelligence for 13-19 Sep published. Headline '+100%' is not growth: 12 sessions vs 15-week average of 23. Quantified EXP-001 attribution gap at 83% direct, 0 email sessions. Recommendation: tag Gmail signature link with canonical UTMs.",
+        "category": "task"
+      },
       {
         "date": "2026-09-19 22:04",
         "task": "Prepare-Ahead 19 Sep: weekend send guard applied to QPaint #43236 (NTD Sun 20 Sep to Mon 21 Sep, verified by read-back) \u2014 prevented a Sunday customer email; V2 decision review prep refreshed (52 records, no change, 6th pull); no drafts owed",
@@ -135,11 +140,6 @@
         "date": "2026-09-01 16:52",
         "task": "Campaign pulse posted \u2014 V2 Email 3 cohort Day 4: 0 replies (32 sent Aug 28); 9 Email 1s sent Aug 30 (de-confused first-touch), 0 replies; Sep 4 per-prospect checkpoint next",
         "category": "task"
-      },
-      {
-        "date": "2026-08-30 16:48",
-        "task": "Campaign pulse 30 Aug: Email 3 (32) Day 2, 0 replies; 9 new Email 1s sent under founder autonomy (Gmail-verified); founder call day Mon 31 Aug (9 calls)",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-09-20T20:30:27.815083+09:30",
+  "last_updated": "2026-09-20T21:34:22.340877+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
