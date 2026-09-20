@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-09-20T04:05:17+09:30",
+  "generated_at": "2026-09-21T04:04:19+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "Sunday. Quiet overnight — 0 new quotes, 0 new replies, 0 new bounces across all three mailboxes. QPaint at 263 records (+1 intake), 12 Won ($483,982), 41 Lost (Kristen Watt #43121 reconciled yesterday). No sends due today (weekend guard). Three founder decisions carry into Monday: Alys Dee Le-Bhers (quote expires Tue 22 Sep), LEAD Childcare coordination (before Mon 07:30), and the Raewyn Frost handoff.",
-    "estimated_time": "3 minutes"
+    "body": "Monday. Quiet overnight — 0 new quotes, 0 new replies, 0 new bounces across all three mailboxes. QPaint stable at 263 records, 12 Won ($483,982), 41 Lost, 210 active journeys — no state changes overnight. Today is the action day: ~11 QPaint Email 1s fire (fresh intakes) plus 12 review-decide monitors at 07:30, the V2 close-out decision review lands, and Alys Dee's quote expires tomorrow (Tue 22 Sep). Four founder decisions carry from the weekend — Alys Dee first, then LEAD Childcare (before 07:30), Raewyn Frost, Eddie Yuan.",
+    "estimated_time": "4 minutes"
   },
   "business_score": {
     "score": 88,
     "change": "—",
     "reasons_positive": [
-      "QPaint 263 records (+1 intake overnight), $8.51M total Deal Value. 12 Won = $483,982 ($129,750 Recovered + $274,589 Assisted + $79,642 Observed). Honest Won-vs-Recovered separation maintained.",
-      "210 active journeys with complete Next Action coverage. 1 overdue (Raewyn Frost, a known founder action). Recovery operations fully automated with 0 exceptions.",
-      "Kristen Watt #43121 reconciled to Lost with reason discipline held — classified as an information/source-visibility gap, not an execution failure."
+      "QPaint 263 records, $8.51M total Deal Value, 12 Won = $483,982 ($129,750 Recovered + $274,589 Assisted + $79,642 Observed). Honest Won-vs-Recovered separation maintained.",
+      "210 active journeys with complete Next Action coverage. 24 records due today (Monday cohort: 11 fresh Email 1s, 12 review-decide monitors, Alys Dee escalation). 1 overdue (Raewyn Frost, a known founder action).",
+      "Recovery operations fully automated with 0 exceptions; Kristen Watt #43121 reconciled to Lost yesterday with reason discipline held."
     ],
     "reasons_negative": [
       "1 paying customer ($199 MRR). Customer #2 remains the single most important metric.",
-      "Cold painter channel flat — 52 V2 prospects past follow-up date, blocked on the close-out ruling (decision review Mon 21 Sep).",
-      "state.db integrity now FAILS (freelist corruption) on top of the persistence gap — flagged to Winston/Josh. Off-box backup dead 15th day, two public repos 7th day."
+      "Cold painter channel flat — 52 V2 prospects past follow-up date, blocked on the close-out ruling (decision review today).",
+      "Off-box backup dead 16th day; public repos still expose client email addresses 8th day; state.db integrity still failing."
     ]
   },
   "business_health": {
@@ -26,43 +26,44 @@
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "210 active QPaint journeys. 140 contacted, 38 new. 1 exception (Raewyn Frost, founder action). Pipeline $7.09M, Won $483,982."
+      "detail": "210 active QPaint journeys. 140 contacted, 38 new, 32 engaged. 24 records due today (Monday cohort). 1 exception (Raewyn Frost, founder action). Pipeline $7.09M, Won $483,982."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "RE-ENG-AUG-2026: 147 audience. V2: 305 ACTIVE, 20 QUARANTINED, 4 EXCLUDED. 0 new replies/bounces/unsubscribes overnight. 52 V2 prospects past follow-up date (close-out ruling pending)."
+      "detail": "RE-ENG-AUG-2026: 147 audience. V2: 305 ACTIVE, 20 QUARANTINED, 4 EXCLUDED. 0 new replies/bounces/unsubscribes overnight. 52 V2 prospects past follow-up date (close-out decision review today)."
     },
     "engineering": {
       "status": "degraded",
-      "detail": "state.db integrity FAILS (freelist 2nd-reference corruption) + 27.8h persistence gap. LLM cost-check cron failing on 'database disk image malformed'. Winston/Josh to investigate. Other systems healthy."
-    },
-    "finance": {
-      "status": "healthy",
-      "detail": "QPaint: $483,982 Won ($129,750 Recovered). $7.09M active pipeline."
-    },
-    "atlas": {
-      "status": "healthy",
-      "detail": "Memory at 99% cap. Protocol v1.0.0 enforced. Model recovery standard active."
+      "detail": "state.db integrity FAILS (freelist 2nd-reference corruption). LLM cost-check + cron-prune failing on 'database disk image malformed'. Winston/Josh to investigate. Backup dead 16th day (origin PAT)."
     }
   },
   "waiting_for_james": [
     {
       "id": "alys-dee-warranty-handoff",
-      "title": "Approve QPaint handoff — Alys Dee Le-Bhers #43071 warranty + inclusions clarification (quote expires Tue 22 Sep).",
-      "why_it_matters": "Customer asked for warranty/inclusions clarification on 18 Sep; the internal relay to QPaint (Dee + Leslie) is drafted but unsent. Quote expires in 2 days.",
+      "title": "Approve QPaint handoff — Alys Dee Le-Bhers #43071 warranty + inclusions clarification (quote expires TOMORROW, Tue 22 Sep).",
+      "why_it_matters": "Customer asked for warranty/inclusions clarification on 18 Sep; the internal relay to QPaint (Dee + Leslie) is drafted but unsent. Quote expires tomorrow.",
       "business_impact": "High: $20,542.50 deal, quote expires Tue 22 Sep — the most time-critical open item.",
       "estimated_time": "2 min to approve the prepared handoff draft",
-      "recommended_action": "Approve the james@ handoff to solutions@qpaint.com.au + admin@qpaint.com.au so QPaint can answer before expiry.",
+      "recommended_action": "Approve the james@ handoff to solutions@qpaint.com.au + admin@qpaint.com.au before the quote expires tomorrow.",
       "impact_sort": 100
     },
     {
       "id": "lead-childcare-coordination",
-      "title": "Rule on LEAD Childcare #43236 + #43195 — two quotes to the same reception inbox, both due Mon 07:30.",
-      "why_it_matters": "Both carry Next Touchpoint Mon 21 Sep; firing two separate Email 1s to the same reception address is uncoordinated. The decision pack rejects that outcome.",
-      "business_impact": "High: $114,478.65 + $68,258.19 = $182,736.85 combined, fires Monday morning without a ruling.",
+      "title": "Rule on LEAD Childcare #43236 + #43195 — two quotes to the same reception inbox, both fire Mon 07:30.",
+      "why_it_matters": "Both carry Next Touchpoint Mon 21 Sep; firing two separate Email 1s to the same reception address is uncoordinated. The decision pack rejects that outcome. A neutral fail-closed guard is already on both records.",
+      "business_impact": "High: $114,478.65 + $68,258.19 = $182,736.85 combined, fires at 07:30 without a ruling.",
       "estimated_time": "3 min (decision pack ready)",
       "recommended_action": "Rule coordinated-relationship follow-up vs #43236-only-and-hold-#43195 before Mon 07:30.",
       "impact_sort": 98
+    },
+    {
+      "id": "v2-close-out-review-today",
+      "title": "Run the V2 Email 2 observation-monitoring decision review — due TODAY (Mon 21 Sep).",
+      "why_it_matters": "52 V2 prospects past follow-up date (last outbound 4 Sep, 9th consecutive day unchanged). Prep is final. This is the MONITOR exit mechanism for the cold channel.",
+      "business_impact": "Medium: decides whether to close out or revive the dormant V2 cold channel.",
+      "estimated_time": "5 min (prep final: 52 records, 139-record ledger, 1 reply all-time, 0 stop signals)",
+      "recommended_action": "Run the review; verdict questions 1-4 are in the prep at knowledge/decision-reviews/2026-09-21-v2-email2-observation-review-prep.md.",
+      "impact_sort": 90
     },
     {
       "id": "raewyn-frost-quote-extension",
@@ -80,7 +81,7 @@
       "business_impact": "High: $31,000 deal, conditional on 5% deposit by 30 Sep.",
       "estimated_time": "2 min to rule 'stand down' vs 'confirm receipt'",
       "recommended_action": "Confirm whether Atlas should stand down (QPaint owns the follow-up) or send one confirmation touch.",
-      "impact_sort": 90
+      "impact_sort": 85
     },
     {
       "id": "capture-call-round-3",
@@ -89,20 +90,20 @@
       "business_impact": "Medium: institutional knowledge loss if not captured.",
       "estimated_time": "10 min",
       "recommended_action": "Dictate Round 3 outcomes for capture into the V2 ledger.",
-      "impact_sort": 85
+      "impact_sort": 80
     },
     {
       "id": "public-repos",
-      "title": "Two public GitHub repos expose client/customer email addresses — 7th day unresolved.",
+      "title": "Two public GitHub repos expose client/customer email addresses — 8th day unresolved.",
       "why_it_matters": "A paying client's staff email addresses are on the open web.",
       "business_impact": "Medium (privacy/trust)",
       "estimated_time": "5 min (delegate to Josh/Winston)",
       "recommended_action": "Make the repos private.",
-      "impact_sort": 80
+      "impact_sort": 78
     },
     {
       "id": "off-box-backup",
-      "title": "Off-box backup dead 15 days — no off-box copy of the vault since 5 Sep.",
+      "title": "Off-box backup dead 16 days — no off-box copy of the vault since 5 Sep.",
       "why_it_matters": "A host failure loses everything since 5 Sep.",
       "business_impact": "High (resilience)",
       "estimated_time": "5 min (delegate to Josh)",
@@ -111,25 +112,16 @@
     },
     {
       "id": "state-db-integrity",
-      "title": "state.db integrity FAILS + 27.8h persistence gap — flag to Winston/Josh.",
-      "why_it_matters": "Malformed database image; LLM cost-check cron is failing; session persistence and consolidation are affected.",
+      "title": "state.db integrity FAILS — flag to Winston/Josh (now breaking scheduled maintenance).",
+      "why_it_matters": "Malformed database image; LLM cost-check AND cron-prune crons are failing on 'database disk image malformed'. A production maintenance job is now affected.",
       "business_impact": "Medium (system-of-record)",
       "estimated_time": "2 min (flag)",
       "recommended_action": "Flag to Winston/Josh for the safe-repair path (no sqlite3 CLI on box, VACUUM aborts against live gateway).",
       "impact_sort": 70
     },
     {
-      "id": "v2-close-out",
-      "title": "V2 CRM close-out mechanism — 52 records read 'due', ageing not growing (decision review Mon 21 Sep).",
-      "why_it_matters": "52 V2 prospects past follow-up date, frozen pending the close-out ruling.",
-      "business_impact": "Medium",
-      "estimated_time": "5 min (decision review prep is final)",
-      "recommended_action": "Review the 52-record close-out at Monday's decision review.",
-      "impact_sort": 65
-    },
-    {
       "id": "ff1-cohort",
-      "title": "FF1 contamination cohort — 14 records held ~29 days, decision pack ready.",
+      "title": "FF1 contamination cohort — 14 records held ~30 days, decision pack ready.",
       "why_it_matters": "Held cohort awaiting a founder close-vs-revive ruling.",
       "business_impact": "Low-Medium",
       "estimated_time": "2 min",
@@ -138,11 +130,11 @@
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Sunday. Quiet overnight — 0 new quotes, 0 new replies, 0 new bounces. QPaint stable (263 records, +1 intake, 12 Won, 41 Lost) and fully Atlas-owned. No sends due today (weekend guard). Monday is the action day: ~11 QPaint Email 1s fire and the V2 close-out decision review lands. Top levers before Monday: approve the Alys Dee handoff (22 Sep expiry), rule on LEAD Childcare coordination (before Mon 07:30), then Raewyn Frost and Eddie Yuan. Open loops: public repos (7th day), off-box backup dead (15th day), state.db integrity FAILING.",
+    "executive_summary": "Monday. Quiet overnight (0 new quotes, replies, bounces). QPaint stable at 263 records and fully Atlas-owned. Today is the action day: ~11 QPaint Email 1s fire at 07:30, the V2 close-out decision review lands, and Alys Dee's quote expires tomorrow. Top levers in order: approve Alys Dee handoff (22 Sep expiry), rule LEAD Childcare coordination (before 07:30), run the V2 close-out review, then Raewyn Frost and Eddie Yuan.",
     "priorities": [
       {
         "action": "Approve the Alys Dee Le-Bhers handoff (warranty clarification)",
-        "why_it_matters": "Quote #43071 expires Tue 22 Sep; the customer asked for clarification on 18 Sep and the relay to QPaint is drafted but unsent.",
+        "why_it_matters": "Quote #43071 expires tomorrow (Tue 22 Sep); relay to QPaint is drafted but unsent.",
         "expected_impact": "High",
         "estimated_time": "2 min",
         "confidence": "High"
@@ -152,6 +144,13 @@
         "why_it_matters": "Two Email 1s to the same reception inbox fire Mon 07:30 unless a ruling lands first.",
         "expected_impact": "High",
         "estimated_time": "3 min",
+        "confidence": "High"
+      },
+      {
+        "action": "Run the V2 close-out decision review (due today)",
+        "why_it_matters": "52 V2 prospects past follow-up date, 9th day unchanged; prep is final.",
+        "expected_impact": "Medium",
+        "estimated_time": "5 min",
         "confidence": "High"
       },
       {
@@ -170,54 +169,43 @@
       },
       {
         "action": "Flag state.db integrity to Winston/Josh",
-        "why_it_matters": "Malformed image + persistence gap; LLM cost-check cron already failing.",
+        "why_it_matters": "Malformed image now breaking the cron-prune maintenance job, not just reports.",
         "expected_impact": "Medium",
         "estimated_time": "2 min (flag)",
-        "confidence": "High"
-      },
-      {
-        "action": "Make the two public repos private",
-        "why_it_matters": "Client staff email addresses on the open web, 7th day.",
-        "expected_impact": "High",
-        "estimated_time": "5 min (delegate)",
         "confidence": "High"
       }
     ],
     "can_wait": [
       "All QPaint operations (Atlas owns): 210 active, 4 founder exceptions surfaced, 12 Won reconciled.",
-      "V2 close-out mechanism + FF1 cohort: 2-5 min rulings, can slot after the P1s (Monday review).",
-      "Ahmad/Star Painters: MONITOR until 23 Sep, final call-or-close due then.",
-      "Capture Call Day Round 3 + off-box backup credential: recurring infra/knowledge items, not revenue-blocking."
+      "Ahmad/Star Painters: MONITOR until Tue 23 Sep, final call-or-close due then.",
+      "Capture Call Day Round 3 + off-box backup credential: recurring infra/knowledge items, not revenue-blocking.",
+      "FF1 cohort (14 records) + public repos: 2-5 min rulings, can slot after the P1s."
     ],
-    "closing": "Two P1 decisions have been waiting since Friday. Approving the Raewyn Frost handoff and ruling on Eddie Yuan clears the entire QPaint founder queue for the weekend."
+    "closing": "Two time-critical items land today: Alys Dee's quote expires tomorrow, and LEAD Childcare fires at 07:30. Approve Alys Dee first, rule LEAD Childcare before 07:30, then run the V2 close-out review at your pace."
   },
   "changes": {
     "today": [
       {
-        "time": "2026-09-20T04:05:17+09:30",
-        "text": "Overnight scan: quotes@ 0 unread, atlas@ 0 unread, james@ 4 unread (2 DMARC noise + 2 stale 9 Aug). No new quotes, no new replies, no new bounces, no new unsubscribes."
+        "time": "2026-09-21T04:04:19+09:30",
+        "text": "Overnight scan: quotes@ 0 unread, atlas@ 0 unread, james@ 2 unread (both stale 9 Aug — Tatnell business-closed, already suppressed/Lost; Top Rank auto-reply, noise). No new quotes, replies, bounces, or unsubscribes."
       },
       {
-        "time": "2026-09-20T04:05:17+09:30",
-        "text": "QPaint 263 records verified live (full pagination): 12 Won ($483,982), 41 Lost, $7.09M active pipeline. +1 intake overnight (Ashleigh Thomas $22,997.70). 1 overdue (Raewyn Frost, founder action)."
+        "time": "2026-09-21T04:04:19+09:30",
+        "text": "QPaint 263 records verified live (full pagination): 12 Won ($483,982), 41 Lost, 210 active. No overnight state changes. 24 records due today (Monday cohort). 1 overdue (Raewyn Frost, founder action)."
       },
       {
-        "time": "2026-09-20T04:05:17+09:30",
-        "text": "System health: disk 41% (12G free), state.db integrity FAILS (freelist), dashboard refresh current (03:01), all pulse jobs present. Off-box backup dead 15th day, public repos 7th day."
+        "time": "2026-09-21T04:04:19+09:30",
+        "text": "System health: disk 41% (12G free), state.db integrity FAILS (freelist, now breaking cron-prune maintenance), dashboard refresh current (04:02). Off-box backup dead 16th day, public repos 8th day."
       }
     ],
     "yesterday": [
       {
-        "time": "2026-09-19T14:25:00+09:30",
-        "text": "Kristen Watt #43121 reconciled to Lost — classified as an information/source-visibility gap (Lost has no automated signal), not an execution failure. Weekly Pipedrive export remedy recommended (awaiting ruling)."
+        "time": "2026-09-20T07:08:00+09:30",
+        "text": "14th out-of-band learnings corruption (4 files, widest yet) repaired from HEAD; detection latency now the defect, ~07:15 guard job remains unbuilt."
       },
       {
-        "time": "2026-09-19T22:00:00+09:30",
-        "text": "LEAD Childcare #43236 weekend guard patched (Sun→Mon), surfacing a #43236/#43195 same-inbox collision as an open founder decision."
-      },
-      {
-        "time": "2026-09-19T18:15:00+09:30",
-        "text": "state.db integrity FAILS — PRAGMA quick_check returns freelist corruption; LLM cost-check cron failing on 'database disk image is malformed'."
+        "time": "2026-09-20T22:00:00+09:30",
+        "text": "LEAD Childcare #43236/#43195 fail-closed guard appended (neutral, reversible); Monday cohort verified at 24 records ($634,592.60), no weekend dates."
       }
     ],
     "this_week": [
@@ -227,11 +215,11 @@
       },
       {
         "time": "-",
-        "text": "Wins this week: Tullawong (Observed $38,164.50), Nicole Wilson (signed 18 Sep), Russell Dunster, Paul Robertson, Sian Leathem."
+        "text": "Kristen Watt #43121 reconciled to Lost (information/source-visibility gap); weekly Pipedrive export remedy recommended."
       },
       {
         "time": "-",
-        "text": "Cold painter channel flat; close-out pending (review Mon 21 Sep). Founder Call Day Wed 16 Sep (Round 3 still uncaptured)."
+        "text": "Cold painter channel flat; V2 close-out review lands today. Founder Call Day Wed 16 Sep (Round 3 still uncaptured)."
       }
     ]
   },
@@ -263,20 +251,26 @@
     "principles": []
   },
   "production_incidents": {
-    "description": "State DB snapshot backup failing auth (client-notforgotten repo) — 13 consecutive failures since ~5 Sep. Non-revenue-blocking, tracked as recurring infra issue.",
-    "total": 1,
+    "description": "State DB snapshot backup failing auth (client-notforgotten repo) — 16 consecutive failures since ~5 Sep. Plus state.db integrity failure breaking scheduled maintenance (cron-prune, LLM cost-check).",
+    "total": 2,
     "recent": [
       {
         "id": "BACKUP-AUTH-2026-09",
         "title": "State DB snapshot backup — GitHub auth failure",
         "status": "Open",
-        "summary": "Nightly state.db snapshot push to client-notforgotten.git failing auth (code 128), 13 consecutive failures. Requires Josh/Winston to refresh the git credential."
+        "summary": "Nightly state.db snapshot push to client-notforgotten.git failing auth (code 128), 16 consecutive failures. Requires Josh/Winston to refresh the git credential."
+      },
+      {
+        "id": "STATE-DB-INTEGRITY-2026-09",
+        "title": "state.db malformed image — maintenance crons failing",
+        "status": "Open",
+        "summary": "freelist 2nd-reference corruption; LLM cost-check and cron-prune failing with 'database disk image malformed'. Hermes core, Winston/Josh scope."
       }
     ]
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "QPaint portfolio certified. 263 records, 210 active journeys. Sunday — weekend guard, no sends due. 4 founder exceptions awaiting decision (Alys Dee, LEAD Childcare, Raewyn Frost, Eddie Yuan).",
+  "operational_status": "QPaint portfolio certified. 263 records, 210 active journeys, 24 records due today (Monday cohort). 4 founder exceptions awaiting decision (Alys Dee, LEAD Childcare, Raewyn Frost, Eddie Yuan). V2 close-out decision review lands today.",
   "vault_health": {
     "decisions": {
       "total": 80,
@@ -317,13 +311,13 @@
     },
     "stage_breakdown": {
       "Lost": 41,
-      "Email 1": 45,
-      "Replied": 28,
-      "New": 39,
-      "Engaged": 3,
       "Email 3": 52,
+      "Email 1": 45,
       "Email 2": 41,
+      "New": 39,
+      "Replied": 28,
       "Won": 12,
+      "Engaged": 3,
       "Awaiting Reply": 1,
       "Email 4": 1
     },
