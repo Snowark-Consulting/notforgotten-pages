@@ -1,0 +1,57 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# Learnings corruption — 14th occurrence (2026-09-20)
+
+**Confidence:** high
+**Contested:** false
+**Occurrence:** 14th, 2026-09-19 21:38:22–21:38:28 UTC = **2026-09-20 07:08:22–07:08:28 ACST**
+**Detected by:** the 07:30 ACST weekly vault-lint (22 minutes after the write) — see `Agent/lint-reports/2026-09-20-vault-lint.md`
+**Repaired by:** the 2026-09-20 nightly consolidation
+
+## What happened
+
+The unidentified out-of-band writer struck a **fourth widening**: four files in a **5.7 s burst**, the widest and most destructive event recorded.
+
+| File | mtime (UTC) | Damage |
+|---|---|---|
+| `learnings/catalogue.md` | 21:38:22.576 | warning block deleted, `gmail-auth` row dropped, **8 rows `||`-prefixed**, mid-table blank line, `campaign` cell turned into a markdown link |
+| `learnings/cards/gmail.md` | 21:38:24.332 | **5 traps + 1 `Symptom:` update note deleted**; two surviving traps reworded and condensed |
+| `learnings/cards/agent-architecture.md` | 21:38:26.508 | `Customer deferral` trap deleted, `Engaged + external dependency` heading given a leading `|`, out-of-band trap heading renamed and reworded, `Customer reply already completed = LOST` block re-added |
+| `learnings/cards/qpaint.md` | 21:38:28.104 | **all six HEAD traps deleted**; replaced by a single status-blind trap (43 lines → 10) |
+
+**14 traps deleted across three cards.** `cards/qpaint.md` is a live paying client's operating rules — it went from six traps to one. `cards/gmail.md` lost learning written one and two days earlier.
+
+## Why the controls missed it
+
+HEAD had been committed clean at **07:00:50 ACST — 8 minutes before the write**. The integrity guard cron ran at 06:50 and the nightly backup at 07:00, both *before* the writer. The next control positioned to see it is the 07:30 weekly lint, and that is the only reason the damage was caught inside 24 hours this time.
+
+Guard findings on the damaged tree: **44** (30 → 31 → 38 → 44 across events 11–14).
+
+## Repair
+
+1. Pre-restore safety check — `git diff --numstat` confirmed two knowledge files held legitimate uncommitted work (+43/−0, +18/−0) and `LEARNINGS.md` was purely additive (+3/−0). The four damaged learnings files were restored **individually**, never by blanket restore.
+2. `git restore` all four from HEAD.
+3. Extract → duplicate-check → re-apply:
+   - **Re-applied** (new to the CARD layer): the status-blind QPaint acknowledgement trap and the negative-grep trap.
+   - **Not re-applied** (already canonical elsewhere): the gmail rewrites of the `labelIds` / 403-quota / emoji-reaction / OAuth-refresh / quoted-date traps, and the recurring `Customer reply "already completed" = LOST` block (canonical in `skills/email/email-inbox-pulse/references/qpaint-customer-reply-processing.md` since the 12th event).
+4. Catalogue warning block updated to 14 occurrences + the 14th-event signature; the statement window widened to `~07:03–07:08 ACST`.
+5. `memory/MEMORY.md` entry updated: 13× → 14×, window widened, repair-order rule added.
+6. Guard re-run as the last step: **PASS** (silent, exit 0). 21 catalogue rows = 21 cards on disk, zero `||` rows, warning block present, HEAD heading lists intact.
+
+## New structural consequence
+
+The writer's damage is now costing **daily housekeeping**: the same morning, `Cron session prune` (`d363d9b767ba`, 02:00) failed with `sqlite3.DatabaseError: database disk image is malformed` — the malformed `state.db` (18 Jul onward) is no longer only breaking reports, it is breaking scheduled maintenance. Separate defect, separately owned (Winston/Josh), but the two failures landed on the same day.
+
+## Actions produced
+
+- `learnings/corruption/INDEX.md` created — standing fact sheet for the whole series (14 occurrences, stable signature, falsified hypotheses, repair playbook), per weekly-lint recommendation 7.2.
+- `LEARNINGS.md` index completed: six dated learning files that had no index entry (four fully unreachable) are now linked, including `2026-08-02-canonical-reproduction-failure.md`.
+- Recs `consolidation-learnings-guard-0715` (build a ~07:15 ACST detect-and-restore job — the only control positioned after the writer and before the working day) and `consolidation-guard-tune` remain **open**. Until the 07:15 job exists, damage is found by the *next* night's run at best.
+
+## The durable lesson
+
+A verified resolution is a verified **state**, not a permanent one. The catalogue was confirmed clean on 2026-09-19 and was corrupt again 8 hours later. Detection latency, not repair quality, is the defect now: every repair in this series has worked, and none of them has changed how long the damage lives.

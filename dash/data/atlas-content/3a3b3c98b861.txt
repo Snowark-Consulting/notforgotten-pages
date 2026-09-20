@@ -1,0 +1,80 @@
+---
+doc_type: report
+owner: notforgotten
+tier: internal
+date: 2026-09-20
+period: 2026-09-13 to 2026-09-19
+prepared_by: Atlas (weekly website intelligence cron)
+---
+
+# Weekly Website Intelligence — 13 to 19 September 2026
+
+Source: GA4 property `502899171`. Script `scripts/ga4-intel.py` plus direct Data API pulls (engagement, source/medium/device, landing page, 15-week ISO-week series, country/city series). Prepared 2026-09-20 21:30 ACST.
+
+Method caveat: "users" below is the day-sum figure, not unique weekly users. Compare day-sum to day-sum only.
+
+---
+
+## What Changed
+
+Week 13 to 19 Sep vs 6 to 12 Sep.
+
+| Metric | This week | Last week | Delta |
+|---|---|---|---|
+| Sessions | 12 | 6 | +100% |
+| Users (day-sum) | 11 | 6 | +83% |
+| Page views | 12 | 6 | +100% |
+| Engaged sessions | 7 (58%) | 1 (17%) | +6 |
+| Days with traffic | 5 of 7 | 3 of 7 | +2 |
+
+- Every session viewed exactly one page: `/`. No other page has ever been viewed in this period.
+- **The doubling is not growth.** Last week (6 sessions) was the quietest week in 15 weeks. This week at 12 sessions is 53% of the 15-week average of about 23/week. The best week remains 10 to 16 Aug at 47 sessions.
+- The one genuinely positive number is engagement quality: 58% engaged against 17%, the highest rate since late June. It rests on a small number of sessions and should not be read as a trend.
+- Composition moved: Meta platforms (Instagram and Facebook) 8 of 12 sessions, direct 2, Google organic 2.
+
+## Why It Might Have Changed
+
+- **[Fact]** Instagram and Facebook traffic is not new and not a spike. Meta-sourced sessions have appeared every week since about 10 Aug (12 that week, then 3, 3, 1, and 8 now). This week is a rebound inside an existing pattern.
+- **[Fact]** All 7 Adelaide Meta sessions arrived carrying `?fbclid=` click identifiers, so they are genuine in-app link clicks from Facebook or Instagram, not referral spam.
+- **[Fact]** Internal traffic is not excluded. The `nfs_internal` snippet is absent from the homepage HTML as served (verified 2026-09-20 by fetching the page). Adelaide accounts for 130 of about 341 sessions (38%) across the 15-week period.
+- **[Hypothesis, 70%]** The recurring Adelaide Meta sessions are internal: James or Josh opening the site from a social app or a profile link. *For:* the site carries no Instagram link, no social posting activity is recorded in the vault, yet Instagram clicks recur weekly from our own city. *Against:* durations of 106s and 319s at 60 to 100% engagement are far longer and more engaged than the known non-human bursts (about 2.5s, 6.5%).
+- **[Fact]** No email-sourced session has appeared in any of the 15 weeks. The live Gmail signature links to bare `http://notforgotten.com.au` with no UTM parameters (verified against the Gmail `settings/sendAs` API on 2026-09-20). Any email click is therefore recorded as direct.
+- **[Hypothesis, 60%]** The Swiss and US sessions are noise. Two Swiss cities in a single day (Frauenfeld, Meyrin), a 0-second direct session from Dallas, and a Facebook referral from Prineville, Oregon (a Meta data-centre town).
+- Insufficient data for causal analysis of underlying week-to-week volume.
+
+## Why It Matters
+
+- The website is not the lead channel. Outbound email is. The site's job is to survive the trust check when a prospect looks us up before replying.
+- So the number that matters is not 12. It is that **284 of about 341 sessions (83%) are unattributable direct traffic**, and we cannot say whether a single outreach email has ever produced a visit. Four consecutive weeks of "no email traffic" findings have been unfalsifiable because the signature link is untagged.
+- **This is a lapsed decision, not a mystery.** EXP-001 (end-to-end attribution) set the standard on 2026-07-25. Its 2026-08-25 review date passed without a verdict; re-verification on 2026-09-16 found Phase 2 still unimplemented. This report now quantifies the cost: 83% of traffic is blind, and every campaign sent since 25 Jul is unmeasurable retroactively.
+- Do not read this week as evidence that Instagram works. We use it for nothing.
+- Data-centre IPs are a material share of the remainder (Ashburn 26, Frankfurt am Main 13, Boardman 12, Council Bluffs 7).
+
+## One Recommended Action
+
+Tag the signature link, at the source.
+
+In **Gmail settings, signature for `james@notforgotten.com.au`**, change the link to:
+
+```
+https://notforgotten.com.au/?utm_source=email-signature&utm_medium=email&utm_campaign=signature
+```
+
+Then run `python3 bin/sync-james-signature.py` so the change propagates to `james_signature.json` and every future send.
+
+Two cautions:
+
+1. **Edit Gmail, not `james_signature.json`.** A weekly cron job (`bin/sync-james-signature.py`) pulls the signature from Gmail and overwrites the local file, so a direct file edit would be silently reverted.
+2. **Use the canonical values above.** They already exist in `knowledge/utm-naming-convention.md`. Do not invent new ones; the convention blocks undocumented values.
+
+This changes every outbound email, so it is a founder decision, not an Atlas execution.
+
+**Prediction:** at least one `email-signature` session appears by 27 September.
+
+**Decision rule:** if sessions appear, email is a live trust-check channel and the site deserves prospect-facing content. If zero appear, outbound email never drives a website visit, the site is not part of the buying decision, and this report should move to quarterly rather than weekly.
+
+Companion fix, same pass, same class of gap: the link is also plain `http://`, not `https://`.
+
+## Summary
+
+Twelve sessions instead of six looks like growth but is really last week being unusually quiet, and the more useful finding is that 83% of our website traffic is unattributable, mostly because we never tagged the one link that reaches every prospect.

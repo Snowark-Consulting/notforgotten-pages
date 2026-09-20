@@ -72,3 +72,32 @@ The core finding is unchanged and re-verified live tonight, 26 days after the pr
 
 *Re-verified by the Prepare-Ahead Clock, 16 Sep 2026 22:00 ACST. No CRM records changed, no contact made, no verdict presumed.*
 
+---
+
+## 📊 Cost now quantified from GA4 — 20 Sep 2026 (Weekly Website Intelligence)
+
+The weekly website intelligence report has converted the EXP-001 gap from a policy observation into a measured number. This is the first attempt to quantify what the lapse costs.
+
+**Period:** 8 Jun to 19 Sep 2026 (15 weeks), GA4 property `502899171`.
+
+| Measure | Value |
+|---|---|
+| Total sessions | ~341 (~23/week) |
+| Sessions from an identifiable source | **56** |
+| Sessions recorded as `(direct)/(none)` | **284 (83%)** |
+| Adelaide sessions (our city, no internal exclusion active) | 130 (38%) |
+| Email-sourced sessions, all 15 weeks | **0** |
+| Active script containing `utm_` (`scripts/*.py`, `bin/*.py`) | **0** |
+
+**Live signature verified 2026-09-20** against the authoritative source, the Gmail API `settings/sendAs` endpoint for `james@notforgotten.com.au`: the signature links to bare `http://notforgotten.com.au`. No `utm_` anywhere in the 22,261-character signature. The weekly cron `bin/sync-james-signature.py` overwrites `james_signature.json` from Gmail, so the local file is a cache, not the source of truth.
+
+**Consequence:** the signature link sits in front of every prospect, client and QPaint customer we contact, and it is invisible. Any email click is indistinguishable from direct traffic. EXP-001's first success criterion ("0% of traffic shows as `(direct)/(none)` from known outreach recipients") is measurably failing at 83%.
+
+**Not covered by a signature-level fix:** `scripts/canonical-send.py` sends `text/plain` via `MIMEText` and does not append the signature at all. Canonical sends need the UTM tag in the body template, which is inside the locked `body_sha256` artifact, so tagging those requires re-locking affected artifacts.
+
+**Recommendation** (see `knowledge/website-intelligence/2026-09-20.md`): apply the canonical tag `?utm_source=email-signature&utm_medium=email&utm_campaign=signature` in Gmail settings, then run the sync. Binary result within 7 days: at least one `email-signature` session by 27 Sep, or none.
+
+*A verdict on EXP-001 is now 26 days lapsed and is the blocker. Option 1 (extend the Canon Verification Gate to require UTM on customer-facing links) remains the only option that closes the gap permanently rather than documenting it again.*
+
+*Recorded by Atlas, 20 Sep 2026 21:30 ACST, from the weekly website intelligence run. No CRM records changed, no contact made, no verdict presumed.*
+

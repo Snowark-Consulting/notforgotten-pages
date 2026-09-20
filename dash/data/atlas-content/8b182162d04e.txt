@@ -54,7 +54,27 @@ Every piece of data must answer: **"What should we do because we now know this?"
 - Which website changes increase demo bookings?
 - Which content builds the most trust?
 
-### Current Baseline (week of 2026-09-06 to 2026-09-12)
+### Current Baseline (week of 2026-09-13 to 2026-09-19)
+
+- 11 users (day-sum), 12 sessions, 12 page views; traffic on 5 of 7 days
+- Composition: Meta (Instagram + Facebook) 8 sessions, direct 2, Google organic 2. Only page viewed: `/`
+- Engaged sessions 7 of 12 (58%), against 1 of 6 (17%) the previous week
+- Countries: Australia 8, Switzerland 2, United States 2
+
+**Structural findings (verified 2026-09-20 against the full 15-week period, 8 Jun to 19 Sep):**
+
+- ~341 sessions over 15 weeks, average ~23/week. This week at 12 is 53% of average. Best week: 10-16 Aug (47 sessions). Quietest: 6-12 Sep (6). Week-on-week swings of 100% are therefore noise, not signal. Always check the current week against the 15-week mean before describing a change as a rise or fall.
+- **83% of all traffic is unattributable direct** (284 of ~340 sessions; only 56 came from any identifiable source). Adelaide is 130 of 341 sessions (38%).
+- Data-centre IPs are a material share of the remainder: Ashburn 26, Frankfurt am Main 13, Boardman 12, Council Bluffs 7.
+- Meta-social traffic began in the week of 10 Aug and has recurred every week since (12, 3, 3, 1, 8). It is not new and not spiking. All Adelaide Meta sessions carry `?fbclid=`.
+- **No email-sourced session has appeared in any of the 15 weeks.** The live Gmail signature links to bare `http://notforgotten.com.au` with no UTM parameters (verified against the Gmail `settings/sendAs` API, 2026-09-20).
+- **`nfs_internal` internal-traffic exclusion is still not present** in the homepage HTML as served (verified 2026-09-20).
+- EXP-001 (end-to-end attribution, standard set 2026-07-25) remains unimplemented; the 2026-08-25 review date lapsed without a verdict. The 83% direct figure is the measurable cost of that lapse.
+- No form submissions tracked, no demo bookings from the website.
+
+**Signature propagation chain (verified 2026-09-20):** the Gmail `settings/sendAs` signature is authoritative → `bin/sync-james-signature.py` (weekly cron) overwrites `james_signature.json` → `scripts/sig_assembly.py: assemble_html()` appends it to outbound HTML. **Editing `james_signature.json` directly is silently reverted by the weekly sync. Change the Gmail setting, then run the sync.** Note that `scripts/canonical-send.py` sends `text/plain` only and does not append the signature at all, so a UTM fix in the signature does not cover canonical sends; those need the tag in the body template.
+
+### Previous Baseline (week of 2026-09-06 to 2026-09-12) — superseded
 
 - 6 users, 6 sessions, 6 page views (day-sum method, see caveat below)
 - Traffic on 3 of 7 days (Sep 7, 9, 11); 4 days with zero sessions

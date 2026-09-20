@@ -1,0 +1,116 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-09-19
+confidence: high
+contested: false
+---
+
+# Weekend guard applied to a record inside an open founder decision — and a self-inflicted phantom record
+
+Source: Prepare-Ahead Clock run, 19 Sep 2026 22:00 ACST. Two related lessons from the same run.
+
+---
+
+## Lesson 1 — Classifying on a substring match against a field you just wrote produces phantom records
+
+**Symptom.** The first classification pass of the Monday QPaint cohort reported **13** `REVIEW → DECIDE`
+monitor records totalling **$325,113.43**. The true figure is **12** records / **$210,634.78**. The cohort
+total was likewise overstated: 25 / $749,071.25 published instead of 24 / $634,592.60.
+
+**Cause.** The classifier bucketed on `'MONITOR' in First Action`. Minutes earlier, the same run had
+written the weekend-guard text into QPaint `#43236`'s `First Action` — and that guard text contains the
+word **MONITOR** ("...or send #43236 only and hold #43195 as MONITOR"). `#43236` is an Email 1 send, but
+its own guard note made it match the monitor bucket. The phantom is exactly its value:
+$325,113.43 − $210,634.78 = **$114,478.65** = `#43236`'s Deal Value.
+
+**Fix / rule.** Classify on a **prefix or a structural field**, never a substring, when the classifier
+reads a free-text field the same run may have written to:
+
+```python
+# WRONG — breaks the moment any other bucket's text mentions the keyword
+if 'MONITOR' in fa: b = 'MONITOR'
+
+# RIGHT — anchored on how the field is actually authored
+if fa.startswith('Begin follow-up'): b = 'EMAIL1'
+elif 'ESCALATION PENDING' in fa:  b = 'ESCALATION'
+elif fa.startswith('MONITOR'):    b = 'MONITOR'
+```
+
+Corollary: a substring gate on free text is the same failure class as the 2026-09-13 intake-certification
+substring trap (`scope` containing the word "PandaDoc" failing `certify_intake_complete()`). Prefer
+prefix/exact matching on authored fields; if a substring is unavoidable, exclude the writer's own output.
+
+**Detection that worked.** The number was caught within the same run by re-deriving the cohort from an
+independent grouping pass and comparing against the first. **Two independent derivations of the same
+figure, in the same run, is what caught it** — a single classification pass would have published the
+overstated number into the daily note unchallenged.
+
+**Impact if undetected.** A wrong cohort value in a founder-facing daily note, and a subsequent "why did
+$749K become $634K" reconciliation.
+
+---
+
+## Lesson 2 — Applying a mandated guard to a record inside an open founder decision
+
+**The situation.** QPaint `#43236` (LEAD Childcare Burpengary, $114,478.65) carried
+`Next Touchpoint Date` = **Sunday 2026-09-20**, `Current Stage` = New, `First Action` = "Begin follow-up
+sequence". It was also the live subject of an open founder decision
+(`knowledge/lead-childcare-43236-decision-pack-2026-09-18.md`, deadline Sun 20 Sep 07:30 ACST), and the
+18 Sep run had **deliberately left it unedited** to preserve the evidence for that ruling.
+
+**The conflict.** Two standing rules pointed opposite ways:
+- The **Weekend Send Prohibition** is permanent documented policy and the growth-operations skill assigns
+  the push-to-Monday PATCH to this cron as an *interim mitigation*.
+- Standing memory says **never retro-edit a record carrying an open founder decision.**
+
+**Verification before acting.** The live job prompt for QPaint Daily Attention (`e859ea8b1c8c`,
+`30 7 * * *`) was read in full: it contains **no weekday clause at all**. Its DECIDE rule is
+"New + 48h observation over + begin follow-up sequence → SEND Email 1". Sunday 07:30 was the first run
+where the observation was over, so a customer email would have gone out on a Sunday. The cron's silence
+on the Saturday run was because nothing was *due*, not because a guard fired — an important distinction
+that had been read the other way in the 19 Sep note.
+
+**The resolution — separate the future date from the history.** "Retro-edit" means rewriting what a
+record *records*. Moving a *future* `Next Touchpoint Date` forward, and appending to `Outreach Notes`
+(never overwriting), does not touch history or evidence. So the guard was applied as documented:
+`NTD` 2026-09-20 → 2026-09-21, guard written into `First Action`, dated line **appended** to
+`Outreach Notes` (+731 chars, prior tail verified intact), and `Current Stage`, `Recovery Status`,
+`Deal Value`, `Quote Date` left untouched so nothing decision-relevant was rewritten. Verified by
+read-back, not by the 200 response.
+
+**The test that made it safe.** Before acting, check whether the action removes a **live option** or only
+a **rejected outcome**. Both surviving options in the founder's pack (one coordinated email; primary +
+hold the second) place contact on Monday. Only the pack's explicitly *rejected* Option C produced a
+Sunday send. So the guard removed a rejected outcome without removing any live option — which is why it
+could be applied inside an open decision, and why the ruling can still go either way afterwards.
+
+**What it did not fix, stated plainly.** The guard **relocated** the collision rather than resolving it:
+`#43236` and `#43195` (same contact, same reception inbox, $182,736.84 combined) now both land on Monday
+morning. That remains the founder's call. A guard is not a substitute for a ruling, and it must be
+reported as such rather than as a fix.
+
+**Rule.** When a mandated guard collides with "do not modify a record under an open decision":
+(1) verify the actual enforcement state from the live artefact (cron prompt, code) rather than from a
+note; (2) act only if the action removes a rejected outcome and no live option; (3) touch the future
+date and append-only fields, never decision-relevant history; (4) verify by read-back; (5) report the
+boundary call explicitly and state the reversal path (here: one PATCH restores 2026-09-20).
+
+---
+
+## Also corrected tonight — the "Email 3 template is missing" false positive
+
+A read of `knowledge/canonical-templates/INDEX.md` (two QPaint templates only) suggested the four Monday
+Email 3 candidates had no template. **It was not a gap.** `skills/snowark/recovery-operations/references/email3-pipeline-truth.md`
+holds two approved Email 3 forms plus a certification checklist, and states the rule outright at line 67:
+*"Do NOT create a canonical Email 3 template merely because one send was approved — observe the market
+response first."* The absence from the canonical registry is the **instructed** state.
+
+Found by searching the **concept and its documented vocabulary** ("pipeline truth", "still considering",
+"another way") rather than the registry alone — directly applying the 2026-09-18 grep lesson. **A registry
+that does not list something is not evidence the thing does not exist; it is evidence about the registry.**
+
+→ `knowledge/canonical-templates/INDEX.md`, `skills/snowark/recovery-operations/references/qpaint-email-template-map.md`,
+`skills/snowark/recovery-operations/references/email3-pipeline-truth.md`,
+`learnings/2026-09-18-grep-miss-read-as-rule-absence.md`

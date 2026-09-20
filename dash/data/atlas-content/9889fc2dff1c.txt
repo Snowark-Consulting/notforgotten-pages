@@ -1,0 +1,63 @@
+---
+doc_type: index
+owner: notforgotten
+tier: primary
+---
+
+# Learnings Corruption — Incident Series Index
+
+> Standing fact sheet for the recurring out-of-band corruption of `learnings/catalogue.md` and `learnings/cards/*.md`. Read this before investigating a new occurrence: the history is already here, and it has been misdiagnosed twice. Established 2026-09-20 (14th occurrence), per weekly vault-lint recommendation 7.2.
+
+## Standing facts
+
+| Fact | Value |
+|---|---|
+| Occurrences recorded | **14**, 2026-09-06 → 2026-09-20 |
+| Files affected | `learnings/catalogue.md` + `learnings/cards/*.md` (2–4 files per event) |
+| Writing window | **~07:03–07:08 ACST** (21:33–21:38 UTC the prior evening) |
+| Writer | **UNIDENTIFIED.** No logged tool call ever reads or writes anything under `learnings/`; the corrupted prose appears nowhere in `state.db` |
+| Detection gap | ~24 h. The 21:20 ACST guard cron and the 21:30 ACST backup both run **before** the write. Next control to see it = the following 07:30 weekly lint (weekly) or 21:00 consolidation (daily) |
+| Guard | `scripts/bin/learnings-integrity-guard.py` — cron `59d5247cd604` (21:20) + pre-commit gate in `nightly-backup.sh`. **Detects but exits 0** (documented `no_agent` alert pattern; output-based gate is correct) |
+| Open recs | `consolidation-out-of-band-learnings-writer`, `consolidation-learnings-guard-0715`, `consolidation-guard-tune` |
+| Contested | `false` — but the attribution has been **corrected twice** (see Falsified below) |
+
+## Damage signature (stable across events)
+
+- `catalogue.md`: `EDITING THIS TABLE` warning block deleted, one or more domain rows dropped, other rows `||`-prefixed, `campaign` cell rewritten as a markdown link, blank line inserted mid-table.
+- Cards: whole `## TRAP` sections deleted; some bodies displaced under a neighbouring heading; occasionally a heading **renamed** (reads to the guard as a deleted trap).
+- The writer also **adds**: its version usually carries 1–3 blocks that are genuinely new to the card layer. Treat its additions as real learnings, not noise.
+- Burst pattern: files written 1.1–5.7 s apart = a loop over files.
+
+## Repair playbook (do in this order)
+
+1. **Pre-restore safety check.** `git diff --numstat` the whole tree first — other files may carry legitimate uncommitted work that a blanket `git restore` would discard.
+2. **`git restore` the damaged files from HEAD.** HEAD is clean because the 21:30 backup committed the repaired file. **Never fuzzy-patch.**
+3. **Extract** the writer's genuinely-new blocks from the working tree (copy them to `/tmp` before restoring).
+4. **Duplicate-check** each block against `learnings/LEARNINGS.md`, the cards and the skill references. Re-apply **only** blocks new to the card layer. Record a non-action as a decision, not an omission.
+5. **Verify by heading LIST diff** against HEAD, not counts. A count passes cleanly when one trap is added and one deleted.
+6. Update the catalogue warning block and `memory/MEMORY.md` with the occurrence count and window.
+7. **Re-run the guard as the LAST step** — its 21:20 cron cannot see work written after it.
+
+## Falsified hypotheses — do not repeat
+
+1. **"The guard ran before the write."** A UTC-mtime-read-as-Adelaide-local error. The write lands ~10 h *after* the guard.
+2. **"The writer window contains no tool calls."** Occupancy varies: 13 unrelated `quotes-pulse-phase2` calls on 2026-09-14, zero on 2026-09-16. The constant is that none of them touch `learnings/`.
+3. **"The 06:03 ACST window."** A one-hour UTC+09:30 slip; the window is ~07:03–07:08 ACST.
+
+## Occurrence log (newest first)
+
+| # | Date (ACST) | Files | Damage | Dated record |
+|---|---|---|---|---|
+| 14 | 2026-09-20 07:08:22–07:08:28 | 4 (`catalogue`, `gmail`, `agent-architecture`, `qpaint`) | **Widest yet.** 14 traps deleted across 3 cards; QPaint card 6 traps → 1. Guard = 44 findings | `2026-09-20-learnings-corruption-14th.md` |
+| 13 | 2026-09-18 07:02:46 + 07:26:23 | 3 (`catalogue`, `hermes`, `gmail`) | Third file, 24 min later; `gmail` lost a trap outright. Guard = 38 | `2026-09-18-learnings-corruption-13th.md` |
+| 12 | 2026-09-17 07:07:04 | 2 (`catalogue`, `agent-architecture`) | Writer's only new block was already canonical in a skill reference. Guard = 31 | `2026-09-17-learnings-corruption-12th.md` |
+| 11 | 2026-09-16 07:06:00 | 2 (`catalogue`, `agent-architecture`) | First provably tool-call-free window; heading **renamed** for the first time | `2026-09-16-learnings-corruption-11th.md` |
+| 10 | 2026-09-15 07:03 | 3 (`catalogue`, `agent-architecture`, `shell`) | Window held 13 unrelated tool calls; attribution corrected | `2026-09-15-corruption-writer-window.md` |
+| 9 | 2026-09-14 07:03 | 3 | First out-of-band diagnosis | `2026-09-14-out-of-band-learnings-writer.md` |
+| 1–8 | 2026-09-06 → 2026-09-13 | 1–2 | Catalogue-only initially; spread to cards on the 8th | `2026-09-11-fuzzy-patch-corruption-cards.md` + the 2026-09-06/07/09/10/12/13 consolidation log entries in `Agent/log.md` |
+
+## Related
+
+- Guard page reference: `[[Learnings Integrity Guard]]` is a dual-format link to `scripts/bin/learnings-integrity-guard.py` — a script, not a knowledge card. Documented false positive in the weekly lint; do not create a card for it.
+- Standing card: `learnings/cards/agent-architecture.md` → `## TRAP — Learnings damage is written OUT-OF-BAND …`
+- Skill pitfall: `skills/snowark/nightly-consolidation/SKILL.md` (the corruption pitfall block)

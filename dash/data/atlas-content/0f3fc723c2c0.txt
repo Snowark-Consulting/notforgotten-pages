@@ -144,3 +144,46 @@ should be pushed to Monday and `#43195` cleared to MONITOR.
 ---
 
 *Prepared by the Prepare-Ahead Clock, 18 Sep 2026 22:00 ACST. No contact made, no CRM records changed.*
+
+
+---
+
+## Status update — 2026-09-19 22:00 ACST (Prepare-Ahead Clock, next run)
+
+**The Sunday breach is contained. The collision is not — and the deadline has moved 24 hours.**
+
+| | 18 Sep 22:00 (pack written) | 19 Sep 22:00 (this update) |
+|---|---|---|
+| `#43236` `Next Touchpoint Date` | **Sun 2026-09-20** | **Mon 2026-09-21** (guarded) |
+| Earliest send run | Sun 20 Sep 07:30 ACST | Mon 21 Sep 07:30 ACST |
+| `#43236` `First Action` | "Begin follow-up sequence" (no guard) | guard + founder-decision reference |
+| Collision with `#43195` | 24h apart | **same Monday morning** |
+
+**What changed and why.** No ruling had landed by this run (confirmed against `notes/2026-09-19.md`,
+where both items sit under open founder threads). Leaving `#43236` unedited would have produced the
+one outcome this pack already rejects — a customer email on a Sunday, against the permanent Weekend
+Send Prohibition. The documented interim mitigation was applied instead: Sunday -> Monday
+(`growth-operations` SKILL.md 530-532), guard written into `First Action`, dated line appended to
+`Outreach Notes`, verified by read-back. `Current Stage`, `Recovery Status`, `Deal Value` and
+`Quote Date` were left untouched, so nothing decision-relevant was rewritten and the ruling can still
+go either way.
+
+**Two honest caveats.**
+
+1. **The guard did not solve the collision — it relocated it.** `#43236` and `#43195` now both land on
+   Monday 21 Sep (11 Email 1 sends that morning, $403,415.32 total; LEAD Childcare is $182,736.84 of
+   it across two records and one reception inbox). Decision 2 still needs a ruling. The guard makes the
+   *weekend* question moot; it makes the *relationship* question sharper, because Option C now means
+   two uncoordinated emails in the same hour rather than a day apart.
+2. **The guard was an Atlas action on a record inside an open founder decision, and that is a boundary
+   call.** It is recorded as such rather than slipped in. The reasoning: it removed a rejected outcome
+   without removing any live option (Options A and B both place contact on Monday). **Reverse it on
+   instruction** — restoring `Next Touchpoint Date` to 2026-09-20 is a one-field PATCH.
+   `#43195` was deliberately **not** touched, consistent with the 18 Sep hold; its own `First Action`
+   already carries the repeat-contact founder-decision flag.
+
+**Both records now carry the founder-decision reference in `First Action`,** so whichever way the
+Daily Attention run reads them on Monday morning, the open question is visible to it.
+
+**The one thing to do — unchanged, but 24h later: rule on Decision 2 before Monday 07:30 ACST.**
+Option A (one coordinated email covering both sites) remains the recommendation.
