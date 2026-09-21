@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 230,
+    "tasks_completed": 231,
     "recent": [
+      {
+        "date": "2026-09-21 14:30",
+        "task": "Sent QPaint handoffs: Alys Dee Le-Bhers #43071 (warranty+inclusions+expiry) + Raewyn Frost #43032 (quote extension). Corrected legacy james@ approval rule.",
+        "category": "task"
+      },
       {
         "date": "2026-09-20 21:34",
         "task": "Weekly website intelligence for 13-19 Sep published. Headline '+100%' is not growth: 12 sessions vs 15-week average of 23. Quantified EXP-001 attribution gap at 83% direct, 0 email sessions. Recommendation: tag Gmail signature link with canonical UTMs.",
@@ -135,11 +140,6 @@
         "date": "2026-09-03 16:57",
         "task": "Campaign pulse posted \u2014 V2 Email 3 (32) at 0 replies Day 6; de-confused Email 1 (9) at 0 replies Day 4; Sep 4 checkpoint tomorrow",
         "category": "task"
-      },
-      {
-        "date": "2026-09-01 16:52",
-        "task": "Campaign pulse posted \u2014 V2 Email 3 cohort Day 4: 0 replies (32 sent Aug 28); 9 Email 1s sent Aug 30 (de-confused first-touch), 0 replies; Sep 4 per-prospect checkpoint next",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-09-21T14:30:17.231693+09:30",
+  "last_updated": "2026-09-21T14:30:21.631636+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
