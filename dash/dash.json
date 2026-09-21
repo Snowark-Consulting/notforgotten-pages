@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 232,
+    "tasks_completed": 233,
     "recent": [
+      {
+        "date": "2026-09-21 17:42",
+        "task": "Campaign pulse posted \u2014 QPaint recovery 16% trailing-7d reply rate (6 replies / 38 sends) vs 1.9% cold painter channel; 18 sends today, 4 inbound replies, 2 Lost; V2 cold channel dormant 17 days, 52 past due, decision review due today",
+        "category": "task"
+      },
       {
         "date": "2026-09-21 14:55",
         "task": "Sent QPaint weekly Won/Lost reconciliation coordination request (outcome-visibility gap).",
@@ -135,11 +140,6 @@
         "date": "2026-09-07 17:14",
         "task": "Campaign pulse posted \u2014 V2-32 Day 10 zero replies (HOLD standing), de-confused 9 Day 3 mid-window; founder call day Wed",
         "category": "task"
-      },
-      {
-        "date": "2026-09-05 17:03",
-        "task": "Campaign pulse posted \u2014 V2 Email 3 (32) Day 8: 0 replies, HOLD standing; de-confused Email 2 (9) Day 1-2: 0 replies; founder-call candidates NFD today",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-09-21T16:31:08.791642+09:30",
+  "last_updated": "2026-09-21T17:42:37.171568+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
