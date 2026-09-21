@@ -1,0 +1,57 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-09-21
+---
+
+# Learnings corruption — 15th occurrence (2026-09-21)
+
+> The out-of-band writer hit **five files** in a 9.3 s burst at 07:22 ACST — the most files in one event — and for the first time added a block that is attested nowhere else on disk.
+
+**Confidence:** high
+**Contested:** false
+
+## What happened
+
+| Field | Value |
+|---|---|
+| Window | 2026-09-20 21:52:04.1 → 21:52:13.4 UTC = **2026-09-21 07:22:04 → 07:22:13 ACST** |
+| Files | `cards/python.md` (21:52:04.1), `cards/gmail.md` (21:52:06.4), `cards/agent-architecture.md` (21:52:09.0), `cards/shell.md` (21:52:11.4), `catalogue.md` (21:52:13.4) |
+| Burst | 5 files, 9.3 s — the familiar loop-over-files signature, now with the widest file set recorded |
+| Guard findings on the damaged tree | **41** (events 11–15: 30 → 31 → 38 → 44 → **41**) |
+| Detected by | That night's 21:00 ACST consolidation (the 07:30 weekly lint is weekly; the 07:xx writer lands after both the 21:20 guard and the 21:30 backup) |
+| HEAD state | Clean — the damaged files were uncommitted, so `git restore` was complete |
+
+## Damage
+
+- `catalogue.md` — `EDITING THIS TABLE` warning block deleted, `gmail-auth` row dropped, 9 rows `||`-prefixed, mid-table blank line, `campaign` cell turned into a markdown link, `qpaint` row keywords rewritten.
+- `cards/gmail.md` — lost 5 traps (`Customer-quoted date`, `403 rateLimitExceeded`, `OAuth token refresh single-shot`, `labelIds`, `emoji reactions`) plus the `**Symptom:**` update note; the surviving `labelIds` trap was reworded.
+- `cards/python.md` — lost the `/tmp` stdlib-shadow trap; the writer substituted a condensed rewrite of the same trap.
+- `cards/shell.md` — lost the glob-delete trap (heading moved and body condensed); added an unattested macOS trap.
+- `cards/agent-architecture.md` — lost the `Customer deferral …` and `A negative grep …` trap headings (one merged into a `|## TRAP` prefix-damaged heading, the other renamed).
+
+## Repair (executed this run)
+
+1. Pre-restore `git diff --numstat` safety check — the only other modified files were legitimate daytime work (`LEARNINGS.md` +38/−0, `notes/`), so the five damaged files were restored **individually**, never by blanket restore.
+2. `git restore` all five from HEAD.
+3. Extract → duplicate-check → re-apply **only** blocks attested elsewhere:
+   - `cards/gmail.md` ← `## TRAP — The email signature is owned by Gmail, not by a local JSON file` (attested by `LEARNINGS.md` 2026-09-20 and a pre-corruption session row).
+   - `cards/agent-architecture.md` ← `## TRAP — Weekly deltas are meaningless without the multi-week mean` (same attestation).
+4. **Deliberately NOT re-applied:**
+   - A macOS `## TRAP — Newest macOS SDK can break local ld link (arm64e.x1 targets)` in the writer's `cards/shell.md`. A disk-wide grep found it **only** in the writer's own version — no `LEARNINGS.md` entry, no dated file, no cron output, no session row (the only `state.db` hit is this consolidation reading the file). It describes a macOS toolchain on a Linux host. No attestation = no re-apply.
+   - The condensed rewrites of traps that already exist in HEAD, and the `"already completed" = LOST / third-party = Engaged + deferred` block (canonical in `skills/email/email-inbox-pulse/references/qpaint-customer-reply-processing.md` since the 12th event).
+5. Verified by heading **LIST** diff against HEAD — additions only, zero collateral. Catalogue: 21 rows = 21 cards, zero `||` rows, warning block present.
+6. Guard re-run as the LAST step → silent PASS.
+
+## New element this event
+
+**The writer can add content that exists nowhere else.** The prior two events' additions (OAuth refresh, `write_file` append-only log, status-blind ack, negative grep) were all attested by a dated learning or a skill reference, so "re-apply the writer's new blocks" was safe as a blanket rule. The 15th event falsifies that shortcut: one of its additions is unattested and off-platform. **Attestation is now a required step before re-applying any writer block** — the rule is extract → **attest** → duplicate-check → re-apply.
+
+Finding count is also **not** a severity proxy: 5 files (a record) produced 41 findings, fewer than the 4-file 14th event's 44.
+
+## Open thread
+
+The binding defect remains **detection latency**, not repair quality: every repair in this series has worked, and every event has still lived ~10 h before a control saw it. The writer lands ~07:03–07:22 ACST, after the 21:20 guard and 21:30 backup. Rec `consolidation-learnings-guard-0715` (a ~07:15 ACST detect-and-restore run) is still unbuilt — a job that auto-restores files is an infrastructure change needing explicit founder approval.
+
+**Sources:** `learnings/corruption/INDEX.md` (series fact sheet), `learnings/2026-09-20-learnings-corruption-14th.md`, `Agent/log.md` 2026-09-21 CONSOLIDATE entry.

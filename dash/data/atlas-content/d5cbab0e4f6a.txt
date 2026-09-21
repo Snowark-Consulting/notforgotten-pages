@@ -35,6 +35,7 @@ tier: primary
 | 1 | 2026-07-28 | White-label signature leak (30 QPaint emails) | High | Client Identity Verification Gate |
 | 2 | 2026-07-29 | Investigation undercount (20 reported vs 30 actual) | Medium | Operational Investigation Standard |
 | 3 | 2026-09-19 | QPaint Lost status not visible to Atlas (Kristen Watt #43121) | Medium — source-visibility gap, not execution failure | QPaint outcome-visibility gap documented; Won-signal path verified clean |
+| 4 | 2026-09-21 | Obsolete "james@ internal NOT delegated" rule blocked routine QPaint handoffs (Alys #43071, Raewyn #43032) | Medium — approval regression | Routine QPaint handoffs confirmed delegated under qpaint-autonomous-envelope.json |
 
 ---
 
@@ -69,6 +70,23 @@ tier: primary
 | **Playbook changes** | This register entry. No system build. |
 | **Verification** | Airtable #43121 reconciled to Lost/Went Elsewhere/Outcome Date 14 Sep/NTD cleared. No customer contact made. Loss reason left UNKNOWN (Tas's price/timing question to Dineo still open — do not invent). |
 | **Five questions** | 1) QPaint records Lost internally with no push to NF. 2) No CRM sync/webhook between QPaint and Atlas-accessible sources. 3) A periodic QPaint outcome reconciliation (manual or lightweight export) would close the Lost-visibility gap; Won already covered by PandaDoc. 4) Any future client without a status sync inherits the same risk — document as onboarding requirement. 5) Not yet built — requires founder decision (see report). |
+
+---
+
+## Entry #4 — Obsolete "james@ Internal NOT Delegated" Blocked Routine QPaint Handoffs
+
+| Field | |
+|---|---|
+| **Date** | 2026-09-21 |
+| **Severity** | Medium — approval regression, not a customer-facing failure |
+| **What happened** | Two routine QPaint internal handoffs (Alys Dee Le-Bhers #43071 warranty+inclusions; Raewyn Frost #43032 quote-extension) were drafted but never sent because Atlas applied a legacy belief that "james@ internal emails are NOT delegated send authority — founder approval required (Pitfall 41)." Alys chased twice (18 Sep + 21 Sep) against a quote expiring 22 Sep; Raewyn's quote lapsed 15 Sep. |
+| **Root cause** | A stale instruction in `skills/email/email-inbox-pulse/SKILL.md` (its own "Pitfall 41", dated 2026-08-12) stated "Show the draft to James before sending. james@ internal emails are NOT delegated send authority." This conflicted with the standing `knowledge/authority/qpaint-autonomous-envelope.json`, whose `content_scope` explicitly covers "routine internal handoffs to the QPaint team (Dee/Leslie) via james@" and whose `notes` state "Per-message Founder approval is NOT required." The 2026-08-30 QPaint operational handover decision also delegates routine QPaint ops end-to-end. The two draft files carried the obsolete claim and blocked execution. |
+| **Immediate impact** | Alys left 3 days unanswered while chasing twice against expiry; Raewyn's quote lapsed 6 days before the handoff went out. No customer lost, but avoidable delay and stale follow-up risk. |
+| **Permanent system improvement** | Corrected `email-inbox-pulse/SKILL.md` to distinguish: routine QPaint handoffs (pricing/warranty/scope/exclusions/scheduling/quote-validity/extension/technical info) are DELEGATED; non-QPaint internal and out-of-envelope sends still show-before-send. Memory entry updated to state the delegation as standing fact. Both draft files corrected. |
+| **Measurable control** | Routine QPaint handoff = send autonomously via `send_james_email()`, verify in james@ Sent, reconcile Airtable — no founder approval. Escalate only: new commitment, strategic decision, pricing/scope negotiation on QPaint's behalf, or uncertainty. |
+| **Playbook changes** | `email-inbox-pulse/SKILL.md` Pitfall 41 wording replaced. Memory QPaint role-boundary entry rewritten. |
+| **Verification** | Alys handoff sent 1a0c252044a76e4e (verified james@ Sent, SENT label) + holding note 1a0c252f6f060b21 (atlas@, threaded, no warranty/exclusion/extension representation). Raewyn handoff sent 1a0c254454548245 (verified). Both Airtable records reconciled to "AWAITING QPAINT ANSWER", NTD set for monitoring. |
+| **Five questions** | 1) Obsolete skill wording outlived the 2026-08-30 delegation decision. 2) No single source of truth for send-authority scope — it lived in two conflicting files. 3) The corrected skill + memory + envelope.json now align on one rule. 4) Any future client needs its own envelope with explicit handoff scope. 5) Active — verified by successful autonomous send + Sent-folder verification. |
 
 ## Five Questions + Three Deliverables (Every Entry Must Answer)
 

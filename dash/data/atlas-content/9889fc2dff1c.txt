@@ -12,9 +12,9 @@ tier: primary
 
 | Fact | Value |
 |---|---|
-| Occurrences recorded | **14**, 2026-09-06 → 2026-09-20 |
-| Files affected | `learnings/catalogue.md` + `learnings/cards/*.md` (2–4 files per event) |
-| Writing window | **~07:03–07:08 ACST** (21:33–21:38 UTC the prior evening) |
+| Occurrences recorded | **15**, 2026-09-06 → 2026-09-21 |
+| Files affected | `learnings/catalogue.md` + `learnings/cards/*.md` (2–5 files per event) |
+| Writing window | **~07:03–07:22 ACST** (21:33–21:52 UTC the prior evening) |
 | Writer | **UNIDENTIFIED.** No logged tool call ever reads or writes anything under `learnings/`; the corrupted prose appears nowhere in `state.db` |
 | Detection gap | ~24 h. The 21:20 ACST guard cron and the 21:30 ACST backup both run **before** the write. Next control to see it = the following 07:30 weekly lint (weekly) or 21:00 consolidation (daily) |
 | Guard | `scripts/bin/learnings-integrity-guard.py` — cron `59d5247cd604` (21:20) + pre-commit gate in `nightly-backup.sh`. **Detects but exits 0** (documented `no_agent` alert pattern; output-based gate is correct) |
@@ -25,7 +25,7 @@ tier: primary
 
 - `catalogue.md`: `EDITING THIS TABLE` warning block deleted, one or more domain rows dropped, other rows `||`-prefixed, `campaign` cell rewritten as a markdown link, blank line inserted mid-table.
 - Cards: whole `## TRAP` sections deleted; some bodies displaced under a neighbouring heading; occasionally a heading **renamed** (reads to the guard as a deleted trap).
-- The writer also **adds**: its version usually carries 1–3 blocks that are genuinely new to the card layer. Treat its additions as real learnings, not noise.
+- The writer also **adds**: its version usually carries 1–3 blocks that are genuinely new to the card layer. Treat its additions as real learnings, not noise — but **attest every one before re-applying it**. The 15th event added a macOS `arm64e.x1` linker trap that appears nowhere else on disk (no `LEARNINGS.md` entry, no dated file, no cron output, no session row) and was therefore NOT re-applied.
 - Burst pattern: files written 1.1–5.7 s apart = a loop over files.
 
 ## Repair playbook (do in this order)
@@ -48,6 +48,7 @@ tier: primary
 
 | # | Date (ACST) | Files | Damage | Dated record |
 |---|---|---|---|---|
+| 15 | 2026-09-21 07:22:04–07:22:13 | 5 (`python`, `gmail`, `agent-architecture`, `shell`, `catalogue`) | **Most files yet**, 9.3 s burst; guard = 41 findings (44 → 41 — finding count is not a severity proxy). New element: one writer block with **zero attestation** | `2026-09-21-learnings-corruption-15th.md` |
 | 14 | 2026-09-20 07:08:22–07:08:28 | 4 (`catalogue`, `gmail`, `agent-architecture`, `qpaint`) | **Widest yet.** 14 traps deleted across 3 cards; QPaint card 6 traps → 1. Guard = 44 findings | `2026-09-20-learnings-corruption-14th.md` |
 | 13 | 2026-09-18 07:02:46 + 07:26:23 | 3 (`catalogue`, `hermes`, `gmail`) | Third file, 24 min later; `gmail` lost a trap outright. Guard = 38 | `2026-09-18-learnings-corruption-13th.md` |
 | 12 | 2026-09-17 07:07:04 | 2 (`catalogue`, `agent-architecture`) | Writer's only new block was already canonical in a skill reference. Guard = 31 | `2026-09-17-learnings-corruption-12th.md` |

@@ -187,3 +187,47 @@ Daily Attention run reads them on Monday morning, the open question is visible t
 
 **The one thing to do — unchanged, but 24h later: rule on Decision 2 before Monday 07:30 ACST.**
 Option A (one coordinated email covering both sites) remains the recommendation.
+
+
+---
+
+## Status update — 2026-09-20 22:00 ACST (Prepare-Ahead Clock, next run)
+
+**The collision is now fail-closed. The ruling is still the only thing that clears it.**
+
+No ruling had landed by this run (confirmed against `notes/2026-09-20.md`, where LEAD Childcare sits under
+open founder threads). A live read of the Daily Attention prompt (`cron/jobs.json`, job `e859ea8b1c8c`)
+confirmed the residual risk this pack flagged on 19 Sep: its DECIDE rule is *"New stage + 48h observation
+over + 'Begin follow-up sequence' -> SEND Email 1"*, and its second-quote guard is explicitly undefined
+for two uncontacted, same-day records. Both records match the send rule exactly. So an unruled 07:30
+Monday run could produce the outcome this pack rejects (**Option C**).
+
+**A neutral fail-closed guard was applied to both records** (additive only, appended — no field
+overwritten):
+
+| | #43236 `recZlDwhNtmfM2fdR` | #43195 `recbA8W0aLSU1VJp4` |
+|---|---|---|
+| `First Action` | fail-closed clause appended | fail-closed clause appended |
+| `Outreach Notes` | dated guard line appended (3418 -> 4224 chars) | dated guard line appended (2763 -> 3569 chars) |
+| `Current Stage` / `Recovery Status` | New / New — **untouched** | New / New — **untouched** |
+| `Deal Value` / `Quote Date` | untouched | untouched |
+| `Next Touchpoint Date` | 2026-09-21 — **untouched** | 2026-09-21 — **untouched** |
+
+Verified by read-back on both records; both prior last note lines intact (append-only respected).
+
+**Why this guard and not the 19 Sep one.** Last night's guard removed a *rejected outcome* (a Sunday send)
+while leaving every live option intact. This guard does the same: it removes Option C only, and is
+explicitly neutral between Options A and B — it does not choose. What it does change is the *unruled
+default*: with no ruling, neither record is contacted on Monday, instead of both. That is a deliberate
+fail-closed reading of *"the cost of stopping is always lower than the cost of assuming"* (SOUL Safety
+Rules) — a one-day delay on a 30-day quote costs nothing; two uncoordinated emails to one reception
+inbox do not come back.
+
+**Recorded as an Atlas action on records inside an open founder decision, same transparency standard as
+19 Sep.** No stage, status, value, quote date or touchpoint date was rewritten, so the ruling can still
+go either way. **Reverse on instruction:** remove the `FAIL CLOSED 2026-09-20` clause from `First Action`
+on both records; restoring the 2026-09-21 plan requires nothing else.
+
+**The one thing to do — unchanged, 9.5 hours out: rule on Decision 2 before Monday 21 Sep 07:30 ACST.**
+Option A (one coordinated email covering both sites) remains the recommendation. If Option A is chosen,
+the guard is simply moot; if Option B, clear `#43195` to MONITOR and lift the guard on `#43236`.

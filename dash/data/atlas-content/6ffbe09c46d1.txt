@@ -1,0 +1,99 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-09-21
+---
+
+# 2026-09-21 — QPaint quote SPLIT event: one quote becomes a revised original + a new quote number
+
+> QPaint can divide ONE quote into a revised original plus a brand-new quote number, two notifications
+> seconds apart — the parts must reconcile exactly to the original rendered total, and the wake gate can only
+> ever show one of them.
+
+**Type:** new pitfall (intake) — `quote-intake` Pitfall 65
+**Source:** quotes@ pulse, 21 Sep 2026 11:43–11:49 ACST
+**Evidence:** messages `1a0c1bd1ac64fed0` (#43156 revision) and `1a0c1be87cee819b` (#43259 new)
+
+## What happened
+
+The wakeAgent gate handed the pulse ONE message ID: `1a0c1bd1ac64fed0`, a QPaint notification
+"Dineo Ndala sent you 43156 - 97 Frederick Street, Annerley".
+
+That message looked like a duplicate of the 11 Sep intake (same subject, same quote number, same
+PandaDoc token `3bb26848c8ee16ceb23e2ddd455331fbbaad0e43`). Per the Pitfall 30 addendum the cheap
+revision check was run — re-extract the token and compare figures. That check turned up something
+bigger than a duplicate:
+
+| | recorded at intake (11 Sep) | current document (21 Sep) |
+|---|---|---|
+| options | six priced options | one option |
+| subtotal | $7,175.00 | $2,200.00 |
+| GST | $717.50 | $220.00 |
+| total | $7,892.50 | $2,420.00 |
+| expiry | 10/10/2026 | 21/10/2026 |
+
+Two independent extractions agreed (AX-tree 16,282 chars; DOM innerText pass 15,585 chars with
+element geometry). The revision id in `X-Mailgun-Variables` differed between notifications
+(`LdzybEfYUyj32ExjdSiP7M` -> `5qcQwmUAWqvMTbnfM7jN3D`) while the token and `document_id`
+(`ubVSR8Lf4NGCe88W3575EG`) stayed the same.
+
+After filing #43156, a routine `in:inbox` check found a SECOND unread message that had arrived
+93 seconds after the first: `1a0c1be87cee819b`, "Dineo Ndala sent you **43259** - 97 Frederick
+Street, Annerley", body text: *"Hi Madonna / Please see attached the additional options not
+insurance related."*
+
+So QPaint had **split** the original quote across two numbers:
+- **#43156** re-issued with the insurance-related scope only — $2,200.00 ex GST / $2,420.00 incl
+- **#43259** new number for the removed work — $1,350.00 + $3,250.00 + $375.00 = $4,975.00 ex GST
+
+Arithmetic proof of the split: `2,200 + 1,350 + 3,250 + 375 = 7,175` ex GST = `7,892.50` incl GST —
+exactly the original quote's own rendered subtotal and total. The job value is unchanged; it was
+only divided.
+
+## Why it mattered
+
+Three distinct failure modes were live at once:
+
+1. **Unexplained value reduction.** Processing #43156 alone wrote a 69 percent fall in Deal Value
+   into the record with no explanation, and the note had to carry an inference ("QPaint descoped
+   the quote") that primary evidence later superseded.
+2. **Duplicate conversation.** Treating #43259 as an unrelated new quote would have started a
+   second follow-up sequence at the same house, for a customer already at Email 2 on #43156.
+3. **Gate snapshot staleness.** The wakeAgent gate captured one ID; the companion arrived 93 seconds
+   later. Nothing was lost here only because the second message was still UNREAD and the pulse
+   re-checked the inbox. Had it been marked read by another actor it would have been silent.
+
+## What was done
+
+- #43156: updated in place (Pitfall 59 revision procedure) — Deal Value $2,420.00, Extent of Work
+  revised with the prior version preserved, First Action updated, new message id appended to
+  Messages, revision entry appended to Outreach Notes. Quote Date kept at the original journey
+  anchor 2026-09-11. Stage `Email 2`, Recovery Status `Contacted`, NTD 2026-09-28 all unchanged.
+- #43259: NEW record `rec00WiF6v6GE82gQ`, Stage `New`, Quote Date 2026-09-21 (send-notification
+  date in ACST, not the document's internal 20/09/2026), NTD 2026-09-23 (Quote Date + 48h, a
+  review date only), First Action = repeat-contact founder-review note, no follow-up authorised.
+- Split-confirmation entry APPENDED to #43156's Outreach Notes (append-only; the earlier inference
+  was superseded by appending, never by rewriting).
+- Both messages filed to Quotes Completed; quotes@ inbox 0.
+- Both records passed `certify_intake_complete` and `certify_reconciliation`.
+
+## Judgement call flagged to the founder
+
+#43259's document renders three unticked tick-box options with GST and Total at $0.00, so it
+computes no grand total. The recorded $5,472.50 is the incl-GST equivalent at QPaint's standard
+10 percent GST — an INFERENCE, justified by the exact reconciliation to the original total, not a
+figure the document itself renders. The as-rendered alternative is $4,975.00 ex GST. Surfaced in the
+Telegram summary as a one-line change if James prefers it.
+
+The document's own pricing-basis sentence — *"Pricing based on multiple options being selected.
+If only 1 option is selected, additional charges will apply"* — is what makes this a cumulative
+menu (sum the options) rather than a select-one quote (headline option only, Pitfall 55). That
+sentence is the discriminator, not the tick boxes and not the generic "Please select an Option
+below..." dropdown.
+
+## Rule extracted
+
+> After any revision-looking QPaint event, re-check `in:inbox` before declaring intake complete —
+> a split produces two notifications seconds apart. Prove a split arithmetically against the
+> original rendered subtotal; if it does not reconcile, it is not a split — Intake Exception.
