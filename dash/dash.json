@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 231,
+    "tasks_completed": 232,
     "recent": [
+      {
+        "date": "2026-09-21 14:55",
+        "task": "Sent QPaint weekly Won/Lost reconciliation coordination request (outcome-visibility gap).",
+        "category": "task"
+      },
       {
         "date": "2026-09-21 14:30",
         "task": "Sent QPaint handoffs: Alys Dee Le-Bhers #43071 (warranty+inclusions+expiry) + Raewyn Frost #43032 (quote extension). Corrected legacy james@ approval rule.",
@@ -135,11 +140,6 @@
         "date": "2026-09-05 17:03",
         "task": "Campaign pulse posted \u2014 V2 Email 3 (32) Day 8: 0 replies, HOLD standing; de-confused Email 2 (9) Day 1-2: 0 replies; founder-call candidates NFD today",
         "category": "task"
-      },
-      {
-        "date": "2026-09-03 16:57",
-        "task": "Campaign pulse posted \u2014 V2 Email 3 (32) at 0 replies Day 6; de-confused Email 1 (9) at 0 replies Day 4; Sep 4 checkpoint tomorrow",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-09-21T14:30:21.631636+09:30",
+  "last_updated": "2026-09-21T14:55:50.457973+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
