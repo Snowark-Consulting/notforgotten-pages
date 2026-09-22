@@ -1,44 +1,44 @@
 {
-  "generated_at": "2026-09-22T04:03:26+09:30",
+  "generated_at": "2026-09-23T04:05:12+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "The QPaint portfolio is stable. 267 total records, 211 active journeys. Production Operating Protocol v1.0.0 governs all operations. Canonical send authority live.",
+    "body": "Wednesday. Founder Sales Day, Round 4. QPaint stable at 267 records ($8.68M book, 13 Won $515,367, 44 Lost, 210 active). Overnight quiet: 0 new quotes, replies, bounces. Call sheet is prepared; Ahmad/Star Painters reassess is owed today.",
     "estimated_time": "2 minutes"
   },
   "business_score": {
     "score": 88,
     "change": "\u2014",
     "reasons_positive": [
-      "QPaint 267 records, $8.68M total Deal Value, 13 Won = $515,367. Honest Won-vs-Recovered separation maintained.",
-      "210 active journeys with complete Next Action coverage. 12 records due today (review-decide monitors + Alys Dee expiry). 0 overdue active \u2014 LEAD Childcare is suspended on a founder ruling, not overdue work.",
-      "Recovery operations fully automated with 0 exceptions; Kristen Watt #43121 reconciled to Lost (Prosperity Painters) with reason discipline held."
+      "QPaint 267 records, $8.68M total Deal Value, 13 Won = $515,367. Honest Won-vs-Recovered separation: 1 Recovered ($129,750), 7 Assisted, 5 Observed.",
+      "210 active journeys with complete Next Action coverage. 0 overdue active \u2014 LEAD Childcare is suspended on a founder ruling (fail-closed), not overdue work.",
+      "Founder Call Day Round 4 prepared: 8 evidence-backed calls, each with a documented reason to call (was a standing-12 with no new opening)."
     ],
     "reasons_negative": [
       "LEAD Childcare coordination ruling overdue (founder decision, $182,736.84 combined).",
       "state.db integrity FAILS (freelist corruption) \u2014 breaking cron-prune + LLM cost-check maintenance. Winston/Josh.",
-      "Off-box backup dead 17 days; 2 public repos expose client emails (9th day)."
+      "Off-box backup dead 18 days; 2 public repos expose client emails (10th day)."
     ]
   },
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "QPaint: Active. Portfolio certified. 211 active journeys with complete Next Action coverage."
+      "detail": "QPaint: Active. Portfolio certified. 210 active journeys with complete Next Action coverage."
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "\u2705 211 active QPaint journeys certified. 146 contacted. 0 exceptions. Pipeline: $7,227,393. Won: $515,367."
+      "detail": "\u2705 210 active QPaint journeys certified. 145 contacted. 0 exceptions. Pipeline: $7,207,075. Won: $515,367."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "V2 Email 3 (32 sent 28 Aug) awaiting reply \u2014 follow-up window 4 Sep. 9 founder-autonomy Email 1s (30 Aug), Email 2 window 4 Sep. RE-ENG-AUG-2026: 99 observing."
+      "detail": "Cold painter channel dormant (V2 HOLD since 4 Sep). Founder Call Day Round 4 today. RE-ENG-AUG-2026: 99 observing."
     },
     "engineering": {
       "status": "healthy",
-      "detail": "All systems healthy. Canonical send authority (Phase 1) shadow-ready. Production Operating Protocol v1.0.0 live."
+      "detail": "All systems healthy. Canonical send authority live. Production Operating Protocol v1.0.0."
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $515,367 Won. $7,227,393 active pipeline."
+      "detail": "QPaint: $515,367 Won. $7,207,075 active pipeline."
     },
     "atlas": {
       "status": "healthy",
@@ -49,33 +49,51 @@
     {
       "id": "lead-childcare-coordination",
       "title": "Rule on LEAD Childcare #43236 + #43195 \u2014 one coordinated follow-up vs two emails to the same reception inbox ($182,736.84 combined).",
-      "why_it_matters": "Both quotes (Burpengary $114,478.65 + Dayboro $68,258.19) share reception@leadchildcare.com.au. Both read New with 48h observation over. Fail-closed guard holding both. Only founder action from yesterday still unresolved.",
+      "why_it_matters": "Both quotes (Burpengary $114,478.65 + Dayboro $68,258.19) share reception@leadchildcare.com.au. Both New, observation over. Fail-closed guard holding both. Open since 18 Sep \u2014 the single oldest founder action.",
       "business_impact": "High: $182,736.84 combined, single reception inbox.",
       "estimated_time": "2 min",
       "recommended_action": "Rule Option A (one coordinated relationship-level follow-up) vs Option B (two separate). Pack: knowledge/lead-childcare-43236-decision-pack-2026-09-18.md",
       "impact_sort": 95
     },
     {
+      "id": "founder-call-day-round4",
+      "title": "Execute Founder Call Day Round 4 \u2014 8 evidence-backed calls (Option B).",
+      "why_it_matters": "Round 4 call sheet prepared. 3 rounds produced 1 reconstructible conversation and 0 captured outcomes. Today's calls each carry a dated decision, documented conversation, or standing instruction to call.",
+      "business_impact": "High: growth channel has been flat since 4 Sep; these are the only warm threads.",
+      "estimated_time": "60-90 min (dedicated day)",
+      "recommended_action": "Open with Ahmad (0422 196 814, reassess owed today), then Esmayel, Rahamed, then the 4 B-tier cohort. Sheet: knowledge/founder-call-day-2026-09-23.md",
+      "impact_sort": 90
+    },
+    {
+      "id": "ahmad-star-painters-reassess",
+      "title": "Ahmad / Star Painters Adelaide \u2014 final founder call or honest close (reassess owed today).",
+      "why_it_matters": "Atlas decision of 9 Sep: 'Reassess 2026-09-23: final founder call or honest close.' 4 founder touches, 0 replies. Binary outcome today \u2014 do not leave open a fifth time.",
+      "business_impact": "Medium: only 'trial' prospect; has never converted.",
+      "estimated_time": "10 min (call #1 on the sheet)",
+      "recommended_action": "Make the call (part of Round 4). Either a real conversation or an honest close.",
+      "impact_sort": 85
+    },
+    {
       "id": "v2-close-out-review",
-      "title": "Run the V2 Email 2 observation-monitoring decision review (carried from Mon 21 Sep).",
-      "why_it_matters": "52 V2 prospects past follow-up date (last outbound 4 Sep, 10th day unchanged). Prep final; only the verdict outstanding. This is the MONITOR exit mechanism for the cold channel.",
+      "title": "Run the V2 Email 2 observation-monitoring decision review (carried from Mon 21 Sep, now 1 day past).",
+      "why_it_matters": "52 V2 prospects past follow-up date (last outbound 4 Sep, 11th day unchanged). Prep final; only the verdict outstanding. This is the MONITOR exit mechanism for the cold channel.",
       "business_impact": "Medium: decides close-out vs revive of the dormant V2 cohort.",
       "estimated_time": "10 min",
       "recommended_action": "Run the review and record the verdict (close vs revive).",
       "impact_sort": 70
     },
     {
-      "id": "ff1-cohort",
-      "title": "FF1 contamination cohort \u2014 14 records held ~30 days, decision pack ready.",
-      "why_it_matters": "Held cohort awaiting a founder close-vs-revive ruling.",
-      "business_impact": "Low-Medium",
-      "estimated_time": "2 min",
-      "recommended_action": "Rule close vs revive on the 14-record FF1 cohort.",
+      "id": "alys-dee-nudge",
+      "title": "Alys Dee #43071 \u2014 quote expired 22 Sep, warranty/inclusions questions still unanswered by QPaint.",
+      "why_it_matters": "Customer chased twice; QPaint silent on the warranty + inclusions answer since 21 Sep. A personal nudge from James to Tas/Dee may close it.",
+      "business_impact": "Medium: single deal, but the customer is actively waiting.",
+      "estimated_time": "2 min (nudge)",
+      "recommended_action": "Consider a quick message to Tas/Dee to unblock the answer.",
       "impact_sort": 60
     },
     {
       "id": "public-repos",
-      "title": "Two public GitHub repos expose client/customer email addresses \u2014 9th day unresolved.",
+      "title": "Two public GitHub repos expose client/customer email addresses \u2014 10th day unresolved.",
       "why_it_matters": "A paying client's staff email addresses are on the open web.",
       "business_impact": "Medium (privacy/trust)",
       "estimated_time": "5 min (delegate to Josh/Winston)",
@@ -84,7 +102,7 @@
     },
     {
       "id": "off-box-backup",
-      "title": "Off-box backup dead 17 days \u2014 no off-box copy of the vault since 5 Sep.",
+      "title": "Off-box backup dead 18 days \u2014 no off-box copy of the vault since 5 Sep.",
       "why_it_matters": "A host failure loses everything since 5 Sep.",
       "business_impact": "High (resilience)",
       "estimated_time": "5 min (delegate to Josh)",
@@ -102,27 +120,27 @@
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Tuesday. Quiet overnight (0 new quotes, replies, bounces). QPaint stable at 267 records, $8.68M book, 13 Won ($515,367), fully Atlas-owned. One founder action remains open from yesterday: the LEAD Childcare coordination ruling. Everything else is running on delegation.",
+    "executive_summary": "Wednesday. Founder Sales Day, Round 4. Overnight quiet (0 new quotes, replies, bounces). QPaint stable at 267 records, $8.68M book, 13 Won ($515,367), 44 Lost (one reconciled overnight). The highest-leverage thing today is the call sheet: 8 evidence-backed calls where a documented reason to call already exists. The LEAD Childcare coordination ruling is still open.",
     "priorities": [
       {
+        "action": "Execute Founder Call Day Round 4 (Option B, 8 calls)",
+        "why_it_matters": "Growth channel flat since 4 Sep; these are the only warm threads, each with a documented reason.",
+        "expected_impact": "High",
+        "estimated_time": "60-90 min",
+        "confidence": "Medium"
+      },
+      {
         "action": "Rule on LEAD Childcare #43236/#43195 coordination",
-        "why_it_matters": "Only unresolved founder action from yesterday; $182,736.84 across two quotes to one reception inbox.",
+        "why_it_matters": "Oldest open founder action; $182,736.84 across two quotes to one reception inbox.",
         "expected_impact": "High",
         "estimated_time": "2 min",
         "confidence": "High"
       },
       {
         "action": "Run the V2 Email 2 close-out review (52 records)",
-        "why_it_matters": "Carried from Mon; 10th day unchanged. Decide close-out vs revive.",
+        "why_it_matters": "1 day past due; decides close-out vs revive of the dormant V2 cohort.",
         "expected_impact": "Medium",
         "estimated_time": "10 min",
-        "confidence": "Medium"
-      },
-      {
-        "action": "Rule FF1 cohort close-vs-revive (14 records)",
-        "why_it_matters": "Held ~30 days; decision pack ready.",
-        "expected_impact": "Low-Medium",
-        "estimated_time": "2 min",
         "confidence": "Medium"
       }
     ]
@@ -130,52 +148,40 @@
   "changes": {
     "today": [
       {
-        "time": "2026-09-22T04:15:00+09:30",
-        "text": "Overnight scan: quotes@ 0 unread, atlas@ 0 unread, james@ 3 unread (Google DMARC report = noise; Tatnell business-closed + Top Rank auto-reply = stale 9 Aug, both already handled). No new quotes, replies, or bounces."
+        "time": "2026-09-23T04:05:00+09:30",
+        "text": "Overnight scan: quotes@ 0 unread, atlas@ 0 unread, james@ 5 unread (3 Google/Microsoft DMARC reports = noise; Tatnell business-closed + Top Rank auto-reply = stale 9 Aug, both already handled). No new quotes, replies, or bounces."
       },
       {
-        "time": "2026-09-22T04:15:00+09:30",
-        "text": "QPaint 267 records verified live (full pagination): 13 Won ($515,367), 43 Lost, 210 active. No overnight state changes. LEAD Childcare coordination ruling still open (now overdue)."
+        "time": "2026-09-23T04:05:00+09:30",
+        "text": "QPaint 267 records verified live (full pagination): 13 Won ($515,367), 44 Lost, 210 active. One record reconciled Contacted\u2192Lost overnight. LEAD Childcare coordination ruling still open."
       },
       {
-        "time": "2026-09-22T04:15:00+09:30",
-        "text": "System health: disk 41% (12G free), memory recovered (2.5G available vs 24M yesterday), state.db 131M integrity FAILS (unchanged), dashboard + pipeline refresh current (04:02)."
-      },
-      {
-        "time": "2026-09-21T04:04:19+09:30",
-        "text": "Overnight scan: quotes@ 0 unread, atlas@ 0 unread, james@ 2 unread (both stale 9 Aug \u2014 Tatnell business-closed, already suppressed/Lost; Top Rank auto-reply, noise). No new quotes, replies, bounces, or unsubscribes."
-      },
-      {
-        "time": "2026-09-21T04:04:19+09:30",
-        "text": "QPaint 263 records verified live (full pagination): 12 Won ($483,982), 41 Lost, 210 active. No overnight state changes. 24 records due today (Monday cohort). 1 overdue (Raewyn Frost, founder action)."
-      },
-      {
-        "time": "2026-09-21T04:04:19+09:30",
-        "text": "System health: disk 41% (12G free), state.db integrity FAILS (freelist, now breaking cron-prune maintenance), dashboard refresh current (04:02). Off-box backup dead 16th day, public repos 8th day."
+        "time": "2026-09-23T04:05:00+09:30",
+        "text": "System health: disk 41% (12G free), memory recovered (2.4G available), state.db 131M integrity FAILS (unchanged), dashboard + pipeline refresh current (04:01). Founder Call Day Round 4 prepared."
       }
     ],
     "yesterday": [
       {
-        "time": "2026-09-20T07:08:00+09:30",
-        "text": "14th out-of-band learnings corruption (4 files, widest yet) repaired from HEAD; detection latency now the defect, ~07:15 guard job remains unbuilt."
+        "time": "2026-09-22T04:15:00+09:30",
+        "text": "QPaint 267 records, 13 Won ($515,367), 43 Lost. 12 records due (Tue cohort). Alys Dee #43071 quote expiry. 5 Email 2 discovery sends + 1 customer reply (Eddie Yuan) processed end-to-end."
       },
       {
-        "time": "2026-09-20T22:00:00+09:30",
-        "text": "LEAD Childcare #43236/#43195 fail-closed guard appended (neutral, reversible); Monday cohort verified at 24 records ($634,592.60), no weekend dates."
+        "time": "2026-09-22T07:12:00+09:30",
+        "text": "16th learnings corruption (six cards + catalogue rewritten in 11s) repaired from HEAD; writer now fabricating infrastructure (nonexistent scripts/jobs) \u2014 escalated."
       }
     ],
     "this_week": [
       {
         "time": "-",
-        "text": "QPaint: 263 records, $8.51M total, 12 Won ($483,982 = 1 Recovered + 7 Assisted + 4 Observed), 41 Lost."
+        "text": "QPaint: 267 records, $8.68M total, 13 Won ($515,367 = 1 Recovered + 7 Assisted + 5 Observed), 44 Lost."
       },
       {
         "time": "-",
-        "text": "Kristen Watt #43121 reconciled to Lost (information/source-visibility gap); weekly Pipedrive export remedy recommended."
+        "text": "Cold painter channel dormant; V2 close-out review overdue. Founder Call Day Wed 23 Sep (Round 4)."
       },
       {
         "time": "-",
-        "text": "Cold painter channel flat; V2 close-out review lands today. Founder Call Day Wed 16 Sep (Round 3 still uncaptured)."
+        "text": "Kristen Watt #43121 reconciled to Lost (Prosperity Painters); weekly Pipedrive export remedy recommended."
       }
     ]
   },
@@ -207,14 +213,14 @@
     "principles": []
   },
   "production_incidents": {
-    "description": "State DB snapshot backup failing auth (client-notforgotten repo) \u2014 16 consecutive failures since ~5 Sep. Plus state.db integrity failure breaking scheduled maintenance (cron-prune, LLM cost-check).",
+    "description": "State DB snapshot backup failing auth (client-notforgotten repo) \u2014 18 consecutive failures since ~5 Sep. Plus state.db integrity failure breaking scheduled maintenance (cron-prune, LLM cost-check).",
     "total": 2,
     "recent": [
       {
         "id": "BACKUP-AUTH-2026-09",
         "title": "State DB snapshot backup \u2014 GitHub auth failure",
         "status": "Open",
-        "summary": "Nightly state.db snapshot push to client-notforgotten.git failing auth (code 128), 16 consecutive failures. Requires Josh/Winston to refresh the git credential."
+        "summary": "Nightly state.db snapshot push to client-notforgotten.git failing auth (code 128), 18 consecutive failures. Requires Josh/Winston to refresh the git credential."
       },
       {
         "id": "STATE-DB-INTEGRITY-2026-09",
@@ -226,7 +232,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "\u2705 QPaint portfolio certified. 211 active journeys. Protocol v1.0.0. Send authority live.",
+  "operational_status": "\u2705 QPaint portfolio certified. 210 active journeys. Protocol v1.0.0. Send authority live.",
   "vault_health": {
     "decisions": {
       "total": 80,
@@ -257,19 +263,19 @@
   "qpaint_pipeline": {
     "summary": {
       "total_customers": 267,
-      "total_pipeline_value": 7227393,
+      "total_pipeline_value": 7207075,
       "won_count": 13,
       "won_value": 515367,
-      "lost_count": 43,
+      "lost_count": 44,
       "engaged_replied": 33,
-      "contacted": 146,
+      "contacted": 145,
       "not_contacted": 32
     },
     "stage_breakdown": {
       "Email 3": 54,
-      "Email 1": 48,
-      "Lost": 43,
-      "Email 2": 42,
+      "Email 2": 46,
+      "Lost": 44,
+      "Email 1": 43,
       "New": 33,
       "Replied": 29,
       "Won": 13,
@@ -278,9 +284,10 @@
       "Email 4": 1
     },
     "priority": {
-      "P3": 121,
       "P1": 93,
-      "P2": 53
+      "P2": 53,
+      "P3": 3,
+      "Unassigned": 118
     },
     "key_customers": [
       {
