@@ -12,20 +12,22 @@ tier: primary
 
 | Fact | Value |
 |---|---|
-| Occurrences recorded | **15**, 2026-09-06 → 2026-09-21 |
-| Files affected | `learnings/catalogue.md` + `learnings/cards/*.md` (2–5 files per event) |
-| Writing window | **~07:03–07:22 ACST** (21:33–21:52 UTC the prior evening) |
+| Occurrences recorded | **16**, 2026-09-06 → 2026-09-22 |
+| Files affected | `learnings/catalogue.md` + `learnings/cards/*.md` (2–6 files per event) |
+| Writing window | **~07:03–07:35 ACST** (21:33–22:05 UTC the prior evening) |
 | Writer | **UNIDENTIFIED.** No logged tool call ever reads or writes anything under `learnings/`; the corrupted prose appears nowhere in `state.db` |
 | Detection gap | ~24 h. The 21:20 ACST guard cron and the 21:30 ACST backup both run **before** the write. Next control to see it = the following 07:30 weekly lint (weekly) or 21:00 consolidation (daily) |
 | Guard | `scripts/bin/learnings-integrity-guard.py` — cron `59d5247cd604` (21:20) + pre-commit gate in `nightly-backup.sh`. **Detects but exits 0** (documented `no_agent` alert pattern; output-based gate is correct) |
-| Open recs | `consolidation-out-of-band-learnings-writer`, `consolidation-learnings-guard-0715`, `consolidation-guard-tune` |
+| Open recs | `consolidation-out-of-band-learnings-writer`, `consolidation-learnings-guard-0715`, `consolidation-learnings-writer-unattested-blocks`, `consolidation-guard-tune`, `consolidation-learnings-writer-fabricated-infra` |
 | Contested | `false` — but the attribution has been **corrected twice** (see Falsified below) |
 
 ## Damage signature (stable across events)
 
 - `catalogue.md`: `EDITING THIS TABLE` warning block deleted, one or more domain rows dropped, other rows `||`-prefixed, `campaign` cell rewritten as a markdown link, blank line inserted mid-table.
 - Cards: whole `## TRAP` sections deleted; some bodies displaced under a neighbouring heading; occasionally a heading **renamed** (reads to the guard as a deleted trap).
-- The writer also **adds**: its version usually carries 1–3 blocks that are genuinely new to the card layer. Treat its additions as real learnings, not noise — but **attest every one before re-applying it**. The 15th event added a macOS `arm64e.x1` linker trap that appears nowhere else on disk (no `LEARNINGS.md` entry, no dated file, no cron output, no session row) and was therefore NOT re-applied.
+- The writer also **adds**: its version usually carries 1–4 blocks, some genuinely new to the card layer, some condensed rewrites of traps it just deleted. **Attest every one before re-applying it** — do not treat its additions as real learnings by default.
+  - 15th event (2026-09-21): added a macOS `arm64e.x1` linker trap that appears nowhere else on disk (no `LEARNINGS.md` entry, no dated file, no cron output, no session row) — NOT re-applied.
+  - **16th event (2026-09-22): added a block describing infrastructure that DOES NOT EXIST** — a `scripts/cleanup-cron-output.sh`, a `no_agent` cron `c3cb0224f2ce` ("Cron output retention", daily 22:45), and an update to "consolidation-sop.md step 0.6". No such script on disk, no such job in `cron/jobs.json`, and `consolidation-sop.md` has no step 0.6. The writer is no longer only deleting real content — it is **fabricating infrastructure**. Verify any writer block that cites a path, job ID or document section against the filesystem before believing it.
 - Burst pattern: files written 1.1–5.7 s apart = a loop over files.
 
 ## Repair playbook (do in this order)
@@ -48,6 +50,7 @@ tier: primary
 
 | # | Date (ACST) | Files | Damage | Dated record |
 |---|---|---|---|---|
+| 16 | 2026-09-22 07:12:32–07:12:43 (+07:14:25, +07:35:41) | **6 cards + catalogue** (`cron`, `gmail`, `hermes`, `qpaint`, `shell`, `unclassified`, `catalogue`) | **Record file count.** 11 s burst (a loop over files) then catalogue 1m42s later and `LEARNINGS.md` 21 min later. Guard = **50 findings** (30→31→38→44→41→50). **7 traps lost from the live QPaint card (7 → 2).** New element: a writer block citing **nonexistent infrastructure**, and the first time it **created a new card** (`unclassified.md`). Of 9 writer-added blocks only 2 passed attestation | `2026-09-22-learnings-corruption-16th.md` |
 | 15 | 2026-09-21 07:22:04–07:22:13 | 5 (`python`, `gmail`, `agent-architecture`, `shell`, `catalogue`) | **Most files yet**, 9.3 s burst; guard = 41 findings (44 → 41 — finding count is not a severity proxy). New element: one writer block with **zero attestation** | `2026-09-21-learnings-corruption-15th.md` |
 | 14 | 2026-09-20 07:08:22–07:08:28 | 4 (`catalogue`, `gmail`, `agent-architecture`, `qpaint`) | **Widest yet.** 14 traps deleted across 3 cards; QPaint card 6 traps → 1. Guard = 44 findings | `2026-09-20-learnings-corruption-14th.md` |
 | 13 | 2026-09-18 07:02:46 + 07:26:23 | 3 (`catalogue`, `hermes`, `gmail`) | Third file, 24 min later; `gmail` lost a trap outright. Guard = 38 | `2026-09-18-learnings-corruption-13th.md` |

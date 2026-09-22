@@ -1,0 +1,137 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-09-21
+status: PREPARATION — review due 2026-09-28 (7 days out). Verdict is James's.
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — Calibration Outreach Strategy as a Living System (due 28 September 2026)
+
+> Outcome data gathered ahead of the registered review date for
+> `2026-06-28-calibration-outreach-living-system` (decision made 28 Jun 2026, review 28 Sep 2026 — the
+> **90-day review**, and the first formal review of this decision).
+> This is a REVIEW, never a SEND. No prospect is contacted at or because of this review.
+
+## The decision being reviewed
+
+Adopted 28 Jun 2026, as the operating baseline for all outreach. Three meta-principles:
+
+1. The strategy is a **living system**, not a fixed playbook — when data contradicts assumptions we
+   challenge our own thinking and adapt.
+2. **Ending a campaign does not end a relationship** — a sequence may stop at 4 emails, but genuine
+   reconnection months later should be recognised and acted on.
+3. **Context-awareness overrides timetables** — if a business, industry or circumstance changes, adapt
+   rather than follow a schedule.
+
+The decision shipped five success criteria and four expected outcomes. This prep scores both.
+
+---
+
+## Success criteria scorecard
+
+| # | Criterion | Verdict | Evidence |
+|---|---|---|---|
+| 1 | Reply rate tracked and reported **per campaign** within 30 days of first send | ✅ MET | `knowledge/campaign-intelligence-report-july-2026.md` — 60 prospects / 5 campaigns, full 30-day monitoring window closed 28 Aug with zero late replies. `knowledge/campaign-reviews/wave-1-july-2026.md`, `painter-campaigns-july-2026.md`. Campaign Pulse standard (decision `2026-08-01`). |
+| 2 | **Pattern analysis per industry** initiated within 60 days | ⚠️ PARTIAL — painter-only | Pattern analysis is deep but single-vertical. CvC retirement (`learnings/LL-20260804-005.md`) and the painter campaign review are both painter evidence. July's 60 prospects were ~95% painters; the only non-painter records (OMG, Kleena Cleaners, Calibration) were 2. **No cross-industry comparison exists to make**, because outreach has been single-vertical since the decision. This is a scope limitation of the campaign portfolio, not a failure to analyse. |
+| 3 | At least one data-driven change to strategy **proposed and discussed** within 90 days | ✅ MET — exceeded (4) | (a) Curiosity-led outreach permanently retired for painter acquisition, 4 Aug (LL-20260804-005: 105 prospects, 0 meaningful replies). (b) `2026-08-28-v2-persistence-not-repetition` — the implicit two-touch cap removed; silence reclassified as "not yet lost". (c) `2026-09-04-v2-persistence-hold` — 32 Email 3s, 0 replies at Day 6 → no Email 4, cohort to MONITOR. (d) Travis-led Email 1 pilot proposed (`knowledge/experiments/travis-led-email-1-pilot.md`, 19 prospects, drafted, **still awaiting approval**). |
+| 4 | Re-engagement trigger framework documented before the first campaign completed | ✅ MET | `skills/cold-email/references/re-engagement-campaign-pattern.md`; `legacy-re-engagement-pattern.md` (LR1 — one email, no follow-up sequence, enforced during prepare-ahead); `knowledge/campaigns/RE-ENG-AUG-2026-execution-authority.md` (147 prospects, executed 10 Aug). |
+| 5 | No prospect mistakenly treated as **"closed forever"** due to campaign end | ✅ MET (verified live) | Live Prospects read tonight (332 records): `Campaign Complete` = **68**, distinct from `Lost` = 17. The status the decision required exists and is populated. The prepare-ahead clock applies the distinction every run (the 32 past-due Outreach Active records are explicitly *not* closed to Lost — see below). |
+
+**Expected outcomes** — reply rates tracked per campaign ✅ (per industry ⚠️ as above); at least one assumption challenged and revised within 90 days ✅ (curiosity-led disproved and retired; "Email 1–2 warm prospects for Email 3" challenged, no warming evidence found); re-engagement framework designed before first campaign completed ✅; no prospect permanently closed ✅.
+
+---
+
+## What the 90 days of evidence actually shows
+
+| Campaign / cohort | Prospects | Outcome |
+|---|---|---|
+| July 2026 portfolio (5 campaigns) | 60 | 1 paying client (Tas Moulis / QPaint, at Email 3 / Travis). 2 meaningful replies, both at Email 3. ~175 Email 1–2 sends: **zero** replies. 2 hard bounces, 1 unsubscribe. |
+| CvC experiment | 105 | **0 meaningful replies.** Campaign retired. |
+| Wave 1 | 15 (+4) | 0 replies across 30 sends. |
+| RE-ENG-AUG-2026 | 147 sent / 100 delivered | **0 YES, 0 permission-to-call.** |
+| FF1 painter wave (Aug) | 16 | Frozen sequence; 14 records held at Founder approval since 19 Aug (contamination — Email 1 sent twice, Email 2 never). |
+| V2 Email 2 | 42 sent 21 Aug | **1 reply (2.4%)** — Inspire Painting (Rahamed), lead-gen misunderstanding corrected same day. |
+| V2 Email 3 | 32 sent 28 Aug | **0 replies at Day 6** → HOLD. No Email 4. |
+| V2 de-confused Email 2 | 9 sent 4 Sep | **0 replies.** |
+| V2 ledger as at tonight | 139 records, 138 outbound / 1 inbound, 52 distinct prospects | Last outbound **4 Sep — quiet 17 days.** Reply rate 1/52 = **1.9%.** |
+
+**Total acquisition result across the full period: 1 paying client.** The system itself reviewed this on
+30 Aug and said so plainly (`knowledge/full-business-review-2026-08-30.md`: "working service that cannot
+yet be sold; next customer comes from founder calls, not email").
+
+### The honest finding
+
+**The living system has adapted repeatedly and successfully. It has not yet improved the outcome it
+exists to improve.** Four strategy changes in 90 days is a working adaptation loop — the decision's
+mechanism is proven. But adaptation has not moved the acquisition number: 1 client, 1.9% reply rate, and
+the channel now quiet for 17 days. That is not a failure of the living-system principle; it is the
+principle operating exactly as designed, on evidence that keeps saying the same thing.
+
+**Confidence: High (90%)** for the fact pattern (all figures verified against on-file reports and a live
+Airtable pull tonight). **Confidence: Medium (75%)** for the causal reading — "messaging is the binding
+constraint" is one hypothesis; the alternative is that cold email to owner-led painters is a structurally
+weak acquisition channel regardless of message, and the 30 Aug review's own conclusion (founder calls,
+not email) points at the second.
+
+### The risk that fired
+
+The decision listed "living system becomes *no system* — adaptability becomes an excuse for
+inconsistency" at **Med likelihood / High impact**. The 90-day evidence says this risk partially
+materialised, in a specific and diagnosable way: **the living system has no exit state.** When the
+evidence said "stop", the system held (correctly) but had nowhere to put the held records — so 52
+prospects have read as "due" on every scan since 4 Sep, and the channel went dormant without being
+formally closed. The system can decide to stop. It cannot yet record that it has stopped.
+
+This is the same defect surfaced from two independent directions — the V2 review prep (due today,
+`2026-09-21-v2-email2-observation-review-prep.md`, verdict question 3) and here. Two independent
+derivations of one gap is the strongest signal in this prep.
+**Confidence: High (88%)** — the 52 records and the missing exit state are both directly verified.
+
+---
+
+## Verdict questions for James
+
+1. **Is the living-system principle itself affirmed?** The evidence says the adaptation mechanism works
+   (4 documented data-driven changes in 90 days). Nothing found argues for reverting to a fixed playbook.
+2. **Does "living system" require a defined exit state to be safe at scale?** The one risk the decision
+   flagged is the one that fired. A MONITOR state — clear the follow-up date, append a dated note,
+   stage untouched, reversible, no contact — would close it. Recommended mechanism is already specified
+   and already blocked on a founder ruling (identical to verdict question 3 of the V2 review prep).
+3. **Is success measured by system improvement or acquisition improvement?** Criterion 3 passed on
+   internal changes; the acquisition number is 1 client. If the standard is the latter, the 28 Sep review
+   should say so explicitly, because it changes what the next 90 days optimise.
+4. **Does criterion 2 (per-industry pattern analysis) need a decision, or a portfolio?** It could not be
+   met because outreach has been single-vertical, not because analysis was skipped. Either it is reframed
+   as vertical-depth (met, and met well), or a second vertical must be opened for it to be testable.
+5. **Should the Travis-led Email 1 pilot, still awaiting approval since August, be resolved at this
+   review?** It is the one recommendation from the July intelligence report with no verdict, and it is
+   the direct test of the only conversion trigger ever observed.
+
+---
+
+## What this review does NOT do
+
+- It does not close the V2 cohort, change any record, or contact any prospect. The 52 held records stay
+  exactly as they are until a ruling lands.
+- It does not re-open the curiosity-led question (settled 4 Aug, LL-20260804-005) or the V2 hold
+  (settled 4 Sep).
+- It does not propose a new campaign. A new campaign needs its own complete sequence under the Hard Rule.
+
+## Evidence files
+
+- `knowledge/decisions/2026-06-28-calibration-outreach-living-system.md` (the decision under review)
+- `knowledge/campaign-intelligence-report-july-2026.md` (60 prospects / 5 campaigns, window closed 28 Aug)
+- `knowledge/campaign-reviews/wave-1-july-2026.md`, `knowledge/campaign-reviews/painter-campaigns-july-2026.md`
+- `learnings/LL-20260804-005.md` (CvC retired)
+- `knowledge/decisions/2026-08-28-v2-persistence-not-repetition.md`, `2026-09-04-v2-persistence-hold.md`
+- `knowledge/decision-reviews/2026-09-21-v2-email2-observation-review-prep.md`
+- `knowledge/experiments/travis-led-email-1-pilot.md`
+- `knowledge/full-business-review-2026-08-30.md`
+- Live Airtable pulls 2026-09-21 22:00 ACST — `Prospects` (332), `QPaint Pipeline` (267), `V2 Outreach Activity` (139)
+
+---
+
+*Prepared by the Prepare-Ahead Clock, 21 Sep 2026 22:00 ACST, 7 days before the review date. No contact
+made, no CRM records changed.*

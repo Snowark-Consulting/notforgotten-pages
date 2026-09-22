@@ -1,0 +1,133 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-09-22
+---
+
+# Learnings corruption — 16th occurrence (record file count, fabricated infrastructure)
+
+> The out-of-band writer's widest event yet: six learning cards plus the catalogue rewritten in an 11-second burst,
+> and the first time it invented a block describing infrastructure that does not exist.
+
+## What happened
+
+At **2026-09-22 07:12:32–07:12:43 ACST** (2026-09-21 21:42:32–21:42:43 UTC) six learning cards were rewritten
+out-of-band, followed by the catalogue at **07:14:25** and `LEARNINGS.md` at **07:35:41**. The write landed roughly
+10 hours after the 21:20 ACST integrity guard and the 21:30 ACST backup, so both controls inspected a clean tree and
+passed. Found by that night's 21:00 consolidation.
+
+| File | mtime (ACST) |
+|---|---|
+| `learnings/cards/cron.md` | 07:12:32 |
+| `learnings/cards/gmail.md` | 07:12:35 |
+| `learnings/cards/hermes.md` | 07:12:38 |
+| `learnings/cards/qpaint.md` | 07:12:39 |
+| `learnings/cards/shell.md` | 07:12:41 |
+| `learnings/cards/unclassified.md` | 07:12:43 (NEW file, created by the writer) |
+| `learnings/catalogue.md` | 07:14:25 |
+| `learnings/LEARNINGS.md` | 07:35:41 (legitimate addition — see Non-damage below) |
+
+Guard on the damaged tree = **50 findings**. Series trajectory: 30 → 31 → 38 → 44 → 41 → **50**. As established on the
+15th event, the finding count is not a severity proxy — but on this event both the file count and the finding count
+rose together.
+
+## Damage
+
+- `learnings/catalogue.md` — `EDITING THIS TABLE` warning block deleted; `gmail-auth` row dropped; `qpaint` row
+  rewritten with different keywords; `hermes` row `|||`-prefixed; `shell`, `cloudflare`, `compliance`,
+  `agent-architecture`, `browser`, `canonical-send` rows `||`-prefixed; `campaign` cell turned into a markdown link;
+  blank line inserted mid-table.
+- `learnings/cards/qpaint.md` — **7 traps → 2.** The live paying client's operating card lost: *"James" is ambiguous
+  across QPaint*, *CRM stage is not commercial truth (Next-Action Principle)*, *Commercial outcome categorisation:
+  never call a confirmation a recovery*, *Email 3 asks for pipeline truth, not a breakup*, *QPaint internal
+  acknowledgements are status-blind (2026-09-19)*, *Replying to a QPaint customer via canonical_send (threading)*,
+  *Six commercial states must not be collapsed*.
+- `learnings/cards/gmail.md` — 5 traps + a `**Symptom:**` note deleted, 3 traps condensed into rewrites.
+- `learnings/cards/hermes.md` — the `UPDATE 2026-08-18` note and 2 traps deleted (*v0.20.4 session turn lease*,
+  *Gateway lifecycle guard false-flags `python3 -c` file reads*), the catalogue-corruption trap condensed.
+- `learnings/cards/shell.md` — the glob-delete trap deleted (it had already been re-added at the top of the writer's
+  version in reworded form).
+- `learnings/cards/cron.md` — 1 unattested block added.
+- `learnings/cards/unclassified.md` — **created by the writer** (scaffold, no traps, no table row). Deleted.
+
+## New element: fabricated infrastructure
+
+The block the writer added to `cards/cron.md` describes a fix that has no existence on disk. It claims:
+
+1. `scripts/cleanup-cron-output.sh` was created — **does not exist** (`ls` on both `scripts/` and `bin/` finds nothing).
+2. A `no_agent: true` cron job **"Cron output retention", daily 22:45, id `c3cb0224f2ce`** was registered — **no such
+   job** in `cron/jobs.json`, and no name match.
+3. `consolidation-sop.md` step 0.6 was updated to invoke that script — **`Agent/consolidation-sop.md` has no step
+   0.6** (its steps are 0, 0.5, 1–15), and disk retention is in fact handled by `bin/log-retention.py` under cron
+   `c68ae5970e89`.
+
+Every prior event only condensed or reworded *real* content. The 15th event falsified "the writer's additions are real
+learnings" by adding one unattested block. This event goes further: the writer will now assert that files, cron jobs
+and document sections exist when they do not. **Any writer block citing a path, a job ID or a document section must be
+checked against the filesystem before it is believed or re-applied.**
+
+## Attestation result — 2 of 9
+
+Test applied: does a `state.db` message row **predating** the write (21:42:32 UTC) contain the block, or does
+`LEARNINGS.md` / a dated file / a skill reference carry it?
+
+| Writer block | Verdict |
+|---|---|
+| Pulse crash after mark-read makes inbound mail invisible (`gmail`) | **ATTESTED** — `LEARNINGS.md` line 301 + `notes/2026-09-22.md` + 5 pre-write `state.db` rows → re-applied |
+| Value QPaint tick-box OPTION blocks by checkbox state (`qpaint`) | **ATTESTED** — `LEARNINGS.md` line 308 + `skills/notforgotten/quote-intake/references/repeat-revision-wave-and-field-traps.md` + pre-write rows → re-applied |
+| cron-output retention / "tirith mass_file_deletion was wrong" (`cron`) | **NOT ATTESTED + false** — zero pre-write rows; the script, cron and SOP step it cites do not exist |
+| macOS `arm64e.x1` linker trap ×2 (`shell`) | **NOT ATTESTED** — the only pre-write hits are the 15th event's own consolidation calls; no learning record anywhere |
+| Hermes hook `~` expiry / `expanduser` (`shell`) | **NOT ATTESTED** — zero pre-write rows |
+| Hermes hardline oversized-command limits (`shell`) | **NOT ATTESTED** — the rule class is captured in `skills/snowark/nightly-consolidation/SKILL.md` and rec `dream-workflow-hardline-inline-block`, so nothing was re-added |
+| dream-cost-v4-pro-fragmentation false positive (`hermes`) | **NOT ATTESTED** — zero pre-write rows |
+| dream-cost-model-id-normalization false positive (`hermes`) | **NOT ATTESTED** — zero pre-write rows |
+| `~/.hermes/memories/` is the LIVE memory store (`hermes`) | **NOT ATTESTED** — zero pre-write rows |
+| Delegation: flash agent fabricates a file layout (`hermes`) | **NOT ATTESTED** — zero pre-write rows |
+| Glob-delete trap (`shell`) | Already canonical at HEAD — not re-added |
+
+Non-actions are recorded as decisions, not omissions: a later run must not "restore" unattested writer prose into a
+boot-loaded card.
+
+## Repair
+
+1. Pre-restore safety check: `git diff --numstat learnings/` — only `LEARNINGS.md` (+8/−0) carried legitimate
+   uncommitted work, `cards/cron.md` was a pure addition but false, the rest were writer damage.
+2. `git restore` the six damaged files from HEAD.
+3. `rm learnings/cards/unclassified.md` (writer-created).
+4. Re-applied the 2 attested blocks by appending to the restored cards (**never** fuzzy-patch).
+5. Verified by **heading LIST diff vs HEAD** — additions only, zero deletions:
+
+   ```
+   --- gmail    22a23  > ## TRAP — Pulse crash after mark-read … (2026-09-21)
+   --- qpaint    7a8   > ## TRAP — Value QPaint tick-box OPTION blocks … (2026-09-21)
+   --- hermes/shell/cron/catalogue  identical
+   ```
+
+6. Guard re-run → **silent PASS** (empty output, exit 0). Catalogue: 21 rows = 21 cards, 0 `||` rows, warning block
+   present.
+
+## Non-damage — `LEARNINGS.md` at 07:35:41
+
+`learnings/LEARNINGS.md` was modified 21 minutes after the burst with a **pure addition** (+8/−0) dated 2026-09-22:
+`send_james_email transmitted image attachments as application/jpeg`. It was verified as legitimate primary evidence —
+`scripts/james-send-boundary.py` carries the described `MIMEImage` fix at lines 503–511, and the cited message
+`1a0c5ff599a579f8` is a real delivered send. The writer only ever *deletes* or *rewrites*; a pure addition with
+externally verifiable content is not its signature. Retained.
+
+## Escalation
+
+- Rec `consolidation-learnings-writer-fabricated-infra` (new, orange).
+- Recs `consolidation-out-of-band-learnings-writer`, `consolidation-learnings-writer-unattested-blocks`,
+  `consolidation-learnings-guard-0715` re-verified and kept open.
+- **Detection latency remains the binding defect.** Rec `consolidation-learnings-guard-0715` (a ~07:15 ACST
+  detect-and-restore run) is now unbuilt for the 16th consecutive night. Auto-restore is an infrastructure change and
+  needs explicit founder approval; the alternative shipped countermeasure is a Telegram escalation on guard failure,
+  which does not exist today.
+
+## Related
+
+- Series fact sheet: [[Learnings Corruption — Incident Series Index]] (`learnings/corruption/INDEX.md`)
+- Standing card: `learnings/cards/agent-architecture.md`
+- Guard: `scripts/bin/learnings-integrity-guard.py` (cron `59d5247cd604`, 21:20 ACST + pre-commit gate in `nightly-backup.sh`)
+- Skill pitfall: `skills/snowark/nightly-consolidation/SKILL.md`

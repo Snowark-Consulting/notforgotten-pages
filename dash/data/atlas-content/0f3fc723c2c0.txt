@@ -231,3 +231,47 @@ on both records; restoring the 2026-09-21 plan requires nothing else.
 **The one thing to do — unchanged, 9.5 hours out: rule on Decision 2 before Monday 21 Sep 07:30 ACST.**
 Option A (one coordinated email covering both sites) remains the recommendation. If Option A is chosen,
 the guard is simply moot; if Option B, clear `#43195` to MONITOR and lift the guard on `#43236`.
+
+---
+
+## Status update — 2026-09-21 22:00 ACST (Prepare-Ahead Clock, next run)
+
+**The guard held. The ruling is now two days overdue and is the only thing left.**
+
+**What the guard achieved.** The 20 Sep fail-closed clause worked exactly as intended: the 07:30 Daily
+Attention run on Monday 21 Sep **did not contact either record**. Verified by live read tonight —
+`#43236` `recZlDwhNtmfM2fdR` and `#43195` `recbA8W0aLSU1VJp4` both still read `Current Stage` = `New`,
+`Recovery Status` = `New`, **`Last Contacted` = None**. In the same run the Daily Attention sent 9 Email
+1s to the Monday cohort and correctly held these two among its 6 held/monitored records
+(`notes/2026-09-21.md`, QPaint Daily Attention 07:30–07:39). **No uncoordinated double-contact occurred.**
+
+**Two records, one reception inbox, both still uncontacted:**
+
+| | #43236 Burpengary | #43195 Dayboro |
+|---|---|---|
+| Value | $114,478.65 | $68,258.19 |
+| `Next Touchpoint Date` | 2026-09-21 (**now in the past**) | 2026-09-21 (**now in the past**) |
+| Stage / Status | New / New | New / New |
+| `Last Contacted` | None | None |
+| Guard | FAIL CLOSED clause present | FAIL CLOSED clause present |
+| Combined | **$182,736.84** | |
+
+**The guard is condition-based, not date-based — checked and confirmed.** Both records carry *"do NOT send
+any Email 1 to this record **while the LEAD Childcare coordination ruling is open**"*. It does not expire
+on a date, so it continues to block indefinitely and no re-application was needed tonight. **No Airtable
+write was made this run** — nothing needed adding. Reversal remains the same single instruction.
+
+**What has changed since the last update: the dates have gone past.** Both `Next Touchpoint Date` values
+now read 2026-09-21, which is behind us. The guards hold, so nothing fires — but the plan on file is now
+stale in a way that will keep being re-read by every future scan. Neither is "overdue work"; both are
+**work deliberately suspended on a founder decision**. Flagged so no future run mistakes a suspended
+record for a missed one.
+
+**Quote validity is not a constraint yet.** Both quotes were dated 2026-09-18 with a 30-day validity, so
+there are ~27 days of headroom. The cost of continuing to wait is close to zero; the cost of the wrong
+contact is $182,736.84 of live value and the customer's first impression.
+
+**The one thing to do — unchanged for the fourth consecutive run: rule on Decision 2.**
+Option A (one coordinated email covering both sites) remains the recommendation. If Option A is chosen,
+both guards are simply moot and the send runs through the canonical template + Customer Context Gate; if
+Option B, clear `#43195` to MONITOR and lift the guard on `#43236`.
