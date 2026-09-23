@@ -1,0 +1,63 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-09-23
+---
+
+# state.db — reclassified: now interfering with the customer-mail control path
+
+> `state.db` is no longer just a reporting defect: it has blinded the customer-mail path and is breaking production jobs.
+
+## What changed
+
+The malformed `state.db` (freelist corruption, `PRAGMA quick_check` = 100+
+"2nd reference to page N" errors) was previously classified as an internal
+reporting/maintenance defect. Founder reclassified it on 2026-09-23: it has now
+**interfered with the customer-mail control path** and is affecting **multiple
+production jobs**.
+
+## New evidence (primary)
+
+1. **Customer-mail control path:** on 2026-09-21 the `quotes-pulse-phase2` run
+   marked a customer message READ and then died mid-extraction (a crash tied to
+   the same state.db instability class). Mark-read-first converts a crash into an
+   **invisible orphan**: the email sat read-but-unfiled for ~3h36m, invisible to
+   the unread gate — a genuine inbound-blind window on the customer-mail control
+   path. (Learning: "Pulse crash after mark-read makes inbound mail invisible to
+   the unread gate." The blind window was reconciled by an `in:inbox` scan.)
+2. **Multiple jobs down on the malformed DB:** `Cron session prune` (d363d9b767ba,
+   02:00) and `LLM cost + balance check` (d7307cec1983, 07:45) both fail with
+   `sqlite3.DatabaseError: database disk image is malformed`; `State DB snapshot
+   backup` (8ed9962a3929, 11:45) integrity pre-check reports the same damage
+   (plus a separate dead origin PAT). This is no longer a reporting nuisance —
+   it is breaking scheduled maintenance and the mail-control surface.
+
+## Ownership (unchanged)
+
+**Winston/Josh (Hermes core).** Atlas does NOT repair from a consolidation or
+interactive run, and does NOT redesign the system.
+
+## Required outcome (for Winston/Josh)
+
+1. Repair/restore `state.db` safely (`.recover` / dump-and-reload, or scheduled
+   gateway stop + VACUUM; note the weekly VACUUM has aborted 7 runs in a row on a
+   120s GRACE race — see rec `dream-workflow-vacuum-abort-invisible`).
+2. Verify integrity (`PRAGMA quick_check` clean).
+3. Restore the affected jobs (cron prune, LLM cost, snapshot backup).
+4. Verify `inbox-pulse` works **without** the FTS/`session_search` workaround.
+5. Verify the snapshot backup (and unblock the dead origin PAT).
+6. Prove no operational blind window remains on customer mail.
+
+## Until repaired — Atlas controls (fail-closed)
+
+Continue the reconciliation / fail-closed controls around customer mail:
+`in:inbox` scans as the source of truth (not the unread-gate), direct
+recipient-level Gmail verification before classifying any contact state, and
+Gmail Sent (not script output) as the delivery source of truth.
+
+## Related
+
+- rec `consolidation-state-db-image-malformed` (Agent/recommendations.json)
+- rec `dream-workflow-vacuum-abort-invisible`
+- `learnings/2026-09-18-state-db-persistence-stop.md`

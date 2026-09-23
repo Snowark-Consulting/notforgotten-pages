@@ -1,0 +1,115 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-09-23
+---
+
+# Learnings corruption — 17th occurrence (the clean-HEAD baseline was destroyed)
+
+> Three files rewritten in a 4-second burst, then the damage was **committed into git** — first by the hourly
+> dashboard job, then by the vault-backup re-home to a fresh single-commit snapshot. `git restore` from HEAD had
+> been the repair mechanism for 16 consecutive events. It did not work for this one.
+
+## What happened
+
+At **2026-09-23 07:06:36–07:06:40 ACST** (2026-09-22 21:36:36–21:36:40 UTC) three files under `learnings/` were
+rewritten out-of-band:
+
+| File | mtime (ACST) | Note |
+|---|---|---|
+| `learnings/catalogue.md` | 07:06:36 | warning block deleted, rows dropped, `\|\|` damage |
+| `learnings/cards/hermes.md` | 07:06:38 | 2 traps + `UPDATE 2026-08-18` note deleted; 5 blocks added |
+| `learnings/cards/email.md` | 07:06:40 | **new card created by the writer** (like the 16th event's `unclassified.md`) |
+
+Guard on the damaged tree = **21 findings** (16th was 50). The count fell because the guard's HEAD-based diff had
+been neutralised, not because the damage was smaller — the structural catalogue checks were the only part still
+firing. Found by this consolidation, ~14 h after the write.
+
+## New element: the repair mechanism itself was broken
+
+Events 1–16 all repaired the same way: `git restore` the damaged files from HEAD, because the 21:30 ACST nightly
+backup committed the *repaired* tree and therefore HEAD was clean. That premise is now false, for two independent
+reasons that landed the same morning:
+
+1. **The hourly dashboard job commits everything.** `git add -A` with a hardcoded, dateless message
+   (`Dashboard V2 — three-section architecture`, 24 commits/day). It had already swept the 07:06 corruption into
+   history before any human or gate looked at it. The corruption gate that exists — the pre-commit check in
+   `bin/nightly-backup.sh` — only guards the *nightly* job, so nothing gated the hourly one.
+2. **The vault backup was re-homed to a fresh history.** `bin/nightly-backup.sh` moved from
+   `Snowark-Consulting/client-notforgotten` to `Hardstaff08/notforgotten-vault` at 08:50 ACST and pushed a clean
+   single-commit snapshot (2,511 files) rather than the 591 MB dirty history, which contained live secrets and
+   client PII. HEAD was re-rooted on a tree that already contained the damage, and every pre-existing commit
+   became **unreachable**.
+
+Consequence: `git restore learnings/catalogue.md` would have restored the *corrupt* version. A blind application of
+the documented playbook would have made the damage permanent and reported a clean repair.
+
+## Recovery — how the baseline was found anyway
+
+The old history's objects survive in the 593 MB `.git` pack; they are merely unreachable. The pre-write baseline
+was recovered by enumerating **all** commit objects and filtering out reachable ones:
+
+```bash
+git cat-file --batch-all-objects --batch-check=%(objecttype)' '%(objectname)   # 8,368 commits (4,041 reachable)
+git rev-list --all                                                             # subtract these -> 4,327 unreachable
+git show -s --format='%H %ct' <candidates>                                     # newest unreachable first
+git show <commit>:learnings/catalogue.md                                       # accept only if 'EDITING THIS TABLE' is present
+```
+
+Baseline selected: `695b26da55` (2026-09-22 23:00:04 UTC). **Select by content marker, never by commit date** —
+the newest commit touching `learnings/catalogue.md` was the migration snapshot that carried the corruption.
+
+## Attestation result — 1 of 5
+
+The writer's `cards/hermes.md` carried 5 blocks. Test: named by `LEARNINGS.md` or a dated file, carried by a
+pre-write `state.db` row, stated by a skill reference or another card, or **factually verifiable on disk today**.
+
+| Writer block | Verdict |
+|---|---|
+| `~/.hermes/memories/` is the LIVE memory store, not a stale dir | **ATTESTED — re-applied.** Verified directly: `tools/memory_tool.py:53-55 get_memory_dir()` returns `get_hermes_home() / "memories"`; the dir holds live `MEMORY.md` (2,191 B, mtime 2026-09-23 10:02 ACST) + `USER.md`. Deleting it would wipe the memory store |
+| `dream-cost-v4-pro-fragmentation` false positive | **NOT ATTESTED + false claim.** Only hits are the 16th learning file's own attestation table (read-back) and a dashboard render of it. Its central assertion — `model.default` is `deepseek/deepseek-v4-flash-0731` — is contradicted by `config.yaml` (`default: deepseek-v4-pro`). Already rejected on the 16th event; re-injected |
+| `dream-cost-model-id-normalization` false positive | **NOT ATTESTED.** Already rejected on the 16th event; re-injected |
+| `delegation: a docs/skills synthesis flash agent fabricates a plausible file layout` | **NOT ATTESTED.** Already rejected on the 16th event; re-injected |
+| `Learnings corruption, 16th occurrence` (condensed) | **DUPLICATE.** The 16th event is already fully recorded in the catalogue warning block, `LEARNINGS.md` and its own dated file. Not re-applied |
+
+**Lesson: never inherit last night's attestation verdict.** Three blocks this run were content a previous
+consolidation had already examined and rejected; the writer re-injected them unchanged. Re-attest from scratch
+every time.
+
+## Repair applied
+
+1. Baseline recovered from `695b26da55` (see above).
+2. `learnings/catalogue.md` rewritten from that baseline + a clean `email` row (see below) + warning block updated
+   to 17 occurrences with the 17th-event signature.
+3. `learnings/cards/hermes.md` rewritten from the baseline + the 1 attested trap appended.
+4. `learnings/cards/email.md` **retained**: the card was created by the writer, but its single trap is genuinely
+   attested (`LEARNINGS.md` 2026-09-22 "send_james_email transmitted image attachments as application/jpeg", and
+   the fix is live in `scripts/james-send-boundary.py:503-511`). The writer's unverifiable "added by harvest" note
+   was replaced with a provenance note; the card is flagged for owner review. An `email` row was added to the
+   catalogue so the bidirectional check passes (22 rows = 22 cards).
+5. Non-actions recorded as decisions, not omissions: the 4 unattested/false blocks are deliberately absent.
+6. Verified by heading **LIST** diff against the baseline — `hermes.md` additions only (9 → 10 traps), zero
+   deletions; catalogue 22 rows, 0 `||` rows, warning block present.
+7. Repair committed so the guard's HEAD-based diff has a correct baseline again.
+
+## Escalation
+
+- **New rec `consolidation-learnings-clean-baseline-lost`:** HEAD can no longer be trusted as the repair source.
+  Two fixes worth owner review — (a) apply the learnings corruption gate to *every* commit, not just the nightly
+  backup, so a corrupt tree can never be committed by the hourly job; (b) run the hourly commit with an explicit
+  path allow-list rather than `git add -A`.
+- Rec `consolidation-learnings-guard-0715` (a ~07:15 ACST detect-and-restore run) is now unbuilt for the 17th
+  consecutive night. Detection latency remains the binding defect. Auto-restore is an infrastructure change and
+  needs explicit founder approval.
+- `state.db` remains **malformed** — `pragma quick_check` returns `Freelist: 2nd reference to page N` and
+  `btreeInitPage() returns error code 11` errors, and content queries fail outright with
+  `database disk image is malformed`. Attestation by session row was therefore impossible tonight; filesystem
+  verification was used instead. This remains a Winston/Josh scope item.
+
+## Related
+
+- Series fact sheet: [[Learnings Corruption — Incident Series Index]] (`learnings/corruption/INDEX.md`)
+- Prior event: `learnings/2026-09-22-learnings-corruption-16th.md`
+- Guard: `scripts/bin/learnings-integrity-guard.py` (cron `59d5247cd604`, 21:20 ACST + pre-commit gate in `nightly-backup.sh`)
+- Skill pitfall: `skills/snowark/nightly-consolidation/SKILL.md`

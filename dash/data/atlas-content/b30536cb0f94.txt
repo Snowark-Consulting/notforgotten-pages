@@ -1,0 +1,47 @@
+---
+doc_type: note
+owner: notforgotten
+tier: primary
+date: 2026-09-23
+---
+
+# Public Repository Exposure — Verified Finding + Remediation Route
+
+> Verified prospect and client PII sitting in a PUBLIC GitHub repo, with the remediation route and its owner.
+
+## Current state (verified 2026-09-23 06:15 ACST)
+
+| Repo | Visibility | Owner | My access | Exposure |
+|---|---|---|---|---|
+| `Snowark-Consulting/notforgotten-pages` | **PUBLIC** | Snowark-Consulting org | `write` (push/triage/pull, NOT admin) | Prospect + client PII in data files |
+| `Snowark-Consulting/client-notforgotten` | private (API 404) | Snowark-Consulting org | via dead origin PAT | none |
+
+## What is exposed (public `notforgotten-pages`, gh-pages branch)
+
+- `dash/dash.json` (176 KB): **67 prospect email addresses + 39 Australian mobile numbers** (V2 outreach targets).
+- `dash/headquarters-data.json` (16 KB): **1 QPaint customer contact** (`reception@leadchildcare.com.au` + `0422 196 814`).
+- `dash/headquarters-data-v2000.json` (21 KB): 3 emails incl. `atlas@` / `james@` / `admin@bilbydrive.com.au`.
+
+## What is NOT exposed
+
+- **No credentials, tokens, or secrets.** Scanned for `ghp_`, `pat`, `sk-`, `AKIA`, PEM/KEY/PFX, `.env` — zero hits in the three data files. This is a PII/contact-data exposure, not a credential leak.
+
+## Ownership and remediation
+
+- **Who can change visibility:** the Snowark-Consulting org admin (Winston / Snowark). `Hardstaff08` (James's account, which my GITHUB_TOKEN authenticates as) has `write` only — **cannot** set the repo private.
+- **Remediation options (for the owner):**
+  1. Make `notforgotten-pages` private (breaks the public GitHub Pages dashboard unless on a paid plan) — OR
+  2. Stop pushing the PII-bearing data files (`dash.json`, `headquarters-data*.json`) to the public pages repo, and serve the dashboard from a non-public source — OR
+  3. Redact PII (emails/phones) from the data files before the `pipeline-data.py` / `dashboard-update.py` / `hq-update.py` push.
+- The data files are regenerated and re-pushed every ~2h by cron, so a one-time file deletion is immediately undone. The fix must be at the pipeline or visibility level.
+
+## Severity
+
+- **Medium.** Real prospect/client PII is public, but no secrets. Prospect mobile numbers are the most sensitive item.
+- Do NOT report overall system health as GREEN while this PII remains public. Separate it as an unresolved exposure.
+
+## Route
+
+- Owner: Winston (Snowark, org admin) — visibility change.
+- Infra routing: Josh Hancock (drives infra, has Telegram DM) — can fix at pipeline level or escalate to Winston.
+- Routed to Josh 2026-09-23 06:20 ACST via Telegram DM (chat 8348712782, msg_id 1428, verified ok:true). Monitor until verified closed.

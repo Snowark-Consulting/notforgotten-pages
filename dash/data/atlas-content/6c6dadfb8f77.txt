@@ -112,7 +112,7 @@ Client Data Sources:
   │     └── /tmp (temporary file processing — PDF extracts)
   │
   └── GitHub (cloud, US)
-        └── client-notforgotten repo (nightly backup: skills, memory, learnings, config)
+        └── Hardstaff08/notforgotten-vault repo (nightly backup: skills, memory, learnings, config)
               └── .env excluded via .gitignore (credentials NOT in git)
               └── state.db NOT tracked (NOT in backup)
 ```
@@ -136,7 +136,7 @@ VPS (orgo.ai)
   ↓ nightly-backup.sh (cron)
 git add -A → git commit → git push
   ↓ HTTPS (PAT embedded in remote URL)
-GitHub (client-notforgotten repo)
+GitHub (Hardstaff08/notforgotten-vault repo)
   └── What's backed up: skills/, knowledge/, memory/, learnings/, scripts/, config
   └── NOT backed up: .env (credentials), state.db (conversations), logs, sessions
 ```

@@ -6,19 +6,19 @@ tier: primary
 
 # Learnings Corruption — Incident Series Index
 
-> Standing fact sheet for the recurring out-of-band corruption of `learnings/catalogue.md` and `learnings/cards/*.md`. Read this before investigating a new occurrence: the history is already here, and it has been misdiagnosed twice. Established 2026-09-20 (14th occurrence), per weekly vault-lint recommendation 7.2.
+> Standing fact sheet for the recurring out-of-band corruption of `learnings/catalogue.md` and `learnings/cards/*.md`. Read this before investigating a new occurrence: the history is already here, and it has been misdiagnosed twice. Established 2026-09-20 (14th occurrence), per weekly vault-lint recommendation 7.2. Updated 2026-09-23 (17th occurrence) — **the clean-HEAD baseline was destroyed; the repair playbook changed.**
 
 ## Standing facts
 
 | Fact | Value |
 |---|---|
-| Occurrences recorded | **16**, 2026-09-06 → 2026-09-22 |
+| Occurrences recorded | **17**, 2026-09-06 → 2026-09-23 |
 | Files affected | `learnings/catalogue.md` + `learnings/cards/*.md` (2–6 files per event) |
-| Writing window | **~07:03–07:35 ACST** (21:33–22:05 UTC the prior evening) |
+| Writing window | **~07:03–07:35 ACST** (21:33–22:05 UTC the prior evening); 17th event = 07:06:36–07:06:40 ACST |
 | Writer | **UNIDENTIFIED.** No logged tool call ever reads or writes anything under `learnings/`; the corrupted prose appears nowhere in `state.db` |
 | Detection gap | ~24 h. The 21:20 ACST guard cron and the 21:30 ACST backup both run **before** the write. Next control to see it = the following 07:30 weekly lint (weekly) or 21:00 consolidation (daily) |
 | Guard | `scripts/bin/learnings-integrity-guard.py` — cron `59d5247cd604` (21:20) + pre-commit gate in `nightly-backup.sh`. **Detects but exits 0** (documented `no_agent` alert pattern; output-based gate is correct) |
-| Open recs | `consolidation-out-of-band-learnings-writer`, `consolidation-learnings-guard-0715`, `consolidation-learnings-writer-unattested-blocks`, `consolidation-guard-tune`, `consolidation-learnings-writer-fabricated-infra` |
+| Open recs | `consolidation-out-of-band-learnings-writer`, `consolidation-learnings-guard-0715`, `consolidation-learnings-writer-unattested-blocks`, `consolidation-guard-tune`, `consolidation-learnings-writer-fabricated-infra`, `consolidation-learnings-clean-baseline-lost` |
 | Contested | `false` — but the attribution has been **corrected twice** (see Falsified below) |
 
 ## Damage signature (stable across events)
@@ -28,28 +28,42 @@ tier: primary
 - The writer also **adds**: its version usually carries 1–4 blocks, some genuinely new to the card layer, some condensed rewrites of traps it just deleted. **Attest every one before re-applying it** — do not treat its additions as real learnings by default.
   - 15th event (2026-09-21): added a macOS `arm64e.x1` linker trap that appears nowhere else on disk (no `LEARNINGS.md` entry, no dated file, no cron output, no session row) — NOT re-applied.
   - **16th event (2026-09-22): added a block describing infrastructure that DOES NOT EXIST** — a `scripts/cleanup-cron-output.sh`, a `no_agent` cron `c3cb0224f2ce` ("Cron output retention", daily 22:45), and an update to "consolidation-sop.md step 0.6". No such script on disk, no such job in `cron/jobs.json`, and `consolidation-sop.md` has no step 0.6. The writer is no longer only deleting real content — it is **fabricating infrastructure**. Verify any writer block that cites a path, job ID or document section against the filesystem before believing it.
+  - **17th event (2026-09-23): re-injected 4 blocks already judged unattested on the 16th** (two dream-cost false positives, the `memories/`-is-live-store block, a delegation block) plus a condensed copy of the 16th event's own record. Only the `memories/` block survived attestation — and it passed on **direct filesystem verification**, not provenance: `tools/memory_tool.py::get_memory_dir()` returns `get_hermes_home() / "memories"`, and the dir holds live `MEMORY.md` + `USER.md`. One block's central claim was **false on the day it was written** (it asserted `model.default` was `deepseek/deepseek-v4-flash-0731`; `config.yaml` says `deepseek-v4-pro`). **A writer block can be re-injected after a previous run already rejected it — re-run attestation every time; never inherit last night's verdict.**
 - Burst pattern: files written 1.1–5.7 s apart = a loop over files.
 
 ## Repair playbook (do in this order)
 
 1. **Pre-restore safety check.** `git diff --numstat` the whole tree first — other files may carry legitimate uncommitted work that a blanket `git restore` would discard.
-2. **`git restore` the damaged files from HEAD.** HEAD is clean because the 21:30 backup committed the repaired file. **Never fuzzy-patch.**
-3. **Extract** the writer's genuinely-new blocks from the working tree (copy them to `/tmp` before restoring).
-4. **Duplicate-check** each block against `learnings/LEARNINGS.md`, the cards and the skill references. Re-apply **only** blocks new to the card layer. Record a non-action as a decision, not an omission.
-5. **Verify by heading LIST diff** against HEAD, not counts. A count passes cleanly when one trap is added and one deleted.
-6. Update the catalogue warning block and `memory/MEMORY.md` with the occurrence count and window.
-7. **Re-run the guard as the LAST step** — its 21:20 cron cannot see work written after it.
+2. **Establish a clean baseline. Do NOT assume HEAD is clean.** (Changed 2026-09-23 — see Falsified #4.) Test HEAD first: `git show HEAD:learnings/catalogue.md` must contain the `EDITING THIS TABLE` marker with no `||` rows. If HEAD is corrupt or the history was re-initialised, recover a pre-write baseline from the old pack:
+   ```bash
+   # list every commit object incl. unreachable ones, then keep those not in rev-list --all
+   git cat-file --batch-all-objects --batch-check='%(objecttype) %(objectname)'
+   git show -s --format='%H %ct' <candidates>     # pick the newest by date
+   git show <commit>:learnings/catalogue.md       # grep for 'EDITING THIS TABLE'
+   ```
+   Pick by **content marker, not commit date** — a fresh snapshot commit can carry the corruption.
+3. **Restore the damaged files from that baseline** (full-file rewrite via `git show … > file`). **Never fuzzy-patch.**
+4. **Extract** the writer's genuinely-new blocks from the working tree (copy them to `/tmp` before restoring).
+5. **ATTEST each block — every run, from scratch.** Test: (a) is it named by a `## YYYY-MM-DD` entry in `LEARNINGS.md` or a dated `learnings/YYYY-MM-DD-*.md`? (b) does a `state.db` row predating the write carry it? (c) does a skill reference or another card state the same rule? (d) can the block's specific factual claims be verified against the filesystem today? If all four are no: **leave it out and record the non-action as a decision.** Re-apply only attested blocks, by appending (never fuzzy-patching).
+6. **Duplicate-check** each attested block against `LEARNINGS.md`, the cards and the skill references before re-applying.
+7. **Verify by heading LIST diff** against the baseline, not counts. A count passes cleanly when one trap is added and one deleted.
+8. **Reconcile the catalogue bidirectionally**: every `cards/*.md` needs a row, every row needs a card, warning block present, zero `||` rows, no blank line inside the table.
+9. Update the catalogue warning block and `memory/MEMORY.md` with the occurrence count and window.
+10. **Commit the repair** (`git add learnings/ && git commit`) so the guard's HEAD-based diff has a correct baseline again — otherwise a correct repair reports as deletions.
+11. **Re-run the guard as the LAST step** — its 21:20 cron cannot see work written after it.
 
 ## Falsified hypotheses — do not repeat
 
 1. **"The guard ran before the write."** A UTC-mtime-read-as-Adelaide-local error. The write lands ~10 h *after* the guard.
 2. **"The writer window contains no tool calls."** Occupancy varies: 13 unrelated `quotes-pulse-phase2` calls on 2026-09-14, zero on 2026-09-16. The constant is that none of them touch `learnings/`.
 3. **"The 06:03 ACST window."** A one-hour UTC+09:30 slip; the window is ~07:03–07:08 ACST.
+4. **"HEAD is a clean reference because the 21:30 backup committed the repaired file."** True for events 1–16, **false from the 17th (2026-09-23)**. Two independent reasons: (a) the hourly dashboard job runs `git add -A` with a hardcoded dateless message and had already committed the 07:06 corruption; (b) the vault backup was re-homed to `Hardstaff08/notforgotten-vault` at 08:50 ACST the same morning as a **fresh single-commit snapshot**, so the old history became unreachable and HEAD was re-rooted on a tree that already contained the damage. `nightly-backup.sh`'s pre-commit gate does not help — it only guards the nightly job. **Recovery is still possible because the old `.git` pack (593 MB) survives**: the pre-write commit was recovered via `--batch-all-objects` + unreachable filtering.
 
 ## Occurrence log (newest first)
 
 | # | Date (ACST) | Files | Damage | Dated record |
 |---|---|---|---|---|
+| 17 | 2026-09-23 07:06:36–07:06:40 | 3 (`catalogue`, `hermes`, `email` — `email.md` created by the writer) | 4 s burst. Guard = **21 findings** (50 → 21 — the count now tracks how much HEAD-based diff still works, not severity). `hermes.md` lost the `UPDATE 2026-08-18` note + 2 traps + 13th-event fix-list items; gained 5 blocks, **1 attested**. **NEW ELEMENT: HEAD itself is corrupt, so `git restore` no longer repairs and the guard's diff inverts.** Baseline recovered from the old pack | `2026-09-23-learnings-corruption-17th.md` |
 | 16 | 2026-09-22 07:12:32–07:12:43 (+07:14:25, +07:35:41) | **6 cards + catalogue** (`cron`, `gmail`, `hermes`, `qpaint`, `shell`, `unclassified`, `catalogue`) | **Record file count.** 11 s burst (a loop over files) then catalogue 1m42s later and `LEARNINGS.md` 21 min later. Guard = **50 findings** (30→31→38→44→41→50). **7 traps lost from the live QPaint card (7 → 2).** New element: a writer block citing **nonexistent infrastructure**, and the first time it **created a new card** (`unclassified.md`). Of 9 writer-added blocks only 2 passed attestation | `2026-09-22-learnings-corruption-16th.md` |
 | 15 | 2026-09-21 07:22:04–07:22:13 | 5 (`python`, `gmail`, `agent-architecture`, `shell`, `catalogue`) | **Most files yet**, 9.3 s burst; guard = 41 findings (44 → 41 — finding count is not a severity proxy). New element: one writer block with **zero attestation** | `2026-09-21-learnings-corruption-15th.md` |
 | 14 | 2026-09-20 07:08:22–07:08:28 | 4 (`catalogue`, `gmail`, `agent-architecture`, `qpaint`) | **Widest yet.** 14 traps deleted across 3 cards; QPaint card 6 traps → 1. Guard = 44 findings | `2026-09-20-learnings-corruption-14th.md` |
@@ -65,3 +79,4 @@ tier: primary
 - Guard page reference: `[[Learnings Integrity Guard]]` is a dual-format link to `scripts/bin/learnings-integrity-guard.py` — a script, not a knowledge card. Documented false positive in the weekly lint; do not create a card for it.
 - Standing card: `learnings/cards/agent-architecture.md` → `## TRAP — Learnings damage is written OUT-OF-BAND …`
 - Skill pitfall: `skills/snowark/nightly-consolidation/SKILL.md` (the corruption pitfall block)
+- Recs added by the 17th event: `consolidation-learnings-clean-baseline-lost` (HEAD can no longer be trusted as the repair source; the hourly `git add -A` commit needs the same corruption gate the nightly backup has).

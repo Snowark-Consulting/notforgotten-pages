@@ -1,0 +1,66 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-09-23
+---
+
+# GitHub backup re-homed + live-secret/PII cleanup
+
+> The vault backup moved to a private repo as a clean snapshot, leaving 9 live credential classes in the old history still to rotate.
+
+## What changed
+
+The nightly vault backup (`bin/nightly-backup.sh`, cron `d998982d2e15`) moved from
+`Snowark-Consulting/client-notforgotten` (dead `hancockjluke` PAT) to a new private repo
+**`Hardstaff08/notforgotten-vault`** under James's account.
+
+- `origin` rewired to `https://Hardstaff08:<ATLAS_GITHUB_TOKEN>@github.com/Hardstaff08/notforgotten-vault.git`
+- Clean single-commit snapshot pushed (no dirty history): 2,511 files, ~450 KB.
+- Verified: repo `private=true`, remote tree clean (no `.env`/`.pat`/`.db`/`token.json`/`backups/`/`data/`/`tmp/`/`reports/`).
+
+## Why not full history
+
+The old repo's 591 MB `.git` history contained a full `.env.bak` (all live tokens), a Gmail
+OAuth token backup, a full `state.db` backup (session transcripts = PII), and password hashes.
+Pushing that history would have propagated live secrets + client PII into a new repo. A clean
+snapshot was the safe choice.
+
+## Live-secret / PII files that were tracked (now untracked + gitignored)
+
+| File | What it exposed |
+|---|---|
+| `.env.bak.20260812-205518` | **ALL live tokens** — AIRTABLE, DEEPSEEK, GEMINI, GITHUB, GMAIL, GODADDY, TELEGRAM, TWILIO |
+| `google_token.json.bak-20260805` | Live Gmail OAuth access + refresh token |
+| `config.yaml.bak-1786666399` | password_hash + password + secret fields |
+| `.airtable_pat` | Live Airtable PAT |
+| `backups/state/state-*.db.gz` (7×) + `state.db.pre-fts-fix-*.db` | Full state DB = session transcripts (client/prospect PII) |
+| `state.db.corrupted-2nd-*.db` (+ -wal/-shm) | Corrupted state DB with PII |
+| `.hermes.db`, `sessions.db`, `kanban.db*`, `cron/notepad.db`, `db_backup_*/` | DB files with PII |
+| `data/` (audit, james-mining, inbox-cleanup, qpaint-scan) | Prospect/client PII exports |
+| `tmp/`, `reports/` | Temp files + client report PDFs |
+
+`.gitignore` now anchors these out going forward (`*.db`, `.env.bak*`, `google_token.json.bak*`,
+`config.yaml.bak*`, `backups/`, `state.db.corrupted*`, `data/`, `tmp/`, `reports/`).
+
+## Rotation still required (not yet done — human action)
+
+These tokens are live and were in the (private) git history. Rotate:
+
+1. **Gmail OAuth** (google_token.json.bak) — revoke refresh token, re-auth 3 mailboxes.
+2. **Airtable PAT** (`.airtable_pat` + `.env.bak`) — rotate.
+3. **GitHub tokens** (GITHUB_TOKEN, ATLAS_GITHUB_TOKEN — both Hardstaff08, `repo` scope) — rotate after re-wiring any other embedded URLs.
+4. **Telegram bot token, Twilio, GoDaddy, DeepSeek, Gemini** (all in `.env.bak`) — rotate.
+
+## Auth token map (current, verified 2026-09-23)
+
+| Env var | GitHub user | Status |
+|---|---|---|
+| `GITHUB_TOKEN` | Hardstaff08 (James) | working, `read:org, repo, workflow` |
+| `ATLAS_GITHUB_TOKEN` | Hardstaff08 (James) | working, `read:org, repo, workflow` — now embedded in `origin` |
+| `SNOWARK_GITHUB_TOKEN` | hancockjluke (Josh) | **dead** (bad credentials) |
+
+## Still open (unchanged by this task)
+
+- `Hardstaff08/notforgotten-client-os` and `Snowark-Consulting/notforgotten-pages` remain PUBLIC with PII.
+- `SNOWARK_GITHUB_TOKEN` dead; Snowark org repos (notforgotten-pages) push auth still needs Josh's fresh PAT.

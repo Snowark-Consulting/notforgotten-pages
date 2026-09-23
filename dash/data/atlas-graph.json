@@ -213,6 +213,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_alys_43071_routing_owner_2026_09_23",
+      "label": "Alys 43071 Routing Owner",
+      "file_type": "doc",
+      "source_file": "knowledge/alys-43071-routing-owner-2026-09-23.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "3bae2adaabe4",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_atlas_learning_framework",
       "label": "Atlas Learning Framework",
       "file_type": "doc",
@@ -1347,7 +1358,7 @@
     },
     {
       "id": "knowledge_founder_call_capture_2026_09_16",
-      "label": "Founder Call Capture",
+      "label": "Knowledge / Founder Call Capture",
       "file_type": "doc",
       "source_file": "knowledge/founder-call-capture-2026-09-16.md",
       "community": 4,
@@ -1357,13 +1368,35 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_founder_call_capture_2026_09_23",
+      "label": "Knowledge / Founder Call Capture",
+      "file_type": "doc",
+      "source_file": "knowledge/founder-call-capture-2026-09-23.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "59af20f5877f",
+      "val": 8.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_founder_call_day_2026_09_16",
-      "label": "Founder Call Day",
+      "label": "Knowledge / Founder Call Day",
       "file_type": "doc",
       "source_file": "knowledge/founder-call-day-2026-09-16.md",
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "74706e9ca1b5",
+      "val": 8.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_founder_call_day_2026_09_23",
+      "label": "Knowledge / Founder Call Day",
+      "file_type": "doc",
+      "source_file": "knowledge/founder-call-day-2026-09-23.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "4988d488b325",
       "val": 8.0,
       "color": "#a78bfa"
     },
@@ -1397,7 +1430,7 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "ada7c5076523",
-      "val": 12.0,
+      "val": 16.0,
       "color": "#a78bfa"
     },
     {
@@ -1848,6 +1881,17 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "f80cbe8f9afc",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_public_repo_exposure_2026_09_23",
+      "label": "Public Repo Exposure",
+      "file_type": "doc",
+      "source_file": "knowledge/public-repo-exposure-2026-09-23.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "b30536cb0f94",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -2365,6 +2409,17 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "d6c33575721c",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_v2_52_record_closeout_2026_09_23",
+      "label": "V2 52 Record Closeout",
+      "file_type": "doc",
+      "source_file": "knowledge/v2-52-record-closeout-2026-09-23.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "614c8edbde4b",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -3135,6 +3190,41 @@
     {
       "source": "agent_registry",
       "target": "knowledge_wednesday_call_briefs_2026_08_19",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_founder_call_day_2026_09_23",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_founder_call_capture_2026_09_23",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_v2_52_record_closeout_2026_09_23",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_public_repo_exposure_2026_09_23",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_alys_43071_routing_owner_2026_09_23",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
@@ -4512,6 +4602,20 @@
       "source_file": ""
     },
     {
+      "source": "knowledge_founder_call_capture_2026_09_23",
+      "target": "knowledge_founder_call_outcome_capture",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_founder_call_capture_2026_09_23",
+      "target": "knowledge_founder_call_day_2026_09_23",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
       "source": "knowledge_founder_call_day_2026_09_16",
       "target": "knowledge_founder_call_outcome_capture",
       "relation": "wikilink",
@@ -4521,6 +4625,20 @@
     {
       "source": "knowledge_founder_call_day_2026_09_16",
       "target": "knowledge_founder_call_capture_2026_09_16",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_founder_call_day_2026_09_23",
+      "target": "knowledge_founder_call_outcome_capture",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_founder_call_day_2026_09_23",
+      "target": "knowledge_founder_call_capture_2026_09_23",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

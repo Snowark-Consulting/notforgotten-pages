@@ -1,0 +1,66 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-09-23
+---
+
+# False "Pushed" green tick — subtree push broken by orphan re-init
+
+> "Pushed to GitHub Pages." printed for an hour while every push was rejected — an orphan re-init severed the subtree ancestry.
+
+## What happened
+
+`dash-update.py` printed "Pushed to GitHub Pages." while the push had actually
+been REJECTED non-fast-forward for ~1h. Remote `gh-pages` was frozen at 08:30
+ACST while local `main` had committed Dash updates at 09:39 and later.
+
+## Root cause
+
+On 2026-09-23 the vault `main` was re-initialised via `git checkout --orphan`
+("Initial vault backup — clean snapshot") to drop contaminated history (secrets/
+PII) when re-homing the backup repo. This severed the shared ancestry between the
+local `pages/` subtree split and the remote `gh-pages` branch.
+
+Result: `git subtree push --prefix=pages pages gh-pages` now produces a split that
+is UNRELATED to remote (`git merge-base --is-ancestor` = neither-is-ancestor), so
+every push is rejected non-fast-forward.
+
+But three scripts — `dash-update.py`, `pipeline-data.py`, `followup-queue.py` —
+ran the push with `check=False` and printed "Pushed"/returned True unconditionally.
+The green tick masked the rejection. (`dashboard-update.py` at least checked the
+return code, but still used the broken subtree push; `hq-update.py` returned
+PUSH_FAILED on non-zero but the push still could never succeed.)
+
+## Fix
+
+New shared helper `scripts/pages_deploy.py` (`deploy(files, message)`) does a
+verified fast-forward deploy:
+1. Fetch latest remote (build on top of current tip — never clobber).
+2. Worktree at remote tip, copy changed files on top.
+3. Commit, push `branch:gh-pages` (fast-forward), retry on concurrent non-FF.
+4. VERIFY remote HEAD == pushed commit before returning True.
+
+All 9 pushing scripts migrated off `git subtree push`:
+`dash-update.py`, `pipeline-data.py`, `followup-queue.py`, `dashboard-update.py`,
+`hq-update.py`, `vault-graph.py`, `draft-surfacer.py`,
+`monthly-outreach-report.py`, `graphify-cron.sh`.
+
+## Verification lesson (never trust a green tick)
+
+Success is verified by reading the remote state at the pushed commit SHA, NOT by
+the push exit code and NOT by the branch-ref raw URL (CDN-cached, served stale
+for minutes). Confirm `tasks_completed` / `last_updated` / `generated_at` actually
+advanced before declaring success.
+
+## Pitfall — module filename vs import name
+
+`scripts/pages-deploy.py` (hyphen) cannot be imported as `pages_deploy`
+(underscore). Renamed to `scripts/pages_deploy.py`. Any future module imported by
+name must use an underscore filename.
+
+## Related
+
+- `learnings/2026-09-05-github-pages-push-dead-pat.md` (prior green-tick trap — dead PAT)
+- `skills/devops/github-pages-deploy/references/gh-pages-conflict-resolution.md`
+- `skills/secrets-management/references/git-backup-rehome-clean-snapshot.md` (the orphan re-init that caused this)

@@ -271,7 +271,22 @@ record for a missed one.
 there are ~27 days of headroom. The cost of continuing to wait is close to zero; the cost of the wrong
 contact is $182,736.84 of live value and the customer's first impression.
 
-**The one thing to do — unchanged for the fourth consecutive run: rule on Decision 2.**
+## The one thing to do — unchanged for the fourth consecutive run: rule on Decision 2.
 Option A (one coordinated email covering both sites) remains the recommendation. If Option A is chosen,
 both guards are simply moot and the send runs through the canonical template + Customer Context Gate; if
 Option B, clear `#43195` to MONITOR and lift the guard on `#43236`.
+
+---
+
+## RULING — 2026-09-23 (Atlas, delegated authority)
+
+**Decision 2 ruled: OPTION A — one coordinated email.** James delegated the LEAD Childcare coordination
+decision to Atlas on 23 Sep ("do not ask James to choose... decide the best relationship-level treatment...
+if coordinated communication is appropriate, execute it"). Evidence: one contact, one business, two sites,
+single reception inbox, combined $182,736.84. Option C (two emails) was already rejected; Option B would
+leave the Dayboro quote unacknowledged.
+
+**Executed:** single coordinated Email 1 from atlas@ (white-label QPaint) to reception@leadchildcare.com.au,
+acknowledging both sites, no value, no pressure. Gmail `1a0cacd95837e1cc`, verified in atlas@ Sent.
+Both records (#43236 Burpengary + #43195 Dayboro) reconciled to Email 1/Contacted, shared Gmail ID, NTD
+2026-09-30. Fail-closed guard clause superseded on both. Decision pack closed.
