@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 238,
+    "tasks_completed": 239,
     "recent": [
+      {
+        "date": "2026-09-24 08:38",
+        "task": "QPaint 24 Sep \u2014 relayed Ashleigh #43044 darker-stain answer (relay-authority, no founder gate); Raewyn #43032 no-send (QPaint notified customer); Sian #42970 retains $39,996 pending re-acceptance; John Wilson #43092 + Jesse Zhao #43261 reclassified Atlas-owned.",
+        "category": "task"
+      },
       {
         "date": "2026-09-23 17:47",
         "task": "Campaign pulse posted \u2014 QPaint Mon-21 wave at 29% reply (5/17, 3 lost / 2 engaged); Ashleigh Thomas relay blocked on founder approval",
@@ -135,11 +140,6 @@
         "date": "2026-09-11 07:39",
         "task": "QPaint daily attention 11 Sep: 7 Email 1 + 6 Email 2 follow-ups sent (13 total); 1 commercial builder HOLD; 2 QPaint-owned WAIT/MONITOR refreshed",
         "category": "task"
-      },
-      {
-        "date": "2026-09-10 21:06",
-        "task": "Nightly consolidation 10 Sep: repaired learnings catalogue (5th fuzzy-patch corruption \u2014 2 rows dropped, 5 damaged, table split); added 2 recommendations (false-failure detector in log-retention.py; catalogue validator); synced LEARNINGS card inventory 16 to 21; fixed Registry duplicate header + stale Decision Review Preps count; flagged unattributed Cloudflare card provenance",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-09-24T08:30:29.344685+09:30",
+  "last_updated": "2026-09-24T08:38:47.390048+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
