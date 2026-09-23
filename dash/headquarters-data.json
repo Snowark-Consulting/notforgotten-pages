@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-24T04:08:09+09:30",
+  "generated_at": "2026-09-24T08:35:00+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "Thursday. QPaint stable at 268 records ($8.69M book, 13 Won $519K, 44 Lost, 211 active). One QPaint answer arrived overnight (Ashleigh Thomas #43044 darker-stain) — customer relay due today. ⚠️ GitHub Pages is disabled (has_pages=False) so the dashboard returns 404 — routed for infra fix.",
+    "body": "Thursday. QPaint stable at 268 records ($8.69M book, 13 Won $519K, 44 Lost, 211 active). Ashleigh Thomas #43044 darker-stain answer RELAYED to the customer this morning (relay-authority correction). ⚠️ GitHub Pages is disabled (has_pages=False) so the dashboard returns 404 — routed for infra fix.",
     "estimated_time": "2 minutes"
   },
   "business_score": {
@@ -11,11 +11,11 @@
     "reasons_positive": [
       "QPaint 268 records, $8.69M total, 13 Won = $519,470 (1 Recovered + 7 Assisted + 5 Observed). 0 overdue active.",
       "LEAD Childcare #43236 + #43195 coordination RESOLVED — coordinated Email 1 sent 23 Sep, both records now monitoring to 30 Sep.",
-      "Alys Dee #43071 loop CLOSED — both warranty + inclusions answers relayed; now Engaged-Awaiting Confirmation, monitor 29 Sep."
+      "Alys Dee #43071 loop CLOSED — both warranty + inclusions answers relayed; now Engaged-Awaiting Confirmation, monitor 29 Sep.",
+      "Ashleigh Thomas #43044 darker-stain answer RELAYED to customer 24 Sep (relay-authority correction — no founder gate)."
     ],
     "reasons_negative": [
       "GitHub Pages DISABLED (has_pages=False) — entire dashboard/HQ returns 404. Pipeline still pushing to gh-pages but no site serves.",
-      "Ashleigh Thomas #43044 customer relay approval-gated and unsent (QPaint answered 23 Sep).",
       "state.db integrity FAILS (freelist corruption, day 6) + token rotation (9 credential classes) still outstanding."
     ]
   },
@@ -46,15 +46,6 @@
     }
   },
   "waiting_for_james": [
-    {
-      "id": "ashleigh-43044-relay",
-      "title": "Approve + send the Ashleigh Thomas #43044 relay (darker stain answer)",
-      "why_it_matters": "QPaint answered 23 Sep (James Gooley): darker stain on handrail + doors possible, no charge if concurrent, $1200+GST return visit, revised quote valid to 19 Oct. Customer relay is approval-gated and unsent — due today.",
-      "business_impact": "Medium: $22,998 deal, customer actively waiting since 23 Sep.",
-      "estimated_time": "2 min",
-      "recommended_action": "Review the relay draft, approve, send. Relay: confirm both surfaces can be darker-stained, revised quote coming (valid 19 Oct), no extra charge concurrent, $1200+GST return visit.",
-      "impact_sort": 90
-    },
     {
       "id": "ahmad-star-painters-reassess",
       "title": "Ahmad / Star Painters Adelaide — final founder call or honest close (reassess overdue from 23 Sep)",
@@ -120,15 +111,8 @@
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Thursday. QPaint stable at 268 records ($8.69M, 13 Won $519K). One overnight item: QPaint answered Ashleigh Thomas #43044 (darker stain), and the customer relay is now due — approval-gated. ⚠️ GitHub Pages is disabled so the dashboard 404s (infra fix, routed). Highest-leverage founder action today: approve the Ashleigh relay, then clear the two carried rulings (Ahmad reassess + cold-channel).",
+    "executive_summary": "Thursday. QPaint stable at 268 records ($8.69M, 13 Won $519K). Overnight Ashleigh Thomas #43044 darker-stain answer was RELAYED to the customer 24 Sep (relay-authority correction — QPaint decided, Atlas relayed, no founder gate). ⚠️ GitHub Pages is disabled so the dashboard 404s (infra fix, routed). Highest-leverage founder actions today: the two carried rulings (Ahmad reassess + cold-channel).",
     "priorities": [
-      {
-        "action": "Approve + send the Ashleigh Thomas #43044 relay",
-        "why_it_matters": "QPaint answered; customer waiting; relay approval-gated and due today.",
-        "expected_impact": "Medium",
-        "estimated_time": "2 min",
-        "confidence": "High"
-      },
       {
         "action": "Resolve Ahmad / Star Painters (call or close)",
         "why_it_matters": "Overdue binary decision; only stalled warm thread.",
@@ -159,8 +143,8 @@
         "text": "Overnight scan: quotes@ 0 unread, atlas@ 0 unread, james@ 5 unread (2 DMARC noise, Tatnell + Top Rank stale 9 Aug, James Gooley Ashleigh #43044 answer = new but already CRM-captured). No new quotes/bounces/unsubscribes."
       },
       {
-        "time": "2026-09-24T04:08:09+09:30",
-        "text": "QPaint 268 records (was 267): 13 Won $519,470, 44 Lost $957,578, 211 active, 0 overdue. Ashleigh #43044 relay due today; Alys #43071 closed; LEAD Childcare resolved (Email 1 sent 23 Sep)."
+        "time": "2026-09-24T08:35:00+09:30",
+        "text": "QPaint 268 records: 13 Won $519,470, 44 Lost $957,578, 211 active, 0 overdue. Ashleigh #43044 darker-stain answer RELAYED to customer (relay-authority correction); Raewyn #43032 no-send (QPaint notified customer directly); Sian #42970 retains $39,996 pending re-acceptance."
       },
       {
         "time": "2026-09-24T04:08:09+09:30",
