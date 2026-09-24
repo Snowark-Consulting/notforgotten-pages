@@ -164,15 +164,15 @@
       }
     ]
   },
-  "last_updated": "2026-09-24T22:30:19.680580+09:30",
+  "last_updated": "2026-09-25T00:00:25.258826+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
       "New": 174,
-      "Campaign Complete": 110,
+      "Campaign Complete": 112,
       "Won": 1,
       "Lost": 17,
-      "Outreach Active": 12,
+      "Outreach Active": 10,
       "Not a fit": 5,
       "Engaged": 1,
       "Contacted": 11,
@@ -204,7 +204,7 @@
       "Campaign Complete": {
         "IT MSP": 3,
         "Marketing agency": 8,
-        "Painter": 86,
+        "Painter": 88,
         "Landscaper": 1,
         "Commercial cleaning": 6,
         "Construction": 2,
@@ -222,7 +222,7 @@
         "IT MSP": 1
       },
       "Outreach Active": {
-        "Painter": 12
+        "Painter": 10
       },
       "Not a fit": {
         "Painter": 5
@@ -255,18 +255,6 @@
         "industry": "Painter",
         "last_contacted": "2026-09-02",
         "suburb": "South Australia"
-      },
-      {
-        "name": "Superior Painters and Decorators",
-        "industry": "Painter",
-        "last_contacted": "2026-08-05",
-        "suburb": "Sydney"
-      },
-      {
-        "name": "Redefine Painting",
-        "industry": "Painter",
-        "last_contacted": "2026-08-05",
-        "suburb": "Victoria"
       },
       {
         "name": "Paintpal Pty Ltd",
@@ -312,7 +300,7 @@
       }
     ],
     "active_by_vertical": {
-      "Painter": 12
+      "Painter": 10
     },
     "messages": {
       "outbound_total": 138,
@@ -330,7 +318,7 @@
       "total_opens": 245,
       "avg_opens": 4.2
     },
-    "last_refreshed": "2026-09-24T12:30:22.962919+00:00"
+    "last_refreshed": "2026-09-24T14:30:25.256955+00:00"
   },
   "decisions": {
     "total": 42,
@@ -6033,16 +6021,16 @@
     "tier": "green",
     "disk_pct": 43.3,
     "free_gb": 11.1,
-    "why": "other hermes (1355MB), tmp (822MB), chrome profile (462MB). Normal system overhead.",
+    "why": "other hermes (1360MB), tmp (822MB), chrome profile (462MB). Normal system overhead.",
     "trend": "stable",
-    "daily_rate_pct": 0.2,
-    "forecast_days_to_95": 258.5,
+    "daily_rate_pct": 0.4,
+    "forecast_days_to_95": 129.2,
     "recommendation": "None \u2014 storage is healthy.",
     "largest_consumers": {
-      "other_hermes": 1354.7,
-      "tmp": 821.8,
+      "other_hermes": 1359.5,
+      "tmp": 822.3,
       "chrome_profile": 462.2
     },
-    "last_checked": "2026-09-24T18:00:14+0930"
+    "last_checked": "2026-09-25T00:00:21+0930"
   }
 }
