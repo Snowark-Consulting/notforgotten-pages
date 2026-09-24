@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-24T13:00:22+09:30",
+  "generated_at": "2026-09-25T04:03:15+09:30",
   "atlas_brief": {
-    "greeting": "Good afternoon James.",
-    "body": "Full business refresh, Thursday 24 Sep. QPaint is healthy: 272 records, $7.46M active pipeline, 13 Won ($519,470), 44 Lost, 0 overdue. All three inboxes clean (0 unread). This morning's review-date hygiene defect was fixed (founder-directed): 24 aged opportunities reassessed to 9 HOLD / 15 event-driven MONITOR, no blanket sends. One thing needs you: the cold painter channel ruling (still unruled since 11 Sep). GitHub Pages remains disabled so the dashboard is 404 \u2014 that's an owner fix, not yours.",
-    "estimated_time": "3 minutes"
+    "greeting": "Good morning James.",
+    "body": "The QPaint portfolio is stable. 273 total records, 216 active journeys. Production Operating Protocol v1.0.0 governs all operations. Canonical send authority live.",
+    "estimated_time": "2 minutes"
   },
   "business_score": {
     "score": 85,
@@ -23,33 +23,27 @@
   "business_health": {
     "clients": {
       "status": "healthy",
-      "icon": "\ud83d\udfe2",
-      "detail": "QPaint: Active, $199 MRR. Portfolio certified. 0 escalations."
+      "detail": "QPaint: Active. Portfolio certified. 216 active journeys with complete Next Action coverage."
     },
     "recovery_operations": {
       "status": "healthy",
-      "icon": "\ud83d\udfe2",
-      "detail": "272 QPaint journeys. 148 contacted, 34 engaged, 0 overdue. Won $519,470. Active pipeline $7.46M."
+      "detail": "\u2705 216 active QPaint journeys certified. 148 contacted. 0 exceptions. Pipeline: $7,473,798. Won: $529,183."
     },
     "outreach": {
       "status": "healthy",
-      "icon": "\ud83d\udfe2",
-      "detail": "Cold painter channel dormant (V2 HOLD since 4 Sep). RE-ENG-AUG-2026 observing. No overnight state changes."
+      "detail": "V2 Email 3 (32 sent 28 Aug) awaiting reply \u2014 follow-up window 4 Sep. 9 founder-autonomy Email 1s (30 Aug), Email 2 window 4 Sep. RE-ENG-AUG-2026: 99 observing."
     },
     "engineering": {
-      "status": "critical",
-      "icon": "\ud83d\udd34",
-      "detail": "GitHub Pages disabled \u2014 dashboard 404. state.db integrity fails. 3 crons erroring."
+      "status": "healthy",
+      "detail": "All systems healthy. Canonical send authority (Phase 1) shadow-ready. Production Operating Protocol v1.0.0 live."
     },
     "finance": {
       "status": "healthy",
-      "icon": "\ud83d\udfe2",
-      "detail": "QPaint: $519,470 Won, $7.46M active pipeline, $199 MRR. 0 overdue invoices."
+      "detail": "QPaint: $529,183 Won. $7,473,798 active pipeline."
     },
     "atlas": {
       "status": "healthy",
-      "icon": "\ud83d\udfe2",
-      "detail": "Memory 98%. Protocol v1.0.0 enforced. Send authority live."
+      "detail": "Memory healthy. Protocol v1.0.0 enforced. Model recovery standard active."
     }
   },
   "waiting_for_james": [
@@ -238,7 +232,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "\u26a0\ufe0f GitHub Pages disabled + Snowark token revoked \u2014 dashboard 404 (owner fix). QPaint portfolio certified (272 journeys, 0 overdue). Send authority live.",
+  "operational_status": "\u2705 QPaint portfolio certified. 216 active journeys. Protocol v1.0.0. Send authority live.",
   "vault_health": {
     "decisions": {
       "total": 83,
@@ -269,21 +263,21 @@
   },
   "qpaint_pipeline": {
     "summary": {
-      "total_customers": 272,
-      "total_pipeline_value": "$7.46M",
+      "total_customers": 273,
+      "total_pipeline_value": 7473798,
       "won_count": 13,
-      "won_value": "$519,470",
+      "won_value": 529183,
       "lost_count": 44,
       "engaged_replied": 34,
       "contacted": 148,
-      "not_contacted": 33
+      "not_contacted": 34
     },
     "stage_breakdown": {
       "Email 3": 55,
       "Email 2": 47,
       "Lost": 44,
       "Email 1": 44,
-      "New": 34,
+      "New": 35,
       "Replied": 29,
       "Won": 13,
       "Engaged": 3,
@@ -292,9 +286,9 @@
       "Email 4": 1
     },
     "priority": {
+      "P3": 127,
       "P1": 93,
-      "P2": 53,
-      "P3": 126
+      "P2": 53
     },
     "key_customers": [
       {
