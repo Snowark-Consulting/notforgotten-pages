@@ -1,0 +1,50 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# Review-Date Hygiene Defect — Data Hygiene Cannot Make the Commercial Decision (2026-09-24)
+
+**Confidence:** high
+**Contested:** false
+
+## Symptom
+
+The 1-Sep control audit's "64 stale monitor dates" hygiene operation (category B: "MONITOR, no auto next touch") cleared stale `Next Touchpoint Date` values on still-live quotes and parked them as MONITOR. This overrode the Daily Attention rule "Email 1 silent, review date elapsed → send Email 2."
+
+## Confirmed victims (verification evidence)
+
+| Customer | Quote | Value | Email 1 sent | Parked | Validity |
+|---|---|---|---|---|---|
+| Sharon Fleay | #43091 (6 Avala Crescent, Elimbah) | $2,871.00 | 24-Aug | 1-Sep | valid to 18-Sep |
+| Steve Liversidge | #43102 | $6.5k class | 24-Aug | 1-Sep | valid to 19-Sep |
+
+Both were parked after a single Email 1 while still within the quote's validity window. The stale review date was the trigger for the NEXT touch, not a "done" signal.
+
+## Cause
+
+`clear stale review date → MONITOR` was treated as data hygiene. Data hygiene (CRM field cleanup) cannot make a commercial decision. A stale review date on a silent, still-valid quote controls a pending customer decision; clearing it without first determining what it controlled silently converted "REVIEW → DECIDE" into "PARK".
+
+## Fix (standing rule — adopted 2026-09-24)
+
+**A review date may not be cleared as data hygiene until Atlas determines what that review date was controlling.**
+
+1. Reconstruct the record state.
+2. Determine why the review existed.
+3. Determine whether it represents a pending customer/commercial decision.
+4. Make that decision (REVIEW → DECIDE).
+5. Execute the appropriate routine action if required (EMAIL / SMS / PHONE / WAIT / MONITOR / HOLD / CLOSE / other evidence-supported action).
+6. Only then update/clear the review date.
+
+No automatic Email 2 rule was created either. The correction is "data hygiene cannot make the commercial decision", not "every silent Email 1 gets Email 2".
+
+## Standing rule location
+
+- `knowledge/qpaint/qpaint-operating-model.md#review-date-hygiene-2026-09-24` (authoritative rule)
+- `knowledge/notes/2026-09-01-control-audit-response.md` (correction note on the originating operation)
+- `skills/snowark/recovery-operations/references/monitor-persistence-audit.md` (audit reference, adopted note)
+
+## Source
+
+2026-09-24 QPaint MONITOR population analysis (follow-up to the active-book audit). Founder accepted the analysis and directed the rule fix without sign-off.

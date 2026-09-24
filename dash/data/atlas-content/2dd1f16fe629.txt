@@ -1,0 +1,78 @@
+---
+doc_type: learning-record
+date: 2026-09-24
+domain: quote-intake / pandadoc-extraction
+severity: medium
+status: fixed
+---
+
+# PandaDoc pricing table can render in the DOM but NOT in the accessibility tree
+
+**Date:** 2026-09-24 (QPaint #43247, 49 Killeen St, Nundah — Jono Mazz)
+**Discovered during:** quotes@ intake of #43247.
+
+## Symptom
+
+`scripts/pandadoc-fresh-extract.py <token>` returned a large, apparently healthy AX capture
+(**36,357 chars**, well above the 10,000-char reliability threshold from Pitfall 42) containing:
+
+- the document title, participant stack (`JM`, `JG`, `+2`), the full scope text,
+- the complete 21-clause terms and conditions block,
+- and **no pricing at all**.
+
+The identity block at the top rendered as bare labels (`Date:` / `Address:` / `Quote ID:` /
+`Expiry Date:` with no values), which is the known Pitfall 61 shape — but here it was not just the
+identity block: the entire `SCOPE OF WORKS` pricing table (`Subtotal` / `GST` / `Total` with the
+dollar values) was absent as well. Only the contract boilerplate dollars (`$220`, `$275`, `$3,300`)
+appeared, so the document *looked* like it had currency in it.
+
+## Why the existing scroll pass did not fire
+
+`pandadoc-fresh-extract.py` gates its scroll pass on:
+
+```python
+if "$" not in text:
+```
+
+The contract boilerplate contains `$220`, `$275` and `$3,300`, so `"$" in text` was `True` and the
+scroll pass was **skipped** even though the pricing table had not rendered. The heuristic was
+written for a document with no dollars at all; every QPaint document carries the boilerplate, so the
+gate is effectively always closed. This is a false-negative heuristic, not a timeout or a capture
+failure — the documented "text_length >= 10,000 means the capture is reliable" rule does NOT hold
+for pricing on this document family.
+
+## Fix — verify pricing independently of the AX capture
+
+1. **Do not trust `$` presence as the scroll trigger.** Always scroll.
+2. Use `scripts/pandadoc-scroll-pass.py <token> <outprefix>` (added 2026-09-24) — always scrolls
+   (`window.scrollTo` in 1200px steps to 30,000), then dumps three artefacts:
+   - `<outprefix>.ax.txt` — AX tree text (deduped)
+   - `<outprefix>.dom.txt` — `document.body.innerText`
+   - `<outprefix>.geo.txt` — leaf-element geometry (`top`, `left`, text), sorted by `top`
+3. **The DOM/geometry pass is the primary pricing evidence when the AX capture lacks a
+   Subtotal/GST/Total triplet.** On #43247 the AX capture had zero pricing rows and the DOM pass
+   recovered `Subtotal $4,488.00` / `GST $448.80` / `Total $4,936.80` (with the `INTERNAL - PART`
+   section heading at top 3610 and the pricing block at top 3579-3980), plus the complete
+   populated identity block (`Date 17/09/2026`, `Address 49 Killeen St, Nundah`, `Quote ID 43247`,
+   `Jono Mazz`, `jono@brentonconnellbuilders.com`, `Expiry 23/12/2026`).
+4. **Add a pricing-completeness assertion before any valuation:** a rendered QPaint pricing block
+   must yield a `Subtotal` + `GST` + `Total` triplet whose arithmetic checks (`subtotal * 1.10 ==
+   total`). If the triplet is missing from BOTH the AX capture and the DOM pass, that is an
+   Intake Exception (Pitfall 42 short-capture path), never an assumed value.
+
+## Fix applied to the shared tool
+
+`pandadoc-fresh-extract.py` scroll gate changed from `"$" not in text` to a rendered-amount test:
+scroll when no currency amount with decimals is present, i.e. when
+`re.search(r'\$\s?\d[\d,]*\.\d{2}', text)` is `None`. This still fires on #43247-style documents
+(boilerplate dollars are `$220`/`$275`/`$3,300`, none with a `.dd` cents part). The dedicated
+`pandadoc-scroll-pass.py` remains the belt-and-braces path (it always scrolls and always dumps DOM
++ geometry).
+
+## Boundary
+
+This does not change the Pitfall 42 retry rule, the Pitfall 58 label-dedup rule, the Pitfall 60
+section vocabulary rule, or the Pitfall 61/64 valuation rules. It adds one required extraction step:
+**AX capture is not sufficient evidence of a pricing block.** Where a document's scope is quoted,
+the rendered Subtotal/GST/Total must be recovered from the DOM/geometry pass and the GST arithmetic
+verified before `Deal Value` is written.

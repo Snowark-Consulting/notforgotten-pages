@@ -8,6 +8,14 @@ date: 2026-09-01
 
 Audit verdict accepted as AMBER. QPaint handover continues. James is NOT taking routine QPaint back.
 
+> **CORRECTION (2026-09-24):** item 2 below ("64 stale monitor dates", category B "clear
+> stale NTD → MONITOR") contained a control defect. Clearing a stale review date as data
+> hygiene overrode legitimate next-action decisions on two still-live quotes (Sharon Fleay
+> #43091, Steve Liversidge #43102 — both parked 1-Sep after one Email 1 while within
+> validity). The rule is now: **a review date may not be cleared as data hygiene until
+> Atlas determines what that date was controlling** (REVIEW → DECIDE, never auto-MONITOR).
+> Standing rule: `knowledge/qpaint/qpaint-operating-model.md#review-date-hygiene-2026-09-24`.
+
 ## Corrections executed this session
 
 1. **Loop closure** — added to QPaint operating model: SURFACE → RECORD OWNER → SET REVIEW → MONITOR → VERIFY → RECONCILE → CLOSE LOOP. Root cause of the Arno/Tas miss.

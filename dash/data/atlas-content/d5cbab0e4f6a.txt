@@ -36,6 +36,7 @@ tier: primary
 | 2 | 2026-07-29 | Investigation undercount (20 reported vs 30 actual) | Medium | Operational Investigation Standard |
 | 3 | 2026-09-19 | QPaint Lost status not visible to Atlas (Kristen Watt #43121) | Medium — source-visibility gap, not execution failure | QPaint outcome-visibility gap documented; Won-signal path verified clean |
 | 4 | 2026-09-21 | Obsolete "james@ internal NOT delegated" rule blocked routine QPaint handoffs (Alys #43071, Raewyn #43032) | Medium — approval regression | Routine QPaint handoffs confirmed delegated under qpaint-autonomous-envelope.json |
+| 5 | 2026-09-24 | Relay of an authorised QPaint answer wrongly founder-gated (Ashleigh #43044 darker-stain answer sat unsent) | Medium — approval regression | Relay-authority correction: relay/record/reconcile/monitor delegated once QPaint decides; escalate only when Atlas must MAKE an unauthorised decision |
 
 ---
 

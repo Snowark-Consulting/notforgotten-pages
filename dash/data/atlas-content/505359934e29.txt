@@ -77,6 +77,45 @@ This is the substantive new evidence for 24 Sep, and it cuts both ways: the gate
 3. If option 1: which provider, given DeepSeek is the approved carrier for client data?
 4. Should the config's `'[]'` **string** form be corrected to a real empty list as a standalone hygiene fix, so a future fallback write is not silently ignored?
 
+## Delta since this prep was written — verified 23 Sep 2026 22:00 ACST (review is tomorrow)
+
+Re-verified the night before the review, so tomorrow's decision runs on current data rather than 17 Sep data.
+
+| Check | 17 Sep | 23 Sep | Verdict |
+|---|---|---|---|
+| `fallback_providers` in config | `'[]'` (string) | **still `'[]'` (string)** — 30 days unchanged | No drift, no fix |
+| `hermes fallback list` | — | **"No fallback providers configured."** | Single-provider posture intact |
+| DeepSeek transients | 27 across 24–27 Aug, 21 clean days | **5 on 22 Sep** (4 × `APIConnectionError` on `deepseek-v4-flash`; 1 × `ReadError` `[Errno 32] Broken pipe` on `deepseek-v4-pro`), all absorbed at `attempt 1/3`, recovered | Retry still sufficient |
+| Cron jobs non-ok | 1 of 42 | **3 of 42** — `LLM cost + balance check`, `Cron session prune`, `State DB snapshot backup` | **All three are `state.db` faults, none provider-related** |
+
+**Clean-run count:** 18, 19, 20, 21, 23 Sep = **0** logged provider failures. The 22 Sep cluster is the only provider event in the 7 days, and it self-recovered inside the retry policy.
+
+## The blind spot did not stay theoretical — it fired on 21 Sep
+
+The prep's substantive argument was that the `wakeAgent` gate removes the alarm: an outage surfaces as *missed pulses*, quietly. That failure signature **materialised on 21 Sep — from a different root cause, with the same shape**:
+
+- 15:36 ACST `quotes-pulse-phase2` read QPaint quote #43190 (msg `1a0c28fcd31b0811`), marked it **READ**, then died mid-extraction (`pandadoc-fresh-extract` short capture; `pandadoc-dom-pass` WebSocket timeout; session `end_reason None`).
+- No record, no Telegram, no filing. Because the message was **no longer unread**, the `is:unread` wake gate correctly did **not** re-fire.
+- The quote sat **read-but-unfiled for 3h36m**. Recovered 19:12 ACST by an `in:inbox` scan — not by any alert.
+
+**Attribution (careful, per the prep's own standard):** the root cause was a crashed pulse run on a malformed `state.db`, **not** a DeepSeek outage. It is not provider evidence. What it *is* evidence of: **a stalled detection path produces no alarm**, on the exact control path that finds a QPaint customer reply. The 21 Sep window is the first measured instance, and it is the strongest available argument for the compensating heartbeat in verdict option 2 — regardless of which option is chosen.
+
+The founder escalated `state.db` to customer-mail-control-path severity the same week (23 Sep). The 3h36m window is the primary evidence for that reclassification.
+
+## Detection path — hardened since 17 Sep (relevant to option 2)
+
+- **18 Sep:** `inbox-watchdog-gate.sh` hardened — Gmail returns per-minute quota exhaustion as HTTP 403 `rateLimitExceeded` (shared GCP project `206690510353`), which a single-shot curl turned into a **false "script failed" wake**. Now 4 attempts, linear backoff, fail-fast on 400/401/403, **fails OPEN**.
+- **18 Sep (later):** the same gate's **token-refresh** step hardened — it runs *first*, before any API call, so query-layer retries never covered it. A broken pipe there would have blinded the primary customer-mail path behind a false "script failed".
+- All three pulse gates (`inbox`, `quotes`, `james`) now retry and fail open. Verified against local stubs, not just by a green exit.
+
+**Interpretation:** the gate layer is now robust against *transient* blindness. It has **no control against a stall that leaves the message read**, which is what 21 Sep produced. That is the specific gap option 2 must cover.
+
+## What is still unchanged for tomorrow
+
+- Verdict options 1 / 2 / 3 (Restore the chain / Accept formally with a heartbeat / Defer again) stand as written. Nothing in the 7 days makes deferral stronger — if anything, 21 Sep weakens it.
+- The `'[]'` **string-vs-list** hygiene point stands and is worth doing regardless of the option chosen: a fallback write issued in the string form would be **silently ignored**.
+- The 4 questions for the review stand unchanged.
+
 ## Evidence files
 
 - `config.yaml` line 9 (`fallback_providers: '[]'`), `model:` block
@@ -88,6 +127,15 @@ This is the substantive new evidence for 24 Sep, and it cuts both ways: the gate
 - `knowledge/decisions/2026-08-17-deepseek-client-data-approved.md`
 - `knowledge/decision-reviews/2026-08-24-provider-failover-review-prep.md` (the Aug review)
 - `skills/devops/hermes-gateway-ops/SKILL.md` — 29 Aug outage attribution
+- `logs/quotes-pulse.log` — 21 Sep 19:12 ACST entry: the 3h36m read-but-unfiled incident (#43190)
+- `learnings/2026-09-23-state-db-customer-mail-control-path.md` — escalation of the `state.db` fault to customer-mail-path severity
+- `learnings/LEARNINGS.md` 2026-09-18 — pulse-gate hardening entries (three gates retry + fail open)
+
+## Day-before refresh
+
+The "Delta since this prep was written" section above was added by the Prepare-Ahead Clock on
+23 Sep 2026 22:00 ACST — **the night before the review** — re-verifying every load-bearing number
+against live config, logs and cron state rather than re-serving the 17 Sep figures.
 
 ---
 

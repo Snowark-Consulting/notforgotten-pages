@@ -1,0 +1,109 @@
+---
+doc_type: decision
+owner: notforgotten
+tier: primary
+---
+
+# Decision: QPaint Relay Authority — relaying an authorised decision is NOT founder-gated
+
+> Relay ≠ decide: once a QPaint decision owner has answered, Atlas communicates it without a founder gate; escalate only to MAKE an unauthorised decision.
+
+
+**Slug:** `2026-09-24-qpaint-relay-authority`
+**Date:** 2026-09-24
+**Status:** Made
+**Review Date:** 2026-10-24
+
+---
+
+## The Decision
+
+Once an authorised QPaint decision owner has supplied an answer, Atlas has standing authority to COMMUNICATE that answer accurately to the customer (RELATE), RECORD it, RECONCILE it, and MONITOR it — within existing white-label, evidence and safety controls. That communication is NOT founder-gated merely because the answer contains a price, a scope change, a warranty term, a quote-validity date, a scheduling answer, an apology, or another QPaint-authorised commercial fact. Atlas escalates only when it would otherwise need to MAKE an unauthorised decision.
+
+---
+
+## The Problem
+
+Atlas repeatedly escalated routine QPaint work to James under the header "FOUNDER DECISIONS REQUIRED" after the underlying decision had already been made by QPaint. The recurring error was: PRICE / SCOPE / CUSTOMER-FACING → FOUNDER APPROVAL. This conflated three distinct authorities — (1) authority to make a commercial decision, (2) authority to relay an authorised decision, and (3) authority to reconcile an outcome. The result was a decision queue full of items that required zero founder input, violating the "execute, don't re-present" operating standard and stalling customer-service loops (e.g. Ashleigh #43044's darker-stain answer sat unsent awaiting approval).
+
+---
+
+## Options Considered
+
+| # | Option | Summary |
+|---|---|---|
+| A | Escalate every price/scope/customer-facing item to James (status quo) | Founder becomes routing layer; routine relays stall; violates autonomy directive. |
+| B | Relay-authority model: relay/record/reconcile/monitor delegated; escalate only when Atlas must make an unauthorised decision | Atlas executes the customer-service loop; James sees only genuine exceptions. |
+| C | Build a new approval system / whitelist / authority database | More governance, more surface for drift; contradicts "do not build more governance." |
+
+---
+
+## Why This Path
+
+Chose B. The underlying authority (qpaint-autonomous-envelope.json) already delegated routine QPaint operations; the failure was interpretive, not a missing permission. Adding more governance (C) would recreate the problem at higher cost. The correction is a clarification of the existing envelope: relaying a decision QPaint already made is execution of the customer-service loop, not a founder decision. This aligns with Principle 6 (human accountability — James owns decisions, Atlas executes) and the CEO Standard (reduce James's workload, surface only genuine exceptions).
+
+---
+
+## Core Principles Applied
+
+- Principle 6 — Human accountability: James owns commercial decisions; Atlas executes the loop.
+- Principle 2 — Evidence before opinion: the decision test is driven by "who made the decision," established from primary evidence.
+- The CEO Standard — surface genuine exceptions, not a menu of choices.
+
+---
+
+## Risks Identified
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| Atlas relays a fact QPaint did not actually authorise | Low | High | Relay only verbatim substance with primary source (Gmail ID + thread) captured in Outreach Notes; white-label integrity pre-checks fail closed. |
+| Atlas fails to escalate a genuine unauthorised decision | Low | Medium | Escalation conditions retain "Atlas would otherwise need to MAKE an unauthorised decision" + material reputational/legal risk. |
+| Stale wording recreates the error | Med | Medium | Updated the two durable authority sources (envelope JSON + skill references) + memory; obsolete wording flagged. |
+
+---
+
+## Expected Outcome
+
+FOUNDER DECISIONS REQUIRED: 0 on routine QPaint days. Atlas relays authorised answers, records no-send defaults, and reconciles outcomes autonomously. James sees executed monitoring + genuine exceptions only.
+
+---
+
+## Success Criteria
+
+- [ ] Ashleigh #43044 relay sent and reconciled without founder approval (done 2026-09-24).
+- [ ] Raewyn #43032 no-send recorded and monitored without founder approval (done 2026-09-24).
+- [ ] Sian #42970 retains $39,996 until re-acceptance, auto-reconciles uplift on verified re-acceptance.
+- [ ] No QPaint relay item appears under FOUNDER DECISIONS REQUIRED in the next 30 days unless it genuinely requires a decision only James can make.
+
+---
+
+## Atlas's Challenge (Pre-Decision)
+
+No challenge. This correction resolves a repeated interpretation error and aligns with the existing delegated authority envelope, the CEO Standard, and the autonomy directive.
+
+**James's response:** Directive issued 2026-09-24 requiring immediate execution without further approval.
+
+---
+
+## Actual Outcome (Post-Review)
+
+**Date reviewed:** TBD
+
+**What actually happened:** TBD
+
+**Verdict:** TBD
+
+**Delta from expected:** TBD
+
+---
+
+## Learnings
+
+The escalation trigger is "Atlas would otherwise need to MAKE an unauthorised decision," not "the answer contains a price/scope/warranty/validity fact." Defaults are decisions: "default = no send" is an instruction to not send and monitor, not a founder choice. Authority to send ≠ obligation to send.
+
+---
+
+## Related Decisions
+
+- `qpaint-autonomous-envelope` (knowledge/authority/qpaint-autonomous-envelope.json)
+- `2026-09-21` routine QPaint handoffs confirmed delegated (operational-learning-register Entry #4)

@@ -1203,6 +1203,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decisions_2026_09_24_qpaint_relay_authority",
+      "label": "Qpaint Relay Authority",
+      "file_type": "doc",
+      "source_file": "knowledge/decisions/2026-09-24-qpaint-relay-authority.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "7c98575ea110",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decisions_index",
       "label": "Decisions / Index",
       "file_type": "doc",
@@ -3232,6 +3243,13 @@
     {
       "source": "agent_registry",
       "target": "knowledge_qpaint_report_delivery_2026_08_18",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_decisions_2026_09_24_qpaint_relay_authority",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

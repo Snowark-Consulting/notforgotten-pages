@@ -92,6 +92,31 @@ SURFACE → RECORD OWNER → SET REVIEW → MONITOR → VERIFY RESPONSE/RESOLUTI
 
 SURFACE ≠ MANAGE does NOT mean "forget the unresolved requirement." Atlas does not own QPaint's decision, but Atlas DOES own visibility of whether the customer requirement remains unresolved. Every item surfaced to QPaint must carry a review date to verify resolution and close the loop. The Arno/Tas miss (surfaced 5 Aug, verified only after 31 Aug) is the canonical failure this prevents.
 
+## Review Date Hygiene (2026-09-24)
+
+**A REVIEW DATE MAY NOT BE CLEARED AS DATA HYGIENE UNTIL ATLAS DETERMINES WHAT THAT
+REVIEW DATE WAS CONTROLLING.**
+
+Before clearing a stale review date (Next Touchpoint Date):
+
+1. Reconstruct the record state.
+2. Determine why the review existed.
+3. Determine whether it represents a pending customer/commercial decision.
+4. Make that decision — **REVIEW → DECIDE**.
+5. Execute the appropriate routine action if required (EMAIL / SMS / PHONE / WAIT / MONITOR / HOLD / CLOSE / other evidence-supported action).
+6. Only then update/clear the review date.
+
+**Data hygiene cannot make the commercial decision.** An active, still-valid quote at
+"Email 1 sent, no reply, review due" does NOT automatically become MONITOR — it becomes
+REVIEW → DECIDE. There is no automatic Email 2 rule either; each record is decided from
+evidence, never from a stale date.
+
+**Root cause (2026-09-24):** the 1-Sep control audit's "64 stale monitor dates" hygiene
+operation cleared stale review dates on still-live quotes and parked them as MONITOR,
+overriding the Daily Attention rule "Email 1 silent, review elapsed → send Email 2."
+Confirmed victims: Sharon Fleay (#43091, valid to 18-Sep) and Steve Liversidge (#43102,
+valid to 19-Sep), both parked 1-Sep after one Email 1 (24-Aug) while still within validity.
+
 ## Attribution Standard (2026-09-01)
 
 Win Attribution: **Recovered / Assisted / Observed / Pending.**
