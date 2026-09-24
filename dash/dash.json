@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 239,
+    "tasks_completed": 240,
     "recent": [
+      {
+        "date": "2026-09-24 11:47",
+        "task": "QPaint review-date-hygiene defect fixed; 24 aged opportunities reassessed (9 HOLD, 15 event-driven), no sends",
+        "category": "task"
+      },
       {
         "date": "2026-09-24 08:38",
         "task": "QPaint 24 Sep \u2014 relayed Ashleigh #43044 darker-stain answer (relay-authority, no founder gate); Raewyn #43032 no-send (QPaint notified customer); Sian #42970 retains $39,996 pending re-acceptance; John Wilson #43092 + Jesse Zhao #43261 reclassified Atlas-owned.",
@@ -135,11 +140,6 @@
         "date": "2026-09-11 17:21",
         "task": "Campaign pulse posted \u2014 painter cold channel flat across email (1/52 reply, 0 sends in 7 days) and phone (0/12 over 2 rounds); recommended closing the channel and redirecting Founder Call Day to a warm QPaint-pattern list",
         "category": "task"
-      },
-      {
-        "date": "2026-09-11 07:39",
-        "task": "QPaint daily attention 11 Sep: 7 Email 1 + 6 Email 2 follow-ups sent (13 total); 1 commercial builder HOLD; 2 QPaint-owned WAIT/MONITOR refreshed",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-09-24T10:30:31.925028+09:30",
+  "last_updated": "2026-09-24T11:47:48.214225+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
