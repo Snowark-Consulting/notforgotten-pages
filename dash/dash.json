@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 241,
+    "tasks_completed": 242,
     "recent": [
+      {
+        "date": "2026-09-24 14:18",
+        "task": "QPaint Sian Leathem #42970 re-acceptance reconciled \u2014 weatherboard-gapping uplift $1,188 verified via PandaDoc 'completed copy' 24 Sep; Deal Value $39,996 \u2192 $41,184 (Won/Assisted unchanged, Recovered Value blank, NTD cleared).",
+        "category": "task"
+      },
       {
         "date": "2026-09-24 13:01",
         "task": "Full HQ business refresh (James request) \u2014 QPaint 272 records, .46M active, 13 Won 19,470, 44 Lost. GitHub Pages disabled + Snowark token revoked confirmed (dashboard 404).",
@@ -135,11 +140,6 @@
         "date": "2026-09-13 22:04",
         "task": "Prepare-ahead scan: 0 NF send windows in 48h; QPaint Monday queue verified ready (28 NTDs); closed 3 LR1 records in CRM; prepared FF1 contamination-cohort close-out decision pack (14 records, held since 19 Aug)",
         "category": "task"
-      },
-      {
-        "date": "2026-09-13 17:24",
-        "task": "Campaign Pulse posted - cold painter channel unchanged (0 sends, 0 replies, 1/138 all-time); overdue V2 follow-up backlog grew 43 to 52, close-out still blocked on MONITOR mechanism decision",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-09-24T14:00:39.600819+09:30",
+  "last_updated": "2026-09-24T14:18:06.610237+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
