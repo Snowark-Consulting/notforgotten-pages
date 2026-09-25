@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 244,
+    "tasks_completed": 245,
     "recent": [
+      {
+        "date": "2026-09-25 22:03",
+        "task": "Prepare-Ahead 25 Sep 22:00 \u2014 routed Paul Robertson #43206 revised-scope question to QPaint (Gmail 1a0d88ce8c019ea2, verified); weekend guard applied to Steve Liversidge #43102 (NTD Sat 26 \u2192 Mon 28); drafted held treads relay (Voice Review 9/9)",
+        "category": "task"
+      },
       {
         "date": "2026-09-25 17:51",
         "task": "Campaign pulse posted \u2014 23 recovery sends in 48h (2 replies, 1 engaged / 1 lost); NF cold channel dormant 21 days; cron delivery drift fixed for 6 jobs",
@@ -135,11 +140,6 @@
         "date": "2026-09-15 17:28",
         "task": "Campaign Pulse posted \u2014 NF cold channel quiet 11 days (last send 4 Sep); overdue backlog frozen at 52 prospects / 137 records, awaiting founder close-out ruling",
         "category": "task"
-      },
-      {
-        "date": "2026-09-14 22:03",
-        "task": "Prepare-ahead scan: 0 NF send windows in 48h; QPaint 48h queue verified prepared (17 NTDs, weekend guard clear to 24 Sep); prepared Round 3 Founder Call Day sheet for Wed 16 Sep and opened the 21 Sep V2 monitoring decision-review prep",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-09-25T22:00:15.417177+09:30",
+  "last_updated": "2026-09-25T22:03:44.944445+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
