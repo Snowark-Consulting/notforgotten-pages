@@ -48,3 +48,15 @@ No automatic Email 2 rule was created either. The correction is "data hygiene ca
 ## Source
 
 2026-09-24 QPaint MONITOR population analysis (follow-up to the active-book audit). Founder accepted the analysis and directed the rule fix without sign-off.
+
+## Evidence update — 2026-09-25
+
+**Steve Liversidge (#43102) is the first defect victim to produce a live customer reply, and it quantifies the cost.** Quote #43102 (14 Gilmore Street, Tarragindi, $6,468.00 incl GST) was sent 20 Aug; Email 1 went 24 Aug and drew no reply; the 1 Sep control audit cleared the stale review date and parked the record MONITOR ("Reassess on new evidence only"). On 25 Sep the customer replied to Email 2 the same day it was sent, asking for a quote for the stair treads only.
+
+The cleared review date was doing exactly the work the standing rule now protects: at the ~14-day mark the record was a silent Email 1 still inside quote validity, i.e. a REVIEW to DECIDE point, not a MONITOR. Email 2 therefore went on day 36 from the quote, and 6 days after the quote's own expiry (19 Sep), rather than at the earlier review point. The customer was still in the market the whole time.
+
+Outcome is not Lost: the late Email 2 produced a live, warm scope request, so the defect reads as a delay cost rather than a loss generator. The delay is nevertheless real and was avoidable.
+
+Both victims of the 1 Sep operation are now accounted for: #43102 (this reply) and Sharon Fleay #43091. Same latent delay applies to #43091 unless evidence shows otherwise.
+
+Processing record: 2026-09-25 inbox pulse, msg 1a0d68339299bef8; handoff to QPaint 1a0d684c85960c9c (verified in james@ Sent); QPaint Pipeline recVmY7ATToMkyelw reconciled.

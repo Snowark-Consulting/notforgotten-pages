@@ -1,0 +1,82 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-09-24
+status: PREPARATION — review due 2026-09-28 (4 days out). Verdict is James's.
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — Calibration Outreach as a Living System (due 28 September 2026)
+
+> Outcome data gathered ahead of the registered review date for
+> `2026-06-28-calibration-outreach-living-system`. REVIEW only — no contact, no send, no CRM change.
+
+## The decision being reviewed
+
+**Slug:** `2026-06-28-calibration-outreach-living-system`
+**Decided:** 28 Jun 2026. Outreach is a living system, not a frozen script: sequences adapt to context,
+the campaign is the unit of measurement, and the relationship is the unit of value.
+**Review date:** 2026-09-28. This decision's own file records `Actual Outcome: Pending — 2026-09-28`.
+
+**What the review asks:** did the living-system posture produce better decisions than a frozen
+sequence would have — and is there evidence it is still alive rather than ossified?
+
+## Cohort outcome — the calibration campaign is closed
+
+Live Airtable pull 2026-09-24 22:00 ACST. The Calibration July 2026 sequence holds **5 records, all
+terminal**:
+
+| Prospect | Pipeline stage | Touchpoint | Sequence status | Last contacted |
+|---|---|---|---|---|
+| Next&Co | Campaign Complete | Email 4 | Completed | 2026-07-22 |
+| Performance Cleaning | Campaign Complete | Email 4 | Completed | 2026-07-22 |
+| Click Click Media | Campaign Complete | Email 4 | Completed | 2026-07-22 |
+| Kleena Cleaners | Lost | Email 3 | Paused | 2026-07-02 |
+| Online Marketing Gurus (OMG) | Lost | Email 3 | Paused | 2026-07-02 |
+
+3 of 5 exhausted the full 4-touch sequence with no reply; 2 were paused at Email 3 and later closed.
+**Zero conversions. Zero inbound replies from the calibration cohort.** Two of the original calibration
+prospects (Distinct Painters, ADP) were redistributed mid-flight into the Context vs Curiosity
+experiment — the clearest single instance of the living-system rule in operation.
+
+## Whole-book reply evidence (context for the review)
+
+- Prospects table: 332 records. Pipeline stage: 174 New · 112 Campaign Complete · 17 Lost ·
+  10 Outreach Active · 11 Contacted · 1 Engaged · 1 Won · 5 Not a fit.
+- V2 activity ledger: **139 rows — 138 outbound, 1 inbound** (Inspire Painting, 20 Aug:
+  positive/interested, believes NF supplies leads; clarified 21 Aug, founder call attempted 2 Sep).
+- Cold email channel: **dormant since 4 Sep** (V2 HOLD decision `2026-09-04-v2-persistence-hold`).
+  V2: 52 prospects, 1 inbound all-time ≈ 1.9% by prospect.
+- The 30 Aug Full Business Review concluded the next customer comes from founder calls, not email.
+
+## What the living-system rule demonstrably did
+
+1. **Redistribution over rigid continuation** — calibration prospects were moved into a live experiment
+   rather than marched to the end of a sequence that had stopped producing signal.
+2. **Persistence ≠ repetition** (`2026-08-28`) — silence was not treated as loss; the Customer Context
+   Gate, not the touch number, decided whether a further touch was owed.
+3. **Hold under evidence** — on 4 Sep, at 0 replies on Day 6, the correct move was to stop, not to add
+   Email 4. That is the living system refusing to run on rails.
+4. **CRM truth maintained as the system moved** — 23 Sep: 42 dormant records closed to Campaign
+   Complete, 10 B-tier kept as founder-call candidates, nothing marked Lost.
+
+## Open question the review should settle
+
+The living system has been **adaptive** but the channel has been **flat** (1 inbound from 138 outbound
+across V2; 0 from the calibration cohort). Adaptation inside a dormant channel cannot produce revenue.
+The honest framing for 28 Sep is not "was the rule right" — it was, and it prevented waste — but
+"does the living system now need a channel it has not yet been given". That decision belongs to the
+founder-call motion (10 B-tier candidates on the call sheet), not to further email optimisation.
+
+## Evidence files
+
+- `knowledge/decisions/2026-06-28-calibration-outreach-living-system.md`
+- `knowledge/v2-52-record-closeout-2026-09-23.md`
+- `knowledge/decisions/2026-09-04-v2-persistence-hold.md`, `2026-08-28-v2-persistence-not-repetition.md`
+- Live Airtable Prospects (332) + V2 Outreach Activity (139) — pull 2026-09-24 22:00 ACST
+
+---
+
+*Prepared by the Prepare-Ahead Clock, 24 Sep 2026 22:00 ACST, 4 days before the review. No contact made,
+no CRM record changed.*

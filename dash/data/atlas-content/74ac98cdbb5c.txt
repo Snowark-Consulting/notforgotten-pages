@@ -1,0 +1,75 @@
+---
+doc_type: decision
+owner: notforgotten
+tier: primary
+decision_id: 2026-09-25-commercial-persistence-correction
+date: 2026-09-25
+status: Made
+review_date: 2026-12-25
+---
+
+# Commercial Persistence Correction — Silence Is Not An Outcome
+
+## Trigger
+
+The Contact Recency Audit (2026-09-25) surfaced a commercial-policy defect: the recovery
+system treated "predetermined sequence of emails sent without reply" as a completed journey and
+parked silent opportunities as "event-driven monitor" with no scheduled review. James rejected this.
+
+## Decision
+
+**The opportunity is live until evidence supports otherwise.** No artificial touch cap. The rules:
+
+- **SILENCE IS NOT AN OUTCOME.** No reply ≠ Lost. No reply ≠ Exhausted.
+- **NO TOUCH CAP.** Two emails ≠ completed journey. Three ≠ completed. Four ≠ completed.
+- **SEQUENCE COMPLETE ≠ OPPORTUNITY COMPLETE.** Finishing the email sequence does not close the
+  opportunity.
+- **PERSISTENCE ≠ REPETITION.** Every contact must have a reason. Persistence is intelligent
+  follow-up (new angle, new channel, new question); repetition is re-sending the same message.
+- **A silent opportunity may move to long-term/event-driven monitoring only when CUSTOMER CONTEXT
+  supports that decision.** The acceptable reason is an evidence-based "why another contact does not
+  add value right now" — never "because Email N was sent", never "because the sequence is complete",
+  never "because they didn't reply".
+
+## What changes
+
+- **"JOURNEY-COMPLETE / EVENT-DRIVEN MONITOR" is retired as a default end-state.** It may only be
+  assigned when the customer context supports it, with a documented reason, and (for live
+  opportunities) a defined review control — not indefinite darkness.
+- **Atlas owns the review mechanism.** No monthly founder sweep. Atlas maintains the review cadence,
+  makes routine decisions, executes appropriate contacts, surfaces only genuine founder exceptions.
+- **Value influences review priority, never justifies harassment.** A $150K silent quote deserves
+  more deliberate consideration than a $1,500 quote — but never more pressure.
+
+## The reassessment method (per silent record)
+
+1. Reconstruct: quote date/value/expiry, customer type, relationship history, previous-client
+   status, all customer + QPaint communication, touch dates/content, known dependencies,
+   procurement evidence, other quotes for same customer, current status.
+2. Decide the NEXT BEST ACTION: EMAIL / SMS / PHONE / WAIT / HOLD / QPAINT INPUT /
+   RELATIONSHIP-LEVEL / MONITOR WITH DEFINED REASON / OTHER EVIDENCED ACTION.
+3. Act, verify, reconcile, set next review.
+
+## Dependency holds
+
+Genuinely evidenced holds (customer-directed waits, QBuild/tender, procurement restrictions,
+committee/AGM timing, builder/insurer dependencies, do-not-contact instructions) are respected —
+but the dependency must be verified as still current. A hold is not permanent merely because nobody
+revisited it.
+
+## Definition of exhausted
+
+Exhaustion is evidenced, never touch-count-based. Valid exhaustion requires documented evidence such
+as: explicit customer direction, repeated multi-channel attempts with no response AND individual
+assessment, known decision timeline, procurement constraint, quote no longer commercially relevant,
+QPaint evidence, or other strong contextual evidence.
+
+## Priority order
+
+1-touch → 2-touch → highest-value 3+ touch → remaining silent book, in manageable batches.
+Individual review, never blanket-send.
+
+## Scope
+
+Applies to QPaint recovery operations and all future client pipelines. Does not override the
+Customer Context Gate, the inclusion principle, suppression/DNC gates, or the 48-hour no-contact rule.

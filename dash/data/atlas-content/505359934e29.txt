@@ -140,3 +140,28 @@ against live config, logs and cron state rather than re-serving the 17 Sep figur
 ---
 
 *Prepared by the Prepare-Ahead Clock, 17 Sep 2026 22:00 ACST, 7 days before the review date. No contact made, no config changed, no CRM records changed.*
+
+## T-0 refresh — review date has arrived (24 Sep 2026 22:00 ACST)
+
+The review is **due today** and has not been recorded. Re-verified again at T-0 so the verdict rests on
+today's state, not last night's.
+
+| Check | Result tonight (24 Sep 22:00) |
+|---|---|
+| `fallback_providers` in `config.yaml` | still the quoted string `'[]'` (line 9) — **31 days unchanged** |
+| `hermes fallback list` | "No fallback providers configured." |
+| Provider API failures, 23 + 24 Sep | **0** — no `API call failed` line dated 23 or 24 Sep in `logs/gateway.log` |
+| Most recent provider event | 22 Sep (2 × `attempt 1/3` lines in the current log: `APIConnectionError` on flash, `ReadError` Broken pipe on pro) — both absorbed at first retry |
+| Cron jobs failing | **3 of 42 — all `state.db`** (`LLM cost + balance check` 6 in a row · `Cron session prune` 5 in a row · `State DB snapshot backup` 19 in a row, `database disk image is malformed`). None provider-related |
+
+**Counting caveat, stated honestly:** the 17 Sep prep and the 23 Sep delta recorded 27 transients
+(24–27 Aug) and 5 on 22 Sep. Tonight's re-census of the *current* `gateway.log` finds 2 lines dated
+22 Sep. The difference is log retention/rotation, not a new or missing incident — per-day failure counts
+of this kind are not reproducible from a rotated log. Do not treat the count as load-bearing evidence.
+
+**Net position unchanged from the 23 Sep delta:** the review still turns on the three verdict options
+(restore the chain / accept single-provider formally with a heartbeat / defer again), and the strongest
+argument remains the one recorded on 23 Sep — the `wakeAgent` gate removes the *alarm* from a stalled
+detection path, evidenced by the 21 Sep 3h36m read-but-unfiled window on QPaint #43190.
+
+*Appended by the Prepare-Ahead Clock on the review date itself, 24 Sep 2026 22:00 ACST.*

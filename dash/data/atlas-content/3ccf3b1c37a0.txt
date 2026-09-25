@@ -1,0 +1,36 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-09-25
+---
+
+# 2026-09-25 — `gmail modify --add-labels` re-applies UNREAD after a successful mark-read
+
+**Symptom.** After the filing step of QPaint customer reply processing, a read-back showed the message back to `UNREAD` while `INBOX` was correctly gone.
+
+Sequence on msg `1a0d66d7751c3dc3` (Mario Bernal, QPaint Deal 43166, LOST):
+
+| Step | Command | Labels after |
+|---|---|---|
+| 1. mark read (pre-summary, per race-window rule) | `gmail modify <ID> --remove-labels UNREAD` | `IMPORTANT, CATEGORY_PERSONAL, INBOX` — verified |
+| 2. file | `gmail modify <ID> --add-labels Label_6 --remove-labels INBOX` | `UNREAD, IMPORTANT, CATEGORY_PERSONAL, Label_6` |
+
+UNREAD came back in step 2. The message was now unread AND outside the inbox.
+
+**Why this is worse than not filing.** The gate scripts (`inbox-watchdog-gate.sh`, `quotes-watchdog-gate.py`, `james-watchdog-gate.py`) wake the agent on `is:unread`. Re-adding UNREAD after filing puts an already-processed email back into the wake set, so the next tick re-wakes the pulse and the summary double-posts — the exact failure the mark-read-first ordering exists to prevent (Pitfall 2 / race condition). The message is simultaneously absent from the inbox view, so a human scanning the inbox would not notice it.
+
+**Cause.** Not established with certainty. `users.messages.modify` adds the requested labels and removes the requested ones; the observed result is consistent with the added-and-removed label set being applied in an order where the message's read state is re-derived, or with `Label_6` carrying state that re-asserts UNREAD. Not reproducible on demand from this one observation, so it is recorded as an observed behaviour, not a mechanism.
+
+**Fix — separate verified steps, UNREAD removal LAST.**
+
+1. `gmail modify <ID> --remove-labels UNREAD` (before summarising)
+2. `gmail modify <ID> --add-labels <Label_N> --remove-labels INBOX` (filing)
+3. `gmail modify <ID> --remove-labels UNREAD` again (idempotent)
+4. Read back `labels` and require `UNREAD` absent AND `INBOX` absent AND `Label_N` present **before** posting to Telegram
+
+Do not fold UNREAD into the filing call's `--remove-labels` and assume it holds. Verify by read-back of labels, never by exit code (Safety Rule 11 — never trust a green tick).
+
+**Applied.** Skill patched: `skills/email/email-inbox-pulse/SKILL.md` → Pitfall 43. Logged to `logs/inbox-pulse.log` same run.
+
+**Outcome of the underlying work (for completeness).** Deal 43166 reconciled correctly despite the trap: `Current Stage` Email 3 → Lost, `Recovery Status` Contacted → Lost, `Recovery Outcome` Lost - Went Elsewhere, `Primary Objection` Went With Competitor, NTD cleared, notes appended, filed Label_6, Telegram posted (message_id 10062). The trap was caught by the read-back verification step, which is the reason it is a learning note and not an incident.

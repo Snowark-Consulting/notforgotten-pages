@@ -1,0 +1,77 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-09-24
+status: PREPARATION — 4 reviews due 2026-09-29 (5 days out). Verdicts are James's.
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — Philosophy Cluster (due 29 September 2026)
+
+> Four decisions made on 29 Jul 2026, all carrying a 2026-09-29 review date. They form one architecture:
+> who speaks (single identity) → how the work is judged (Atlas elevates) → how Atlas thinks (CEO
+> Standard) → where it is all pointed (Strategic Compass). REVIEW only — no contact, no change.
+
+## The four decisions
+
+| Slug | What it settled | Success criteria (from the decision files) |
+|---|---|---|
+| `2026-07-29-single-identity-james-led` | All external NF comms from james@; overturns dual-identity | 100% external from james@ · zero atlas@ as primary NF identity · clients feel they work with James |
+| `2026-07-29-atlas-elevates-every-interaction` | Atlas is the capability, not the brand; four-question pre-task gate | 4-question gate on client-facing tasks · zero Atlas self-promotion · credit lands on "James and Not Forgotten" |
+| `2026-07-29-ceo-standard` | Atlas as Chief of Staff: five post-task questions, proactive recommendation | one forward-looking observation per complex task · at least one insight/day James hadn't considered · zero withheld risks |
+| `2026-07-29-strategic-compass` | One question: does this build a world-class company? | Directional test applied to strategic recommendations |
+
+## Evidence of the criteria holding — 57 days in
+
+**Single identity: holding, with one documented carve-out.**
+- Every NF outreach and client send runs through `scripts/canonical-send.py` as james@; the QPaint
+  Daily Attention sends 24 Sep (Sara West #43000, Christopher Price #43148, Brooke Warren #42980)
+  are the current production examples.
+- **Carve-out (authorised, not drift):** white-label QPaint customer care sends from atlas@ under the
+  approved signature "Atlas / Customer Care — QPaint", with the privacy footer as the single permitted
+  NF reference (`2026-08-12-qpaint-privacy-governance`). Worth restating at review so it is never read
+  later as a violation of the 100% criterion.
+- No evidence of clients being addressed as though by an AI; QPaint counterparties deal with James/Tas.
+
+**Atlas elevates: holding, and now partly code-enforced.**
+- The four-question pre-task gate is mirrored by the Customer Context Gate, enforced in code
+  (`canonical-send.py` Gate -2, `_validate_context_gate`) after INC-2026-08-19. The philosophical gate
+  acquired a machine check.
+- No instance on record of Atlas seeking visibility in a customer-facing artefact; the September QPaint
+  report's private case-study note is explicitly internal and unshipped.
+
+**CEO Standard: producing, measurable in artefacts rather than sentiment.**
+- Daily CEO Brief with its "If James only does one thing today" section; prepare-ahead packs (FF1
+  close-out pack, provider review prep, this cluster); the QPaint September report's evidence-scoping
+  corrections, which came from Atlas self-auditing claims before founder review.
+- **Caveat for the review:** the criterion "at least one insight per day James hadn't considered" is
+  not instrumented — there is no counter. Either instrument it or retire the criterion; an unmetered
+  success criterion is a preference, not a standard.
+
+**Strategic Compass: applied as a filter, not quoted as a slogan.**
+- Most recent use: the 23 Sep close-out chose an honest terminal state over keeping dead records warm;
+  the 24 Sep review-date hygiene rule (REVIEW → DECIDE, never auto-MONITOR) refused a process that was
+  convenient; the client report declined to claim causation on Observed wins.
+
+## Open questions for 29 Sep
+
+1. Does the atlas@ white-label carve-out belong in the single-identity decision text as an explicit
+   exception, so the 100% criterion is stated accurately rather than approximately?
+2. Should "one insight/day" be instrumented (a line in the CEO Brief, counted) or dropped as a criterion?
+3. Are all four still live at 57 days, or has any become quoted-but-not-used? The evidence above
+   suggests used, not quoted — but the test is whether a recommendation was declined because of it,
+   and the honest answer is: rarely, because the decision level is already calibrated to it.
+
+## Evidence files
+
+- `knowledge/decisions/2026-07-29-single-identity-james-led.md` + `-atlas-elevates-every-interaction.md`
+  + `-ceo-standard.md` + `-strategic-compass.md`
+- `knowledge/decisions/2026-08-12-qpaint-privacy-governance.md` (the authorised atlas@ carve-out)
+- `knowledge/customer-context-gate.md`, `scripts/canonical-send.py` (Gate -2)
+- `knowledge/v2-52-record-closeout-2026-09-23.md`, `notes/2026-09-24.md`
+
+---
+
+*Prepared by the Prepare-Ahead Clock, 24 Sep 2026 22:00 ACST, 5 days before the reviews. No contact
+made, no config or CRM record changed.*
