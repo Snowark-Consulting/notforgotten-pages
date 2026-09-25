@@ -1,56 +1,71 @@
 {
-  "generated_at": "2026-09-25T04:03:15+09:30",
+  "generated_at": "2026-09-26T04:05:18+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "The QPaint portfolio is stable. 273 total records, 216 active journeys. Production Operating Protocol v1.0.0 governs all operations. Canonical send authority live.",
+    "body": "QPaint portfolio stable: 275 records, $8.99M total book, $7.49M active, 13 Won ($529K). Inboxes clean overnight. Two QPaint replies from yesterday (Steve Liversidge treads, Jim Stevenson extension) are already reconciled in Airtable. The Steve Liversidge treads relay is drafted and held for your one-line go-ahead.",
     "estimated_time": "2 minutes"
   },
   "business_score": {
     "score": 85,
     "change": "flat",
     "reasons_positive": [
-      "QPaint 272 records, $7.46M active pipeline, 13 Won = $519,470 (1 Recovered $129,750 + Assisted $274,589 + Observed $115,130). 0 overdue.",
-      "Review-date hygiene defect fixed 24 Sep (founder-directed) \u2014 24 aged opportunities reassessed (9 HOLD, 15 event-driven MONITOR), no blanket sends.",
-      "Ashleigh Thomas #43044 darker-stain answer RELAYED to customer 24 Sep (relay authority). Alys Dee #43071 warranty + inclusions loop closed.",
-      "LEAD Childcare #43236 + #43195 coordinated Email 1 sent 23 Sep; both monitoring to 30 Sep."
+      "QPaint 275 records, $$8.99M total book, $$7.49M active, 13 Won = $$529K. 146 contacted, 35 engaged, 0 overdue next-touchpoints.",
+      "Two QPaint replies from 25 Sep (Steve Liversidge treads $2,145+GST; Jim Stevenson 30-day extension) fully reconciled in Airtable same day.",
+      "25 Sep commercial-persistence correction executed: 12 sends ($199,805) returned silent quotes to active follow-up; 38 three-touch silent records reassessed with evidenced next steps."
     ],
     "reasons_negative": [
-      "GitHub Pages DISABLED (has_pages=False) \u2014 dashboard 404. Snowark org admin token (hancockjluke) also revoked, blocking re-enable.",
-      "state.db integrity FAILS (freelist corruption) \u2014 3 crons erroring (cost-check, cron-prune, state-db backup).",
+      "GitHub Pages still DISABLED (has_pages=False) — dashboard 404. Snowark org admin token (hancockjluke) revoked, blocking re-enable.",
+      "state.db integrity FAILS (freelist corruption) — 3 maintenance crons erroring (cost-check, cron-prune, state-db backup).",
       "Token rotation (9 credential classes) + 2 public repos exposing client emails still open (owner scope)."
     ]
   },
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "QPaint: Active. Portfolio certified. 216 active journeys with complete Next Action coverage."
+      "icon": "✅",
+      "detail": "QPaint: Active. 275 records, 146 contacted, 35 engaged. Portfolio certified."
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "\u2705 216 active QPaint journeys certified. 148 contacted. 0 exceptions. Pipeline: $7,473,798. Won: $529,183."
+      "icon": "✅",
+      "detail": "275 QPaint journeys. $$7.49M active pipeline. 13 Won $$529K. 0 exceptions."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "RE-ENG-AUG-2026: 147 original audience, 136 ACTIVE observing, cold channel dormant (HOLD \u2014 no sends since 19 Sep). Founder-call channel carries growth."
+      "icon": "✅",
+      "detail": "RE-ENG-AUG-2026 observing; cold channel dormant (HOLD). Founder-call channel carries growth."
     },
     "engineering": {
-      "status": "healthy",
-      "detail": "All systems healthy. Canonical send authority (Phase 1) shadow-ready. Production Operating Protocol v1.0.0 live."
+      "status": "caution",
+      "icon": "⚠️",
+      "detail": "state.db integrity failing (freelist corruption) — maintenance crons degraded. Core Hermes unaffected."
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $529,183 Won. $7,473,798 active pipeline."
+      "icon": "✅",
+      "detail": "QPaint: 13 Won $$529K. $$7.49M active. $$966K lost."
     },
     "atlas": {
       "status": "healthy",
-      "detail": "Memory healthy. Protocol v1.0.0 enforced. Model recovery standard active."
+      "icon": "✅",
+      "detail": "Memory healthy. Production Operating Protocol v1.0.0. Send authority live."
     }
   },
   "waiting_for_james": [
     {
+      "id": "steve-liversidge-treads-relay",
+      "title": "Steve Liversidge #43102 — treads-only relay ($2,145 + GST) go-ahead",
+      "why_it_matters": "Gooley confirmed QPaint will revise + resend the treads-only proposal (resolves the EITHER/OR). Two relay variants drafted + held since yesterday. Customer waiting for the figure.",
+      "business_impact": "High — customer answered, revenue-adjacent, reply now a day old",
+      "estimated_time": "5 min (pick variant A)",
+      "recommended_action": "Confirm variant A (QPaint issues the revised proposal), then Atlas relays to Steve + confirms 'let me know' to Gooley.",
+      "impact_sort": 90,
+      "class": "FOUNDER_DECISION"
+    },
+    {
       "id": "ahmad-star-painters-reassess",
-      "title": "Ahmad / Star Painters Adelaide \u2014 final founder call or honest close",
-      "why_it_matters": "4 founder touches, 0 replies. Binary outcome \u2014 do not leave open a fifth time.",
+      "title": "Ahmad / Star Painters Adelaide — final founder call or honest close",
+      "why_it_matters": "4 founder touches, 0 replies. Binary outcome — do not leave open a fifth time.",
       "business_impact": "Medium: only 'trial' prospect, never converted.",
       "estimated_time": "10 min (call)",
       "recommended_action": "Make the call or record an honest close.",
@@ -59,7 +74,7 @@
     },
     {
       "id": "cold-painter-channel-ruling",
-      "title": "Rule on the 11 Sep Campaign Pulse decision \u2014 close cold painter channel vs keep open",
+      "title": "Rule on the 11 Sep Campaign Pulse decision — close cold painter channel vs keep open",
       "why_it_matters": "Never ruled; cold channel dormant since 4 Sep (V2 HOLD). The one genuine strategic decision on the queue.",
       "business_impact": "High (strategic)",
       "estimated_time": "5 min",
@@ -79,7 +94,7 @@
     },
     {
       "id": "token-rotation",
-      "title": "Token rotation \u2014 9 credential classes exposed in old git history (Josh/Winston)",
+      "title": "Token rotation — 9 credential classes exposed in old git history (Josh/Winston)",
       "why_it_matters": "Gmail OAuth, Airtable PAT, GitHub, Telegram, Twilio, GoDaddy, DeepSeek, Gemini.",
       "business_impact": "High (security)",
       "estimated_time": "30-60 min (delegate)",
@@ -89,7 +104,7 @@
     },
     {
       "id": "github-pages-disabled",
-      "title": "Re-enable GitHub Pages + mint new Snowark org token (dashboard 404) \u2014 Josh/Winston",
+      "title": "Re-enable GitHub Pages + mint new Snowark org token (dashboard 404) — Josh/Winston",
       "why_it_matters": "has_pages=False AND the Snowark org admin token (hancockjluke) is revoked (401). Both block the dashboard.",
       "business_impact": "High (decision tool unavailable)",
       "estimated_time": "10 min (delegate)",
@@ -99,7 +114,7 @@
     },
     {
       "id": "state-db-integrity",
-      "title": "state.db integrity FAILS (freelist corruption) \u2014 3 crons erroring (Josh/Winston)",
+      "title": "state.db integrity FAILS (freelist corruption) — 3 crons erroring (Josh/Winston)",
       "why_it_matters": "Breaks cron-prune, LLM cost-check, state-db snapshot backup.",
       "business_impact": "Medium (system-of-record)",
       "estimated_time": "2 min (flag)",
@@ -109,7 +124,7 @@
     },
     {
       "id": "public-repos",
-      "title": "Two public repos expose client/customer emails \u2014 day 12 (Josh)",
+      "title": "Two public repos expose client/customer emails — day 12 (Josh)",
       "why_it_matters": "Paying client staff emails on the open web.",
       "business_impact": "Medium (privacy/trust)",
       "estimated_time": "5 min (delegate)",
@@ -119,69 +134,69 @@
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "QPaint is stable (272 records, $7.46M active, 13 Won $519,470). Inboxes clean. The review-date hygiene defect is fixed. For you today there are two genuine founder items: rule the cold painter channel (one strategic decision, still open since 11 Sep) and close or call Ahmad / Star Painters. Everything else is routed to owners (GitHub Pages re-enable + Snowark token, token rotation, state.db, public repos) or is Atlas-owned (V2 review).",
+    "executive_summary": "QPaint is stable (275 records, $$8.99M book, $$7.49M active, 13 Won $$529K). Inboxes clean overnight. For you today: (1) give the one-line go-ahead on the Steve Liversidge treads relay (held since yesterday, customer waiting), and (2) close or call Ahmad / Star Painters. Everything else is routed to owners (GitHub Pages re-enable, token rotation, state.db, public repos) or Atlas-owned (V2 review).",
     "priorities": [
       {
         "class": "FOUNDER_DECISION",
-        "action": "Rule the cold painter channel \u2014 close vs keep open (11 Sep, still unruled)",
-        "why_it_matters": "The one genuine strategic decision on the queue; cold channel dormant since 4 Sep.",
-        "expected_impact": "High \u2014 clears the backlog and sets direction for Founder Call Day.",
+        "action": "Steve Liversidge treads relay — confirm variant A (QPaint revises + resends)",
+        "why_it_matters": "Customer replied and is waiting for the $2,145 + GST figure; reply now a day old.",
+        "expected_impact": "High — closes a live customer loop; Gooley is waiting on 'let me know'.",
         "estimated_time": "5 min",
         "confidence": "High"
       },
       {
         "class": "FOUNDER_EXECUTION",
-        "action": "Ahmad / Star Painters \u2014 final call or honest close",
+        "action": "Ahmad / Star Painters — final call or honest close",
         "why_it_matters": "Only stalled warm thread; the call is one only James can make.",
-        "expected_impact": "Medium \u2014 resolves the last open warm thread.",
+        "expected_impact": "Medium — resolves the last open warm thread.",
         "estimated_time": "10 min",
         "confidence": "High"
       }
     ],
     "can_wait": [
-      "V2 Email 2 observation review \u2014 Atlas-owned, runs without you.",
-      "GitHub Pages re-enable + Snowark token + token rotation + state.db + public repos \u2014 owner scope (Josh/Winston).",
-      "Governance Review \u2014 first Monday of month."
+      "Jim Stevenson #43130 extension — settled, deliberate wait (no customer contact), review 9 Oct.",
+      "V2 Email 2 observation review — Atlas-owned, runs without you.",
+      "GitHub Pages re-enable + Snowark token + token rotation + state.db + public repos — owner scope (Josh/Winston)."
     ],
-    "closing": "If you rule the cold channel and close the Ahmad thread today, the founder queue is clear and everything else is in motion."
+    "closing": "Confirm the treads relay and close the Ahmad thread, and the founder queue is clear."
   },
   "changes": {
     "today": [
       {
-        "time": "2026-09-24T04:08:00+09:30",
-        "text": "Overnight scan: quotes@ 0 unread, atlas@ 0 unread, james@ 0 unread (resolved overnight). No new quotes/bounces/unsubscribes."
-      },
-      {
-        "time": "2026-09-24T08:35:00+09:30",
-        "text": "Review-date hygiene defect fixed (founder-directed): 24 aged opportunities reassessed \u2014 9 HOLD, 15 event-driven MONITOR, 0 re-engage, 0 close. No sends. Ashleigh #43044 darker-stain answer relayed."
-      },
-      {
-        "time": "2026-09-24T12:57:00+09:30",
-        "text": "Full business refresh (James request). QPaint now 272 records (was 268), $7.46M active (was $7.22M), 13 Won $519,470, 44 Lost. Confirmed GitHub Pages DISABLED + Snowark org token (hancockjluke) revoked \u2014 both block the dashboard. 3 crons erroring on state.db integrity."
+        "time": "04:00",
+        "text": "Overnight scan: quotes@ 0 unread, atlas@ 0 unread. james@ 4 unread = 2 DMARC reports (noise) + 2 QPaint replies from 25 Sep already reconciled in Airtable (Steve Liversidge, Jim Stevenson). No new bounces/unsubscribes/quotes."
       }
     ],
     "yesterday": [
       {
-        "time": "2026-09-23T04:05:00+09:30",
-        "text": "Founder Call Day Round 4 \u2014 sheet prepared; capture worksheet returned blank (no calls recorded). V2 52-record close-out done (42 \u2192 Campaign Complete, 10 B-tier kept)."
+        "time": "06:20",
+        "text": "Commercial-persistence correction executed: 12 sends ($199,805) returned silent quotes to active follow-up. 38 three-touch silent records reassessed with evidenced next steps."
       },
       {
-        "time": "2026-09-23T21:00:00+09:30",
-        "text": "Vault backup re-homed + origin auth fixed. Subtree push broken by orphan re-init \u2192 pages_deploy.py built. Token rotation outstanding. Public repo PII day 10."
+        "time": "13:23",
+        "text": "Steve Liversidge #43102 replied (treads-only request); QPaint answered $2,145 + GST same day, offered to revise + resend. Relay drafted + held for James."
+      },
+      {
+        "time": "11:02",
+        "text": "Jim Stevenson #43130 — QPaint approved 30-day extension (price unchanged); deliberate wait, no customer contact."
+      },
+      {
+        "time": "17:47",
+        "text": "Campaign Pulse: recovery yields 8.7% inbound vs 0.7% cold. Fixed 14-day cron delivery drift (6 jobs moved to live group)."
       }
     ],
     "this_week": [
       {
         "time": "-",
-        "text": "QPaint: 272 records, $7.46M active, 13 Won ($519,470 = 1 Recovered + Assisted + Observed), 44 Lost."
+        "text": "QPaint: 275 records, $$8.99M book, $$7.49M active, 13 Won ($$529K), 45 Lost."
       },
       {
         "time": "-",
-        "text": "Cold painter channel dormant; V2 review overdue. Founder Call Day Round 4 (Wed) uncaptured."
+        "text": "Cold painter channel dormant; V2 review overdue. Commercial-persistence correction executed 25 Sep."
       },
       {
         "time": "-",
-        "text": "Infra: vault backup fixed; GitHub Pages disabled + Snowark token revoked (dashboard down); state.db + token rotation open."
+        "text": "Infra: GitHub Pages disabled + Snowark token revoked (dashboard 404); state.db integrity failing; token rotation + public repos open."
       }
     ]
   },
@@ -190,19 +205,19 @@
     "recent": [
       {
         "id": "INC-2026-08-11",
-        "title": "QPaint Quote Intake \u2014 False Completion",
+        "title": "QPaint Quote Intake — False Completion",
         "status": "Closed",
         "summary": "3 quotes marked complete with $0 deal values. Root cause: no certification gate. Fixed: certify_intake_complete() + Intake Exception state."
       },
       {
         "id": "BK-014",
-        "title": "ATTEMPTED \u2260 COMPLETED",
+        "title": "ATTEMPTED ≠ COMPLETED",
         "status": "Permanent",
-        "summary": "Automation success \u2260 business outcome success. Every critical workflow must verify the business state."
+        "summary": "Automation success ≠ business outcome success. Every critical workflow must verify the business state."
       },
       {
         "id": "BK-015",
-        "title": "HTTP 200 \u2260 Application Success",
+        "title": "HTTP 200 ≠ Application Success",
         "status": "Permanent",
         "summary": "HQ certification requires visual rendering verification, not just HTTP status."
       }
@@ -213,18 +228,18 @@
     "principles": []
   },
   "production_incidents": {
-    "description": "GitHub Pages disabled (has_pages=False) + Snowark org token revoked (401) \u2014 dashboard 404. state.db integrity failure breaking cron-prune + LLM cost-check. State DB snapshot backup failing GitHub auth (18 consecutive).",
+    "description": "GitHub Pages disabled (has_pages=False) + Snowark org token revoked (401) — dashboard 404. state.db integrity failure breaking cron-prune + LLM cost-check. State DB snapshot backup failing GitHub auth (18 consecutive).",
     "total": 2,
     "recent": [
       {
         "id": "BACKUP-AUTH-2026-09",
-        "title": "State DB snapshot backup \u2014 GitHub auth failure",
+        "title": "State DB snapshot backup — GitHub auth failure",
         "status": "Open",
         "summary": "Nightly state.db snapshot push failing auth (code 128), 18 consecutive failures. Requires Josh/Winston to refresh the git credential."
       },
       {
         "id": "STATE-DB-INTEGRITY-2026-09",
-        "title": "state.db malformed image \u2014 maintenance crons failing",
+        "title": "state.db malformed image — maintenance crons failing",
         "status": "Open",
         "summary": "freelist 2nd-reference corruption; LLM cost-check, cron-prune, and state-db backup all failing with 'database disk image malformed'. Hermes core, Winston/Josh scope."
       }
@@ -232,7 +247,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "\u2705 QPaint portfolio certified. 216 active journeys. Protocol v1.0.0. Send authority live.",
+  "operational_status": "✅ QPaint portfolio certified: 275 records, $$7.49M active, 13 Won. Protocol v1.0.0. Send authority live. Steve Liversidge relay held for James.",
   "vault_health": {
     "decisions": {
       "total": 83,
@@ -257,28 +272,28 @@
     },
     "infrastructure": {
       "disk": "41% (12G free)",
-      "state_db": "133M (integrity FAILS \u2014 freelist corruption)",
-      "pages": "DISABLED (has_pages=False) \u2014 dashboard 404"
+      "state_db": "140M (integrity FAILS — freelist corruption)",
+      "pages": "DISABLED (has_pages=False) — dashboard 404"
     }
   },
   "qpaint_pipeline": {
     "summary": {
-      "total_customers": 273,
-      "total_pipeline_value": 7473798,
+      "total_customers": 275,
+      "total_pipeline_value": "$7.49M",
       "won_count": 13,
-      "won_value": 529183,
-      "lost_count": 44,
-      "engaged_replied": 34,
-      "contacted": 148,
-      "not_contacted": 34
+      "won_value": "$529K",
+      "lost_count": 45,
+      "engaged_replied": 35,
+      "contacted": 146,
+      "not_contacted": 36
     },
     "stage_breakdown": {
-      "Email 3": 55,
-      "Email 2": 47,
-      "Lost": 44,
-      "Email 1": 44,
-      "New": 35,
-      "Replied": 29,
+      "Email 3": 68,
+      "Email 2": 35,
+      "Email 1": 42,
+      "Lost": 45,
+      "New": 36,
+      "Replied": 30,
       "Won": 13,
       "Engaged": 3,
       "Engaged - Awaiting Confirmation": 1,
@@ -286,80 +301,80 @@
       "Email 4": 1
     },
     "priority": {
-      "P3": 127,
       "P1": 93,
-      "P2": 53
+      "P2": 53,
+      "P3": 3
     },
     "key_customers": [
       {
         "name": "Jenny Yang",
-        "value": "$227,084",
+        "value": "$227K",
         "stage": "Email 2",
         "status": "Contacted"
       },
       {
         "name": "Steve Hayes",
-        "value": "$196,449",
+        "value": "$196K",
         "stage": "New",
         "status": "New"
       },
       {
         "name": "Nuwan Fernando",
-        "value": "$167,592",
+        "value": "$168K",
         "stage": "Replied",
         "status": "Engaged"
       },
       {
         "name": "Elisha Paige",
-        "value": "$161,832",
+        "value": "$162K",
         "stage": "New",
         "status": "New"
       },
       {
         "name": "Lucy Hetherington",
-        "value": "$157,795",
+        "value": "$158K",
         "stage": "New",
         "status": "New"
       },
       {
         "name": "Richard Zhang",
-        "value": "$145,350",
+        "value": "$145K",
         "stage": "Email 4",
         "status": "Contacted"
       },
       {
         "name": "Nicholas Zappacosta",
-        "value": "$145,008",
+        "value": "$145K",
         "stage": "Won",
         "status": "Assisted"
       },
       {
         "name": "Arno Hsu",
-        "value": "$129,750",
+        "value": "$130K",
         "stage": "Won",
         "status": "Recovered"
       },
       {
         "name": "David Delaney",
-        "value": "$123,655",
+        "value": "$124K",
         "stage": "Email 2",
         "status": "Contacted"
       },
       {
         "name": "Charlie Coward",
-        "value": "$123,157",
+        "value": "$123K",
         "stage": "New",
         "status": "New"
       },
       {
         "name": "Jesse Zhao",
-        "value": "$116,223",
+        "value": "$116K",
         "stage": "Email 3",
         "status": "Contacted"
       },
       {
         "name": "Ashlee Barratt",
-        "value": "$114,479",
+        "value": "$114K",
         "stage": "Email 1",
         "status": "Contacted"
       }
