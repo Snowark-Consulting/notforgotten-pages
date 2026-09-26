@@ -752,6 +752,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decision_reviews_2026_09_29_philosophy_cluster_review_prep",
+      "label": "Philosophy Cluster Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-09-29-philosophy-cluster-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "25ed0220d2f4",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decision_reviews_index",
       "label": "Decision Reviews / Index",
       "file_type": "doc",
@@ -1540,6 +1551,17 @@
       "community": 4,
       "community_name": "Knowledge",
       "content_hash": "51b97337d272",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_incident_reviews_inc_2026_09_26_state_db_corruption",
+      "label": "INC 2026 09 26 State Db Corruption",
+      "file_type": "doc",
+      "source_file": "knowledge/incident-reviews/INC-2026-09-26-state-db-corruption.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "6b2842e82fe8",
       "val": 6.0,
       "color": "#a78bfa"
     },
@@ -3253,6 +3275,13 @@
     },
     {
       "source": "agent_registry",
+      "target": "knowledge_incident_reviews_inc_2026_09_26_state_db_corruption",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
       "target": "knowledge_qpaint_report_delivery_2026_08_18",
       "relation": "wikilink",
       "weight": 1.0,
@@ -4437,6 +4466,13 @@
     {
       "source": "knowledge_decision_reviews_index",
       "target": "knowledge_decision_reviews_2026_09_28_calibration_outreach_living_system_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_09_29_philosophy_cluster_review_prep",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

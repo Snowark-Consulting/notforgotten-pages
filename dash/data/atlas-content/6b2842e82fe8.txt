@@ -1,0 +1,82 @@
+# Incident Review: state.db Corruption — Recurrence Escalation
+
+**Incident ID:** INC-2026-09-26-STATE-DB-CORRUPTION
+**Date:** 2026-09-26
+**Severity:** S2 (Major) — customer-operating reliability; no customer data lost
+**Status:** RECOVERY COMPLETE — cut over to the clean 18 Sept snapshot on 2026-09-26 at 19:17 ACST (09:47 UTC); all 13 post-restore checks passed, rollback not required. **Root cause remains OPEN and Josh/Winston-owned.**
+
+## 1. What happened?
+
+`state.db` (147 MB) sustained b-tree page corruption in Tree 2703 + Tree 68 (hundreds of
+`Rowid out of order`, `btreeInitPage() returns error code 11`, `2nd reference to page`) — the
+same signature as the 23/24 Sep incidents, now worse. A morning recovery attempt (08:22 ACST)
+produced only a **partial** salvage (`state.db.recovered`: 5,000 of 9,512 messages, 0 sessions,
+`verified:false`, `complete:false`). Snapshot verification then showed the **19 and 20 Sept
+snapshots are ALSO corrupt** (Tree 7 `Rowid out of order`) — so the snapshot pipeline had been
+silently producing bad backups since 19 Sept. **18 Sept is the last clean restore point.**
+
+## 2. Customer impact?
+
+No customer data lost. Airtable + Gmail are cloud and unaffected. The customer-operating cron
+paths (inbox-pulse, quotes-pulse, james-pulse) intermittently failed to acquire session-turn
+leases (`OperationalError: disk I/O error` on `acquire_session_turn_lease`).
+
+## 3. Business impact?
+
+Recovery effort (founder + Atlas + Winston). 8 days of transcript history (18–26 Sept) at risk —
+exported and preserved. `session_model_usage` cost ledger for 19–26 Sept not in the snapshot.
+
+## 4. Root cause?
+
+state.db b-tree/freelist corruption driven by uncontrolled growth + the recurring corruption
+pattern (`auto_vacuum=0`, insufficient VACUUM cadence). Same defect family as the 23/24 Sep
+recurrences. The root fix (Josh/Winston-owned `repair_state_db_schema` / infrastructure change)
+has not yet been applied.
+
+## 5. Why wasn't it detected earlier?
+
+The snapshot cron (`backup-state-db.sh`, `8ed9962a3929`) was producing corrupt snapshots
+(19/20 Sept) without detection — the DB is not `integrity_check`ed before the `.gz` is written.
+The integrity watchdog (`c8232ee06f3e`) flagged the live DB, but the snapshot pipeline kept
+overwriting the last good daily backup.
+
+## 6. Resolution?
+
+**EXECUTED 2026-09-26 19:16–19:17 ACST (09:46:02–09:47:50 UTC).** `state.db` was cut over to the
+clean 18 Sept snapshot by a `setsid`-detached script (an in-gateway session cannot stop its own
+gateway). Corrupt DB preserved as the rollback anchor
+(`state.db.corrupted-3rd-20260926_094602.db`, kept as evidence, not deleted); stale WAL/SHM
+removed; restored DB `integrity_check` = ok; gateway restarted with telegram connected in ~4 s;
+4,870 messages / 54 sessions restored. **Rollback: not required.** Post-restore verification
+(one-shot job `e03736e31ca7`) passed all 13 checks — boot, sessions, cron, leases, both pulse
+jobs, a new verified snapshot, Airtable reachability, Gmail (0 unread across all three mailboxes),
+no duplicate customer contact, durable knowledge intact → RECOVERY GREEN. As at 21:00 ACST the
+same day: `quick_check` ok, 4,977 messages / 56 sessions.
+
+Full procedure, rollback, and post-restore test plan: `db_restore_prep_20260926/runbook_18sept_restore.md`;
+execution evidence `db_restore_prep_20260926/cutover_execution.log` + `RESTORE_STATUS.md`;
+transferable pattern `skills/devops/hermes-gateway-ops/references/gateway-restore-cutover-pattern.md`.
+
+## 7. Permanent protection?
+
+1. Snapshot cron must `PRAGMA integrity_check` the DB before writing the `.gz` (a corrupt
+   snapshot must never be mistaken for a good backup).
+2. Root-cause repair still required — restore is recovery, not cure.
+3. Corrected the stale `hermes-state-db` skill note ("last good snapshot is 20 Sept" → 18 Sept).
+
+## 8. Could it happen again?
+
+Yes. Until the root-cause fix is applied, corruption will recur. The restore removes the current
+damage but does not prevent the next occurrence.
+
+## 9. What should we improve next?
+
+Add integrity verification to the snapshot pipeline (integrity_check before gzip), so a corrupt
+daily snapshot can never silently replace the last good backup again.
+
+## Atlas's Reflection
+
+The skill's own record ("last good snapshot is 20 Sept") was trusted at face value. Verifying the
+snapshots directly — rather than assuming the skill note was current — surfaced that 19/20 Sept
+were already corrupt and 18 Sept was the true last-good point. Standing lesson: **verify the
+backup, don't trust the note about the backup.**
