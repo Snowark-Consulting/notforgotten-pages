@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 245,
+    "tasks_completed": 246,
     "recent": [
+      {
+        "date": "2026-09-26 22:03",
+        "task": "Prepare-Ahead 26 Sep: 48h scan clean (0 sends owed, 0 weekend, 0 overdue). Prepared + held the QPaint Pipedrive weekly-export follow-up for Mon 28 Sep (draft 9/9 + ready script); disambiguated a duplicate 28 Sep decision-review prep. Monday's QPaint load is 29 review/relay records.",
+        "category": "task"
+      },
       {
         "date": "2026-09-25 22:03",
         "task": "Prepare-Ahead 25 Sep 22:00 \u2014 routed Paul Robertson #43206 revised-scope question to QPaint (Gmail 1a0d88ce8c019ea2, verified); weekend guard applied to Steve Liversidge #43102 (NTD Sat 26 \u2192 Mon 28); drafted held treads relay (Voice Review 9/9)",
@@ -135,11 +140,6 @@
         "date": "2026-09-17 22:03",
         "task": "Prepare-Ahead (17 Sep): weekend send guard applied to 3 QPaint records (Watt/Collard/Oliveira) moved off Sunday 20 Sep, $73,554 of live quotes; built missing 24 Sep provider-failover review prep; 52-record V2 backlog unchanged (6th day); 11 QPaint records due Fri 18 Sep",
         "category": "task"
-      },
-      {
-        "date": "2026-09-15 17:28",
-        "task": "Campaign Pulse posted \u2014 NF cold channel quiet 11 days (last send 4 Sep); overdue backlog frozen at 52 prospects / 137 records, awaiting founder close-out ruling",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-09-26T22:00:10.431100+09:30",
+  "last_updated": "2026-09-26T22:03:37.643489+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
