@@ -1,0 +1,66 @@
+---
+doc_type: learning
+owner: snowark-client
+tier: primary
+---
+
+# Learnings corruption, 19th occurrence — the mtime retirement was over-corrected
+
+> Two files at 07:05:09–07:05:11 ACST, 5 min after the backup commit and 15 min after the guard cron — and the fix that retired mtimes as evidence was itself the next false negative.
+
+**Date:** 2026-09-27
+**Series:** 19th occurrence (`learnings/corruption/INDEX.md`)
+**Detected by:** the 07:30 weekly vault-lint (the first control to see it; the 19th event is the 6th consecutive one found by a lint rather than a guard)
+
+## What happened
+
+The out-of-band writer rewrote two files in a 2-second burst:
+
+| File | mtime (UTC) | Damage |
+|---|---|---|
+| `learnings/catalogue.md` | 21:35:11.35 | warning block deleted, `gmail-auth` row dropped, 8 rows `||`-prefixed, `campaign` cell as a markdown link, mid-table blank line, `qpaint` row de-keyworded, `agent-architecture` row lost 2 keywords, trailing newline removed |
+| `learnings/cards/git.md` | 21:35:09.63 | **purely additive** (+11/−0): one autostash/mtime trap |
+
+Guard on the damaged tree = **31 findings**.
+
+The `qpaint` row de-keywording is the operationally serious half: the live paying client's card lost `QPaint`, `1300 QPAINT`, `white-label`, `Dee`, `Leslie`, `Tas Moulis`, `pipeline truth`, `recovery ops` and `Email 3` as trigger keywords. With the `gmail-auth` row gone as well, the two cards a live client operation reaches for first were the two hardest to route to.
+
+## New evidence 1 — the mtime discriminator (this reverses yesterday's finding)
+
+The 18th event retired file mtimes as evidence, because `scripts/backup-state-db.sh` runs `git pull --rebase --autostash`, which stashes and re-applies the whole dirty set and re-stamps every modified file. That finding was correct.
+
+It was also over-generalised, and this event is the counter-example. The vault lint applied a discriminator:
+
+- **One instant across the WHOLE dirty set** = autostash pollution.
+- **A 1–6 s burst across 1–6 files**, while the rest of the dirty set spans hours = a real write.
+
+Measured: 20 dirty tracked files spanning 12:32 → 22:00 UTC, of which **exactly two** carried a 21:35 mtime. A two-file burst cannot be an autostash re-apply. The write is real and it is what the writer does.
+
+**Lesson: a correct correction can create the next false negative.** The rule is not "mtimes are useless" but "mtimes are evidence that must be tested against the whole dirty set". The discriminator is now in `learnings/cards/git.md` and in the INDEX's Mtime-evidence row.
+
+## New evidence 2 — the "tool-call-free window" claim is unverifiable for this event
+
+Since the 11th event, the strongest attribution evidence has been "the window contained zero tool calls while the log was provably live". That assertion **cannot be made for the 19th event**:
+
+- `logs/tool-calls.jsonl` holds **zero** entries for the entire 21:00–22:00 UTC hour (and zero for 27 Sep), **and** zero for the 17:00 and 19:00 UTC hours — so it is patchy, not simply quiet.
+- Three agent-mode jobs demonstrably produced output inside that window: `james-pulse-phase2` (21:35:10), `quotes-pulse-phase2` (21:36:10), `inbox-pulse-phase2` (21:36:10).
+
+**A log that does not cover a window cannot testify about it.** The absence of entries was being read as the absence of activity — the same error shape as a green tick. Every attribution resting on that absence should be re-tested before it is inherited again. Rec `lint-toolcall-log-coverage`.
+
+## Repair
+
+HEAD was clean this time (verified by content marker: `EDITING THIS TABLE` present, 24 pipe rows, 0 `||` rows), so no pack archaeology was needed.
+
+1. `catalogue.md` — full-file rewrite from HEAD (never fuzzy-patch). The writer's catalogue edits were **not** re-applied: the extra `hermes`-row keywords (`delegation`, `subagent`, `flash agent`, `memory store`, `memories/`) accompanied 8 `||`-damaged rows in the same burst and were not attested as a discrete change.
+2. `cards/git.md` — purely additive, so nothing was lost. The block was **attested**: it restates the 2026-09-26 mtime finding recorded in `LEARNINGS.md` and in `learnings/corruption/INDEX.md`, and names a real script (`scripts/backup-state-db.sh`). It was **kept and corrected** — its absolute rule ("never use mtime") was replaced with the discriminator above, because the rule as written would have caused this very event to be dismissed as an artefact.
+3. Warning block in `catalogue.md` compressed to the operative rules plus a pointer to `learnings/corruption/INDEX.md`, which is the proper home for the history. The catalogue is loaded at every session boot; a 6,000-word historical narrative there is a per-session cost, and the INDEX already holds the record.
+4. Bidirectionally reconciled: 22 rows = 22 cards on disk, warning block present, 0 malformed rows.
+5. Repairs committed so the guard's HEAD-based diff has a correct baseline again.
+
+## What did not change
+
+Nothing was weakened to make this run pass: the guard was left untouched, its always-zero exit code was not "fixed", and the backup pre-commit gate remains in place.
+
+## Standing consequence
+
+The binding defect is still **detection latency**, not repair quality. Every repair in this series has worked; none has reduced how long the damage lives. The 19th event sat from 07:05 until 21:00 — ~14 h — and the countermeasure (rec `consolidation-learnings-guard-0715`, a ~07:15 ACST detect-and-restore run) remains unbuilt because a job that auto-restores files is an infrastructure change needing explicit founder approval.

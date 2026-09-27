@@ -1,0 +1,65 @@
+---
+doc_type: report
+owner: notforgotten
+tier: internal
+date: 2026-09-27
+period: 2026-09-20 to 2026-09-26
+prepared_by: Atlas (weekly website intelligence cron)
+---
+
+# Weekly Website Intelligence — 20 to 26 September 2026
+
+Source: GA4 property `502899171`, script `scripts/ga4-intel.py`, run 2026-09-27 21:30 ACST. Structural comparison against the documented 15-week baseline in `knowledge/website-intelligence-standard.md` (verified 2026-09-20), not a fresh re-pull this week.
+
+Method caveat: "users" below is the day-sum figure, not unique weekly users. Compare day-sum to day-sum only.
+
+---
+
+## What Changed
+
+Week 20 to 26 Sep vs 13 to 19 Sep.
+
+| Metric | This week | Last week | Delta |
+|---|---|---|---|
+| Sessions | 8 | 12 | -33% |
+| Users (day-sum) | 8 | 11 | -27% |
+| Page views | 9 | 12 | -25% |
+| Days with traffic | 4 of 7 | 5 of 7 | -1 |
+
+- Composition: direct 5 sessions, Instagram 3. Google organic fell from 2 to 0. Countries: Australia 4, US 3, Singapore 1.
+- Every page view (9 of 9) was `/`. Zero inner-page views, third consecutive week.
+- **Nothing here is a real change.** Both weeks sit far below the 15-week mean of about 23 sessions/week. A 4-session move on a base this small is inside the noise band already documented. Quiet week against quiet week.
+- Engagement slipped to 50% (4 of 8 sessions) from 58% (7 of 12). On 8 sessions that is two users, not a trend.
+
+## Why It Might Have Changed
+
+**Prediction check (owed today).** Last week's report predicted at least one `email-signature` session would appear by 27 September, with the decision rule that zero sessions means email never drives a visit and this report moves to quarterly. Zero `email-signature` sessions appeared. **But the fix the prediction depended on was never made.** The Gmail signature still reads bare `http://notforgotten.com.au` with no UTM parameters as at the 12:00 sync today (re-verified). Verdict: **untested, not falsified.** The decision rule cannot be honestly fired, because no tagged link ever went out. This is the third consecutive week this recommendation has been surfaced without action.
+
+**New finding, and it widens the gap.** EXP-001 built both a naming convention (`knowledge/utm-naming-convention.md`, 25 Jul) and a working tagging engine (`apply_utm_tags()`, `send-outreach.py`). That script was moved to `scripts/disabled/` on 7 Aug 2026. The live send path `scripts/canonical-send.py` has zero UTM references, as do `canonical_template.py` and `gmail-send-guard.py`. Across every live script in the vault, `utm_source` appears nowhere. The engine was not left unimplemented: it was retired alongside the script it lived in, and the reports kept saying "Phase 2 pending" so nobody noticed.
+
+- **[Fact]** Instagram traffic is recurring, not spiking. Meta-sourced sessions have appeared every week since about 10 Aug.
+- **[Hypothesis, 70%]** The 3 US sessions are data-centre noise, consistent with the documented Ashburn / Boardman / Council Bluffs share. The single Singapore session is new but is one session and warrants no interpretation.
+- **[Fact]** The `nfs_internal` exclusion is still absent from the homepage HTML as served (verified today, 0 matches). Our own visits count as direct visitors, so some of the 5 direct sessions are likely James or Josh.
+- Insufficient data for causal analysis of week-to-week volume. That has been true for 16 weeks and will remain true while attribution is off.
+
+## Why It Matters
+
+The site is not a discovery channel and is not being asked to be. Its job is to survive the trust check when a prospect looks us up before replying. So the number that matters is not 8. It is that roughly **83% of all traffic across 16 weeks is unattributable direct**, and we still cannot say whether one outreach email has ever produced a visit.
+
+The all-homepage reading matters more than it looks. Nine of nine page views on `/`, three weeks running, means no prospect has reached a service page, a case study, or a proof point. If outreach is sending people here, they are bouncing off the front door or never clicking. Either way the content below the homepage is currently unmeasurable and unjustifiable.
+
+## One Recommended Action
+
+**Tag the outreach body link in code, not the signature.** This half needs no Gmail settings change, and the Gmail dependency is the reason the fix keeps stalling.
+
+Port `apply_utm_tags()` from `scripts/disabled/send-outreach.py:86-117` into the live send path so bare `notforgotten.com.au` links in email bodies are tagged `utm_source=outreach&utm_medium=email&utm_campaign={slug}`. The convention already exists in `knowledge/utm-naming-convention.md`. Nothing new needs inventing.
+
+`scripts/canonical-send.py` is the sole outbound gateway, so this is not patched unilaterally. Atlas can prepare the patch for review, or James can approve it directly. The signature link remains the companion item and remains a founder change. It has now failed twice.
+
+**Experiment:** once either half is live, send one email and confirm a tagged session appears in GA4 within 48 hours.
+
+**Decision rule:** if tagged sessions appear, email is a live trust-check channel and the site deserves prospect-facing content. If 30 days pass with tags live and zero tagged sessions, this report moves to quarterly, because at that point it has been tested properly and the answer is no.
+
+## Summary
+
+Quiet week against quiet week with no real change, but last week's prediction came back untested because the tagging fix still has not been made, and we now know why: the UTM engine was quietly retired in August along with the script it lived in, so no email link we send can currently be measured.

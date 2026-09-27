@@ -741,6 +741,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decision_reviews_2026_09_28_calibration_living_system_review_prep",
+      "label": "Calibration Living System Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-09-28-calibration-living-system-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "a2ee4796d75e",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decision_reviews_2026_09_28_calibration_outreach_living_system_review_prep",
       "label": "Calibration Outreach Living System Review Prep",
       "file_type": "doc",
@@ -4466,6 +4477,13 @@
     {
       "source": "knowledge_decision_reviews_index",
       "target": "knowledge_decision_reviews_2026_09_28_calibration_outreach_living_system_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_09_28_calibration_living_system_review_prep",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

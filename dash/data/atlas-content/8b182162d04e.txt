@@ -54,7 +54,20 @@ Every piece of data must answer: **"What should we do because we now know this?"
 - Which website changes increase demo bookings?
 - Which content builds the most trust?
 
-### Current Baseline (week of 2026-09-13 to 2026-09-19)
+### Current Baseline (week of 2026-09-20 to 2026-09-26)
+
+- 8 users (day-sum), 8 sessions, 9 page views; traffic on 4 of 7 days
+- Composition: direct 5, Instagram 3. Google organic 2 → 0. Only page viewed: `/` (9 of 9 views)
+- Engaged 4 of 8 sessions (50%), against 58% the previous week
+- Countries: Australia 4, United States 3, Singapore 1
+
+**Ungated attribution persists (verified 2026-09-27):**
+
+- **The UTM engine is retired, not merely unimplemented.** EXP-001's `apply_utm_tags()` lived in `~/.hermes/scripts/send-outreach.py`, which was moved to `scripts/disabled/` on 2026-08-07. The live send path `scripts/canonical-send.py` (and `canonical_template.py`, `gmail-send-guard.py`) contain zero UTM references. `grep -rl utm_source scripts/*.py` returns nothing. Every outbound email link, body and signature alike, is untagged.
+- The Gmail signature still links bare `http://notforgotten.com.au` as at the 2026-09-27 12:00 sync. The 2026-09-20 prediction (one `email-signature` session by 27 Sep) returned zero, but is **untested rather than falsified** — the fix it depended on was never applied. Do not fire the "move to quarterly" decision rule on an untested prediction.
+- `nfs_internal` internal-traffic exclusion still absent from the homepage HTML as served (verified 2026-09-27).
+
+### Previous Baseline (week of 2026-09-13 to 2026-09-19) — superseded
 
 - 11 users (day-sum), 12 sessions, 12 page views; traffic on 5 of 7 days
 - Composition: Meta (Instagram + Facebook) 8 sessions, direct 2, Google organic 2. Only page viewed: `/`
