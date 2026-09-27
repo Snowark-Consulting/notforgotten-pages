@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 246,
+    "tasks_completed": 247,
     "recent": [
+      {
+        "date": "2026-09-27 17:55",
+        "task": "Campaign pulse posted \u2014 QPaint recovery: 0 sends (weekend), 2 replies in 48h; Shalender Hingorani Lost on price $13,552 (2 days after being parked as long-term review); Mon/Tue load 42 records $1.27M; NF cold channel dormant 23 days; new finding: 9 de-confused Email 2 records with stale NTD invisible to prepare-ahead filter",
+        "category": "task"
+      },
       {
         "date": "2026-09-26 22:03",
         "task": "Prepare-Ahead 26 Sep: 48h scan clean (0 sends owed, 0 weekend, 0 overdue). Prepared + held the QPaint Pipedrive weekly-export follow-up for Mon 28 Sep (draft 9/9 + ready script); disambiguated a duplicate 28 Sep decision-review prep. Monday's QPaint load is 29 review/relay records.",
@@ -135,11 +140,6 @@
         "date": "2026-09-19 17:39",
         "task": "Campaign pulse posted - QPaint Sept net +73,607 (7 wins 143,379 vs 3 losses 69,772); constraint shifted to founder approval queue; 23 records + 288,937 fresh quotes due Mon 21 Sep; V2 dormant 15 days",
         "category": "task"
-      },
-      {
-        "date": "2026-09-17 22:03",
-        "task": "Prepare-Ahead (17 Sep): weekend send guard applied to 3 QPaint records (Watt/Collard/Oliveira) moved off Sunday 20 Sep, $73,554 of live quotes; built missing 24 Sep provider-failover review prep; 52-record V2 backlog unchanged (6th day); 11 QPaint records due Fri 18 Sep",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-09-27T16:30:24.068043+09:30",
+  "last_updated": "2026-09-27T17:55:31.990906+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
