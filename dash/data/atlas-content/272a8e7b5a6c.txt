@@ -1,0 +1,200 @@
+---
+doc_type: note
+owner: notforgotten
+tier: primary
+date: 2026-09-28
+---
+
+# QPaint Load Sheet — Mon 28 + Tue 29 Sep 2026
+
+> Prepared 2026-09-27 22:00 ACST by Prepare-Ahead. Purpose: when the window opens, the
+> decisions are already framed. Airtable-verified with full pagination (QPaint Pipeline 275
+> records, Prospects 332, V2 Outreach Activity 139). Nothing here has been sent.
+
+## Headline: Monday is a review load, not a send load
+
+**4 records are send-eligible. The other 39 are reviews, monitors or relays that are already
+owned and already dated.** The risk on Monday is not a missed send. The risk is 12 decisions
+being made late and thinly.
+
+| Day | Records | Value | Send-eligible | Review / monitor |
+|---|---|---|---|---|
+| Mon 28 Sep | 29 | $912,888.05 | 4 ($47,388.00) | 25 ($865,500.05) |
+| Tue 29 Sep | 14 | $367,732.00 | 0 | 14 ($367,732.00) |
+
+Overdue: **0**. Due today (Sun 27): **0**. No weekend send anywhere in the window.
+(Sunday is a non-send day; the Monday cluster exists because the weekend send guard rolled
+Sat 26 / Sun 27 quote dates forward — Pitfall 64 working as designed.)
+
+## 1. Send-eligible Monday — 4 first-touch Email 1 candidates
+
+All four verified tonight: New stage, never contacted, 48-hour observation window satisfied,
+**no duplicate quote on the property**, no prior QPaint Pipeline record for the email, name or
+address.
+
+| Quote | Customer | Property | Value | Quote date | Notes |
+|---|---|---|---|---|---|
+| 43212 | Jessica Carder | 13 Maritime Court, Victoria Point | $15,246.00 | 24 Sep | clean; expiry 24 Oct |
+| 43248 | Jody Harrison | 193 Prospect Street, Wynnum | $13,673.00 | 25 Sep | clean; roof restoration; expiry 24 Oct |
+| 43241 | Jeremy | 62 Murdoch Circuit, Acacia Ridge | $10,912.00 | 25 Sep | clean; expiry 24 Dec |
+| 43239 | Darren Baker | 4/18 Mcilwraith Street, Everton Park | $7,557.00 | 24 Sep | **operative version = $7,557** (revised 24 Sep, supersedes $6,930) |
+
+No bespoke draft is owed: QPaint first-touch renders from the canonical template (Initial
+Customer Email Law — nothing drafted from memory). Each send still needs its own Customer
+Context Gate decision in Daily Attention. 43239 delivered two versions 52 minutes apart — route
+any customer confusion to QPaint, do not explain it ourselves.
+
+## 2. Pre-work done tonight — 43118 Steve Hayes ($196,449.00)
+
+The largest item on Monday's board. Its own First Action instructed: *"Before any follow-up on
+the review date, re-check Gmail Sent, the quotes@ inbox and QPaint traffic: if the customer has
+already responded to the revised quote, Email 1 may be unnecessary or need reframing."*
+
+**Checked tonight across all three mailboxes (atlas@, james@, quotes@):**
+
+- **No customer response.** Zero mail from `sepi.com.au` in any mailbox. Zero inbound in the
+  43118 thread.
+- quotes@ holds two PandaDoc notifications for #43118: 24 Sep 00:58 UTC (original) and
+  24 Sep 20:20 UTC = **25 Sep 06:20 ACST (the revision)** — both from Leslie Pamintuan. This
+  matches the recorded 25 Sep revision. Nothing since.
+- james@ QPaint traffic in the last 3 days covers other records (Paul Robertson #43206, Steve
+  Liversidge #43102, Jim Stevenson) — **nothing about #43118**.
+
+**So the review question is answered: no reply, review date stands.** But the evidence raises a
+second question the record already half-answers — *"QPaint's cover note says the wording was
+changed 'as requested', so the customer is already engaged with QPaint on this quote."* A
+customer who requested a change is in live dialogue with QPaint. An NF first-touch
+("your quote from QPaint") on top of that is not recovery, it is interference.
+
+**Recommendation for Monday:** reclassify #43118 to QPaint-owned, Atlas monitors — the same
+disposition already used for the body-corporate and builder-relationship HOLD class — rather
+than starting an NF follow-up sequence on it. This is a "who owns the next action" call
+(Operational Handover Standard), and it is the difference between $196,449 being tracked as
+QPaint-engaged and being counted as NF-recoverable. **Not changed tonight.** Presented for the
+Monday decision.
+
+## 3. The review cohort — evidence pack (Mon, 12 records / $271,247.44)
+
+All are "sent 21 Sep → REVIEW → DECIDE 28 Sep, no automatic next email". Decision for each is
+the same shape: *does this get a next touch, a QPaint surface, or a dated reassessment?*
+Presented in value order so the decisions that matter get the attention.
+
+| Quote | Customer | Value | Touch sent 21 Sep | Read |
+|---|---|---|---|---|
+| 43168 | Kyle Hope | $60,349.30 | Email 1 | 7 days silent, touch 1 |
+| 43171 | Jason Grant | $49,871.80 | Email 1 | 7 days silent, touch 1 |
+| 43160 | Natalie Moric | $35,572.90 | Email 2 | 7 days silent, touch 2 |
+| 43137 | Steve Clare | $22,990.00 | Email 3 | 7 days silent, sequence end |
+| 43176 | Cameron Nygaard | $21,982.40 | Email 1 | 7 days silent, touch 1 |
+| 43234 | Elizabeth Espinoza | $15,466.00 | Email 1 | 7 days silent, touch 1 |
+| 43138 | Les Harvison | $14,877.26 | Email 3 | 7 days silent, sequence end |
+| 43140 | Jo Forrest | $13,365.00 | Email 2 | 7 days silent, touch 2 |
+| 43237 | Luke Giddins | $12,947.00 | Email 1 | 7 days silent, touch 1 |
+| 43193 | Nanda Chakkassery | $10,987.68 | Email 1 | 7 days silent, touch 1 |
+| 43205 | Julie Ann Denniss | $8,520.60 | Email 1 | 7 days silent, touch 1 |
+| 43156 | Madonna Crocker | $4,317.50 | Email 2 | fold question — see §4 |
+
+Note the asymmetry: seven of the twelve are at **touch 1**. Under V2 persistence (silence ≠
+lost, no touch cap, persistence ≠ repetition) a 7-day-silent first touch is not a stopping
+point — it is early. The two at touch 3 (Steve Clare, Les Harvison) are at the point where the
+post-3-touch question bites, and that question is **still unruled** (raised 25 Sep; James's one
+line was asked for before 2 Oct).
+
+## 4. Two fold questions (founder class — multi-quote / one relationship)
+
+Both are cases of one customer holding several open quotes, where an independent follow-up on
+one document would fragment the relationship (SOUL #14). Both were already recorded; both come
+due Monday.
+
+**Jono Mazz — builder, three open quotes, $55,615.99 combined**
+
+| Quote | Property | Value | Stage |
+|---|---|---|---|
+| 43167 | 427 St Vincents Rd, Nudgee | $16,585.99 | Email 2 (revised by QPaint direct 17 Sep mid-sequence) |
+| 43225 | 17 Locust St, The Gap | $34,093.20 | New |
+| 43247 | 49 Killeen St, Nundah | $4,936.80 | New |
+
+Recorded disposition: one relationship conversation, fold into the 43167 reassessment. 43167's
+note is explicit that no Email 3 follows the 17 Sep revised quote ("would be tone-deaf").
+**Question:** one conversation across three properties, or three separate sequences? The
+three-property ruling has been open since 24 Sep (Telegram 9875).
+
+**Madonna Crocker — two quotes, one property, $7,892.50 combined**
+
+| Quote | Property | Value | Stage |
+|---|---|---|---|
+| 43156 | 97 Frederick Street, Annerley | $4,317.50 | Email 2 sent 21 Sep |
+| 43259 | 97 Frederick Street, Annerley | $3,575.00 | New (companion) |
+
+The two documents are one job re-partitioned on 21 Sep — the total is unchanged from the
+original $7,892.50 incl GST. **Question:** fold #43259 into the #43156 conversation at Monday's
+review (recommended), and if so what the single customer-facing message is.
+
+## 5. Tuesday 29 Sep — 14 records / $367,732.00
+
+- **8 monitors, no contact owed (owner QPaint or customer-set):** Elisha Paige 42857
+  $113,907.20 (committee cost objection surfaced 17 Aug — verify resolution, do not chase),
+  Matthew Collard 43119 $47,773.00 (QPaint owns the scope answer, Tas ack'd), Eddie Yuan 38798
+  $31,000.00 (QPaint owns; 30 Sep acceptance binding), Kishor Chandra 43114 $21,760.20
+  (pre-expiry review; asked to be left alone), Nishant Saini 42719 $17,837.60 (surfaced to
+  QPaint 25 Aug), Lauren Oliveira 43144 $10,937.30 (booking window 29 Sep–13 Oct, awaiting
+  go-ahead), Trevor Strow 43096 $8,573.40 (expired 22 Sep, surfaced to QPaint), Cathy Cochrane
+  42917 $4,152.50 (insurer breakdown surfaced).
+- **5 REVIEW → DECIDE** (Email 2 sent 22 Sep): Neill Barrell $26,558.40, Susan Humphreyes-Reid
+  $19,976.00, Lexier Jeffery $17,517.50, Joe Vakabua $16,495.60, Troy Moncur $10,700.80.
+- **1 awaiting confirmation:** Alys Dee Le-Bhers #43071 $20,542.50 — quote extended to 30 Sep.
+
+## 6. Already staged — no work owed
+
+- **Steve Liversidge #43102 relay** — cron `265a0e3ea39d`, Mon 28 Sep 08:00 ACST. QPaint has
+  decided ($2,145 + GST treads/risers; revise + resend); Atlas relays, does not decide.
+- **QPaint Pipedrive weekly-export follow-up** — `drafts/qpaint-pipedrive-export-followup-2026-09-26.md`
+  (Voice Review 9/9, 0 em dashes), script `scripts/qpaint-handoff-pipedrive-followup-2026-09-28.py`
+  verified loading and passing its pre-send assertions. Threads the 21 Sep original
+  (Gmail `1a0c26ba20813067`, 1 message / 0 replies).
+
+## 7. CRM correction executed this run
+
+The 9 de-confused Email 2 records (sent 4 Sep under
+`founder-approved-autonomy-2026-09-04-deconfused-email2`) were sitting in the deprecated
+`Contacted` stage with `Current Touchpoint = Email 1` — one behind reality — and a stale
+`Next Touchpoint Date` of 2026-09-04, 23 days past due. Tonight's Campaign Pulse found them and
+assigned the cleanup to Prepare-Ahead. Corrected:
+
+Sattler Painting · Watkins Morgan · Fluid Painting Solutions · Easy Cut Painting Services · VPG
+Painting · A Grade Painters · Fine Paint Works · Bakers & Co Painting And Decorating · Pure
+Painting
+
+`Current Touchpoint` → **Email 2**; stale `Next Touchpoint Date` → **cleared** (V2 Email
+Sequence HOLD 2026-09-04 puts the cohort on MONITOR — no send is owed, so a send date would be a
+lie). `Sequence Status` deliberately left **Active**: under the commercial persistence
+correction, silence ≠ lost. Evidence: V2 ledger shows exactly 9 Email 2 sends on 4 Sep matching
+the 9 authority recipients. Verified by read-back — 9/9 PASS. Dated audit note appended to each
+record.
+
+## 8. Flagged, not actioned
+
+- **Decision-review cluster 1–5 Oct has no prep on file.** 12 decisions; the first four land
+  **Thu 1 Oct** (4 days out) including the first review of the Campaign Pulse Reporting
+  Standard (`2026-08-01`). Next Prepare-Ahead should start it.
+- **CRM drift, 1 record:** Upscale Painting & Decorating — ledger shows Email 2 sent 21 Aug
+  (next 28 Aug); CRM still reads touch=Email 1, NTD=2026-08-10, last contacted 2 Sep. The
+  ledger's next-date and the CRM's NTD disagree, so there is an unexplained edit between them.
+  No write without a second read.
+- **41-record long-term control set sits on Sun 25 Oct** — a weekend send date four weeks out.
+  Forward watch, no write.
+- **Fri 2 Oct:** 16 records plus the post-3-touch pre-commit, which still awaits one line from
+  James.
+
+## 9. Not owed (checked, so it does not need checking again)
+
+- **No NF cold outreach.** Zero Prospects `Next Touchpoint Date` inside the window; the cold
+  channel has been dormant since 4 Sep. The 11 records in Outreach Active / Engaged are all
+  `V2 Status = ACTIVE` (23 Sep founder-call cohort + HOLD) — no stage PATCH.
+- **The 27 New-stage records with no next date are not unattended.** Each carries a deliberate
+  disposition in `First Action` — body-corporate HOLD, builder-relationship HOLD, QBuild /
+  QPaint-managed, MONITOR, or dated long-term review — with an owner and a reassess trigger.
+  Read `First Action` before reading an empty date as neglect.
+
+*No customer contact. No send. No stage or sequence change on any live record. One CRM
+correction (9 records), one load sheet, one record note.*

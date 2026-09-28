@@ -1,0 +1,102 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-09-27
+status: resolved
+confidence: high
+contested: false
+---
+
+# 2026-09-27 — The vault push has been dead since 26 Sep, and `git push --dry-run` said it was fine
+
+**Confidence:** high (both facts reproduced against the remote, not inferred)
+**Contested:** false
+**Cards:** `dream-err-vault-push-gh001-blob` (new, error), related open:
+`consolidation-backup-retry-git-always-succeeds`, `dream-err-backup-push-green-tick`,
+`consolidation-backups-gitignored-no-offbox`, `dream-memory-vault-backup-count-wrong`
+
+## Symptom
+
+The vault's nightly backup has not reached GitHub since the 26 Sep commit
+`90694bf0`, while every surface that reports on it says success:
+
+- `cron/jobs.json` → job `d998982d2e15` `last_status: ok`, `failure_streak: 0`
+- `cron/output/d998982d2e15/2026-09-27_21-30-53.md` ends
+  `[Sun Sep 27 12:00:52 UTC 2026] Backup pushed successfully.`
+- `cron/executions.db` records `completed`
+
+The remote disagrees. `git ls-remote origin main` = `9cd80f87` (25 Sep tip)
+versus local `HEAD` = `f583e9f7` → **57 commits unpushed**, 5 days of work
+existing only on this box.
+
+## Root cause (two independent faults stacked)
+
+1. **Size rejection.** The 26 Sep backup swept a 140.14 MB pre-recovery
+   database snapshot into the repo (`db_recovery/state.db.pre_recover_20260926_080653`,
+   plus `state.db.recovered` at 74.45 MB and
+   `db_restore_prep_20260926/messages_after_restore.json` at 41 MB). GitHub
+   rejects any push containing a file over 100 MB:
+
+   ```
+   remote: error: File db_recovery/state.db.pre_recover_20260926_080653 is 140.14 MB;
+       this exceeds GitHub's file size limit of 100.00 MB
+   remote: error: GH001: Large files detected.
+    ! [remote rejected]   main -> main (pre-receive hook declined)
+   ```
+
+2. **The failure is invisible.** `retry_git()` in `scripts/bin/nightly-backup.sh`
+   does `if "$@"; then return 0; fi` then `local code=$?` — but an `if` with no
+   `else` returns **0** when the condition fails, so `code=0` and the function
+   returns success on any failing command. `set -e` never fires, the script
+   reaches its unconditional `echo "... Backup pushed successfully."`, and the
+   cron records `ok`.
+
+## The trap that nearly produced a false "all clear"
+
+`git push --dry-run origin main` **reported success** on this repo:
+
+```
+To https://github.com/Hardstaff08/notforgotten-vault.git
+   9cd80f87..f583e9f7  main -> main
+```
+
+The real `git push origin main` in the same minute was rejected by the remote's
+pre-receive hook. **`--dry-run` negotiates refs with the server but does not run
+the receive-side file-size hook, so it is not a validity check for a push.**
+Standing rule (Safety Rule 11, never trust a green tick): a push is verified by
+`git ls-remote <remote> <ref>` compared against local `HEAD`, and by nothing
+else — not the script's echo, not `jobs.json`, not `--dry-run`.
+
+## Fix (not executed — recommendation only; rewriting repo history is a founder call)
+
+Because **none** of the offending commits ever reached GitHub, no remote history
+purge and no LFS migration is required:
+
+```bash
+cd ~/.hermes
+git rm --cached -r db_recovery state.db.recovered state.db.recovered-shm \
+  state.db.recovered-wal state.db.recovered.recovery.json state.db.restored-shm \
+  state.db.restored-wal db_restore_prep_20260926
+printf 'db_recovery/\nstate.db.recovered*\nstate.db.restored*\ndb_restore_prep_*/messages_after_restore.json\n' >> .gitignore
+git commit -m "Untrack recovery artifacts that exceed GitHub's 100MB limit"
+git rebase -i 9cd80f87        # drop the blob from the unpushed range
+git push origin main
+git ls-remote origin main     # must equal git rev-parse HEAD
+```
+
+Then: fix `retry_git()` so it returns the real exit code, and give the 140 MB
+pre-recovery snapshot an off-box home that is not the vault's git history (it is
+the rollback material for the state.db restore — see
+`db_restore_prep_20260926/RESTORE_HANDOFF.md`).
+
+## Confirmed closed tonight (do not re-file)
+
+The malformed-`state.db` era is genuinely over:
+
+- `PRAGMA quick_check` = `ok`; 43 sessions / 4,328 messages live.
+- Zero `hermes_state: Automatic rebuild of stale FTS indexes failed` events
+  since `2026-09-26 09:45:17` UTC (the cut-over); 452 before it.
+- `Cron session prune` (`d363d9b767ba`) pruned 31 sessions, exit 0, on 27 Sep.
+- `LLM cost + balance check` (`d7307cec1983`) is silent/empty = healthy.
+- `session_turn_leases` is empty — no orphaned lease.

@@ -1,0 +1,110 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-09-28
+status: resolved
+confidence: high
+contested: false
+---
+
+# 2026-09-28 — Learnings corruption, 20th occurrence: the catalogue plus one card, and an additive block that failed attestation
+
+> Index-first record (per the 19th-event convention): standing facts live in
+> `learnings/corruption/INDEX.md`; this file holds only what is new to the 20th event.
+
+## What happened
+
+The guard `scripts/bin/learnings-integrity-guard.py` reported **6 findings** on the working tree at
+the 21:00 ACST consolidation: the catalogue's `EDITING THIS TABLE` warning block deleted, the
+`gmail-auth` row dropped, the `email` row malformed, and two cards orphaned from the table.
+
+| Field | Value |
+|---|---|
+| Files | **2** — `learnings/catalogue.md`, `learnings/cards/cron.md` |
+| Guard findings | **6** (vs 31 on the 19th, 7 on the 18th) |
+| Writer window | not readable from mtimes this event — see below |
+| HEAD | **clean** (verified by content marker, commit `c2f70103`, the 19th-event repair) |
+| Repair | `git restore` both files from HEAD; zero blocks re-applied |
+
+## Damage
+
+**`catalogue.md`** — warning block deleted; `gmail-auth` row dropped outright; `email` row's domain
+cell rewritten as `email 🆕` with a `🆕` suffix on the card cell (unparseable); `campaign`'s card cell
+rewritten as a markdown link; the `agent-architecture` row lost `negative grep` + `rule does not exist`;
+the `qpaint` row **de-keyworded** (lost `QPaint`, `1300 QPAINT`, `white-label`, `Dee`, `Leslie`,
+`Tas Moulis`, `pipeline truth`, `recovery ops`, `Email 3`) and gained three unrelated keywords
+(`deal status`, `availability escalation`, `customer waiting`); trailing newline removed.
+
+**`cards/cron.md`** — purely additive (+17/−0): one new trap block,
+`## TRAP — Hermes cron runs scripts under the Hermes tools Python, NOT the agent venv; packages must be installed into BOTH`.
+
+The writer also added keywords to the catalogue's `hermes` and `cron` rows
+(`hermes`, `delegation`, `subagent`, `flash agent`, `memory store`, `memories/`;
+`Hermes tools Python`, `agent venv`, `googleapiclient`) — the `cron` additions track its own new card block.
+
+## Attestation: the additive block FAILED all four tests — deliberately NOT re-applied
+
+Per the repair order (`restore → extract → ATTEST → duplicate-check → re-apply`), the writer's
+`cron.md` block was extracted and tested **from scratch** (never inheriting a prior verdict):
+
+| Test | Result |
+|---|---|
+| (a) Named by a `## YYYY-MM-DD` entry in `LEARNINGS.md` or a dated `learnings/YYYY-MM-DD-*.md`? | **NO** — nothing in the index names it |
+| (b) `state.db` row predating the write carrying it? | **NO** — the only rows matching `Hermes tools Python` were this consolidation session's own (written 11:30+ UTC *after* the damage); the 2026-09-27 `check_gmail` rows are a different trap (`cards/microsoft-graph.md`, transient DNS failure) |
+| (c) Skill reference or another card stating the same rule? | **NO** — the only files on disk containing `tools Python` / `tools/python-3` were the writer's own two edits (circular) |
+| (d) Factual claims verifiable against the filesystem today? | **NO** — no `tools/python-*` dir on this box; the cited paths are `/Users/joshhancock/...` (a macOS workstation); no `scripts/check_gmail.py`; no cron `c3cb0224f2ce` |
+
+**Decision (recorded, not an omission): the block was NOT re-applied.** Its text is preserved
+verbatim below so the owner can verify it with Winston — if Winston confirms the macOS
+two-crash incident, re-apply by appending; do not "restore" it on the strength of the writer's
+own catalogue keywords.
+
+> `## TRAP — Hermes cron runs scripts under the Hermes tools Python, NOT the agent venv; packages must be installed into BOTH`
+> **When:** Running a Python script through Hermes cron (agent-true with `script=` or no_agent) that imports third-party packages (googleapiclient, google-auth, etc.)
+> **Symptom:** Cron tick fails with `ModuleNotFoundError: No module named 'googleapiclient'` even though the script works when tested inline in the agent session. Two-crash progression on the same script (check_gmail.py): first crash was the shebang `#!/usr/bin/env python3` resolving to macOS system Python 3.9.6 (no packages); after switching the shebang to `python3.14`, the crash recurred — different cause, same traceback.
+> **Cause:** THREE distinct Python 3.14 installations; the Hermes cron scheduler resolves `python3.14` to `~/.hermes/tools/python-3.14.7+.../bin/python3.14` (no googleapiclient), not the agent venv.
+> **Fix:** install the package into the Hermes tools Python as well as the agent venv; keep `#!/usr/bin/env python3.14`.
+> **Confidence:** HIGH  **Source:** 2026-09-27 — Winston check_gmail.py two-crash incident.
+
+## Method findings
+
+1. **The mtime discriminator worked in the negative direction this event.** Both damaged files carried
+   one identical instant, `2026-09-28 02:15:12.620 UTC` (= 11:45 ACST, the `backup-state-db.sh`
+   snapshot), alongside 8 other dirty files at the same `.6xx` — **one instant across a ten-file set =
+   autostash pollution, not a write**. The real write therefore sits *before* 02:15:12 UTC and *after*
+   the last catalogue commit `c2f70103` (2026-09-27 11:36:01 UTC), consistent with the standing
+   ~21:33–22:05 UTC window. **The discriminator is now load-bearing in both directions.**
+2. **HEAD was clean and easy to verify — but for a different reason than usual.** The hourly dashboard
+   commit `2ea9c2ca` touches `pages/dashboard.html` only (`git show --stat` = 1 file, 2 lines), so the
+   hourly `git add -A` that destroyed the baseline on the 17th is **no longer in play**. The last commit
+   touching the catalogue is the 19th-event repair itself.
+3. **`cards/email.md` was verified LEGITIMATE, not writer damage.** Its standalone mtime
+   (2026-09-28 03:23:31 UTC = 12:53 ACST, 8 s before a real skill-reference edit) and its additive
+   trap both check out: `scripts/james-send-boundary.py:520` is `msg['Cc'] = cc` with no list handling,
+   and the Ross Olsen / #42604 handoff incident is independently attested in
+   `skills/email/email-inbox-pulse/references/qpaint-customer-reply-processing.md` and
+   `.../SKILL.md`. **A card edit is not damage merely because a card is dirty** — attest before restoring,
+   or a legitimate learning is destroyed by the repair.
+4. **`cards/cron.md` still carries the 16th event's fabricated infrastructure** in HEAD — a
+   `scripts/cleanup-cron-output.sh` and a `no_agent` cron `c3cb0224f2ce` ("Cron output retention",
+   daily 22:45). Neither exists: `ls scripts/cleanup-cron-output.sh` → not found; `c3cb0224f2ce` →
+   not in `cron/jobs.json` (44 jobs inspected). The real mechanism is `bin/log-retention.py` on cron
+   `c68ae5970e89`. Left untouched tonight (out of scope for the corruption repair) — flagged for the owner.
+
+## Repair executed
+
+1. `git restore learnings/catalogue.md learnings/cards/cron.md` — both from the verified-clean HEAD.
+2. `cards/email.md` **left in place** — attested legitimate.
+3. Catalogue reconciled bidirectionally: **22 rows = 22 cards**, `MISSING: []`, `orphan rows: []`,
+   warning block present, zero `||` rows, no mid-table blank line.
+4. Warning block bumped 19 → 20 occurrences with the 20th-event signature.
+5. `learnings/corruption/INDEX.md`, `memory/MEMORY.md` and `learnings/LEARNINGS.md` updated.
+6. Guard re-run as the **last** step of the consolidation = silent PASS.
+
+## Related
+
+- `learnings/corruption/INDEX.md` — standing fact sheet (occurrence table, playbook, falsifications)
+- `learnings/2026-09-27-learnings-corruption-19th.md` — immediately preceding event
+- `learnings/cards/cron.md`, `learnings/catalogue.md` — the damaged files
+- Rec carried: `consolidation-learnings-guard-0715` (detection latency, still unbuilt)

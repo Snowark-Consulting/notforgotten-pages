@@ -1,0 +1,60 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-09-28
+status: resolved
+confidence: high
+contested: false
+---
+
+# 2026-09-28 — A QPaint customer declined to QPaint's routing inbox; the sequence kept chasing for 9 days
+
+**Domain:** QPaint recovery operations / white-label follow-up delivery
+**Detection:** pulse reply processing (atlas@, msg `1a0e551caef4b39a`)
+**Classification:** second instance of a known failure class — a customer's decision reached QPaint but never reached Not Forgotten
+
+## What happened
+
+- QPaint quote **#43205**, 17 McCullagh Street, Cleveland (Deal `reckdabFKmzjJJGbR`, $8,520.60 incl GST) was issued 18 Sep 2026 via PandaDoc (notification to `quotes@`, msg `1a0b2039519ab6f3`; `Prepared by: James Gooley`).
+- The customer, **Julie Ann Denniss** (`julie.denniss@gmail.com`), replied to QPaint's `admin@qpaint.com.au` on **19 Sep 2026**: *"Thank you very much for the quote. But I will not accept the quote as it is too high."*
+- That decline never reached NF. `Email 1` went 21 Sep (msg `1a0c0dbba2b5c045`), `Email 2` went 28 Sep (msg `1a0e4e9307d51d26`).
+- On 28 Sep 09:32 ACST, ~1h54m after Email 2, she replied to atlas@ (msg `1a0e551caef4b39a`) to point out she had already declined on 19 Sep.
+
+## Evidence (verified, not inferred)
+
+- Gmail: `from:julie.denniss@gmail.com` in atlas@ returned only her 28 Sep reply. `julie.denniss`, `denniss` in **quotes@** (raw HTTP, `quotes_token.json`, mailbox identity gate confirmed `quotes@notforgotten.com.au`) returned **0 results** — only the PandaDoc notification matches `43205` / `McCullagh`. So no earlier inbound exists in either mailbox across all labels.
+- Her decline was addressed to QPaint's `admin@qpaint.com.au`, which per the 23 Sep first-party routing confirmation is QPaint's **routing inbox, not the decision owner**.
+
+## Cause
+
+Two halves:
+
+1. **The customer chose QPaint's channel.** She replied to the quote notification, which carries QPaint's own addresses. A reply to `admin@qpaint.com.au` is invisible to a white-label follow-up operation that only reads atlas@ and quotes@.
+2. **No relay.** QPaint did not pass the decline to NF, so the deal stayed `Recovery Status: Contacted` / `Current Stage: Email 2` and the sequence treated it as live.
+
+## Impact
+
+- **Customer experience:** a customer who had already made a decision received two more follow-ups — the direct opposite of the service promise.
+- **Pipeline truth:** a dead deal consumed sequence slots and review cycles for 9 days.
+- No data loss, no incorrect send beyond the two follow-ups, no financial exposure.
+
+## Fix applied
+
+- QPaint Pipeline `reckdabFKmzjJJGbR`: `Current Stage` Email 2 → **Lost**, `Recovery Status` Contacted → **Lost**, `Next Touchpoint Date` 2026-10-05 → **null**, `Last Contacted` 2026-09-28, `First Action` = JOURNEY CLOSING, `Outreach Notes` appended with her exact wording, the relay gap, the mailboxes checked and Gmail `1a0e551caef4b39a`; `Messages` appended.
+- Email filed `QPaint/Completed` (Label_6), INBOX and UNREAD cleared, read-back verified.
+- Surfaced to founder as an EXCEPTION (not as an action request to the customer): day count, mailboxes checked, and the mechanisms that close it — the weekly Pipedrive Won/Lost check requested from QPaint on 21 Sep, or a direct note to Dee + James Gooley.
+- No customer contact. A LOST acknowledgement is a one-off and stays founder-gated.
+
+## Rules adopted
+
+1. **A LOST outcome can arrive without ever reaching NF.** When a customer reports a decision "already sent", search atlas@ **and** quotes@ across all labels before treating the outcome as new — and state the search in the record.
+2. **A reply addressed to QPaint's own addresses is a blind spot by design.** The follow-up operation cannot see into QPaint's inboxes; the only closure mechanism is a QPaint-side relay (weekly Won/Lost check) or a direct internal note. Track it as an open systemic gap, not a one-off.
+3. **Surface, do not manage.** Record the pricing signal ($8,520.60 lost on price) for the founder; never raise or imply a re-quote on QPaint's behalf.
+4. **Field names must be read, not assumed.** A GET of the record showed the QPaint Pipeline carries no `Action Reason`, `Recovery Outcome`, `Primary Objection`, `Buying Stage at First Reply` or `Outcome Date` — the loss reason goes into `First Action` + `Outreach Notes`. Reference corrected same session.
+
+## Related
+
+- `skills/email/email-inbox-pulse/references/qpaint-customer-reply-processing.md` (new LOST/relay-gap row)
+- `skills/email/email-inbox-pulse/references/customer-lost-outcome-processing.md` (field-set correction)
+- `skills/email/email-inbox-pulse/references/qpaint-customer-reply-processing.md` §5b (handoff routing: `solutions@` + `james@qpaint.com.au`, cc `admin@`)
