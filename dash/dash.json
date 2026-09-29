@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 247,
+    "tasks_completed": 248,
     "recent": [
+      {
+        "date": "2026-09-29 18:00",
+        "task": "Campaign pulse posted \u2014 QPaint recovery 35% trailing-7d reply rate (17 replies / 49 sends) vs 16% on 21 Sep; 19 sequence sends + 11 replies + 8 Lost ($146,765, 5 competitor) + 1 self-signed Won in 48h; Email 3 answering within hours and skewing negative; loss-visibility control (weekly Won/Lost status check to Dee/Leslie, 21 Sep) unanswered 8 days",
+        "category": "task"
+      },
       {
         "date": "2026-09-27 17:55",
         "task": "Campaign pulse posted \u2014 QPaint recovery: 0 sends (weekend), 2 replies in 48h; Shalender Hingorani Lost on price $13,552 (2 days after being parked as long-term review); Mon/Tue load 42 records $1.27M; NF cold channel dormant 23 days; new finding: 9 de-confused Email 2 records with stale NTD invisible to prepare-ahead filter",
@@ -135,11 +140,6 @@
         "date": "2026-09-19 22:04",
         "task": "Prepare-Ahead 19 Sep: weekend send guard applied to QPaint #43236 (NTD Sun 20 Sep to Mon 21 Sep, verified by read-back) \u2014 prevented a Sunday customer email; V2 decision review prep refreshed (52 records, no change, 6th pull); no drafts owed",
         "category": "task"
-      },
-      {
-        "date": "2026-09-19 17:39",
-        "task": "Campaign pulse posted - QPaint Sept net +73,607 (7 wins 143,379 vs 3 losses 69,772); constraint shifted to founder approval queue; 23 records + 288,937 fresh quotes due Mon 21 Sep; V2 dormant 15 days",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-09-29T18:00:10.265197+09:30",
+  "last_updated": "2026-09-29T18:00:52.478349+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
@@ -6035,18 +6035,18 @@
   },
   "storage_health": {
     "tier": "green",
-    "disk_pct": 45.7,
+    "disk_pct": 45.8,
     "free_gb": 10.6,
-    "why": "other hermes (1909MB), tmp (1006MB), chrome profile (462MB). Normal system overhead.",
+    "why": "other hermes (1907MB), tmp (1012MB), chrome profile (462MB). Normal system overhead.",
     "trend": "stable",
-    "daily_rate_pct": 0.2,
-    "forecast_days_to_95": 246.5,
+    "daily_rate_pct": 0.13,
+    "forecast_days_to_95": 378.5,
     "recommendation": "None \u2014 storage is healthy.",
     "largest_consumers": {
-      "other_hermes": 1908.6,
-      "tmp": 1006.1,
+      "other_hermes": 1907.1,
+      "tmp": 1011.9,
       "chrome_profile": 462.2
     },
-    "last_checked": "2026-09-29T12:00:58+0930"
+    "last_checked": "2026-09-29T18:00:08+0930"
   }
 }
