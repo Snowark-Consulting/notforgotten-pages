@@ -1,0 +1,405 @@
+---
+doc_type: decision-review-prep
+owner: notforgotten
+tier: primary
+date: 2026-09-28
+status: PREPARATION — 12 reviews due 2026-10-01 to 2026-10-05 (3–7 days out). Verdicts are James's.
+prepared_by: Atlas (Prepare-Ahead Clock 22:00 ACST)
+---
+
+# Review Prep — October Cluster (due 1–5 October 2026)
+
+> Twelve decisions carry review dates across Thu 1 Oct to Mon 5 Oct. No prep existed on file for any of
+> them (flagged in `notes/2026-09-27.md` and `notes/2026-09-28.md` as the open thread "1–5 Oct cluster
+> has no prep"). This is that prep. REVIEW only — no contact, no send, no CRM change.
+>
+> The cluster splits into three kinds of decision: the **founding rules** that govern what we say
+> (1 Oct), the **operating-system declarations** that govern where the business lives (2–3 Oct), and the
+> **standing standards** that govern how work is done (4–5 Oct).
+
+## The twelve decisions
+
+| Due | Slug | What it settled |
+|---|---|---|
+| 1 Oct | `founding-atlas-as-primary-sender` | All NF outreach and customer comms from atlas@ |
+| 1 Oct | `founding-no-pitch-in-first-email` | Email 1 = one observation, one question, one reason. No product, no pitch |
+| 1 Oct | `founding-business-name-fallback` | Unknown first name → full business name. Never "Hi there" |
+| 1 Oct | `2026-08-01-campaign-pulse-reporting-standard` | Five-part structure, confidence ratings, risk/opportunity, one CEO Decision |
+| 2 Oct | `2026-08-02-headquarters-complete` | HQ declared complete and made the primary communication channel. Telegram exception-only |
+| 2 Oct | `2026-08-02-complete-business-state` | A task is complete only when every system reflects reality (6 gates) |
+| 3 Oct | `2026-08-03-foundation-complete` | From 4 Aug, Atlas measured by business outcomes, not documentation |
+| 4 Oct | `2026-07-04-icp-owner-led-small-business` | ICP: owner-led, 2–10 employees, owner does the quoting |
+| 4 Oct | `2026-07-04-messages-prospect-linked-field` | Messages → Prospects explicit link, not body-text inference |
+| 4 Oct | `2026-09-04-v2-persistence-hold` | 32 Email 3 recipients, 0 replies Day 6 → HOLD. No Email 4. All MONITOR |
+| 5 Oct | `2026-07-05-complete-sequence-before-first-send` | No Email 1 without the complete reviewed sequence (hard gate) |
+| 5 Oct | `2026-08-05-operational-handover-standard` | "Who owns the next action?" replaces "Should I reply?" |
+
+---
+
+## 1–2 Oct — what we say, and where the business lives
+
+### `founding-atlas-as-primary-sender` — SUPERSEDED, and not marked as such
+
+**FACT.** This is a founding decision (type: immutable) settling that all NF outreach and customer
+communication originates from `atlas@notforgotten.com.au`, with Atlas carrying its own signature and
+identity. It is still recorded as 🟢 Made in `knowledge/decisions/INDEX.md`.
+
+**FACT — it was replaced twice, explicitly.**
+- `2026-07-29-single-identity-james-led` — all external NF communications come from james@. One face,
+  one relationship, from first contact to long-term client.
+- `2026-08-05-permanent-outreach-sender-james` — confirms the same.
+- `memory/MEMORY.md` states it as standing fact: *"Single identity — all external NF comms from james@.
+  White-label recovery (QPaint) = atlas@."*
+- Production evidence, this week: every NF outreach send runs as james@ through `canonical-send.py`;
+  every QPaint white-label customer send runs as atlas@ under the approved "Atlas / Customer Care —
+  QPaint" signature.
+
+**INFERENCE (High).** The founding decision's own text anticipated its replacement — *"If thinking
+changes, create a new decision referencing this one"* — and that is exactly what happened. What is
+missing is the *status advance*: the register still presents a superseded rule as live, and the 100%
+criterion in `2026-07-29-single-identity-james-led` ("zero atlas@ as primary NF identity") reads as
+absolute when a standing authorised carve-out exists (white-label, `2026-08-12-qpaint-privacy-governance`).
+
+**Question for review.** Record the founding decision as Superseded-by with the superseding slugs, and
+restate the single-identity criterion accurately: one face for Not Forgotten; atlas@ only *inside* a
+white-label client's own customer operations.
+
+### `founding-no-pitch-in-first-email` — live, and under test
+
+**FACT.** Email 1 must not explain the product, name Not Forgotten by function, or pitch. One genuine
+observation, one question, one reason line. ~70–120 words.
+
+**FACT — the rule held, and the strategy around it moved anyway.**
+- `learnings/LL-20260804-005` — curiosity-led outreach **permanently retired** for painter acquisition:
+  105 prospects, 0 meaningful replies. FF1 (founder-to-founder) became the primary hypothesis.
+- The **Travis-led Email 1 pilot** (19 prospects, `knowledge/experiments/travis-led-email-1-pilot.md`)
+  would place the Travis case study at Email 1 — testing the July curiosity-led baseline. Awaiting James's
+  approval; not run.
+- Two conversions did come from a case study (Tas Moulis, Star Painters Adelaide) — but both at **Email 3**,
+  which is consistent with the founding decision, not evidence against it.
+
+**INFERENCE (Medium-High).** The rule is intact as written. What is untested is whether the *observation
+and question* framing is the binding constraint, or whether the loss is in relevance/timing. A
+"no-pitch" rule cannot be blamed for 0 replies when the message was also not yet *relevant*.
+
+**Question for review.** If the Travis-led pilot proceeds, does it require a decision that references
+this one? And separate the two claims the rule bundles: "no product description" (holding) versus
+"no proof" (being tested).
+
+### `founding-business-name-fallback` — a LIVE RULE CONTRADICTION on file
+
+**FACT.** The founding decision is explicit: unknown contact first name → open with the full business
+name (e.g. "Hi M & M Property Services SA"). **"Do not use generic openers ('Hi there')."** The
+rejected Option B in that very decision *is* "Hi there".
+
+**FACT — two live sources now say the opposite.**
+- `memory/MEMORY.md:61` — *"Name inference — never infer first name from email local-part; verify from
+  website/correspondence, else **'Hi there,'**."*
+- `knowledge/decisions/2026-08-21-v2-email2-observation-monitoring.md:62` — *"If not verified, remove the
+  inferred name and use the natural no-name greeting (**'Hi there,'**)."*
+
+**INFERENCE (High).** The August decision is scoped to a specific correction path (an *inferred* name
+must be stripped and replaced), but the memory line generalises it into the default fallback — which is
+the exact option the founding decision rejected. Two rules, both marked high confidence, pointing
+opposite ways. An operator following memory today would violate a founding decision.
+
+**Question for review.** Which fallback governs? Recommendation on the evidence: founding behaviour
+stands as the default (business name); narrow the August rule on file to the correction case only; and
+correct the memory line so it no longer reads as general. Either way one of the two must change.
+
+### `2026-08-01-campaign-pulse-reporting-standard` — first review of its own slug
+
+**FACT.** Six refinements: five-part structure, confidence ratings on every interpretation, Biggest Risk,
+Biggest Opportunity, challenge assumptions, one CEO Decision. The standard is embedded in
+`skills/snowark/growth-operations/SKILL.md` and the Campaign Pulse cron is enabled (job `eb8826841606`,
+48h interval, `last_status: ok`). It was referenced inside the 13 Sep diagnose-before-change prep, but has
+never had its own prep until now.
+
+**FACT — no retained pulse artefact was found.** `cron/output/eb8826841606/` does not exist; the most
+recent pulse-shaped artefact surfaced in the searched paths is 17 Sep. The CEO Brief, by contrast, is
+archived chronologically and searchable.
+
+**INFERENCE (High) — and a caution.** The job is enabled and reporting OK, so pulses are most likely
+running and delivering to Telegram without being retained. But: **a negative search is not evidence of
+absence** (`learnings/2026-09-18-grep-miss-read-as-rule-absence.md`). What is defensible is narrower and
+still matters: *the standard's own compliance cannot be assessed from retained artefacts, because the
+pulse is transient while the briefing is retained.*
+
+**Question for review.** Retain each pulse (as the CEO Brief is), or state explicitly that pulses are
+transient and compliance is judged at the time. A reporting standard that leaves no reports cannot be
+reviewed on evidence.
+
+### `2026-08-02-headquarters-complete` — the primary channel is unreachable (VERIFIED TODAY)
+
+**FACT.** The decision declared HQ complete, made it **the primary communication channel**, and set
+Telegram to exception-only with a target of <5 messages/week. Success metric: "Does Headquarters help
+James build a better company?"
+
+**FACT — verified by three independent means today.**
+- `curl` on the published HQ: **HTTP 404 at the site root AND at /dash/**.
+- `notes/2026-09-28.md` records `has_pages=False` — GitHub Pages disabled on the repo, owner scope
+  (Josh/Winston). Every deploy verifies by commit SHA while the live URL stays dead.
+- Enabled cron jobs delivering to Telegram: **15** (`cron/jobs.json`, counted today) — including
+  Prepare-Ahead, QPaint Daily Attention, Overnight Founder Readiness, inbox/quotes/james pulses,
+  Campaign Pulse and three watchdog/escalation jobs.
+
+**FACT.** HQ still regenerates daily (today 04:06 ACST) and carries live founder state — today's note
+records `waiting_for_james` re-ranked — that nobody can currently open.
+
+**INFERENCE (High).** The exception channel is carrying the load because the primary channel has no
+reachable surface. The Telegram target was never a messaging-volume target so much as a proxy for
+"HQ replaced push"; right now push is the only thing arriving.
+
+**Questions for review.**
+1. Can HQ be called complete when its delivery surface has been down for days with no alarm raised by
+   the system that declared it primary?
+2. Is there a monitored control that *would* have caught a multi-day 404? (Today's note lists it as an
+   open thread, not as a detected incident.)
+3. Does the "exception-only, <5 msgs/week" criterion need restating, given 15 jobs post by design to a
+   dedicated Updates group separate from James's conversation thread?
+
+**Risk classification (recommendation).** An internal business surface, declared primary, unreachable
+for days, with no automated detection, is worth an incident review under `knowledge/service-levels.md`.
+It is not customer-facing, so not SL4 — but "no alarm" is the more serious half.
+
+### `2026-08-02-complete-business-state` — the register itself fails the rule
+
+**FACT.** A task is complete only when: the work is done, HQ reflects it, Airtable reflects it, audit logs
+are written, the Activity Log is updated, and new learnings are recorded.
+
+**FACT — compliance is strong where it is instrumented.** Today's QPaint run produced 14 send-evidence
+records, 14 matching approval records (`data/founder-approvals/approved/`), 14 audit-trail entries
+(`data/audit-trail/`), Airtable reconciliation with read-back verification, and an HQ regeneration
+deployed and verified by commit SHA. That is the six-gate pattern working.
+
+**FACT — and the Decision Library fails it.** Two decisions carry review dates already past:
+`2026-08-07-production-operating-protocol` (due **2026-09-07**) and `decision-2026-08-08-phase-1-certified`
+(due **2026-09-08**). Both sit in `## Upcoming Reviews`; the `## Overdue Reviews` table reads
+**"None"**. Prep files for both exist — so the work was done and the *state was never advanced*.
+
+**INFERENCE (High).** This is precisely the failure mode the decision exists to prevent, occurring in the
+register that tracks it. The gap is not diligence; it is that nothing forces a status advance when a
+review date passes.
+
+**Question for review.** Should a prep file with a past review date force a status prompt (or a
+pending-verdict row) so "Overdue Reviews: None" can be trusted?
+
+---
+
+## 3 Oct — is the business actually being measured by outcomes?
+
+### `2026-08-03-foundation-complete`
+
+**FACT — the decision.** From 4 Aug, focus shifts almost entirely to execution. Atlas is measured by
+business outcomes: recovered revenue, conversations created, customers won, time saved, knowledge
+accumulated, better decisions made. James's directive to Atlas: *challenge him if he drifts back into
+unnecessary architecture.*
+
+**FACT — where the outcomes stand, 56 days on.**
+| Measure | Position |
+|---|---|
+| Paying customers | **1** (QPaint, $199 MRR) — no second customer acquired |
+| Customer origin | QPaint came through the client's own book (white-label recovery), not the acquisition engine |
+| Prospect base | 332 records; **1 Won** (Tas Moulis, painter), **1 Engaged** (Inspire Painting) |
+| Acquisition campaigns | RE-ENG-AUG-2026 (147-prospect audience); V2 → 32 Email 3s (28 Aug) → HOLD (4 Sep), 0 replies |
+| Curiosity-led outreach | **Retired** — 105 prospects, 0 meaningful replies (LL-20260804-005) |
+| Founder conversations | **1 of 10** captured; Rounds 3 (16 Sep) and 4 (23 Sep) outcomes uncaptured |
+| QPaint book | 273 quotes / $8.96M under management, 13 wins $529,183 (Sep report, locked 24 Sep) |
+
+**FACT — counter-evidence to "architecture stopped".** The 2026-08-19 governance audit counted ~147
+protocols across 10 domains. On 25 Sep a commercial-persistence defect was still being corrected. On
+26 Sep a state.db corruption incident review was produced. On 27–28 Sep the learnings-writer corruption
+recurred twice more (19th, 20th events) and consumed operational attention.
+
+**INFERENCE (Medium-High).** The shift to execution happened in *cadence* — daily QPaint operations,
+outreach waves, founder days, retained reporting — but not yet in *outcome*: customers won has not moved,
+and the only paying client arrived through the client's own book rather than the engine built to acquire
+one. Both halves are true and should be stated together: the operating system is genuinely working, and
+the acquisition hypothesis is still unproven.
+
+**Question for review.** Is "measure Atlas by business outcomes" a *direction* or a *target*? If it is a
+target, it needs a floor (conversations per month, founder calls completed) — because as written it has
+been satisfiable by activity for 56 days without a second customer. Also worth an honest ruling on
+whether "challenge James when he drifts into architecture" was exercised.
+
+---
+
+## 4 Oct — ICP, the link field, and the V2 HOLD
+
+### `2026-07-04-icp-owner-led-small-business` — 92–94% of the instrument is empty
+
+**FACT.** ICP = owner-led businesses, ~2–10 employees (up to ~15 if founder-led), where the owner is
+directly involved in quoting. Rationale: highest probability of becoming an early customer.
+
+**FACT — the fields built to measure it were added 2026-07-05. 85 days later:**
+| Field | Populated | Empty |
+|---|---|---|
+| `Employee count` | 25 / 332 (9=1, 2–5=15, 6–10=1) | **307 (92%)** |
+| `Owner does quoting` | 20 / 332 | **312 (94%)** |
+| `Contact first name` | ~49 / 196 at last audit | majority empty |
+
+**FACT — list composition.** Painter 256 (77%), Marketing agency 30, Commercial cleaning 30. The list is
+effectively a painter list; the ICP is a *size and ownership* profile.
+
+**INFERENCE (High on the counts; Medium on the consequence).** Prospect selection cannot be verified
+against the ICP, so any statement that the list is ICP-matched is unsupported by the data. Note also
+that QPaint — the one paying client — is a white-label recovery client, so the ICP decision has not yet
+been tested by a single ICP-sourced customer.
+
+**Question for review.** Instrument or retire. Either populate both fields at intake (a hard gate on
+import), or drop them and state the ICP as a qualitative filter. A defined ICP with an empty instrument
+is a stated preference, not a standard.
+
+### `2026-07-04-messages-prospect-linked-field` — its subject no longer exists
+
+**FACT.** Filed as *"Pending deployment"*. It adds a `Prospect` link field to the **Messages** table
+(`tblsfhJV9bvJH48nW`) so Prospect↔Message relationships are explicit rather than inferred from body text.
+
+**FACT — the Messages table was DELETED 2026-08-13** during the V2 migration. Querying it returns
+**HTTP 403**, which reads like a dead PAT and wasted three API calls on 15 Sep before being diagnosed.
+Its replacement is `V2 Outreach Activity` (`tblvu8kJ41BuZ0QrT`).
+
+**FACT — the principle it established is load-bearing and in daily use.** The live rule today:
+*"Email-in-body matching for prospect identification is unreliable — use the Prospect link field."* The
+schema reference names the Prospect link as the correct and most precise method, with unlinked records
+as the residual gap.
+
+**INFERENCE (High).** The decision's technical subject is gone; its principle survived the migration and
+is now enforced in the V2 schema. The finding is a status problem, not a design problem.
+
+**Question for review.** Mark Superseded by the V2 migration, and carry the principle into the V2
+Outreach Activity schema documentation so the reasoning is not lost with the table.
+
+### `2026-09-04-v2-persistence-hold` — the hold held; the alternative channel did not run
+
+**FACT.** 32 Email 3 recipients, 0 replies by Day 6 → HOLD. No Email 4. All 32 → MONITOR; 4 B-tier
+records flagged as founder-phone candidates. Persistence ≠ repetition applied under evidence.
+
+**FACT — the hold was honoured.** No Email 4 was sent. On 23 Sep, 42 of the 52 past-due records were
+closed to "Campaign Complete" with Next Touchpoint Date cleared, and 10 B-tier records were kept
+"Outreach Active" as founder-call candidates. **Nothing was marked Lost** (silence ≠ Lost). The engine
+did not compound the silence.
+
+**FACT — the stated next step did not happen.** The decision's own remedy was founder phone calls. The
+founder-call milestone stands at **1 of 10** genuine owner conversations captured, with Round 3 (16 Sep)
+and Round 4 (23 Sep) call sheets prepared and their outcomes uncaptured.
+
+**INFERENCE (Medium-High).** The cohort was correctly held; the alternative channel was not worked. A
+hold whose exit condition requires a founder action that has not occurred is indistinguishable, in
+outcome, from a park. That is not a failure of the decision — it is a failure to complete its exit path.
+
+**Question for review.** Is V2's HOLD exit still open, or does it need re-scoping to something that does
+not depend on founder call capacity? Answering this honestly requires the Round 3/4 outcomes to be
+captured first. Recommend capturing them before the review, or reviewing on the explicit understanding
+that the exit condition is unmeasured.
+
+---
+
+## 5 Oct — the sequence gate, and who owns the next action
+
+### `2026-07-05-complete-sequence-before-first-send`
+
+**FACT.** No Email 1 without the complete, reviewed, approved sequence — every touchpoint drafted with an
+objective, each follow-up adding new value, timing and exit conditions defined. Blocked by the pre-flight
+checklist.
+
+**FACT — it holds for campaign outreach.** FF1, Wave, RE-ENG and V2 sequences were drafted and reviewed
+ahead of their Email 1s. `memory/MEMORY.md` lists it as a closed baseline: *"Sequence-first — no Email 1
+without complete reviewed sequence."*
+
+**INFERENCE (Medium) — a scope question, not a breach.** QPaint customer care does **not** run
+sequences. It is per-customer Customer Context Gate work: individual disposition per customer, "no
+batch/auto-Email 3", and *"template = framework, not permission"* (`2026-08-19-core-product-learning`).
+The decision's text, however, says *"every outreach campaign, every industry, every prospect. No
+exceptions."* Read literally, a white-label customer-care operation that sends no sequences is outside
+the rule's model rather than in breach of it.
+
+**Question for review.** State on the decision record whether white-label customer care is inside or
+outside the scope of the sequence gate. The QPaint operating model post-dates this decision entirely, so
+the boundary has never been written down — which is how a rule gets misread later as being broken.
+
+### `2026-08-05-operational-handover-standard` — heavily used, with one founder gate worth removing
+
+**FACT.** "Who owns the next action?" replaces "Should I reply?" as the first question for every customer
+reply. Atlas never takes operational ownership (scheduling, quoting, pricing, site visits, commencement,
+technical advice, the work). Acknowledgement and operational ownership are separate. Three Operating
+Models: Invisible Infrastructure, Customer Care Representative, Hybrid.
+
+**FACT — this is one of the most heavily exercised standards in the system.**
+- `2026-08-20-qpaint-role-boundary` — SURFACE ≠ MANAGE; never chase a client's decision.
+- `2026-08-30-qpaint-operational-handover` — Atlas owns routine ops end-to-end.
+- `2026-09-24-qpaint-relay-authority` — **RELAY ≠ DECIDE**: once a decision owner has answered, Atlas
+  relays, records, reconciles and monitors without a founder gate.
+- Worked examples, current: the Steve Liversidge treads relay (QPaint set the $2,145 + GST figure; Atlas
+  relays) — and this morning the armed relay correctly **skipped** on a fail-closed duplicate guard, which
+  is the standard's fail-safe half working; the Alys warranty and inclusions relays; the 43118
+  reclassification to HOLD as a client-owned relationship.
+
+**FACT — one live tension.** Ten courtesy acknowledgements to Lost customers are still founder-gated "by
+convention" (QPaint Daily Attention, today): replies as simple as "thanks for letting us know", two of
+them carrying an added question. A brief acknowledgement is exactly what the standard tells Atlas to
+consider, yet the class cannot be sent without a ruling and therefore queues every time.
+
+**INFERENCE (High).** The standard is doing its job and has been progressively *sharpened* in Atlas's
+favour (Relay Authority). The residual gate is convention, not the standard — and convention that
+contradicts the standard is drift.
+
+**Question for review.** Rule the courtesy-acknowledgement class once — batch-approve the eight
+straightforward losses, rule separately on the two with extras — then treat courtesy acknowledgements as
+standing within the standard so the class never queues again.
+
+---
+
+## Cross-cutting findings (the pattern behind the cluster)
+
+**1. We record success criteria more readily than we instrument them.**
+Four independent instances in one cluster: the ICP fields (92–94% empty 85 days after creation); the
+Campaign Pulse standard (no retained artefacts to score); "one insight/day" in the 29 Sep philosophy
+cluster (already flagged as uninstrumented); and decision review status (two reviews past date, register
+says none overdue). A criterion with no instrument is a preference.
+
+**2. Status advance is manual, so superseded decisions still read as live.**
+`founding-atlas-as-primary-sender` (superseded by the james@ single-identity shift) and
+`2026-07-04-messages-prospect-linked-field` (superseded by the V2 migration that deleted its table) are
+both still 🟢 Made. A founding decision's own text says to create a referencing decision when thinking
+changes — the referencing decisions exist; nothing sets the predecessor's status.
+
+**3. The declared "primary channel" is the least available surface in the business.**
+HQ has been unreachable (404, Pages disabled, owner scope) while every deploy verifies green by commit
+SHA. 15 enabled jobs deliver to Telegram. This is a monitoring gap more than a hosting gap: the system
+declared HQ primary and never built an alarm for its availability.
+
+**4. One live rule contradiction directly affects customer-facing copy.**
+Business-name fallback (founding decision) versus "Hi there" (August decision + memory). An operator
+following memory would breach a founding decision.
+
+## Recommendation — one systemic change
+
+These four cross-cutting findings are one problem: **the decision register records what was decided, but
+nothing forces a decision to stay instrumented, correctly-statused, or continuously available.** The
+single highest-leverage action at this cluster review is a standing rule with two clauses:
+
+> Every decision record must carry either a live instrument or an explicit "not instrumented" note.
+> When a review date passes, the record must move to a pending-verdict state — so "Overdue Reviews: None"
+> is a fact rather than a default.
+
+That closes findings 1 and 2 permanently, makes finding 3 a normal monitoring item, and prevents the
+same cluster recurring in November.
+
+## Evidence files
+
+- `knowledge/decisions/INDEX.md` (`## Upcoming Reviews`, `## Overdue Reviews`), and each of the twelve
+  decision files under `knowledge/decisions/`
+- `knowledge/decision-reviews/2026-09-29-philosophy-cluster-review-prep.md` (adjacent cluster, 29 Sep)
+- `memory/MEMORY.md` (name-inference line, sender-identity line, sequence-first line)
+- `knowledge/decisions/2026-08-12-qpaint-privacy-governance.md`, `2026-08-20-qpaint-role-boundary.md`,
+  `2026-08-30-qpaint-operational-handover.md`, `2026-09-24-qpaint-relay-authority.md`
+- `learnings/LL-20260804-005.md` (curiosity-led retired), `learnings/2026-09-18-grep-miss-read-as-rule-absence.md`
+- `skills/snowark/growth-operations/SKILL.md` (pulse standard), `notes/2026-09-27.md`, `notes/2026-09-28.md`
+- Live checks run 28 Sep 2026: Airtable Prospects (332 records, field-population counts), `curl` on the
+  published HQ root and `/dash/` (both 404), `cron/jobs.json` (15 Telegram-delivering enabled jobs)
+
+---
+
+*Prepared by the Prepare-Ahead Clock, 28 Sep 2026 22:00 ACST, 3–7 days before the reviews. No contact
+made, no send, no CRM or config record changed. Verdicts are James's.*

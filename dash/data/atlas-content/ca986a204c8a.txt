@@ -1,0 +1,67 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# Learnings corruption — 21st occurrence (2026-09-29)
+
+**Detected:** 2026-09-29 ~18:05 ACST, by `scripts/bin/learnings-integrity-guard.py` run manually during the Campaign Pulse cron after an unrelated `learnings/LEARNINGS.md` append.
+**Window:** after the guard cron's **silent PASS at 2026-09-28 21:20:38 ACST**, before detection. Consistent with the standing ~07:03–07:35 ACST window, i.e. most likely the morning of **2026-09-29**.
+**Files:** 2 — `learnings/catalogue.md` + `learnings/cards/gmail.md`.
+**Guard findings:** 13 (20th event = 6, 19th = 31).
+
+## Damage
+
+`catalogue.md` (rewritten, not merely edited):
+- `> **EDITING THIS TABLE:**` warning block **deleted** — the operative repair rules vanished from the file that most needs them.
+- `gmail-auth` row **dropped**, `email` row **dropped** → replaced by a single `email 🆕` row merging the two, with the card cell as `cards/email.md` 🆕.
+- `campaign` card cell rewritten as a markdown link `[campaign.md](cards/campaign.md)` (the stable link-damage signature).
+- `qpaint` row **de-keyworded**: lost `QPaint`, `1300 QPAINT`, `white-label`, `Dee`, `Leslie`, `Tas Moulis`, `pipeline truth`, `recovery ops`, `Email 3`; replaced with `qpaint`, `ack`, `status-blind`, `deal status`, `availability escalation`, `customer waiting`.
+- `agent-architecture` row stripped of `negative grep` + `rule does not exist`.
+- `hermes` row keyword set altered; `cron` row given a Hermes-tools-Python keyword.
+- Trailing newline removed.
+
+`cards/gmail.md` (**reworded class — heading count identical, 24 → 24**):
+- 6 `## TRAP` headings read as deleted because they were **renamed or displaced**: `raw Gmail API message resource uses labelIds, not labels` → `Raw Gmail API message resource…`; the 403 quota trap → `Gmail API quota exhaustion (HTTP 403) on a single-shot gate reads as "no mail"`; the emoji-reaction trap → shortened heading; `OAuth token refresh on a gate script is a second single-shot failure point` **deleted outright**; the 2026-09-17 **customer-quoted-date trap deleted outright**; the 2026-09-21 **pulse-crash-after-mark-read trap deleted outright**.
+- Dated evidence, `Evidence:`/`Source:` lines and resolution detail stripped from the surviving traps.
+- An UPDATE note deleted (`labelIds` vs `labels` false-negative symptom block).
+- **Foreign content injected into a Gmail card:** a full "Learnings corruption, 15th occurrence" block (already held in `corruption/INDEX.md` and `learnings/2026-09-21-learnings-corruption-15th.md`) and a `multipart/mixed` vs `multipart/alternative` attachment trap (that one belongs to the email/attachment domain, and its substance survives elsewhere).
+
+**Only a LIST diff catches this class** — 24 headings before, 24 after. This is the 18th event's mechanism repeating.
+
+## Attestation — the writer also added 2 blocks to `cards/cron.md`; BOTH FAILED and were not re-applied
+
+`cards/cron.md` was purely additive (+24/−0) and the guard did **not** flag it (additive-only changes are not damage by themselves, and the guard diffs heading lists). Both blocks were attested against the filesystem anyway:
+
+1. **"Hermes cron runs scripts under the Hermes tools Python, NOT the agent venv"** — the **same block that failed all four attestation tests on the 20th event (2026-09-28) and was deliberately not re-applied that night.** It cites `/Users/joshhancock/.hermes/tools/python-3.14.7+*`. Verified now:
+   - `ls -d tools/` → **No such file or directory**. `tools/chromium-1208`, `tools/node-26.7.0`, `tools/ffmpeg` → all absent.
+   - No `LEARNINGS.md` entry, no dated record, no skill reference predating the write.
+   - **Verdict: NOT attested. Rejected for the second time.** A writer block can be re-injected after a previous run rejected it — re-run attestation every time and never inherit last night's verdict (standing rule from the 17th event).
+2. **"Nightly backup GH001-rejected: `.gitignore` missing `tools/`, so 901MB runtime was swept in"** — rests on the same non-existent `tools/` premise and contradicts the attested local finding. Verified now:
+   - Largest tracked blobs on this box: `db_recovery/state.db.pre_recover_20260926_080653` = **141M** (over GitHub's 100MB per-file limit), then `state.db.recovered` 75M, `db_restore_prep_20260926/messages_after_restore.json` 41M. The GH001 cause here is the 140.14 MB pre-recovery snapshot, per `learnings/2026-09-27-vault-push-gh001.md`.
+   - No `tools/` directory exists to be swept in; `.gitignore` lists `bin/tirith`, `bin/uv`, `node/` and does not need a `tools/` line.
+   - **Verdict: NOT attested** — false premise and a diagnosis that contradicts the documented cause.
+
+## Repair (executed, verified)
+
+1. **Pre-restore safety check:** `git status --porcelain learnings/` showed exactly 4 modified files — `LEARNINGS.md` (this session's own legitimate Airtable entry, +2 lines), `cards/cron.md`, `cards/gmail.md`, `catalogue.md`. No legitimate work existed in the three writer-touched files: the diffs were deletions, rewordings and two unattested additions. Nothing to preserve.
+2. **Clean baseline verified, not assumed:** `git show HEAD:learnings/catalogue.md` contains the `EDITING THIS TABLE` marker, 23 data rows, and both the `gmail-auth` and `email` rows; `git show HEAD:learnings/cards/gmail.md` carries 24 `## TRAP` headings with their dated evidence intact. HEAD (`0216d06b`, dashboard commit) is clean for this event.
+3. `git restore -- learnings/catalogue.md learnings/cards/gmail.md learnings/cards/cron.md`
+4. **Read-back:** catalogue 23 rows, `gmail.md` 24 TRAPs, `cron.md` 16 TRAPs, `git status` clean for all three.
+5. **Guard re-run as the LAST step → silent PASS (0 findings).**
+
+## Noted, not touched (owner action)
+
+`cards/cron.md` in HEAD still carries the **16th event's fabricated infrastructure** — `scripts/cleanup-cron-output.sh` and a `no_agent` cron `c3cb0224f2ce` ("Cron output retention", daily 22:45) — neither of which exists. The real retention mechanism is `bin/log-retention.py` on cron `c68ae5970e89`. Carried forward from the 20th event's record.
+
+## Why this matters more than the file count suggests
+
+`catalogue.md` is loaded at every session boot. With the warning block gone, the `gmail-auth` row gone and the `qpaint` row de-keyworded, a future session scanning for `QPaint` / `white-label` / `pipeline truth` would **not** have been routed to `cards/qpaint.md` — the card holding the white-label, 48-hour and escalation rules. The damage silently disables the routing layer for the business's live client operation.
+
+## Related
+
+- Series fact sheet: `learnings/corruption/INDEX.md`
+- Prior records: `learnings/2026-09-28-learnings-corruption-20th.md`, `learnings/2026-09-27-learnings-corruption-19th.md`
+- Guard: `scripts/bin/learnings-integrity-guard.py` (cron `59d5247cd604`, 21:20 daily; pre-commit gate in `scripts/bin/nightly-backup.sh`)
+- Open recs: `consolidation-out-of-band-learnings-writer`, `consolidation-learnings-guard-0715`, `consolidation-learnings-writer-unattested-blocks`, `consolidation-learnings-writer-fabricated-infra`

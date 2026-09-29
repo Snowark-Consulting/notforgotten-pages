@@ -774,6 +774,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decision_reviews_2026_10_01_oct_cluster_review_prep",
+      "label": "Oct Cluster Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-10-01-oct-cluster-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "9e9d5f4adedc",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decision_reviews_index",
       "label": "Decision Reviews / Index",
       "file_type": "doc",
@@ -4491,6 +4502,13 @@
     {
       "source": "knowledge_decision_reviews_index",
       "target": "knowledge_decision_reviews_2026_09_29_philosophy_cluster_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_10_01_oct_cluster_review_prep",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
