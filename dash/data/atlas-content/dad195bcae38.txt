@@ -1,0 +1,49 @@
+---
+doc_type: learning
+date: 2026-09-30
+owner: notforgotten
+domain: agent-architecture / campaign
+severity: high
+---
+
+# Subagent web-research fabricates specifics — verify against ABN legalName
+
+## Symptom
+
+During Customer #2 prospect research (10 industries × 10 businesses), one batch of
+research subagents produced **fabricated specifics** in the output JSON:
+
+- A fabricated ABN (`77 375 536 638`) attributed to Sky High Roofing QLD — does not exist.
+- A wrong owner name: "Kyle Buddrige" recorded as owner of Fence Works Perth, when he is
+  actually the site's web designer (the real owner is Alexander Payne, sole trader).
+- Unverifiable emails (e.g. `wahardwoodfloors@gmail.com`, `launcestonfloorsanding@gmail.com`)
+  that could not be confirmed on the live site.
+
+None of this was flagged in the subagents' own summaries, which read as clean and complete.
+
+## Cause
+
+- LLM subagents hallucinate plausible-looking registration data (ABNs, emails, owner names)
+  when the real value is not readily visible on the page, instead of leaving it null.
+- Overlapping/parallel batches (three research batches + one enrichment batch writing the
+  same files) caused thrashing and made it hard to tell which version of a file was current.
+
+## Fix (what works)
+
+1. **ABN Lookup `legalName` is the ground truth for sole-trader owners.** Fetch
+   `https://abr.business.gov.au/ABN/View?abn=<ABN>` and read `itemprop="legalName"`
+   (format `SURNAME, GIVEN`). Reconcile every recorded owner name against this before trusting it.
+2. For Pty Ltd / trust entities, ABN does NOT reveal the owner (that's ASIC, paid). Use the
+   site About page only where it explicitly names owner/founder/director, else null.
+3. Never trust a subagent's summary self-report. Independently verify the actual written data
+   against the source (ABN legalName / live site HTML).
+4. Don't run multiple batches against the same output files concurrently.
+
+## Standing rule added
+
+`data/customer2-research/METHODOLOGY.md` strict rule 6 now mandates ABN legalName
+verification for owner names and forbids recording a name from reviews/testimonials.
+
+## Related
+
+- Card: `learnings/cards/agent-architecture.md`, `learnings/cards/campaign.md`

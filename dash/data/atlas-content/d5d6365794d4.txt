@@ -17,7 +17,7 @@ tier: primary
 | **Incident log** | `learnings/INDEX.md` | Resolved incidents (LL-*). |
 | **Unresolved** | `learnings/ERRORS.md` | Open incidents. |
 | **Catalogue** | `learnings/catalogue.md` | Domain → card trigger map. |
-| **Corruption series** | `learnings/corruption/INDEX.md` | Standing fact sheet for the recurring out-of-band corruption of the catalogue + cards (17 occurrences, Sep 2026): damage signature, falsified hypotheses, repair playbook. Read before investigating a new event. |
+| **Corruption series** | `learnings/corruption/INDEX.md` | Standing fact sheet for the recurring out-of-band corruption of the catalogue + cards (**22 occurrences, Sep 2026**): damage signature, falsified hypotheses, repair playbook. Read before investigating a new event. |
 | **This file** | `learnings/LEARNINGS.md` | Chronological index to the above. |
 
 ## Card inventory
@@ -48,6 +48,12 @@ tier: primary
 | telegram | `cards/telegram.md` |
 
 ## Chronological index (newest first)
+
+### 2026-09-30
+- **Learnings corruption, 22nd occurrence — four files, and the writer regressed a repair.** A 5.6 s burst at 07:08:29–07:08:34 ACST rewrote `catalogue.md`, `cards/qpaint.md`, `cards/gmail.md` and `cards/git.md`; guard = **29 findings**. The live **QPaint card — the boot-loaded routing target for all QPaint work — was cut from 12 `## TRAP` headings to 3**. `cards/git.md`'s autostash trap had the **discriminator stripped back out**, the exact regression the 19th event's repair fixed. **Two of the injected blocks were content a prior run had already rejected** (the foreign "15th occurrence" record; the `multipart/mixed` attachment trap) — the **third consecutive** re-injection, which makes re-attestation the routine case rather than a caution. Two writer blocks DID pass attestation and were re-applied (PandaDoc-never-proves-delivery → `qpaint`; `send_james_email` thread_id → `gmail`). Dated file `learnings/2026-09-30-learnings-corruption-22nd.md`.
+- **A subagent's research summary is a self-report, not evidence.** During Customer #2 prospect research one batch fabricated specifics — an ABN that does not exist, an owner name that belonged to the site's *web designer*, and two unverifiable emails — and reported the batch as clean and complete. **ABN Lookup `legalName` is the ground truth for sole-trader owners**; verify the written data against the source, never the summary. → `learnings/2026-09-30-subagent-research-fabrication.md`
+- **A relay script's idempotency guard silently skipped a customer relay for two days.** The guard counted the earlier Email 2 the customer had replied *to* as "already replied" and skipped every run — a presence test where an ordering test was needed. Same defect class as the append-guard failure below. Full entry below.
+- **An append guard keyed on a date prefix false-matched and dropped an entry.** `entry[:12] in notes` collided with an earlier same-day entry, the guard printed ALREADY_PRESENT, and the Airtable `PATCH` still returned 200 — a status-code-only check would have shipped a record missing the escalation it had just performed. Full entry below.
 
 ### 2026-09-29
 - **Learnings corruption, 21st occurrence — the reworded-heading class repeated, and the writer re-injected a block that had already been rejected the night before.** Guard = **13 findings** on `catalogue.md` + `cards/gmail.md` (24 `## TRAP` headings before *and* after — only a heading **LIST** diff finds it). `cards/cron.md` was purely additive and **not** guard-flagged; both its blocks were attested anyway and **both failed** — one is the 20th event's rejected block returning, citing a `tools/` directory that does not exist. Repaired by `git restore` from a content-marker-verified clean HEAD. Full record below; dated file `learnings/2026-09-29-learnings-corruption-21st.md`.
@@ -452,3 +458,43 @@ When a new entry contradicts a prior one: set `Contested: true` on both, add rec
 **Related:** the 2026-09-28 Julie Ann Denniss entry — both are the same class, **an NF-side signal that cannot see what happened on QPaint's side** (a decline sent to QPaint's own inbox; a send PandoDoc recorded but the customer never received).
 **Source:** QPaint Daily Attention + inbox-pulse, 2026-09-29; `notes/2026-09-29.md`.
 
+
+## 2026-09-29 — send_james_email() opens a new Gmail thread unless thread_id is passed
+**Confidence:** high (verified by read-back)
+**Contested:** false
+**Context:** the QPaint internal handoff follow-up (weekly Pipedrive Won/Lost export) was sent 29 Sep 22:02 ACST as a reply to a 21 Sep thread — `scripts/qpaint-handoff-pipedrive-followup-2026-09-28.py`, msg `1a0ed27614c343c1`. The draft of record asserted it would thread because the recipients were identical to the original, with only a subject suffix added.
+**Finding:** it did **not** thread. The returned `gmail_thread_id` equalled the new message ID, and the original thread `1a0c26ba20813067` still holds exactly 1 message. `send_james_email()` threads only when `thread_id` is passed; identical recipients + a subject suffix is not enough, and Gmail does not group by subject when the API sets the thread.
+**Rule:** to land a follow-up inside an existing conversation, pass `thread_id` (the original message/thread ID) to `send_james_email()`. Do not rely on recipients or subject wording, and do not write "so it threads" into a draft on that basis. A lost thread is cosmetic (the recipient still receives a clear, self-contained follow-up), so it is a **documentation defect, not a reason to resend**.
+**Applied:** send verified in james@ SENT; threading defect recorded in `data/send-evidence/qpaint-internal-pipedrive-followup-20260929-220255.json` and `notes/2026-09-29.md`.
+**Source:** Prepare-Ahead Clock, 2026-09-29.
+
+
+## 2026-09-30 — QPaint relay idempotency guard skipped a customer relay for 2 days
+**Confidence:** high (verified by Gmail thread read-back)
+**Contested:** false
+**Context:** `scripts/qpaint-relay-steve-liversidge-2026-09-28.py` was scheduled as a one-shot cron for Mon 28 Sep 08:00 ACST to relay QPaint's treads-and-risers figure ($2,145 + GST) to Steve Liversidge (#43102). It never sent — a `to:splive69@gmail.com in:sent` search on 30 Sep showed only Email 1 (23 Aug) and Email 2 (25 Sep), no relay.
+**Finding:** the script's idempotency guard checked for **any** atlas@ message in the thread that was not the customer reply, then skipped. The thread holds Email 2 (atlas@, 24 Sep) followed by the customer's 25 Sep reply. Email 2 is from atlas@ and is not the customer reply, so `newer_atlas` was set true and the script returned `[SKIP]` — even though Email 2 *precedes* the customer's message and is the very message the customer was replying to.
+**Rule:** a "have I already replied" guard must compare ordering, not presence. Sort the thread by `internalDate`, find the customer reply's timestamp, and only skip when an atlas@ message has `internalDate > customer_reply.internalDate`. Presence-based checks on a thread that already contains prior outbound mail will always false-positive.
+**Applied:** guard rewritten to `msgs.sort(key=internalDate)` + `customer_ts` lookup + `ts > customer_ts`; dates in the script corrected 28 Sep -> 30 Sep and NTD 2026-10-01 -> 2026-10-05; relay then sent and verified (gmail `1a0ef32d6d95eb34`, SENT), Airtable reconciled + read-back. The bug pattern is generic — any idempotency check over a Gmail thread must compare against the last inbound, not against "any message from us".
+**Source:** QPaint Daily Attention, 2026-09-30.
+
+
+## 2026-09-30 — Outreach Notes append-guard keyed on a date prefix false-matched and silently dropped an entry
+**Confidence:** high (caught by read-back, then corrected)
+**Contested:** false
+**Context:** appending the james@ QPaint handoff record to the QPaint Pipeline `Outreach Notes` for Brooke Warren (#42980, `recD0lMeECSMX7ndc`), the append guard tested `entry[:12] in notes` — the literal string `[2026-09-30]`.
+**Finding:** the same record already carried a different `[2026-09-30]` entry from earlier in the same run, so the guard printed ALREADY_PRESENT and the handoff evidence was never appended. The Airtable PATCH still returned 200, so a status-code-only check would have shipped a record whose notes omit the escalation it just performed.
+**Rule:** an append guard must key on a **unique token from the entry itself** (a Gmail message ID, an authority ID, a deal+event string) — never a date prefix or a generic label, both of which collide by construction the moment two entries land on the same day. This is the same defect class as the 2026-09-30 relay guard (presence vs ordering) and the 2026-09-28 intake guard: **an idempotency check that is too loose is silent, and silence looks identical to success.** Always read the field back after the write and confirm the new text is actually there.
+**Applied:** guard changed to `'1a0f0dfaf337f6ea' in notes`; append re-run; read-back confirmed both the classification entry and the handoff entry present. Reference row for the reply archetype added to `email-inbox-pulse/references/qpaint-customer-reply-processing.md`.
+**Source:** inbox-pulse, 2026-09-30.
+
+## 2026-09-30 — A subagent's research summary is a self-report, not evidence
+
+**Confidence:** high (fabricated values verified against ABN Lookup and live sites)
+**Contested:** false
+**Context:** Customer #2 prospect research (10 industries × 10 businesses, three research batches plus one enrichment batch). One batch returned a JSON payload containing a fabricated ABN (`77 375 536 638`, attributed to Sky High Roofing QLD — does not exist), a wrong owner name ("Kyle Buddrige" recorded as owner of Fence Works Perth, where he is in fact the site's **web designer**; the real owner is Alexander Payne, sole trader), and two emails (`wahardwoodfloors@gmail.com`, `launcestonfloorsanding@gmail.com`) that could not be confirmed on the live site.
+**Finding:** none of this was flagged in the subagents' own summaries, which read as clean and complete. The fabrication surfaced only when the written data was checked against the sources.
+**Cause:** an LLM subagent fills a missing registration-style field with a plausible-looking value rather than null; and three research batches writing the same output files concurrently made "which version is current" undecidable.
+**Rule:** (1) **ABN Lookup `legalName` is the ground truth for sole-trader owners** — `https://abr.business.gov.au/ABN/View?abn=<ABN>`, read `itemprop="legalName"` (`SURNAME, GIVEN`), and reconcile every recorded owner name against it before trusting it. (2) For Pty Ltd / trust entities ABN does **not** reveal the owner — use the site About page only where it explicitly names owner/founder/director, else null. (3) Never record an owner name from reviews or testimonials. (4) **Never trust a subagent's summary self-report** — verify the written data against the source; a child agent claiming "verified" is a self-report, not a fact. (5) Do not run concurrent batches against the same output files.
+**Applied:** `data/customer2-research/METHODOLOGY.md` strict rule 6 mandates ABN `legalName` verification and forbids names taken from reviews. Cards: `learnings/cards/agent-architecture.md`, `learnings/cards/campaign.md`.
+**Source:** Customer #2 pilot research, 2026-09-30.

@@ -1,0 +1,38 @@
+# QPaint Report Delivery — Send Evidence
+
+## September 2026 Monthly Quote & Revenue Report (month-end)
+
+**Status:** SENT and verified
+
+| Field | Value |
+|---|---|
+| Gmail message ID | `1a0f1c3f9cfab681` |
+| Gmail thread ID | `1a0f1c3f9cfab681` |
+| Sent | 2026-09-30 19:32 ACST (10:02 UTC) |
+| From | James Hardstaff \<james@notforgotten.com.au\> |
+| To | Tas Moulis \<tas@qpaint.com.au\> |
+| CC / BCC | none |
+| Subject | QPaint — September quote & revenue report |
+| Attachment | `QPaint-Quote-and-Revenue-Report-September-2026.pdf` (8 pages, 492,037 bytes) |
+
+## Verification (independent, via Gmail API format=full)
+
+- **Gmail Sent:** confirmed — message `1a0f1c3f9cfab681` present in `labelIds=SENT`, From/To/Subject correct.
+- **Attachment:** confirmed present in MIME (multipart/mixed → application/pdf, filename `QPaint-Quote-and-Revenue-Report-September-2026.pdf`, disposition `attachment`).
+- **Signature:** canonical James Hardstaff signature exactly once. "Kind Regards," count = 1; styled name "James Hardstaff" count = 1; founder gold count = 1; tagline count = 1. No double sign-off (no manual "Kind regards, James" in body).
+- **Body:** ends at "...keen to hear what you think." — no manual sign-off before the appended signature.
+- **Authority:** `knowledge/authority/founder-direct-qpaint-report-tas-2026-09-30.json` (FOUNDER_DIRECT).
+
+## Content delivered
+
+- QPaint September 2026 Monthly Quote & Revenue Report (month-end, 8 pages).
+- Headline: 291 quotes / $9.43M under management; $7.74M active; 9 won, 22 lost in September; price cited by ~1 in 4 lost customers.
+- Attribution: Recovered $129,750 (Arno Hsu) / Assisted 6 ($130,769) / Observed 7 ($273,601).
+
+## Case-study request — NOT sent (held)
+
+The case-study request remains separate and unsent. Per founder instruction (2026-09-30): do not schedule it automatically; monitor Tas's response to this report. If Tas engages positively, surface the prepared case-study request to James as the recommended next founder communication.
+
+## Standing rule for any reply
+
+Any reply from Tas (report feedback, results, improvements, testimonial/case-study permission) must be captured **verbatim** and surfaced to James before any case-study content is created or published. Positive AND negative feedback recorded in full.

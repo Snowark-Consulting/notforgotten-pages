@@ -1,0 +1,64 @@
+---
+doc_type: learning
+owner: atlas
+tier: primary
+---
+
+# Learnings Corruption — 22nd Occurrence (2026-09-30)
+
+> Fourth-widest file set in the series and the heaviest card damage since the 16th event: four files in a 5.6 s burst, the live QPaint card cut from 12 traps to 3, and two blocks re-injected that a prior run had already rejected. Detected and repaired by the 21:00 ACST consolidation. Series fact sheet: `learnings/corruption/INDEX.md`.
+
+**Confidence:** high (guard output + `git diff` heading-list diff + filesystem attestation)
+**Contested:** false — but the attribution remains UNIDENTIFIED and must not be guessed at
+
+## Damage
+
+Window **2026-09-30 07:08:29–07:08:34 ACST** (`2026-09-29 21:38:29–21:38:34 UTC`). Guard findings on the working tree: **29**.
+
+| File | HEAD | Damaged | Mechanism |
+|---|---|---|---|
+| `learnings/catalogue.md` | 24 pipe-lines (header + separator + 22 rows) | 23 | `EDITING THIS TABLE` warning block deleted; 2 rows dropped (`email`, `gmail-auth`) |
+| `learnings/cards/qpaint.md` | 12 `## TRAP` | **3** | 71 lines removed; 9 traps lost outright or renamed with dated evidence stripped |
+| `learnings/cards/gmail.md` | 24 `## TRAP` | 24 (after 6 lost, 6 added) | reworded-heading class — only a heading **LIST** diff finds it; 1 UPDATE note deleted; 2 foreign blocks injected |
+| `learnings/cards/git.md` | 13 `## TRAP` | 14 | autostash trap **renamed and its discriminator deleted**; fabricated `GH001`/`tools/` block added |
+
+`cards/qpaint.md` is the live client's card and the boot-loaded routing target for all QPaint work (`skills/snowark/recovery-operations/SKILL.md`). Taking it from 12 traps to 3 is the single most operationally damaging card hit recorded in the series.
+
+## Mtime evidence (discriminator satisfied)
+
+The four damaged files carried a **5.6 s burst** while the rest of the dirty set spanned 05:24–11:31 UTC. Under the discriminator established on the 19th event (one instant across the whole dirty set = `backup-state-db.sh` autostash; a 1–6 s burst across 1–6 files = a real write), this is a genuine write, and the window is readable for the first time since the 18th event.
+
+HEAD was clean because the write landed at 21:38 UTC, ~9.6 h **after** the 2026-09-29 12:00 UTC backup commit `38c8877a`. Verified by content marker (`EDITING THIS TABLE` present in HEAD, absent in the working tree), never by commit date.
+
+## Attestation (extract → ATTEST → duplicate-check → re-apply)
+
+**Re-applied (2):**
+
+- `cards/qpaint.md` — *"A QPaint PandaDoc send notification can never prove the customer received the document"*. Attested by `learnings/LEARNINGS.md` 2026-09-29 (`## A QPaint PandaDoc send notification can never prove the customer received the document`, verified across 10 sends) and by the `james@` handoff evidence (msg `1a0eca0201dc09c9` in SENT). Genuinely absent from the card layer. Not a duplicate of any other card or skill reference.
+- `cards/gmail.md` — *"`send_james_email()` opens a new Gmail thread unless `thread_id` is passed"*. Attested by `learnings/LEARNINGS.md` 2026-09-29, and its factual claims verified on the filesystem (`scripts/qpaint-handoff-pipedrive-followup-2026-09-28.py` exists; `data/send-evidence/qpaint-internal-pipedrive-followup-20260929-220255.json` exists).
+
+**NOT re-applied (3) — each recorded as a decision, not an omission:**
+
+- `cards/gmail.md` — the **"Learnings corruption, 15th occurrence"** block. A foreign series record injected into a Gmail card. Attested (the record exists) but fails the **duplicate** test: it is held in full in `learnings/corruption/INDEX.md` and `learnings/2026-09-21-learnings-corruption-15th.md`, and belongs in neither a Gmail card nor a card at all. **This is the same block the 21st event rejected one day earlier.**
+- `cards/gmail.md` — the **`multipart/mixed` vs `multipart/alternative` attachment trap**. Also injected on the 21st event and judged there to belong to the email/attachment domain, with its substance already surviving in `skills/cold-email/references/gmail-api-send-pitfalls.md` and `skills/email/email-inbox-pulse/references/multipart-body-extraction.md`. A disk-wide grep for "attachment vanishes" returns only the writer's own file. **Second rejection.**
+- `cards/git.md` — the **`GH001` / `.gitignore` missing `tools/`** block. Fails attestation on the filesystem: `ls -d tools` returns *No such file or directory*, no `tools/` entry exists in `.gitignore`, and the block contradicts the attested cause of the GH001 rejections — the largest tracked blob is the 141 MB `db_recovery/state.db.pre_recover_20260926_080653` snapshot, not runtime binaries (`learnings/LEARNINGS.md` line 430). The same premise was rejected on the 21st event. Its own `**Source:** Winston nightly consolidation, 2026-09-29` mis-attributes it.
+
+## The pattern this event establishes
+
+**Three consecutive events have now re-injected content a prior run had already examined and rejected** (20th event's `tools/`-Python block on the 21st; the 15th-occurrence block and the multipart trap on both the 21st and the 22nd). "Never inherit last night's attestation verdict" is no longer a caution — it is the routine case. Re-attest every block against the filesystem, every run.
+
+A second pattern: the writer now **regresses repairs**. The 19th event's repair deliberately kept the autostash trap **with its discriminator**; the 22nd event stripped the discriminator straight back out. A repair that changes a card's prose is not stable — the writer will revert it. This is an argument for keeping the discriminator in the series fact sheet (where it is corroborated by the 22nd event's own readable window) rather than only in the card.
+
+## Repair performed
+
+1. Preserved the damaged versions to `/tmp/consol-22/` before touching anything.
+2. HEAD verified clean by content marker.
+3. `git restore` on the four files; heading lists re-checked against HEAD (qpaint 12/12, gmail 24/24, git 13/13, catalogue 24 pipe-lines).
+4. Two attested blocks appended by anchored patch (never fuzzy multi-line).
+5. Count 21 → 22 propagated to `learnings/catalogue.md` (warning block), `memory/MEMORY.md`, `Agent/Registry.md` and `learnings/corruption/INDEX.md` (standing facts + writing-window row + detection-gap row + occurrence-log row).
+6. Repair committed so the guard's HEAD-based diff has a correct baseline.
+7. `scripts/bin/learnings-integrity-guard.py` re-run as the LAST step of the consolidation.
+
+## Standing recommendations (unchanged, still unbuilt)
+
+`consolidation-learnings-guard-0715` — a ~07:15 ACST detect-and-restore run — remains the only control that would cut the ~14 h detection latency, and it is an infrastructure change requiring explicit founder approval. Detection latency, not repair quality, is the binding defect: 22 events, every repair successful, no reduction in how long the damage lives.

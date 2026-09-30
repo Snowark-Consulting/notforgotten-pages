@@ -87,6 +87,7 @@ Rotation policy: 90-day maximum. Credentials approaching 60 days flagged in week
 | ID | Date | Description | Severity | Status |
 |---|---|---|---|---|
 | IA-2026-001 | 2026-07-25 | GA4 service account key exposed in agent.log and session during security audit | Medium | Open — key rotation pending |
+| IA-2026-002 | 2026-09-29 | Three agent-written scratch copies of live Gmail access tokens (`/tmp/qt.txt` 29 Sep, `/tmp/quotes_at.txt` 10 Sep, `/tmp/qpulse_at.json` 14 Sep) were left mode 644 in `/tmp` (mode 1777, with non-root accounts `ubuntu` 1000 and `orgo` 1001 able to read). The canonical token files are 600 inside `/root/.hermes` (700); only the `/tmp` copies were exposed. Values were never printed or logged. | High | Contained — `chmod 600` applied 2026-09-29 22:34 ACST; systemic fix (credential-permission sweep over `/tmp` in the nightly integrity guard) OPEN as card `dream-cred-tmp-gmail-access-token-loose` |
 
 ---
 

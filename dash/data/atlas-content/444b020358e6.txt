@@ -1,0 +1,166 @@
+---
+doc_type: review-pack
+owner: notforgotten
+tier: primary
+date: 2026-09-29
+status: FOUNDER REVIEW REQUIRED before the 2026-09-30 07:30 ACST QPaint Daily Attention run. REVIEW ONLY - nothing sent, no CRM change made by this pack.
+prepared_by: Atlas (Prepare-Ahead Clock, 22:00 ACST)
+---
+
+# QPaint Email 1 wave - review pack for Wed 30 Sep and Thu 1 Oct 2026
+
+> **Why this exists.** 13 quote records reach the end of their 48-hour observation window across
+> Wed 30 Sep and Thu 1 Oct, and the canonical Email 1 (recovery introduction) is due on each. Two of
+> them carry a flag that the intake explicitly referred to the founder before Email 1, and a third
+> carries an unresolved pricing ambiguity. The wave is Atlas-owned and runs at 07:30 through the
+> Daily Attention control, so the flags need a ruling tonight or a defined default tomorrow morning.
+
+## What the wave is
+
+| Day | Email 1 windows | Recorded Deal Value |
+|---|---|---|
+| Wed 30 Sep | 6 | $197,488.50 |
+| Thu 1 Oct | 7 | $144,767.76 |
+| **Total** | **13** | **$342,256.26** |
+
+**Readiness verified (this scan):**
+- Canonical template `qpaint-recovery-introduction` v1 loads, **checksum matches stored** `0241bdb4...` (Gate 1 + Gate 2 PASS). Body values are template variables only.
+- All 13 records carry a contact person and a contact email. No missing recipient.
+- No weekend dates in the wave (Wed/Thu). No `Next Touchpoint Date` anywhere on Sat 3 or Sun 4 Oct.
+- QPaint Daily Attention cron `e859ea8b1c8c` active, last run 29 Sep 07:36 ok, next 30 Sep 07:30.
+- The figure in `notes/2026-09-29.md` ("~$199,688") is now **$197,488.50**: Guy Budgen's quote was revised down on 29 Sep evening (see flag 2).
+
+### Wed 30 Sep
+
+| Quote | Customer | Value | Note |
+|---|---|---|---|
+| #43213 | Gillian Gout | $67,991.00 | clean |
+| #43194 | Miranda Kidd | $48,367.00 | clean |
+| #43229 | Mark Turner | $31,762.50 | **FLAG 1** - elective option |
+| #43231 | John Weeks | $31,449.00 | clean |
+| #43202 | Kamal Khoury | $12,969.00 | clean |
+| #43240 | Guy Budgen | $4,950.00 | **FLAG 2** - revision |
+
+### Thu 1 Oct
+
+| Quote | Customer | Value | Note |
+|---|---|---|---|
+| #43220 | Sumat Kevat | $39,523.00 | clean |
+| #43263 | Verena Curr | $33,781.00 | clean |
+| #43232 | Annette Tracy | $20,839.50 | **FLAG 3** - option GST ambiguity |
+| #43228 | Dino Willox | $19,697.76 | clean |
+| #43184 | Michael (first name only) | $15,361.50 | elective roof option $2,970 outside recorded total; confirm during the sequence, not before Email 1 |
+| #43165 | Antonia Roze | $11,605.00 | clean |
+| #43238 | Scott Sullivan | $3,960.00 | clean |
+
+---
+
+## The framing that resolves all three flags
+
+**The canonical Email 1 is value-blind and scope-thin.** Template rule 4 prohibits mentioning the
+quote value; the only scope content is the `{scope_plain}` subject token and the `{scope_sentence}`
+body token. So **none of these flags block the send on copy grounds** - what they affect is (a) the
+scope wording the customer reads, and (b) the `Deal Value` recorded in the CRM.
+
+---
+
+## FLAG 1 - Mark Turner #43229, 16 Fifth Avenue, St Lucia ($31,762.50 base)
+
+**FACT.** The document carries TWO priced sections. Section 1 `SCOPE OF WORKS / INTERNAL` is the
+unconditional base: $28,875.00 + GST = **$31,762.50 incl GST** (recorded as Deal Value). Section 2 is
+headed `OPTION / EXTERNAL REPAINT`: $39,820.00 + GST = **$43,802.00 incl GST**, elective, and it
+appears as an `OPTION - Exterior Painting to all previously painted surfaces` row in the inclusions
+summary table. If the customer elects it, the job totals **$75,564.50 incl GST**. The external row is
+NOT summed into the base (the base section carries its own subtotal), which is the correct treatment
+under the option-decoding rule and is what distinguishes this quote from #43213 in the same batch
+(same estimator, INTERNAL + EXTERNAL sections, no OPTION labelling, recorded as a sum).
+
+**The intake referred this to the founder** - "OPTION FLAG for founder review before Email 1".
+
+**The question, made concrete.** `scope_plain` drives the subject line and `scope_sentence` the body.
+The document's scopes are interior (base) plus exterior (elective). A single keyword sentence can
+therefore understate or overstate the quote.
+
+**RECOMMENDATION (Atlas).** Send Email 1 tomorrow on the **fallback scope wording** - the template's
+own neutral branch, `scope_plain = "painting"`, `scope_sentence = "I can see it covers painting work
+at your property"` (the branch the template defines for a scope that matches none of
+exterior/interior/roof). It is the only wording that is accurate whichever way he reads his quote, and
+it needs no template change: both are variables.
+**Keep Deal Value at $31,762.50** (the unconditional base). If he elects the external option at
+acceptance, reconcile the uplift onto the same Won record rather than creating a second one -
+precedent: Sian #42970 ($39,996 to $41,184).
+
+**If no ruling by 07:30 tomorrow:** send the other five, hold Mark Turner alone with
+`Next Touchpoint Date` cleared to an event-driven reassess and a dated note. One held record is a
+cheaper error than a misdescribed quote. Do not let the whole window fail on one record.
+
+---
+
+## FLAG 2 - Guy Budgen #43240, 9 Estelle Street, Manly West ($4,950.00)
+
+**FACT.** QPaint edited the document in place on 29 Sep (same `document_id`, new `revision_id`):
+fascia removed from the inclusions, mobile scaffolding dropped, external scope reworded, a new
+inclusions/exclusions table added. Value moved $7,150.00 to **$4,950.00 incl GST** (-$2,200.00). Quote
+Date kept at 28 Sep and the touchpoint kept at 30 Sep: a revision does not restart the 48-hour clock.
+**The document now contradicts itself** - fascia was removed from the inclusions block, yet the new
+`LIST ALL INCLUSIONS` row and the `EXTERIOR - Previously painted Soffit and fascia as marked RED` row
+still name fascia. The notification is QPaint's generic template, so no customer-facing prose explains
+the change.
+
+**RECOMMENDATION (Atlas) - no founder action required, proceed, with one correction to QPaint.**
+Email 1 proceeds on the revised scope and value: the intro copy is value-blind and `scope_plain =
+"exterior painting"` is unaffected by removing fascia and scaffolding. Separately, put the
+self-contradiction to QPaint this week through the routine james@ internal handoff (solutions@ +
+admin@, "document revision" wording, no customer recipient) - QPaint owns the document and it must be
+consistent before anything is signed. That is a delegated routine handoff under
+`qpaint-autonomous-envelope.json` `content_scope`, not a founder decision.
+**Override available:** if you would rather hold the record until QPaint fixes the document, say so
+before 07:30 and the send will be held.
+
+---
+
+## FLAG 3 - Annette Tracy #43232, 44 Shetland Street, Morningside ($20,839.50 base), Thu 1 Oct
+
+**FACT.** Base `EXTERNAL REPAINT` = $18,945.00 + GST = $20,839.50 (recorded). Two elective add-ons:
+`OPTION 1` window screens $3,900.00 renders GST/Total of **$0.00** with its tick box unchecked;
+`OPTION 2` internal painting $11,400.00 + GST = $12,540.00 renders **computed GST/Total** on the issued
+document. If OPTION 2 is included the true value is **$33,379.50 incl GST**; with OPTION 1 also
+elected, about $37,669.50 (its GST treatment unverified).
+
+**RECOMMENDATION (Atlas) - no founder action required.** Email 1 proceeds on 1 Oct, value-blind, on
+`scope_plain = "exterior painting"` which is accurate for the base. The ambiguity matters before an
+acceptance, not before an introduction, so the clarification goes to QPaint now as a routine internal
+handoff: which options are included in this issued document. Recorded value stays $20,839.50 until
+QPaint answers; any election then reconciles as an uplift on the same record.
+
+---
+
+## Wed 30 Sep is also the week's review day - Email 2 / 3 decisions on the same run
+
+These are Atlas-owned (persistence is not repetition: each touch needs its own reason, and silence is
+not an outcome). Listed so the 07:30 run is not read as a 13-email blast.
+
+| Record | State | Decision due |
+|---|---|---|
+| Maree Banker #43135 $10,973.60 | Email 2 sent 23 Sep, silent | Email 3 (pipeline truth) or MONITOR on evidence |
+| Pubudu Madawala #43161 $110,831.60 | Email 1 sent 23 Sep, silent | Email 2 (discovery) |
+| Ryan John Gibson #43190 $30,989.20 | Email 1 sent 23 Sep, silent | Email 2 (discovery) |
+| Ashlee Barratt #43236 $114,478.65 and #43195 $68,258.19 | coordinated Email 1 sent 18 Sep, silent | Email 2 to both sites, coordinated as before. Two records are intentional (two sites, one customer); no fold is being proposed |
+| Jenny Erickson #43101 $21,318 | Engaged, health issues, quote expires 30 Sep | expiry/requote with QPaint if she re-engages. No send |
+| **Paul Eaton #43127 $10,421.40** | Replied, QPaint re-issued the quote a second time on 28 Sep | **FOUNDER DECISION carried from 29 Sep.** QPaint owns the revised document and the expiry has moved to 28 Oct. Atlas recommendation: default = HOLD and MONITOR (no acknowledgement), and resolve the record at the next Daily Attention run unless you want the revision acknowledged with him |
+
+---
+
+## Carried loops (unchanged tonight)
+
+- **QPaint weekly Pipedrive Won/Lost export** - follow-up **SENT tonight** (Gmail `1a0ed27614c343c1`). The loop closes only when QPaint supplies the export (`scripts/qpaint-outcome-reconcile.py`, dry-run first) or declines it.
+- **Nanda Chakkassery #43193** - open with QPaint (quote never received, resend owned by them). No customer contact until the quote is back with him.
+- **Jono Mazz three-property fold** (#43167 + #43225 + #43247, $55,615.99) and **Madonna Crocker two-quote fold** (#43156 + #43259, $7,892.50) - founder folds, open since 24 Sep and 29 Sep.
+- **12 decision reviews due 1-5 Oct** - prep on file at `knowledge/decision-reviews/2026-10-01-oct-cluster-review-prep.md`. Nothing owed tonight.
+- **Monthly Recovery Intelligence Report** due Mon 5 Oct (first Monday). Not yet within 48h; prep slot is the quiet weekend.
+- Vault push still dead since 26 Sep (GH001 size rejection) and the live Pages site is 404 - both owner-scope items, unchanged.
+
+## What this pack did NOT do
+
+No customer contact. No send to any customer. No Airtable write. No template change. The only send made
+tonight was the internal QPaint handoff recorded in `notes/2026-09-29.md`.
