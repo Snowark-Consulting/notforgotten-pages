@@ -164,15 +164,15 @@
       }
     ]
   },
-  "last_updated": "2026-09-30T19:34:13.105683+09:30",
+  "last_updated": "2026-09-30T20:00:51.024108+09:30",
   "pipeline": {
-    "prospect_count": 332,
+    "prospect_count": 347,
     "stages": {
       "New": 174,
       "Campaign Complete": 112,
+      "Outreach Active": 25,
       "Won": 1,
       "Lost": 17,
-      "Outreach Active": 10,
       "Not a fit": 5,
       "Engaged": 1,
       "Contacted": 11,
@@ -182,9 +182,9 @@
       "Painter": 256,
       "IT MSP": 4,
       "Marketing agency": 30,
+      "Other": 12,
       "Commercial cleaning": 30,
-      "Landscaper": 1,
-      "Other": 2,
+      "Landscaper": 6,
       "Construction": 2,
       "Plumber": 1,
       "B2B Services": 2,
@@ -212,6 +212,11 @@
         "Engineering": 1,
         "Cleaning": 1
       },
+      "Outreach Active": {
+        "Other": 10,
+        "Painter": 10,
+        "Landscaper": 5
+      },
       "Won": {
         "Painter": 1
       },
@@ -220,9 +225,6 @@
         "Commercial cleaning": 3,
         "Marketing agency": 3,
         "IT MSP": 1
-      },
-      "Outreach Active": {
-        "Painter": 10
       },
       "Not a fit": {
         "Painter": 5
@@ -238,6 +240,18 @@
       }
     },
     "outreach_active": [
+      {
+        "name": "Sun City Air",
+        "industry": "Other",
+        "last_contacted": "2026-09-30",
+        "suburb": "Sunshine Coast, QLD"
+      },
+      {
+        "name": "Master Aircon",
+        "industry": "Other",
+        "last_contacted": "2026-09-30",
+        "suburb": "Brisbane, QLD"
+      },
       {
         "name": "Sydney Painting Experts",
         "industry": "Painter",
@@ -255,6 +269,54 @@
         "industry": "Painter",
         "last_contacted": "2026-09-02",
         "suburb": "South Australia"
+      },
+      {
+        "name": "Sunshine Floor Sanding",
+        "industry": "Other",
+        "last_contacted": "2026-09-30",
+        "suburb": "Sunshine Coast, QLD"
+      },
+      {
+        "name": "Speedy Floor Sanding",
+        "industry": "Other",
+        "last_contacted": "2026-09-30",
+        "suburb": "Sydney, NSW"
+      },
+      {
+        "name": "Exterior Designs Landscapes",
+        "industry": "Landscaper",
+        "last_contacted": "2026-09-30",
+        "suburb": "Melbourne, VIC"
+      },
+      {
+        "name": "Roberts Air Conditioning",
+        "industry": "Other",
+        "last_contacted": "2026-09-30",
+        "suburb": "Brisbane, QLD"
+      },
+      {
+        "name": "Brisbane Air",
+        "industry": "Other",
+        "last_contacted": "2026-09-30",
+        "suburb": "Brisbane, QLD"
+      },
+      {
+        "name": "Structural Retaining Walls",
+        "industry": "Landscaper",
+        "last_contacted": "2026-09-30",
+        "suburb": "Brisbane, QLD"
+      },
+      {
+        "name": "JQ Timber Floors",
+        "industry": "Other",
+        "last_contacted": "2026-09-30",
+        "suburb": "Sydney, NSW"
+      },
+      {
+        "name": "Bilic Paving & Landscaping",
+        "industry": "Landscaper",
+        "last_contacted": "2026-09-30",
+        "suburb": "Melbourne, VIC"
       },
       {
         "name": "Paintpal Pty Ltd",
@@ -281,10 +343,34 @@
         "suburb": "Victoria"
       },
       {
+        "name": "Lush Designer Landscapes",
+        "industry": "Landscaper",
+        "last_contacted": "2026-09-30",
+        "suburb": "Bathurst & Orange, NSW"
+      },
+      {
+        "name": "Territory Timber Floors",
+        "industry": "Other",
+        "last_contacted": "2026-09-30",
+        "suburb": "Darwin, NT"
+      },
+      {
+        "name": "DR Landscaping",
+        "industry": "Landscaper",
+        "last_contacted": "2026-09-30",
+        "suburb": "Sydney, NSW"
+      },
+      {
         "name": "One Touch Paint",
         "industry": "Painter",
         "last_contacted": "2026-09-02",
         "suburb": "South Australia"
+      },
+      {
+        "name": "Absolute Floor Sanding",
+        "industry": "Other",
+        "last_contacted": "2026-09-30",
+        "suburb": "Melbourne, VIC"
       },
       {
         "name": "Colour Life Painting",
@@ -297,18 +383,26 @@
         "industry": "Painter",
         "last_contacted": "2026-08-28",
         "suburb": "Sydney Inner West"
+      },
+      {
+        "name": "Afford Air",
+        "industry": "Other",
+        "last_contacted": "2026-09-30",
+        "suburb": "Adelaide, SA"
       }
     ],
     "active_by_vertical": {
-      "Painter": 10
+      "Other": 10,
+      "Painter": 10,
+      "Landscaper": 5
     },
     "messages": {
-      "outbound_total": 138,
+      "outbound_total": 153,
       "inbound_total": 1,
-      "total": 139,
+      "total": 154,
       "reply_rate": 0.7,
       "last_7_days": {
-        "outbound": 0,
+        "outbound": 15,
         "inbound": 0
       }
     },
@@ -318,7 +412,7 @@
       "total_opens": 245,
       "avg_opens": 4.2
     },
-    "last_refreshed": "2026-09-30T06:30:48.450736+00:00"
+    "last_refreshed": "2026-09-30T10:30:51.022448+00:00"
   },
   "decisions": {
     "total": 42,
