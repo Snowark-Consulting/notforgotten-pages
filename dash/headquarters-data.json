@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-01T04:06:33+09:30",
+  "generated_at": "2026-10-01T07:42:39+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "QPaint portfolio stable: 291 records (14 Won, 55 Lost, 222 active), $9.43M total book. No new activity overnight \u2014 0 unread across all three mailboxes. Thursday: 7 Email 1 windows due today (~$145K, no founder blocker), plus a $110.8K relay (Pubudu) drafted and awaiting one word from you.",
-    "estimated_time": "3 minutes"
+    "body": "The QPaint portfolio is stable. 295 total records, 226 active journeys. Production Operating Protocol v1.0.0 governs all operations. Canonical send authority live.",
+    "estimated_time": "2 minutes"
   },
   "business_score": {
     "score": 86,
@@ -22,30 +22,27 @@
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "QPaint: Active. Portfolio certified. 222 active journeys with complete Next Action coverage."
+      "detail": "QPaint: Active. Portfolio certified. 226 active journeys with complete Next Action coverage."
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "222 active QPaint journeys certified. 138 contacted, 43 engaged. Won: $534K. Active pipeline: $7.74M."
+      "detail": "\u2705 226 active QPaint journeys certified. 145 contacted. 0 exceptions. Pipeline: $7,895,834. Won: $534,120."
     },
     "outreach": {
       "status": "healthy",
-      "icon": "\u2705",
-      "detail": "RE-ENG-AUG-2026: 147 records (97 New, 38 Campaign Complete). Cold channel dormant (HOLD)."
+      "detail": "V2 Email 3 (32 sent 28 Aug) awaiting reply \u2014 follow-up window 4 Sep. 9 founder-autonomy Email 1s (30 Aug), Email 2 window 4 Sep. RE-ENG-AUG-2026: 99 observing."
     },
     "engineering": {
       "status": "healthy",
-      "icon": "\u2705",
-      "detail": "state.db 113M. Vault push blocked by GH001. Snapshot backup erroring (25 failures)."
+      "detail": "All systems healthy. Canonical send authority (Phase 1) shadow-ready. Production Operating Protocol v1.0.0 live."
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $534K Won. $7.74M active pipeline. Book $9.43M."
+      "detail": "QPaint: $534,120 Won. $7,895,834 active pipeline."
     },
     "atlas": {
       "status": "healthy",
-      "icon": "\u2705",
-      "detail": "Memory healthy. Send authority live. Overnight reconciliation complete."
+      "detail": "Memory healthy. Protocol v1.0.0 enforced. Model recovery standard active."
     }
   },
   "waiting_for_james": [
@@ -330,7 +327,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "222 active QPaint journeys certified. Protocol v1.0.0. Send authority live. 7 Email 1 windows due today.",
+  "operational_status": "\u2705 QPaint portfolio certified. 226 active journeys. Protocol v1.0.0. Send authority live.",
   "vault_health": {
     "decisions": {
       "total": 83,
@@ -361,32 +358,32 @@
   },
   "qpaint_pipeline": {
     "summary": {
-      "total_customers": 291,
-      "total_pipeline_value": "$7.74M",
+      "total_customers": 295,
+      "total_pipeline_value": 7895834,
       "won_count": 14,
-      "won_value": "$534K",
+      "won_value": 534120,
       "lost_count": 55,
       "engaged_replied": 43,
-      "contacted": 138,
-      "not_contacted": 41
+      "contacted": 145,
+      "not_contacted": 38
     },
     "stage_breakdown": {
       "Email 3": 70,
       "Lost": 55,
-      "New": 42,
+      "Email 1": 43,
+      "New": 39,
       "Replied": 38,
-      "Email 1": 36,
-      "Email 2": 30,
+      "Email 2": 29,
       "Won": 14,
       "Engaged": 3,
+      "Email 4": 2,
       "Engaged - Awaiting Confirmation": 1,
-      "Awaiting Reply": 1,
-      "Email 4": 1
+      "Awaiting Reply": 1
     },
     "priority": {
+      "P3": 149,
       "P1": 93,
-      "P2": 53,
-      "P3": 3
+      "P2": 53
     },
     "key_customers": [
       {
