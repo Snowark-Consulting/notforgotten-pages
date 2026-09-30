@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 251,
+    "tasks_completed": 252,
     "recent": [
+      {
+        "date": "2026-09-30 19:34",
+        "task": "Sent QPaint September month-end report to Tas (291 quotes / $9.43M; 9 won, 22 lost in Sept). Case-study request held separate.",
+        "category": "task"
+      },
       {
         "date": "2026-09-30 08:04",
         "task": "QPaint #43161 Pubudu Madawala replied to Email 2 (engaging Handypay finance, QPaint chasing) - Stage Replied/Engaged, handoff sent to QPaint (Dee + James Gooley) via james@, filed Action Required, review 2 Oct",
@@ -135,11 +140,6 @@
         "date": "2026-09-21 17:42",
         "task": "Campaign pulse posted \u2014 QPaint recovery 16% trailing-7d reply rate (6 replies / 38 sends) vs 1.9% cold painter channel; 18 sends today, 4 inbound replies, 2 Lost; V2 cold channel dormant 17 days, 52 past due, decision review due today",
         "category": "task"
-      },
-      {
-        "date": "2026-09-21 14:55",
-        "task": "Sent QPaint weekly Won/Lost reconciliation coordination request (outcome-visibility gap).",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-09-30T18:30:47.710130+09:30",
+  "last_updated": "2026-09-30T19:34:13.105683+09:30",
   "pipeline": {
     "prospect_count": 332,
     "stages": {
