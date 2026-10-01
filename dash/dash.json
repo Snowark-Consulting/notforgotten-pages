@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 253,
+    "tasks_completed": 254,
     "recent": [
+      {
+        "date": "2026-10-01 18:07",
+        "task": "Campaign pulse posted \u2014 48h: Customer #2 pilot live (15 sent, 0 replies at 22h); QPaint 12 first touches drew 3 replies (25%), 8 customer replies total, 9 losses $190,847 closed",
+        "category": "task"
+      },
       {
         "date": "2026-10-01 07:42",
         "task": "QPaint Daily Attention 01 Oct: sent 9 customer emails (7 Email 1, 1 Email 3, 1 expiry reminder), 1 QPaint handoff (Kishor Chandra extension), reconciled 19 monitor records",
@@ -135,11 +140,6 @@
         "date": "2026-09-23 09:39",
         "task": "Alys #43071 (QPaint): relayed warranty answer (5yr Dulux-backed, 10yr via requote) + end-of-September quote extension to customer; chased QPaint for remaining inclusions answer",
         "category": "task"
-      },
-      {
-        "date": "2026-09-21 20:21",
-        "task": "Reconciled #43211 Joanne Wilkinson (46A Dawson Creek Rd, Highvale) to Won \u2014 signed contract 21 Sep, 1,385.20, Observed attribution.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-10-01T18:00:15.454451+09:30",
+  "last_updated": "2026-10-01T18:07:01.297856+09:30",
   "pipeline": {
     "prospect_count": 347,
     "stages": {
