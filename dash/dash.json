@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 254,
+    "tasks_completed": 255,
     "recent": [
+      {
+        "date": "2026-10-01 22:06",
+        "task": "Prepare-Ahead 22:00 \u2014 Fri 2 Oct window (20 QPaint records, $487,018.88) has all drafts ready. Executed: fixed Les Harvison #43138 (reminder was dated the expiry date itself, moved to Fri 2 Oct) + swept all 297 records for the same defect. Built and scheduled the missing CUST2-PILOT Touch 2 path (15 businesses, Mon 5 Oct 09:00 ACDT, reply guard clear, nothing sent).",
+        "category": "task"
+      },
       {
         "date": "2026-10-01 18:07",
         "task": "Campaign pulse posted \u2014 48h: Customer #2 pilot live (15 sent, 0 replies at 22h); QPaint 12 first touches drew 3 replies (25%), 8 customer replies total, 9 losses $190,847 closed",
@@ -135,11 +140,6 @@
         "date": "2026-09-23 09:58",
         "task": "Fixed false 'Pushed' state in dashboard deploy pipeline",
         "category": "task"
-      },
-      {
-        "date": "2026-09-23 09:39",
-        "task": "Alys #43071 (QPaint): relayed warranty answer (5yr Dulux-backed, 10yr via requote) + end-of-September quote extension to customer; chased QPaint for remaining inclusions answer",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-10-01T22:00:22.794389+09:30",
+  "last_updated": "2026-10-01T22:06:43.910395+09:30",
   "pipeline": {
     "prospect_count": 347,
     "stages": {
