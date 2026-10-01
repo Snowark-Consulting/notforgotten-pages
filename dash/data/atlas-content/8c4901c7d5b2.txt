@@ -1,0 +1,59 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# Learnings corruption, 23rd occurrence — three cards, no catalogue damage, and the third consecutive re-injection
+
+> Dated record for the 23rd out-of-band rewrite of the learnings tree. Standing fact sheet and full series history: `learnings/corruption/INDEX.md`. Read that first; this file holds only what is new.
+
+**Confidence:** high (files, headings and content diffs verified against a content-marker-verified clean HEAD)
+**Contested:** false
+**Detected:** 2026-10-01, 21:00 ACST by this consolidation run's mandatory pre-flight guard run — no scheduled control saw it first
+**Window:** 2026-10-01 **07:08:14.360 – 07:08:17.704 ACST** (2026-09-30 21:38:14–21:38:17 UTC) — a **3.34 s burst across exactly 3 files**, while the rest of the dirty set spanned hours (catalogue and `cards/git.md` at 11:32 UTC the previous day, `LEARNINGS.md` at 20:26 UTC). The mtime discriminator is satisfied: a burst, not a whole-dirty-set instant, so this is a real write and not the `backup-state-db.sh` autostash.
+**Guard:** `scripts/bin/learnings-integrity-guard.py` = **14 findings** (29 on the 22nd, 13 on the 21st).
+
+## Files and damage
+
+| File | HEAD → working tree | Damage |
+|---|---|---|
+| `learnings/cards/gmail.md` | 25 `## TRAP` headings → 27 | **7 real traps deleted**: 2 outright (the 2026-09-17 customer-quoted-date trap, the OAuth-refresh single-shot trap) and 5 rewritten with their dated evidence stripped (`labelIds` vs `labels`, the 403 quota trap, the emoji-reaction trap, the pulse-crash-after-mark-read trap, the `send_james_email` thread_id trap). 1 UPDATE note deleted. 9 blocks added. |
+| `learnings/cards/agent-architecture.md` | 19 → 19 (net zero) | **4 traps lost**: 2 deleted outright (`Customer deferral = MONITOR, not a courtesy reply`; `Engaged + external dependency = WAIT/MONITOR`), 2 reworded with dates stripped (the out-of-band writer trap, the negative-grep trap). 2 UPDATE notes deleted (the 2026-09-16 and 2026-09-20 window records). 4 blocks added. |
+| `learnings/cards/airtable.md` | 3 → 4 | **Purely additive (+8/−0), not guard-flagged** — the same shape as the 20th event's `cards/cron.md` and the 21st's `cron` block. |
+| `learnings/catalogue.md` | **untouched** | First event in the series since the 8th with **no catalogue damage** — the warning block and all 22 rows intact. The catalogue is the loudest thing the writer usually hits; its absence here is further evidence that the file set is a variable, not a constant. |
+
+## Attestation — 5 writer blocks, 3 re-applied, 2 rejected
+
+**Re-applied (3), each attested by a `LEARNINGS.md` entry plus a second independent source:**
+
+1. `cards/gmail.md` — *Gmail thread idempotency guard: presence-based check skipped a relay for 2 days*. Attested by `LEARNINGS.md` `## 2026-09-30 — QPaint relay idempotency guard skipped a customer relay for 2 days` and `notes/2026-09-30.md` lines 71 / 126 (the Steve Liversidge #43102 relay, guard rewritten to compare ordering). Genuinely absent from the card layer — HEAD held no `ordering` / `presence` content.
+2. `cards/gmail.md` — *Filing script's traceback can mask a write that already succeeded; verify state before treating a failure as total*. Attested by `LEARNINGS.md` `## 2026-10-01 — …` and `notes/2026-10-01.md`. Source date 2026-10-01 — the newest learning in the series.
+3. `cards/agent-architecture.md` — *A subagent's research summary is a self-report, not evidence*. Attested by `LEARNINGS.md` `## 2026-09-30 — …`, the dated record `learnings/2026-09-30-subagent-research-fabrication.md`, and a disk-wide grep showing no card held it.
+
+**Rejected (2) — recorded as decisions, not omissions:**
+
+1. `cards/gmail.md` — the foreign **"Learnings corruption, 15th occurrence"** block. Attested (the series record exists) but fails the **duplicate** test: it is held in full in `corruption/INDEX.md` and `learnings/2026-09-21-learnings-corruption-15th.md`, and belongs in neither a Gmail card nor any card. **Third rejection** (21st, 22nd, 23rd).
+2. `cards/gmail.md` — the **`multipart/mixed` vs `multipart/alternative` attachment trap**. Substance already survives in `skills/cold-email/references/gmail-api-send-pitfalls.md` and `skills/email/email-inbox-pulse/references/multipart-body-extraction.md`; judged out-of-domain for a Gmail-API card on the 21st. **Third rejection.**
+
+**Kept (1):** the additive `cards/airtable.md` block — *Airtable notes append-guard keyed on date prefix false-matched and silently dropped an entry* — attested by `LEARNINGS.md` `## 2026-09-30 — Outreach Notes append-guard …` and both notes. It is the same defect family as re-application (1): an idempotency check that is too loose is silent, and silence looks identical to success.
+
+## What this event establishes
+
+- **Four consecutive events have now re-injected content a prior run had already examined and rejected** (20th → 21st, 21st → 22nd, 22nd → 23rd). Re-attestation is the routine case. "Never inherit last night's verdict" is now the normal path, not a caution.
+- **The card-only event is possible.** Three cards, no catalogue. The file set has been 1–6 files across the series; a run that assumes catalogue damage will mis-scope its diff, and a run that checks only the catalogue will miss everything.
+- **The writer's additions are getting closer to the truth.** Every block offered this time was either an attested real learning or a duplicate of one; there was no fabricated infrastructure and no invented path. That raises the cost of a wrong call in both directions: rejecting an attested block loses a real learning, and re-applying a rejected one puts a foreign series record in a boot-loaded card.
+- **Detection latency is still the binding defect.** 23 events, every repair clean, no reduction in how long the damage lives (~13.8 h here). Rec `consolidation-learnings-guard-0715` (a ~07:15 ACST detect-and-restore run) remains **unbuilt** because auto-restoring files is an infrastructure change needing explicit founder approval.
+
+## Repair performed
+
+1. Damaged versions preserved to `/tmp/cons23/` before anything was touched, and HEAD copies extracted alongside them.
+2. HEAD verified clean **by content marker** (`EDITING THIS TABLE` present, zero `||` rows) — not by commit date. The last learnings commit was this series' own 22nd-event repair `c52b9ecb`.
+3. `git restore learnings/cards/gmail.md learnings/cards/agent-architecture.md`; `cards/airtable.md` deliberately **not** restored (additive and attested).
+4. Attested, duplicate-checked and re-applied the 3 blocks above; rejected 2.
+5. Verified by heading **LIST** diff: zero missing, only the intended additions. **Numstat confirmed additions only** (`gmail` +14/−0, `agent-architecture` +11/−0, `airtable` +8/−0) — no collateral deletions.
+6. Repair committed `0e7e9e21` so the guard's HEAD baseline is correct.
+7. Catalogue reconciled: 22 rows = 22 cards = 22 inventory entries, 0 orphans, 0 malformed rows, warning block present.
+8. Guard re-run as the LAST step of the consolidation = silent PASS.
+
+**Source:** nightly consolidation, 2026-10-01; `Agent/log.md`; `learnings/corruption/INDEX.md`.

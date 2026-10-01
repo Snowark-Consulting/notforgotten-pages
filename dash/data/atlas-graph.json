@@ -2116,6 +2116,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_qpaint_review_pack_2026_10_01_02",
+      "label": "Qpaint Review Pack 2026 10 01 02",
+      "file_type": "doc",
+      "source_file": "knowledge/qpaint-review-pack-2026-10-01-02.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "94c40204b2c9",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_qpaint_white_label_send_protocol",
       "label": "Qpaint White Label Send Protocol",
       "file_type": "doc",
@@ -3498,6 +3509,13 @@
     {
       "source": "agent_registry",
       "target": "knowledge_qpaint_email1_review_pack_2026_09_30",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_qpaint_review_pack_2026_10_01_02",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

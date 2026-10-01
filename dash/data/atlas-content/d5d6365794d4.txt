@@ -17,7 +17,7 @@ tier: primary
 | **Incident log** | `learnings/INDEX.md` | Resolved incidents (LL-*). |
 | **Unresolved** | `learnings/ERRORS.md` | Open incidents. |
 | **Catalogue** | `learnings/catalogue.md` | Domain → card trigger map. |
-| **Corruption series** | `learnings/corruption/INDEX.md` | Standing fact sheet for the recurring out-of-band corruption of the catalogue + cards (**22 occurrences, Sep 2026**): damage signature, falsified hypotheses, repair playbook. Read before investigating a new event. |
+| **Corruption series** | `learnings/corruption/INDEX.md` | Standing fact sheet for the recurring out-of-band corruption of the catalogue + cards (**23 occurrences, Sep–Oct 2026**): damage signature, falsified hypotheses, repair playbook. Read before investigating a new event. |
 | **This file** | `learnings/LEARNINGS.md` | Chronological index to the above. |
 
 ## Card inventory
@@ -48,6 +48,10 @@ tier: primary
 | telegram | `cards/telegram.md` |
 
 ## Chronological index (newest first)
+
+### 2026-10-01
+- **Learnings corruption, 23rd occurrence — a CARD-ONLY event, and the third consecutive re-injection.** A 3.34 s burst at 07:08:14–07:08:17 ACST rewrote **three cards and not the catalogue** (`gmail` 25 → 27 headings with 7 traps lost, `agent-architecture` 19 → 19 with 4 traps lost, `airtable` purely additive); guard = **14 findings**. First event since the 8th with no catalogue damage, so **read the file set, never assume it**. Five writer blocks: **3 attested and re-applied** (relay idempotency guard, filing-script traceback, subagent self-report), **2 rejected for the third time** (the foreign "15th occurrence" record; the `multipart/mixed` trap). Repair: HEAD verified clean by content marker; 2 cards restored; heading LIST diff = zero missing; repair committed `0e7e9e21`. Dated file `learnings/2026-10-01-learnings-corruption-23rd.md`.
+- **A filing script's traceback can mask a write that already succeeded; verify Gmail label state before treating a failure as total.** `file-quote-completed.py` printed only an `HTTP 400` traceback while the Completed label had already been applied and INBOX removed — stdout buffering when piped hid the successful steps, and the 400 was in the post-write verify read. Safety Rule 11 read in reverse: never trust a red tick either. Full entry below.
 
 ### 2026-09-30
 - **Learnings corruption, 22nd occurrence — four files, and the writer regressed a repair.** A 5.6 s burst at 07:08:29–07:08:34 ACST rewrote `catalogue.md`, `cards/qpaint.md`, `cards/gmail.md` and `cards/git.md`; guard = **29 findings**. The live **QPaint card — the boot-loaded routing target for all QPaint work — was cut from 12 `## TRAP` headings to 3**. `cards/git.md`'s autostash trap had the **discriminator stripped back out**, the exact regression the 19th event's repair fixed. **Two of the injected blocks were content a prior run had already rejected** (the foreign "15th occurrence" record; the `multipart/mixed` attachment trap) — the **third consecutive** re-injection, which makes re-attestation the routine case rather than a caution. Two writer blocks DID pass attestation and were re-applied (PandaDoc-never-proves-delivery → `qpaint`; `send_james_email` thread_id → `gmail`). Dated file `learnings/2026-09-30-learnings-corruption-22nd.md`.
@@ -498,3 +502,14 @@ When a new entry contradicts a prior one: set `Contested: true` on both, add rec
 **Rule:** (1) **ABN Lookup `legalName` is the ground truth for sole-trader owners** — `https://abr.business.gov.au/ABN/View?abn=<ABN>`, read `itemprop="legalName"` (`SURNAME, GIVEN`), and reconcile every recorded owner name against it before trusting it. (2) For Pty Ltd / trust entities ABN does **not** reveal the owner — use the site About page only where it explicitly names owner/founder/director, else null. (3) Never record an owner name from reviews or testimonials. (4) **Never trust a subagent's summary self-report** — verify the written data against the source; a child agent claiming "verified" is a self-report, not a fact. (5) Do not run concurrent batches against the same output files.
 **Applied:** `data/customer2-research/METHODOLOGY.md` strict rule 6 mandates ABN `legalName` verification and forbids names taken from reviews. Cards: `learnings/cards/agent-architecture.md`, `learnings/cards/campaign.md`.
 **Source:** Customer #2 pilot research, 2026-09-30.
+
+
+## 2026-10-01 — A filing script's traceback can mask a write that already succeeded; verify Gmail label state before treating a failure as total
+
+**Confidence:** high (observed live, then confirmed by read-back)
+**Contested:** false
+**Context:** quotes@ pulse intake wave of two QPaint quotes (43269 Dale Taylor, 43289 Amy Deeb). Filing the second email via `scripts/file-quote-completed.py 1a0f3fcd76d9e7a2` printed only a `urllib.error.HTTPError: HTTP Error 400: Bad Request` traceback and looked like a total failure. A re-read of the message showed `['Label_135578373843577379', 'CATEGORY_UPDATES']` — the Completed label had already been applied and INBOX already removed; only a later read in the same script had 400'd.
+**Finding:** two compounding effects. (1) Python buffers stdout when piped, so the script's `BEFORE` / `FILE` / `READ` prints were emitted after the traceback in the combined stream and `tail -8` showed only the traceback — the successful steps were invisible. (2) An HTTP 400 on the post-write verify read is downstream of a write that already landed, so the visible symptom pointed at the wrong step entirely.
+**Rule:** when a filing/mutation script reports failure, **do not re-run blind and do not escalate** — first read the resource's actual state (`gmail get <id> --format=minimal` labels, or an Airtable read-back). Treat the reported error as the *last attempted* operation, not the *first failed* one. A retry is only safe once you know the write is idempotent (the modify call is: add/remove label sets, so re-running is harmless), but the correct diagnostic order is always state-first. This is Safety Rule 11 (never trust a green tick) read in reverse: never trust a red one either.
+**Applied:** label state confirmed on both messages; both verified `Label_135578373843577379` present, INBOX absent, UNREAD absent; quotes@ `in:inbox` 0 and `is:unread` 0. No change needed to `file-quote-completed.py` — it is idempotent and correct.
+**Source:** quotes-pulse, 2026-10-01.
