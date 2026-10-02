@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-10-02T04:04:36+09:30",
+  "generated_at": "2026-10-03T04:03:02+09:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "The QPaint portfolio is stable. 297 total records, 227 active journeys, 14 Won ($534,120). Overnight clean — no new customer mail. Friday is a decision day: 20 records due, most Atlas-owned reviews.",
+    "body": "The QPaint portfolio is stable. 297 total records, 227 active journeys, 14 Won ($534,120), 56 Lost. Overnight reconciliation clean.",
     "estimated_time": "2 minutes"
   },
   "business_score": {
     "score": 86,
-    "change": "—",
+    "change": "\u2014",
     "reasons_positive": [
       "QPaint 297 records, 14 Won = $534,120, 56 Lost, 227 active. Overnight reconciliation clean.",
-      "0 unread in atlas@ and quotes@; james@ unread is 3 DMARC reports + 1 Google invoice (all system noise).",
-      "Kristeen Davis #43273 signed 1 Oct — new Won candidate pending founder review."
+      "0 unread in atlas@ and quotes@; james@ unread is 5 DMARC aggregate reports (system noise).",
+      "Kristeen Davis #43273 signed 1 Oct \u2014 new Won candidate pending founder review."
     ],
     "reasons_negative": [
-      "GitHub Pages still DISABLED — dashboard 404 site-wide. Snowark org admin token revoked.",
+      "GitHub Pages still DISABLED \u2014 dashboard 404 site-wide. Snowark org admin token revoked.",
       "Vault push dead (GH001 141MB snapshot) + state.db snapshot backup erroring (25 failures).",
       "Post-3-touch line unruled (12 records reach the decision point today); cold painter channel unruled since 11 Sep."
     ]
@@ -26,7 +26,7 @@
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "✅ 227 active QPaint journeys certified. 144 contacted. 0 exceptions. Pipeline: $7,904,080. Won: $534,120."
+      "detail": "\u2705 227 active QPaint journeys certified. 145 contacted, 43 engaged, 1 replied. 0 exceptions. Pipeline: $7,904,080. Won: $534,120."
     },
     "outreach": {
       "status": "healthy",
@@ -50,9 +50,9 @@
       "id": "pubudu-relay",
       "class": "FOUNDER_DECISION",
       "impact_sort": 92,
-      "title": "Pubudu Madawala #43161 ($110,831.60) — relay the finance update (draft ready, one word needed)",
+      "title": "Pubudu Madawala #43161 ($110,831.60) \u2014 relay the finance update (draft ready, one word needed)",
       "why_it_matters": "QPaint answered 30 Sep: finance options sent 22 Sep, Handypay QR on quote pp.19-20. Customer asked for the update. Draft at drafts/qpaint-pubudu-finance-update-2026-10-02.md.",
-      "business_impact": "High — $110.8K, customer actively fundraising.",
+      "business_impact": "High \u2014 $110.8K, customer actively fundraising.",
       "estimated_time": "1 min",
       "recommended_action": "Approve the relay (Atlas sends)."
     },
@@ -60,9 +60,9 @@
       "id": "jono-mazz-three-property",
       "class": "FOUNDER_DECISION",
       "impact_sort": 90,
-      "title": "Jono Mazz — three quotes across three properties (#43167 + #43225 + #43247, $55,615.99) — rule the fold",
+      "title": "Jono Mazz \u2014 three quotes across three properties (#43167 + #43225 + #43247, $55,615.99) \u2014 rule the fold",
       "why_it_matters": "One contact, three properties. Open since 24 Sep.",
-      "business_impact": "High — $55.6K across three records.",
+      "business_impact": "High \u2014 $55.6K across three records.",
       "estimated_time": "5 min",
       "recommended_action": "Rule the three-property disposition (fold into #43167, or split)."
     },
@@ -70,9 +70,9 @@
       "id": "madonna-crocker-fold",
       "class": "FOUNDER_DECISION",
       "impact_sort": 85,
-      "title": "Madonna Crocker — two quotes on ONE property (#43156 + #43259, $7,892.50) — fold decision",
+      "title": "Madonna Crocker \u2014 two quotes on ONE property (#43156 + #43259, $7,892.50) \u2014 fold decision",
       "why_it_matters": "One job re-partitioned across two quote numbers; total unchanged.",
-      "business_impact": "Medium-High — fragments the customer view.",
+      "business_impact": "Medium-High \u2014 fragments the customer view.",
       "estimated_time": "3 min",
       "recommended_action": "Rule the fold."
     },
@@ -80,9 +80,9 @@
       "id": "post-3-touch-precommit",
       "class": "FOUNDER_DECISION",
       "impact_sort": 80,
-      "title": "Commit the post-3-touch step before 2 Oct — 12 records reach the decision point across 1-2 Oct",
-      "why_it_matters": "Silent ≥$30K → surface to QPaint for phone; <$30K → dated 6-week review, never open-ended MONITOR.",
-      "business_impact": "Medium — prevents open-ended monitoring on high-value silence.",
+      "title": "Commit the post-3-touch step before 2 Oct \u2014 12 records reach the decision point across 1-2 Oct",
+      "why_it_matters": "Silent \u2265$30K \u2192 surface to QPaint for phone; <$30K \u2192 dated 6-week review, never open-ended MONITOR.",
+      "business_impact": "Medium \u2014 prevents open-ended monitoring on high-value silence.",
       "estimated_time": "5 min",
       "recommended_action": "Give the one line; Atlas applies it to the 12 records."
     },
@@ -90,9 +90,9 @@
       "id": "courtesy-ack-batch",
       "class": "FOUNDER_DECISION",
       "impact_sort": 78,
-      "title": "10 courtesy acknowledgments to Lost customers — batch-approve (raised 28 Sep)",
+      "title": "10 courtesy acknowledgments to Lost customers \u2014 batch-approve (raised 28 Sep)",
       "why_it_matters": "Eight straightforward; two carry extras (Amy Linley QPaint cancellation, John Tapley reason-for-loss question).",
-      "business_impact": "Medium-High — brand courtesy across 10 relationships.",
+      "business_impact": "Medium-High \u2014 brand courtesy across 10 relationships.",
       "estimated_time": "5 min",
       "recommended_action": "Batch-approve the 8, rule on the 2."
     },
@@ -100,9 +100,9 @@
       "id": "ahmad-star-painters-reassess",
       "class": "FOUNDER_EXECUTION",
       "impact_sort": 75,
-      "title": "Ahmad / Star Painters Adelaide — final founder call or honest close (next follow-up overdue 23 Sep)",
+      "title": "Ahmad / Star Painters Adelaide \u2014 final founder call or honest close (next follow-up overdue 23 Sep)",
       "why_it_matters": "Stalled opportunity, not trial. James's action = 'Await reply' since 23 Sep.",
-      "business_impact": "Medium — keeps the relationship honest.",
+      "business_impact": "Medium \u2014 keeps the relationship honest.",
       "estimated_time": "5 min",
       "recommended_action": "Make the final call or close honestly."
     },
@@ -110,9 +110,9 @@
       "id": "guy-budgen-hold",
       "class": "FOUNDER_DECISION",
       "impact_sort": 74,
-      "title": "Guy Budgen #43240 ($4,950) — Email 1 HELD (revised quote self-contradicts on fascia)",
-      "why_it_matters": "QPaint revised 29 Sep ($7,150→$4,950); fascia line removed from inclusions but two other rows still name it.",
-      "business_impact": "Medium — don't email a customer about a live contradiction.",
+      "title": "Guy Budgen #43240 ($4,950) \u2014 Email 1 HELD (revised quote self-contradicts on fascia)",
+      "why_it_matters": "QPaint revised 29 Sep ($7,150\u2192$4,950); fascia line removed from inclusions but two other rows still name it.",
+      "business_impact": "Medium \u2014 don't email a customer about a live contradiction.",
       "estimated_time": "2 min",
       "recommended_action": "Rule: hold until QPaint clarifies, or send with neutral framing."
     },
@@ -120,9 +120,9 @@
       "id": "paul-robertson-won-value",
       "class": "FOUNDER_DECISION",
       "impact_sort": 72,
-      "title": "Paul Robertson #43206 ($14,982 Won) — restate Won value? Contracted $10,879 + pending variation $4,103",
+      "title": "Paul Robertson #43206 ($14,982 Won) \u2014 restate Won value? Contracted $10,879 + pending variation $4,103",
       "why_it_matters": "QPaint confirmed revised scope NOT yet contracted. Exclusion-list contradiction also outstanding (chase QPaint).",
-      "business_impact": "Medium — keeps Won figures honest.",
+      "business_impact": "Medium \u2014 keeps Won figures honest.",
       "estimated_time": "2 min",
       "recommended_action": "Rule the Won value; Atlas chases the exclusion-list answer."
     },
@@ -130,9 +130,9 @@
       "id": "nanda-forward",
       "class": "FOUNDER_DECISION",
       "impact_sort": 70,
-      "title": "Nanda Chakkassery #43193 ($10,987.68) — QPaint asks NF to forward the document link + PDF (customer viewed it)",
+      "title": "Nanda Chakkassery #43193 ($10,987.68) \u2014 QPaint asks NF to forward the document link + PDF (customer viewed it)",
       "why_it_matters": "QPaint confirmed 30 Sep the document was viewed; asked NF to forward the link and PDF.",
-      "business_impact": "Medium — one forward, closes the delivery-doubt loop.",
+      "business_impact": "Medium \u2014 one forward, closes the delivery-doubt loop.",
       "estimated_time": "2 min",
       "recommended_action": "Approve the forward."
     },
@@ -140,9 +140,9 @@
       "id": "cold-painter-channel-ruling",
       "class": "FOUNDER_DECISION",
       "impact_sort": 70,
-      "title": "Rule on the 11 Sep Campaign Pulse decision — close cold painter channel",
+      "title": "Rule on the 11 Sep Campaign Pulse decision \u2014 close cold painter channel",
       "why_it_matters": "Cold painter channel dormant (HOLD) since 11 Sep, never ruled.",
-      "business_impact": "Medium — clears a stale open decision.",
+      "business_impact": "Medium \u2014 clears a stale open decision.",
       "estimated_time": "3 min",
       "recommended_action": "Rule: close the channel or state the reopening condition."
     },
@@ -150,9 +150,9 @@
       "id": "paul-eaton-requote",
       "class": "FOUNDER_DECISION",
       "impact_sort": 68,
-      "title": "Paul Eaton #43127 ($10,421.40) — QPaint re-issued a 2nd time (28 Sep) — decide acknowledge vs hold (overdue 30 Sep)",
+      "title": "Paul Eaton #43127 ($10,421.40) \u2014 QPaint re-issued a 2nd time (28 Sep) \u2014 decide acknowledge vs hold (overdue 30 Sep)",
       "why_it_matters": "QPaint re-issued 28 Sep, expiry 28/10, scope adds front/rear doors.",
-      "business_impact": "Medium — one live customer.",
+      "business_impact": "Medium \u2014 one live customer.",
       "estimated_time": "2 min",
       "recommended_action": "Decide acknowledge-with-Paul vs hold."
     },
@@ -162,7 +162,7 @@
       "impact_sort": 65,
       "title": "Run the V2 Email 2 observation-monitoring review (Atlas-owned, overdue)",
       "why_it_matters": "V2 Email 2 cohort observing past its review date.",
-      "business_impact": "Medium — overdue learning.",
+      "business_impact": "Medium \u2014 overdue learning.",
       "estimated_time": "20 min (Atlas)",
       "recommended_action": "Atlas completes the review."
     },
@@ -170,7 +170,7 @@
       "id": "token-rotation",
       "class": "OWNER_EXECUTION",
       "impact_sort": 55,
-      "title": "Token rotation — 9 credential classes exposed in old git history (Josh)",
+      "title": "Token rotation \u2014 9 credential classes exposed in old git history (Josh)",
       "why_it_matters": "Standing security gap.",
       "business_impact": "Medium (security)",
       "estimated_time": "30 min (Josh)",
@@ -180,9 +180,9 @@
       "id": "github-pages-disabled",
       "class": "OWNER_EXECUTION",
       "impact_sort": 50,
-      "title": "Re-enable GitHub Pages + mint new Snowark org token (dashboard 404) — Josh/Winston",
+      "title": "Re-enable GitHub Pages + mint new Snowark org token (dashboard 404) \u2014 Josh/Winston",
       "why_it_matters": "Command Centre is the declared primary channel and is 404 site-wide.",
-      "business_impact": "Medium — decision tool unavailable.",
+      "business_impact": "Medium \u2014 decision tool unavailable.",
       "estimated_time": "15 min (Josh)",
       "recommended_action": "Re-enable Pages; mint new token."
     },
@@ -190,7 +190,7 @@
       "id": "public-repos",
       "class": "OWNER_EXECUTION",
       "impact_sort": 40,
-      "title": "Two public repos expose client/customer emails — day 14 (Josh)",
+      "title": "Two public repos expose client/customer emails \u2014 day 14 (Josh)",
       "why_it_matters": "Privacy exposure.",
       "business_impact": "Medium (privacy)",
       "estimated_time": "15 min (Josh)",
@@ -200,7 +200,7 @@
       "id": "vault-push-gh001",
       "class": "OWNER_EXECUTION",
       "impact_sort": 35,
-      "title": "Vault push blocked — 141MB pre-recovery snapshot exceeds GitHub 100MB limit",
+      "title": "Vault push blocked \u2014 141MB pre-recovery snapshot exceeds GitHub 100MB limit",
       "why_it_matters": "Knowledge vault not backing up off-box.",
       "business_impact": "Medium (data protection)",
       "estimated_time": "15 min (Josh/Winston)",
@@ -208,22 +208,22 @@
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Clean overnight, QPaint stable (291 records, 14 Won $534K, 55 Lost, 222 active). Thursday is a send day: 7 Email 1s due at 07:30 (~$145K, Atlas-owned, no founder blocker). Your single highest-leverage action today is the Pubudu Madawala relay — $110.8K, customer actively fundraising, draft ready, one word needed. Then the post-3-touch line (12 records hit the decision point across 1-2 Oct).",
+    "executive_summary": "Clean overnight, QPaint stable (291 records, 14 Won $534K, 55 Lost, 222 active). Thursday is a send day: 7 Email 1s due at 07:30 (~$145K, Atlas-owned, no founder blocker). Your single highest-leverage action today is the Pubudu Madawala relay \u2014 $110.8K, customer actively fundraising, draft ready, one word needed. Then the post-3-touch line (12 records hit the decision point across 1-2 Oct).",
     "priorities": [
       {
         "class": "FOUNDER_DECISION",
         "confidence": "High",
-        "action": "Approve the Pubudu Madawala #43161 relay ($110.8K) — draft ready",
+        "action": "Approve the Pubudu Madawala #43161 relay ($110.8K) \u2014 draft ready",
         "why_it_matters": "QPaint answered; customer asked for the finance update; draft is 9/9 and waiting on one word.",
-        "expected_impact": "High — $110.8K, actively fundraising customer.",
+        "expected_impact": "High \u2014 $110.8K, actively fundraising customer.",
         "estimated_time": "1 min"
       },
       {
         "class": "FOUNDER_DECISION",
         "confidence": "High",
         "action": "Commit the post-3-touch step before 2 Oct (12 records reach the point across 1-2 Oct)",
-        "why_it_matters": "Institutionalises the ≥$30K→QPaint-phone / <$30K→6-week-review rule before Friday's run needs it.",
-        "expected_impact": "Medium — prevents open-ended monitoring on high-value silence.",
+        "why_it_matters": "Institutionalises the \u2265$30K\u2192QPaint-phone / <$30K\u21926-week-review rule before Friday's run needs it.",
+        "expected_impact": "Medium \u2014 prevents open-ended monitoring on high-value silence.",
         "estimated_time": "5 min"
       },
       {
@@ -231,7 +231,7 @@
         "confidence": "High",
         "action": "Batch-approve 10 courtesy acknowledgments to Lost customers",
         "why_it_matters": "Closes the loss loop cleanly; raised 28 Sep.",
-        "expected_impact": "Medium-High — brand courtesy, no revenue, fast to rule.",
+        "expected_impact": "Medium-High \u2014 brand courtesy, no revenue, fast to rule.",
         "estimated_time": "5 min"
       },
       {
@@ -239,7 +239,7 @@
         "confidence": "High",
         "action": "Rule Jono Mazz three-property fold (#43167 + #43225 + #43247, $55.6K)",
         "why_it_matters": "Open since 24 Sep; one contact across three properties.",
-        "expected_impact": "High — $55.6K across three records.",
+        "expected_impact": "High \u2014 $55.6K across three records.",
         "estimated_time": "5 min"
       }
     ]
@@ -247,12 +247,16 @@
   "changes": {
     "today": [
       {
+        "time": "2026-10-03T04:03:02+09:30",
+        "text": "Overnight reconciliation clean \u2014 297 QPaint records unchanged, no new customer mail, no new Won/Lost. 3 carried founder items remain (Guy Budgen, Kristeen Davis, Nanda Chakkassery)."
+      },
+      {
         "time": "04:00",
         "text": "Overnight clean: 0 unread atlas@/quotes@; james@ 4 unread = 3 DMARC + 1 Google invoice (system noise). 4 QPaint replies in james@ already reconciled (Kishor Chandra no-contact, Brooke Warren AGM-date in motion, floor-sander FYI, Won/Lost-process ack)."
       },
       {
         "time": "04:00",
-        "text": "Friday load: 20 QPaint records due today — 2 clean first touches, ~11 post-3-touch reviews (Atlas-owned), Pubudu relay (founder), Kristeen Davis signature review (new Won)."
+        "text": "Friday load: 20 QPaint records due today \u2014 2 clean first touches, ~11 post-3-touch reviews (Atlas-owned), Pubudu relay (founder), Kristeen Davis signature review (new Won)."
       }
     ],
     "yesterday": [
@@ -285,19 +289,19 @@
     "recent": [
       {
         "id": "INC-2026-08-11",
-        "title": "QPaint Quote Intake — False Completion",
+        "title": "QPaint Quote Intake \u2014 False Completion",
         "status": "Closed",
         "summary": "3 quotes marked complete with $0 deal values. Root cause: no certification gate. Fixed: certify_intake_complete() + Intake Exception state."
       },
       {
         "id": "BK-014",
-        "title": "ATTEMPTED ≠ COMPLETED",
+        "title": "ATTEMPTED \u2260 COMPLETED",
         "status": "Permanent",
-        "summary": "Automation success ≠ business outcome success. Every critical workflow must verify the business state."
+        "summary": "Automation success \u2260 business outcome success. Every critical workflow must verify the business state."
       },
       {
         "id": "BK-015",
-        "title": "HTTP 200 ≠ Application Success",
+        "title": "HTTP 200 \u2260 Application Success",
         "status": "Permanent",
         "summary": "HQ certification requires visual rendering verification, not just HTTP status."
       }
@@ -308,12 +312,12 @@
     "principles": []
   },
   "production_incidents": {
-    "description": "GitHub Pages disabled (404 site-wide) + Snowark org token revoked. State DB snapshot backup erroring (25 failures — 'malformed' raise but quick_check ok, unexplained). state.db integrity RESOLVED 26 Sep.",
+    "description": "GitHub Pages disabled (404 site-wide) + Snowark org token revoked. State DB snapshot backup erroring (25 failures \u2014 'malformed' raise but quick_check ok, unexplained). state.db integrity RESOLVED 26 Sep.",
     "total": 2,
     "recent": [
       {
         "id": "BACKUP-AUTH-2026-09",
-        "title": "Vault push blocked — 141MB snapshot exceeds GitHub limit",
+        "title": "Vault push blocked \u2014 141MB snapshot exceeds GitHub limit",
         "status": "Open",
         "summary": "GH001 rejects every push (>100MB). Requires Josh/Winston: git rm --cached + history purge or git-lfs."
       },
@@ -327,7 +331,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "✅ QPaint portfolio certified. 227 active journeys. Protocol v1.0.0. Send authority live.",
+  "operational_status": "\u2705 QPaint portfolio certified. 227 active journeys. Protocol v1.0.0. Send authority live.",
   "vault_health": {
     "decisions": {
       "total": 83,
@@ -352,8 +356,8 @@
     },
     "infrastructure": {
       "disk": "46% (11G free)",
-      "state_db": "113M (integrity OK — recovered 26 Sep)",
-      "pages": "DISABLED — dashboard 404; gh-pages branch still updating"
+      "state_db": "113M (integrity OK \u2014 recovered 26 Sep)",
+      "pages": "DISABLED \u2014 dashboard 404; gh-pages branch still updating"
     }
   },
   "qpaint_pipeline": {
@@ -363,27 +367,27 @@
       "won_count": 14,
       "won_value": 534120,
       "lost_count": 56,
-      "engaged_replied": 43,
-      "contacted": 144,
-      "not_contacted": 40
+      "engaged_replied": 44,
+      "contacted": 145,
+      "not_contacted": 38
     },
     "stage_breakdown": {
-      "New": 41,
+      "Email 3": 71,
       "Lost": 56,
       "Email 1": 42,
-      "Engaged - Awaiting Confirmation": 1,
-      "Engaged": 3,
-      "Replied": 38,
-      "Email 3": 70,
-      "Email 2": 29,
+      "New": 39,
+      "Replied": 39,
+      "Email 2": 28,
       "Won": 14,
-      "Awaiting Reply": 1,
-      "Email 4": 2
+      "Engaged": 3,
+      "Email 4": 3,
+      "Engaged - Awaiting Confirmation": 1,
+      "Awaiting Reply": 1
     },
     "priority": {
+      "P3": 151,
       "P1": 93,
-      "P2": 53,
-      "P3": 151
+      "P2": 53
     },
     "key_customers": [
       {
