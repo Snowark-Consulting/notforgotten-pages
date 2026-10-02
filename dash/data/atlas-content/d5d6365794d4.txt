@@ -17,7 +17,7 @@ tier: primary
 | **Incident log** | `learnings/INDEX.md` | Resolved incidents (LL-*). |
 | **Unresolved** | `learnings/ERRORS.md` | Open incidents. |
 | **Catalogue** | `learnings/catalogue.md` | Domain → card trigger map. |
-| **Corruption series** | `learnings/corruption/INDEX.md` | Standing fact sheet for the recurring out-of-band corruption of the catalogue + cards (**23 occurrences, Sep–Oct 2026**): damage signature, falsified hypotheses, repair playbook. Read before investigating a new event. |
+| Corruption series | `learnings/corruption/INDEX.md` | Standing fact sheet for the recurring out-of-band corruption of the catalogue + cards (**24 occurrences, Sep–Oct 2026**): damage signature, falsified hypotheses, repair playbook. Read before investigating a new event. |
 | **This file** | `learnings/LEARNINGS.md` | Chronological index to the above. |
 
 ## Card inventory
@@ -48,6 +48,9 @@ tier: primary
 | telegram | `cards/telegram.md` |
 
 ## Chronological index (newest first)
+
+### 2026-10-02
+- **Learnings corruption, 24th occurrence — two files, and for the first time EVERY writer block failed attestation.** A 1.7 s burst at 07:12:38–07:12:40 ACST rewrote `cards/hermes.md` (10 → 13 `## TRAP` headings: 2 traps deleted outright, 1 renamed, 5 UPDATE notes deleted) and `catalogue.md` (warning block + the `gmail-auth` and `email` rows dropped, 4 keyword cells reworded); guard = **14 findings**. Six writer blocks and **all six rejected — zero re-applied**: two falsified against `config.yaml`/the live `state.db`, one a reword of an existing trap, one a foreign series record, one the **fifth consecutive re-injection**, one with zero pre-write evidence. Repair: HEAD verified clean by content marker → `git restore` → extract → attest → duplicate-check → heading LIST diff (10 = 10) → catalogue reconciled 22 rows = 22 cards. Dated file `learnings/2026-10-02-learnings-corruption-24th.md`.
 
 ### 2026-10-01
 - **Learnings corruption, 23rd occurrence — a CARD-ONLY event, and the third consecutive re-injection.** A 3.34 s burst at 07:08:14–07:08:17 ACST rewrote **three cards and not the catalogue** (`gmail` 25 → 27 headings with 7 traps lost, `agent-architecture` 19 → 19 with 4 traps lost, `airtable` purely additive); guard = **14 findings**. First event since the 8th with no catalogue damage, so **read the file set, never assume it**. Five writer blocks: **3 attested and re-applied** (relay idempotency guard, filing-script traceback, subagent self-report), **2 rejected for the third time** (the foreign "15th occurrence" record; the `multipart/mixed` trap). Repair: HEAD verified clean by content marker; 2 cards restored; heading LIST diff = zero missing; repair committed `0e7e9e21`. Dated file `learnings/2026-10-01-learnings-corruption-23rd.md`.
@@ -513,3 +516,13 @@ When a new entry contradicts a prior one: set `Contested: true` on both, add rec
 **Rule:** when a filing/mutation script reports failure, **do not re-run blind and do not escalate** — first read the resource's actual state (`gmail get <id> --format=minimal` labels, or an Airtable read-back). Treat the reported error as the *last attempted* operation, not the *first failed* one. A retry is only safe once you know the write is idempotent (the modify call is: add/remove label sets, so re-running is harmless), but the correct diagnostic order is always state-first. This is Safety Rule 11 (never trust a green tick) read in reverse: never trust a red one either.
 **Applied:** label state confirmed on both messages; both verified `Label_135578373843577379` present, INBOX absent, UNREAD absent; quotes@ `in:inbox` 0 and `is:unread` 0. No change needed to `file-quote-completed.py` — it is idempotent and correct.
 **Source:** quotes-pulse, 2026-10-01.
+
+## 2026-10-02 — Learnings corruption, 24th occurrence: two files, and for the first time every writer block failed attestation
+
+**Confidence:** high (guard-detected, repaired, verified by re-run)
+**Contested:** false
+**Context:** The nightly 2026-10-02 consolidation found `learnings/catalogue.md` and `learnings/cards/hermes.md` dirty against a clean HEAD (last learnings commit `bb032b13`). Mtimes: `hermes.md` 2026-10-01 21:42:38.734 UTC, `catalogue.md` 21:42:40.438 UTC = **07:12:38–07:12:40 ACST**, a 1.7 s burst across exactly two files. `ERRORS.md` carried 21:11:04 UTC (a genuine +1 bug-card append) and `LEARNINGS.md` 11:32:44 UTC, so the discriminator confirms a real write rather than the snapshot autostash.
+**Finding:** the writer's usual signature, on a new file pair. `cards/hermes.md` went 10 → 13 headings (2 traps deleted outright, 1 renamed, 5 UPDATE notes deleted); `catalogue.md` lost its `EDITING THIS TABLE` warning block and the `gmail-auth` + `email` rows, and had four keyword cells reworded — additions and deletions mixed, which is why a keyword-only diff cannot be trusted as either.
+**Rule (the new standing lesson):** six writer blocks were extracted and **all six failed attestation** — the first time zero blocks passed. Two were falsified against live state, not provenance: a block asserting `model.default` was `deepseek/deepseek-v4-flash-0731` when `config.yaml` says `deepseek-v4-pro`, and another citing `state.db store_created_at_utc = 2026-09-20T01:36 UTC` when the live DB was restored to the 18 Sept snapshot on 2026-09-26. One was a reword of a trap HEAD already holds (with better evidence), one was a foreign series record, one carried zero pre-write `state.db` rows on disk, and the sixth (`delegation: a docs/skills synthesis flash agent fabricates a plausible file layout`) was already recorded as rejected in `learnings/2026-09-23-learnings-corruption-17th.md:73` — the **fifth consecutive event** re-injecting previously-rejected content. **Attestation must test the block's factual claims against the filesystem, not just its provenance.**
+**Applied:** `git restore` of both files from the content-marker-verified clean HEAD; heading LIST diff 10 = 10; catalogue reconciled 23 pipe-lines = 1 header + 22 rows = 22 cards; guard re-run as the LAST step = silent PASS. Count 23 → 24 propagated to all five locations (`learnings/corruption/INDEX.md`, `LEARNINGS.md`, `memory/MEMORY.md`, `Agent/Registry.md`, the catalogue warning block).
+**Source:** nightly consolidation, 2026-10-02. Dated record `learnings/2026-10-02-learnings-corruption-24th.md`.

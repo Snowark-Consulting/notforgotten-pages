@@ -1,0 +1,254 @@
+---
+doc_type: review-pack
+owner: notforgotten
+tier: primary
+client: QPaint + NF growth
+date: 2026-10-01
+prepared_by: Atlas (Prepare-Ahead Clock, 22:00 ACST)
+status: PREPARATION + TWO EXECUTED ACTIONS. One CRM timing defect fixed (Les Harvison #43138). One send path built and scheduled (CUST2-PILOT Touch 2). No customer contact by this pack.
+---
+
+# Prepare-ahead pack — Fri 2 Oct to Mon 5 Oct 2026
+
+> **Headline.** The 48-hour window is thin and clean: **Friday carries 20 QPaint records ($487,018.88)**,
+> **Saturday and Sunday carry zero customer sends**, and **nothing needs drafting that is not already
+> drafted.** The real weight sits on **Monday 5 October**: 16 QPaint records ($407,578.81) *plus* the
+> **Customer #2 pilot's Touch 2 to 15 businesses** — the largest single day of the month so far.
+> Two things were wrong and are now fixed: an expiry reminder that would have landed on the expiry date
+> itself, and a 15-recipient Touch 2 with no execution path and no scheduler behind it.
+
+**Source:** live Airtable pull, 1 Oct 22:05 ACST — QPaint Pipeline **297 records** (was 291 at 04:06
+today; 6 new intakes during the day). Recovery Status: New 40 · Contacted 144 · Engaged 43 · Lost 56 ·
+Won 14. Won book $534,120.09. Prospects 347. Scan dump:
+`data/prepare-ahead-scan-2026-10-01-2200.json`.
+
+---
+
+## 1. What changed today (after the 30 Sep 22:00 pack)
+
+| Record | What happened | Effect |
+|---|---|---|
+| **9 QPaint sends executed** at 07:43 | 7 Email 1 (Verena Curr, Dino Willox, Antonia Roze, Sumant Kevat, Annette Tracy, Michael, Scott Sullivan), 1 Email 3 (Sara West), 1 expiry reminder (Steve Clare #43137) | All Gmail-SENT verified, all Airtable-reconciled, 19 CRM reconciliations |
+| **Annette Tracy #43232** | **Declined ~2h after receiving Email 1** | Closed to Lost. Journey over, NTD cleared |
+| **Kristeen Davis #43273** | **Quote signed/accepted** (PandaDoc notification) | **No longer a Friday Email 1.** Founder review hold; intake cannot declare Won |
+| **Kishor Chandra #43114** | Tas (08:20) said no proactive extension; Leslie then issued one to 30 Oct | Resolved in-run. QPaint internal divergence surfaced as FYI. Review 8 Oct |
+| **Les Harvison #43138** | *(fixed tonight, §5)* reminder was dated the expiry date itself | Moved to Fri 2 Oct |
+| **6 new intakes during 1 Oct** | Dale Taylor #43269, Amy Deeb #43289, Maddy Tee #43284, Letchu Marayanan #43274, Damien Ryan #43249, Ramona Jackson #43305 | All correctly landed on **Mon 5 Oct** — the 48h observation expires Sat 3 Oct and the weekend guard already rolled it |
+| **CUST2-PILOT** | 15/15 Touch 1 sent 30 Sep, **0 replies, 0 bounces** | Touch 2 due Mon 5 Oct. Path built tonight (§6) |
+
+---
+
+## 2. Friday 2 October — 20 records, $487,018.88
+
+### 2a. First-touch Email 1 — 2 records, $83,415.20 (no drafting needed)
+
+Renders from the canonical template `qpaint-recovery-introduction` v1. **Checksum re-verified tonight
+by running the production loader** (`scripts/canonical_template.py`): stored == computed ==
+`0241bdb45a22ba13a8e9ba2b7e4e83eb53b84a458e042ec3e444a91dba18f882`. Nothing is drafted from memory.
+
+| Quote | Customer | Property | Value | Note |
+|---|---|---|---|---|
+| 38010 | Andrew Banks | 49 Broadway St, Woolloongabba (Broadway Chapel) | $72,950.90 | Quote number sits far below the 43xxx series though prepared 16 Sep. Recorded as issued; flagged only in case QPaint runs a second series for larger jobs |
+| 43279 | Ian Herd | 42 Trinidad Terrace, Deception Bay | $10,464.30 | Clean. Contact read from the document, not inferred |
+
+**Was 3 first touches; now 2.** Kristeen Davis #43273 ($13,183.50) signed on 1 Oct and is held for
+founder review, so no Email 1 is owed.
+
+### 2b. Expiry reminder — 1 record, $14,877.26 (moved into this window tonight)
+
+**Les Harvison #43138** — quote expires Mon 5 Oct. Draft at `drafts/qpaint-expiry-reminders-2026-10-01.md`,
+Voice Review 9/9, 0 em dashes in body, white-label signature verbatim. See §5.
+
+### 2c. Relay awaiting one word — 1 record, $110,831.60
+
+**Pubudu Madawala #43161** — she asked us directly to "speak to James and give us an update"; QPaint
+(Tas) answered 30 Sep: the Handypay finance options went to her on 22 Sep and **nothing further is
+pending**. Draft ready at `drafts/qpaint-pubudu-finance-update-2026-10-02.md`, Voice Review 9/9. The
+record still carries "founder approval pending", so per-prospect instruction outranks the general relay
+authority and it stays gated. **One word unblocks it.**
+
+### 2d. Post-3-touch decision point — 11 records, $205,146.07
+
+Email 3 sent 25 Sep, silent at Day 7, three touches complete. Each is Atlas-owned and each carries
+`REVIEW → DECIDE`:
+
+Majella Nicolo $12,573 · Eugenia Lin $1,980 · Anna Schmitz $30,855 · Cecilia Cheung $39,418.50 ·
+Emily Usm $11,497.20 · Levi Brown $29,574.60 · Wesley Cameron Logan $16,219.67 · Hannah Wigan $17,490 ·
+Jayantha manel $33,379.50 · Tana Luck $20,779 · Vanessa Tobin $11,737.
+
+With **Christopher Price #43148** (Email 3 sent 24 Sep, NTD cleared today) that is **12 records /
+$232,383.97 reaching the same judgement in the same 48 hours**. This is the line that has been open
+since 25 Sep (§7, item 1).
+
+### 2e. Reviews with no send owed
+
+- **Jesse Zhao #43261 $8,440.85** — Email 1 sent 25 Sep, silent → Email 2 only if silent at review.
+- **Sharon Fleay #43091 $2,871** — Email 2 sent 25 Sep, silent. Review.
+- **John Wilson #43092 $12,914** — QPaint re-issued 30 Sep (expiry extended to 7 Oct, optional interior
+  scope $8,920 added). The revision may itself be the reason for a next touch.
+- **Paul Robertson #43206 $14,982** — Won, QPaint-owned. The recorded $14,982 exceeds the $10,879
+  contracted; the exclusion-list contradiction (carport/posts both in and out) still needs chasing.
+
+### 2f. Overdue, carried
+
+- **Guy Budgen #43240 $4,950** — Email 1 blocked. The revised document removes fascia from inclusions
+  but two rows still name it. Cannot send on a document with a known defect.
+- **Paul Eaton #43127 $10,421.40** — QPaint re-issued twice. Default = hold and monitor, no customer send.
+- **Nanda Chakkassery #43193 $10,987.68** — QPaint confirmed the customer *viewed* it and asked NF to
+  forward the link **and** the PDF. A customer send needing both a ruling and the PDF from QPaint.
+
+---
+
+## 3. Weekend check — clean
+
+**Zero records** anywhere on **Sat 3 Oct** or **Sun 4 Oct** in either the QPaint Pipeline or the
+Prospects table. No guard action needed. The next dated cluster is Mon 5 Oct.
+
+---
+
+## 4. Monday 5 October — the heaviest day of the month
+
+**16 QPaint records, $407,578.81**, plus the pilot (§6).
+
+First-touch candidates (`New/New`, 48h observation satisfied, weekend guard already applied):
+
+| Quote | Customer | Value |
+|---|---|---|
+| 43284 | Maddy Tee — 7/231 Holt Street, Pinkenba | $97,600.80 |
+| 43274 | Letchu Marayanan — 31 Ramada Place, Fig Tree Pocket | $32,846.00 |
+| 43269 | Dale Taylor — 1059 Moggill Road, Kenmore | $22,642.62 |
+| 43249 | Damien Ryan — 48 Oliver St, Kedron | $22,639.10 |
+| 43289 | Amy Deeb — 6/44 Brighton Road, Highgate Hill | $6,930.00 |
+
+Two of the seven carry a standing hold and are reviews, not sends: **Jono Mazz #43225 $34,093.20**
+(folded into the #43167 three-property relationship) and **Ramona Jackson #43305 $6,446**
+(Civium multi-complex, no contact). **The fold itself is still unruled** (§7, item 2).
+
+Others due: Kyle Hope #43168 $60,349.30 · Natalie Moric #43160 $35,572.90 · Cameron Nygaard #43176
+$21,982.40 · Jono Mazz #43167 $16,585.99 · Jessica Carder #43212 $15,246.00 · Luke Giddins #43237
+$12,947.00 · Jeremy #43241 $10,912.00 · Steve Liversidge #43102 $6,468.00 · Madonna Crocker #43156
+$4,317.50.
+
+**Nothing on Monday needs drafting.** The five first touches render from the verified canonical
+template; the rest are reviews.
+
+---
+
+## 5. EXECUTED — Les Harvison #43138 timing defect fixed
+
+**Defect.** The 28 Sep weekend guard moved the NTD from Sat 3 Oct to Mon 5 Oct. But the quote *expires*
+Mon 5 Oct, so the reminder offering to hold the quote open would have arrived **on the day the pricing
+lapsed**, giving the customer no room to act. The touch existed only to give them that room.
+
+**Action taken (verified by read-back).** `Next Touchpoint Date` → **2026-10-02 (Fri)**; `First Action`
+rewritten; a dated line appended to `Outreach Notes` (append-only, prior value preserved). Stage,
+Recovery Status and Deal Value unchanged. No customer contact.
+
+Friday is a weekday, so the weekend guard is satisfied *and strengthened* — the customer now gets the
+weekend to respond before Monday's expiry.
+
+**Swept for the same defect across all 297 records:** expiry text versus NTD. **#43138 was the only
+one.** No other record's reminder lands on or after its expiry.
+
+---
+
+## 6. EXECUTED — CUST2-PILOT Touch 2 path built and scheduled
+
+**The gap.** The Customer #2 pilot sent Touch 1 to 15 businesses on 30 Sep under a founder-direct
+authority (expires 18 Oct). Touch 2 was due Mon 5 Oct. There was **no send path for Touch 2** — the
+only script (`cust2-pilot-stage2-send.py`) hardcodes the Touch 1 body — and **no cron, no scheduler, and
+no owner** watched the campaign at all. The touch would have been missed or improvised.
+
+**Closed tonight:**
+
+| Artifact | What it is |
+|---|---|
+| `scripts/cust2-pilot-touch-send.py` | Generic sender for touches 2–5. **Reads every touch body from `CAMPAIGN.md`** — no automation holds its own copy of an email body (decision `2026-08-01-single-source-of-truth`). Fails closed on a missing subject, an em dash, or a missing opt-out |
+| `data/customer2-research/pilot-subjects.json` | Subject per touch. Touch 2 only; later touches deliberately undefined so the script fails closed rather than inventing copy |
+| `data/customer2-research/pilot-threads.json` | 15 thread IDs, so Touch 2 lands inside each existing conversation |
+| `scripts/cust2-pilot-touch2-run.py` | One-shot runner for the cron entry |
+| Cron `c64d87b9c02b` | **Mon 5 Oct 09:00 ACDT** (= 08:30 QLD), one-shot, delivers to Updates |
+
+**Verification performed, nothing sent:**
+
+- Dry run rendered **15/15**, all personalised from verified first names, **0 em-dash violations,
+  0 missing opt-outs, 0 greeting failures**. Preview: `data/customer2-research/touch2-preview.json`.
+- **Reply guard proven** (`--check-replies`): **0 of 15** recipients have any inbound mail in james@.
+  Any reply at all stops that recipient's progression; opt-out language stops it and flags for CRM close.
+- **Thread-1 delivery re-verified:** 15 sent matches in james@, **0 bounces**, `from:` search for all 15
+  returns nothing.
+- **Airtable write path proven** with a no-op PATCH and read-back (values unchanged), so Monday's
+  reconciliation is not untested code.
+- Canonical QPaint template checksum re-verified through the production loader.
+
+**What the founder may want to decide:** whether to let the 09:00 Monday send run, or review the Touch 2
+copy first. The campaign is founder-authorised and the founder's instruction was not to return for
+routine individual send approval, so the default is that it runs. Removing the job
+(`hermes cron remove c64d87b9c02b`) is a one-line veto.
+
+**Governance note, raised not actioned:** the pilot has no canonical-registry entry — its copy lives in
+`CAMPAIGN.md`, which is now read at send time rather than duplicated. The QPaint expiry/outcome-support
+purpose has the same gap (`drafts/qpaint-expiry-reminders-2026-10-01.md`, §Governance). Both are worth
+one registry pass; neither blocks this window.
+
+---
+
+## 7. Founder decisions open
+
+| # | Item | Value | Recommendation |
+|---|---|---|---|
+| 1 | **The post-3-touch line** — asked 25 Sep, wanted before 2 Oct, still unruled. It now governs 12 records reaching the same judgement in this window | — | **Rule per cohort, not per touch number.** The persistence standard forbids both a blanket "no fourth touch" and a blanket fourth touch. Default the judgement to Atlas (already the recorded owner on all twelve) and let each differentiate on evidence. One line clears the logjam |
+| 2 | **Jono Mazz three-property fold** $55,615.99 · **Madonna Crocker two-quote fold** $7,892.50 | — | Unruled, carried since 29 Sep |
+| 3 | **Kristeen Davis #43273** — signed 1 Oct, held from Won because intake cannot declare it | $13,183.50 | **Confirm the Won** and record the contracted value, or say what is missing |
+| 4 | **Pubudu Madawala #43161** — relay drafted, record says approval required | $110,831.60 | **Approve.** She asked us directly and the content is QPaint's own answer |
+| 5 | **Nanda Chakkassery #43193** — QPaint asked NF to forward link + PDF | $10,987.68 | Approve the forward once the PDF lands in the drive folder |
+| 6 | **Guy Budgen #43240** — document self-contradicts on fascia | $4,950.00 | Put the contradiction to QPaint (routine handoff), then send on the revised scope |
+| 7 | **Paul Robertson #43206** — recorded $14,982 vs $10,879 contracted | $14,982.00 | Restate to contracted + pending variation |
+| 8 | Carried: **Paul Eaton #43127** (default hold) · courtesy-ack batch (10 Lost) · **Ahmad / Star Painters** close · cold painter channel ruling (11 Sep) · Founder Call Rounds 3+4 capture | — | Unchanged |
+
+---
+
+## 8. Decision reviews
+
+**Four reviews were due today (1 Oct) and remain unruled:** `founding-atlas-as-primary-sender`,
+`founding-no-pitch-in-first-email`, `founding-business-name-fallback`,
+`2026-08-01-campaign-pulse-reporting-standard`. A further eight land 2–5 Oct, then
+`2026-07-06-campaign-review-operating-standard` (6 Oct) and `2026-07-07-communication-voice-standard`
+(7 Oct). Prep on file at `knowledge/decision-reviews/2026-10-01-oct-cluster-review-prep.md`.
+Nothing is owed on these before they are read.
+
+---
+
+## 9. Prepared and executed tonight
+
+| Item | Status |
+|---|---|
+| Les Harvison #43138 NTD → Fri 2 Oct | **EXECUTED**, read-back verified |
+| Expiry-vs-NTD sweep, all 297 QPaint records | **RUN**, one finding, fixed |
+| CUST2 Touch 2 sender + subjects + threads + runner | **BUILT**, dry-run + guard verified |
+| CUST2 Touch 2 scheduled Mon 5 Oct 09:00 ACDT | **SCHEDULED** `c64d87b9c02b` |
+| QPaint canonical template checksum | **VERIFIED** via production loader |
+| `data/prepare-ahead-scan-2026-10-01-2200.json` | Full scan written |
+
+---
+
+## 10. Structural — two operating skills are now write-frozen
+
+`skills/snowark/growth-operations/SKILL.md` is **105,246 characters, over the 100,000-char skill
+limit.** `skill_manage(action='patch')` is rejected outright, so tonight **no pointer to this window's
+new reference could be added to SKILL.md**, and no further pitfall can ever be added to it again.
+`skills/notforgotten/quote-intake/SKILL.md` hit the same wall on 24 Sep (102,298) and is still
+unresolved.
+
+**Why it matters beyond tidiness:** every cron job that loads `growth-operations` reads SKILL.md and
+will not see new `references/` files through the skill index. Tonight's two new checks
+(`references/expiry-ntd-collision-and-orphan-campaigns.md`) are therefore discoverable only by listing
+the references directory. That is a live degradation of the learning loop, not a cosmetic issue.
+
+**Recommended fix:** split one coherent block out of each SKILL.md into `references/` and leave a
+pointer. Structural change to operating skills, so it wants a founder ruling rather than a mid-scan
+edit.
+
+---
+
+*No customer contact. No send. One CRM timing correction. One send path built and scheduled.*

@@ -1,0 +1,79 @@
+---
+doc_type: reference
+owner: notforgotten
+tier: primary
+---
+
+# Learnings Corruption — 24th occurrence (2026-10-02)
+
+> 24th out-of-band rewrite of `learnings/`. Two files in a 1.7 s burst at 07:12:38–07:12:40 ACST. **All six writer blocks failed attestation and none was re-applied** — the fifth consecutive event carrying re-injected, previously-rejected content.
+
+## Event facts
+
+| Field | Value |
+|---|---|
+| Occurrence | **24**, 2026-09-06 → 2026-10-02 |
+| Write window | **2026-10-01 21:42:38.734 – 21:42:40.438 UTC = 2026-10-02 07:12:38 – 07:12:40 ACST** |
+| Files | **2** — `learnings/cards/hermes.md` (21:42:38), `learnings/catalogue.md` (21:42:40) |
+| Burst | 1.7 s apart = a loop over files |
+| Mtime discriminator | Satisfied. `learnings/ERRORS.md` carried 21:11:04 UTC (31 min earlier, a legitimate append) and `learnings/LEARNINGS.md` 11:32:44 UTC; the damaged pair is a tight 1.7 s burst, not one instant across the whole dirty set — so this is a **real write**, not the `backup-state-db.sh` autostash |
+| Guard findings | **14** — identical count to the 23rd event (further confirmation the count is not a severity proxy) |
+| Baseline | **HEAD clean**, verified by content marker: `git show HEAD:learnings/catalogue.md` carries `EDITING THIS TABLE` and both the `gmail-auth` and `email` rows. Last learnings commit = `bb032b13`, this series' own 23rd-event consolidation |
+| Detection | 2026-10-02 21:00 ACST consolidation — **~13.8 h after the write**. No scheduled control saw it: the 21:20 guard and 21:30 backup both ran before it |
+
+## Damage
+
+**`learnings/catalogue.md`** (7 added / 10 deleted):
+- `EDITING THIS TABLE` warning block **deleted**
+- `gmail-auth` row **dropped**
+- `email` row **dropped and re-inserted malformed** as `| email 🆕 | ... | cards/email.md` 🆕 |`
+- `campaign` card cell rewritten as a markdown link: `[campaign.md](cards/campaign.md)`
+- **Four rows re-keyworded** — additions mixed with deletions:
+  - `hermes`: lost `write_file`, `append-only log`; gained `hermes`, `delegation`, `subagent`, `flash agent`, `memory store`, `memories/`
+  - `cron`: gained `Hermes tools Python`, `agent venv`, `googleapiclient`
+  - `agent-architecture`: lost `negative grep`, `rule does not exist`
+  - `qpaint`: **de-keyworded** (lost `QPaint`, `1300 QPAINT`, `white-label`, `Dee`, `Leslie`, `Tas Moulis`, `pipeline truth`, `recovery ops`, `Email 3`; gained `deal status`, `availability escalation`, `customer waiting`)
+- Trailing newline removed
+
+**`learnings/cards/hermes.md`** (44 added / 38 deleted):
+- **2 traps deleted outright:** `v0.20.4 session turn lease stops the session on heavy inline writes`; `Gateway lifecycle guard false-flags python3 -c file reads as "gateway stop"`
+- **1 trap renamed:** `~/.hermes/memories/ is the LIVE memory store, NOT a stale dir — never delete it` → `DANGER: ... (lint-memories-dir false positive)`
+- **5 UPDATE notes deleted**, including the whole `> **UPDATE 2026-08-18:**` cron-bloat driver note and the 2026-09-11 fix-list items
+- Heading count 10 → 13 (3 lost to deletion/rename, 5 added) — **only a LIST diff catches this**, a count check passes cleanly
+
+## Attestation — all six blocks REJECTED
+
+Repair order: restore → extract → **ATTEST** → duplicate-check → re-apply.
+
+| Writer block | Verdict | Basis |
+|---|---|---|
+| `dream-cost-v4-pro-fragmentation: false positive...` | **REJECT** | Asserts `model.default` is `deepseek/deepseek-v4-flash-0731`; `config.yaml` line 3 says `deepseek-v4-pro`. Already rejected on the 17th and 23rd events. Zero pre-write `state.db` rows. |
+| `dream-cost-model-id-normalization: false positive...` | **REJECT** | Same stale-premise family — cites `state.db store_created_at_utc = 2026-09-20T01:36 UTC`, but the live DB was restored to the 18 Sept snapshot on 2026-09-26. No LEARNINGS.md entry, no pre-write row. |
+| `DANGER: ~/.hermes/memories/ is the LIVE memory store...` | **REJECT (duplicate/reword)** | Restoring from HEAD returns the **original, better-evidenced** trap with its `Evidence:` line. The writer's version is a reword of existing content, not a new learning. |
+| `delegation: a docs/skills synthesis flash agent fabricates a plausible file layout` | **REJECT** | `learnings/2026-09-23-learnings-corruption-17th.md:73` records this block verbatim as **"NOT ATTESTED. Already rejected on the 16th event; re-injected"**. Fifth consecutive re-injection. |
+| `Learnings corruption, 16th occurrence: six cards, and a writer block describing infrastructure that does not exist` | **REJECT** | A foreign series record. Held in full in `learnings/LEARNINGS.md` and `learnings/corruption/INDEX.md`; it does not belong in a Hermes card. |
+| `orgo OOM kills gateway mid-checkpoint → state.db corrupt; restore supervisord-style, never pgrep+kill` | **REJECT** | No `LEARNINGS.md` entry, no dated file, no cron output, and **zero `state.db` rows predating the write** (every match on disk is this consolidation's own tool output). Its subject matter is already covered by `skills/devops/hermes-gateway-ops/SKILL.md` (4 GB / zero swap fragility, `suspected_oom` misleading) and `skills/devops/hermes-state-db/references/gateway-corruption-forensics.md` (SIGKILL-mid-checkpoint). Not re-applied under the strict attestation rule. |
+
+**No block was re-applied.** All six are preserved verbatim in this record for owner verification.
+
+## Repair
+
+1. Pre-restore safety check — `git diff --numstat`: only `catalogue.md` (−10/+7), `cards/hermes.md` (−38/+44) and a legitimate additive `ERRORS.md` (+1: `BUG-20261002-064104-107876`, matching the real bug card in `support/outbox/`). No legitimate work at risk.
+2. HEAD verified clean by content marker, so `git restore learnings/catalogue.md learnings/cards/hermes.md`.
+3. Extraction produced six blocks; **attestation rejected all six** (table above).
+4. Heading LIST diff vs HEAD: **10 = 10, zero missing**, no collateral.
+5. Catalogue reconciled: 23 pipe-lines = 1 header + **22 rows = 22 cards**, warning block present, zero `||` rows (the single `grep '||'` hit is the warning block's own prose).
+6. Guard re-run as the LAST step = **silent PASS**.
+
+## Standing rules reinforced
+
+- **Re-injection is now the routine case, not a caution.** This is the **fifth consecutive event** (20th–24th) carrying blocks a prior consolidation had already examined and rejected. Never inherit last night's verdict; re-attest from scratch every run.
+- **Attestation rejects on content, not provenance.** Two of tonight's blocks *sounded* like real infrastructure findings; both were falsified against `config.yaml` and the live DB. A writer block citing a config value must be checked against the live config.
+- **A renamed heading is the writer's standing trick** — the `memories/` trap was renamed, and the 2026-09-11 fix-list items were dropped from the catalogue-corruption trap's Fix. Restore from HEAD; never hand-merge against a fuzzy diff.
+- **Detection latency remains the binding defect.** ~13.8 h again. Rec `consolidation-learnings-guard-0715` (a ~07:15 ACST detect-and-restore run) is still unbuilt because an auto-restoring job is an infrastructure change requiring explicit founder approval.
+
+## Related
+
+- `learnings/corruption/INDEX.md` — the standing fact sheet for the series
+- `learnings/cards/hermes.md` → `## TRAP — learnings/catalogue.md corrupted by fuzzy multi-line patches; always full-file rewrite`
+- Guard: `scripts/bin/learnings-integrity-guard.py` (cron `59d5247cd604` 21:20 + pre-commit gate in `nightly-backup.sh`)
