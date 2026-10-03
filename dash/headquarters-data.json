@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-10-03T04:03:02+09:30",
+  "generated_at": "2026-10-04T03:03:38+10:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "The QPaint portfolio is stable. 297 total records, 227 active journeys, 14 Won ($534,120), 56 Lost. Overnight reconciliation clean.",
+    "body": "The QPaint portfolio is stable. 303 total records, 231 active journeys, 16 Won ($554,392), 56 Lost. Overnight reconciliation clean.",
     "estimated_time": "2 minutes"
   },
   "business_score": {
     "score": 86,
     "change": "\u2014",
     "reasons_positive": [
-      "QPaint 297 records, 14 Won = $534,120, 56 Lost, 227 active. Overnight reconciliation clean.",
+      "QPaint 303 records, 16 Won = $554,392, 56 Lost, 231 active. Overnight reconciliation clean.",
       "0 unread in atlas@ and quotes@; james@ unread is 5 DMARC aggregate reports (system noise).",
       "Kristeen Davis #43273 signed 1 Oct \u2014 new Won candidate pending founder review."
     ],
@@ -22,11 +22,11 @@
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "QPaint: Active. Portfolio certified. 227 active journeys with complete Next Action coverage."
+      "detail": "QPaint: Active. Portfolio certified. 231 active journeys with complete Next Action coverage."
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "\u2705 227 active QPaint journeys certified. 145 contacted, 43 engaged, 1 replied. 0 exceptions. Pipeline: $7,904,080. Won: $534,120."
+      "detail": "\u2705 231 active QPaint journeys certified. 144 contacted, 42 engaged, 1 replied. 0 exceptions. Pipeline: $8,050,114. Won: $554,392."
     },
     "outreach": {
       "status": "healthy",
@@ -38,7 +38,7 @@
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $534,120 Won. $7,904,080 active pipeline."
+      "detail": "QPaint: $554,392 Won. $8,050,114 active pipeline."
     },
     "atlas": {
       "status": "healthy",
@@ -247,6 +247,10 @@
   "changes": {
     "today": [
       {
+        "time": "2026-10-04T03:03:38+10:30",
+        "text": "Overnight reconciliation clean \u2014 303 QPaint records unchanged, no new customer mail, no new Won/Lost. 3 carried founder items remain (Guy Budgen, Kristeen Davis, Nanda Chakkassery)."
+      },
+      {
         "time": "2026-10-03T04:03:02+09:30",
         "text": "Overnight reconciliation clean \u2014 297 QPaint records unchanged, no new customer mail, no new Won/Lost. 3 carried founder items remain (Guy Budgen, Kristeen Davis, Nanda Chakkassery)."
       },
@@ -331,7 +335,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "\u2705 QPaint portfolio certified. 227 active journeys. Protocol v1.0.0. Send authority live.",
+  "operational_status": "\u2705 QPaint portfolio certified. 231 active journeys. Protocol v1.0.0. Send authority live.",
   "vault_health": {
     "decisions": {
       "total": 83,
@@ -362,30 +366,30 @@
   },
   "qpaint_pipeline": {
     "summary": {
-      "total_customers": 297,
-      "total_pipeline_value": 7904080,
-      "won_count": 14,
-      "won_value": 534120,
+      "total_customers": 303,
+      "total_pipeline_value": 8050114,
+      "won_count": 16,
+      "won_value": 554392,
       "lost_count": 56,
-      "engaged_replied": 44,
-      "contacted": 145,
-      "not_contacted": 38
+      "engaged_replied": 43,
+      "contacted": 144,
+      "not_contacted": 44
     },
     "stage_breakdown": {
-      "Email 3": 71,
+      "Email 3": 70,
       "Lost": 56,
+      "New": 45,
       "Email 1": 42,
-      "New": 39,
-      "Replied": 39,
+      "Replied": 38,
       "Email 2": 28,
-      "Won": 14,
+      "Won": 16,
       "Engaged": 3,
       "Email 4": 3,
       "Engaged - Awaiting Confirmation": 1,
       "Awaiting Reply": 1
     },
     "priority": {
-      "P3": 151,
+      "P3": 157,
       "P1": 93,
       "P2": 53
     },
