@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 257,
+    "tasks_completed": 258,
     "recent": [
+      {
+        "date": "2026-10-04 07:35",
+        "task": "Reclassified 4 QPaint founder gates (founder-directed): Scott Cain #43280 routed to QPaint (after-hours pricing contradiction), Damien Ryan + Stuart Wills Pitfall 55 (base-only, Email 1 released), Ramona Jackson Civium HOLD maintained. QPaint Daily Attention founder action = 0.",
+        "category": "task"
+      },
       {
         "date": "2026-10-03 18:11",
         "task": "Campaign pulse posted - CUST2 pilot 0/15 at Day 3; built missing Touch 3 send path (cron 281abe707fb8, Fri 9 Oct)",
@@ -135,11 +140,6 @@
         "date": "2026-09-24 08:38",
         "task": "QPaint 24 Sep \u2014 relayed Ashleigh #43044 darker-stain answer (relay-authority, no founder gate); Raewyn #43032 no-send (QPaint notified customer); Sian #42970 retains $39,996 pending re-acceptance; John Wilson #43092 + Jesse Zhao #43261 reclassified Atlas-owned.",
         "category": "task"
-      },
-      {
-        "date": "2026-09-23 17:47",
-        "task": "Campaign pulse posted \u2014 QPaint Mon-21 wave at 29% reply (5/17, 3 lost / 2 engaged); Ashleigh Thomas relay blocked on founder approval",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-10-04T06:30:33.570879+10:30",
+  "last_updated": "2026-10-04T07:35:51.872058+10:30",
   "pipeline": {
     "prospect_count": 347,
     "stages": {
