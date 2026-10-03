@@ -10,8 +10,7 @@
     "change": "\u2014",
     "reasons_positive": [
       "QPaint 303 records, 16 Won = $554,392, 56 Lost, 231 active. Overnight reconciliation clean.",
-      "0 unread in atlas@ and quotes@; james@ unread is 5 DMARC aggregate reports (system noise).",
-      "Kristeen Davis #43273 signed 1 Oct \u2014 new Won candidate pending founder review."
+      "0 unread in atlas@ and quotes@; james@ unread is 3 DMARC aggregate reports (system noise)."
     ],
     "reasons_negative": [
       "GitHub Pages still DISABLED \u2014 dashboard 404 site-wide. Snowark org admin token revoked.",
@@ -46,16 +45,6 @@
     }
   },
   "waiting_for_james": [
-    {
-      "id": "pubudu-relay",
-      "class": "FOUNDER_DECISION",
-      "impact_sort": 92,
-      "title": "Pubudu Madawala #43161 ($110,831.60) \u2014 relay the finance update (draft ready, one word needed)",
-      "why_it_matters": "QPaint answered 30 Sep: finance options sent 22 Sep, Handypay QR on quote pp.19-20. Customer asked for the update. Draft at drafts/qpaint-pubudu-finance-update-2026-10-02.md.",
-      "business_impact": "High \u2014 $110.8K, customer actively fundraising.",
-      "estimated_time": "1 min",
-      "recommended_action": "Approve the relay (Atlas sends)."
-    },
     {
       "id": "jono-mazz-three-property",
       "class": "FOUNDER_DECISION",
@@ -145,16 +134,6 @@
       "business_impact": "Medium \u2014 clears a stale open decision.",
       "estimated_time": "3 min",
       "recommended_action": "Rule: close the channel or state the reopening condition."
-    },
-    {
-      "id": "paul-eaton-requote",
-      "class": "FOUNDER_DECISION",
-      "impact_sort": 68,
-      "title": "Paul Eaton #43127 ($10,421.40) \u2014 QPaint re-issued a 2nd time (28 Sep) \u2014 decide acknowledge vs hold (overdue 30 Sep)",
-      "why_it_matters": "QPaint re-issued 28 Sep, expiry 28/10, scope adds front/rear doors.",
-      "business_impact": "Medium \u2014 one live customer.",
-      "estimated_time": "2 min",
-      "recommended_action": "Decide acknowledge-with-Paul vs hold."
     },
     {
       "id": "v2-email2-review",
@@ -248,7 +227,7 @@
     "today": [
       {
         "time": "2026-10-04T03:03:38+10:30",
-        "text": "Overnight reconciliation clean \u2014 303 QPaint records unchanged, no new customer mail, no new Won/Lost. 3 carried founder items remain (Guy Budgen, Kristeen Davis, Nanda Chakkassery)."
+        "text": "Overnight reconciliation clean \u2014 303 QPaint records unchanged, 0 new customer mail (james@ 3 DMARC reports), no new Won/Lost. No new founder items; carried items unchanged."
       },
       {
         "time": "2026-10-03T04:03:02+09:30",
