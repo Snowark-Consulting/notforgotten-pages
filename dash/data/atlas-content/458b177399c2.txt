@@ -1,0 +1,115 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-10-02
+confidence: high
+contested: false
+---
+
+# The daylight-saving transition fires daily cron jobs an hour early, and some twice
+
+**Discovered:** 2026-10-02 22:00 ACST, Prepare-Ahead Clock, while scanning for the next 48-hour send window.
+**First DST transition since this system began operating.** SA moves ACST (+09:30) to ACDT (+10:30) at
+02:00 on Sunday 4 October 2026. Nothing in the vault, the registers or the cron configuration had ever
+accounted for it.
+
+## Finding 1 — the schedule computation is not DST-aware for the first occurrence after the boundary
+
+`cron.jobs.compute_next_run` is the function `mark_job_run` uses to re-arm a job after each fire. Called
+directly with the real schedule expressions and an Adelaide clock set to Saturday 3 October, it returns
+the wrong wall-clock time for any job whose next occurrence falls after the transition:
+
+| Job | Intent | Computed | Delivered wall clock |
+|---|---|---|---|
+| QPaint Daily Attention `30 7 * * *` | 07:30 | `2026-10-04T06:30:00+10:30` | **06:30** |
+| Overnight Founder Readiness `0 4 * * *` | 04:00 | `2026-10-04T03:00:00+10:30` | **03:00** |
+| Nightly consolidation `0 21 * * *` | 21:00 | `2026-10-04T20:00:00+10:30` | **20:00** |
+| Nightly backup `30 21 * * *` | 21:30 | `2026-10-04T20:30:00+10:30` | 20:30 |
+| Prepare-Ahead Clock `0 22 * * *` | 22:00 | `2026-10-04T21:00:00+10:30` | 21:00 |
+| Draft surfacer `5 22 * * *` | 22:05 | `2026-10-04T21:05:00+10:30` | 21:05 |
+| Learnings integrity guard `20 21 * * *` | 21:20 | `2026-10-04T20:20:00+10:30` | 20:20 |
+
+Every one exactly one hour early, and the offset attached is the **correct** post-transition offset
+(`+10:30`) — so the output looks right until you compare the wall clock to the expression. Wall-clock
+ordering between jobs is preserved, so nothing runs out of sequence. Reproducible for every daily job in
+`cron/jobs.json`.
+
+**From Monday the computation is correct again** (`30 7 * * *` from Sun 23:00 ACDT →
+`2026-10-05T07:30:00+10:30`). The defect is a single-occurrence, transition-day-only effect.
+
+## Finding 2 — the affected jobs fire TWICE on the transition day
+
+Re-arming from the early fire lands on the intended time the same day:
+
+```
+compute_next_run({"kind":"cron","expr":"30 7 * * *"}, "2026-10-03T12:00+09:30")
+  -> 2026-10-04T06:30:00+10:30
+compute_next_run({"kind":"cron","expr":"30 7 * * *"}, "2026-10-04T06:30:00+10:30")
+  -> 2026-10-04T07:30:00+10:30     # fires again, one hour later
+```
+
+So on Sunday 4 October the QPaint Daily Attention, the overnight readiness report, the **nightly memory
+consolidation**, the nightly backup and the Prepare-Ahead Clock all run twice.
+
+This is not the behaviour the code comment predicts. `cron/jobs.py:3254-3268` documents an accepted
+trade-off for a *skip* — "A DST boundary that satisfies all four conditions will recompute (and thus SKIP
+the pending occurrence, no catch-up) rather than fire it" — but the observed result is recompute-then-
+**double-fire**, which is the same root cause (the stored instant and `now` carry different offsets)
+seen from the other side.
+
+## Impact assessment — acceptable, no intervention
+
+- **No customer send is due on Sunday 4 Oct** in either pipeline. Verified by a fresh 297-record QPaint
+  pull and a 347-record Prospects pull, filtered in Python: zero records with a date on Sat 3 or Sun 4.
+- Every send path is idempotency-guarded (`CAMPAIGN_ID + RECIPIENT` = one send only), so a doubled job
+  cannot produce a doubled email.
+- The duplicated jobs are idempotent or append-only. Cost is one extra LLM pass and a few duplicate
+  Telegram posts.
+- **`next_run_at` in `jobs.json` was deliberately NOT hand-edited.** Intervening in the scheduler's
+  stored state from inside a cron run is a higher risk than the defect it would fix.
+- One-shot jobs (`kind: once`) are **exempt** — the offset-repair path is guarded on `kind == "cron"`,
+  and a one-shot's `run_at` is an absolute instant. Verified for the CUST2 pilot's Mon 5 Oct 09:00 job.
+
+## Impact that DOES need a ruling — the customer's clock moved, not ours
+
+Adelaide shifts, Queensland does not. QPaint's customers are overwhelmingly QLD:
+
+| | Adelaide 07:30 | Brisbane local |
+|---|---|---|
+| Up to Sat 3 Oct | 07:30 ACST | 08:00 AEST |
+| From Mon 5 Oct | 07:30 ACDT | **07:00 AEST** |
+
+From Monday, every QPaint customer email arrives an hour earlier in the customer's own day than it has
+for the life of the operation. The send-evidence records show the historical arrival at 08:08–08:13
+Brisbane. Nothing here breaks a rule — the send window is bound in Adelaide time, the weekend
+prohibition covers Sat/Sun only, and 07:00 is still within "natural business hours" — but it is a silent
+change to the customer's experience caused by our clock, and it persists to April 2027. Raised for
+ruling in `knowledge/qpaint-review-pack-2026-10-03-05.md` §4b.
+
+## Rule (standing)
+
+1. **Before October and before April, test `compute_next_run` against the real job set across the DST
+   boundary** and expect every daily job to fire an hour early and possibly twice on the transition day.
+   `cron.jobs.compute_next_run({"kind":"cron","expr":EXPR}, NOW_ISO)` is the test — no need to wait for
+   the day to see the behaviour.
+2. **Check for a send due on the transition day before deciding the defect is harmless.** The whole
+   risk assessment turns on that one question; on 4 Oct 2026 the answer was zero, which is the only
+   reason no intervention was warranted.
+3. **Treat the one-hour-early firing as accepted, and the customer-facing time shift as a decision.**
+   The scheduler defect is a Hermes-core item for Josh/Winston. The customer's arrival time is a
+   business decision that is ours.
+4. **A guard shaped like "not Saturday or Sunday" has a hole shaped like a public holiday.** Monday
+   5 October 2026 is Labour Day in NSW, ACT and SA. The weekend send prohibition does not cover it and
+   there is no public-holiday guard anywhere in the vault.
+
+## Applied
+
+- `knowledge/qpaint-review-pack-2026-10-03-05.md` §4 — full finding, impact assessment, and the
+  recommendation to move QPaint Daily Attention to `30 8 * * *` for the DST period (pending ruling).
+- §7 — the Labour Day cohort finding for the Customer #2 pilot (5 of 15 recipients).
+- CUST2 pilot one-shot verified DST-safe.
+- **Recommendation to Josh/Winston:** fix `compute_next_run`'s DST handling upstream. It recurs every
+  October and every April and will not be caught by any vault-side control.
+
+**Source:** Prepare-Ahead Clock, 2026-10-02 22:00 ACST.

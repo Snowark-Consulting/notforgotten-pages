@@ -1,0 +1,74 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-10-03
+confidence: high
+contested: false
+---
+
+# Learnings corruption, 25th occurrence: three files, one attested block, and the sixth consecutive re-injection
+
+**Detected:** nightly consolidation, 2026-10-03 21:00 ACST, by `scripts/bin/learnings-integrity-guard.py` (12 findings).
+**Write window:** 2026-10-02 21:33 UTC = **2026-10-03 07:03 ACST** — a burst across exactly **three** files
+(`catalogue.md`, `cards/agent-architecture.md`, `cards/cron.md`) while the rest of the dirty set spanned
+18:30–22:01 UTC. The discriminator is satisfied: one instant across the whole dirty set would have been the
+`backup-state-db.sh` autostash; a three-file burst is a real write. Consistent with the standing ~07:03–07:35 ACST window.
+**Detection latency:** ~13.8 h, by the 21:00 consolidation. No scheduled control inspects the damaged tree (the
+21:20 guard and the 21:30 backup both run before the write).
+
+## Damage
+
+- `catalogue.md` — the `EDITING THIS TABLE` warning block deleted; the `gmail-auth` and `email` rows dropped
+  (`email` re-inserted malformed as `email 🆕`); the `campaign` card cell rewritten as a markdown link;
+  the `cron` row re-keyworded (gained `DST`, `daylight-saving`, `compute_next_run`, `Hermes tools Python`, `agent venv`).
+- `cards/agent-architecture.md` — **4 `## TRAP` headings lost**, net count unchanged at 20 so **only a heading
+  LIST diff finds it**: 2 deleted outright (`Customer deferral ("still thinking / comparing") is MONITOR`;
+  `Engaged + external dependency = WAIT/MONITOR`), 1 renamed (`Learnings damage is written OUT-OF-BAND at ~06:03 ACST`
+  → `Learnings writer lands at ~07:06–07:07 ACST … (10th–11th occurrences)`), 1 reworded with its date stripped
+  (`A negative grep is evidence about the pattern … (2026-09-18)` → `Negative grep is evidence of the pattern, not the thing`);
+  plus 2 `> **UPDATE**` notes deleted. Bodies were displaced under neighbouring headings (the deferral body landed
+  under the `Engaged + external dependency` heading).
+- `cards/cron.md` — **purely additive (+36/−0), NOT guard-flagged**, three blocks appended.
+
+## Repair
+
+1. HEAD verified clean **by content marker** (`git show HEAD:learnings/catalogue.md` carries `EDITING THIS TABLE`,
+   24 pipe-lines = header + separator + 22 rows, zero `||` rows). The last learnings commit was this series' own
+   24th-event consolidation, so HEAD was clean.
+2. All three files `git restore`d from HEAD. The writer's blocks were first copied to `/tmp/ev25/` for extraction.
+3. Writer blocks extracted (7 total) and **attested from scratch** — never inheriting last night's verdict.
+
+## Attestation — 1 of 7 re-applied
+
+| # | Block | Card | Verdict | Basis |
+|---|---|---|---|---|
+| 1 | `Engaged + external dependency = WAIT/MONITOR` (carrying the deferral body) | agent-architecture | **REJECT** | A merge/reword of two traps HEAD already holds, with the dated evidence stripped. HEAD's versions are better. |
+| 2 | `Customer reply "already completed" = LOST pipeline cleanup…` | agent-architecture | **REJECT** | Duplicate. Already canonical in `skills/email/email-inbox-pulse/references/qpaint-customer-reply-processing.md` (LEARNINGS.md line 146) and deliberately not re-applied on the 12th and 23rd events for the same reason. |
+| 3 | `Negative grep is evidence of the pattern, not the thing` | agent-architecture | **REJECT** | Reword. HEAD holds `A negative grep is evidence about the pattern, not about the thing (2026-09-18)` with its date and `Source` line intact. |
+| 4 | `Learnings writer lands at ~07:06–07:07 ACST … (10th–11th occurrences)` | agent-architecture | **REJECT** | Foreign series record, stale at the 11th occurrence against a series now 25 events old. The series record belongs in `learnings/corruption/INDEX.md`, not a card; HEAD's own `OUT-OF-BAND` trap already carries the rule. |
+| 5 | `Attestation must test against the filesystem, not just provenance (24th corruption occurrence)` | agent-architecture | **REJECT** | Duplicate. The rule is already boot-loaded via `memory/MEMORY.md` (corruption standing rules) and `learnings/corruption/INDEX.md` playbook step 5; last night's consolidation propagated it to five locations and deliberately chose not to create a card trap. Recorded as a decision, not an omission. |
+| 6 | `Hermes cron runs scripts under the Hermes tools Python, NOT the agent venv` | cron | **REJECT** | **Sixth consecutive re-injection.** First injected on the 20th event (rejected — no pre-write evidence, cites `/Users/joshhancock/…` and `tools/python-3.14.7+*` paths that do not exist on this Linux box), re-injected and rejected on the 21st. `ls -d /Users` → *No such file or directory*; `ls -d /root/.hermes/tools` → *No such file or directory*. |
+| 7 | `Nightly backup GH001-rejected: .gitignore missing tools/, so 901MB runtime was swept in` | cron | **REJECT** | Fabricated infrastructure (first seen on the 22nd event). `ls -d tools` → *No such file or directory*; no `tools/` dir exists and none is tracked. The attested GH001 cause is the 141 MB `db_recovery/state.db.pre_recover_…` blob — confirmed tonight: the three largest tracked blobs are `db_restore_prep_20260926/messages_after_restore.json` (40 MB), `state.db.recovered` (74 MB) and `db_recovery/state.db.pre_recover_20260926_080653` (140 MB). |
+| 8 | `DST transition fires daily cron jobs an hour early (and some twice)` | cron | **RE-APPLIED** | **Attested on all four tests.** (a) named by a full `## 2026-10-02` entry in `LEARNINGS.md` and the dated record `learnings/2026-10-02-dst-transition-cron-double-fire.md`; (b) written by the Prepare-Ahead Clock the same evening, before the writer's burst; (c) a skill reference states the same rule (`skills/snowark/growth-operations/references/dst-transition-guard.md`); (d) the factual claims are verifiable (SA transitions ACST→ACDT on the first Sunday in October). **Duplicate check:** no card carried it (`grep -rli "daylight" learnings/cards/` → only the writer's own version in `cron.md`), so it is genuinely new to the card layer. Appended to `cards/cron.md` (16 → 17 `## TRAP` headings). |
+
+**The pattern holds:** the writer re-injects content a prior run already rejected (block 6 is the sixth
+consecutive event), invents infrastructure (block 7), and rewrites existing traps with their evidence stripped
+(blocks 1–4). Attestation from scratch, not inherited verdicts, remains the only reliable filter.
+
+## Verification
+
+- `cards/agent-architecture.md` heading LIST diff vs HEAD = **zero lines** (byte-identical after restore).
+- `cards/cron.md` heading LIST diff vs HEAD = **one addition** (the DST trap), no deletions.
+- `catalogue.md` reconciled: **22 rows = 22 cards**, 0 rows without a card, 0 cards without a row,
+  0 malformed/`||` rows, warning block present.
+- Guard re-run as the LAST step = **silent PASS**.
+- Count 24 → 25 propagated to all five locations (`learnings/corruption/INDEX.md`, `LEARNINGS.md`,
+  `memory/MEMORY.md`, `Agent/Registry.md`, the catalogue warning block).
+
+## Open
+
+Recs `consolidation-learnings-guard-0715` (a ~07:15 ACST detect-and-restore run, needs founder approval),
+`consolidation-learnings-writer-unattested-blocks`, `consolidation-learnings-writer-regresses-repairs`,
+`consolidation-guard-ordering-gap` all remain open. Detection latency — not repair quality — is still the
+binding defect: every repair in the series has worked, and none has reduced how long the damage lives.

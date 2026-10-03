@@ -1,0 +1,283 @@
+---
+doc_type: review-pack
+owner: notforgotten
+tier: primary
+client: QPaint + NF growth
+date: 2026-10-02
+prepared_by: Atlas (Prepare-Ahead Clock, 22:00 ACST)
+status: PREPARATION + ONE SAFETY ACTION. One stale customer draft superseded (Pubudu #43161, never sendable). No customer contact by this pack. One structural finding opened for ruling — the daylight-saving transition.
+---
+
+# Prepare-ahead pack — Sat 3 Oct to Mon 5 Oct 2026
+
+> **Headline.** The 48-hour window carries **zero customer sends** — Sat 3 and Sun 4 are empty in both
+> pipelines, and the guard needed no action. The weight is all on **Monday 5 October: 18 QPaint records
+> ($528,831.81)** plus the **Customer #2 pilot's Touch 2 to 15 businesses** — the largest single day of
+> the month. **Nothing needs drafting**; the five Monday first touches render from the checksum-verified
+> canonical template. Three things were found tonight and none of them was on the calendar: the **SA
+> daylight-saving transition on Sun 4 Oct**, which will fire every daily cron an hour early that day and
+> moves QPaint's customer send from 08:00 to 07:00 Brisbane time from Monday; a **customer draft that
+> became factually unsafe today** and would have been sent on your one-word approval; and a **public
+> holiday** that catches a third of the pilot cohort.
+
+**Source:** live Airtable pull, 2 Oct 22:00 ACST — QPaint Pipeline **297 records**, Recovery Status
+New 38 · Contacted 145 · Engaged 43 · Lost 56 · Won 14. Prospects 347. Scan dump:
+`data/prepare-ahead-scan-2026-10-02-2200.json`.
+
+---
+
+## 1. What changed today (after the 1 Oct 22:00 pack)
+
+| Record | What happened | Effect |
+|---|---|---|
+| **Paul Eaton #43127** | Signed/accepted 2 Oct ($10,421.40). NTD was already past, so the HOLD would never have resurfaced — moved to **Mon 5 Oct** as a founder-review date, not a send date | **Adds $10,421.40 to Monday.** Won-or-hold is now your call on a signed document |
+| **Pubudu Madawala #43161** | QPaint answered the finance question: Handypay no longer finances body corporates, no advice, no financing, **no alternative route** | **Adds $110,831.60 to Monday.** And it makes the 30 Sep relay draft unsafe — §5 |
+| **Annette Tracy #43232** | Declined 1 Oct, ~2h after Email 1 | Closed to Lost. Journey over |
+| **Kristeen Davis #43273** | Held from Won: acceptance field reads 12/11/2026 against a record saying "signed 1 Oct", and the signed total reads $583 against a recorded $13,183.50 | Still held. No Monday send owed |
+| **Cathy Cochrane** | Insurer requirement list + two scope PDFs arrived **nested inside a forwarded .eml**; extracted and handed to QPaint with the requirements quoted in full | QPaint side closed. Review 6 Oct |
+| **Les Harvison #43138** | Expiry reminder sent in the Friday 07:30 run (the timing defect fixed last night held) | Closed for this window |
+
+**Monday reconciliation against last night's pack:** 16 records / $407,578.81 → **18 records /
+$528,831.81**. The whole delta is Pubudu ($110,831.60) + Paul Eaton ($10,421.40) moving into the window.
+No other record moved.
+
+---
+
+## 2. Weekend check — clean, no action needed
+
+**Zero records** with a `Next Touchpoint Date` on **Sat 3 Oct** or **Sun 4 Oct**, in the QPaint Pipeline
+or the Prospects table. Confirmed by Python filtering on a fresh pull, not by an Airtable date formula
+(the formula comparison is unreliable on this table — see `references/qpaint-prepare-ahead.md`).
+
+---
+
+## 3. Monday 5 October — 18 QPaint records, $528,831.81
+
+### 3a. First-touch Email 1 candidates — 5 records, $182,657.55
+
+All `New` / `New`, 48-hour observation satisfied, weekend guard already rolled them from Sat 3. Each
+still takes its own Customer Context Gate decision at 07:30. Renders from canonical template
+`qpaint-recovery-introduction` v1 — **checksum re-verified tonight through the production loader:
+stored == computed == `0241bdb45a22ba13a8e9ba2b7e4e83eb53b84a458e042ec3e444a91dba18f882`.**
+Nothing is drafted from memory.
+
+| Quote | Customer | Property | Value |
+|---|---|---|---|
+| 43284 | Maddy Tee | 7/231 Holt Street, Pinkenba | $97,600.80 |
+| 43274 | Letchu Marayanan | 31 Ramada Place, Fig Tree Pocket | $32,846.00 |
+| 43269 | Dale Taylor | 1059 Moggill Road, Kenmore | $22,642.62 |
+| 43249 | Damien Ryan | 48 Oliver St, Kedron | $22,639.10 |
+| 43289 | Amy Deeb | 6/44 Brighton Road, Highgate Hill | $6,930.00 |
+
+### 3b. Reviews and monitors — 13 records, $346,174.26
+
+| Record | Value | Position |
+|---|---|---|
+| Pubudu Madawala #43161 | $110,831.60 | Founder framing — §5 |
+| Kyle Hope #43168 | $60,349.30 | Email 2 sent 28 Sep, silent. REVIEW → DECIDE |
+| Natalie Moric #43160 | $35,572.90 | Email 3 sent 28 Sep, silent. 3 touches complete |
+| Jono Mazz #43225 | $34,093.20 | Folded into #43167. **Fold still unruled** |
+| Cameron Nygaard #43176 | $21,982.40 | Email 2 sent 28 Sep, silent. REVIEW → DECIDE |
+| Jono Mazz #43167 | $16,585.99 | Relationship primary; QPaint owns the revision |
+| Jessica Carder #43212 | $15,246.00 | Email 1 sent 28 Sep. Email 2 only if silent |
+| Luke Giddins #43237 | $12,947.00 | Email 2 sent 28 Sep, silent. REVIEW → DECIDE |
+| Jeremy #43241 | $10,912.00 | Email 1 sent 28 Sep. Email 2 only if silent |
+| Paul Eaton #43127 | $10,421.40 | Signed 2 Oct. Founder review date, not a send |
+| Steve Liversidge #43102 | $6,468.00 | Awaiting customer response to the treads/risers relay |
+| Ramona Jackson #43305 | $6,446.00 | Civium HOLD. **Founder ruling** — lift for this quote or extend |
+| Madonna Crocker #43156 | $4,317.50 | Email 3 sent 28 Sep, silent. Fold still unruled |
+
+---
+
+## 4. ⚠️ STRUCTURAL FINDING — the daylight-saving transition, Sun 4 October
+
+**This is the first DST transition in this system's life.** SA moves ACST (+09:30) to ACDT (+10:30) at
+02:00 on Sunday 4 October. Nothing in the vault, the registers or the cron config had ever accounted for
+it. Two separate consequences, one verified by direct test and one by arithmetic.
+
+### 4a. Every daily cron fires an hour early on Sunday 4 Oct, and some fire twice
+
+I called the scheduler's own run computation (`cron.jobs.compute_next_run`, the same function
+`mark_job_run` uses to re-arm a job after it fires) with the real schedule expressions and an Adelaide
+clock. Result, reproducible across the whole job set:
+
+| Job (intent) | Computed next run on Sun 4 Oct | Wall clock delivered |
+|---|---|---|
+| QPaint Daily Attention `30 7 * * *` | `2026-10-04T06:30:00+10:30` | **06:30**, not 07:30 |
+| Overnight Founder Readiness `0 4 * * *` | `2026-10-04T03:00:00+10:30` | **03:00**, not 04:00 |
+| Nightly consolidation `0 21 * * *` | `2026-10-04T20:00:00+10:30` | **20:00**, not 21:00 |
+| Nightly backup `30 21 * * *` | `2026-10-04T20:30:00+10:30` | 20:30 |
+| Prepare-Ahead (this job) `0 22 * * *` | `2026-10-04T21:00:00+10:30` | 21:00 |
+| Draft surfacer `5 22 * * *` | `2026-10-04T21:05:00+10:30` | 21:05 |
+| Learnings integrity guard `20 21 * * *` | `2026-10-04T20:20:00+10:30` | 20:20 |
+
+Every one is exactly one hour early. Wall-clock order is preserved, so no job runs out of sequence.
+
+**And a second consequence I did not expect: the affected jobs fire twice.** Re-arming from the early
+fire lands on the intended time the same day — `30 7 * * *` computes to `06:30`, then from 06:30 it
+computes to `07:30`. So on Sunday the QPaint Daily Attention, the overnight readiness report, the
+**nightly memory consolidation**, the nightly backup and this job all run twice. From Monday the
+computation is correct again (`30 7 * * *` from Sun 23:00 → `2026-10-05T07:30:00+10:30`).
+
+**Assessed impact: acceptable, no intervention.** No customer send is due on Sunday in either pipeline
+(§2), every send path is idempotency-guarded (`CAMPAIGN_ID + RECIPIENT` = one send), and the duplicated
+jobs are all idempotent or append-only. The cost is one extra LLM pass and a few duplicate Telegram
+posts. **I did not hand-edit `next_run_at` in `jobs.json`** — intervening in the scheduler's stored state
+during a cron run is a higher risk than the defect it would fix.
+
+**The scheduler has this trade-off documented in code** (`cron/jobs.py:3254-3268`): it cannot
+distinguish a config/host timezone migration from a legitimate DST offset change, and the comment
+explicitly accepts that a DST boundary will recompute rather than fire. The recompute-then-double-fire
+behaviour is the same defect seen from the other side. **Recommendation: hand this to Josh/Winston as a
+Hermes-core item, not a vault fix** — it recurs every October and every April.
+
+### 4b. QPaint's customer email moves an hour earlier in Brisbane from Monday
+
+Adelaide shifts, Queensland does not. QPaint's customers are overwhelmingly in Brisbane and the
+surrounding QLD coast.
+
+| | Adelaide 07:30 | Brisbane local |
+|---|---|---|
+| Up to Sat 3 Oct | 07:30 ACST | **08:00 AEST** |
+| From Mon 5 Oct | 07:30 ACDT | **07:00 AEST** |
+
+So from Monday, every QPaint customer email arrives an hour earlier in the customer's own day than it
+has for the entire life of this operation. The send-evidence records show the historical arrival at
+08:08–08:13 Brisbane.
+
+**Nothing here is a rule breach.** The send window is bound in Adelaide time, the weekend prohibition
+covers Sat/Sun only, and 07:00 is still within the protocol's "natural business hours wherever
+practical". But it is a silent, unowned change to the customer's experience caused by our state's clock,
+and it will persist until April 2027.
+
+**Recommendation — one line, either way:**
+- **(a) Accept it** (default if you say nothing): 07:00 Brisbane is a reasonable time to reach a
+  home-services customer, and changing it is churn without evidence.
+- **(b) Preserve the customer's experience**: move QPaint Daily Attention to `30 8 * * *` for the DST
+  period, so QPaint customers keep receiving at ~08:00 Brisbane. Everything the job does shifts an hour
+  later with it, which is harmless.
+
+My recommendation is **(b)** on the principle that a customer's experience should not change because our
+state changed its clocks — but (a) is defensible and I will not move it without your word.
+
+### 4c. The gap this exposes
+
+The weekend guard is documented and load-bearing. **There is no public-holiday guard** — and Monday 5
+October is Labour Day in NSW, ACT and SA. See §7. This is the second consecutive prepare-ahead to find a
+day-of-week-shaped guard with a real hole in it. Worth a codify-or-drop ruling alongside the afternoon
+finding in `knowledge/lead-childcare-43236-decision-pack-2026-09-18.md`.
+
+---
+
+## 5. ⛔ SAFETY ACTION TAKEN — the Pubudu draft was unsafe and is now superseded
+
+**Your outstanding decision item for Pubudu (#43161, $110,831.60) was "approve the relay — one word".**
+That draft can no longer be sent, and I have marked it as such in place so it cannot be.
+
+**What the draft said** (prepared 30 Sep, Voice Review 9/9): that the Handypay options went to her on
+22 Sep, that the Handypay QR code is on pages 19-20 of her quote, and that she can apply directly from
+there.
+
+**What QPaint said on 2 Oct** (Tas Moulis, james@ thread): Handypay **no longer handles body-corporate
+work**; QPaint cannot give financial advice or be involved in financing; they can only refer; and they
+have **no alternative route to offer**. Pubudu is a body-corporate customer.
+
+So the draft would have told a customer to apply to a scheme that will not accept her application.
+Three statements in it are now false. It was one word away from being sent.
+
+**Action taken (in my authority — no customer contact, no CRM change):** the draft at
+`drafts/qpaint-pubudu-finance-update-2026-10-02.md` now carries a SUPERSEDED status and a banner naming
+the three false statements. Nothing was sent.
+
+**Why no replacement draft tonight.** QPaint's answer is not yet relayable in full: our handoff asked
+which route they want communicated and Tas did not supply one, so a customer relay would be partial. The
+remaining shape of the decision is genuinely yours — **how to tell a customer that the financing route
+she is relying on does not exist, and who should tell her.** QPaint sourcing the alternative (or
+confirming there is none and handing it to us to deliver) is the cleaner order. The record is `Engaged`
+with NTD 5 Oct and there is no expiry pressure: the quote is valid to 20 Dec 2026.
+
+---
+
+## 6. Founder decisions open
+
+| # | Item | Value | Recommendation |
+|---|---|---|---|
+| 1 | **DST — QPaint send time** (§4b) | entire customer base | **Rule (a) or (b).** Default if unruled: (a), QPaint email lands 07:00 Brisbane from Monday |
+| 2 | **Pubudu #43161** — relay blocked, draft unsafe | $110,831.60 | Let QPaint name the route first, then rule on the framing. Nothing is sendable tonight |
+| 3 | **Paul Eaton #43127** — signed 2 Oct, HOLD had already expired | $10,421.40 | **Mark Won on the signed acceptance**, attribution `Observed` (he went quiet 4 Sep and QPaint re-issued three times while we held) |
+| 4 | **The post-3-touch line** — still unruled since 25 Sep. It governed 12 records on 1-2 Oct; ~11 more reach the same judgement overnight | ~$230K | **Rule per cohort, not per touch number.** Persistence forbids both a blanket fourth touch and a blanket stop. Default the judgement to Atlas (already the recorded owner) |
+| 5 | **Kristeen Davis #43273** — acceptance date 12/11/2026 vs "signed 1 Oct"; signed total $583 vs recorded $13,183.50 | $13,183.50 | Cannot be written to Won on contradictory evidence. Needs the corrected document or your ruling |
+| 6 | **Jono Mazz** fold $55,615.99 · **Madonna Crocker** fold $7,892.50 | — | Unruled, carried since 29 Sep |
+| 7 | **Ramona Jackson #43305** — Civium HOLD | $6,446.00 | Binary: lift the HOLD for this quote as fresh commercial evidence, or extend the account-level HOLD |
+| 8 | Carried: **Guy Budgen #43240** (document self-contradicts on fascia, Email 1 held) · **Nanda Chakkassery #43193** (forward blocked on the PDF) · courtesy-ack batch (10 Lost) · **Ahmad / Star Painters** close · cold painter channel ruling (11 Sep) · Founder Call Rounds 3+4 capture | — | Unchanged |
+
+---
+
+## 7. Monday is a public holiday for a third of the pilot cohort
+
+**Monday 5 October is Labour Day in NSW, ACT and SA** (QLD's is May, VIC's is March, NT's is May).
+
+The Customer #2 pilot's Touch 2 goes to 15 businesses at 09:00 ACDT Monday, from cron
+`c64d87b9c02b`. By the recipients' own locations:
+
+| State | Count | Businesses | Holiday Monday? |
+|---|---|---|---|
+| QLD | 6 | Brisbane Air, Sun City Air, Master Aircon, Roberts Air Conditioning, Structural Retaining Walls, Sunshine Floor Sanding | No |
+| NSW | 4 | Lush Designer Landscapes, DR Landscaping, JQ Timber Floors, Speedy Floor Sanding | **Yes** |
+| VIC | 3 | Exterior Designs Landscapes, Bilic Paving & Landscaping, Absolute Floor Sanding | No |
+| SA | 1 | Afford Air | **Yes** |
+| NT | 1 | Territory Timber Floors | No |
+
+**5 of 15 land mid-long-weekend.**
+
+**Recommendation: let it run, and widen the measurement window by a day for the holiday cohort.** The
+pilot's KPI is replies, and a holiday delays a reply rather than changing it. Moving the whole send to
+Tuesday tidies the optics but scatters the elapsed-day comparison for the other ten; splitting the batch
+by state would introduce a confound into a 15-recipient test that cannot afford one. I am **not**
+touching a founder-authorised campaign's send date on my own judgement.
+
+**If you would rather move it, it is one line:** `hermes cron remove c64d87b9c02b` and I rebuild it for
+Tue 6 Oct in the morning run.
+
+### 7a. Pilot readiness re-verified tonight (nothing sent)
+
+- **Reply/unsubscribe guard: 0 of 15 recipients have any inbound mail.** Clear across all fifteen.
+- **Dry run: 15/15 render**, Touch 2 body loaded from `CAMPAIGN.md` at send time, idempotency ledger
+  shows the 15 touch records, 0 em-dash violations, 0 missing opt-outs.
+- **One-shot scheduling is DST-safe.** A `kind: once` job is exempt from the offset-repair path in
+  `cron/jobs.py` (guarded on `kind == "cron"`), and the stored `run_at` is an absolute instant
+  (`2026-10-05T09:00:00+10:30`) that is correct ACDT. The pilot fires at the right moment.
+
+---
+
+## 8. Decision reviews
+
+**Due today (2 Oct), unruled:** `2026-08-02-headquarters-complete`, `2026-08-02-complete-business-state`.
+**Inside the next 48h:** `2026-08-03-foundation-complete` (3 Oct), then four on 4 Oct
+(`2026-07-04-icp-owner-led-small-business`, `2026-07-04-messages-prospect-linked-field`,
+`2026-09-04-v2-persistence-hold`) and two on 5 Oct (`2026-07-05-complete-sequence-before-first-send`,
+`2026-08-05-operational-handover-standard`).
+
+Prep is on file at `knowledge/decision-reviews/2026-10-01-oct-cluster-review-prep.md` (405 lines + the
+30 Sep addendum covering 6-7 Oct). **Addendum appended tonight for the two that newly entered the 7-day
+horizon** (`2026-08-08-founder-attention-verify-james-sent` and `2026-08-08-qpaint-four-email2-approved`,
+both due 8 Oct). Nothing is owed on any of these before you read them.
+
+---
+
+## 9. Prepared and executed tonight
+
+| Item | Status |
+|---|---|
+| Pubudu #43161 draft superseded — three false statements blocked in place | **EXECUTED**, no send |
+| QPaint canonical template v1 checksum re-verified via the production loader | **VERIFIED** |
+| Weekend sweep on a fresh 297-record pull | **CLEAN** |
+| DST transition tested against the live scheduler computation | **FOUND**, reported §4 |
+| CUST2 pilot: reply guard + dry run + one-shot DST safety | **VERIFIED** |
+| `data/prepare-ahead-scan-2026-10-02-2200.json` | Written |
+| Decision-review addendum for 8 Oct | Appended |
+| Dated learning record for the DST defect | Written |
+
+---
+
+*No customer contact. No send. No Airtable write. One draft blocked, one pack, one learning.*

@@ -455,3 +455,76 @@ reminders, one relay) carries an explicit 9/9 Voice Review block and an em-dash 
 should the QPaint Email 3 / outcome-support templates be moved into the canonical registry?
 
 *Added by the Prepare-Ahead Clock, 30 Sep 2026 22:00 ACST. No contact, no send, no CRM change.*
+
+## Addendum 2 — added 2 Oct 2026 22:00 ACST (Prepare-Ahead Clock)
+
+Two further reviews entered the 7-day horizon tonight. Both are now within reach of the cluster above.
+Outcome data gathered from a live Airtable pull, 2 Oct 22:00.
+
+### `2026-08-08-founder-attention-verify-james-sent` — due 8 Oct
+
+**FACT.** The decision came out of the 8 Aug Founder Attention Brief, where two items were surfaced as
+"requiring Founder action" after James had already completed both handovers. It sets the standing rule:
+verify atlas@ inbox and sent, **james@ inbox and sent**, Messages, Airtable, existing handovers and
+customer replies before surfacing anything as Founder action — and states the principle: *"Do not
+surface the last action that was required. Surface the NEXT action that is still unresolved."*
+
+**FACT — the rule is live and observed being applied.** Tonight's operations include a worked instance:
+the Kishor Chandra #43114 handoff to `solutions@qpaint.com.au` + `james@qpaint.com.au` was verified in
+james@ SENT before it was reported, and the 2 Oct QPaint answer on Pubudu was read out of the james@
+thread rather than inferred. The standard is documented at
+`skills/email-draft/references/founder-attention-verification-standard.md` and wired into the
+`email-draft` and `production-standards` skills.
+
+**DRIFT — documentation, low severity.** The Decision Library index row records the enforcement as
+*"Gate 8c in pre_send_certification"*. `scripts/pre_send_certification.py` implements Gates 1 through 9
+(1 sender, 2 recipient, 3 subject, 4 thread, 5 signature, 6 voice, 7 commitments, 8 production checks,
+8b paragraph spacing and sign-off, 9 ready-to-send). **There is no Gate 8c and no james@-Sent check
+inside the gate function.** The decision is enforced as an operating standard in a skill, not as code.
+The behaviour is real; the attribution in the index is not.
+
+*Searched deliberately rather than assumed — the phrasings tried were `gate 8c`, `james@ sent`,
+`sent folder`, `founder.attention.{0,40}verif` and `verif.{0,40}sent`, across `scripts/`, `bin/`,
+`skills/`, `Agent/` and `knowledge/`. Per `learnings/2026-09-18-grep-miss-read-as-rule-absence.md`, a
+negative search alone is not treated as proof of absence; the finding here is the narrower one, that the
+gate function's own gate listing does not contain it.*
+
+**Question for review.** Correct the index row to name the skill standard (an edit), or promote the
+check into `pre_send_certification.py` as a real gate so it cannot be skipped? My recommendation is the
+code gate: a handover that James has already sent is the exact failure this decision exists to prevent,
+and a skill standard depends on the drafting agent remembering it.
+
+### `2026-08-08-qpaint-four-email2-approved` — due 8 Oct
+
+**FACT.** Four QPaint customers ($598,544 combined) received Email 2 written to the **discovery
+standard** — a genuine question about what is preventing a decision, rather than closure-seeking:
+Jenny Yang $227,084 · Richard Zhang $145,350.15 · Jesse Zhao $116,222.85 · Helen Walsh $109,887.20.
+The standard went on to become the QPaint house standard (`commercial-customer-care-standard`:
+discovery over closure), so this cohort is the best evidence anyone has about it.
+
+**OUTCOME, live pull 2 Oct (eight weeks on):**
+
+| Customer | Value | Where it ended |
+|---|---|---|
+| Jenny Yang | $227,084.00 | Email 2 sent 7 Aug, **silent**. Founder decision 24 Aug: MONITOR, no third touch — "value alone does not justify a 3rd touch" |
+| Richard Zhang | $145,350.15 | Reached **Email 4** (24 Aug), **silent**. Cleared to MONITOR. Full four-touch sequence, no reply |
+| Helen Walsh | $109,887.20 | Email 3 sent 24 Aug, **silent**. MONITOR |
+| Jesse Zhao | $116,222.85 | Email 3 sent; escalated to a **QPaint phone-recovery call**, still outstanding since it was surfaced 25 Sep. NTD 8 Oct |
+
+**INFERENCE (High).** **Zero replies from four high-value customers across ~8 weeks.** Three are now
+parked with no next action and one needed a human phone call to move at all. That is a meaningful signal
+about the discovery standard — with the honest caveat that four customers is a sample, not a verdict,
+and three of the four were long-dormant at the point Email 2 was sent (138d, 81d, 36d).
+
+**FACT, related.** Jesse Zhao now carries a **second** live record — #43261 $8,440.85, a different
+property, Email 2 sent 2 Oct. The relationship-continuation path is working as designed: one customer,
+two property chapters, no duplicate contact.
+
+**Question for review.** Is the discovery standard evidenced enough at n=4 to change the approach, or
+does it need a larger test before any change? Caution against over-reading: the same standard produced
+the Travis and Star Painters conversions at Email 3, and the Jul-2026 painter review already identified
+the Travis case study as the actual conversion engine rather than the questioning style. Consider
+whether the discovery standard and the Travis bridge are two different levers that have been reviewed as
+one.
+
+*Added by the Prepare-Ahead Clock, 2 Oct 2026 22:00 ACST. No contact, no send, no CRM change.*
