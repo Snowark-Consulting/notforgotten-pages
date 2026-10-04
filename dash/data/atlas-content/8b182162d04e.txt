@@ -81,6 +81,8 @@ Every piece of data must answer: **"What should we do because we now know this?"
 
 **Script pitfall (2026-10-04):** a stray `/tmp/inspect.py` left by an earlier job shadowed the stdlib `inspect` module and broke every Python run from `/tmp` with `AttributeError: module 'inspect' has no attribute 'signature'`. Never place scratch scripts in `/tmp`; write them to `~/.hermes/scripts/`. Contained 2026-10-04 by renaming the file to `/tmp/DISABLED_inspect.py.bak`.
 
+**Timezone pitfall (2026-10-04):** `ga4-intel.py` and `ga4-deep-dive.py` both hardcoded `timezone(timedelta(hours=9, minutes=30))`. ACST→ACDT crossed at 02:00 on 4 Oct 2026, so from that moment both emitted timestamps an hour stale and mislabelled (the run printed `20:30:57+09:30` against a wall clock of 21:30 ACDT), and the reporting window itself can be misdated if the job runs late evening. Both now use `ZoneInfo("Australia/Adelaide")`; re-verified `+10:30` with identical week windows. Same class as the same-day fix to `overnight-hq-regen.py`; 60+ further hardcoded offsets remain under `scripts/`/`bin/`, including `canonical-send.py` (infra-owner action, not touched from a report job). Rule: never satisfy the "use Adelaide timezone" standard with a fixed UTC offset — a DST transition invalidates them all at once.
+
 ### Previous Baselines (superseded)
 
 - **2026-09-20 to 2026-09-26:** 8 users (day-sum), 8 sessions, 9 page views; direct 5, Instagram 3, Google organic 2 → 0; only `/` viewed; engaged 4 of 8 (50%); Australia 4, United States 3, Singapore 1

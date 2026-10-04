@@ -1,0 +1,157 @@
+---
+doc_type: review-pack
+owner: notforgotten
+tier: primary
+client: QPaint
+date: 2026-10-04
+prepared_by: Atlas (Prepare-Ahead Clock, 21:00 ACDT — the DST early fire)
+status: PREPARATION ONLY — no customer contact, no send. Nothing was owed in drafting terms; one founder binary gained a ready draft.
+---
+
+# QPaint review pack — Mon 5 Oct and Tue 6 Oct 2026
+
+> **This is a delta pack, not a re-analysis.** The 3 Oct 22:00 pack
+> (`knowledge/qpaint-review-pack-2026-10-04-05.md`) already covered Sunday and Monday in full and was
+> then superseded same-day for its founder-gate corrections. This pack does two things only:
+> **reconciles what changed since 3 Oct 22:00**, and **opens the Tuesday 6 Oct window** that pack did
+> not cover. Prior context stands; nothing is repeated for its own sake.
+>
+> **Headline.** Sunday carries zero sending. **Monday 5 Oct remains the largest QPaint action day since
+> the recovery operation began** and is now **fully ready: 11 Email 1 candidates / $347,694.70**, plus
+> the Customer #2 pilot's Touch 2 to 15 businesses. **Nothing needed drafting** — QPaint first touch
+> renders from the canonical template per record, and the pilot Touch 2 was built and dry-run verified
+> on 3 Oct. The only genuine change of substance tonight is that **Scott Cain's hold is lifted** and
+> **two new records entered the book today** (one of which is correctly auto-held). One open founder
+> binary gains a prepared draft.
+
+**Source:** live Airtable QPaint Pipeline pull, 4 Oct 21:01 ACDT — **305 records**.
+
+---
+
+## 1. What changed since the 3 Oct 22:00 pack
+
+| Change | Evidence | Consequence |
+|---|---|---|
+| **Scott Cain #43280 — hold LIFTED** | QPaint answered 4 Oct: `$31,900.00 incl GST` confirmed as the **after-hours price as quoted**, no surcharge, and the document NOTE does not alter the price (Quote + Scope supersede T&Cs/Notes). Record: "Email 1 HOLD lifted - pricing basis unambiguous." | He **joins Monday's Email 1 set**. The 3 Oct pack listed him as blocked. Note the 4 Oct daily note (07:35) still reads "Email 1 held, review 06 Oct" — that entry predates the answer. **The Airtable `First Action` is the live state**; the note is a stale snapshot. |
+| **NEW — Altra Property Co #43317, $18,898.00** | Quote received 4 Oct; new record, no prior contact for `pm@altrapropertyco.com.au`. 48h window expires **Tue 6 Oct**, no weekend roll required. | **The only new Email 1 candidate tonight.** Record already carries the right handling: covering email is addressed to "the Property Manager" with no individual name, so the follow-up must use a **generic property-manager salutation, never an invented first name**. No draft owed (canonical template). |
+| **NEW — Ramona Jackson #43321, $10,727.75** | Quote 4 Oct, 22 Kingsford Street, Auchenflower (Kingsford Place CTS15094), Body Corp. | **Checked and clean.** The record was auto-reconciled to the standing account-level **Civium HOLD** at intake: sixth record / sixth distinct strata complex on this contact, NO NF contact, NO QPaint contact, `Next Touchpoint Date` deliberately unset. No gap, no founder decision. This is the HOLD working as designed. |
+| **Ashleigh Thomas #43044 — binary still open** | Her 1 Oct chase → QPaint re-issued the amended contract 2 Oct 04:50 ACST. Open loop = her acceptance. | Founder binary, due **Tue 6 Oct**. **Draft prepared tonight** — `drafts/qpaint-ashleigh-thomas-amended-contract-confirmation-2026-10-06.md` (Voice Review 9/9, body em-dash clean). See §4. |
+| Weekend dates | Sat 10 Oct: Pubudu Madawala #43161 only, $110,831.60. | Unchanged and correctly left alone — his `First Action` forbids further contact unless the customer replies, so there is no send for the guard to prevent. Watch item, not drift. |
+
+---
+
+## 2. Monday 5 Oct — confirmed ready
+
+### The Email 1 set: 11 records / $347,694.70
+
+Maddy Tee $97,600.80 · Alex Bratic $41,726.18 · Letchu Marayanan $32,846.00 · **Scott Cain $31,900.00 (hold lifted today)** · Nick Lee $29,546.00 · Nathalie Cowburn $23,947.00 · Amy Deeb $6,930.00 · **Damien Ryan $22,639.10 (released 4 Oct)** · Dale Taylor $22,642.62 · Andrew Chiu $19,613.00 · **Stuart Wills $18,304.00 (released 4 Oct)**
+
+All are `New` stage with `Next Touchpoint Date` 2026-10-05, a verified contact email, and a named contact read from the document. The two Pitfall 55 releases (Damien Ryan, Stuart Wills) retain **base-only** Deal Values with their elective options documented separately in `Extent of Work`, not summed.
+
+**Not sending:** Jono Mazz ($34,093.20, `New`) — **folded** into the #43167 relationship (three properties, one builder contact); no independent sequence. Ramona Jackson #43305 — Civium HOLD, `Next Touchpoint Date` deliberately cleared.
+
+### Also on Monday
+
+- **8 review-decide records** (Kyle Hope $60,349.30 · Natalie Moric $35,572.90 · Cameron Nygaard $21,982.40 · Jono Mazz #43167 $16,585.99 · Jessica Carder $15,246.00 · Luke Giddins $12,947.00 · Jeremy $10,912.00 · Madonna Crocker $4,317.50) — each carries "REVIEW → DECIDE, no automatic next email". **No draft owed.**
+- **1 Engaged:** Steve Liversidge $6,468.00 — QPaint's treads/risers answer relayed 30 Sep ($2,145 + GST); awaiting the customer's response.
+- **CUST2-PILOT Touch 2, 09:00 ACDT** — 15 businesses. Cron `c64d87b9c02b`, **enabled, next run verified `2026-10-05T09:00+10:30`**. Authority `founder-direct-cust2-pilot-2026-09-30` (ACTIVE to 18 Oct). Built and dry-run verified 3 Oct: 15/15 rendered, 0 em dashes, opt-out on all 15.
+
+**Nothing was drafted for Monday because nothing was owed.** The gap this clock exists to catch — a send day with an unanswered gate in front of it — was closed on 3 Oct.
+
+---
+
+## 3. Tuesday 6 Oct — 11 records
+
+One **Email 1 candidate** (Altra Property Co #43317, above) and ten records that are **review or hold**, none of which is a send:
+
+| Record | Value | State |
+|---|---|---|
+| Laurie Wright | $58,524.51 | HOLD — awaiting builder contract signing; reassess, do not chase |
+| Ashleigh Thomas | $22,997.70 | Engaged — **founder binary, §4** |
+| Kristeen Davis | $13,183.50 | **Evidence-conflict HOLD** — staff-directed to QPaint 3 Oct: acceptance-date mis-key ("Accepted 12/11/2026") and accepted scope/value unconfirmed. No Won value/date written until QPaint resolves |
+| Guy Budgen | $4,950.00 | **QPaint input** — fascia self-contradiction routed 3 Oct; Email 1 held until the document is corrected |
+| Cathy Cochrane | $4,152.50 | QPaint re-quote pending (APIA format + bedrooms 1 & 2 on expired 42917); handoff sent 2 Oct; no customer contact |
+| Nanda Chakkassery | $10,987.68 | QPaint input — awaiting the PDF in the drive folder, then relay link + PDF |
+| Joe Vakabua | $16,495.60 | Review-decide; Email 3 sent 29 Sep, 3 touches complete |
+| Troy Moncur | $10,700.80 | Review-decide; Email 3 sent 29 Sep |
+| Altra Property Co | $18,898.00 | **Email 1 candidate** — 48h window expires Tuesday |
+| Jono Mazz #43167 | $16,585.99 | Relationship primary — QPaint revised direct to customer 17 Sep |
+
+**No draft is owed for any of these.** The three QPaint-input records are waiting on QPaint, not on us.
+
+---
+
+## 4. The one founder binary in the window
+
+**Ashleigh Thomas #43044 — send a short confirmation that the amended contract has been issued, or stay silent?**
+
+She chased us on 1 Oct asking for the amended copy; QPaint re-issued it on 2 Oct with a custom note addressed to her. Her 23 Sep question is answered and the document has now been sent by the document platform itself. The two defensible answers remain:
+
+- **(a) Send** a short confirmation — she chased, so she is warm and watching; a two-line note closes a loop that has already failed twice on the QPaint side. **Drafted and gate-scored tonight** (`drafts/qpaint-ashleigh-thomas-amended-contract-confirmation-2026-10-06.md`, Voice Review 9/9).
+- **(b) Stay silent** — QPaint's own notification stands, and a second copy of the same news adds nothing.
+
+**Recommendation: (a).** She asked for the document, the first promise to deliver it slipped 7 days, and she had to chase. Closing that loop with one line is the difference between "they sorted it" and "I had to keep asking". Draft is ready so the ruling costs one word.
+
+⚠️ **Correction carried in the draft:** both the record's `First Action` and the 3 Oct pack describe option (a) as "via james@". The thread evidence says otherwise — every NF customer send on this deal has been **atlas@ white-label, threaded**. The draft follows the thread; the `First Action` wording should be corrected so a future send is not misrouted.
+
+---
+
+## 5. Weekend check — clean inside the window
+
+- **Sun 4 Oct:** zero QPaint NTDs, zero pilot touches, zero sends of any kind. The Sunday send prohibition held.
+- **Mon 5 Oct / Tue 6 Oct:** both weekdays. **No weekend date falls inside the 48h window.**
+- **Sat 10 Oct:** Pubudu Madawala only, and no send is possible (his action forbids contact unless the customer replies). **Deliberately not patched** — the precedent rolls weekend dates that carry real send-eligible actions; this one carries none. Recorded as a watch item.
+
+---
+
+## 6. Decision reviews — nothing new to prepare
+
+Nine reviews fall inside 4–8 Oct: ICP owner-led · Messages→Prospect link · V2 persistence hold (4 Oct) · complete-sequence-before-first-send · operational-handover-standard (5 Oct) · campaign-review operating standard (6 Oct) · communication voice standard (7 Oct) · verify James's Sent before founder-attention escalation · the four QPaint Email 2 approvals (8 Oct).
+
+**All are already prepped** — the October Cluster Review Prep (12 decisions) plus two addenda (30 Sep, 2 Oct), all on file in `knowledge/decision-reviews/2026-10-01-oct-cluster-review-prep.md`. **No new prep was written and none was needed.** The constraint on this cluster is not preparation: **four verdicts due from 1 Oct are still with James.**
+
+---
+
+## 7. Timing note — the first post-DST multi-send day
+
+SA moved to ACDT on Sun 4 Oct. Two consequences, both already raised and neither new:
+
+1. **This run is the DST early fire.** The job is scheduled `0 22` and its own `next_run_at` reads `2026-10-04T22:00+10:30`, so **a second fire tonight is expected**. Per the standing guidance, a second fire is a backfill run: patch this pack, do not fork it.
+2. **Monday is the first multi-send day after the boundary**, and the QPaint job delivers at 07:30 ACDT = **07:00 Brisbane** rather than 08:00 — the known customer-clock consequence already raised for a ruling, not changed here. Every send path is idempotency-guarded.
+3. **Mon 5 Oct is Labour Day in NSW/ACT/SA.** QPaint's customers are Queensland, where it is a working day. For the pilot, 8 of 15 recipients are in holiday states — the 18:12 pulse already recommended widening the measurement window rather than moving the send.
+
+---
+
+## 8. Done tonight (and what was not)
+
+| Action | Evidence |
+|---|---|
+| Live QPaint pull + full field-population census before trusting any result | 305 records; `Next Touchpoint Date` populated on 129, `First Action` on 297 — both confirm the reads are live, not a wrong-field false zero |
+| Prospect-table and V2-ledger cross-check for approaching NF sends | 25 `Outreach Active`; the only live approaching NF cohort is CUST2-PILOT (15, Touch 2 Mon 09:00) |
+| Ashleigh Thomas draft prepared, Voice Review 9/9, body em-dash scanned | `drafts/qpaint-ashleigh-thomas-amended-contract-confirmation-2026-10-06.md`; body em dashes = 0 (signature carries the approved inherited one) |
+| Two new 4 Oct records verified against the standing HOLD | Ramona Jackson #43321 correctly auto-held; Altra #43317 correctly a Tue Email 1 candidate |
+| Weekend scan, 14 days forward | one Saturday record (Pubudu, no send possible) — see §5 |
+
+**What was not done, deliberately:** no draft for Monday's 11 Email 1s (canonical template renders per record under its own Customer Context Gate); no re-draft of the pilot Touch 2 (already built and verified); no new decision-review prep (all nine already on file); no CRM change; **no customer contact of any kind.**
+
+---
+
+## 9. Founder items carried (unchanged tonight)
+
+**FOUNDER DECISION:** cold-painter channel ruling (open since 11 Sep) · the four decision reviews due 1 Oct (no verdict) · **Ashleigh Thomas amended-contract confirmation (draft ready, §4)**.
+
+**FOUNDER EXECUTION:** Ahmad / Star Painters final conversation (overdue 23 Sep) · Founder Call Rounds 3 + 4 verdicts.
+
+**RESOLVED TODAY, not carried:** the 18-record Lost courtesy-acknowledgement batch (2 sent, 16 no-send with recorded reasons; all 18 founder flags cleared).
+
+---
+
+## 10. Watch item found while finishing — the Draft Surfacer commits the whole working tree
+
+The Draft Surfacer (`no_agent`, 22:05 daily) ran at 21:05 ACDT tonight and produced commit `3407d61c "Draft surfacer update — 2026-10-04T10:35:50"`. That commit **swept every dirty file in the vault**, not just the draft data it exists to push — including two artefacts this run had created minutes earlier. That was harmless tonight (both were complete and verified), but the mechanism is not selective: **any half-written file from any other job or agent on this box standing in the tree at 22:05 gets committed under a message that says "Draft surfacer update".**
+
+Not contained — this is a script behaviour change and outside this clock's remit. Recorded because a commit message that misrepresents its contents is exactly the kind of thing the "never trust a green tick" principle exists for: the history will say the Draft Surfacer did it, whether or not it did. Worth a look when someone next touches `bin/draft-surfacer.py` (scope its `git add` to `pages/dash/dash.json` and the draft data it owns).
+
+---
+
+*No customer contact. No send. One draft, two reconciliations, one census. Prepared by the Prepare-Ahead Clock, 4 Oct 2026 21:00 ACDT.*

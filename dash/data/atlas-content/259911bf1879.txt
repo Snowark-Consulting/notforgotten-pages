@@ -1,0 +1,70 @@
+---
+doc_type: report
+owner: notforgotten
+tier: internal
+date: 2026-10-04
+period: 2026-09-27 to 2026-10-03
+prepared_by: Atlas (weekly website intelligence cron, second fire)
+---
+
+# Weekly Website Intelligence — 27 September to 3 October 2026
+
+Source: GA4 property `502899171`, script `scripts/ga4-intel.py`, run 2026-10-04 21:32 ACDT. Deep-dive detail from `scripts/ga4-deep-dive.py`. Compared against the rolling baseline in `knowledge/website-intelligence-standard.md`.
+
+Method caveat: "users" is the day-sum figure, not unique weekly users. Compare day-sum to day-sum only.
+
+**Run note (DST double-fire).** The Sunday 21:30 slot double-fired on the ACST→ACDT transition. The first fire delivered the report to the home channel at 20:32 ACDT; this second fire re-derived every figure independently and found **zero delta**, so channel delivery was suppressed as a duplicate. This file is the archive artifact the first fire did not write — the `knowledge/website-intelligence/` series is the executive history and had a gap.
+
+---
+
+## What Changed
+
+| Metric | This week | Last week | Delta |
+|---|---|---|---|
+| Sessions | 12 | 8 | +50% |
+| Users (day-sum) | 11 | 8 | +37.5% |
+| Page views | 13 | 9 | +44.4% |
+| Days with traffic | 4 of 7 | 4 of 7 | 0 |
+
+Do not read that as growth.
+
+- **10 of the 12 sessions came from data-centre geolocations:** Haarlem, Netherlands (6), Boardman US (2), Ashburn US (1), Gretna US (1). Adelaide produced 2.
+- **Haarlem is new, and it is the week's largest single segment.** All 6 arrived in one block on Fri 2 Oct, each hitting only the homepage at 0.0s average duration with zero engagement.
+- **Engagement fell** to 3 of 12 sessions (25%) from 4 of 8 (50%).
+- **All 11 users were new.** Zero returning, zero form submissions, zero demo bookings, zero conversions.
+- **Against the 16-week mean of ~22 sessions/week, 12 sessions is roughly half normal.** Last week's 8 sat near the floor (ISO week 202639, 5 sessions, the quietest of the period). The +50% is a step back up from a trough, not a lift.
+- Every page view (13 of 13) was `/`. No inner page has ever registered a view in 16 weeks.
+
+## Why It Might Have Changed
+
+- **[Fact]** The 2 Oct Haarlem block is a crawler or monitor burst: one city, one day, 0.0s duration, zero engagement, homepage only.
+- **[Fact]** The only non-direct session this week — a `facebook.com` referral, the entire "Organic Social" channel — geolocates to Gretna US at 30.8s, matching the documented data-centre location. **So no non-direct session this week was human either.**
+- **[Fact]** `nfs_internal` exclusion is still absent from the homepage as served (re-verified tonight: 0 occurrences), so our own visits count as direct traffic.
+- **[Fact]** GA4 tag `G-03Y95NSDRV` is present and healthy (2 occurrences). A quiet week is not a tracking failure.
+- **[Fact]** No `email`-sourced session has ever appeared in 16 weeks. `utm_source` appears nowhere in the live send path (re-verified tonight: only `scripts/disabled/send-outreach.py`).
+- Insufficient data for causal analysis. On a ~22/week base, 50% swings are noise, and that remains true while attribution is off.
+
+## Why It Matters
+
+The website is not a lead source and should not be reported as one: zero enquiries, zero conversions, and it has never had an inner page viewed. Its job is to survive the trust check when a prospect looks us up before replying.
+
+The number that matters is not 12. It is that essentially all traffic is unattributable direct, so we cannot say whether a single outreach email has ever produced a visit.
+
+This week sharpens that. Even the sessions we *can* attribute are machines. Haarlem and Gretna are crawlers, not people. The only human-plausible segment is 2 Adelaide sessions. So the gap is not merely "we cannot see email traffic" — this week, the entire non-direct signal was machine noise. Until outbound links carry tags, "is the website working?" has no honest answer.
+
+## One Recommended Action
+
+**Approve the UTM tag on the two outbound link paths.** Fourth consecutive week surfaced; EXP-001 has now been unbuilt ~10 weeks. It is the cheapest measurement win available.
+
+1. `scripts/canonical-send.py` — the body link template (no Gmail dependency, the half that has never actually stalled)
+2. The Gmail send-as signature, edited in Gmail and then pushed with `bin/sync-james-signature.py` — **do not edit `james_signature.json` directly; the weekly sync silently reverts it**
+
+Tag: `?utm_source=email&utm_medium=outreach&utm_campaign=<sequence>`
+
+**Test:** one tagged session with source `email` in GA4 within 7 days of the next send.
+
+**Decision rule (carried from 27 Sep):** if tags are live for 30 days and zero tagged sessions appear, this report moves to quarterly. At that point it will have been tested properly and the answer is no.
+
+## Summary
+
+Traffic rose 50% on paper, but ten of the twelve sessions were crawlers from Dutch and US data centres, and the real finding is unchanged: every link we send is untagged, so we still cannot tell whether the website does any work for the pipeline.
