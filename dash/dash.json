@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 259,
+    "tasks_completed": 260,
     "recent": [
+      {
+        "date": "2026-10-05 07:04",
+        "task": "Morning Readiness reconciled: Ashleigh Thomas #43044 confirmation sent (ATLAS EXECUTING), 4 decision reviews rolled forward, cold-painter = founder decision, Ahmad/Star Painters = founder execution (final call = Today's #1).",
+        "category": "task"
+      },
       {
         "date": "2026-10-04 07:51",
         "task": "Lost courtesy-ack batch resolved: reviewed 18 individually, sent 2 white-label acknowledgments (John Tapley, Lexier Jeffery), 16 no-send with recorded reasons. Founder flags cleared.",
@@ -135,11 +140,6 @@
         "date": "2026-09-24 13:01",
         "task": "Full HQ business refresh (James request) \u2014 QPaint 272 records, .46M active, 13 Won 19,470, 44 Lost. GitHub Pages disabled + Snowark token revoked confirmed (dashboard 404).",
         "category": "task"
-      },
-      {
-        "date": "2026-09-24 11:47",
-        "task": "QPaint review-date-hygiene defect fixed; 24 aged opportunities reassessed (9 HOLD, 15 event-driven), no sends",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-10-05T06:30:02.973671+10:30",
+  "last_updated": "2026-10-05T07:04:35.537221+10:30",
   "pipeline": {
     "prospect_count": 347,
     "stages": {
