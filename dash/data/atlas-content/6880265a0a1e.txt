@@ -1,0 +1,73 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-10-03
+established: 2026-10-03
+tags: [qpaint, prepare-ahead, automation, fail-closed, crm]
+---
+
+# A prose gate in a record is not a gate — the send keyword outranks it
+
+## What happened
+
+Prepare-Ahead scan, 3 Oct 2026 22:00 ACST. Monday 5 Oct carried 22 QPaint Pipeline records
+($572,614.99), 13 of them Email 1 candidates. Three of the thirteen carried a **founder condition
+written in prose inside `First Action`**:
+
+- **Stuart Wills #43281** — "founder to confirm base-only vs base+option **before Email 1**"
+- **Damien Ryan #43249** — "Founder review point before any follow-up … confirm headline vs combined figure"
+- **Scott Cain #43280** — intake note: "QPaint commercial matter — surface to founder, no customer contact"
+
+All three also **opened** their `First Action` with the phrase *"Begin follow-up sequence"* — the exact
+keyword the 07:30 Daily Attention DECIDE rule fires on ("New stage + 48h observation over + 'Begin
+follow-up sequence' → SEND Email 1"). The condition sat at the END of a long free-text paragraph,
+behind the trigger keyword.
+
+## Why it matters
+
+A condition that lives in prose is not a control. The rule engine reads state and a keyword; it does
+not parse the second sentence of a 600-character field. Failure mode: the record says "do not contact
+until the founder rules" and the automation sends anyway — a per-prospect instruction overridden by a
+keyword, which is the exact class of error `learnings/cards/agent-architecture.md` warns about
+(per-prospect instructions outrank general autonomy delegations, but only if the automation can see
+them).
+
+This is the same shape as the documented weekend-guard hole (`qpaint-prepare-ahead.md`: "the NTD alone
+is not enough — also rewrite `First Action`") applied to a **content** condition rather than a date.
+
+## Fix applied
+
+Guard text written to the front of `First Action`, plus a dated append-only `Outreach Notes` line:
+
+```
+HOLD — FOUNDER CONFIRMATION OUTSTANDING before any Email 1 ... Do NOT begin the follow-up
+sequence until the founder rules. This supersedes the 'Begin follow-up sequence' clause that
+preceded it. Owner: Atlas.
+[Original instruction retained] <the original First Action text verbatim>
+```
+
+The original instruction is **retained, not deleted** — auditability beats tidiness, and the guard
+explicitly names what it supersedes. Read-back verified on all three records (guard present, notes
+grew, prior intake text intact).
+
+## Generalised rules
+
+1. **A condition in `First Action` or `Outreach Notes` prose is not a control until it is at the
+   FRONT of `First Action` and negates the trigger keyword.** Prepare-Ahead now sweeps records in the
+   window for founder/condition language and rewrites the gate, rather than reporting it.
+2. **Check the order, not just the presence.** "Begin follow-up sequence … founder to confirm before
+   Email 1" and "HOLD — founder to confirm before Email 1 … [original] Begin follow-up sequence" carry
+   the same words and opposite meanings to a rule engine.
+3. **Fail closed when a record's own instruction is an unanswered condition.** Cost of a guard = a
+   possible one-day delay. Cost of the alternative = a send that contradicts the record's own ruling
+   requirement.
+4. **Never resolve an option-GST or headline-vs-combined question unilaterally.** The house rule
+   (tick-box add-ons never summed into Deal Value, Pitfall 55) is a recommendation to the founder, not
+   a ruling that overrides a record's own gate. State the precedent, ask for the line.
+
+## Related
+
+- `skills/snowark/growth-operations/references/qpaint-prepare-ahead.md` (weekend guard / First Action rewrite)
+- `knowledge/qpaint-review-pack-2026-10-04-05.md` (this run's pack)
+- `learnings/cards/agent-architecture.md` (per-prospect instruction precedence)

@@ -1,0 +1,156 @@
+---
+doc_type: review-pack
+owner: notforgotten
+tier: primary
+client: QPaint
+date: 2026-10-03
+prepared_by: Atlas (Prepare-Ahead Clock, 22:00 ACST)
+status: PREPARATION ONLY — no customer contact, no send. Three fail-closed First Action guards were written (read-back verified); everything else is Atlas-owned through the 07:30 Daily Attention control.
+---
+
+# QPaint review pack — Sun 4 Oct and Mon 5 Oct 2026
+
+> **SUPERSEDED — founder-gate corrections applied 04 Oct 07:35 ACDT.** The three "blocked by the
+> record's own gate" records and the Ramona Jackson binary are now reclassified (founder-directed):
+> Scott Cain #43280 → QPaint input (routed, Email 1 held); Damien Ryan #43249 and Stuart Wills
+> #43281 → Pitfall 55 (base-only, Email 1 proceeds Mon); Ramona Jackson #43305 → Civium HOLD
+> maintained (no founder decision). Airtable First Action fields are the source of truth; this pack
+> is the pre-correction snapshot.
+
+> **Headline.** Sunday carries **zero sending** of any kind. Monday 5 Oct is the largest
+> QPaint action day since the recovery operation began: **22 records / $572,614.99**, of which
+> **13 are Email 1 candidates**. **Eight are ready to send; three are blocked by the record's own
+> open founder confirmation; one is under the Civium HOLD and one is folded.** The same morning
+> the customer-2 pilot fires Touch 2 to 15 businesses. Nothing needed drafting tonight — the QPaint
+> first touch renders from the canonical template and the pilot's Touch 2 was already built and
+> scheduled. What was missing was the guard that stops the 07:30 run sending into an unanswered
+> founder gate. That is now written.
+
+**Source:** live Airtable QPaint Pipeline pull, 3 Oct 22:01 ACST — **303 records**, book
+**$9,783,231.44**. Won 16 / $554,391.99 · Lost 56 · Contacted 144 · Engaged 42 · New 44 · Replied 1.
+Gmail verified directly (atlas@ / james@ / quotes@ sent folders read, not inferred).
+
+---
+
+## 1. What is in the 48-hour window
+
+| When | What | Scale | Ready? |
+|---|---|---|---|
+| **Sun 4 Oct** | Nothing. Zero QPaint NTDs, zero pilot touches. | — | — |
+| **Mon 5 Oct 07:30** | QPaint Daily Attention: 13 Email 1 candidates + 8 review-decide records + 1 Engaged | 22 records / **$572,614.99** | **9 of the 13 clear; 3 blocked; 1 HOLD; 1 folded** |
+| **Mon 5 Oct 09:00** | CUST2-PILOT Touch 2 (reframe) to 15 businesses | 15 prospects | **Yes** — cron `c64d87b9c02b`, subject registered, dry run re-verified tonight 15/15, 0 em dashes, opt-out on all |
+| **Mon 5 Oct** | Decision reviews: `2026-07-05-complete-sequence-before-first-send`, `2026-08-05-operational-handover-standard` | 2 decisions | Prep on file (October Cluster Preps) |
+
+**Verified by read, not assumption:** the two expiry reminders prepared on 30 Sep **were sent** —
+Steve Clare (atlas@, 30 Sep, quote expired today) and Les Harvison (atlas@, 1 Oct, expiry Mon 5 Oct).
+No expiry deadline is now unreachable. The 10 QPaint first touches in the 30 Sep / 1 Oct window are
+all present in the atlas@ Sent folder.
+
+---
+
+## 2. Monday's 13 Email 1 candidates — the honest count
+
+**Ready to send (8):** Maddy Tee $97,600.80 · Alex Bratic $41,726.18 · Letchu Marayanan $32,846 ·
+Nick Lee $29,546 · Nathalie Cowburn $23,947 · Dale Taylor $22,642.62 · Andrew Chiu $19,613 ·
+Amy Deeb $6,930.
+All carry a verified contact email, a named contact read from the document (not inferred), a quote
+date, and the 48-hour observation satisfied.
+
+**Blocked by the record's own gate (3) — fail-closed guards written tonight:**
+
+| Record | Value | The gate, in the record's own words | Recommendation |
+|---|---|---|---|
+| **Stuart Wills #43281** | $18,304.00 | "founder to confirm base-only vs base+option **before Email 1**" (elective roof restoration renders $11,550.00, excluded from the recorded base) | Apply the house rule: tick-box add-ons are never summed into Deal Value (Pitfall 55) — Verena Curr, Michael and Kristeen Davis all proceeded on base-only with the option documented. One line from you releases it |
+| **Damien Ryan #43249** | $22,639.10 | "Founder review point before any follow-up … confirm headline vs combined figure" (5 options render $0.00; all five elected ≈ $38,717.80) | Same rule, same answer |
+| **Scott Cain #43280** | $31,900.00 | "QPaint commercial matter — **surface to founder, no customer contact**" (document NOTE stages works after hours/weekends; clause 7 prices Mon–Fri 6.30am–4pm and adds charges for outside hours) | A QPaint pricing-basis question, not a customer one. Surface to Dee/Leslie; the customer answer does not depend on it |
+
+Awareness only: **Maddy Tee's** base/option gap ($97,600.80 recorded vs $107,484.30 if the elective
+option is taken) was flagged at intake and is not a gate. **Amy Deeb** carries a timing signal — the
+customer's own note asks for a start Thu 8 Oct, which makes her the one candidate worth prioritising.
+
+**Not sending (2 of the 13):** Jono Mazz #43225 — folded into the #43167 relationship, no
+independent sequence. Ramona Jackson #43305 — HOLD.
+
+**Ramona Jackson #43305 — the one true binary founder question in the window ($6,446).**
+Her record carries the 2026-08-24 Civium HOLD, and the new quote is arguably the "new commercial
+evidence" that HOLD named as its own reassessment trigger. *Lift the HOLD for #43305 as a fresh
+opportunity, or extend the account-level HOLD across all Civium complexes?* She is the 4th Civium
+complex on an account already held; a per-quote Email 1 would fragment it. **Either answer is
+defensible; a non-answer leaves it parked.** No contact either way.
+
+**The 8 review-decide records** (Kyle Hope $60,349.30 · Natalie Moric $35,572.90 · Cameron Nygaard
+$21,982.40 · Jono Mazz #43167 $16,585.99 · Jessica Carder $15,246 · Luke Giddins $12,947 ·
+Jeremy $10,912 · Madonna Crocker $4,317.50) each carry "REVIEW → DECIDE, no automatic next email".
+No draft is owed. Giddins carries two awareness-only founder flags from intake (a document prepared
+by a QPaint employee; an urgency signal the 48-hour rule forbids acting on).
+
+---
+
+## 3. Weekend check — clean where it matters
+
+- **Sat 3 / Sun 4 Oct: zero records.** No weekend customer email is possible this weekend.
+- **Sat 10 Oct — Pubudu Madawala #43161 ($110,831.60)**, the only other future weekend date inside
+  8 days. **Not patched, deliberately:** his First Action forbids further contact unless the customer
+  replies (the Handypay outcome was relayed 3 Oct), so the weekend guard has no send to prevent. The
+  30 Sep precedent rolled 8 weekend dates because those carried real send-eligible actions; this one
+  does not. Recorded as a watch item, not drift.
+- **Sun 25 Oct — 39 records** remain the deliberate long-term control set created 25 Sep. By design.
+
+---
+
+## 4. Decision reviews — nothing new to prepare
+
+Reviews due: **4 Oct** (ICP owner-led small business · Messages→Prospect link · V2 persistence hold),
+**5 Oct** (complete-sequence-before-first-send · operational-handover-standard), **6 Oct** (campaign
+review operating standard), **7 Oct** (communication voice standard), **8 Oct** (verify James's Sent
+before founder-attention escalation · the four QPaint Email 2 approvals).
+
+All are already prepped: the October Cluster Review Prep (28 Sep, 12 decisions) plus two addenda
+(30 Sep and 2 Oct — the second covering both 8 Oct reviews with live outcome data: four high-value
+QPaint customers, $598,544, zero replies, one escalated to a phone call). **No new prep was needed and
+none was written.** The four verdicts due from 1 Oct remain with you; that is the constraint on the
+cluster, not the preparation.
+
+---
+
+## 5. Timing note — first multi-send day after the DST change
+
+SA moved to ACDT overnight into Sun 4 Oct. The scheduler computes daily jobs an hour early on the
+first post-boundary occurrence and some fire twice (Hermes-core item, already raised). **Sunday
+carries zero sends so the double-fire is harmless, and every send path is idempotency-guarded.** The
+pilot's Touch 2 and Touch 3 crons are fixed one-shot instants and next-run correctly at 09:00 ACDT.
+The QPaint job will deliver at 07:00 Brisbane rather than 08:00 from Monday — the known customer-clock
+consequence already raised with you for a ruling, not changed here.
+
+**Also aware:** Mon 5 Oct is Labour Day in NSW/ACT/SA. QPaint's customers are Queensland, where it is
+a normal working day. For the pilot, 8 of 15 recipients are in holiday states — the 18:12 pulse
+already flagged this and recommended widening the measurement window rather than moving the send.
+
+---
+
+## 6. Done tonight (and what was not)
+
+| Action | Evidence |
+|---|---|
+| Fail-closed guard written to 3 First Actions + dated append-only note on each | Read-back verified: guard present on Scott Cain, Stuart Wills, Damien Ryan; notes grew, original intake text retained |
+| CUST2-PILOT Touch 2 dry run re-verified | 15/15 rendered, 0 em dashes, opt-out on all 15; nothing sent, no CRM write |
+| Delivery of both 30 Sep expiry reminders verified | atlas@ Sent folder, direct read |
+
+**No draft was created because no draft was owed.** QPaint first touch renders from the canonical
+template (`qpaint-recovery-introduction` v1) with its own Customer Context Gate per record; the pilot
+Touch 2 body already exists in CAMPAIGN.md and is scheduled. The gap tonight was not a missing draft —
+it was an unanswered gate sitting in front of a send day.
+
+*No customer contact. No send. Three First Action guards, one dry run, nothing else.*
+
+---
+
+## 7. Carried, unchanged
+
+Post-3-touch line (Atlas assesses the 12+ records individually) · Jono Mazz and Madonna Crocker
+relationship folds · the 16-record Lost courtesy-acknowledgement batch awaiting your approve/decline ·
+Paul Robertson #43206 value restatement (contracted $10,879.00 + $4,103.00 pending variation) and the
+exclusion-list contradiction, both with QPaint · Kristeen Davis #43273 and Ashleigh Thomas #43044
+(NTD 6 Oct, "send a short confirmation, or stay silent" — a binary opening Tuesday) · cold-painter
+channel ruling (open since 11 Sep) · Ahmad / Star Painters final conversation · Founder Call
+Rounds 3+4 capture.

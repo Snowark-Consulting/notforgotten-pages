@@ -54,54 +54,35 @@ Every piece of data must answer: **"What should we do because we now know this?"
 - Which website changes increase demo bookings?
 - Which content builds the most trust?
 
-### Current Baseline (week of 2026-09-20 to 2026-09-26)
+### Current Baseline (week of 2026-09-27 to 2026-10-03)
 
-- 8 users (day-sum), 8 sessions, 9 page views; traffic on 4 of 7 days
-- Composition: direct 5, Instagram 3. Google organic 2 → 0. Only page viewed: `/` (9 of 9 views)
-- Engaged 4 of 8 sessions (50%), against 58% the previous week
-- Countries: Australia 4, United States 3, Singapore 1
+- 11 users (day-sum), 12 sessions, 13 page views; traffic on 4 of 7 days (Sep 27, 30; Oct 2, 3)
+- **Only page viewed: `/` (13 of 13 views).** No other page has ever registered a view in 16 weeks
+- Composition: `(direct)` 11 sessions, `facebook.com` referral 1
+- **10 of the 12 sessions were machine traffic from known data-centre geolocations:** Haarlem NL 6 (0.0s avg duration, 0 engaged), Boardman US 2, Ashburn US 1, Gretna US 1. Adelaide only 2 (14.3s, 1 engaged)
+- Engaged sessions 3 of 12 (25%), against 50% the previous week. 100% new users (11 `first_visit`, zero returning)
+- No conversion events: no `form_submit`, no `generate_lead`, no `click`. Events: page_view 13, session_start 12, first_visit 11, user_engagement 3, scroll 1
+- **A single-day machine burst drives the whole week:** Oct 2 = 6 sessions, all Haarlem NL, 0.0s, 0 engaged, one page each
+- 16-week context: ~350 sessions, ~22/week mean. This week's 11–12 sessions is ~50% of the mean, and the +50% week-on-week is recovery from the quietest week of the period (ISO week 202639, 5 sessions) — not growth
 
-**Ungated attribution persists (verified 2026-09-27):**
+**Structural findings (long-run, re-verified 2026-10-04):**
 
-- **The UTM engine is retired, not merely unimplemented.** EXP-001's `apply_utm_tags()` lived in `~/.hermes/scripts/send-outreach.py`, which was moved to `scripts/disabled/` on 2026-08-07. The live send path `scripts/canonical-send.py` (and `canonical_template.py`, `gmail-send-guard.py`) contain zero UTM references. `grep -rl utm_source scripts/*.py` returns nothing. Every outbound email link, body and signature alike, is untagged.
-- The Gmail signature still links bare `http://notforgotten.com.au` as at the 2026-09-27 12:00 sync. The 2026-09-20 prediction (one `email-signature` session by 27 Sep) returned zero, but is **untested rather than falsified** — the fix it depended on was never applied. Do not fire the "move to quarterly" decision rule on an untested prediction.
-- `nfs_internal` internal-traffic exclusion still absent from the homepage HTML as served (verified 2026-09-27).
-
-### Previous Baseline (week of 2026-09-13 to 2026-09-19) — superseded
-
-- 11 users (day-sum), 12 sessions, 12 page views; traffic on 5 of 7 days
-- Composition: Meta (Instagram + Facebook) 8 sessions, direct 2, Google organic 2. Only page viewed: `/`
-- Engaged sessions 7 of 12 (58%), against 1 of 6 (17%) the previous week
-- Countries: Australia 8, Switzerland 2, United States 2
-
-**Structural findings (verified 2026-09-20 against the full 15-week period, 8 Jun to 19 Sep):**
-
-- ~341 sessions over 15 weeks, average ~23/week. This week at 12 is 53% of average. Best week: 10-16 Aug (47 sessions). Quietest: 6-12 Sep (6). Week-on-week swings of 100% are therefore noise, not signal. Always check the current week against the 15-week mean before describing a change as a rise or fall.
-- **83% of all traffic is unattributable direct** (284 of ~340 sessions; only 56 came from any identifiable source). Adelaide is 130 of 341 sessions (38%).
-- Data-centre IPs are a material share of the remainder: Ashburn 26, Frankfurt am Main 13, Boardman 12, Council Bluffs 7.
-- Meta-social traffic began in the week of 10 Aug and has recurred every week since (12, 3, 3, 1, 8). It is not new and not spiking. All Adelaide Meta sessions carry `?fbclid=`.
-- **No email-sourced session has appeared in any of the 15 weeks.** The live Gmail signature links to bare `http://notforgotten.com.au` with no UTM parameters (verified against the Gmail `settings/sendAs` API, 2026-09-20).
-- **`nfs_internal` internal-traffic exclusion is still not present** in the homepage HTML as served (verified 2026-09-20).
-- EXP-001 (end-to-end attribution, standard set 2026-07-25) remains unimplemented; the 2026-08-25 review date lapsed without a verdict. The 83% direct figure is the measurable cost of that lapse.
+- ~350 sessions over 16 weeks, ~22/week. On this base, week-on-week swings of 50–100% are noise. Compare every week against the 16-week mean before describing a rise or a fall.
+- The large majority of sessions are unattributable direct. Only a small minority carry any identifiable source (organic search 1–7 sessions in 8 of 16 weeks; Meta social recurring since 10 Aug; `chatgpt.com` referrals in 3 of the last 5 weeks of that stretch).
+- **Data-centre IPs are the single largest identifiable segment:** Ashburn, Boardman, Frankfurt am Main, Council Bluffs, Gretna, and (new, 2026-10-04) Haarlem NL. These are crawlers and monitors, not prospects.
+- Adelaide is the only meaningfully human Australian segment and it is small (2 sessions this week).
+- **No `email`-sourced session has ever appeared in 16 weeks.** The Gmail signature links bare `http://notforgotten.com.au`, and `scripts/canonical-send.py` contains no UTM references (verified 2026-10-04: `grep -rl utm_source scripts/*.py bin/*.py` returns nothing).
+- **`nfs_internal` internal-traffic exclusion still absent** from the homepage HTML as served (verified 2026-10-04, 0 occurrences). Internal visits from James/Josh desktops count as direct traffic.
+- GA4 tag `G-03Y95NSDRV` present and healthy on the homepage (verified 2026-10-04). A quiet week is not a tracking failure.
 - No form submissions tracked, no demo bookings from the website.
+- EXP-001 (end-to-end attribution, standard set 2026-07-25, review date 2026-08-25) remains unimplemented and past due. The unattributable-direct figure is the measurable cost of that lapse.
 
-**Signature propagation chain (verified 2026-09-20):** the Gmail `settings/sendAs` signature is authoritative → `bin/sync-james-signature.py` (weekly cron) overwrites `james_signature.json` → `scripts/sig_assembly.py: assemble_html()` appends it to outbound HTML. **Editing `james_signature.json` directly is silently reverted by the weekly sync. Change the Gmail setting, then run the sync.** Note that `scripts/canonical-send.py` sends `text/plain` only and does not append the signature at all, so a UTM fix in the signature does not cover canonical sends; those need the tag in the body template.
+**Method caveat (important):** `scripts/ga4-intel.py` builds its weekly "users" figure by summing per-day `activeUsers`. That is a day-sum, not unique weekly users — a visitor active on three days counts three times. Always compare day-sum against day-sum; never present the figure as "unique visitors". For true weekly uniques, request dimension `isoYearIsoWeek` (see `scripts/ga4-deep-dive.py`).
 
-### Previous Baseline (week of 2026-09-06 to 2026-09-12) — superseded
+**Script pitfall (2026-10-04):** a stray `/tmp/inspect.py` left by an earlier job shadowed the stdlib `inspect` module and broke every Python run from `/tmp` with `AttributeError: module 'inspect' has no attribute 'signature'`. Never place scratch scripts in `/tmp`; write them to `~/.hermes/scripts/`. Contained 2026-10-04 by renaming the file to `/tmp/DISABLED_inspect.py.bak`.
 
-- 6 users, 6 sessions, 6 page views (day-sum method, see caveat below)
-- Traffic on 3 of 7 days (Sep 7, 9, 11); 4 days with zero sessions
-- 4 direct, 1 Google organic, 1 Instagram
-- 3 US, 1 Australia, 1 Argentina, 1 UK
-- Only page viewed: `/`
-- 14-week range (Jun 8 – Sep 12, 2026): 2–36 users/week. The site has never sustained more than a trickle. Week-to-week swings of 80%+ are normal variance and are usually driven by single-day non-human bursts (Aug 30: 12 users, Sep 1: 18 users — all direct, single-page, ~2.5s average session, 6.5% engagement).
-- Non-direct discovery exists but is tiny: organic search in 8 of the last 14 weeks (1–7 sessions), Instagram referrals in 4 (1–12), AI-assistant referrals (`chatgpt.com`) in 3 of the last 5 (1–2 sessions).
-- No Email-channel sessions in any week. The Gmail signature links to `http://notforgotten.com.au` with no UTM parameters, so email clicks, if any, are indistinguishable from direct traffic.
-- No form submissions tracked, no demo bookings from the website.
+### Previous Baselines (superseded)
 
-**Method caveat (important):** `scripts/ga4-intel.py` builds its weekly "users" figure by summing per-day `activeUsers`. That is a day-sum, not unique weekly users — a visitor active on three days counts three times. Always compare day-sum against day-sum across weeks; never present the figure as "unique visitors", and prefer GA4 weekly uniques (request dimension `isoYearIsoWeek`) when describing a trend.
-
-**Data-quality notes (verified 2026-09-13):**
-- GA4 tag is live on `notforgotten.com.au` (`G-03Y95NSDRV`); the nightly tracking tag audit ran clean all week. A quiet week is not a tracking failure.
-- The internal-traffic detection snippet (`nfs_internal`) is **not present** in the homepage HTML as served, so cookie-based internal exclusion is not active on that page. Internal visits from James/Josh desktops would be counted as direct traffic.
-
+- **2026-09-20 to 2026-09-26:** 8 users (day-sum), 8 sessions, 9 page views; direct 5, Instagram 3, Google organic 2 → 0; only `/` viewed; engaged 4 of 8 (50%); Australia 4, United States 3, Singapore 1
+- **2026-09-13 to 2026-09-19:** 11 users, 12 sessions, 12 page views; Meta 8, direct 2, Google organic 2; engaged 7 of 12 (58%); Australia 8, Switzerland 2, United States 2
+- **2026-09-06 to 2026-09-12:** 6 users, 6 sessions, 6 page views; 4 direct, 1 Google organic, 1 Instagram; 3 US, 1 AU, 1 AR, 1 UK
