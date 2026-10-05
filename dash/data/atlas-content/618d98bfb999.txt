@@ -1,0 +1,77 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+date: 2026-10-05
+tags: [corruption, learnings, out-of-band-writer, repair]
+---
+
+# Learnings corruption — 26th occurrence (2026-10-05)
+
+> The out-of-band writer rewrote **four** files at **07:04:26–07:04:31 ACDT** (2026-10-04 20:34:26–20:34:31 UTC), deleting **10 traps and 3 UPDATE notes from the live QPaint card**. Guard = **29 findings**. HEAD was **clean** (verified by content marker and by md5 match against each file's last legitimate commit). Three attested blocks were re-applied; the rest were rejected.
+
+## Detection
+
+Found by this consolidation at 21:00 ACDT — **~13.9 h after the write**, by **no scheduled control**. The 21:20 guard and the 21:30 backup both run before the write. This is the standing detection-latency defect, now 26 events old.
+
+## Facts
+
+| Field | Value |
+|---|---|
+| Window | 2026-10-04 20:34:26.330 – 20:34:31.430 UTC = **07:04:26–07:04:31 ACDT** |
+| Files | 4 — `catalogue.md`, `cards/agent-architecture.md`, `cards/python.md`, `cards/qpaint.md` |
+| Burst | **5.1 s** across 4 files (mtimes 20:34:26.33 / :28.23 / :30.11 / :31.43) — a loop over files. The rest of the dirty set spanned hours, so the discriminator confirms a real write, not an autostash. |
+| Guard | **29 findings** |
+| HEAD | **CLEAN** — `EDITING THIS TABLE` marker present; md5 of HEAD matched the last legitimate commit for all four files (catalogue `ba61fb2d`, qpaint `c52b9ecb`, python `e6ec0e58`, agent-architecture `0e7e9e21`) |
+| Writer | Unidentified (26th consecutive) |
+
+## Damage
+
+- **`cards/qpaint.md` (the live paying client's card) — worst hit: 13 traps → 4 headings.** 10 traps deleted outright, 3 renamed with their dates stripped, **3 UPDATE notes deleted**. Net 25 added / 72 deleted.
+- **`cards/agent-architecture.md`**: 2 traps deleted outright (`Customer deferral ("still thinking / comparing") is MONITOR`; `Engaged + external dependency = WAIT/MONITOR`), 2 renamed (the out-of-band-window heading `~06:03 ACST`; the negative-grep heading with its date stripped), **2 UPDATE notes deleted**, 3 blocks added.
+- **`cards/python.md`**: the `## TRAP — Never Run Scripts From /tmp (Local Modules Shadow the Stdlib)` heading **renamed and narrowed**, the entire `## CONTAINED 2026-10-04 — /tmp/queue.py finally renamed` section deleted (a real loss), 1 block added.
+- **`catalogue.md`**: `EDITING THIS TABLE` warning block deleted, `gmail-auth` row dropped, `email` row malformed as `email 🆕`, `campaign` cell rewritten as a markdown link, 4 keyword cells reworded (`hermes` +6; `agent-architecture` lost `negative grep`/`rule does not exist`, gained `attestation`; `qpaint` de-keyworded; `cron` gained `Hermes tools Python`, `agent venv`, `googleapiclient`), trailing newline removed. 24 pipe-lines → 23.
+
+## Repair
+
+1. **Pre-restore safety check** — `git diff --numstat` over the tree; the four damaged files restored **individually**, never by blanket restore (`learnings/LEARNINGS.md` also carried a legitimate daytime edit and was deliberately kept).
+2. **Baseline** — HEAD verified clean before restoring.
+3. **`git restore`** the four files.
+4. **Extract → ATTEST from scratch → duplicate-check → re-apply.** Three blocks re-applied:
+
+| Block | Card | Attestation |
+|---|---|---|
+| A QPaint-internal reply on a live HELD record is an escalation ANSWER, not generic FYI | `cards/qpaint.md` | `LEARNINGS.md` 2026-10-04 entry + `notes/2026-10-04.md`; new to the card layer |
+| A Python-generated timestamp can be labelled ACDT while the real value is UTC (Pitfall 54 on a second surface) | `cards/python.md` | `LEARNINGS.md` 2026-10-04 entry + `notes/2026-10-04.md`; new to the card layer |
+| A prose gate in a record is not a gate: the send keyword outranks it (2026-10-03) | `cards/agent-architecture.md` | dated record `learnings/2026-10-03-prose-gate-not-a-gate.md` + `LEARNINGS.md` 2026-10-03 entry; new to the card layer |
+
+5. **Rejected** (recorded as decisions, not omissions):
+   - `Customer reply "already completed" = LOST pipeline cleanup…` — **duplicate**, canonical in `skills/email/email-inbox-pulse/references/qpaint-customer-reply-processing.md`; rejected on the 12th, 14th, 23rd and 25th events for the same reason.
+   - `Attestation must test against the filesystem… (24th occurrence)` — already boot-loaded via `memory/MEMORY.md` + the repair playbook below; rejected on the 3 Oct event too.
+   - the reworded out-of-band heading (`~06:03 ACST` → `07:06–07:07 ACST (10th–11th occurrences)`) — the foreign series record, rejected on 3 Oct; the current window is a moving target and lives in this file, not in a card.
+   - the negative-grep reword — HEAD's version already carries the full rule and its date.
+   - the `/tmp` trap rename — HEAD's version is broader; a rename is not an improvement.
+   - the catalogue **keyword-only** edits — no attestation route (rec `consolidation-catalogue-keyword-attestation`); discarded on the standing policy.
+6. **Verified by heading LIST diff** — additions only, zero collateral damage (qpaint 13→14, python 2→3, agent-architecture 20→21).
+7. **Catalogue reconciled** — 24 pipe-lines = 22 rows = 22 cards, warning block present, 0 malformed rows.
+8. **Guard re-run as the LAST step** = silent PASS.
+
+## Note on the hourly commit hazard (positive this run)
+
+The 17th event (2026-09-23) taught that the **hourly dashboard job's `git add -A`** had already committed the corruption, destroying the HEAD baseline. **Tonight it did not fire:** HEAD's newest commit (`692202da`, 2026-10-05 10:30:33 UTC) touched only `pages/dashboard.html` (2 insertions). The hourly job is not sweeping the whole tree, so the HEAD baseline survived. Do not assume this holds — keep testing HEAD by content marker.
+
+## Standing rules (unchanged, restated)
+
+- **Never fuzzy-patch `catalogue.md` or `cards/*.md`** — full-file rewrite or `git restore` only.
+- **Diff heading LISTS vs HEAD, never counts.**
+- **HEAD is not always clean** — verify by content marker, never by commit date.
+- **Mtimes are evidence, not proof** — one instant across the whole dirty set = the snapshot autostash; a 1–6 s burst across 1–6 files = a real write.
+- **"Re-apply the writer's new blocks" is FALSIFIED as a blanket rule** — attest every block against the filesystem, **from scratch, every run**; never inherit last night's verdict.
+- **A dirty card is not damage** — attest before restoring, or the repair destroys a learning.
+- **Detection latency is the binding defect**, not repair quality.
+
+## Related
+
+- `learnings/corruption/INDEX.md` — the standing fact sheet (occurrence log, damage signature, falsified hypotheses, repair playbook).
+- `memory/MEMORY.md` — the terse standing rule.
+- Recs still open: `consolidation-learnings-guard-0715` (needs founder approval — a scheduled job that auto-restores files), `consolidation-guard-tune`, `consolidation-out-of-band-learnings-writer`, `consolidation-learnings-writer-unattested-blocks`.

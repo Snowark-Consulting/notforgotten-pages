@@ -17,7 +17,7 @@ tier: primary
 | **Incident log** | `learnings/INDEX.md` | Resolved incidents (LL-*). |
 | **Unresolved** | `learnings/ERRORS.md` | Open incidents. |
 | **Catalogue** | `learnings/catalogue.md` | Domain → card trigger map. |
-| Corruption series | `learnings/corruption/INDEX.md` | Standing fact sheet for the recurring out-of-band corruption of the catalogue + cards (**25 occurrences, Sep–Oct 2026**): damage signature, falsified hypotheses, repair playbook. Read before investigating a new event. |
+| Corruption series | `learnings/corruption/INDEX.md` | Standing fact sheet for the recurring out-of-band corruption of the catalogue + cards (**26 occurrences, Sep–Oct 2026**): damage signature, falsified hypotheses, repair playbook. Read before investigating a new event. |
 | **This file** | `learnings/LEARNINGS.md` | Chronological index to the above. |
 
 ## Card inventory
@@ -48,6 +48,10 @@ tier: primary
 | telegram | `cards/telegram.md` |
 
 ## Chronological index (newest first)
+
+### 2026-10-05
+- **26th learnings-corruption event** — 4 files (catalogue + qpaint + python + agent-architecture) in a 07:04 ACDT 5.1 s burst, guard = 29; the live QPaint card cut 13 traps → 4; 3 attested blocks re-applied. → `learnings/2026-10-05-learnings-corruption-26th.md`
+- **Never take a first-touch loss count from a signal note** — enumerate the cohort from `Outcome Date` + `Last Contacted`; the signal said 2 losses, enumeration found 3 ($61,335.12 in 6 days).
 
 ### 2026-10-04
 - **A stray `/tmp/inspect.py` shadowed the stdlib and broke every Python script run from `/tmp`.** Python puts the script's own directory at `sys.path[0]`, so running from `/tmp` imported a leftover fencing scraper instead of stdlib `inspect`; the symptom was `AttributeError: module 'inspect' has no attribute 'signature'` from `typing_extensions` with ~2 KB of foreign scrape output above it. Directory-scoped, so it silently broke **every** agent's `/tmp` scripts on the shared box. Rule: write scratch scripts to `~/.hermes/scripts/`, never `/tmp`; a traceback naming a stdlib module that "has no attribute X" is a shadowing signature — check `sys.path[0]`. Contained by reversible rename to `/tmp/DISABLED_inspect.py.bak`. → `knowledge/website-intelligence-standard.md` (script pitfall)
@@ -644,3 +648,22 @@ When a new entry contradicts a prior one: set `Contested: true` on both, add rec
 **Rule:** never hardcode an Australian UTC offset. The standing standard ("all Python scripts must use the Adelaide timezone") is satisfied only by `zoneinfo`, never by a `timedelta` offset. When a timezone defect is found, **sweep for `timedelta(hours=9` — do not trust the rule to have been followed**, because the rule existing is exactly what made this look solved.
 **Not done, deliberately:** no repo-wide conversion. `canonical-send.py` is the sole outbound gateway; rewriting its timezone handling untested from a cron report job sits below the production confidence threshold (rule 9), and the impact window is one hour per day. Raised as an infra-owner action with exact lines so the fix is mechanical, not investigative.
 **Source:** Weekly Website Intelligence (second fire), 2026-10-04 21:32 ACDT.
+
+## 2026-10-05 — Never take a first-touch loss count from a signal note: enumerate the cohort from `Outcome Date` + `Last Contacted`
+
+**Confidence:** high (both figures re-derived from live Airtable + Gmail Sent in the same run)
+**Contested:** false
+**What happened:** The pulse run was handed an inbox-pulse SIGNAL reading "2nd definitive LOST on the FIRST touchpoint in 6 days (Mark Turner 30-Sep #43229 $31,762.50, Amy Deeb 05-Oct #43289 $6,930.00)". An independent enumeration — QPaint records with `Outcome Date` in the last 10 days joined to `Last Contacted` — found **three**: **Dale Taylor #43269 $22,642.62** was also a definitive first-touch loss on 2026-10-05 (`Recovery Outcome = Lost - Went Elsewhere`, Email 1 sent 07:35 ACDT, reply 08:30 ACDT). The signal had been written at 17:05 and simply did not include the 08:30 loss.
+**Why it matters:** the two counts split the same finding differently — $38,692.50 (signal) vs **$61,335.12** (enumeration) in 6 days. A signal note is a point-in-time observation written by whichever job saw the message; it is not a cohort census. Quoting it as the loss rate understates the strongest live signal in the QPaint book, in the direction that makes the 48h first-touch delay look safe.
+**Rule:** any reply-rate or loss-rate figure must be **enumerated from the record table in the run that quotes it** — join the outcome field to the contact field and count — never lifted from a prior job's note, however recent. Where a note and a fresh enumeration disagree, the enumeration is the fact and the note is the evidence of a gap worth naming.
+**Source:** Campaign Pulse, 2026-10-05 18:20 ACDT.
+
+## 2026-10-05 — Learnings corruption, 26th occurrence: the live QPaint card cut from 13 traps to 4, and three attested blocks re-applied
+
+**Confidence:** high (HEAD verified clean by content marker + md5 against each file's last legitimate commit; every writer block independently attested against disk before re-application)
+**Contested:** false
+**What happened:** The out-of-band writer rewrote **four** files at **07:04:26–07:04:31 ACDT** (2026-10-04 20:34:26–20:34:31 UTC) — `catalogue.md`, `cards/qpaint.md`, `cards/python.md`, `cards/agent-architecture.md` — a 5.1 s burst while the rest of the dirty set spanned hours (discriminator satisfied: a real write, not the snapshot autostash). Guard = **29 findings**. `cards/qpaint.md`, the live paying client's operating rules, was **cut from 13 traps to 4**: 10 deleted outright, 3 renamed with their dates stripped, and **3 UPDATE notes deleted**. `cards/agent-architecture.md` lost 2 traps outright plus 2 UPDATE notes and had 2 headings renamed; `cards/python.md` lost the `/tmp` stdlib-shadow trap to a narrower rename and lost the whole `CONTAINED 2026-10-04` section; the catalogue lost its warning block and the `gmail-auth` row.
+**Repair order (restore → extract → ATTEST → duplicate-check → re-apply):** HEAD was verified clean first (content marker present; md5 of HEAD matched the last legitimate commit for all four files — `ba61fb2d`, `c52b9ecb`, `e6ec0e58`, `0e7e9e21`), then each damaged file was restored **individually** (never by blanket restore — `learnings/LEARNINGS.md` also carried a legitimate daytime edit). Three blocks were attested from scratch and re-applied: the QPaint **escalation-ANSWER** trap (`qpaint`), the **Pitfall-54-on-a-second-surface** trap (`python`), and the **prose-gate** trap (`agent-architecture`) — all named by a `LEARNINGS.md` entry dated 2026-10-04 or 2026-10-03 and all new to the card layer. Six were rejected, including the recurring `Customer reply "already completed" = LOST` duplicate (its 4th rejection; canonical in `skills/email/email-inbox-pulse/references/qpaint-customer-reply-processing.md`) and the attestation/filesystem block (already boot-loaded; rejected on 3 Oct too).
+**Why it matters:** every repair in this 26-event series has worked and none has reduced how long the damage lives — this occurrence was found by the 21:00 consolidation **~13.9 h after the write**, by no scheduled control, because the 21:20 guard and the 21:30 backup both run before the writer. **Detection latency is the binding defect.** Rec `consolidation-learnings-guard-0715` (a ~07:15 detect-and-restore run) remains unbuilt — a job that auto-restores files is an infrastructure change needing explicit founder approval.
+**New this run (positive):** the 17th-event hazard — the hourly dashboard job's `git add -A` committing the corruption and destroying the HEAD baseline — did **not** fire. HEAD's newest commit (`692202da`) touched only `pages/dashboard.html`. Do not assume it holds; keep testing HEAD by content marker.
+**Source:** Atlas nightly consolidation, 2026-10-05 21:00 ACDT.

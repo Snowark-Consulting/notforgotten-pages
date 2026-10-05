@@ -60,9 +60,9 @@ All are `New` stage with `Next Touchpoint Date` 2026-10-05, a verified contact e
 
 ---
 
-## 3. Tuesday 6 Oct — 11 records
+## 3. Tuesday 6 Oct — 9 records
 
-One **Email 1 candidate** (Altra Property Co #43317, above) and ten records that are **review or hold**, none of which is a send:
+One **Email 1 candidate** (Altra Property Co #43317, above) and eight records that are **review or hold**, none of which is a send:
 
 | Record | Value | State |
 |---|---|---|
@@ -75,7 +75,8 @@ One **Email 1 candidate** (Altra Property Co #43317, above) and ten records that
 | Joe Vakabua | $16,495.60 | Review-decide; Email 3 sent 29 Sep, 3 touches complete |
 | Troy Moncur | $10,700.80 | Review-decide; Email 3 sent 29 Sep |
 | Altra Property Co | $18,898.00 | **Email 1 candidate** — 48h window expires Tuesday |
-| Jono Mazz #43167 | $16,585.99 | Relationship primary — QPaint revised direct to customer 17 Sep |
+
+*Corrected by the 22:00 backfill fire: Jono Mazz #43167 was listed here and also in §2. His `Next Touchpoint Date` is `2026-10-05` (Monday), and his First Action names no Tuesday date — he belongs to Monday only. Tuesday is 9 records, not 11. Verified by direct pull.*
 
 **No draft is owed for any of these.** The three QPaint-input records are waiting on QPaint, not on us.
 
@@ -155,3 +156,30 @@ Not contained — this is a script behaviour change and outside this clock's rem
 ---
 
 *No customer contact. No send. One draft, two reconciliations, one census. Prepared by the Prepare-Ahead Clock, 4 Oct 2026 21:00 ACDT.*
+
+---
+
+## 11. Backfill fire, 22:01 ACDT — verification only, zero delta
+
+The DST double-fire fired again at 22:01 (as this pack's §7 predicted). Per the standing guidance this
+was run as a **backfill, not a fork**: re-verify the 21:00 findings against live sources, patch this
+pack, do not re-deliver. **Nothing changed in the hour, so nothing new was prepared and no second
+notification was sent.**
+
+| Re-verified at 22:01 | Result |
+|---|---|
+| QPaint Pipeline record count | **305** — identical to the 21:01 pull. No record created, none moved. |
+| QPaint book | **$9,812,857.19** · Won 16 / **$554,391.99** (unchanged) |
+| Monday 5 Oct NTD cohort | **21 records** — the same 21, $347,694.70 of which are the 11 Email 1 candidates |
+| Tuesday 6 Oct NTD cohort | **9 records** (see the §3 correction above — the pack said 11) |
+| Cross-check: `Next Touchpoint Date` vs `First Action` text, both days | 5 Oct **21 NTD / 21 FA**, 6 Oct **9 NTD / 7 FA** — no record is reachable only through its First Action, and the two FA-only hits (Verena Curr, Les Harvison) both point at a customer-absence window, not a send |
+| Pilot cohort | **15/15** businesses carry `Next Touchpoint Date 2026-10-05`, `Email 1 / Active / Outreach Active` — matches the pack |
+| Pilot crons | `c64d87b9c02b` **enabled**, next run `2026-10-05T09:00:00+10:30`; `281abe707fb8` (Touch 3) enabled, `2026-10-09T09:00:00+10:30` |
+| Weekend scan, 14 days | one Saturday record only (Pubudu #43161, no send possible) — unchanged |
+
+**Corrections applied to this pack:** the Tuesday count in §3 (11 → 9) and the duplicated Jono Mazz
+#43167 row, which belongs to Monday. Both were checked against the live record, not against the
+previous pack.
+
+*No customer contact. No send. No draft owed. Verification only, one pack patched, no second
+notification. Prepared by the Prepare-Ahead Clock backfill fire, 4 Oct 2026 22:01 ACDT.*
