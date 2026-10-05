@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 261,
+    "tasks_completed": 262,
     "recent": [
+      {
+        "date": "2026-10-05 18:15",
+        "task": "Campaign Pulse posted \u2014 QPaint first-touch: 3 of 5 Email 1s sent today replied within 10h, but 2 were same-day definitive losses ($61,335.12 in first-touch losses over 6 days). CUST2 pilot Touch 2 delivered 15/15, 0 replies across 30 touches. Recommendation: bounded 48h\u219224h first-touch timing test (founder call).",
+        "category": "task"
+      },
       {
         "date": "2026-10-05 07:37",
         "task": "QPaint Daily Attention: 10 follow-ups sent (5 Email 1, 2 Email 2, 3 Email 3), 5 CRM reconciliations, 6 records held within 48h window",
@@ -135,11 +140,6 @@
         "date": "2026-09-25 06:58",
         "task": "Silent-book review: 38 three-touch residential quotes reviewed. Routed 6 high-value ($317K) to QPaint for phone recovery; 32 to evidenced long-term review.",
         "category": "task"
-      },
-      {
-        "date": "2026-09-24 14:18",
-        "task": "QPaint Sian Leathem #42970 re-acceptance reconciled \u2014 weatherboard-gapping uplift $1,188 verified via PandaDoc 'completed copy' 24 Sep; Deal Value $39,996 \u2192 $41,184 (Won/Assisted unchanged, Recovered Value blank, NTD cleared).",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-10-05T18:00:20.395349+10:30",
+  "last_updated": "2026-10-05T18:15:34.125483+10:30",
   "pipeline": {
     "prospect_count": 347,
     "stages": {
