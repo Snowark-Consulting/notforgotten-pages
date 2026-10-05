@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 263,
+    "tasks_completed": 264,
     "recent": [
+      {
+        "date": "2026-10-06 07:38",
+        "task": "QPaint Daily Attention 2026-10-06: 6 follow-up emails sent (Email 1 confirm-receipt to 5 new quotes + Scott Cain childcare), 7 CRM reconciliations (2 Email-3-silent NTDs cleared, 4 QPaint-owned holds cleared, 1 customer-initiated NTD rolled to 20 Oct). 1 record held (48h not elapsed).",
+        "category": "task"
+      },
       {
         "date": "2026-10-05 21:07",
         "task": "John Weeks #43231 recorded Won (Observed, 1,449.00, 05/10/2026) \u2014 acceptance-date mis-key reconciled autonomously from independent evidence.",
@@ -135,11 +140,6 @@
         "date": "2026-09-25 22:03",
         "task": "Prepare-Ahead 25 Sep 22:00 \u2014 routed Paul Robertson #43206 revised-scope question to QPaint (Gmail 1a0d88ce8c019ea2, verified); weekend guard applied to Steve Liversidge #43102 (NTD Sat 26 \u2192 Mon 28); drafted held treads relay (Voice Review 9/9)",
         "category": "task"
-      },
-      {
-        "date": "2026-09-25 17:51",
-        "task": "Campaign pulse posted \u2014 23 recovery sends in 48h (2 replies, 1 engaged / 1 lost); NF cold channel dormant 21 days; cron delivery drift fixed for 6 jobs",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-10-06T06:30:38.041947+10:30",
+  "last_updated": "2026-10-06T07:38:18.455760+10:30",
   "pipeline": {
     "prospect_count": 347,
     "stages": {
