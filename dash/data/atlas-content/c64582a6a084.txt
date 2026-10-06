@@ -1,0 +1,162 @@
+---
+doc_type: review-pack
+owner: notforgotten
+tier: primary
+client: QPaint
+date: 2026-10-05
+prepared_by: Atlas (Prepare-Ahead Clock, 22:00 ACDT — the single legitimate fire; next_run_at was 2026-10-06T22:00, so no DST double-fire tonight)
+status: PREPARATION ONLY — no customer contact, no send, no Airtable write. Nothing owed in drafting terms.
+---
+
+# QPaint review pack — Tue 6 Oct and Wed 7 Oct 2026
+
+> **Headline.** Nothing needed drafting tonight, and nothing is owed. The 48h window now covered is
+> **Tue 6 Oct → Wed 7 Oct**. Two things are genuinely new versus the 4 Oct pack (which closed out
+> Mon 5 + Tue 6): **Wednesday 7 Oct has never been surfaced** (8 records / $363,949.30, all
+> review→decide, no sends), and **Tuesday's Email 1 set is now 7 records / $183,934.18** — six carried
+> out of today's correct 48h hold plus Altra Property Co. One small trigger-phrasing gap found on
+> Scott Cain's record (§4). Pilot Touch 3 (Fri 9 Oct) verified ready, end to end.
+
+**Source:** live Airtable QPaint Pipeline pull, 5 Oct 22:01 ACDT — **305 records**, book **$9,812,857.19**.
+Stages: New 42 · Lost 58 · Replied 39 · Email 1 41 · Email 3 73 · Email 2 27 · Won 17 · Email 4 3 · Engaged 4.
+Won is now **17** (John Weeks #43231 reconciled today).
+
+---
+
+## 1. Tuesday 6 Oct — 14 records, 7 are Email 1 candidates
+
+### The Email 1 set: 7 records / $183,934.18
+
+Six were due Mon 5 Oct and were **correctly held** by the 07:30 Daily Attention because their 48h
+window had not genuinely elapsed (Quote Date 3 Oct, windows closing late afternoon/evening on 5 Oct).
+They carry `Next Touchpoint Date 2026-10-05` and flow into tomorrow's run:
+
+| Quote | Contact | Value | Quote Date |
+|---|---|---|---|
+| 43286 | Alex Bratic | $41,726.18 | 3 Oct |
+| 43280 | Scott Cain | $31,900.00 | 3 Oct |
+| 43255 | Nick Lee | $29,546.00 | 3 Oct |
+| 43257 | Nathalie Cowburn | $23,947.00 | 3 Oct |
+| 43260 | Andrew Chiu | $19,613.00 | 3 Oct |
+| 43281 | Stuart Wills | $18,304.00 | 3 Oct |
+| 43317 | **Altra Property Co** | $18,898.00 | 4 Oct |
+
+Altra is the only new candidate. It is a property-management company and the covering email is
+addressed to "the Property Manager" with no individual named, so the follow-up must use a **generic
+property-manager salutation — never an invented first name**.
+
+**No draft owed.** QPaint first touch renders from the canonical template per record under its own
+Customer Context Gate. Nick Lee's document NOTE states works are scheduled for 2027 (long lead time,
+no urgency in the chase) — the touch still goes, the urgency framing does not.
+
+### Also Tuesday (7 records) — none is a send
+
+| Record | Value | State |
+|---|---|---|
+| Laurie Wright | $58,524.51 | HOLD — awaiting builder contract signing; customer initiates |
+| Joe Vakabua | $16,495.60 | MONITOR — Email 3 sent 29 Sep, 3 touches complete; REVIEW → DECIDE |
+| Kristeen Davis | $13,183.50 | EVIDENCE-CONFLICT HOLD — acceptance-date mis-key; QPaint-directed, no Won value until resolved |
+| Nanda Chakkassery | $10,987.68 | QPaint input — spam/promotions placement confirmed; awaiting PDF then relay |
+| Troy Moncur | $10,700.80 | MONITOR — Email 3 sent 29 Sep, 3 touches complete; REVIEW → DECIDE |
+| Guy Budgen | $4,950.00 | QPaint input — fascia self-contradiction routed 3 Oct; Email 1 held |
+| Cathy Cochrane | $4,152.50 | QPaint re-quote pending (APIA format + bedrooms 1 & 2 on expired #42917) |
+
+Three of these are waiting on QPaint, not on us. No draft is owed for any of them.
+
+---
+
+## 2. Wednesday 7 Oct — 8 records / $363,949.30 — **new, not in any prior pack**
+
+Every one is a **REVIEW → DECIDE**, with the record's own text stating "no automatic next email".
+No send is owed; Wednesday is a decision day, not a send day.
+
+| Record | Value | Stage | What it is |
+|---|---|---|---|
+| Brooke Warren | $106,249.00 | Replied/Engaged | AGM-date request sent 30 Sep; awaiting her AGM date, then relay to QPaint (Tas) for extension period |
+| Seckin Akgul | $72,930.00 | Email 2 | Corporate/hotel decision cycle (Mantra on Queen); Email 2 sent 25 Aug, silent; Email 3 still premature |
+| Gillian Gout | $67,991.00 | Email 1 | Email 1 sent 30 Sep; REVIEW → DECIDE |
+| Miranda Kidd | $48,367.00 | Email 1 | Email 1 sent 30 Sep; REVIEW → DECIDE |
+| Ryan John Gibson | $30,989.20 | Email 2 | Email 2 sent 30 Sep; REVIEW → DECIDE |
+| Bryanne Brooke | $13,480.50 | Replied/Engaged | Quote expired 24 Sep; customer self-initiated deferral — no chase, she initiates |
+| Kamal Khoury | $12,969.00 | Email 1 | Email 1 sent 30 Sep; REVIEW → DECIDE |
+| Maree Banker | $10,973.60 | Email 3 | Email 3 sent 30 Sep; 3 touches complete; no further email unless new evidence |
+
+Three of the eight are Email 2/3 review points where a next touch could be justified on new evidence —
+that judgement belongs to Wednesday's Daily Attention run, with the record's own First Action as the
+starting point. **Nothing is pre-drafted for them, and nothing should be: the decision comes first,
+and no Email 4 is sent merely because Email 3 was silent.**
+
+---
+
+## 3. Pilot and NF growth — nothing approaching
+
+- **CUST2-PILOT Touch 3, Fri 9 Oct 09:00 ACDT — verified ready end to end.** Touch 2 results file
+  reads **15/15 SENT**, so the wrapper's cross-touch sequencing gate (it fails closed unless Touch 2
+  actually landed) will pass. `TOUCH 3 — EVIDENCE` body and the canonical proof claim are present in
+  `data/customer2-research/CAMPAIGN.md` (single source of truth — no automation holds its own copy).
+  Cron `281abe707fb8` **enabled**, next run `2026-10-09T09:00+10:30`. Touch 2's own cron has correctly
+  self-disabled as a one-shot. **No action needed this week.**
+- **NF Prospects: no sends approaching.** The only records with an NTD in this window are the six
+  documented V2 close-out exception cases (Cameron Davidson, Clean Cut, Inspire Painting, Zoom
+  Painting, Sydney Painting Experts, Upscale Painting & Decorating) — all left alone by design per the
+  2026-10-04 reconciliation. No NF campaign is live.
+- **Weekend: clean.** One Saturday NTD in the next 14 days — Pubudu Madawala #43161, $110,831.60,
+  10 Oct — and no send is possible on it (his First Action forbids further contact unless the customer
+  replies). Deliberately not patched, unchanged from 4 Oct.
+
+---
+
+## 4. One finding worth a small fix — Scott Cain's trigger phrasing
+
+Five of the six carryover records open their `First Action` with the canonical
+**"Begin follow-up sequence"** phrasing. Scott Cain's does not — his `First Action` was rewritten on
+4 Oct when the QPaint answer arrived ("Email 1 HOLD lifted… Next: proceed with Email 1 to Scott Cain")
+and the canonical opening phrase was lost in the rewrite.
+
+The Daily Attention's DECIDE rule keys off *"New stage + 48h observation over + 'Begin follow-up
+sequence'"*. Scott Cain satisfies the first two and his text plainly says to proceed, so a competent
+read sends it — the risk is low, not zero. **Recommendation:** harmonise his `First Action` so it opens
+with the canonical phrase and keeps the QPaint-answer evidence after it. Not patched tonight: the
+record is owned by the 07:30 job, which runs in 9 hours, and a rewrite 9 hours ahead of its run is more
+likely to confuse than help. Flagged so it is deliberate either way.
+
+---
+
+## 5. Decision reviews — nothing new to prepare
+
+Reviews falling inside the week: **6 Oct** `2026-07-06-campaign-review-operating-standard`;
+**7 Oct** `2026-07-07-communication-voice-standard`; **8 Oct** `2026-08-08-founder-attention-verify-james-sent`
+and `2026-08-08-qpaint-four-email2-approved`; **12 Oct** `2026-07-12-distribution-validation-phase`.
+
+All are already prepped in `knowledge/decision-reviews/2026-10-01-oct-cluster-review-prep.md`
+(verified present at lines 413, 437, 464, 497). **No new prep written, none needed.** The constraint on
+this cluster is unchanged and is not preparation: **four verdicts due from 1 Oct are still with James.**
+
+---
+
+## 6. Done tonight (and what was not)
+
+| Action | Evidence |
+|---|---|
+| Live QPaint pull, full field census | 305 records; 22 records with an NTD inside the window; book $9,812,857.19 |
+| Founder-decision sweep across all 305 records | No unresolved founder-decision record hides a window date my cohort query missed. Arna Lancashire #43097 → Won (3 Oct) and Paul Eaton #43127 → Won (2 Oct) both already reconciled; Paul Robertson #43206 carries a past-due NTD on a Won record (Daily Attention hygiene, not a send) |
+| Six carryover records read in full, not summarised | Each carries Quote Date 3 Oct, a genuine 48h window closing 5 Oct, and a canonical-template path — the hold was correct, not drift |
+| Pilot Touch 3 verified end to end | 15/15 SENT in `touch2-send-results.json`; TOUCH 3 body present in CAMPAIGN.md; cron enabled at `2026-10-09T09:00+10:30` |
+| Decision-review calendar checked to 12 Oct | All five prepped; verified by line in the cluster pack |
+| Weekend forward scan, 14 days | one Saturday record, no send possible |
+
+**What was not done, deliberately:** no draft for any Tuesday or Wednesday record (nothing owed —
+canonical template for first touch, decision-first for review points); no CRM change; no pilot re-draft;
+no new decision-review prep; **no customer contact of any kind.**
+
+---
+
+## 7. Founder items carried (unchanged)
+
+**FOUNDER DECISION:** cold-painter channel ruling (open since 11 Sep) · the four decision reviews due
+1 Oct (no verdict) · the bounded 48h-vs-24h QPaint first-touch timing test (proposed 5 Oct, not taken).
+
+**FOUNDER EXECUTION:** Ahmad / Star Painters final conversation (overdue 23 Sep) · Founder Call
+Rounds 3 + 4 verdicts.
+
+*No customer contact. No send. No Airtable write. Prepared by the Prepare-Ahead Clock, 5 Oct 2026 22:00 ACDT.*

@@ -1,0 +1,59 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# Learnings corruption — 27th occurrence (2026-10-06 07:03 ACDT)
+
+> A **two-file, card-only** event: `cards/agent-architecture.md` + `cards/campaign.md` rewritten 1.3 s apart, the catalogue untouched. Both cards swapped headings **1:1**, so heading counts were unchanged and only a heading **LIST** diff against HEAD found the damage.
+
+## What happened
+
+- **Window:** 2026-10-06 07:03:50–07:03:53 ACDT (2026-10-05 20:33:50–20:33:53 UTC). Two files, 1.3 s apart — the familiar loop-over-files signature.
+- **Guard findings:** 8 (down from 29 on the 26th — the finding count is not a severity proxy).
+- **Detected by:** the 21:00 ACDT consolidation, **~13.9 h after the write**, by no scheduled control (the 21:20 guard and 21:30 backup both run before the writer).
+- **HEAD baseline:** verified **clean** by content marker (`EDITING THIS TABLE` present, zero `||` rows) and by the presence of every lost heading in `git show HEAD:<file>`. The hourly `git add -A` hazard (17th event) did **not** fire this run.
+
+## Damage
+
+**`cards/agent-architecture.md`** (21 `## TRAP` headings before *and* after — a net-zero swap):
+- Deleted outright: `Customer deferral ("still thinking / comparing") is MONITOR, not a courtesy reply`; `Engaged + external dependency = WAIT/MONITOR` (re-inserted with a `|` prefix, so it reads to the guard as deleted).
+- Renamed: `Learnings damage is written OUT-OF-BAND at ~06:03 ACST …` → `Learnings writer lands at ~07:06–07:07 ACST outside every logged Hermes path (10th–11th occurrences, Sep 2026)`.
+- Reworded with the date stripped: `A negative grep is evidence about the pattern, not about the thing (2026-09-18)` → `Negative grep is evidence of the pattern, not the thing`.
+- 2 UPDATE notes deleted (2026-09-16, 2026-09-20).
+- Injected: the "already completed = LOST" duplicate; the attestation/filesystem block; a partial reword of the subagent-self-report trap's `Cause`.
+
+**`cards/campaign.md`** (6 headings before *and* after):
+- Deleted: `QPaint customer funnel ≠ NF acquisition funnel (never conflate)`.
+- Injected: a genuinely-new trap on signal-note loss counts.
+
+## Repair
+
+Order: **`git restore` from HEAD → extract → ATTEST → duplicate-check → re-apply.**
+
+Author's versions preserved at `/tmp/event27/` before restore.
+
+| Writer block | Attestation | Verdict |
+|---|---|---|
+| `Never take a first-touch loss count from a signal note` (campaign) | Named by `LEARNINGS.md` `## 2026-10-05` entry + the chronological index bullet at line 54 + `**New learning:**` in `notes/2026-10-05.md`; facts verifiable (Dale Taylor #43269, $61,335.12) | **ATTESTED → RE-APPLIED** |
+| `Learnings writer lands at ~07:06–07:07 ACST …` (agent-architecture) | Reword of the trap already on the same card | REJECTED (reword) |
+| `Customer reply "already completed" = LOST` (agent-architecture) | Canonical in `skills/email/email-inbox-pulse/references/qpaint-customer-reply-processing.md` | REJECTED (duplicate — **5th** rejection) |
+| `Negative grep is evidence of the pattern` (agent-architecture) | Reword of the dated trap already on the card | REJECTED (reword) |
+| `Attestation must test against the filesystem` (agent-architecture) | Boot-loaded — `learnings/corruption/INDEX.md` playbook step 5 and `memory/MEMORY.md` | REJECTED (not new to the card layer) |
+| Subagent-trap `Cause` addition (agent-architecture) | Partial duplicate of the existing Fix (concurrent batches) | REJECTED (duplicate) |
+
+**Exactly one block re-applied.** Not re-applied ≠ not recorded: this table is the record.
+
+## Verification
+
+- `git diff --numstat` after repair: `cards/campaign.md` **+7 / −0**; `cards/agent-architecture.md` **zero diff** (fully restored).
+- Heading list vs HEAD: agent-architecture = identical; campaign = one addition.
+- Catalogue: warning block present, 0 `||` rows, 22 rows = 22 cards on disk.
+- `python3 scripts/bin/learnings-integrity-guard.py` re-run as the **LAST** step = silent PASS.
+
+## Standing lesson (unchanged)
+
+**Detection latency — not repair quality — is the binding defect.** Every repair in this 27-event series has worked; none has reduced how long the damage lives. The damage lands ~07:03 ACDT, ~10 h after the 21:20 guard and the 21:30 backup, so no same-evening control can see it. Rec `consolidation-learnings-guard-0715` (a ~07:15 detect-and-restore run) remains unbuilt — a job that auto-restores files is an infrastructure change needing explicit founder approval.
+
+**Source:** Atlas nightly consolidation, 2026-10-06 21:00 ACDT.
