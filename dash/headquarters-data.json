@@ -1,35 +1,36 @@
 {
-  "generated_at": "2026-10-06T04:04:39+10:30",
+  "generated_at": "2026-10-07T04:04:20+10:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "QPaint stable overnight: 305 records, 17 Won ($585,841), 58 Lost, 230 active ($8,018,718). No new replies, bounces, or unsubscribes overnight. Stripe payout of $195.31 (QPaint MRR) landed. Today is quiet: no founder blocker, CUST2-PILOT Touch 3 fires Friday. Your one decision this week is still the Ahmad final call (or honest close).",
+    "body": "QPaint portfolio stable overnight: 306 records, 17 Won ($585,841), 58 Lost, 231 active ($8,000,731 pipeline). No new overnight mail, no new Won/Lost. Nothing is owed this morning beyond the 07:30 QPaint Daily Attention run (Altra Property Co #43317 Email 1). Three founder items carry: Ahmad/Star Painters final call, cold-painter channel ruling, and two new prepare-ahead boundary questions (QPaint handoff-nudge + First Action phrasing drift).",
     "estimated_time": "2 minutes"
   },
   "business_score": {
     "score": 86,
-    "change": "—",
+    "change": "\u2014",
     "reasons_positive": [
-      "QPaint 305 records, 17 Won = $585,841, 58 Lost, 230 active ($8,018,718 pipeline). Overnight reconciliation clean.",
-      "Stripe payout $195.31 landed (QPaint MRR). atlas@/quotes@ 0 unread; james@ 3 unread = 2 DMARC reports + 1 Stripe payout notice (all noise/FYI)."
+      "QPaint 306 records, 17 Won = $585,841, 58 Lost, 231 active ($8,000,731 pipeline). Overnight reconciliation clean, no new Won/Lost.",
+      "0 unread in atlas@ and quotes@. james@ 4 unread = 2 DMARC reports (noise) + 2 already-reconciled Aug auto-replies (Tatnell closed \u2192 Lost; Top Rank auto-reply).",
+      "Dashboard V2 pipeline data fresh (last refresh 04:01 ACDT). All cron jobs green, disk 46%, state.db 126M."
     ],
     "reasons_negative": [
-      "GitHub Pages still DISABLED — dashboard 404 repo-scoped (day 12). Owner fix (Josh/Winston).",
-      "Vault push dead (GH001 141MB snapshot) + state.db snapshot backup erroring. 2 public repos expose customer emails.",
-      "Cold painter channel unruled since 11 Sep; Ahmad final call overdue 23 Sep."
+      "GitHub Pages still DISABLED \u2014 dashboard 404 site-wide (day 13). Snowark org admin token revoked.",
+      "Vault push dead (GH001 141MB snapshot) + state.db snapshot backup erroring.",
+      "Cold painter channel unruled since 11 Sep; 4 decision reviews due 1 Oct still no verdict."
     ]
   },
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "QPaint: Active. $199 MRR (payout verified 05 Oct). Portfolio certified."
+      "detail": "QPaint: Active. Portfolio certified. 231 active journeys with complete Next Action coverage."
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "✅ 230 active QPaint journeys. 145 contacted, 44 engaged/replied, 41 new. 0 exceptions. Pipeline $8,018,718. Won $585,841."
+      "detail": "\u2705 231 active QPaint journeys certified. 151 contacted, 43 engaged, 1 replied. 0 exceptions. Pipeline: $8,000,731. Won: $585,841."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "CUST2-PILOT Touch 2 delivered 05 Oct (15/15, 0 replies). Touch 3 Fri 9 Oct. Cold painter channel HOLD."
+      "detail": "CUST2-PILOT Touch 2 delivered 05 Oct (15/15, 0 replies); cumulative 0/30 across 2 touchpoints / 3 trades. Touch 3 fires Fri 9 Oct. Cold painter channel HOLD."
     },
     "engineering": {
       "status": "healthy",
@@ -37,7 +38,7 @@
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: 17 Won $585,841. $8,018,718 active pipeline. $199 MRR."
+      "detail": "QPaint: $585,841 Won. $8,000,731 active pipeline. Stripe payout $195.31 landed 05 Oct (MRR confirmed)."
     },
     "atlas": {
       "status": "healthy",
@@ -48,38 +49,68 @@
     {
       "id": "ahmad-star-painters-reassess",
       "class": "FOUNDER_EXECUTION",
-      "impact_sort": 85,
-      "title": "Ahmad / Star Painters Adelaide — final founder call or honest close (overdue 23 Sep)",
-      "why_it_matters": "Only prospect to reach buying questions (23 Jul); 4 founder touches, 0 replies. Customer #2 = milestone 1 of 10.",
-      "business_impact": "High — either converts customer #2 or closes the stall cleanly.",
+      "impact_sort": 75,
+      "title": "Ahmad / Star Painters Adelaide \u2014 final founder call or honest close (overdue 23 Sep)",
+      "why_it_matters": "Stalled opportunity, not trial. 4 founder touches, 0 replies. James's action = 'Await reply' since 23 Sep.",
+      "business_impact": "Medium \u2014 converts customer #2 (milestone 1 of 10) or closes the stall cleanly.",
       "estimated_time": "5 min",
-      "recommended_action": "Make the final call (or close honestly)."
+      "recommended_action": "Make the final call or close honestly."
     },
     {
       "id": "cold-painter-channel-ruling",
       "class": "FOUNDER_DECISION",
       "impact_sort": 70,
-      "title": "Rule on the 11 Sep Campaign Pulse decision — close cold painter channel",
+      "title": "Rule on the 11 Sep Campaign Pulse decision \u2014 close cold painter channel",
       "why_it_matters": "Cold painter channel dormant (HOLD) since 11 Sep, never ruled.",
-      "business_impact": "Medium — clears a 3-week stale decision.",
+      "business_impact": "Medium \u2014 clears a stale open decision.",
       "estimated_time": "3 min",
       "recommended_action": "Rule: close the channel or state the reopening condition."
+    },
+    {
+      "id": "qpaint-handoff-nudge-boundary",
+      "class": "FOUNDER_DECISION",
+      "impact_sort": 65,
+      "title": "QPaint handoff-nudge boundary \u2014 may Atlas nudge a silent QPaint handoff at 14+ days?",
+      "why_it_matters": "Awaiting-QPaint backlog $457,480.82 / 9 records, 8 review dates converging Thu 8 Oct; oldest (Elisha Paige #42857) at 50 days.",
+      "business_impact": "Medium \u2014 prevents silent handoffs drifting indefinitely.",
+      "estimated_time": "1 min",
+      "recommended_action": "One-line rule: allow a 14+ day nudge, or leave silent."
+    },
+    {
+      "id": "decision-reviews-due-1-oct",
+      "class": "FOUNDER_DECISION",
+      "impact_sort": 60,
+      "title": "4 decision reviews due 1 Oct \u2014 no verdict yet",
+      "why_it_matters": "October cluster reviews; prep is on file, verdicts pending.",
+      "business_impact": "Low-Medium \u2014 governance catch-up.",
+      "estimated_time": "10 min",
+      "recommended_action": "Verdict the 4 outstanding reviews."
     },
     {
       "id": "founder-call-rounds-3-4",
       "class": "FOUNDER_EXECUTION",
       "impact_sort": 55,
-      "title": "Founder Call Rounds 3 + 4 — verdicts outstanding",
-      "why_it_matters": "Call-day outcomes not yet verdict'd.",
-      "business_impact": "Low-Medium — closes the call-day loop.",
+      "title": "Founder Call Rounds 3 + 4 \u2014 verdicts outstanding",
+      "why_it_matters": "16 Sep (Round 3) and 23 Sep (Round 4) call-day outcomes never captured.",
+      "business_impact": "Low-Medium \u2014 closes the call-day loop.",
       "estimated_time": "10 min",
-      "recommended_action": "Verdict Rounds 3 and 4."
+      "recommended_action": "Provide outcomes; Atlas captures to worksheet."
+    },
+    {
+      "id": "first-action-phrasing-drift",
+      "class": "FOUNDER_DECISION",
+      "impact_sort": 50,
+      "title": "First Action phrasing drift \u2014 key off state, not the literal phrase",
+      "why_it_matters": "Two-night pattern: Scott Cain (5 Oct) + Guy Budgen (6 Oct) free-text rewrites silently broke the 'Begin follow-up sequence' DECIDE rule.",
+      "business_impact": "Medium \u2014 the 07:30 DECIDE rule keys off a phrase that keeps drifting.",
+      "estimated_time": "1 min",
+      "recommended_action": "Rule: key off record state, or add nightly validation."
     },
     {
       "id": "token-rotation",
       "class": "OWNER_EXECUTION",
       "impact_sort": 55,
-      "title": "Token rotation — 9 credential classes exposed in old git history (Josh)",
+      "title": "Token rotation \u2014 9 credential classes exposed in old git history (Josh)",
       "why_it_matters": "Standing security gap.",
       "business_impact": "Medium (security)",
       "estimated_time": "30 min (Josh)",
@@ -89,9 +120,9 @@
       "id": "github-pages-disabled",
       "class": "OWNER_EXECUTION",
       "impact_sort": 50,
-      "title": "Re-enable GitHub Pages + mint new Snowark org token (dashboard 404) — Josh/Winston",
-      "why_it_matters": "Command Centre is 404 repo-scoped.",
-      "business_impact": "Medium — decision tool unavailable.",
+      "title": "Re-enable GitHub Pages + mint new Snowark org token (dashboard 404) \u2014 Josh/Winston",
+      "why_it_matters": "Command Centre is the declared primary channel and is 404 site-wide.",
+      "business_impact": "Medium \u2014 decision tool unavailable.",
       "estimated_time": "15 min (Josh)",
       "recommended_action": "Re-enable Pages; mint new token."
     },
@@ -99,7 +130,7 @@
       "id": "public-repos",
       "class": "OWNER_EXECUTION",
       "impact_sort": 40,
-      "title": "Two public repos expose client/customer emails — day 18 (Josh)",
+      "title": "Two public repos expose client/customer emails \u2014 day 19 (Josh)",
       "why_it_matters": "Privacy exposure.",
       "business_impact": "Medium (privacy)",
       "estimated_time": "15 min (Josh)",
@@ -109,7 +140,7 @@
       "id": "vault-push-gh001",
       "class": "OWNER_EXECUTION",
       "impact_sort": 35,
-      "title": "Vault push blocked — 141MB snapshot exceeds GitHub 100MB limit",
+      "title": "Vault push blocked \u2014 141MB snapshot exceeds GitHub 100MB limit",
       "why_it_matters": "Knowledge vault not backing up off-box.",
       "business_impact": "Medium (data protection)",
       "estimated_time": "15 min (Josh/Winston)",
@@ -117,51 +148,63 @@
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Clean overnight. QPaint stable (305 records, 17 Won $585,841, 58 Lost, 230 active). No founder blocker today. Your highest-leverage action is the Ahmad final call (or honest close) — it either converts customer #2 (milestone 1 of 10) or closes a 2.5-month stall. Second: rule the cold-painter channel, open since 11 Sep.",
+    "executive_summary": "Clean overnight, QPaint stable (306 records, 17 Won $585,841, 58 Lost, 231 active). No new overnight mail, no new Won/Lost. Nothing is owed this morning beyond the 07:30 Daily Attention run (Altra Property Co #43317 Email 1, $18,898). Your single highest-leverage action is the Ahmad / Star Painters final call \u2014 it has sat 'await reply' since 23 Sep and is the difference between customer #2 and an honest close.",
     "priorities": [
       {
         "class": "FOUNDER_EXECUTION",
         "confidence": "High",
-        "action": "Make the Ahmad / Star Painters final call (or close honestly)",
-        "why_it_matters": "Only prospect to reach buying questions; 4 founder touches 0 replies; stalled 2.5 months not dead.",
-        "expected_impact": "High — customer #2 or a clean close.",
+        "action": "Make the Ahmad / Star Painters Adelaide final call or close honestly",
+        "why_it_matters": "4 founder touches, 0 replies, 'await reply' since 23 Sep. Converts customer #2 or clears the stall.",
+        "expected_impact": "High \u2014 milestone 1 of 10, or a clean close.",
         "estimated_time": "5 min"
       },
       {
         "class": "FOUNDER_DECISION",
         "confidence": "Medium",
-        "action": "Rule the cold-painter channel (open 11 Sep) + verdict Founder Call Rounds 3+4",
-        "why_it_matters": "Clears a 3-week stale channel decision and the call-day backlog.",
-        "expected_impact": "Medium — removes standing uncertainty.",
-        "estimated_time": "15 min"
+        "action": "Answer the two new prepare-ahead boundary questions (QPaint handoff-nudge + First Action phrasing)",
+        "why_it_matters": "Both are one-liners that remove standing drift and prevent silent handoffs stalling.",
+        "expected_impact": "Medium \u2014 removes operational uncertainty.",
+        "estimated_time": "2 min"
+      },
+      {
+        "class": "FOUNDER_DECISION",
+        "confidence": "Medium",
+        "action": "Rule the cold-painter channel (open 11 Sep) + verdict the 4 decision reviews due 1 Oct",
+        "why_it_matters": "Clears a 3-week stale decision and the governance backlog in one sitting.",
+        "expected_impact": "Medium \u2014 removes standing uncertainty.",
+        "estimated_time": "13 min"
       }
     ]
   },
   "changes": {
     "today": [
       {
-        "time": "2026-10-06T04:04:39+10:30",
-        "text": "Overnight clean — no new replies/bounces/unsubscribes. Stripe payout $195.31 (QPaint MRR) landed. 17 Won / 58 Lost / 230 active reconciled."
+        "time": "2026-10-07T04:04:20+10:30",
+        "text": "Overnight reconciliation clean \u2014 306 QPaint records, 17 Won ($585,841), 58 Lost, 231 active. No new overnight mail, no new Won/Lost. 6 Email 1 confirm-receipts sent yesterday all reconciled."
       }
     ],
     "yesterday": [
       {
-        "time": "05 Oct",
-        "text": "10 QPaint emails sent (5 Email 1, 2 Email 2, 3 Email 3) + Ashleigh Thomas relay. 3 first-touch losses ($61,335 total). John Weeks #43231 Won $31,449. CUST2-PILOT Touch 2 (15/15, 0 replies)."
+        "time": "06 Oct",
+        "text": "6 QPaint Email 1 confirm-receipts sent + reconciled (Alex Bratic $41.7k, Scott Cain $31.9k, Nick Lee $29.5k, Nathalie Cowburn $23.9k, Andrew Chiu $19.6k, Stuart Wills $18.3k)."
+      },
+      {
+        "time": "06 Oct",
+        "text": "#43193 (Dineo Ndala) revision changed pricing STRUCTURE \u2014 Deal Value fell 45% on option-based re-issue. Stripe payout $195.31 (QPaint MRR) confirmed."
       }
     ],
     "this_week": [
       {
         "time": "-",
-        "text": "QPaint: 305 records, $8,018,718 active, 17 Won ($585,841), 58 Lost."
+        "text": "QPaint: 306 records, $9,794,870 book, 231 active ($8,000,731), 17 Won ($585,841), 58 Lost."
       },
       {
         "time": "-",
-        "text": "Customer #2 pilot live (Touch 2 sent 05 Oct; Touch 3 Fri 9 Oct). Cold painter channel dormant (HOLD)."
+        "text": "Customer #2 pilot: Touch 1 sent 30 Sep, Touch 2 05 Oct (15/15, 0 replies), Touch 3 Fri 9 Oct. Cold painter channel dormant (HOLD)."
       },
       {
         "time": "-",
-        "text": "Infra: GitHub Pages disabled (repo-scoped) + vault push GH001 + snapshot backup + 2 public repos (day 12)."
+        "text": "Infra: GitHub Pages disabled + vault push GH001 + snapshot backup erroring + 2 public repos (day 13)."
       }
     ]
   },
@@ -170,19 +213,19 @@
     "recent": [
       {
         "id": "INC-2026-08-11",
-        "title": "QPaint Quote Intake — False Completion",
+        "title": "QPaint Quote Intake \u2014 False Completion",
         "status": "Closed",
         "summary": "3 quotes marked complete with $0 deal values. Root cause: no certification gate. Fixed: certify_intake_complete() + Intake Exception state."
       },
       {
         "id": "BK-014",
-        "title": "ATTEMPTED ≠ COMPLETED",
+        "title": "ATTEMPTED \u2260 COMPLETED",
         "status": "Permanent",
-        "summary": "Automation success ≠ business outcome success. Every critical workflow must verify the business state."
+        "summary": "Automation success \u2260 business outcome success. Every critical workflow must verify the business state."
       },
       {
         "id": "BK-015",
-        "title": "HTTP 200 ≠ Application Success",
+        "title": "HTTP 200 \u2260 Application Success",
         "status": "Permanent",
         "summary": "HQ certification requires visual rendering verification, not just HTTP status."
       }
@@ -193,12 +236,12 @@
     "principles": []
   },
   "production_incidents": {
-    "description": "GitHub Pages disabled (404 site-wide) + Snowark org token revoked. State DB snapshot backup erroring (25 failures — 'malformed' raise but quick_check ok, unexplained). state.db integrity RESOLVED 26 Sep.",
+    "description": "GitHub Pages disabled (404 site-wide) + Snowark org token revoked. State DB snapshot backup erroring (25 failures \u2014 'malformed' raise but quick_check ok, unexplained). state.db integrity RESOLVED 26 Sep.",
     "total": 2,
     "recent": [
       {
         "id": "BACKUP-AUTH-2026-09",
-        "title": "Vault push blocked — 141MB snapshot exceeds GitHub limit",
+        "title": "Vault push blocked \u2014 141MB snapshot exceeds GitHub limit",
         "status": "Open",
         "summary": "GH001 rejects every push (>100MB). Requires Josh/Winston: git rm --cached + history purge or git-lfs."
       },
@@ -212,7 +255,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "✅ QPaint portfolio certified. 230 active journeys. Protocol v1.0.0. Send authority live.",
+  "operational_status": "\u2705 QPaint portfolio certified. 231 active journeys. Protocol v1.0.0. Send authority live.",
   "vault_health": {
     "decisions": {
       "total": 83,
@@ -238,26 +281,26 @@
     "infrastructure": {
       "disk": "46% (11G free)",
       "state_db": "126M (integrity OK)",
-      "pages": "DISABLED — dashboard 404; gh-pages branch still updating"
+      "pages": "DISABLED \u2014 dashboard 404; gh-pages branch still updating"
     }
   },
   "qpaint_pipeline": {
     "summary": {
-      "total_customers": 305,
-      "total_pipeline_value": "$8.02M",
+      "total_customers": 306,
+      "total_pipeline_value": 8000731,
       "won_count": 17,
-      "won_value": "$585,841",
+      "won_value": 585841,
       "lost_count": 58,
       "engaged_replied": 44,
-      "contacted": 145,
-      "not_contacted": 41
+      "contacted": 151,
+      "not_contacted": 36
     },
     "stage_breakdown": {
       "Email 3": 73,
       "Lost": 58,
-      "New": 42,
-      "Email 1": 41,
+      "Email 1": 47,
       "Replied": 39,
+      "New": 37,
       "Email 2": 27,
       "Won": 17,
       "Engaged": 3,
