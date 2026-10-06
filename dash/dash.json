@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 264,
+    "tasks_completed": 265,
     "recent": [
+      {
+        "date": "2026-10-07 07:35",
+        "task": "QPaint Daily Attention 07 Oct: 6 follow-ups sent (Email 1 x2, Email 2 x3, Email 3 x1) + 4 records reconciled (3 NTD cleared, 1 rolled). Pipeline under control.",
+        "category": "task"
+      },
       {
         "date": "2026-10-06 07:38",
         "task": "QPaint Daily Attention 2026-10-06: 6 follow-up emails sent (Email 1 confirm-receipt to 5 new quotes + Scott Cain childcare), 7 CRM reconciliations (2 Email-3-silent NTDs cleared, 4 QPaint-owned holds cleared, 1 customer-initiated NTD rolled to 20 Oct). 1 record held (48h not elapsed).",
@@ -135,11 +140,6 @@
         "date": "2026-09-26 22:03",
         "task": "Prepare-Ahead 26 Sep: 48h scan clean (0 sends owed, 0 weekend, 0 overdue). Prepared + held the QPaint Pipedrive weekly-export follow-up for Mon 28 Sep (draft 9/9 + ready script); disambiguated a duplicate 28 Sep decision-review prep. Monday's QPaint load is 29 review/relay records.",
         "category": "task"
-      },
-      {
-        "date": "2026-09-25 22:03",
-        "task": "Prepare-Ahead 25 Sep 22:00 \u2014 routed Paul Robertson #43206 revised-scope question to QPaint (Gmail 1a0d88ce8c019ea2, verified); weekend guard applied to Steve Liversidge #43102 (NTD Sat 26 \u2192 Mon 28); drafted held treads relay (Voice Review 9/9)",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-10-07T06:30:03.650431+10:30",
+  "last_updated": "2026-10-07T07:35:41.556123+10:30",
   "pipeline": {
     "prospect_count": 347,
     "stages": {
