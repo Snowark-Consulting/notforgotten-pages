@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 266,
+    "tasks_completed": 267,
     "recent": [
+      {
+        "date": "2026-10-07 18:19",
+        "task": "Campaign pulse posted \u2014 warmth drives replies: QPaint warm list 50-60% first-touch vs 0/135 cold (CvC + CUST2 pilot). QPaint 1 new win Andrew Banks $36,991.90; pilot Touch 3 due Fri 9 Oct.",
+        "category": "task"
+      },
       {
         "date": "2026-10-07 11:17",
         "task": "Email pulse: Eddie Yuan (QPaint #38798, $31,000) replied ready to proceed \u2014 asked to finalise quote and invoice to J&J Global Management trust. Re-escalated to QPaint via james@; Airtable updated; filed Label_4.",
@@ -135,11 +140,6 @@
         "date": "2026-09-29 18:00",
         "task": "Campaign pulse posted \u2014 QPaint recovery 35% trailing-7d reply rate (17 replies / 49 sends) vs 16% on 21 Sep; 19 sequence sends + 11 replies + 8 Lost ($146,765, 5 competitor) + 1 self-signed Won in 48h; Email 3 answering within hours and skewing negative; loss-visibility control (weekly Won/Lost status check to Dee/Leslie, 21 Sep) unanswered 8 days",
         "category": "task"
-      },
-      {
-        "date": "2026-09-27 17:55",
-        "task": "Campaign pulse posted \u2014 QPaint recovery: 0 sends (weekend), 2 replies in 48h; Shalender Hingorani Lost on price $13,552 (2 days after being parked as long-term review); Mon/Tue load 42 records $1.27M; NF cold channel dormant 23 days; new finding: 9 de-confused Email 2 records with stale NTD invisible to prepare-ahead filter",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-10-07T18:00:30.321800+10:30",
+  "last_updated": "2026-10-07T18:19:27.691339+10:30",
   "pipeline": {
     "prospect_count": 347,
     "stages": {
