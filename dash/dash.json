@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 265,
+    "tasks_completed": 266,
     "recent": [
+      {
+        "date": "2026-10-07 11:17",
+        "task": "Email pulse: Eddie Yuan (QPaint #38798, $31,000) replied ready to proceed \u2014 asked to finalise quote and invoice to J&J Global Management trust. Re-escalated to QPaint via james@; Airtable updated; filed Label_4.",
+        "category": "task"
+      },
       {
         "date": "2026-10-07 07:35",
         "task": "QPaint Daily Attention 07 Oct: 6 follow-ups sent (Email 1 x2, Email 2 x3, Email 3 x1) + 4 records reconciled (3 NTD cleared, 1 rolled). Pipeline under control.",
@@ -135,11 +140,6 @@
         "date": "2026-09-27 17:55",
         "task": "Campaign pulse posted \u2014 QPaint recovery: 0 sends (weekend), 2 replies in 48h; Shalender Hingorani Lost on price $13,552 (2 days after being parked as long-term review); Mon/Tue load 42 records $1.27M; NF cold channel dormant 23 days; new finding: 9 de-confused Email 2 records with stale NTD invisible to prepare-ahead filter",
         "category": "task"
-      },
-      {
-        "date": "2026-09-26 22:03",
-        "task": "Prepare-Ahead 26 Sep: 48h scan clean (0 sends owed, 0 weekend, 0 overdue). Prepared + held the QPaint Pipedrive weekly-export follow-up for Mon 28 Sep (draft 9/9 + ready script); disambiguated a duplicate 28 Sep decision-review prep. Monday's QPaint load is 29 review/relay records.",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-10-07T10:30:08.559460+10:30",
+  "last_updated": "2026-10-07T11:17:06.379745+10:30",
   "pipeline": {
     "prospect_count": 347,
     "stages": {
