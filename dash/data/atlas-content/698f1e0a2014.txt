@@ -1,0 +1,62 @@
+# shell — Known Traps
+
+## TRAP — zsh does NOT word-split unquoted variables
+**When:** Writing shell loops in zsh (macOS default)
+**Symptom:** `for p in $pairs` runs ONCE with the entire string. Data gets corrupted (wrong IDs paired together).
+**Fix:** Use Python for any multi-record loop where a mismatch would corrupt data (`for gid, tid in dict.items()`). If shell is unavoidable in zsh, force splitting with `${=var}`. Always read back the artifact to confirm correct values.
+
+## TRAP — Piping stdout kills interactive sessions
+**When:** Launching an agent via `tmux ... | tee log` or any pipe
+**Symptom:** Agent dies instantly with "Input must be provided through stdin." Piping removes the TTY; the binary switches to headless mode and exits. The `tee` success echo runs unconditionally, so the log falsely shows success.
+**Fix:** Never pipe interactive agent stdout. Use `tmux pipe-pane -o -t <session> 'cat >> log'` after launch. Verify process lived via `tmux ls` and check the log for immediate error lines, not just the launcher echo.
+
+## TRAP — Hardcoded versioned binary paths
+**When:** Referencing tools via version-manager paths (`/nvm/v24.4.0/bin/`, `/pyenv/versions/3.11/`)
+**Symptom:** All scripts and LaunchAgents fail simultaneously after version cleanup. Silent failure — the binary simply doesn't exist.
+**Fix:** Use version-independent paths: `~/.local/bin/tool`, `/usr/local/bin/python3`, or rely on PATH lookup. Never hardcode `nvm`/`pyenv`/`asdf` version directories in plists, cron jobs, or scripts. When a binary must be pinned, use a symlink at a stable path.
+
+## TRAP — Shell echo truncates API keys
+**When:** Writing credentials via `echo $KEY > .env` or `export`
+**Symptom:** API keys containing special characters (newlines, quotes, `$`) get truncated or malformed.
+**Fix:** Use `write_file` tool or Python `subprocess` to write credentials. Never echo API keys through shell. Example: `write_file(path='~/.hermes/.env', content='KEY=value')`.
+
+## TRAP — Terminal foreground needs no '&' backgrounding
+**When:** A worker or build session uses shell-level '&' / nohup / disown inside a foreground terminal() call. Common pattern: `hermes gateway run --replace 2>&1 &` or script sequences ending in `&`.
+**Symptom:** terminal() foreground call rejects shell-level '&' backgrounding with the guard-rail error: 'Foreground command uses & backgrounding. Use terminal(background=true) for long-lived processes'. Seen in worker sessions (e.g. `hermes gateway run --replace 2>&1 &`, `pkill -9 -f "hermes/chrome-profile"; ... &`).
+- **Cause:** Agent uses bash '&' syntax inside a foreground terminal() call instead of the Hermes-native background=true param.
+**Fix:** For long-running bounded tasks use terminal(background=true, notify_on_complete=true). For servers/daemons use terminal(background=true) (no notify; they never exit on their own). Never use a trailing '&' / nohup / disown inside a foreground terminal command. SOUL rule of record; recurrence is ~2/week, concentrated in worker sessions.
+
+## TRAP — Verification greps echo secret values into cleartext
+**When:** Verifying a credential file after writing or restoring it — `grep -o '^KEY=.*'`, `cat`, `sed` without redirection, or any `patch`/`write_file` tool call that shows a diff of the credential line.
+**Symptom:** The full secret value appears in tool output or terminal stdout. A "just to check" grep is still a print — it re-exposes the rotated value in visible output. Masked prefix fragments (e.g. `client_id[:6]`) also violate the rule.
+**Fix:** Never place a secret into any command or output that surfaces it.
+- For presence checks: `grep -c '^KEY=' file` returns a count, not the value
+- For permissions: `stat -f '%Sp'` or `stat -c '%a'`
+- For edit operations: use a Python script that reads/writes the file and prints only `bool(val)`/`len(val)`, never the value itself
+- The `patch` and `write_file` tools on a secret-bearing file will show the value in their diff output — route edits through a script instead
+- After any secret store edit, self-audit grep for the specific value across all log files and confirm 0 hits
+**Root cause:** The credential rule sits above task convenience. A "just to verify" print is still an exposure. Secret rotation is wasted if the new value is also exposed in the same session.
+
+## TRAP — Shell `date` is UTC on this host; hand-labelled ACST timestamps are wrong
+**When:** Writing a timestamp in a shell script, tool output annotation, or any hand-written prefix where the system clock appears accurate.
+
+**Symptom:** An Outreach Notes prefix was hand-written as `[2026-09-11 06:47 ACST]` while the actual local time was 06:44 ACST — a 3-minute divergence that appears like a writing quirk. The system `date` reads ~21:1x UTC while the Hermes-injected Adelaide time reads ~06:4x the next day — a 9h30m discrepancy that is easy to write past without noticing because the clock numbers look plausible.
+
+**Cause:** The orgo host runs with `TZ=UTC`. Running `date '+%Y-%m-%d %H:%M ACST'` prints the UTC clock with the literal string "ACST" appended — it does NOT actually convert the time to Adelaide. Any persisted timestamp built this way is silently 9h30m off from real local time.
+
+**Fix:** Always use `TZ=Australia/Adelaide date '+%Y-%m-%d %H:%M %Z'` (or Python `zoneinfo.ZoneInfo('Australia/Adelaide')`) for ADELAIDE-local timestamps. Sanity-check every hand-written timestamp against: (a) the Hermes-injected current-time line, (b) `date -u` to confirm UTC offset, and (c) `TZ=Australia/Adelaide date '+%Y-%m-%d %H:%M %Z'` for the true local time. Do not trust raw `date` output on any remote/orgo host — its timezone may differ from your operating context.
+
+## TRAP — Glob-deleting scratch files in a shared directory removes other sessions' work
+**When:** Cleaning up temp/helper scripts at the end of a multi-step task, e.g. `rm scripts/tmp-*.py` or `glob.glob('scripts/tmp-*.py')` then delete.
+
+**Symptom:** Far more files disappear than this run created. On 2026-09-14 a glob intended for 8 scratch files deleted **70** — 61 were pre-existing long-lived scripts written by earlier sessions in the same vault.
+
+**Cause:** A `tmp-` prefix describes a file's *lifetime*, not who owns or may delete it. Every agent, session and day writes into `scripts/`, so any wildcard there matches work that is not yours.
+
+**Fix:**
+1. Never glob-delete in a shared directory. Enumerate the exact paths this run created — build the list in the same code that wrote them, or delete each file as you finish with it.
+2. Before any batch delete, establish tracked-vs-untracked: `git status --short <dir>`. A ` D` entry is recoverable from HEAD; an untracked file that is deleted is gone with no record.
+3. Recover with `git restore --source=HEAD -- <paths>`, then verify by count and re-run `git status` — do not assume the restore took.
+4. Treat the delete itself as a production action (SOUL rules 10/11): verify the diff between intended and actual, never the intent.
+
+**Source:** 2026-09-14 consolidation (61 files restored from HEAD, 0 permanent loss).

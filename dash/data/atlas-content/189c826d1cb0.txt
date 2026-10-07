@@ -1,0 +1,48 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# Learnings corruption, 28th occurrence — DETECTED, repair pending (consolidation-owned)
+
+> **Status:** DETECTED by the Campaign Pulse cron at 2026-10-07 07:50 ACDT. **Not repaired.** Clean baseline preserved at `learnings/corruption/event28-2026-10-07/`. The 21:00 ACDT consolidation is the designated repairer and has handled events 25, 26 and 27.
+
+**Detection time:** 2026-10-07 07:50 ACDT (guard run as the last step of the pulse session).
+**Write window:** 2026-10-06 20:36:17.77 – 20:36:21.76 UTC = **2026-10-07 06:06:17–21 ACDT** — a **4.0 s burst across 3 files** (real-write signature; not the whole-dirty-set snapshot autostash).
+**Files written:** `learnings/catalogue.md`, `learnings/cards/agent-architecture.md`, `learnings/cards/shell.md`.
+
+## Guard output (verbatim findings)
+
+- `catalogue: malformed row line 8 (unparseable domain column)`
+- `catalogue: card cards/email.md has NO table row (row dropped)`
+- `catalogue: card cards/gmail-auth.md has NO table row (row dropped)`
+- `catalogue: row 'email' present in HEAD, missing now`
+- `catalogue: row 'gmail-auth' present in HEAD, missing now`
+- `agent-architecture: TRAP deleted — A negative grep is evidence about the pattern, not about the thing (2026-09-18)`
+- `agent-architecture: TRAP deleted — A prose gate in a record is not a gate: the send keyword outranks it (2026-10-03)`
+- `agent-architecture: TRAP deleted — Customer deferral ("still thinking / comparing") is MONITOR, not a courtesy reply`
+- `agent-architecture: TRAP deleted — Engaged + external dependency = WAIT/MONITOR; detect acceptance from primary evidence`
+- `agent-architecture: TRAP deleted — Learnings damage is written OUT-OF-BAND at ~06:03 ACST, not inside the guard/backup window`
+- `agent-architecture: UPDATE note deleted` × 2 (the 2026-09-16 and 2026-09-20 window-attestation notes)
+
+## Verified facts
+
+| Check | Result |
+|---|---|
+| HEAD clean by **content marker** (`EDITING THIS TABLE`) | **PASS** — present in `git show HEAD:learnings/catalogue.md`, absent on disk |
+| Last learnings commit | `8be9ba3a` (Consolidation 2026-10-06, 27th-event repair) — uncommitted damage sits on top of it |
+| Diff vs HEAD | catalogue **+7/−10**, agent-architecture **+85/−40**, shell **+31/−10** |
+| `## TRAP` heading **count** | HEAD 21 vs disk **22** → **net +1**, so a count check does not surface this; only a heading **LIST** diff does |
+| Hourly commit hazard | **did not fire** — `HEAD` (Dashboard V2) touches `pages/dashboard.html` only; `learnings/` is not auto-committed |
+
+## Actions taken (containment only)
+
+1. Preserved the clean HEAD content of all three files to `learnings/corruption/event28-2026-10-07/` (`HEAD-catalogue.md`, `HEAD-agent-architecture.md`, `HEAD-shell.md`) so any accidental commit of the damaged tree (the **21:30 nightly backup runs `git add -A`**) cannot destroy the repair baseline.
+2. Recorded this file and appended the finding to `notes/2026-10-07.md`.
+
+**No repair attempted in this session.** Restoring requires the full attestation pass (restore → extract → **ATTEST** → duplicate-check → re-apply) and the standing rule that a dirty card is not damage — a card's blocks must be attested before restoring or the repair destroys a legitimate learning. `cards/shell.md` is in the dirty set but was **not** guard-flagged, which is the additive-card case the playbook warns about.
+
+**Repair owner:** the 21:00 ACDT consolidation (read `learnings/corruption/INDEX.md` first — playbook step order is authoritative). Detection latency remains the binding defect: this landed 06:06 and no scheduled control sees it before 21:00 (~15 h). Rec `consolidation-learnings-guard-0715` remains unbuilt and needs founder approval.
+
+**Source:** Campaign Pulse run, 2026-10-07 18:16 ACDT (guard executed 07:50 ACDT).

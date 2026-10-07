@@ -1,0 +1,49 @@
+# Learnings Catalogue
+
+> Loaded at every session boot. Before touching any external API, tool, or domain, scan this table. If the domain you're about to touch has a card, load it first. One domain = one card. Cards load on-demand, not at boot.
+>
+> **EDITING THIS TABLE:** never fuzzy-patch multi-line blocks here - full-row replacement only, or rewrite the whole file. This table has been corrupted **27 times** by partial edits (dropped rows, `||` prefix damage, mid-table splits); the last event was 2026-10-06 07:03 ACDT (**this table NOT touched** - a two-file, card-only event on `cards/agent-architecture.md` + `cards/campaign.md`, 1.3 s apart; guard = 8 findings; the writer swapped headings 1:1 on both cards, 21→21 and 6→6, so only a heading LIST diff finds it; of five writer blocks **exactly ONE was attested and re-applied** - the signal-note loss-count trap onto `campaign`; rejected were the out-of-band-heading reword, the "already completed = LOST" duplicate (5th rejection), the negative-grep reword, and the attestation/filesystem block (boot-loaded in `learnings/corruption/INDEX.md` step 5); HEAD was clean by content marker), and the one before was 2026-10-05 07:04 ACDT (**this table plus `cards/qpaint.md`, `cards/python.md` and `cards/agent-architecture.md`**, a four-file 5.1 s burst; guard = 29 findings; the writer cut the live QPaint card from 13 traps to 4 and re-injected its old blocks again - the "already completed = LOST" duplicate and the attestation block were rejected, and **THREE attested blocks were re-applied** - escalation-ANSWER onto `qpaint`, Pitfall-54 second surface onto `python`, prose-gate onto `agent-architecture`), so never treat the writer's additions as real learnings); the one before was 2026-10-03 07:03 ACST (**this table plus `cards/hermes.md`**, 1.7 s apart; guard = 14 findings; six writer blocks and **ALL SIX rejected - zero re-applied**); the one before was 2026-10-01 07:08 ACST (**cards only** - `gmail`, `agent-architecture`, `airtable`; **this table was NOT touched**, the first such event since the 8th, so never assume the catalogue is hit - read the actual file set), and the three before that were 2026-09-28 (this table plus the `cron` card), 2026-09-29 (this table plus `cards/gmail.md`; the `cron` card again carried an additive block, the same one the 20th event had already rejected, and it failed attestation a second time) and 2026-09-30 07:08 ACST (this table plus **three** cards - `qpaint`, `gmail`, `git`; 29 findings, the widest damage since the 16th event, and the writer **re-injected two blocks a prior run had already rejected** - a foreign "15th occurrence" block and a `multipart/mixed` attachment trap). Repair history runs 2026-09-06 to 2026-10-06. **The full incident record - damage signature, repair playbook, occurrence log and four falsified hypotheses - lives in `learnings/corruption/INDEX.md`. Read that before investigating, not this block.** **ATTRIBUTION:** the damage is written OUT-OF-BAND at **~07:03-07:35 ACST**, roughly 10 h AFTER the 21:20 guard and the 21:30 backup, by a process still **UNIDENTIFIED** - no logged tool call ever reads or writes anything under `learnings/`, and none of the corrupted prose appears anywhere in `state.db`. Two earlier diagnoses were wrong and must not be repeated: (a) "the guard ran before the write" (a UTC-mtime-read-as-local error); (b) "the writer window contains no tool calls" (occupancy varies - 13 unrelated calls on 2026-09-14, zero on 2026-09-16; the constant is only that none of them touch `learnings/`). **File mtimes do not date the writer:** `scripts/backup-state-db.sh` runs `git pull --rebase --autostash`, which re-stamps every dirty file. Test before dismissing an event as an mtime artefact - one instant across the WHOLE dirty set = autostash; a 1-6 s burst across 1-6 files = the writer. **HEAD is not always a clean baseline** (on the 17th event the hourly `git add -A` had already committed the corruption) - verify by content marker (`EDITING THIS TABLE`), never by commit date, and recover a pre-write baseline from the surviving pack if needed. **Repair order: `git restore` from HEAD -> extract -> ATTEST every writer block against the filesystem -> duplicate-check -> re-apply.** "Re-apply the writer's new blocks" is FALSIFIED as a blanket rule: the 15th event added a block attested nowhere on disk, the 16th fabricated infrastructure that does not exist, and the 17th re-injected blocks a prior run had already rejected. Run `scripts/bin/learnings-integrity-guard.py` as the LAST step of any consolidation - its 21:20 cron cannot see edits made after it.
+
+| Domain | Trigger keywords | Card |
+|--------|-----------------|------|
+| gmail | `gog gmail`, `newer_than`, `batchModify`, `mark.read`, `threadId`, `Gmail API` | `cards/gmail.md` |
+| gmail-auth | `gmail_auth.py`, `get_access_token`, `OAuth refresh`, `access token`, `401`, `google_token.json` | `cards/gmail-auth.md` |
+| email | `MIMEApplication`, `MIMEImage`, `Content-Type`, `attachment`, `email send` | `cards/email.md` |
+| hermes | `shell hook`, `matcher`, `post_tool_call`, `pre_tool_call`, `pre_llm_call`, `allowed_users`, `allowlisted`, `state.db`, `system_prompt`, `skill-injection`, `trigram`, `date hook`, `date integrity`, `inject-date`, `autorestart`, `supervisord`, `supervisorctl`, `write_file`, `append-only log` | `cards/hermes.md` |
+| shell | `zsh`, `for p in`, `\| tee`, `tmux pipe`, `nvm`, `pyenv`, `echo $`, `declare -A`, `terminal`, `background` | `cards/shell.md` |
+| cron | `cronjob`, `schedule`, `launchd`, `LaunchAgent`, `crontab`, `keychain`, `wakeAgent`, `wakeagent`, `script gate`, `token burn`, `DST`, `daylight-saving`, `compute_next_run` | `cards/cron.md` |
+| telegram | `allowed_chats`, `allowed_users`, `TELEGRAM`, `@mention`, `/start`, `bot` | `cards/telegram.md` |
+| orgo | `orgo.ai`, `bash API`, `504`, `gateway`, `UUID`, `computer` | `cards/orgo.md` |
+| supabase | `supabase`, `anon key`, `service_role`, `client_responses`, `RLS` | `cards/supabase.md` |
+| git | `git push`, `git clone`, `PAT`, `case.sensitive`, `render`, `template` | `cards/git.md` |
+| models | `gemini`, `model`, `deprecated`, `discontinued`, `404`, `provider` | `cards/models.md` |
+| campaign | `cold-email`, `campaign`, `calibration`, `prospect overlap`, `ownership check`, `pre-flight` | `cards/campaign.md` |
+| cloudflare | `cfat_`, `account-owned`, `Cloudflare`, `api.cloudflare`, `tokens/verify` | `cards/cloudflare.md` |
+| compliance | `ABN`, `GST`, `TFN`, `ATO`, `trust`, `Australian Business Register`, `ABR` | `cards/compliance.md` |
+| python | `datetime.now`, `ZoneInfo`, `timezone`, `Adelaide time`, `UTC server`, `bare datetime` | `cards/python.md` |
+| agent-architecture | `dual-path`, `skill discovery`, `pre-flight`, `orphaned skill`, `boot context`, `Registry`, `SOPs`, `certify`, `verify`, `certification gate`, `touchpoint`, `review point`, `auto-contact`, `CRM stage`, `customer evidence`, `commercial truth`, `materiality`, `dream`, `consolidation`, `classifier`, `false positive`, `MONITOR`, `courtesy reply`, `negative grep`, `rule does not exist` | `cards/agent-architecture.md` |
+| asana | `asana`, `html_notes`, `POST /tasks`, `PUT /tasks`, `html_lacks_body`, `body tag` | `cards/asana.md` |
+| airtable | `airtable`, `Airtable`, `record`, `duplicate`, `pagination`, `maxRecords`, `pageSize` | `cards/airtable.md` |
+| browser | `Accessibility.getFullAXTree`, `CDP`, `AX tree`, `React SPA`, `contenteditable`, `DOM invisible`, `browser_console tab`, `Page.navigate`, `chrome.newtab` | `cards/browser.md` |
+| canonical-send | `canonical-send`, `find_approval`, `Gate 1`, `FOUNDER_APPROVED`, `hash mismatch`, `canonical.email.send` | `cards/canonical-send.md` |
+| microsoft-graph | `Microsoft Graph`, `$filter`, `isRead`, `ODATA`, `Graph API`, `msgraph` | `cards/microsoft-graph.md` |
+| qpaint | `QPaint`, `1300 QPAINT`, `white-label`, `Dee`, `Leslie`, `Tas Moulis`, `pipeline truth`, `recovery ops`, `Email 3`, `status-blind`, `ack` | `cards/qpaint.md` |
+
+## How to use
+
+1. **Agent discovers a fix** → appends to own `learnings/LEARNINGS.md` (existing process).
+2. **Nightly consolidation** → notes new learning in `notes/<date>.md` with `**New learning:** <title>`.
+3. **Winston's morning harvest** → polls all agents' daily notes, extracts new learnings, formalizes into a card update, pushes to deploy kit, and redistributes to all agents.
+4. **Every agent** → loads this catalogue at boot. Before touching a domain, checks the trigger column. If keyword matches, loads the card.
+
+## Card format
+
+Each card in `cards/<domain>.md`:
+```markdown
+# <domain> — Known Traps
+
+## TRAP — short title
+**When:** what action triggers this
+**Symptom:** what breaks
+**Fix:** exact working approach
+```

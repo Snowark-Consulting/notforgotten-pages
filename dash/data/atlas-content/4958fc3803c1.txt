@@ -1,0 +1,78 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# Learnings corruption, 28th occurrence — repaired by the 21:00 consolidation
+
+> Third consecutive event repaired by the nightly consolidation (25th, 26th, 27th, now 28th). Detected at 18:20 ACST by the Campaign Pulse session's own end-of-run guard; repaired 21:00 ACST the same day. This record supersedes the containment-only note `learnings/2026-10-07-learnings-corruption-28th-detection.md`, which remains as the detection evidence.
+
+**Write window:** 2026-10-06 20:36:17.77 – 20:36:21.76 UTC = **2026-10-07 06:06:17–06:06:21 ACST** — a **4.0 s burst across exactly 3 files**, while the rest of the dirty set spanned hours (`LEARNINGS.md` next carried 07:49 UTC = a legitimate Campaign Pulse append 12 h later). Discriminator satisfied: a real write, not the `backup-state-db.sh` autostash.
+
+**Files written:** `learnings/catalogue.md`, `learnings/cards/agent-architecture.md`, `learnings/cards/shell.md`.
+
+**Guard findings:** 13 (the detection note reproduced a subset; the full run lists the catalogue marker/rows, 5 `## TRAP` deletions and 2 UPDATE-note deletions on `agent-architecture`).
+
+## Baseline verification
+
+| Check | Result |
+|---|---|
+| HEAD clean by **content marker** (`EDITING THIS TABLE` present in HEAD, absent on disk) | **PASS** |
+| Last learnings commit | `8be9ba3a` (2026-10-06 consolidation, 27th-event repair) — damage uncommitted on top |
+| Hourly `git add -A` hazard | **did not fire** — HEAD's newest commit (`4aab4d7c`, "Dashboard V2 — three-section architecture") touches `pages/dashboard.html` only |
+| Diff vs HEAD | catalogue **+7/−10**, agent-architecture **+85/−40**, shell **+31/−10** |
+| `## TRAP` heading **count** | agent-architecture HEAD 21 vs disk 22 (net +1); shell HEAD 8 vs disk 13 — **a count check surfaces neither reliably; only a heading LIST diff does** |
+| Containment | clean HEAD copies preserved to `learnings/corruption/event28-2026-10-07/` by the pulse |
+
+## Damage
+
+- **`catalogue.md`** — warning block deleted; `gmail-auth` row dropped; `email` row malformed as `email 🆕`; `campaign` cell turned into a markdown link; `hermes`/`cron`/`agent-architecture`/`qpaint` rows re-keyworded (`qpaint` de-keyworded, losing `QPaint`, `1300 QPAINT`, `white-label`, `Dee`, `Leslie`, `Tas Moulis`, `pipeline truth`, `recovery ops`, `Email 3`); trailing newline removed.
+- **`cards/agent-architecture.md`** — **21 headings before AND after.** 5 lost (2 deleted outright, the Engaged heading `\|`-prefixed so the guard reads it as deleted, 1 renamed, 1 reworded with its date stripped), 2 window-attestation UPDATE notes deleted, 5 headings injected. Bodies displaced under neighbouring headings.
+- **`cards/shell.md`** — **8 → 13 headings.** The glob-delete trap **condensed and displaced** (its `**Cause:**` and `**Source:**` dropped) plus 5 blocks added. **Additive, therefore NOT guard-flagged** — the anomaly the playbook warns about: the guard's diff sees additions, not damage, so only the heading LIST diff found it.
+
+## Attestation — 10 writer headings, 1 re-applied, 9 rejected
+
+**Attested and re-applied (1):**
+- `A count read from a \`tail\`-truncated print was wrong by 12 records (27 vs 39)` → `cards/shell.md` (appended). Named by the `LEARNINGS.md` `## 2026-10-06` entry, sourced to Prepare-Ahead Clock 2026-10-06 22:00 ACDT, and its facts are verifiable (`knowledge/qpaint-review-pack-2026-10-07-08.md` §6; 27 vs 39, $800,640.64). New to the card layer.
+
+**Rejected (9) — each with the reason:**
+
+| Block | Reason |
+|---|---|
+| `Newest macOS SDK can break local ld link (arm64e.x1 targets)` | **3rd injection.** Rejected on the 15th and 16th; a macOS toolchain trap on a Linux host; no `LEARNINGS.md` entry, no dated file, no state.db row |
+| `macOS 27 SDK breaks local ld link (arm64e.x1 targets)` | Same class as above; a second variant of an already-rejected block |
+| `Hermes hook \`~\` expiry: mid-string tilde is NOT expanded` | **2nd injection.** Named in `LEARNINGS.md` line 416 as one of the 16th event's blocks with "zero pre-write evidence on disk" — not re-applied then, not now |
+| `Hermes hardline-blocks oversized single-terminal commands` | **2nd injection.** Same list; the cited `tools/approval_detection.py` is not on this box (`find` returns nothing) |
+| `Customer reply "already completed" = LOST …` | **6th rejection.** Canonical in `skills/email/email-inbox-pulse/references/qpaint-customer-reply-processing.md` |
+| `Negative grep is evidence of the pattern, not the thing` | Reword of the trap restored verbatim from HEAD |
+| `A prose gate in a record is not a gate` | Reword/expansion of the trap restored verbatim from HEAD (2026-10-03, attested by `learnings/2026-10-03-prose-gate-not-a-gate.md`) |
+| `Attestation must test against the filesystem … (24th occurrence)` | Boot-loaded — already held in `learnings/corruption/INDEX.md` playbook step 5 and `memory/MEMORY.md` |
+| `Learnings corruption, 27th occurrence …` | Foreign series record; belongs in this INDEX, not a card |
+
+**Decision recorded as non-action:** the nine rejections are deliberate. A future run must not "restore" them.
+
+## Repair (playbook order)
+
+1. `git diff --numstat` over the whole tree — confirmed no legitimate uncommitted work in the three damaged files.
+2. HEAD verified clean by content marker (matched the preserved `event28-2026-10-07/HEAD-catalogue.md` byte-for-byte).
+3. Extracted the writer's blocks to `/tmp/e28/` before restoring.
+4. `git restore learnings/catalogue.md learnings/cards/agent-architecture.md learnings/cards/shell.md` (individual restore, never fuzzy-patch).
+5. Appended the one attested block to `cards/shell.md` via `cat >>` (never `write_file`).
+6. Heading **LIST** diff vs HEAD: `MISSING: []` on all three; exactly one addition (shell).
+7. Catalogue reconciled: 22 rows = 22 cards, warning block present, zero `||` rows, no mid-table blank line.
+8. Updated the catalogue warning block, this INDEX and `memory/MEMORY.md`.
+9. Guard re-run as the LAST step — silent PASS.
+
+## New observations for the series
+
+1. **The detection note mislabels its own timeline.** It records the guard run as "2026-10-07 07:50 ACDT", but the file mtimes are `07:50 UTC` = **18:20 ACST**. This is the same UTC-mtime-read-as-local error the series already falsified once (falsified hypothesis #1). Detection latency is therefore **~11.9 h**, not 1.7 h. Corrected here; future records must convert from the `stat` offset before naming a clock time.
+2. **The additive card remains the blind spot.** `cards/shell.md` was dirty, guard-quiet and damaged (glob trap condensed) — only the heading LIST diff exposed it. The guard's diff-vs-HEAD sees additions as noise, so it cannot report an additive card as damaged.
+3. **Re-injection is now the dominant writer behaviour.** Four of the nine rejected blocks were blocks a prior consolidation had already examined and rejected (15th/16th events). Attestation must run from scratch every event; an inherited verdict is worthless in both directions.
+
+## Open
+
+- Rec `consolidation-learnings-guard-0715` (a ~07:15 detect-and-restore run) remains unbuilt and needs founder approval. Detection is still opportunistic — this event was caught only because a pulse session chose to run the guard at the end of its run.
+- Rec `consolidation-learnings-clean-baseline-lost` (gate every commit, not just the nightly backup; replace the hourly `git add -A` with a path allow-list).
+
+**Source:** Campaign Pulse 2026-10-07 18:20 ACST (detection) and Atlas nightly consolidation 2026-10-07 21:00 ACST (repair).
