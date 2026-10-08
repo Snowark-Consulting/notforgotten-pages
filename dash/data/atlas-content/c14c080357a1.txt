@@ -1,0 +1,92 @@
+---
+doc_type: record
+owner: snowark-client
+tier: primary
+---
+
+# Learnings Corruption — 29th Occurrence (2026-10-08)
+
+> Sixth-file event and the widest since the 16th: **six files in a 9.05 s burst** (`catalogue.md`, `cards/qpaint.md`, `cards/cron.md`, `cards/agent-architecture.md`, `cards/telegram.md`, `cards/hermes.md`), **37 guard findings**, **14 writer blocks and exactly 4 re-applied**. Caught by the 21:00 ACST consolidation ~12.2 h after the write, by no scheduled control.
+
+## Window
+
+| Field | Value |
+|---|---|
+| Write window | **2026-10-07 22:15:56.065 – 22:16:04.113 UTC = 2026-10-08 08:45:56 – 08:46:04 ACDT** (9.05 s) |
+| Discriminator | The 6 learnings files share a sub-10-second window while the rest of the dirty set spans hours (`LEARNINGS.md` 2026-10-07 10:35 UTC, `notes/2026-10-07.md` 11:34 UTC, `skills/.usage.json` 2026-10-08 10:30 UTC). Real write, not autostash pollution. |
+| Detection | 21:00 ACST consolidation, 2026-10-08 — **~12.2 h after the write, by no scheduled control.** The 06:50 ACST guard (`59d5247cd604`) and the 07:00 ACST backup both ran *before* the write. |
+| HEAD | **Clean** — verified by content marker (`EDITING THIS TABLE` present, zero `||` rows, 24 pipe-lines). The hourly `git add -A` hazard did **not** fire. Last learnings commit before the write: `a3fbca21` (this series' own 28th-event repair). |
+| Guard findings | **37** |
+| Files | 6 |
+| Writer blocks | **14 added, 4 re-applied, 10 rejected** |
+
+**⚠️ New observation: the window has moved *later*.** The 27th (07:03 ACDT) and 28th (07:06 ACDT) events landed in the familiar pre-workday window. This event landed at **08:45:56–08:46:04 ACDT** — inside the working day and ~1 h 40 m later in UTC (22:16 UTC vs the 27th/28th's 20:33–20:36 UTC). The window is neither fixed in local time nor fixed in UTC. Do not assume a 07:0x window when dating a future event; read the mtimes.
+
+## Damage
+
+### `catalogue.md`
+`EDITING THIS TABLE` warning block deleted; `gmail-auth` row dropped; `email` row malformed as `email 🆕` (cell rewritten as a markdown link); `campaign` cell turned into a markdown link `[campaign.md](cards/campaign.md)`; **4 rows re-keyworded with additions mixed into deletions**:
+- `qpaint` **de-keyworded** — lost `QPaint`, `1300 QPAINT`, `white-label`, `Dee`, `Leslie`, `Tas Moulis`, `pipeline truth`, `recovery ops`, `Email 3`; gained only `deal status`, `availability escalation`, `customer waiting`.
+- `agent-architecture` — lost `negative grep`, `rule does not exist`; gained `attestation`.
+- `hermes` — lost `write_file`, `append-only log`; gained `hermes`, `delegation`, `subagent`, `flash agent`, `memory store`, `memories/`.
+- `cron` — gained `Hermes tools Python`, `agent venv`, `googleapiclient`.
+
+De-keywording `qpaint` is the damaging part: the row is the routing target for all QPaint learnings, so the terms that actually appear in QPaint work stopped resolving to its card.
+
+### `cards/qpaint.md` — the live paying client's card
+**14 → 5 `## TRAP` headings (guarded), 10 deleted outright, 3 renamed with dates stripped, 3 UPDATE notes deleted.** Writer-added: 1 block (the revision-STRUCTURE trap, re-applied).
+
+### `cards/hermes.md`
+**10 → 14 headings, net +4.** Lost outright: `v0.20.4 session turn lease`; `Gateway lifecycle guard false-flags python3 -c`. Renamed: `~/.hermes/memories/ is the LIVE memory store` → `DANGER: … (lint-memories-dir false positive)`. **5 UPDATE notes deleted** (including the 2026-08-18 bloat-driver note). Writer-added: 6 blocks + 1 reword.
+
+### `cards/agent-architecture.md`
+**21 → 23 headings, net +2.** Lost outright: `Customer deferral ("still thinking / comparing") is MONITOR`; `Engaged + external dependency = WAIT/MONITOR` (re-inserted `\|`-prefixed, so the guard reads it as deleted). Renamed: the out-of-band-window heading → `Learnings writer lands at ~07:06–07:07 ACST …`; the negative-grep trap (date stripped). **2 UPDATE notes deleted.** Writer-added: 3 blocks (all rejected).
+
+### `cards/cron.md` — **not guard-flagged**
+`+29/−0`, purely **additive**. Writer-added: 3 blocks (all rejected).
+
+### `cards/telegram.md` — **not guard-flagged**
+Lost the `See [[MEMORY]] …` pointer line from the header; additive thereafter. Writer-added: 1 block (re-applied).
+
+**The guard's blind spot covered two of the six files entirely.** `cron.md` and `telegram.md` were part of the same 9 s burst and received no guard finding at all, because their net change was additive. Only reading the whole dirty set — and diffing the header block — surfaces them.
+
+## Attestation results
+
+| Writer block | Target | Verdict |
+|---|---|---|
+| `A Telegram delivery-target migration is a point-in-time fix, not a control` | `telegram` | **RE-APPLY** — named by `LEARNINGS.md` `## 2026-10-07` and `notes/2026-10-07.md:61`; new to the card layer |
+| `A james-pulse wake can act, return [SILENT], and write no log` | `cron` | **RE-APPLY** — `LEARNINGS.md` `## 2026-10-06`, `notes/2026-10-06.md:74`, `notes/2026-10-07.md:6`; not in HEAD's cron card |
+| `A revision can change pricing STRUCTURE, not just figures` | `qpaint` | **RE-APPLY** — `LEARNINGS.md` line 54 + `## 2026-10-06`; new to the card layer |
+| `state.db corruption has recurred: the September root-cause fix is still outstanding, and the new refusal gate worked` | `hermes` | **RE-APPLY** — `LEARNINGS.md` `## 2026-10-07`; rec `consolidation-state-db-corruption-recurrence-2026-10-07` |
+| `Hermes cron runs scripts under the Hermes tools Python, NOT the agent venv` | `cron` | **REJECT** — 6th+ consecutive re-injection (rejected 20th, 21st, 23rd, 24th, 25th); cites macOS `/Users/joshhancock/…` paths that do not exist on this Linux host. HEAD already carries the corrected card |
+| `Nightly backup GH001-rejected: .gitignore missing tools/` | `cron` | **REJECT** — **fabricated** (21st/22nd): no `tools/` dir exists; the attested cause is the 141 MB `db_recovery` snapshot |
+| `dream-cost-v4-pro-fragmentation: false positive` | `hermes` | **REJECT** — **falsified**: asserts `model.default` is `deepseek-v4-flash-0731`; `config.yaml` says `deepseek-v4-pro` |
+| `dream-cost-model-id-normalization: false positive` | `hermes` | **REJECT** — same falsified premise (stale `state.db store_created_at_utc`) |
+| `delegation: a docs/skills synthesis flash agent fabricates a plausible file layout` | `hermes` | **REJECT** — recorded NOT ATTESTED on the 16th, re-injected on the 17th and 24th; **6th+ re-injection** |
+| `Learnings corruption, 16th occurrence` | `hermes` | **REJECT** — foreign series record; canonical in `corruption/INDEX.md` |
+| `orgo OOM kills gateway mid-checkpoint → state.db corrupt` | `hermes` | **REJECT** — failed attestation on the 24th (zero pre-write `state.db` rows) |
+| `Attestation must test against the filesystem, not just provenance (24th occurrence)` | `agent-architecture` | **REJECT** — boot-loaded: the rule is `corruption/INDEX.md` playbook step 5 |
+| `Learnings corruption, 27th occurrence` | `agent-architecture` | **REJECT** — foreign series record; canonical in `INDEX.md` + `learnings/2026-10-06-learnings-corruption-27th.md` |
+| `Learnings corruption, 28th occurrence` | `agent-architecture` | **REJECT** — foreign series record; canonical in `INDEX.md` + `learnings/2026-10-07-learnings-corruption-28th.md` |
+
+No block passed provenance alone. The four re-applies all passed on a `LEARNINGS.md` / dated-note / rec source **and** the duplicate test.
+
+## Repair performed
+
+1. Established HEAD clean by content marker (marker present, zero `||` rows, 24 pipe-lines).
+2. Saved WORK copies of all 6 files to `cache/consol29/` before touching anything.
+3. Extracted the 4 attested blocks verbatim from the WORK copies.
+4. `git restore` the 6 files from HEAD.
+5. Appended the 4 blocks via `open(...,'a')` — **append, never fuzzy-patch**.
+6. Verified by **heading LIST diff** vs HEAD: every card zero missing, exactly one intended addition each.
+7. Reconciled the catalogue bidirectionally: marker present, 24 pipe-lines = 22 rows = 22 cards, zero `||` rows, no mid-table blank line, trailing newline intact, `MISSING: []`, `orphan rows: []`.
+8. `git diff --numstat` confirmed **pure additions, zero deletions**.
+9. Committed `dd8076a2`.
+10. Re-ran the guard as the **last** step — silent PASS.
+
+## Standing rules reinforced
+
+- **Read the whole dirty set, not the guard's output.** Two of six damaged files were guard-quiet; the burst window (not the guard) identified them.
+- **The window is not fixed.** This event landed at 08:46 ACDT, ~1 h 40 m later than the 27th/28th in UTC. Date from mtimes plus the discriminator, never from habit.
+- **Attest from scratch, every event.** Three of the ten rejections were re-injections previously refused on 16th/17th/20th/21st/22nd/23rd/24th/25th events.
+- **Re-injection remains the dominant writer behaviour** — 10 of 14 blocks were duplicates, fabrications or falsified premises; only 4 were genuinely new learnings.

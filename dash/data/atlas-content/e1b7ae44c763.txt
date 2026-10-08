@@ -1,0 +1,149 @@
+---
+doc_type: decision_review_prep
+owner: notforgotten
+tier: primary
+---
+
+# Decision Review Prep — Distribution Validation Phase
+
+> **Preparation only.** This gathers outcome evidence ahead of the review date. It does **not** propose a verdict. The verdict is James's at review.
+> **Decision under review:** `2026-07-12-distribution-validation-phase`
+> **Review date:** 2026-10-12 (Monday) — 5 days from prep
+> **Prepared:** 2026-10-07 22:00 ACDT by the Prepare-Ahead Clock
+> **Decision file:** `knowledge/decisions/2026-07-12-distribution-validation-phase.md`
+
+---
+
+## 1. What was decided (12 July 2026)
+
+Infrastructure phase closed. Business shifts to **distribution validation and customer acquisition**. The only gate for new work: *"Will this help us consistently acquire customers or learn how to acquire customers?"* Atlas is delegated **Tier 1 authority** for standard outreach execution within approved sequences, removing James as the bottleneck on routine sends.
+
+At the time: **52 outbound emails, zero genuine prospect conversations.**
+
+---
+
+## 2. The decision's own success criteria, scored against evidence
+
+The decision file fixed five criteria. Scored below, each with its source. **Three of five have failed, one has passed, one is only partially assessable.**
+
+### ❌ Criterion 1 — "10+ genuine prospect conversations started by Aug 15, 2026"
+
+**Not met.** Two conversations, both from the same proof-led touchpoint, and both pre-dating Aug 15 only in part.
+
+| Channel | Sends | Replies | Source |
+|---|---|---|---|
+| Email 1 — curiosity-led | 0 / 65 | 0% | `knowledge/experiments/EXP-2026-08-02-FF1-painter-wave-1.md:32` |
+| Email 2 — process questions | 0 / 60 | 0% | same, line 33 |
+| Email 3 — Travis case study (proof-led) | **2 / 60** | **3.3%** | same, line 34 |
+| CvC (context vs curiosity) | 0 / 40 meaningful, **both arms** | 0% | `knowledge/experiments/INDEX.md` — completed |
+| V2 Email 1 | 0 / 43 | 0% | `knowledge/commercial-growth-review-2026-08-24.md:111` |
+| V2 Email 2 (proof-led) | 1 / 42 (Rahamed) | 2.4% | same, line 112 |
+| V2 Email 3 | 32 sent 28 Aug, 0 replies | 0% | `2026-09-04-v2-persistence-hold` |
+| CUST2 pilot (3 trades) | 0 / 30 touches | 0% | live ledger, verified 7 Oct 22:00 |
+| FF1 (16 painters) | 0 / 16 — **contaminated** | not usable | INC-2026-08-07-004 |
+
+**The single cleanest fact in this prep:** every reply this business has ever received from cold email came from a **proof-led** touch (V1 Email 3, V2 Email 2). Curiosity-led and process-led touches are **0 for 165+**. The V1 Email 3 rate is 2/60 = 3.3% on a 60-prospect sample.
+
+### ✅ Criterion 2 — "First paying customer acquired by Sep 30, 2026"
+
+**Met.** QPaint (Tas Moulis) — **1 paying client, $199 MRR**. Recurring revenue confirmed live: a **Stripe payout of $195.31** landed overnight into 6 Oct 2026 (`notes/2026-10-06.md:15`).
+
+Honest framing: this came from the **white-label quote-recovery motion**, and the conversion trigger was the proof-led Email 3, not the general outreach machine. Star Painters Adelaide reached trial only, never converted, and now reads `Lost` in the CRM (last contacted 2 Sep).
+
+### ⚠️ Criterion 3 — "At least one statistically meaningful A/B test completed by Aug 15"
+
+**Tests ran; none produced a positive result. One produced a clean null.**
+
+- **CvC (Context vs Curiosity)** — 40 painters, 10A/10B, released 14 Jul, reviewed 4 Aug. **0/40 meaningful replies in both arms.** Treatment *underperformed* on opens: **50% vs 70%**. Conclusion on file: curiosity-led outreach retired for painter acquisition.
+- **PDV (Painter Distribution Validation)** — 20 painters, 10A/10B, Jul 2026.
+- **V2-NEW50** — 50 fresh painters, released 15 Aug, reviewed 4 Sep. **0 replies from 32 at Email 3 by Day 6.** Folded into the V2 HOLD.
+- **FF1 (founder-voice)** — 16 painters. **Contaminated**, cannot quantify the delta. Do not cite as a clean test.
+
+The A/B machinery worked. The hypothesis it was testing (that copy variation moves reply rate) was answered **no** — twice, independently.
+
+### ❌ Criterion 4 — "Zero trust-damaging incidents from delegated sends"
+
+**Failed, materially.** This is the one criterion the decision named explicitly — *"factual errors, wrong prospect, wrong name, principle violations."*
+
+| Date | Incident | Class |
+|---|---|---|
+| 27 Jul 2026 | **Wrong recipient** — Email 2 intended for `tas@qpaint.com.au` delivered to a phantom `tas@tradiematepro.com.au` | wrong prospect |
+| 05 Aug 2026 | INC-2026-08-05-002 / -003 | production failures |
+| 07 Aug 2026 | INC-2026-08-07-004 — 16 FF1 prospects received Email 1 **twice** | duplicate |
+| 10 Aug 2026 | **INC-2026-08-10-DUPLICATE-SEND (P1)** — 176 sends, 6 recipients affected | duplicate |
+| 11 Aug 2026 | **INC-2026-08-11-QUOTE-FALSE-COMPLETION (S1)** — 3 QPaint quotes marked complete with Deal Value $0 | factual error |
+| 19 Aug 2026 | **6 generic QPaint Email 1s sent to real customers** without the Customer Context Gate | principle violation |
+
+Every one of these was found, contained, and converted into a standing control (11 controls after the duplicate-send incident; the Customer Context Gate is now code-enforced in `canonical-send.py` Gate -2; the intake completion gate is code-enforced). **The recovery is not in question. The criterion as written is.**
+
+### ⚠️ Criterion 5 — "James reports reduced operational burden — strategic thinking time increased"
+
+**Partially met, and structurally so.** Verifiable shifts:
+
+- **QPaint Operational Handover (30 Aug)** — Atlas owns routine QPaint ops end-to-end, decide *and* execute. `2026-08-30-qpaint-operational-handover` carries an explicit caveat on file: it is *"operationally successful, [and] does NOT prove customer generation."*
+- **QPaint Daily Attention (6 Sep)** — execute-not-report; James sees only genuine founder exceptions.
+- **Wednesday became Founder Sales Day**, with Rounds 3 and 4 of founder call sheets prepared.
+- **Founder execution has not converted.** Carried across nine consecutive review packs: Founder Call Rounds 3 + 4 outcomes are still uncaptured; the cold-painter channel ruling is open since 11 Sep; four 1 Oct decision verdicts are still with James.
+
+The burden moved *off* routine sends and *onto* the one thing only James can do — the owner conversations — and that queue has not cleared in five weeks. The pilot's success criteria are explicit: **≥2 genuine replies OR ≥1 owner conversation.**
+
+---
+
+## 3. What the decision did achieve
+
+It is important the review does not read as a failure of execution. Verified gains:
+
+1. **Velocity.** Every touch in this window ran without a per-send founder gate. QPaint alone: **214 of 309 records** carry at least one touch (Contacted 151 · Engaged 44 · Replied 1 · Won 18). Book **$9,811,709.41**.
+2. **A paying client and a live product.** QPaint at $199 MRR with recurring revenue confirmed.
+3. **Instrumentation that did not exist in July.** The Airtable ledger is now trustworthy enough to say "0/135 cold replies" with confidence — that is the whole point of the phase.
+4. **A control layer built from real failures.** The duplication, phantom-recipient and context-gate incidents produced code-enforced gates, not lessons on paper.
+5. **Prospect→reply is now a measurable number, not a hope.** Criterion 3's machinery works.
+
+---
+
+## 4. What the evidence now forces (framing the question, not the verdict)
+
+The decision's own risk table carried this line:
+
+> *"Increased volume without improved approach burns through the pipeline with no results — Likelihood: High, Impact: High. **Mitigation:** … If zero conversations persist after concentrated testing, Atlas must recommend strategic changes."*
+
+**The mitigation trigger has fired.** Concentrated testing happened across five cohorts, three trades, four angles and 300+ cold touches. Cold email produced **2 conversations, 0 of them from a curiosity or process-led touch**, and the one customer came from the proof-led touch — which is now also flat (V2 Email 3: 32 sent, 0 replies).
+
+The question the review has to answer is therefore **not** "did we send enough?" It is:
+
+> **Was 12 July's premise — that a delegated outreach machine would validate distribution — the right thing to test, or did it validate something narrower: that owner-led small businesses do not have a felt problem until they have a live, unanswered quote in front of them?**
+
+Supporting evidence for the narrower reading, all from inside this window:
+
+- **Warm quote-holders reply at 50–60% on first touch** (3 of 5 on 5 Oct, 1 of 2 on 7 Oct) against **0 for 135** cold.
+- **All four recent QPaint wins are `Observed` attribution** — the operation is proving visibility, not causation.
+- Two warm replies on 7 Oct declined within 10 hours (*already decided before we wrote*); two are engaged and still comparing.
+- The 30 Aug Full Business Review verdict is already on file: *"a working service that cannot yet be sold; 1 paying customer, 0.4% acquisition; the next customer comes from founder calls, not email."*
+
+---
+
+## 5. Data gaps — stated, not papered over
+
+- **Exact aggregate send count under Tier 1 delegation is not instrumented.** Components are known (QPaint 214 records · RE-ENG 147 · CvC 105 · FF1 16 · V2 ~85 sends · CUST2 30 touches) but no single counter exists. Do not quote a total as though it were measured.
+- **FF1 is contaminated** and cannot be used for or against the founder-voice hypothesis.
+- **Criterion 1's "genuine conversation" was never given a threshold definition** (Sales Brain T3+ is the closest). The 2-reply figure counts raw replies.
+- **Criterion 5 is a self-report.** It can only be closed by James.
+- The **CUST2 pilot's 15-prospect, 3-trade sample cannot support a success/failure declaration** — the authority record says so explicitly.
+
+---
+
+## 6. Sources
+
+- `knowledge/decisions/2026-07-12-distribution-validation-phase.md` — the decision and its five criteria
+- `knowledge/experiments/EXP-2026-08-02-FF1-painter-wave-1.md` — reply rates by touch, contamination
+- `knowledge/experiments/INDEX.md` — CvC and V2-NEW50 completed results
+- `knowledge/commercial-growth-review-2026-08-24.md` — V2 funnel, reply accounting
+- `knowledge/full-business-review-2026-08-30.md` — founder verdict on commercial readiness
+- `knowledge/incidents/INC-2026-08-10-DUPLICATE-SEND.md`, `knowledge/incident-reviews/INC-2026-08-11-QUOTE-FALSE-COMPLETION.md`, `learnings/2026-08-19-qpaint-customer-send-incident.md`
+- `knowledge/authority/founder-direct-cust2-pilot-2026-09-30.json` — pilot scope and success criteria
+- Live Airtable pull 2026-10-07 22:00 ACDT — QPaint Pipeline 309 records / $9,811,709.41; CUST2 reply guard 0/15
+- `notes/2026-10-06.md`, `notes/2026-10-07.md` — Stripe payout, book position
+
+---
+
+*Preparation, not decision. No customer contact. No send. No Airtable write.*
