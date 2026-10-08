@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-10-08T04:06:11+10:30",
+  "generated_at": "2026-10-09T04:05:03+10:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "QPaint portfolio stable overnight: 312 records (9,891,062 book), 18 Won ($622,833), 58 Lost, 236 active ($8,059,932 pipeline). No new overnight mail (atlas@ 0, quotes@ 0, james@ 3 DMARC noise). No new Won/Lost. Star Painters/Ahmad now closed Lost in CRM \u2014 the carried item is done. Three founder items carry a Friday deadline: the CUST2 cold-email stopping rule (before Fri 09:00), the Caboolture Courthouse split, and the Mike Scott founder gate. System: state.db corruption has recurred (persistence stopped, 2 crons failing) \u2014 Josh/Winston.",
+    "body": "The QPaint portfolio is stable. 314 total records, 237 active journeys, 18 Won ($622,833), 59 Lost. Overnight reconciliation clean.",
     "estimated_time": "2 minutes"
   },
   "business_score": {
     "score": 85,
     "change": "-1",
     "reasons_positive": [
-      "QPaint 312 records, 18 Won = $622,833, 58 Lost, 236 active ($8,059,932 pipeline). Overnight reconciliation clean, no new Won/Lost.",
-      "0 unread in atlas@ and quotes@. james@ 3 unread = DMARC reports (noise). Star Painters closed Lost \u2014 carried item resolved.",
+      "QPaint 314 records, 18 Won = $622,833, 59 Lost, 237 active. Overnight reconciliation clean.",
+      "0 unread in atlas@ and quotes@; james@ unread is 5 DMARC aggregate reports (system noise).",
       "Dashboard pipeline data fresh (04:00 ACDT). CUST2-PILOT Touch 3 validated end-to-end for Fri 09:00."
     ],
     "reasons_negative": [
@@ -22,11 +22,11 @@
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "QPaint: Active. Portfolio certified. 236 active journeys with complete Next Action coverage."
+      "detail": "QPaint: Active. Portfolio certified. 237 active journeys with complete Next Action coverage."
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "\u2705 236 active QPaint journeys certified. 151 contacted, 44 engaged, 1 replied. 0 exceptions. Pipeline: $8,059,932. Won: $622,833."
+      "detail": "\u2705 237 active QPaint journeys certified. 149 contacted, 46 engaged, 1 replied. 0 exceptions. Pipeline: $8,006,521. Won: $622,833."
     },
     "outreach": {
       "status": "healthy",
@@ -38,7 +38,7 @@
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $622,833 Won. $8,059,932 active pipeline. Stripe $195.31 MRR confirmed 06 Oct."
+      "detail": "QPaint: $622,833 Won. $8,006,521 active pipeline."
     },
     "atlas": {
       "status": "healthy",
@@ -189,6 +189,10 @@
   "changes": {
     "today": [
       {
+        "time": "2026-10-09T04:05:03+10:30",
+        "text": "Overnight reconciliation clean \u2014 314 QPaint records unchanged, no new customer mail, no new Won/Lost. 3 carried founder items remain (Guy Budgen, Kristeen Davis, Nanda Chakkassery)."
+      },
+      {
         "time": "2026-10-08T04:06:11+10:30",
         "text": "Overnight reconciliation clean \u2014 312 QPaint records ($9,891,062 book), 18 Won ($622,833), 58 Lost, 236 active. No new overnight mail, no new Won/Lost. Star Painters closed Lost. 3 new QPaint records added (309\u2192312)."
       }
@@ -269,7 +273,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "\u2705 QPaint portfolio certified. 236 active journeys. Protocol v1.0.0. Send authority live. state.db corruption: OWNER ACTION.",
+  "operational_status": "\u2705 QPaint portfolio certified. 237 active journeys. Protocol v1.0.0. Send authority live.",
   "vault_health": {
     "decisions": {
       "total": 83,
@@ -300,22 +304,22 @@
   },
   "qpaint_pipeline": {
     "summary": {
-      "total_customers": 312,
-      "total_pipeline_value": 8059932,
+      "total_customers": 314,
+      "total_pipeline_value": 8006521,
       "won_count": 18,
       "won_value": 622833,
-      "lost_count": 58,
-      "engaged_replied": 45,
-      "contacted": 151,
-      "not_contacted": 40
+      "lost_count": 59,
+      "engaged_replied": 47,
+      "contacted": 149,
+      "not_contacted": 41
     },
     "stage_breakdown": {
       "Email 3": 74,
-      "Lost": 58,
-      "Email 1": 44,
-      "New": 41,
-      "Replied": 40,
-      "Email 2": 29,
+      "Lost": 59,
+      "New": 42,
+      "Replied": 42,
+      "Email 1": 40,
+      "Email 2": 31,
       "Won": 18,
       "Engaged": 3,
       "Email 4": 3,
@@ -323,9 +327,9 @@
       "Awaiting Reply": 1
     },
     "priority": {
+      "P3": 168,
       "P1": 93,
-      "P2": 53,
-      "P3": 3
+      "P2": 53
     },
     "key_customers": [
       {
