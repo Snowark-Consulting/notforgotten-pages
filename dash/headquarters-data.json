@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-09T04:05:03+10:30",
+  "generated_at": "2026-10-10T04:04:12.197410+10:30",
   "atlas_brief": {
     "greeting": "Good morning James.",
-    "body": "The QPaint portfolio is stable. 314 total records, 237 active journeys, 18 Won ($622,833), 59 Lost. Overnight reconciliation clean.",
+    "body": "QPaint portfolio stable overnight: 314 records, 18 Won ($622,833), 60 Lost, 47 engaged. No new customer or prospect mail (atlas@ + quotes@ clean). james@ held only DMARC/system noise plus 2 already-reconciled RE-ENG items. QPaint #43281 (Stuart Wills) is due for its scope-variation review today.",
     "estimated_time": "2 minutes"
   },
   "business_score": {
     "score": 85,
-    "change": "-1",
+    "change": "0",
     "reasons_positive": [
-      "QPaint 314 records, 18 Won = $622,833, 59 Lost, 237 active. Overnight reconciliation clean.",
-      "0 unread in atlas@ and quotes@; james@ unread is 5 DMARC aggregate reports (system noise).",
-      "Dashboard pipeline data fresh (04:00 ACDT). CUST2-PILOT Touch 3 validated end-to-end for Fri 09:00."
+      "QPaint 314 records, 18 Won = $622,833, 60 Lost. Overnight reconciliation clean, 0 overdue follow-ups.",
+      "0 unread in atlas@ and quotes@. james@ unread = 6 system reports (DMARC + Google Business Profile) + 2 already-reconciled RE-ENG items.",
+      "Dashboard pipeline data fresh (04:00 ACDT). QPaint #43281 scope-variation review due today, fully prepared."
     ],
     "reasons_negative": [
-      "state.db corruption RECURRED \u2014 persistence stopped, quick_check failing, 2 crons failing daily. Owner: Josh/Winston.",
-      "GitHub Pages still DISABLED \u2014 dashboard 404 site-wide (day 14). Snowark org admin token revoked.",
-      "Vault push dead (GH001 141MB snapshot) + 2 public repos expose customer emails (day 20) + 9 credential classes in git history."
+      "state.db corruption persists \u2014 quick_check + integrity_check both failing (btree out-of-order). Owner: Josh/Winston.",
+      "GitHub Pages still DISABLED \u2014 dashboard 404 site-wide (day 15). Snowark org admin token revoked.",
+      "CUST2 cold-email stopping rule still undecided \u2014 Touch 3 blocked past its Fri 9 Oct window (0 replies / 30 touches / 3 trades)."
     ]
   },
   "business_health": {
     "clients": {
       "status": "healthy",
-      "detail": "QPaint: Active. Portfolio certified. 237 active journeys with complete Next Action coverage."
+      "detail": "QPaint: Active, $199 MRR, Green, onboarding complete. Only paying client."
     },
     "recovery_operations": {
       "status": "healthy",
-      "detail": "\u2705 237 active QPaint journeys certified. 149 contacted, 46 engaged, 1 replied. 0 exceptions. Pipeline: $8,006,521. Won: $622,833."
+      "detail": "\u2705 314 QPaint records certified. 152 contacted, 47 engaged, 1 replied. 0 overdue follow-ups. Won $622,833. Active pipeline $8.0M."
     },
     "outreach": {
       "status": "healthy",
-      "detail": "CUST2-PILOT Touch 2 delivered 05 Oct (15/15, 0 replies); cumulative 0/30 across 2 touchpoints / 3 trades. Touch 3 fires Fri 9 Oct 09:00. Cold painter channel HOLD."
+      "detail": "CUST2-PILOT: Touch 1 (30 Sep) + Touch 2 (05 Oct) sent, 15/15, 0 replies. Touch 3 BLOCKED pending stopping-rule decision (overdue). Cold painter channel HOLD."
     },
     "engineering": {
-      "status": "healthy",
-      "detail": "state.db corruption RECURRED \u2014 persistence stopped, quick_check failing. All other systems healthy."
+      "status": "warning",
+      "detail": "state.db corruption persists \u2014 quick_check + integrity_check both failing. Persistence at risk. Owner: Josh/Winston."
     },
     "finance": {
       "status": "healthy",
-      "detail": "QPaint: $622,833 Won. $8,006,521 active pipeline."
+      "detail": "QPaint: $622,833 Won. $8.0M active pipeline across 314 records."
     },
     "atlas": {
       "status": "healthy",
-      "detail": "Memory healthy. Protocol v1.0.0 enforced. Model recovery standard active."
+      "detail": "Memory healthy. Protocol v1.0.0 enforced. Overnight readiness complete."
     }
   },
   "waiting_for_james": [
@@ -189,40 +189,32 @@
   "changes": {
     "today": [
       {
-        "time": "2026-10-09T04:05:03+10:30",
-        "text": "Overnight reconciliation clean \u2014 314 QPaint records unchanged, no new customer mail, no new Won/Lost. 3 carried founder items remain (Guy Budgen, Kristeen Davis, Nanda Chakkassery)."
-      },
-      {
-        "time": "2026-10-08T04:06:11+10:30",
-        "text": "Overnight reconciliation clean \u2014 312 QPaint records ($9,891,062 book), 18 Won ($622,833), 58 Lost, 236 active. No new overnight mail, no new Won/Lost. Star Painters closed Lost. 3 new QPaint records added (309\u2192312)."
+        "time": "2026-10-10T04:04:12.197410+10:30",
+        "text": "Overnight reconciliation clean \u2014 314 QPaint records, 18 Won ($622,833), 60 Lost. No new customer/prospect mail (atlas@ + quotes@ empty). james@ = 6 system reports + 2 stale RE-ENG (both reconciled). #43281 Stuart Wills scope-variation review due today."
       }
     ],
     "yesterday": [
       {
-        "time": "07 Oct",
-        "text": "6 QPaint sends (Altra Property Co, Guy Budgen Email 1; Gillian Gout, Miranda Kidd, Kamal Khoury Email 2; Ryan Gibson Email 3) + 1 win (Andrew Banks $36,991.90)."
+        "time": "09 Oct",
+        "text": "Overnight reconciliation clean \u2014 314 QPaint records, no new Won/Lost. 3 carried founder items (Guy Budgen, Kristeen Davis, Nanda Chakkassery)."
       },
       {
-        "time": "07 Oct",
-        "text": "Eddie Yuan #38798 date question closed (Tas confirmed 6 Nov expiry). Kristeen Davis #43273 signed (acceptance typo in flight). John Weeks #43231 Won $31,449."
-      },
-      {
-        "time": "07 Oct",
-        "text": "Star Painters/Ahmad closed Lost \u2014 final. state.db corruption recurred (persistence stopped)."
+        "time": "08 Oct",
+        "text": "312 QPaint records ($9,891,062 book), 18 Won ($622,833), 58 Lost. Star Painters closed Lost. 3 new QPaint records added (309\u2192312)."
       }
     ],
     "this_week": [
       {
         "time": "-",
-        "text": "QPaint: 312 records, $9,891,062 book, 236 active ($8,059,932), 18 Won ($622,833), 58 Lost."
+        "text": "QPaint: 314 records, $9.9M book, $8.0M active, 18 Won ($622,833), 60 Lost."
       },
       {
         "time": "-",
-        "text": "Customer #2 pilot: Touch 1 sent 30 Sep, Touch 2 05 Oct (15/15, 0 replies), Touch 3 Fri 9 Oct. Cold painter channel dormant (HOLD)."
+        "text": "Customer #2 pilot: Touch 1 sent 30 Sep, Touch 2 05 Oct (15/15, 0 replies), Touch 3 blocked pending stopping rule. Cold painter channel dormant (HOLD)."
       },
       {
         "time": "-",
-        "text": "Infra: GitHub Pages disabled (day 14) + state.db corruption recurred + vault push GH001 + 2 public repos (day 20)."
+        "text": "Infra: GitHub Pages disabled (day 15) + state.db corruption persists + vault push GH001 + 2 public repos."
       }
     ]
   },
@@ -273,7 +265,7 @@
   },
   "production_sender": {},
   "communications": {},
-  "operational_status": "\u2705 QPaint portfolio certified. 237 active journeys. Protocol v1.0.0. Send authority live.",
+  "operational_status": "\u2705 QPaint portfolio certified (314 records, 0 overdue). Protocol v1.0.0. Send authority live. state.db + GitHub Pages carry open owner items.",
   "vault_health": {
     "decisions": {
       "total": 83,
@@ -298,27 +290,27 @@
     },
     "infrastructure": {
       "disk": "46% (11G free)",
-      "state_db": "CORRUPT \u2014 quick_check failing, persistence stopped (owner action)",
+      "state_db": "CORRUPT \u2014 quick_check + integrity_check failing (owner action: Josh/Winston)",
       "pages": "DISABLED \u2014 dashboard 404; gh-pages branch still updating"
     }
   },
   "qpaint_pipeline": {
     "summary": {
       "total_customers": 314,
-      "total_pipeline_value": 8006521,
+      "total_pipeline_value": "$8.0M",
       "won_count": 18,
-      "won_value": 622833,
-      "lost_count": 59,
-      "engaged_replied": 47,
-      "contacted": 149,
-      "not_contacted": 41
+      "won_value": "$622,833",
+      "lost_count": 60,
+      "engaged_replied": 48,
+      "contacted": 152,
+      "not_contacted": 36
     },
     "stage_breakdown": {
-      "Email 3": 74,
-      "Lost": 59,
-      "New": 42,
-      "Replied": 42,
-      "Email 1": 40,
+      "Email 3": 75,
+      "Lost": 60,
+      "Replied": 43,
+      "Email 1": 42,
+      "New": 37,
       "Email 2": 31,
       "Won": 18,
       "Engaged": 3,
@@ -369,16 +361,22 @@
         "status": "Contacted"
       },
       {
+        "name": "Nicholas Zappacosta",
+        "value": "$145,008",
+        "stage": "Won",
+        "status": "Won"
+      },
+      {
+        "name": "Arno Hsu",
+        "value": "$129,750",
+        "stage": "Won",
+        "status": "Won"
+      },
+      {
         "name": "David Delaney",
         "value": "$123,655",
         "stage": "Email 2",
         "status": "Contacted"
-      },
-      {
-        "name": "Charlie Coward",
-        "value": "$123,157",
-        "stage": "New",
-        "status": "New"
       },
       {
         "name": "Jesse Zhao",
@@ -396,12 +394,6 @@
         "name": "Elisha Paige",
         "value": "$113,907",
         "stage": "Engaged",
-        "status": "Engaged"
-      },
-      {
-        "name": "Pubudu Madawala",
-        "value": "$110,832",
-        "stage": "Replied",
         "status": "Engaged"
       }
     ]
