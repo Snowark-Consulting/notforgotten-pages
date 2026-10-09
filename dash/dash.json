@@ -39,8 +39,13 @@
     ]
   },
   "activity": {
-    "tasks_completed": 267,
+    "tasks_completed": 268,
     "recent": [
+      {
+        "date": "2026-10-09 18:24",
+        "task": "Campaign pulse posted: 22 QPaint touches over 3 days, 5 new replies, 2 losses, 0 wins; cold channel held by founder directive (Touch 3 did not fire)",
+        "category": "task"
+      },
       {
         "date": "2026-10-07 18:19",
         "task": "Campaign pulse posted \u2014 warmth drives replies: QPaint warm list 50-60% first-touch vs 0/135 cold (CvC + CUST2 pilot). QPaint 1 new win Andrew Banks $36,991.90; pilot Touch 3 due Fri 9 Oct.",
@@ -135,11 +140,6 @@
         "date": "2026-09-29 22:04",
         "task": "QPaint: sent the weekly Pipedrive Won/Lost export follow-up to QPaint (james@, verified ID 1a0ed27614c343c1); prepared the 30 Sep / 1 Oct Email 1 wave review pack (13 records, $342k) with the Mark Turner option-flag ruling",
         "category": "task"
-      },
-      {
-        "date": "2026-09-29 18:00",
-        "task": "Campaign pulse posted \u2014 QPaint recovery 35% trailing-7d reply rate (17 replies / 49 sends) vs 16% on 21 Sep; 19 sequence sends + 11 replies + 8 Lost ($146,765, 5 competitor) + 1 self-signed Won in 48h; Email 3 answering within hours and skewing negative; loss-visibility control (weekly Won/Lost status check to Dee/Leslie, 21 Sep) unanswered 8 days",
-        "category": "task"
       }
     ]
   },
@@ -164,7 +164,7 @@
       }
     ]
   },
-  "last_updated": "2026-10-09T18:00:16.195903+10:30",
+  "last_updated": "2026-10-09T18:24:48.842672+10:30",
   "pipeline": {
     "prospect_count": 347,
     "stages": {
