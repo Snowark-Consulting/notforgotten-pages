@@ -15,7 +15,7 @@
     ],
     "reasons_negative": [
       "state.db corruption persists \u2014 quick_check + integrity_check both failing (btree out-of-order). Owner: Josh/Winston.",
-      "GitHub Pages still DISABLED \u2014 dashboard 404 site-wide (day 15). Snowark org admin token revoked.",
+      "GitHub Pages still DISABLED \u2014 dashboard 404 site-wide (day 17). Snowark org admin token revoked.",
       "CUST2 cold-email stopping rule still undecided \u2014 Touch 3 blocked past its Fri 9 Oct window (0 replies / 30 touches / 3 trades)."
     ]
   },
@@ -47,14 +47,14 @@
   },
   "waiting_for_james": [
     {
-      "id": "cust2-stopping-rule",
+      "id": "cold-channel-close-review",
       "class": "FOUNDER_DECISION",
       "impact_sort": 80,
-      "title": "CUST2 cold-email stopping rule \u2014 pre-commit before Touch 3 fires Fri 09:00",
-      "why_it_matters": "0 replies across 30 touches / 3 trades. Touch 3 (the evidence touch) fires Fri 09:00. Decision needed: 0 replies = cold acquisition stops (move to warm path), any engaged reply = continue.",
-      "business_impact": "High \u2014 decides whether cold outreach continues or customer-#2 effort pivots.",
-      "estimated_time": "3 min",
-      "recommended_action": "State the stopping rule: 0 replies at Touch 3 = stop cold, pivot warm."
+      "title": "Monday 12 Oct review \u2014 close cold acquisition on evidence, or continue",
+      "why_it_matters": "CUST2 decision made 9 Oct (HOLD expansion, continue pilot, no auto Touch 3). Next: at Monday's review, close cold on the evidence (0 replies / 135 cold, 0 for 165+ curiosity-led) and name the warm QPaint book the growth engine.",
+      "business_impact": "High \u2014 sets the growth engine for customer #2 and beyond.",
+      "estimated_time": "10 min",
+      "recommended_action": "Decide at Monday's review: close cold, pivot warm."
     },
     {
       "id": "caboolture-split",
@@ -65,16 +65,6 @@
       "business_impact": "Medium \u2014 $123k of held pipeline classified correctly.",
       "estimated_time": "2 min",
       "recommended_action": "Confirm split; both records release from HOLD."
-    },
-    {
-      "id": "mike-scott-founder-gate",
-      "class": "FOUNDER_DECISION",
-      "impact_sort": 65,
-      "title": "Mike Scott #43300 Email 1 founder gate (Fri 9 Oct)",
-      "why_it_matters": "Clean residential intake but the record's own First Action puts Email 1 behind a founder gate.",
-      "business_impact": "Low \u2014 $9,938.50 single send.",
-      "estimated_time": "1 min",
-      "recommended_action": "Clear or hold the Email 1 send."
     },
     {
       "id": "cold-painter-channel-ruling",
@@ -158,31 +148,31 @@
     }
   ],
   "atlas_recommendation": {
-    "executive_summary": "Clean overnight, QPaint stable (312 records, 18 Won $622,833, 58 Lost, 236 active). No new overnight mail, no new Won/Lost. Star Painters closed Lost. Your single highest-leverage action is to pre-commit the CUST2 cold-email stopping rule before Touch 3 fires Fri 09:00 \u2014 0 replies across 30 touches, and the stopping rule is still an open question.",
+    "executive_summary": "Quiet overnight. QPaint stable (314 records, 18 Won $622,833, 60 Lost, 0 overdue). CUST2 was ruled yesterday: HOLD expansion, continue the 15-business pilot, no auto Touch 3 (review 16 Oct). Your highest-leverage action is to prepare Monday's cold-channel close decision \u2014 cold is 0 replies across 135 (and 0 for 165+ curiosity-led), so the evidence now points one way.",
     "priorities": [
       {
         "class": "FOUNDER_DECISION",
         "confidence": "High",
-        "action": "Pre-commit the CUST2 cold-email stopping rule (before Fri 09:00)",
-        "why_it_matters": "0 replies / 30 touches / 3 trades. Touch 3 is the evidence touch. A clear rule prevents another unanswered send cycle.",
-        "expected_impact": "High \u2014 decides cold-acquisition continuation vs warm pivot.",
-        "estimated_time": "3 min"
+        "action": "Prepare the Monday 12 Oct cold-channel decision (close vs continue)",
+        "why_it_matters": "Cold is 0 for 135 across three experiments, and 0 for 165+ curiosity-led. Two independent evidence streams point the same way. Monday is the ruling.",
+        "expected_impact": "High \u2014 names the growth engine (warm QPaint book) for customer #2+.",
+        "estimated_time": "10 min"
       },
       {
         "class": "FOUNDER_DECISION",
         "confidence": "Medium",
-        "action": "Confirm the Caboolture Courthouse split + clear the Mike Scott founder gate (both Fri-bound)",
-        "why_it_matters": "Three Friday deadlines stack; clearing them now removes tomorrow's time pressure.",
-        "expected_impact": "Medium \u2014 $133k of held pipeline released + one send cleared.",
-        "estimated_time": "3 min"
+        "action": "Verdict the decision-review backlog (4 reviews due 6-8 Oct + V2 Email 2 + distribution-validation)",
+        "why_it_matters": "Six governance reviews have passed their dates with no verdict. Clearing them removes standing uncertainty.",
+        "expected_impact": "Medium \u2014 governance catch-up.",
+        "estimated_time": "15 min"
       },
       {
         "class": "FOUNDER_DECISION",
         "confidence": "Medium",
-        "action": "Rule the cold-painter channel (11 Sep) + verdict the 4 decision reviews due 1 Oct",
-        "why_it_matters": "Clears the governance backlog in one sitting.",
-        "expected_impact": "Medium \u2014 removes standing uncertainty.",
-        "estimated_time": "13 min"
+        "action": "Rule the cold-painter channel (open since 11 Sep)",
+        "why_it_matters": "Oldest open decision; closing it removes a stale open thread.",
+        "expected_impact": "Medium.",
+        "estimated_time": "3 min"
       }
     ]
   },
@@ -190,7 +180,7 @@
     "today": [
       {
         "time": "2026-10-10T04:04:12.197410+10:30",
-        "text": "Overnight reconciliation clean \u2014 314 QPaint records, 18 Won ($622,833), 60 Lost. No new customer/prospect mail (atlas@ + quotes@ empty). james@ = 6 system reports + 2 stale RE-ENG (both reconciled). #43281 Stuart Wills scope-variation review due today."
+        "text": "Overnight reconciliation clean \u2014 314 QPaint records, 18 Won ($622,833), 60 Lost. No new customer/prospect mail (atlas@ + quotes@ empty). james@ = 6 system reports + 2 stale RE-ENG (both reconciled). CUST2 already ruled 9 Oct (HOLD, no auto Touch 3). #43281 Stuart Wills scope-variation review due today."
       }
     ],
     "yesterday": [
