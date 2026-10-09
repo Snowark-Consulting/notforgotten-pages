@@ -1,0 +1,87 @@
+---
+doc_type: learning
+owner: notforgotten
+tier: primary
+---
+
+# Learnings corruption — 30th occurrence (2026-10-09 07:05 ACDT)
+
+> A two-file, 2.0 s burst rewrote `learnings/catalogue.md` and `learnings/cards/agent-architecture.md` during the working-day morning. Detected by the 21:00 consolidation, ~13.9 h later — by no scheduled control. **ZERO writer blocks were attested and re-applied.**
+
+## Event
+
+| Field | Value |
+|---|---|
+| Occurrence | **30th** |
+| Write window | **2026-10-09 07:05:25.57–07:05:27.52 ACDT** (2026-10-08 20:35:25.575–20:35:27.519 UTC) |
+| Files | **2** — `learnings/catalogue.md` + `learnings/cards/agent-architecture.md` |
+| Burst | **2.0 s** across 2 files (loop-over-files signature) |
+| Guard findings | **13** |
+| Detected | 2026-10-09 21:00 ACDT consolidation (~13.9 h after the write) |
+| Writer | **UNIDENTIFIED** — out-of-band, no logged tool call touches `learnings/` |
+| HEAD baseline | **CLEAN** — verified by the `EDITING THIS TABLE` content marker; the hourly `git add -A` hazard did NOT fire |
+| Repair | `git restore` both files from HEAD; ZERO writer blocks re-applied |
+
+### Mtime discriminator
+
+The rest of the dirty set spanned hours (2026-10-08 07:06 UTC → 2026-10-09 10:30 UTC). The two learnings files carry a **2.0 s burst**: 20:35:25.575 → 20:35:27.519 UTC. That is a real write, not the snapshot cron's `--autostash` re-stamp (which stamps one instant across the WHOLE dirty set).
+
+## Damage
+
+### `learnings/catalogue.md`
+- `EDITING THIS TABLE` warning block **deleted**.
+- `gmail-auth` row **dropped**.
+- `email` row **re-inserted malformed** (`email 🆕` domain, `cards/email.md 🆕` target).
+- `campaign` card cell turned into a **markdown link** (`[campaign.md](cards/campaign.md)`).
+- `qpaint` row **de-keyworded** — lost `QPaint`, `1300 QPAINT`, `white-label`, `Dee`, `Leslie`, `Tas Moulis`, `pipeline truth`, `recovery ops`, `Email 3`.
+- `hermes` row **re-keyworded** (+`hermes`, `delegation`, `subagent`, `flash agent`, `memory store`, `memories/`).
+- `cron` row **re-keyworded** (+`Hermes tools Python`, `agent venv`, `googleapiclient`).
+- `agent-architecture` row **re-keyworded** (−`negative grep`, `rule does not exist`; +`attestation`, `guard`).
+- Trailing newline removed.
+
+### `learnings/cards/agent-architecture.md`
+- **21 `## TRAP` headings before AND after** — so a net count check passes cleanly; only a heading **LIST** diff vs HEAD finds the damage.
+- `## TRAP — Customer deferral ("still thinking / comparing") is MONITOR, not a courtesy reply` — heading **deleted**, body **displaced** under the neighbouring trap.
+- `## TRAP — Engaged + external dependency = WAIT/MONITOR` — heading **`||`-prefixed** (reads to the guard as deleted), body kept.
+- `## TRAP — Learnings damage is written OUT-OF-BAND at ~06:03 ACST …` — **renamed** to `Learnings writer lands at ~07:06–07:07 ACST … (10th–11th occurrences, Sep 2026)`; body rewritten, dropping the CORRECTED note that the heading's `06:03` is wrong (the correct value is `07:03`), dropping Fix items 5–8 and the `Source:` line, and adding a 26th-occurrence UPDATE block.
+- `## TRAP — A negative grep is evidence about the pattern, not about the thing (2026-09-18)` — **reworded, date stripped**.
+- `## TRAP — A prose gate in a record is not a gate: the send keyword outranks it (2026-10-03)` — **reworded, date stripped**.
+- **Two window-attestation UPDATE notes deleted** (2026-09-16, 2026-09-20).
+- `## TRAP — A subagent's research summary is a self-report` — `Cause:` line **modified** (concurrent-batch clause grafted in; already covered by the trap's own Fix item 4).
+- **Five blocks injected** (see attestation below).
+
+## Attestation — ZERO blocks re-applied
+
+Every injected/reworded block was tested against (a) `learnings/LEARNINGS.md` entries, (b) dated `learnings/YYYY-MM-DD-*.md` records, (c) `state.db` session rows, (d) skill references, (e) other cards.
+
+| # | Writer block | Verdict | Basis |
+|---|---|---|---|
+| 1 | "Learnings writer lands at ~07:06–07:07 ACST … (10th–11th occurrences)" | **REJECT** | A **reword** of an existing HEAD trap. The HEAD version carries the CORRECTED 06:03→07:03 note and a fuller Fix list; the writer's version loses both. Reworded sections are restored from HEAD, never hand-merged. |
+| 2 | "Customer reply 'already completed' = LOST pipeline cleanup…" | **REJECT — 7th rejection** | Duplicate. Canonical in `skills/email/email-inbox-pulse/references/qpaint-customer-reply-processing.md` and indexed in `learnings/LEARNINGS.md`. |
+| 3 | "Attestation must test against the filesystem… (24th corruption occurrence)" | **REJECT** | Already boot-loaded — `learnings/corruption/INDEX.md` playbook step 5 + `memory/MEMORY.md`. A foreign series record; rejected on the 25th, 27th and 28th events too. |
+| 4 | "Learnings corruption, 27th occurrence…" | **REJECT** | Foreign series record — belongs in this INDEX, not in a boot-loaded card. |
+| 5 | "Learnings corruption, 28th occurrence…" | **REJECT** | Foreign series record. |
+| 6 | "Learnings corruption, 29th occurrence…" | **REJECT** | Foreign series record. Its one novel claim (the additive guard blind spot, `cron.md` +`telegram.md` guard-quiet) is already recorded in this INDEX and in the `nightly-consolidation` SKILL.md pitfalls. |
+
+Catalogue keyword-only edits (`hermes`, `cron`, `agent-architecture` rows) were also discarded: per open rec `consolidation-catalogue-keyword-attestation`, catalogue trigger-keyword edits have no attestation route, and the `Hermes tools Python` keyword has been rejected on seven-plus consecutive events.
+
+## Repair
+
+1. HEAD verified clean by content marker (`EDITING THIS TABLE` present, 24 pipe-lines = 22 rows = 22 cards).
+2. Writer versions preserved to `/tmp/e30/`.
+3. `git restore learnings/catalogue.md learnings/cards/agent-architecture.md`.
+4. Extract → attest → duplicate-check → re-apply: **nothing re-applied** (table above).
+5. Catalogue warning block advanced **28 → 30** (the 29th event never advanced it) with the 30th and 29th event summaries; the oldest tail compacted to a pointer at this INDEX.
+6. Guard re-run as the LAST step = silent PASS. Heading LIST diff vs HEAD = zero missing.
+7. Count propagated to `learnings/corruption/INDEX.md`, `learnings/LEARNINGS.md`, `memory/MEMORY.md`, `Agent/Registry.md`, `Agent/Infrastructure.md` and the catalogue warning block.
+
+## Sequence context
+
+- Previous: **29th** (2026-10-08 08:45:56–08:46:04 ACDT, 6 files, 9.05 s, guard = 37) — the widest since the 16th, and the first event where two damaged files were completely guard-quiet.
+- This event returns to the **smallest file set** (2 files) and to the **early-morning window** (07:05 ACDT) after the 29th's 08:46 ACDT outlier. **The window is fixed in neither local time nor UTC — read it from `stat`/`find` mtimes every run.**
+- Detection latency **~13.9 h**, by no scheduled control. The binding defect remains **detection latency, not repair quality** — every repair in the 30-event series has worked and none has reduced how long the damage lives. Rec `consolidation-learnings-guard-0715` (a ~07:15 ACDT detect-and-restore run) remains unbuilt; a job that auto-restores files is an infrastructure change needing explicit founder approval.
+
+## Related
+
+- [[Learnings Corruption Index]] (`learnings/corruption/INDEX.md`) — read this FIRST.
+- Previous record: `learnings/2026-10-08-learnings-corruption-29th.md`.

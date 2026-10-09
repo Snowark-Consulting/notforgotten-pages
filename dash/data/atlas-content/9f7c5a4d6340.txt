@@ -1,0 +1,167 @@
+---
+doc_type: qpaint_review_pack
+owner: notforgotten
+tier: primary
+---
+
+# QPaint / Pilot Review Pack — Fri 9 to Sat 10 October 2026
+
+> **PREPARATION ONLY. Nothing sent. No Airtable write. No customer contact.**
+> Prepared by the Prepare-Ahead Clock, Thu 8 Oct 2026 22:00 ACDT.
+> Window covered: **Fri 9 Oct → Sat 10 Oct 2026** (48h).
+> Previous pack: `knowledge/qpaint-review-pack-2026-10-08-09.md` (Thu 8 → Fri 9 Oct).
+> Provenance: `data/prepare-ahead-scan-2026-10-08-2200.json`.
+
+---
+
+## 1. The 48-hour picture
+
+| Day | QPaint records | Value | Sends | Everything else |
+|---|---|---|---|---|
+| **Fri 9 Oct** | 16 | **$342,852.55** | **5 Email 1 candidates — all founder-gated** | 9 REVIEW → DECIDE + 2 HOLD founder confirmation |
+| **Sat 10 Oct** | 2 | **$129,135.60** | **0** | 2 Engaged reviews |
+
+Stage mix Fri 9 Oct: New ×7 · Replied ×4 · Email 3 ×2 · Email 2 ×1 · Email 1 ×1 · Email 4 ×1.
+Stage mix Sat 10 Oct: Replied ×2.
+
+Three non-QPaint items sit inside the same window:
+
+1. **CUST2-PILOT Touch 3** fires Fri 9 Oct 09:00 (15 prospects × 3 trades).
+2. **The CUST2 stopping-rule clock** — asked 7 Oct, unanswered, and Friday 09:00 is the deadline for it to matter.
+3. **Weekend guard: clear.** No send-capable record on either weekend day.
+
+---
+
+## 2. Fri 9 Oct — five Email 1 candidates, presented as one approval set
+
+All five are `New`, their 48-hour observation window closes on Friday, and **every one carries a record-level instruction of the form** *"prepare Email 1 for founder approval"*. Per the standing rule that per-prospect instructions outrank general autonomy delegations (`learnings/cards/agent-architecture.md`), **these are founder-gated. Nothing is sent on a review date.**
+
+| Quote | Customer | Value | Scope structure (re-read tonight) | Gate reason |
+|---|---|---|---|---|
+| **#43325** | Adele Langdale | $6,901.40 | Single section, one quote identity | **Re-extract first** — QPaint edited the document in place 9 minutes after issue |
+| **#43266** | Jessica Kemp | $39,895.90 | Base scope + elective `OPTION - RENDERING` ($12,810.00 as rendered, GST/Total rendered $0.00) — **not summed** | Value-basis question |
+| **#43250** | Douglas Cameron | $13,860.00 | Base EXTERNAL + `OPTIONAL / ROOF RESTORATION` ($16,985.10) — **not summed** | Value-basis question |
+| **#43300** | Mike Scott | $9,938.50 | Single scope section, one identity | Clean |
+| **#43304** | Paul Herschell | $25,597.00 | Single cumulative EXTERNAL scope (no option blocks) | Clean |
+
+**Total if all five proceed: $96,192.80.**
+
+### What was verified tonight
+
+- **Scope structure re-read for all five** from the stored `Extent of Work` — base vs elective vs cumulative established for each, so no section was mis-summed. Two carry an elective option whose GST and Total render at $0.00; neither has been grossed up by us.
+- **GST arithmetic checked** against the rendered subtotals: 6,274.00 × 1.10 = 6,901.40 ✓ · 36,269.00 × 1.10 = 39,895.90 ✓ · 12,600.00 × 1.10 = 13,860.00 ✓ · 9,035.00 × 1.10 = 9,938.50 ✓ · 23,270.00 × 1.10 = 25,597.00 ✓.
+- **Mailbox check — zero inbound customer correspondence** from any of the five customer addresses across **atlas@, quotes@ and james@** in the last 6 days. No reply, no bounce, no opt-out. quotes@ holds the PandaDoc notices only (the in-place revision pair for #43325; one each for #43250 / #43266 / #43300 / #43304). james@ holds one notice for #43132.
+- **No drafts authored — and none is owed as free-form copy.** Under the Initial Customer Email Law (`2026-08-12-initial-customer-email-law`), no initial customer email is drafted from memory; Email 1 renders from the canonical `qpaint-recovery-introduction` v1 template with checksum verification. What is owed here is **a founder yes/no per row**, not copy.
+
+### The one exception that needs work before any draft
+
+**#43325 Adele Langdale** — QPaint re-issued the document nine minutes after the original and edited the price in place ($6,516.40 → $6,901.40) with no explanatory line. The record's own instruction is explicit: before any send, re-extract the live document from token `85550643e350e4febbd32ac01c145f0bfddfed66` and re-verify the figure. **Deliberately not performed tonight** — an extraction taken ~11 hours early can itself be stale, and the record assigns it to the review date. It is the first action of the Fri 07:30 run, not of this pack.
+
+### Coverage note (structural, first time recorded)
+
+Three of the five (**#43250, #43266, #43304**) were created at **22:01, 22:24 and 22:38 ACDT on 7 Oct** — i.e. *after* the 7 Oct 22:00 pack had already scanned. That is why last night's pack counted **2** Friday Email 1 candidates and tonight counts **5**. The 22:00 scan runs ahead of the intake tail, which finishes around 22:40. Consequence: quotes landing in that ~40-minute gap get roughly 24 hours of lead time rather than 48, and a Friday-morning intake can still add candidates that no pack has seen. Not a defect in this pack — a fact worth knowing when Friday's approval set is confirmed.
+
+---
+
+## 3. Fri 9 Oct — one founder confirmation, two HOLD records
+
+**Caboolture Courthouse split** (both records HOLD, QPaint-managed QBuild procurement via `hpw.qld.gov.au`):
+
+| Record | Value |
+|---|---|
+| **#43132 — Caboolture Courthouse** (base scope) | $65,076.24 |
+| **#43348 — Level 2: Caboolture Courthouse** | $58,081.10 |
+| **Combined** | **$123,157.34** |
+
+- The parts reconcile **exactly** to the original pre-revision total ($123,157.34 − $65,076.24 = $58,081.10 = #43348's rendered incl-GST total). This is a **SPLIT, not a descope.**
+- Both records carry the same instruction: *"FOUNDER REVIEW 2026-10-09: confirm the split is intended and that 43132 + 43348 both remain on HOLD."*
+- **Secondary observation:** the elective *"Emergency Stairwells"* add-on ($32,988.63 incl GST), offered in the original #43132, is **no longer quoted in either document** — 43132's revision carries no optional works section and 43348 lists fire stairwells as an exclusion. Flag if QPaint intended to retain it.
+- Either way: **no NF customer follow-up.** QPaint (Tas Moulis) owns the client relationship on this property.
+
+---
+
+## 4. Fri 9 Oct — REVIEW → DECIDE, no send (9 records)
+
+| Quote | Customer | Value | State | Position for Friday |
+|---|---|---|---|---|
+| #43261 | Jesse Zhao | $8,440.85 | Email 2 sent 2 Oct | REVIEW → DECIDE. Atlas-owned, no automatic next email |
+| #43279 | Ian Herd | $10,464.30 | Email 1 sent 2 Oct | REVIEW → DECIDE. Base $10,464.30 + two unticked options ($600 / $3,900, GST unverified) → possible range to $15,414.30 |
+| #43091 | Sharon Fleay | $2,871.00 | Email 3 sent 2 Oct | 3 touches complete. **No further email unless new evidence** |
+| #43092 | John Wilson | $12,914.00 | Email 3 sent 2 Oct | 3 touches complete. QPaint has since added an optional interior scope ($8,920, GST not computed) |
+| #43138 | Les Harvison | $14,877.26 | Email 1/2/3 + expiry reminder sent 2 Oct | Quote expired 5 Oct, 0 replies. 3-option quote; Option 1 $14,877.26 is the recorded value |
+| #43130 | Jim Stevenson | $14,982.00 | Replied / Engaged | QPaint granted a 30-day extension to 31 Oct. Customer deciding — **DEFAULT = NO SEND**. Pre-expiry guard 29 Oct |
+| #43088 | Chris Mazur | $21,863.00 | Replied / Engaged | Actively comparing quotes (competitor $14,900 / $17,000). **No contact without founder approval.** Reassess Friday |
+| #38798 | Eddie Yuan | $31,000.00 | Replied / Engaged | QPaint's three open items closed 7 Oct. **Governing acceptance date 16 Oct + 5% deposit.** Customer relay drafted concept awaits a founder go-ahead |
+| #43193 | Nanda Chakkassery | $6,090.00 | Replied / Engaged | QPaint re-issued as a two-option select-one directly to the customer. Awaiting their choice. Range $6,090.00 – $10,987.68 |
+
+**Nothing here is a send.** Friday's QPaint work is: five approval decisions, one HOLD confirmation, and nine reviews.
+
+---
+
+## 5. Sat 10 Oct — no send-capable record
+
+| Quote | Customer | Value | State | Why it is not a send |
+|---|---|---|---|---|
+| #43161 | Pubudu Madawala | $110,831.60 | Replied / Engaged | Finance outcome relayed 3 Oct (QPaint: Handypay no longer finances body corporates, no alternative route). Ball is with the customer. *"No further contact unless customer replies."* Quote valid to 20 Dec. **REVIEW date only** |
+| #43281 | Stuart Wills | $18,304.00 | Replied / Engaged | Scope-variation handoff sent to QPaint 8 Oct. The **QPaint answer is the open loop**, not a customer send. Reviewer: Atlas |
+
+---
+
+## 6. Weekend guard — clear, no push required
+
+- **No send-capable QPaint record falls on Sat 10 Oct or Sun 11 Oct.** Both Saturday records are Engaged with an external open loop or an explicit no-contact instruction.
+- **Sun 25 Oct** still carries the **39-record long-term-review control set ($800,640.64)** as a **fixed control date** for the live commercial-persistence test. **Deliberately not rolled to Mon 26 Oct** (recorded in the 7 Oct pack). Re-check ~23 Oct.
+- The next confirmed weekend roll already applied at intake: **#43303 Ridwan Auladi** (quoted 8 Oct, window closed Sat 10 Oct → rolled to **Mon 12 Oct**), and **#43351 Dutton Park SS** (New, 48h expires Mon 12 Oct).
+- **No Airtable write was made by this pack** — the guard required none.
+
+---
+
+## 7. CUST2-PILOT Touch 3 — Fri 9 Oct 09:00 (validated 7 Oct; unchanged tonight)
+
+| Check | Result |
+|---|---|
+| Job | `281abe707fb8`, **enabled**, `next_run_at 2026-10-09T09:00:00+10:30` |
+| Authority | `founder-direct-cust2-pilot-2026-09-30` · ACTIVE · expires 18 Oct (covers Friday) |
+| Cohort | 15 prospects, all CRM `Current Touchpoint = Email 2`, `Next Touchpoint Date = 2026-10-09` |
+| Position | **0 replies across 30 touches / 3 trades** (HVAC, landscaping, flooring) |
+| Draft owed | **None** — the body reads from `CAMPAIGN.md` under the founder-approved artifact |
+
+**The one thing that matters here is a decision, not a task.** Both historic cold-email conversions arrived at the *evidence* touch, which is what Touch 3 is — so Friday is the informative touch. The stopping rule put to James on the 7 Oct pulse is still unanswered, and **Friday 09:00 is the deadline for setting it to have any value**: a rule set after the result lands is not a rule.
+
+**Carried (5th consecutive run):** the job's Telegram delivery target is the retired `Atlas - Updates` group (`-1003939051249`), not the live General group (`-1003880645651`). Verified live via Telegram `getChat`. Not repointed — the pilot is a founder-approved artifact.
+
+---
+
+## 8. Checks run this scan
+
+- **QPaint Pipeline — 314 records, $9,905,642.81.** Field census printed *before* trusting any filtered result (the QPaint false-zero trap). Recovery Status: Contacted 149 · Engaged 46 · New 41 · **Lost 59** · Won 18 · Replied 1.
+- **Won 18 = $622,832.89** — attribution Observed 11 · Assisted 6 · Recovered 1. **Lost 59 = $1,276,288.79.**
+- **Delta since the 7 Oct pulse: +1 loss.** **#43213 Gillian Gout — $67,991.00 — `Lost - Went Elsewhere`**, reconciled today: the customer replied that they chose another painter. The "James" named in their reply as having quoted is **QPaint's own quoter, not James Hardstaff** (Pitfall 42). The record carries an open *"courtesy acknowledgement offered to James, pending founder approval."*
+- **Both mailboxes and james@ searched** for the five quote numbers and all five customer addresses. Result: no customer correspondence in the window; PandaDoc notices only.
+- **Prospects — 347 records.** CUST2 pilot 15/15 at Email 2 with NTD 9 Oct. Remaining Oct-dated `Next Touchpoint Date` rows are the pilot cohort. Legacy Sep residue (52 records, V2 HOLD / "Await reply") is unchanged and is **not** a send trigger. **Genuinely due non-pilot NF cold follow-ups: 0.**
+- Counts aggregated in code before being printed (`tail`-truncated-count trap).
+
+---
+
+## 9. Founder items
+
+### New this pack
+
+1. **Five QPaint Email 1 approvals, Fri 9 Oct** — $96,192.80 combined. One decision, five rows (see §2). Founder-gated by each record's own instruction.
+2. **Courtesy-acknowledgement batch — 3 pending.** All three are `Lost - Went Elsewhere`, all carry *"courtesy acknowledgement offered to James, pending founder approval"*, none has been sent:
+   - **#43213 Gillian Gout — $67,991.00** (today)
+   - **#43269 Dale Taylor — $22,642.62** (5 Oct)
+   - **#43289 Amy Deeb — $6,930.00** (5 Oct)
+   This is a recurring class, not a one-off: on the same pattern, acknowledgements for John Tapley and Lexier Jeffery **were** sent, and Annette Tracy was decided **NO SEND** (customer had already closed warmly). Three now sit open.
+3. **Caboolture Courthouse split confirmation, Fri 9 Oct** (see §3).
+
+### Carried — unchanged, nothing re-asked
+
+1. **CUST2 stopping rule** — clock expires Fri 09:00.
+2. **QPaint #38798 (Eddie Yuan) customer relay** — drafted concept, awaiting a founder go-ahead to send; **16 Oct** deposit deadline is the governing date.
+3. **Cold-painter channel ruling** — open since 11 Sep.
+4. **Founder Call Rounds 3 + 4 capture** — call-day outcomes still uncaptured.
+5. **Four 1 Oct decision verdicts** (October cluster) — still with James.
+6. **CUST2 job delivery target** — retired group, carried a 5th run.
+
+**Monitoring, not action:** the QPaint phone-recovery batch surfaced 25 Sep (6 silent-book residential deals, ~$316k) remains unanswered by QPaint after 13 days. No chase; re-review 15 Oct.

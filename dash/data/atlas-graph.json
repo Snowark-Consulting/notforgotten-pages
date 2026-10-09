@@ -785,6 +785,17 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_decision_reviews_2026_10_08_oct_week2_review_prep",
+      "label": "Oct Week2 Review Prep",
+      "file_type": "doc",
+      "source_file": "knowledge/decision-reviews/2026-10-08-oct-week2-review-prep.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "799ebfab1030",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_decision_reviews_2026_10_12_distribution_validation_review_prep",
       "label": "Distribution Validation Review Prep",
       "file_type": "doc",
@@ -4581,6 +4592,13 @@
     {
       "source": "knowledge_decision_reviews_index",
       "target": "knowledge_decision_reviews_2026_10_12_distribution_validation_review_prep",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "knowledge_decision_reviews_index",
+      "target": "knowledge_decision_reviews_2026_10_08_oct_week2_review_prep",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""

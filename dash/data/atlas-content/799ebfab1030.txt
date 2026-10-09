@@ -1,0 +1,106 @@
+---
+doc_type: decision_review_prep
+owner: notforgotten
+tier: primary
+---
+
+# October Week 2 — Decision Review Prep (reviews due 6–8 October 2026)
+
+> **PREPARATION ONLY. No verdicts proposed — James assigns the verdict at review.**
+> Built by the Prepare-Ahead Clock, Thu 8 Oct 2026 22:00 ACDT.
+>
+> **Why this prep exists.** The [[October Cluster Review Prep]] (`2026-10-01-oct-cluster-review-prep.md`, built 28 Sep) covered the twelve decisions whose review dates fell **1–5 Oct**. Four further reviews came due on **6, 7 and 8 Oct** and none had a prep file on record. This closes that gap, using the cluster pattern: one prep, four decisions, evidence only.
+
+---
+
+## 1. `2026-07-06-campaign-review-operating-standard` — was due 6 Oct (2 days past)
+
+**The instrument it set for itself** (its own Success Criteria):
+- Every wave produces a completed review within 7–14 days of its final touchpoint.
+- At least one system update triggered by the Wave 1 review.
+- The next wave's plan reflects the previous wave's evidence, not original assumptions.
+- New vs Reset cohort analysis informs whether re-engagement continues.
+
+**Evidence available now:**
+- `knowledge/campaign-reviews/` holds **exactly two** reviews: `wave-1-july-2026.md` (17 Jul) and `painter-campaigns-july-2026.md` (26 Jul). **Nothing has been added in the 74 days since 26 Jul.**
+- Four campaign-like motions have run since:
+  - **CvC** (40 painters, results 6–7 Aug) — closed out by day-checkpoints and the T0–T5 reply taxonomy.
+  - **FF1 painter wave** (3 Aug) — closed out in the experiment register.
+  - **V2** (Email 3 28 Aug → HOLD 4 Sep) — closed out by decision packs (`customer-2-decision-pack-2026-08-28.md`, `v2-email3-decision-pack-2026-08-28.md`).
+  - **CUST2-PILOT** (Sep–Oct) — still running.
+- So the *function* the standard exists to perform has been performed each time; the *named artefact* ("Campaign Review") has not been produced since July.
+
+**The question the verdict has to answer:** does "every wave receives a formal Campaign Review" hold as written, does it need re-scoping to "a review **or** an equivalent end-of-wave decision pack", or has it been silently superseded in practice by the experiment/decision-pack layer? Note the standard was written before the decision-pack pattern existed.
+
+---
+
+## 2. `2026-07-07-communication-voice-standard` — was due 7 Oct (1 day past)
+
+**The instrument it set for itself** (its own Success Criteria):
+1. Every customer-facing draft presented to James passes the coffee test on first read.
+2. No marketing clichés, artificial urgency or exaggeration in any outbound communication.
+3. James reports fewer "this sounds like AI/marketing" corrections on drafts.
+4. Reply quality shows prospects engaging as peers, not as prospects.
+
+**Evidence available now:**
+- **The standard is embedded, not shelf-documented.** 10 principles + the coffee test live in `SOUL.md`; the gate exists as the **9-point Voice Review Checklist** (`knowledge/voice-review-checklist.md`, with all downstream 8-point references corrected 13 Sep); canonical templates + SHA-256 checksum verification (decision `2026-08-01-single-source-of-truth`) remove duplicated email bodies; `canonical-send.py` enforces the gate chain before any send.
+- **Criteria 1–3 are process-adherence and are verifiable in the pipeline. Criterion 4 is an outcome and has never been instrumented.**
+- **The decision's own `Actual Outcome (Post-Review)` block is still `TBD`.** The decision has never been scored, at 3 months.
+- Outcome context: the cold channel's reply quality is currently **0 replies across 165+ cold touches** (7 Oct pulse: CvC 105 + pilot 30, plus prior waves). The only replies arriving are on the warm path (QPaint quote-holders, 50–60% on first touch). So criterion 4 cannot be read as met or failed from existing data — it has no data.
+
+**The question the verdict has to answer:** keep the standard as-is (it is doing its job at the process layer), or instrument criterion 4 — a reply-quality classification already exists for CvC as `taxonomy.md` T0–T5, and could be pointed at the warm path where replies actually arrive — and set a first measurement date?
+
+---
+
+## 3. `2026-08-08-founder-attention-verify-james-sent` — due 8 Oct (today)
+
+**The instrument it set for itself:** Founder Attention Briefs must verify ALL relevant operational evidence before surfacing an item — atlas@ inbox and sent, **james@ inbox and sent** (the gap that triggered the decision), Messages, Airtable, existing handovers, customer replies — and must surface **the NEXT unresolved action**, not the last action that was required.
+
+**Evidence available now:**
+- Recorded as **Gate 8c** in pre-send certification (Decision INDEX).
+- Applied in the live packs. Two worked examples this week:
+  - The 5 Oct pack verified `james@ Sent` held **0 messages** for `43281` / `Quondare` before raising the handoff — i.e. it checked the mailbox before asserting the action was outstanding.
+  - The 8 Oct note records the QPaint handoff for `43281` being sent from james@ and verified in Sent.
+- No instance was found in the packs reviewed of an item being surfaced as "founder action required" that Gmail proved already done.
+- **Stated honestly:** enforcement is **procedural** in brief and pack generation. No code gate was verified tonight, and no systematic scan of every founder-attention brief since 8 Aug was performed — so this is "no known regression", not "proven compliant".
+
+**The question the verdict has to answer:** does the 8 Aug rule hold on this evidence, and should the james@-Sent check be promoted from procedure to a code gate (as Gate 8c suggests it already is) — or is "procedure + spot evidence" sufficient?
+
+---
+
+## 4. `2026-08-08-qpaint-four-email2-approved` — due 8 Oct (today)
+
+**The instrument it set for itself:** the outcome of four discovery-oriented Email 2s — the standard being *no "are you still interested?", no closure-seeking, no manufactured urgency, no price reminders; ask what is actually blocking the decision.*
+
+| Customer | Value | Stage now (read live tonight) | Outcome |
+|---|---|---|---|
+| Jenny Yang | $227,084.00 | Email 2 / Contacted | Silent. 24 Aug decision: **MONITOR** (historical/silent, no 3rd touch) |
+| Richard Zhang | $145,350.15 | Email 4 / Contacted | Silent. Email 4 sent 24 Aug → MONITOR |
+| Jesse Zhao | $116,222.85 | Email 3 / Contacted | Silent. Surfaced to QPaint 25 Sep for phone/relationship recovery; no chase; NTD 15 Oct |
+| Helen Walsh | $109,887.20 | Email 3 / Contacted | Silent. 3 touches complete → MONITOR |
+| **Total** | **$598,544.20** | — | **0 replies · 0 wins · 0 losses** |
+
+- All four remain **open and unresolved** 61 days after the decision.
+- **None was recorded as Lost**, which is correct under `2026-09-25-commercial-persistence-correction` (silence is not an outcome).
+- The discovery standard produced **no measurable response at 30 days or 60 days**, on four of the highest-value quotes in the book.
+
+**The question the verdict has to answer:** what does this null result mean for the discovery-oriented Email 2 standard? Options as framed, no recommendation implied:
+- **(a)** Hold — 4 records is a small sample and silence is not evidence of failure.
+- **(b)** Record that the standard's only evidence is null: it is **untested rather than validated**, and stop citing it as the right approach without a caveat.
+- **(c)** Test it where feedback exists — the warm path, where reply rates are 50–60% and an answer actually comes back.
+
+---
+
+## 5. Cross-cutting findings (process, not verdict)
+
+1. **None of the four decisions has an instrument for its outcome criteria.** Two of the four (`2026-07-06`, `2026-08-08-four-email2`) have no evidence trail beyond their own file; two (`2026-07-07`, `2026-08-08-founder-attention`) can only be assessed at the process layer.
+2. **The review calendar leaked again.** Four review dates passed this week (6, 7, 8 Oct) with no prep file and no pending-verdict state — the same failure mode the October Cluster prep flagged on 28 Sep ("a passed review date must force a pending-verdict state"). Its recommended systemic change is still unimplemented.
+3. **Next scheduled review is covered.** `2026-10-12-distribution-validation-phase` has a prep on file (`2026-10-12-distribution-validation-review-prep.md`, built 7 Oct; scored 3 failed / 1 met / 1 partial against the decision's own five criteria, with its own mitigation trigger fired).
+
+## 6. Related
+
+- [[Decision Library]] — `knowledge/decisions/INDEX.md`
+- [[October Cluster Review Prep]] — `knowledge/decision-reviews/2026-10-01-oct-cluster-review-prep.md`
+- [[Distribution Validation Review Prep]] — `knowledge/decision-reviews/2026-10-12-distribution-validation-review-prep.md`
+- [[Voice Review Checklist]] — `knowledge/voice-review-checklist.md`
+- [[Commercial Persistence Correction]] — `knowledge/decisions/2026-09-25-commercial-persistence-correction.md`

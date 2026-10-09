@@ -1,0 +1,105 @@
+# Decision: CUST2-PILOT — HOLD expansion, continue the 15-business pilot, no automatic Touch 3
+
+**Slug:** `2026-10-09-cust2-pilot-hold-expansion-no-auto-touch3`
+**Date:** 2026-10-09
+**Status:** Made
+**Review Date:** 2026-10-16
+
+---
+
+## The Decision
+
+1. **HOLD** expansion of the CUST2 pilot to the remaining 35 businesses.
+2. **Do NOT terminate** the existing 15-business pilot solely because Touches 1 and 2 produced zero replies.
+3. **Continue** through the approved journey, subject to individual evidence-based send decisions.
+4. **Do NOT automatically send Touch 3** (cron `281abe707fb8` paused 2026-10-09 before its 09:00 fire).
+5. Before any further progression, review targeting quality, message relevance, deliverability, and available engagement evidence.
+6. Preserve the experimental evidence and return a recommendation once sufficient pilot evidence exists.
+
+---
+
+## The Problem
+
+The CUST2 cold-email pilot (15 businesses across HVAC, landscaping, flooring) had sent Touches 1 and 2 (30 touches) with **0 replies**. A stopping rule — pre-commit that 0 replies at Touch 3 means cold acquisition stops — had been asked of James on 7 Oct and was still unanswered as Touch 3's 09:00 Friday deadline approached. The pilot was also flagged for a delivery-target drift (retired `Atlas - Updates` group). James needed to resolve: expand, terminate, or continue — and whether Touch 3 should fire automatically.
+
+---
+
+## Options Considered
+
+| # | Option | Summary |
+|---|---|---|
+| A | Expand now | Scale to the remaining 35 businesses immediately. High volume, zero evidence of cold-channel efficacy. |
+| B | Terminate now | Stop the pilot after 2 touches / 0 replies. Preserves resources but discards the evidence touch (Touch 3 is where both historic cold conversions occurred). |
+| C | HOLD expansion + continue pilot, evidence-gated Touch 3 | Keep the 15-business pilot, do not auto-fire Touch 3, review targeting/deliverability first, return a recommendation on evidence. |
+
+---
+
+## Why This Path
+
+Chosen **C**. Touch 3 is the *evidence* touch — both historic cold-email conversions (Tas Moulis, Star Painters Adelaide) arrived at the evidence touch, not Touches 1-2. Terminating now would discard the single most informative data point. Expanding now would scale a channel with zero demonstrated efficacy. HOLD expansion + evidence-gated continuation respects *Evidence before opinion* (Principle 2) and *Trust before growth* (Principle 1): do not scale what is unproven, do not discard what is still mid-experiment.
+
+---
+
+## Core Principles Applied
+
+- **Evidence before opinion** — do not scale or kill on intuition; let the evidence touch resolve it.
+- **Trust before growth** — cold outreach is paused/held rather than expanded on zero signal.
+- **Continuous learning** — preserve the experimental evidence and return a recommendation.
+
+---
+
+## Risks Identified
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| Touch 3 evidence is inconclusive (0 replies again) | Med | Med | Recommendation returned on whatever evidence exists; cold channel remains HOLD. |
+| Delivery-target drift (retired group) taints any future send | Med | Low | Touch 3 paused; repoint handled separately as a founder-approved-artifact change. |
+| Pilot continues consuming attention without results | Low | Low | Evidence-gated; no automatic Touch 3; review before any progression. |
+
+---
+
+## Expected Outcome
+
+The 15-business pilot remains intact and observable. Touch 3 does not fire automatically. Targeting, message relevance, and deliverability are reviewed before any further progression. A recommendation is returned once sufficient pilot evidence exists (or the experiment is deliberately closed).
+
+---
+
+## Success Criteria
+
+- [ ] Touch 3 did **not** auto-fire on 2026-10-09 (cron paused before 09:00).
+- [ ] Expansion to the 35 businesses remains HOLD (no new sends).
+- [ ] A targeting/relevance/deliverability review is produced before any progression.
+- [ ] A recommendation (continue / close / pivot) is returned on evidence by the next review.
+
+---
+
+## Atlas's Challenge (Pre-Decision)
+
+No challenge. The decision aligns with the Six Principles — holding expansion and not auto-firing an unproven touch is the evidence-first position Atlas would itself have recommended.
+
+**James's response:** (Decision made directly by James via founder directive 2026-10-09.)
+
+---
+
+## Actual Outcome (Post-Review)
+
+**Date reviewed:** _(pending)_
+
+**What actually happened:** _(pending)_
+
+**Verdict:** _(pending)_
+
+**Delta from expected:** _(pending)_
+
+---
+
+## Learnings
+
+_(pending)_
+
+---
+
+## Related Decisions
+
+- `founder-direct-cust2-pilot-2026-09-30` — the original authority to run the CUST2 pilot.
+- Cold-painter channel ruling (open since 2026-09-11) — related cold-channel decision still outstanding.
