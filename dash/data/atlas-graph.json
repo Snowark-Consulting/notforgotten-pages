@@ -2160,6 +2160,28 @@
       "color": "#a78bfa"
     },
     {
+      "id": "knowledge_qpaint_review_pack_2026_10_09_10",
+      "label": "Qpaint Review Pack 2026 10 09 10",
+      "file_type": "doc",
+      "source_file": "knowledge/qpaint-review-pack-2026-10-09-10.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "9f7c5a4d6340",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
+      "id": "knowledge_qpaint_review_pack_2026_10_10_12",
+      "label": "Qpaint Review Pack 2026 10 10 12",
+      "file_type": "doc",
+      "source_file": "knowledge/qpaint-review-pack-2026-10-10-12.md",
+      "community": 4,
+      "community_name": "Knowledge",
+      "content_hash": "548909e0c094",
+      "val": 6.0,
+      "color": "#a78bfa"
+    },
+    {
       "id": "knowledge_qpaint_white_label_send_protocol",
       "label": "Qpaint White Label Send Protocol",
       "file_type": "doc",
@@ -3556,6 +3578,20 @@
     {
       "source": "agent_registry",
       "target": "knowledge_qpaint_review_pack_2026_10_04_05",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_qpaint_review_pack_2026_10_09_10",
+      "relation": "wikilink",
+      "weight": 1.0,
+      "source_file": ""
+    },
+    {
+      "source": "agent_registry",
+      "target": "knowledge_qpaint_review_pack_2026_10_10_12",
       "relation": "wikilink",
       "weight": 1.0,
       "source_file": ""
